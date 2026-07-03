@@ -1,0 +1,9 @@
+[build]
+  base = "bioaro-corporate"
+  command = "npm run build"
+
+[[redirects]]
+  from = "/"
+  to = "/our-offerings"
+  status = 302
+  force = true

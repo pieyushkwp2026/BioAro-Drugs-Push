@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Search } from "lucide-react";
-import { BIOARO_LABS_URL, LAB_CATEGORIES, LAB_TESTS } from "@/data/navigation";
+import { BIOARO_LABS_URL, LAB_CATEGORIES, LAB_DIRECTORY_COPY, LAB_TESTS } from "@/data/navigation";
 
 const PREVIEW_LIMIT = 6;
 
@@ -45,7 +45,7 @@ export function LabDirectory() {
           type="search"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
-          placeholder="Search tests, biomarkers, or panels"
+          placeholder={LAB_DIRECTORY_COPY.placeholder}
           className="w-full rounded-full border border-white/[0.08] bg-[rgba(3,7,18,0.55)] py-4 pl-12 pr-5 text-sm text-white shadow-[inset_0_2px_12px_rgba(0,0,0,0.4)] outline-none transition-all duration-300 placeholder:text-bioaro-disabled focus:border-[rgba(92,206,255,0.4)] focus:shadow-[inset_0_2px_12px_rgba(0,0,0,0.4),0_0_24px_rgba(0,183,255,0.12)]"
         />
       </div>
@@ -96,7 +96,7 @@ export function LabDirectory() {
                   initial={reduceMotion ? false : { opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.45, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
-                  className="group flex flex-col rounded-[18px] bg-[linear-gradient(180deg,rgba(21,37,62,0.65),rgba(9,17,31,0.85))] p-5 ring-1 ring-inset ring-white/[0.06] transition-all duration-300 hover:-translate-y-0.5 hover:ring-[rgba(92,206,255,0.3)]"
+                  className="group flex flex-col rounded-[24px] bg-[linear-gradient(180deg,rgba(21,37,62,0.65),rgba(9,17,31,0.85))] p-5 ring-1 ring-inset ring-white/[0.06] transition-all duration-300 hover:-translate-y-0.5 hover:ring-[rgba(92,206,255,0.3)]"
                 >
                   <div className="flex items-start justify-between gap-3">
                     <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-bioaro-soft/70">

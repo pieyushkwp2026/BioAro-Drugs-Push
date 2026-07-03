@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { PrimaryButton, SecondaryButton } from "@/components/ui/Buttons";
-import { BIOARO_DRUGS_URL, BIOARO_LABS_URL } from "@/data/navigation";
+import { BIOARO_DRUGS_URL, BIOARO_LABS_URL, CTA_COPY } from "@/data/navigation";
 import { CTAHalo } from "@/components/visuals/ScientificVisuals";
 
 export function CTASection() {
@@ -24,7 +24,7 @@ export function CTASection() {
         <motion.div {...fadeUp(0)} className="flex items-center justify-center gap-4">
           <span className="h-px w-12 bg-gradient-to-r from-transparent to-bioaro-blue/70" />
           <p className="font-mono text-[11px] uppercase tracking-[0.42em] text-bioaro-soft/85">
-            Start Here
+            {CTA_COPY.label}
           </p>
           <span className="h-px w-12 bg-gradient-to-l from-transparent to-bioaro-blue/70" />
         </motion.div>
@@ -33,16 +33,14 @@ export function CTASection() {
           {...fadeUp(0.1)}
           className="mt-8 font-display text-5xl font-semibold tracking-tight text-white md:text-7xl"
         >
-          Start Your Living 2.0 Journey
+          {CTA_COPY.title}
         </motion.h2>
 
         <motion.p
           {...fadeUp(0.2)}
           className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-bioaro-muted"
         >
-          Understand your health through advanced diagnostics, or improve your
-          daily performance with science-backed wellness formulas — BioAro helps
-          you take the next step with confidence.
+          {CTA_COPY.description}
         </motion.p>
 
         <motion.div

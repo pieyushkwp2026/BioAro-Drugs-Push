@@ -2,16 +2,10 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { BrainCircuit, FlaskConical, Pill, ScanSearch } from "lucide-react";
-import { CAPABILITIES } from "@/data/navigation";
+import { CAPABILITIES, WHY_BIOARO_COPY } from "@/data/navigation";
 import { SectionShell } from "@/components/ui/SectionShell";
 
 const icons = [FlaskConical, Pill, ScanSearch, BrainCircuit];
-
-const convictions = [
-  "Understand your body through advanced health intelligence.",
-  "Improve daily performance with targeted wellness formulas.",
-  "Build better long-term health through the Living 2.0 philosophy.",
-];
 
 export function WhyBioAro() {
   const reduceMotion = useReducedMotion();
@@ -20,13 +14,13 @@ export function WhyBioAro() {
     <SectionShell
       id="why-bioaro"
       label="Why BioAro"
-      title="One ecosystem. Two ways to take control of your health."
-      description="BioAro combines advanced diagnostics with science-backed wellness formulas to help people move from understanding their health to improving it — a more informed, personalized, and proactive approach to long-term wellbeing."
+      title={WHY_BIOARO_COPY.title}
+      description={WHY_BIOARO_COPY.description}
       className="bg-section-radial"
     >
       <div className="grid gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
         <div>
-          {convictions.map((point, index) => (
+          {WHY_BIOARO_COPY.convictions.map((point, index) => (
             <motion.div
               key={point}
               initial={reduceMotion ? false : { opacity: 0, x: -20 }}
@@ -53,7 +47,7 @@ export function WhyBioAro() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.7, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="group relative overflow-hidden rounded-[22px] bg-[radial-gradient(ellipse_120%_80%_at_50%_-20%,rgba(0,183,255,0.1),transparent_60%),linear-gradient(180deg,rgba(21,37,62,0.7),rgba(9,17,31,0.9))] p-7 ring-1 ring-inset ring-white/[0.06] transition-all duration-500 hover:-translate-y-1 hover:ring-[rgba(92,206,255,0.28)]"
+                className="group relative overflow-hidden rounded-[28px] bg-[radial-gradient(ellipse_120%_80%_at_50%_-20%,rgba(0,183,255,0.1),transparent_60%),linear-gradient(180deg,rgba(21,37,62,0.7),rgba(9,17,31,0.9))] p-7 ring-1 ring-inset ring-white/[0.06] transition-all duration-500 hover:-translate-y-1 hover:ring-[rgba(92,206,255,0.28)]"
               >
                 <div className="inline-flex rounded-2xl bg-[rgba(0,183,255,0.1)] p-3.5 text-bioaro-soft shadow-[0_0_24px_rgba(0,183,255,0.12)]">
                   <Icon className="h-5 w-5" />

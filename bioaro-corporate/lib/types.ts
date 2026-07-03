@@ -38,6 +38,7 @@ export interface Capability {
 
 export interface LivingFlowStep {
   title: string;
+  label?: string;
   description: string;
 }
 

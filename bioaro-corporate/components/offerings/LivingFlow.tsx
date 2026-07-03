@@ -2,13 +2,7 @@
 
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { LIVING_FLOW_STEPS } from "@/data/navigation";
-
-const STEP_META = [
-  { context: "Powered by BioAro Labs" },
-  { context: "Powered by BioAro Drugs" },
-  { context: "Powered by Living 2.0" },
-];
+import { LIVING_FLOW_COPY, LIVING_FLOW_STEPS } from "@/data/navigation";
 
 export function LivingFlow() {
   const ref = useRef<HTMLDivElement>(null);
@@ -39,7 +33,7 @@ export function LivingFlow() {
           >
             <span className="h-px w-12 bg-gradient-to-r from-transparent to-bioaro-blue/70" />
             <p className="font-mono text-[11px] uppercase tracking-[0.42em] text-bioaro-soft/85">
-              Living 2.0
+              {LIVING_FLOW_COPY.label}
             </p>
             <span className="h-px w-12 bg-gradient-to-l from-transparent to-bioaro-blue/70" />
           </motion.div>
@@ -51,10 +45,7 @@ export function LivingFlow() {
             transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="mt-8 font-display text-5xl font-semibold leading-[1.02] tracking-tight text-white md:text-6xl lg:text-7xl"
           >
-            The philosophy that turns{" "}
-            <span className="bg-gradient-to-r from-bioaro-soft to-bioaro-blue bg-clip-text text-transparent">
-              insight into action.
-            </span>
+            {LIVING_FLOW_COPY.title}
           </motion.h2>
 
           <motion.p
@@ -64,9 +55,7 @@ export function LivingFlow() {
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-bioaro-muted"
           >
-            Living 2.0 connects what you learn about your body with what you do
-            next — one continuous loop of understanding, action, and better
-            long-term health.
+            {LIVING_FLOW_COPY.description}
           </motion.p>
         </div>
 
@@ -111,7 +100,7 @@ export function LivingFlow() {
                   {step.description}
                 </p>
                 <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.28em] text-bioaro-soft/65">
-                  {STEP_META[index].context}
+                  {step.label}
                 </p>
               </motion.div>
             ))}

@@ -1,6 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Linkedin, Mail, MapPin } from "lucide-react";
-import { FOOTER_NAV } from "@/data/navigation";
+import { FOOTER_COPY, FOOTER_NAV } from "@/data/navigation";
 
 export function CorporateFooter() {
   return (
@@ -11,12 +12,15 @@ export function CorporateFooter() {
       <div className="relative mx-auto max-w-7xl px-6 md:px-10">
         <div className="grid gap-14 lg:grid-cols-[1.3fr_repeat(4,minmax(0,1fr))]">
           <div>
-            <p className="font-display text-3xl font-semibold tracking-tight text-white">
-              BioAro
-            </p>
+            <Image
+              src="/images/brand/bioaro-mark.png"
+              alt="BioAro"
+              width={116}
+              height={33}
+              className="h-auto w-[110px]"
+            />
             <p className="mt-5 max-w-sm text-sm leading-7 text-bioaro-muted">
-              The intelligence layer for personalized healthcare — connecting
-              advanced health insight with science-backed action.
+              {FOOTER_COPY.description}
             </p>
             <div className="mt-8 space-y-3.5 text-sm text-bioaro-text">
               <a

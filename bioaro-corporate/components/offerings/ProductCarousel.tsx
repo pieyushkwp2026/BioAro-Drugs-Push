@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowLeft, ArrowRight, ShieldCheck } from "lucide-react";
-import { DRUG_PRODUCTS, TRUST_CLAIMS } from "@/data/navigation";
+import { DRUG_PRODUCTS, OFFERINGS_DRUGS_SECTION, TRUST_CLAIMS } from "@/data/navigation";
 import { ProductVesselVisual, type VesselVariant } from "@/components/visuals/ScientificVisuals";
 
 const VARIANTS: VesselVariant[] = ["tall", "capsule", "wide"];
@@ -40,8 +40,7 @@ export function ProductCarousel() {
     <div>
       <div className="mb-8 flex items-end justify-between gap-6">
         <p className="max-w-xl text-base leading-8 text-bioaro-muted">
-          A curated wellness line designed as part of the wider BioAro
-          precision-health ecosystem.
+          {OFFERINGS_DRUGS_SECTION.bridge}
         </p>
         <div className="hidden shrink-0 items-center gap-3 md:flex">
           <button

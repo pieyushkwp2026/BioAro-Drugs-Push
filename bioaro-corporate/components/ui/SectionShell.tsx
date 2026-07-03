@@ -22,7 +22,7 @@ export function SectionShell({
   return (
     <section id={id} className={`relative overflow-hidden py-24 md:py-36 ${className}`}>
       <div className="mx-auto w-full max-w-7xl px-6 md:px-10">
-        <div className={centered ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
+        <div className={centered ? "mx-auto max-w-4xl text-center" : "max-w-4xl"}>
           {label ? (
             <div
               className={`flex items-center gap-4 ${centered ? "justify-center" : ""}`}
@@ -36,7 +36,7 @@ export function SectionShell({
               ) : null}
             </div>
           ) : null}
-          <h2 className="mt-6 font-display text-4xl font-semibold leading-[1.05] tracking-tight text-white md:text-5xl lg:text-[3.4rem]">
+          <h2 className="mt-6 text-balance font-display text-4xl font-semibold leading-[1.05] tracking-tight text-white md:text-5xl lg:text-[3.4rem]">
             {title}
           </h2>
           {description ? (

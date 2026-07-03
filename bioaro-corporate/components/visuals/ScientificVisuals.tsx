@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useId } from "react";
 
 /* ------------------------------------------------------------------ */
@@ -21,66 +22,64 @@ export function HeroEcosystemVisual() {
   const uid = useId().replace(/[:]/g, "");
 
   return (
-    <div className="relative mx-auto aspect-square w-full max-w-[720px] select-none">
-      {/* atmosphere */}
-      <div className="absolute left-1/2 top-[46%] h-[78%] w-[78%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(0,183,255,0.16),rgba(0,183,255,0.05)_42%,transparent_70%)] blur-2xl" />
-      <div className="absolute left-[4%] top-[24%] h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(47,211,255,0.1),transparent_65%)] blur-3xl" />
-      <div className="absolute right-[2%] top-[20%] h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(0,183,255,0.1),transparent_65%)] blur-3xl" />
+    <div className="relative mx-auto w-full max-w-[1120px] select-none">
+      <div className="relative aspect-[1.5] w-full">
+        <div className="absolute inset-x-7 bottom-5 top-8 rounded-[44px] border border-white/[0.06] bg-[radial-gradient(ellipse_100%_72%_at_50%_36%,rgba(0,183,255,0.16),rgba(0,183,255,0.04)_30%,transparent_72%),linear-gradient(180deg,#06111F,#03070D)] shadow-[0_42px_120px_rgba(0,0,0,0.5)]" />
+        <div className="absolute left-[11%] top-[13%] h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(47,211,255,0.1),transparent_65%)] blur-3xl" />
+        <div className="absolute right-[3%] top-[14%] h-[26rem] w-[26rem] rounded-full bg-[radial-gradient(circle,rgba(0,183,255,0.08),transparent_68%)] blur-3xl" />
+        <div className="absolute left-[28%] top-[32%] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,rgba(0,183,255,0.18),rgba(0,183,255,0.04)_34%,transparent_70%)] blur-3xl" />
 
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 640 640"
-        className="absolute inset-0 h-full w-full"
-      >
+        <svg aria-hidden="true" viewBox="0 0 960 760" className="absolute inset-0 h-full w-full">
         <defs>
           <radialGradient id={`${uid}-core`} cx="50%" cy="42%" r="60%">
-            <stop offset="0%" stopColor="#B8EEFF" />
-            <stop offset="26%" stopColor="#3FC6FF" />
-            <stop offset="58%" stopColor="#0B5E8F" />
-            <stop offset="100%" stopColor="#0A1A2E" />
+            <stop offset="0%" stopColor="#F4FCFF" />
+            <stop offset="22%" stopColor="#79DFFF" />
+            <stop offset="52%" stopColor="#1A7FB5" />
+            <stop offset="100%" stopColor="#06101F" />
           </radialGradient>
           <radialGradient id={`${uid}-coreGlow`} cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="rgba(0,183,255,0.4)" />
-            <stop offset="55%" stopColor="rgba(0,183,255,0.12)" />
+            <stop offset="0%" stopColor="rgba(117,227,255,0.44)" />
+            <stop offset="54%" stopColor="rgba(0,183,255,0.16)" />
             <stop offset="100%" stopColor="rgba(0,183,255,0)" />
           </radialGradient>
-          <linearGradient id={`${uid}-strand`} x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="rgba(117,227,255,0)" />
-            <stop offset="22%" stopColor="rgba(117,227,255,0.9)" />
-            <stop offset="78%" stopColor="rgba(0,183,255,0.75)" />
-            <stop offset="100%" stopColor="rgba(0,183,255,0)" />
-          </linearGradient>
-          <linearGradient id={`${uid}-strandDim`} x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="rgba(117,227,255,0)" />
-            <stop offset="24%" stopColor="rgba(92,206,255,0.4)" />
-            <stop offset="76%" stopColor="rgba(0,183,255,0.32)" />
-            <stop offset="100%" stopColor="rgba(0,183,255,0)" />
-          </linearGradient>
-          <linearGradient id={`${uid}-ribbon`} x1="0%" y1="50%" x2="100%" y2="50%">
+          <linearGradient id={`${uid}-orbit`} x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="rgba(117,227,255,0.02)" />
-            <stop offset="50%" stopColor="rgba(92,206,255,0.7)" />
+            <stop offset="46%" stopColor="rgba(92,206,255,0.7)" />
             <stop offset="100%" stopColor="rgba(117,227,255,0.02)" />
           </linearGradient>
+          <linearGradient id={`${uid}-helix`} x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="rgba(117,227,255,0)" />
+            <stop offset="18%" stopColor="rgba(117,227,255,0.9)" />
+            <stop offset="82%" stopColor="rgba(0,183,255,0.72)" />
+            <stop offset="100%" stopColor="rgba(0,183,255,0)" />
+          </linearGradient>
+          <linearGradient id={`${uid}-helixDim`} x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="rgba(117,227,255,0)" />
+            <stop offset="18%" stopColor="rgba(117,227,255,0.36)" />
+            <stop offset="82%" stopColor="rgba(0,183,255,0.28)" />
+            <stop offset="100%" stopColor="rgba(0,183,255,0)" />
+          </linearGradient>
           <linearGradient id={`${uid}-glass`} x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#16283F" />
-            <stop offset="45%" stopColor="#0C1930" />
-            <stop offset="100%" stopColor="#050D1A" />
+            <stop offset="0%" stopColor="#162A43" />
+            <stop offset="45%" stopColor="#0B172C" />
+            <stop offset="100%" stopColor="#050B15" />
+          </linearGradient>
+          <linearGradient id={`${uid}-capsule`} x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#72DAFF" />
+            <stop offset="48%" stopColor="#1B86BC" />
+            <stop offset="50%" stopColor="#10253D" />
+            <stop offset="100%" stopColor="#08111F" />
+          </linearGradient>
+          <linearGradient id={`${uid}-bottle`} x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1B2D43" />
+            <stop offset="48%" stopColor="#0C1728" />
+            <stop offset="100%" stopColor="#04070D" />
           </linearGradient>
           <linearGradient id={`${uid}-rim`} x1="0%" y1="0%" x2="0%" y2="100%">
             <stop offset="0%" stopColor="rgba(117,227,255,0.85)" />
             <stop offset="60%" stopColor="rgba(0,183,255,0.28)" />
             <stop offset="100%" stopColor="rgba(0,183,255,0)" />
           </linearGradient>
-          <linearGradient id={`${uid}-capsule`} x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#5CCEFF" />
-            <stop offset="50%" stopColor="#1B84B8" />
-            <stop offset="50.2%" stopColor="#10263E" />
-            <stop offset="100%" stopColor="#081321" />
-          </linearGradient>
-          <radialGradient id={`${uid}-liquid`} cx="50%" cy="30%" r="80%">
-            <stop offset="0%" stopColor="rgba(117,227,255,0.55)" />
-            <stop offset="100%" stopColor="rgba(0,183,255,0.06)" />
-          </radialGradient>
           <filter id={`${uid}-blur`} x="-60%" y="-60%" width="220%" height="220%">
             <feGaussianBlur stdDeviation="7" />
           </filter>
@@ -89,265 +88,211 @@ export function HeroEcosystemVisual() {
           </filter>
         </defs>
 
-        {/* ---- flowing ribbons: helix → core, vessel → core, core → path ---- */}
-        <g>
-          <path
-            d="M168 268 C 220 258, 246 278, 262 296"
+        <g className="animate-orbitSlow" style={{ transformOrigin: "490px 344px" }}>
+          <ellipse
+            cx="490"
+            cy="344"
+            rx="300"
+            ry="108"
             fill="none"
-            stroke="rgba(0,183,255,0.35)"
-            strokeWidth="9"
-            filter={`url(#${uid}-blur)`}
+            stroke={`url(#${uid}-orbit)`}
+            strokeWidth="1.4"
+            transform="rotate(-10 490 344)"
           />
-          <path
-            d="M168 268 C 220 258, 246 278, 262 296"
+          <ellipse
+            cx="490"
+            cy="344"
+            rx="240"
+            ry="176"
             fill="none"
-            stroke={`url(#${uid}-ribbon)`}
-            strokeWidth="1.6"
-            strokeDasharray="7 13"
-            className="animate-dashFlow"
-          />
-          <path
-            d="M474 262 C 430 256, 396 276, 380 294"
-            fill="none"
-            stroke="rgba(0,183,255,0.35)"
-            strokeWidth="9"
-            filter={`url(#${uid}-blur)`}
-          />
-          <path
-            d="M474 262 C 430 256, 396 276, 380 294"
-            fill="none"
-            stroke={`url(#${uid}-ribbon)`}
-            strokeWidth="1.6"
-            strokeDasharray="7 13"
-            className="animate-dashFlow"
-            style={{ animationDelay: "-3s" }}
-          />
-          <path
-            d="M320 382 C 322 420, 318 448, 320 486"
-            fill="none"
-            stroke="rgba(0,183,255,0.3)"
-            strokeWidth="9"
-            filter={`url(#${uid}-blur)`}
-          />
-          <path
-            d="M320 382 C 322 420, 318 448, 320 486"
-            fill="none"
-            stroke={`url(#${uid}-ribbon)`}
-            strokeWidth="1.6"
-            strokeDasharray="7 13"
-            className="animate-dashFlow"
-            style={{ animationDelay: "-6s" }}
+            stroke="rgba(92,206,255,0.12)"
+            strokeWidth="1"
+            transform="rotate(24 490 344)"
           />
         </g>
 
-        {/* ---- orbit rings around the core ---- */}
-        <g
-          className="animate-orbitSlow"
-          style={{ transformOrigin: "320px 306px" }}
-        >
+        <g className="animate-orbitSlower" style={{ transformOrigin: "490px 344px" }}>
           <ellipse
-            cx="320"
-            cy="306"
-            rx="196"
-            ry="66"
+            cx="490"
+            cy="344"
+            rx="360"
+            ry="128"
             fill="none"
-            stroke="rgba(92,206,255,0.22)"
+            stroke="rgba(92,206,255,0.1)"
             strokeWidth="1"
-            transform="rotate(-16 320 306)"
+            transform="rotate(14 490 344)"
           />
-          <circle cx="132" cy="342" r="3.4" fill="#75E3FF" opacity="0.9" />
-          <circle cx="508" cy="270" r="2.6" fill="#00B7FF" opacity="0.8" />
-        </g>
-        <g
-          className="animate-orbitSlower"
-          style={{ transformOrigin: "320px 306px" }}
-        >
-          <ellipse
-            cx="320"
-            cy="306"
-            rx="150"
-            ry="112"
-            fill="none"
-            stroke="rgba(92,206,255,0.14)"
-            strokeWidth="1"
-            transform="rotate(36 320 306)"
-          />
-          <circle cx="428" cy="392" r="2.6" fill="#5CCEFF" opacity="0.75" />
+          <circle cx="258" cy="256" r="2.6" fill="#75E3FF" opacity="0.85" />
+          <circle cx="662" cy="196" r="2.8" fill="#B8EEFF" opacity="0.95" />
+          <circle cx="778" cy="360" r="2.2" fill="#2FD3FF" opacity="0.7" />
         </g>
 
-        {/* ---- central intelligence core ---- */}
-        <circle cx="320" cy="306" r="150" fill={`url(#${uid}-coreGlow)`} />
-        <circle
-          cx="320"
-          cy="306"
-          r="86"
+        <circle cx="490" cy="344" r="176" fill={`url(#${uid}-coreGlow)`} />
+        <circle cx="490" cy="344" r="76" fill="none" stroke="rgba(117,227,255,0.24)" strokeWidth="1.2" />
+        <circle cx="490" cy="344" r="50" fill={`url(#${uid}-core)`} />
+        <circle cx="490" cy="344" r="50" fill="none" stroke="rgba(220,247,255,0.32)" strokeWidth="1" />
+        <path
+          d="M490 138 L 490 542"
           fill="none"
-          stroke="rgba(92,206,255,0.22)"
-          strokeWidth="1"
-          className="animate-coreBreath"
-          style={{ transformOrigin: "320px 306px" }}
-        />
-        <circle cx="320" cy="306" r="64" fill={`url(#${uid}-core)`} />
-        <circle
-          cx="320"
-          cy="306"
-          r="64"
-          fill="none"
-          stroke="rgba(184,238,255,0.35)"
+          stroke="rgba(117,227,255,0.14)"
           strokeWidth="1"
         />
-        <ellipse cx="300" cy="278" rx="26" ry="14" fill="rgba(255,255,255,0.24)" filter={`url(#${uid}-soft)`} />
+        <path
+          d="M286 344 L 694 344"
+          fill="none"
+          stroke="rgba(117,227,255,0.1)"
+          strokeWidth="1"
+        />
+        <circle cx="490" cy="344" r="6" fill="#D9F7FF" opacity="0.9" filter={`url(#${uid}-soft)`} />
+        <ellipse cx="490" cy="344" rx="30" ry="10" fill="rgba(255,255,255,0.2)" filter={`url(#${uid}-soft)`} />
+        <path
+          d="M478 336 C 484 331, 496 331, 502 336"
+          fill="none"
+          stroke="rgba(255,255,255,0.42)"
+          strokeWidth="1.1"
+        />
 
-        {/* ---- left: DNA helix ---- */}
-        <g filter={`url(#${uid}-soft)`} opacity="0.9">
+        <g filter={`url(#${uid}-soft)`} opacity="0.95">
           <path
-            d="M96 128 C 152 164, 152 200, 96 236 C 40 272, 40 308, 96 344 C 152 380, 152 416, 96 452"
+            d="M108 124 C 176 162, 176 208, 108 246 C 40 284, 40 330, 108 368 C 176 406, 176 452, 108 490"
             fill="none"
-            stroke={`url(#${uid}-strand)`}
-            strokeWidth="3.4"
+            stroke={`url(#${uid}-helix)`}
+            strokeWidth="3.6"
             strokeLinecap="round"
           />
           <path
-            d="M160 128 C 104 164, 104 200, 160 236 C 216 272, 216 308, 160 344 C 104 380, 104 416, 160 452"
+            d="M196 124 C 128 162, 128 208, 196 246 C 264 284, 264 330, 196 368 C 128 406, 128 452, 196 490"
             fill="none"
-            stroke={`url(#${uid}-strandDim)`}
-            strokeWidth="3"
+            stroke={`url(#${uid}-helixDim)`}
+            strokeWidth="2.8"
             strokeLinecap="round"
           />
         </g>
-        <g stroke="rgba(92,206,255,0.4)" strokeWidth="1.6">
-          <line x1="112" y1="152" x2="144" y2="152" />
-          <line x1="104" y1="182" x2="152" y2="182" />
-          <line x1="104" y1="290" x2="152" y2="290" />
-          <line x1="112" y1="320" x2="144" y2="320" />
-          <line x1="104" y1="398" x2="152" y2="398" />
-          <line x1="112" y1="428" x2="144" y2="428" />
+        <g stroke="rgba(117,227,255,0.42)" strokeWidth="1.5">
+          <line x1="120" y1="146" x2="156" y2="146" />
+          <line x1="112" y1="194" x2="164" y2="194" />
+          <line x1="112" y1="298" x2="164" y2="298" />
+          <line x1="120" y1="350" x2="156" y2="350" />
+          <line x1="112" y1="448" x2="164" y2="448" />
         </g>
         <g fill="#75E3FF">
-          <circle cx="112" cy="152" r="2.6" opacity="0.9" />
-          <circle cx="144" cy="182" r="2.2" opacity="0.7" />
-          <circle cx="104" cy="290" r="2.4" opacity="0.85" />
-          <circle cx="152" cy="320" r="2" opacity="0.6" />
-          <circle cx="144" cy="398" r="2.4" opacity="0.8" />
+          <circle cx="120" cy="146" r="2.6" opacity="0.9" />
+          <circle cx="164" cy="194" r="2.2" opacity="0.72" />
+          <circle cx="112" cy="298" r="2.4" opacity="0.84" />
+          <circle cx="156" cy="350" r="2" opacity="0.62" />
+          <circle cx="164" cy="448" r="2.2" opacity="0.76" />
         </g>
 
-        {/* ---- right: vessel + capsules ---- */}
-        <g className="animate-floatSoft" style={{ transformOrigin: "512px 260px" }}>
-          {/* soft light behind vessel */}
-          <ellipse cx="512" cy="252" rx="86" ry="110" fill="rgba(0,183,255,0.1)" filter={`url(#${uid}-blur)`} />
-          {/* cap */}
-          <rect x="488" y="126" width="48" height="34" rx="8" fill="#0A1626" />
-          <rect x="488" y="126" width="48" height="8" rx="4" fill="rgba(117,227,255,0.22)" />
-          {/* neck */}
-          <path d="M492 160 L 532 160 L 540 182 L 484 182 Z" fill="#0B1A2E" />
-          {/* body */}
-          <rect x="462" y="182" width="100" height="160" rx="18" fill={`url(#${uid}-glass)`} />
-          {/* rim light */}
-          <path
-            d="M470 196 C 466 240, 466 292, 470 330"
-            fill="none"
-            stroke={`url(#${uid}-rim)`}
-            strokeWidth="2.6"
-            strokeLinecap="round"
-          />
-          <path
-            d="M554 200 C 557 244, 557 288, 554 326"
-            fill="none"
-            stroke="rgba(92,206,255,0.2)"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-          />
-          {/* label band */}
-          <rect x="470" y="226" width="84" height="66" rx="8" fill="rgba(10,22,40,0.92)" />
-          <line x1="470" y1="226" x2="554" y2="226" stroke="rgba(117,227,255,0.3)" strokeWidth="1" />
-          <line x1="470" y1="292" x2="554" y2="292" stroke="rgba(117,227,255,0.16)" strokeWidth="1" />
-          <rect x="480" y="242" width="44" height="4" rx="2" fill="rgba(201,213,230,0.5)" />
-          <rect x="480" y="254" width="62" height="3" rx="1.5" fill="rgba(146,167,194,0.32)" />
-          <rect x="480" y="272" width="30" height="3" rx="1.5" fill="rgba(92,206,255,0.45)" />
-          {/* inner liquid glow */}
-          <ellipse cx="512" cy="322" rx="38" ry="14" fill={`url(#${uid}-liquid)`} />
+        <g className="animate-floatSoft" style={{ transformOrigin: "470px 338px" }}>
+          <ellipse cx="496" cy="562" rx="186" ry="18" fill="rgba(0,0,0,0.5)" filter={`url(#${uid}-blur)`} />
+          <ellipse cx="496" cy="572" rx="160" ry="12" fill="rgba(0,183,255,0.1)" filter={`url(#${uid}-blur)`} />
+          <ellipse cx="496" cy="556" rx="116" ry="24" fill="rgba(0,183,255,0.07)" />
         </g>
 
-        {/* capsules drifting near the vessel */}
-        <g className="animate-float" style={{ transformOrigin: "436px 392px" }}>
-          <rect
-            x="412"
-            y="380"
-            width="48"
-            height="20"
-            rx="10"
-            fill={`url(#${uid}-capsule)`}
-            transform="rotate(-24 436 390)"
-          />
-          <rect
-            x="452"
-            y="414"
-            width="40"
-            height="17"
-            rx="8.5"
-            fill={`url(#${uid}-capsule)`}
-            transform="rotate(14 472 422)"
-            opacity="0.85"
-          />
+        <g className="animate-floatSoft" style={{ transformOrigin: "812px 322px" }}>
+          <ellipse cx="814" cy="338" rx="70" ry="94" fill="rgba(0,183,255,0.1)" filter={`url(#${uid}-blur)`} />
+          <rect x="788" y="188" width="50" height="32" rx="8" fill="#08111D" />
+          <rect x="788" y="188" width="50" height="8" rx="4" fill="rgba(117,227,255,0.24)" />
+          <path d="M792 220 L 834 220 L 842 236 L 784 236 Z" fill="#0A1526" />
+          <rect x="766" y="236" width="96" height="204" rx="18" fill={`url(#${uid}-bottle)`} />
+          <path d="M774 252 C 770 302, 770 366, 774 418" fill="none" stroke={`url(#${uid}-rim)`} strokeWidth="2.4" strokeLinecap="round" />
+          <rect x="774" y="282" width="80" height="86" rx="7" fill="rgba(8,15,26,0.95)" />
+          <line x1="774" y1="282" x2="854" y2="282" stroke="rgba(117,227,255,0.28)" strokeWidth="1" />
+          <rect x="784" y="302" width="38" height="4" rx="2" fill="rgba(201,213,230,0.52)" />
+          <rect x="784" y="316" width="56" height="3" rx="1.5" fill="rgba(146,167,194,0.32)" />
+          <rect x="784" y="334" width="26" height="3" rx="1.5" fill="rgba(92,206,255,0.46)" />
+          <circle cx="804" cy="346" r="1.7" fill="rgba(117,227,255,0.7)" />
         </g>
 
-        {/* molecule accents lower-left of core */}
-        <g stroke="rgba(92,206,255,0.28)" strokeWidth="1">
-          <line x1="212" y1="418" x2="248" y2="400" />
-          <line x1="212" y1="418" x2="228" y2="448" />
+        <g className="animate-float" style={{ transformOrigin: "690px 546px" }}>
+          <rect x="654" y="534" width="54" height="20" rx="10" fill={`url(#${uid}-capsule)`} transform="rotate(-18 681 544)" />
+          <rect x="706" y="568" width="42" height="18" rx="9" fill={`url(#${uid}-capsule)`} transform="rotate(14 727 577)" opacity="0.88" />
+          <rect x="628" y="578" width="28" height="12" rx="6" fill={`url(#${uid}-capsule)`} transform="rotate(8 642 584)" opacity="0.8" />
+        </g>
+
+        <g stroke="rgba(92,206,255,0.28)" strokeWidth="1.1">
+          <line x1="722" y1="452" x2="742" y2="418" />
+          <line x1="742" y1="418" x2="772" y2="434" />
+          <line x1="694" y1="492" x2="722" y2="452" />
         </g>
         <g fill="#2FD3FF">
-          <circle cx="212" cy="418" r="3.2" opacity="0.7" />
-          <circle cx="248" cy="400" r="2.4" opacity="0.55" />
-          <circle cx="228" cy="448" r="2" opacity="0.45" />
+          <circle cx="722" cy="452" r="2.6" opacity="0.7" />
+          <circle cx="742" cy="418" r="2.2" opacity="0.5" />
+          <circle cx="772" cy="434" r="2" opacity="0.45" />
+          <circle cx="694" cy="492" r="2.4" opacity="0.55" />
         </g>
-      </svg>
 
-      {/* rising particles */}
-      {HERO_PARTICLES.map((particle, index) => (
-        <span
-          key={index}
-          className="animate-riseParticle absolute rounded-full bg-bioaro-soft/70"
-          style={{
-            left: particle.left,
-            top: particle.top,
-            width: particle.size,
-            height: particle.size,
-            animationDelay: particle.delay,
-            animationDuration: particle.duration,
-          }}
-        />
-      ))}
+        <g stroke="rgba(92,206,255,0.12)" strokeWidth="1">
+          <line x1="268" y1="562" x2="734" y2="562" />
+        </g>
+        </svg>
 
-      {/* refined floating labels */}
-      <div className="absolute left-[3%] top-[10%] flex items-center gap-2.5 rounded-full border border-[rgba(92,206,255,0.2)] bg-[rgba(7,19,34,0.78)] px-4 py-2 shadow-ambient backdrop-blur-md">
-        <span className="h-1.5 w-1.5 rounded-full bg-bioaro-soft shadow-[0_0_10px_rgba(92,206,255,0.8)]" />
-        <span className="text-xs font-medium tracking-wide text-bioaro-text">
-          BioAro Labs · Understand
-        </span>
+        <div className="absolute left-[12%] top-[31%] z-20 hidden w-[160px] rounded-[22px] border border-[rgba(92,206,255,0.22)] bg-[rgba(7,19,34,0.72)] px-4 py-4 shadow-[0_24px_50px_rgba(0,0,0,0.26)] backdrop-blur-md md:block">
+          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-bioaro-soft/90">
+            BioAro Labs
+          </p>
+          <div className="mt-4 space-y-3 text-sm text-bioaro-text">
+            <p>Genomics</p>
+            <p>Microbiome</p>
+            <p>Biomarkers</p>
+            <p>AI Analytics</p>
+          </div>
+        </div>
+
+        <div className="absolute right-[8%] top-[31%] z-20 hidden w-[160px] rounded-[22px] border border-[rgba(92,206,255,0.22)] bg-[rgba(7,19,34,0.72)] px-4 py-4 shadow-[0_24px_50px_rgba(0,0,0,0.26)] backdrop-blur-md md:block">
+          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-bioaro-soft/90">
+            BioAro Drugs
+          </p>
+          <div className="mt-4 space-y-3 text-sm text-bioaro-text">
+            <p>Bioactive Wellness</p>
+            <p>Targeted Formulas</p>
+            <p>Evidence Backed</p>
+          </div>
+        </div>
+
+        <div className="absolute left-1/2 top-[47%] z-20 -translate-x-1/2 -translate-y-1/2 text-center">
+          <p className="font-display text-lg text-white/90 md:text-[1.45rem]">BioAro</p>
+          <p className="mt-1 font-display text-[1.55rem] font-semibold tracking-[0.12em] text-white md:text-[2.35rem]">
+            Live 2.0
+          </p>
+          <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.26em] text-bioaro-soft/80">
+            Genomic Intelligence
+          </p>
+        </div>
+
+        <div className="absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full border border-[rgba(92,206,255,0.18)] bg-[rgba(7,19,34,0.78)] px-4 py-2 shadow-[0_16px_30px_rgba(0,0,0,0.2)] backdrop-blur-md md:hidden">
+          <span className="text-[9px] font-mono uppercase tracking-[0.24em] text-bioaro-soft/90">
+            BioAro Labs
+          </span>
+          <span className="text-white/30">•</span>
+          <span className="text-[9px] font-mono uppercase tracking-[0.24em] text-bioaro-soft/90">
+            BioAro Drugs
+          </span>
+        </div>
+
+        {HERO_PARTICLES.map((particle, index) => (
+          <span
+            key={index}
+            className="animate-riseParticle absolute z-10 rounded-full bg-bioaro-soft/70"
+            style={{
+              left: particle.left,
+              top: particle.top,
+              width: particle.size,
+              height: particle.size,
+              animationDelay: particle.delay,
+              animationDuration: particle.duration,
+            }}
+          />
+        ))}
       </div>
-      <div className="absolute right-[1%] top-[64%] flex items-center gap-2.5 rounded-full border border-[rgba(92,206,255,0.2)] bg-[rgba(7,19,34,0.78)] px-4 py-2 shadow-ambient backdrop-blur-md">
-        <span className="h-1.5 w-1.5 rounded-full bg-bioaro-blue shadow-[0_0_10px_rgba(0,183,255,0.8)]" />
-        <span className="text-xs font-medium tracking-wide text-bioaro-text">
-          BioAro Drugs · Take Action
-        </span>
-      </div>
 
-      {/* core label */}
-      <div className="absolute left-1/2 top-[47.5%] -translate-x-1/2 -translate-y-1/2 text-center">
-        <p className="font-display text-lg font-semibold tracking-tight text-white drop-shadow-[0_2px_12px_rgba(3,7,18,0.9)] md:text-xl">
-          Living 2.0
-        </p>
-      </div>
-
-      {/* ecosystem path line */}
-      <div className="absolute inset-x-0 bottom-[6%] text-center">
-        <p className="text-xs tracking-[0.18em] text-bioaro-muted">
+      <div className="mt-4 flex flex-col items-center px-6 text-center md:mt-5">
+        <p className="text-xs tracking-[0.18em] text-bioaro-muted md:text-xs">
           <span className="text-bioaro-soft">Understand</span>
           <span className="mx-3 text-bioaro-steel">·</span>
           <span className="text-white">Take Action</span>
           <span className="mx-3 text-bioaro-steel">·</span>
-          <span className="text-bioaro-soft">Build Better Health</span>
+          <span className="text-bioaro-soft">Live 2.0</span>
         </p>
       </div>
     </div>
@@ -359,142 +304,31 @@ export function HeroEcosystemVisual() {
 /* ------------------------------------------------------------------ */
 
 export function LabsSceneVisual() {
-  const uid = useId().replace(/[:]/g, "");
-
   return (
-    <div className="relative h-56 w-full overflow-hidden rounded-[18px] bg-[radial-gradient(ellipse_120%_100%_at_18%_0%,rgba(0,183,255,0.2),transparent_55%),linear-gradient(180deg,#0A1830,#050C17)]">
-      <svg aria-hidden="true" viewBox="0 0 480 224" className="h-full w-full">
-        <defs>
-          <linearGradient id={`${uid}-vialGlass`} x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="rgba(117,227,255,0.35)" />
-            <stop offset="30%" stopColor="rgba(20,40,66,0.6)" />
-            <stop offset="100%" stopColor="rgba(8,17,31,0.9)" />
-          </linearGradient>
-          <linearGradient id={`${uid}-vialLiquid`} x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="rgba(117,227,255,0.85)" />
-            <stop offset="100%" stopColor="rgba(0,183,255,0.15)" />
-          </linearGradient>
-          <linearGradient id={`${uid}-arc`} x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="rgba(117,227,255,0)" />
-            <stop offset="50%" stopColor="rgba(117,227,255,0.8)" />
-            <stop offset="100%" stopColor="rgba(117,227,255,0)" />
-          </linearGradient>
-          <filter id={`${uid}-glow`} x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="5" />
-          </filter>
-        </defs>
-
-        {/* vial */}
-        <ellipse cx="96" cy="196" rx="52" ry="9" fill="rgba(0,0,0,0.5)" filter={`url(#${uid}-glow)`} />
-        <rect x="72" y="42" width="48" height="14" rx="4" fill="rgba(117,227,255,0.24)" />
-        <path
-          d="M78 56 L 114 56 L 114 158 C 114 176, 78 176, 78 158 Z"
-          fill={`url(#${uid}-vialGlass)`}
-        />
-        <path
-          d="M81 104 L 111 104 L 111 158 C 111 172, 81 172, 81 158 Z"
-          fill={`url(#${uid}-vialLiquid)`}
-        />
-        <line x1="84" y1="62" x2="84" y2="150" stroke="rgba(255,255,255,0.35)" strokeWidth="1.4" />
-
-        {/* helix arcs */}
-        <g filter={`url(#${uid}-glow)`} opacity="0.55">
-          <path d="M190 64 C 240 30, 300 98, 350 64" fill="none" stroke="rgba(0,183,255,0.7)" strokeWidth="2.6" />
-        </g>
-        <path d="M190 64 C 240 30, 300 98, 350 64" fill="none" stroke={`url(#${uid}-arc)`} strokeWidth="2" />
-        <path d="M190 92 C 240 126, 300 58, 350 92" fill="none" stroke={`url(#${uid}-arc)`} strokeWidth="2" opacity="0.6" />
-        <g stroke="rgba(92,206,255,0.35)" strokeWidth="1.2">
-          <line x1="226" y1="58" x2="226" y2="98" />
-          <line x1="270" y1="76" x2="270" y2="80" />
-          <line x1="314" y1="58" x2="314" y2="98" />
-        </g>
-
-        {/* biomarker trace */}
-        <path
-          d="M186 168 L 232 168 L 248 138 L 266 190 L 282 158 L 300 168 L 420 168"
-          fill="none"
-          stroke="rgba(117,227,255,0.6)"
-          strokeWidth="1.6"
-          strokeLinejoin="round"
-        />
-        <circle cx="266" cy="190" r="3" fill="#75E3FF" />
-        <circle cx="420" cy="168" r="2.4" fill="#2FD3FF" opacity="0.8" />
-
-        {/* particles */}
-        <circle cx="380" cy="52" r="2" fill="rgba(117,227,255,0.5)" />
-        <circle cx="410" cy="96" r="1.6" fill="rgba(117,227,255,0.35)" />
-        <circle cx="160" cy="120" r="1.8" fill="rgba(117,227,255,0.4)" />
-      </svg>
+    <div className="relative h-56 w-full overflow-hidden rounded-[18px] bg-[linear-gradient(180deg,#071222,#040A12)]">
+      <Image
+        src="/images/offerings/labs-visual.png"
+        alt=""
+        aria-hidden="true"
+        fill
+        sizes="(max-width: 768px) 100vw, 50vw"
+        className="object-cover object-center"
+      />
     </div>
   );
 }
 
 export function DrugsSceneVisual() {
-  const uid = useId().replace(/[:]/g, "");
-
   return (
-    <div className="relative h-56 w-full overflow-hidden rounded-[18px] bg-[radial-gradient(ellipse_120%_100%_at_82%_0%,rgba(0,183,255,0.2),transparent_55%),linear-gradient(180deg,#0A1830,#050C17)]">
-      <svg aria-hidden="true" viewBox="0 0 480 224" className="h-full w-full">
-        <defs>
-          <linearGradient id={`${uid}-body`} x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#17293F" />
-            <stop offset="50%" stopColor="#0C1930" />
-            <stop offset="100%" stopColor="#050D1A" />
-          </linearGradient>
-          <linearGradient id={`${uid}-rim`} x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="rgba(117,227,255,0.85)" />
-            <stop offset="100%" stopColor="rgba(0,183,255,0)" />
-          </linearGradient>
-          <linearGradient id={`${uid}-cap`} x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#5CCEFF" />
-            <stop offset="50%" stopColor="#1B84B8" />
-            <stop offset="50.2%" stopColor="#10263E" />
-            <stop offset="100%" stopColor="#081321" />
-          </linearGradient>
-          <filter id={`${uid}-glow`} x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="5" />
-          </filter>
-        </defs>
-
-        {/* ground shadow */}
-        <ellipse cx="356" cy="200" rx="66" ry="9" fill="rgba(0,0,0,0.55)" filter={`url(#${uid}-glow)`} />
-
-        {/* bottle */}
-        <ellipse cx="356" cy="120" rx="62" ry="80" fill="rgba(0,183,255,0.12)" filter={`url(#${uid}-glow)`} />
-        <rect x="332" y="24" width="48" height="26" rx="6" fill="#0A1626" />
-        <rect x="332" y="24" width="48" height="7" rx="3.5" fill="rgba(117,227,255,0.24)" />
-        <path d="M336 50 L 376 50 L 384 68 L 328 68 Z" fill="#0B1A2E" />
-        <rect x="310" y="68" width="92" height="130" rx="16" fill={`url(#${uid}-body)`} />
-        <path d="M318 82 C 314 118, 314 158, 318 186" fill="none" stroke={`url(#${uid}-rim)`} strokeWidth="2.4" strokeLinecap="round" />
-        <rect x="318" y="104" width="76" height="56" rx="7" fill="rgba(10,22,40,0.92)" />
-        <line x1="318" y1="104" x2="394" y2="104" stroke="rgba(117,227,255,0.3)" strokeWidth="1" />
-        <rect x="327" y="118" width="40" height="4" rx="2" fill="rgba(201,213,230,0.5)" />
-        <rect x="327" y="130" width="56" height="3" rx="1.5" fill="rgba(146,167,194,0.32)" />
-        <rect x="327" y="144" width="26" height="3" rx="1.5" fill="rgba(92,206,255,0.45)" />
-
-        {/* capsules */}
-        <rect x="216" y="150" width="52" height="21" rx="10.5" fill={`url(#${uid}-cap)`} transform="rotate(-18 242 160)" />
-        <rect x="188" y="182" width="42" height="18" rx="9" fill={`url(#${uid}-cap)`} transform="rotate(10 209 191)" opacity="0.85" />
-
-        {/* molecule structure */}
-        <g stroke="rgba(92,206,255,0.3)" strokeWidth="1.2">
-          <line x1="86" y1="76" x2="130" y2="58" />
-          <line x1="86" y1="76" x2="104" y2="118" />
-          <line x1="104" y1="118" x2="150" y2="104" />
-          <line x1="130" y1="58" x2="150" y2="104" />
-        </g>
-        <g fill="#2FD3FF">
-          <circle cx="86" cy="76" r="3.4" opacity="0.75" />
-          <circle cx="130" cy="58" r="2.6" opacity="0.6" />
-          <circle cx="104" cy="118" r="2.8" opacity="0.65" />
-          <circle cx="150" cy="104" r="2.2" opacity="0.5" />
-        </g>
-
-        {/* particles */}
-        <circle cx="70" cy="170" r="2" fill="rgba(117,227,255,0.45)" />
-        <circle cx="146" cy="180" r="1.6" fill="rgba(117,227,255,0.3)" />
-        <circle cx="240" cy="70" r="1.8" fill="rgba(117,227,255,0.4)" />
-      </svg>
+    <div className="relative h-56 w-full overflow-hidden rounded-[18px] bg-[linear-gradient(180deg,#071222,#040A12)]">
+      <Image
+        src="/images/offerings/drugs-visual.png"
+        alt=""
+        aria-hidden="true"
+        fill
+        sizes="(max-width: 768px) 100vw, 50vw"
+        className="object-cover object-center"
+      />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
@@ -22,21 +23,28 @@ export function CorporateNavbar() {
 
   return (
     <motion.header
-      initial={reduceMotion ? false : { y: -24, opacity: 0 }}
+      initial={reduceMotion ? false : { y: -16, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed inset-x-0 top-0 z-50"
+      transition={{ duration: 0.45, ease: "easeOut" }}
+      className="sticky top-0 z-50 border-b border-white/[0.04] bg-[rgba(3,7,18,0.88)] backdrop-blur-xl"
     >
-      <div className="mx-auto max-w-7xl px-4 py-4 md:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-3 md:px-8">
         <div
           className={`flex items-center justify-between rounded-[18px] border px-5 py-3 transition-all duration-500 ${
             scrolled
-              ? "border-[rgba(255,255,255,0.08)] bg-[rgba(5,11,20,0.88)] shadow-ambient backdrop-blur-xl"
-              : "border-transparent bg-transparent"
+              ? "border-[rgba(92,206,255,0.18)] bg-[rgba(5,11,20,0.96)] shadow-ambient"
+              : "border-[rgba(255,255,255,0.10)] bg-[rgba(5,11,20,0.92)] shadow-[0_18px_48px_rgba(0,0,0,0.22)]"
           }`}
         >
-          <Link href="/" className="font-display text-xl font-semibold tracking-[0.04em] text-white">
-            BioAro
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/images/brand/bioaro-mark.png"
+              alt="BioAro"
+              width={116}
+              height={33}
+              priority
+              className="h-auto w-[96px] md:w-[116px]"
+            />
           </Link>
 
           <nav className="hidden items-center gap-7 lg:flex">
