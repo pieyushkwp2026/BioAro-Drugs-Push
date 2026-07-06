@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream text-ink font-body antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+  }
+
+  ::selection {
+    background: #b08a4e33;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply border border-white/70 bg-white/70 shadow-glass backdrop-blur-xl;
+  }
+
+  .glass-dark {
+    @apply border border-white/10 bg-ink/95 shadow-glass-lg backdrop-blur-xl;
+  }
+
+  .glass-card {
+    @apply glass rounded-[24px] transition-colors duration-300 hover:bg-white/85;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink px-7 py-3.5 text-[15px] font-medium text-white transition-colors duration-300 hover:bg-forest-600;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-sand bg-transparent px-7 py-3.5 text-[15px] font-medium text-ink transition-colors duration-300 hover:bg-white;
+  }
+
+  .eyebrow {
+    @apply text-[12px] font-semibold uppercase tracking-[0.16em] text-[#1A5538];
+  }
+
+  .container-bio {
+    @apply mx-auto max-w-[1532px] px-6 md:px-10 lg:px-16;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

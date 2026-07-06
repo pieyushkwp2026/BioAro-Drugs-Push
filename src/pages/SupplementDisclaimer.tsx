@@ -1,0 +1,22 @@
+import PageHero from "../components/page/PageHero";
+import PageSectionBlock from "../components/page/PageSectionBlock";
+import { DISCLAIMER_CONTENT, getRegionalPolicyContent } from "../data/siteContent";
+import { useMarket } from "../hooks/useMarket";
+
+export default function SupplementDisclaimer() {
+  const { region } = useMarket();
+  const page = getRegionalPolicyContent(region, DISCLAIMER_CONTENT);
+
+  return (
+    <div className="pt-32 pb-24">
+      <div className="container-bio">
+        <PageHero {...page.hero} primaryCta={page.cta} />
+        <div className="mt-12 space-y-5">
+          {page.sections.map((section) => (
+            <PageSectionBlock key={section.title} {...section} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}

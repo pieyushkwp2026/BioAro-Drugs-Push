@@ -1,0 +1,74 @@
+import { getPreviewProductByHandle, PREVIEW_PRODUCTS } from "../../data/products";
+import type { CartLine, CartState, CatalogProduct, MoneyAmount, ProductEditorial } from "./types";
+import type { CountryCode } from "../market/types";
+
+export interface PreviewCartSnapshot {
+  lines: Array<{ handle: string; quantity: number }>;
+}
+
+export const PREVIEW_CART_STORAGE_KEY = "bioaro.preview.cart";
+export const SHOPIFY_CART_STORAGE_KEY = "bioaro.shopify.cart.id";
+
+export function previewVariantId(handle: string) {
+  return `preview-variant-${handle}`;
+}
+
+export function money(amount: number, country: CountryCode): MoneyAmount {
+  return {
+    amount,
+    currencyCode: country === "CA" ? "CAD" : country === "GB" ? "GBP" : "USD",
+  };
+}
+
+export function buildCatalogProduct(product: ProductEditorial, country: CountryCode): CatalogProduct {
+  return {
+    ...product,
+    price: money(product.priceByCountry[country], country),
+    compareAtPrice: product.compareAtByCountry?.[country] ? money(product.compareAtByCountry[country], country) : undefined,
+    availableForSale: true,
+    variantId: previewVariantId(product.handle),
+  };
+}
+
+export function buildPreviewCatalog(country: CountryCode): CatalogProduct[] {
+  return PREVIEW_PRODUCTS.map((product) => buildCatalogProduct(product, country));
+}
+
+export function buildPreviewProductByHandle(handle: string, country: CountryCode) {
+  const product = getPreviewProductByHandle(handle);
+  return product ? buildCatalogProduct(product, country) : undefined;
+}
+
+export function buildPreviewLine(handle: string, quantity: number, country: CountryCode): CartLine | null {
+  const product = buildPreviewProductByHandle(handle, country);
+  if (!product) return null;
+
+  return {
+    id: `preview-line-${handle}`,
+    merchandiseId: product.variantId,
+    quantity,
+    title: product.title,
+    handle: product.handle,
+    price: product.price,
+    image: product.image,
+  };
+}
+
+export function buildPreviewCart(snapshot: PreviewCartSnapshot, country: CountryCode): CartState {
+  const lines = snapshot.lines
+    .map(({ handle, quantity }) => buildPreviewLine(handle, quantity, country))
+    .filter((line): line is CartLine => Boolean(line));
+
+  const subtotalAmount = lines.reduce((sum, line) => sum + line.price.amount * line.quantity, 0);
+  const totalQuantity = lines.reduce((sum, line) => sum + line.quantity, 0);
+
+  return {
+    id: "preview-cart",
+    checkoutUrl: null,
+    totalQuantity,
+    subtotal: money(subtotalAmount, country),
+    total: money(subtotalAmount, country),
+    lines,
+    isPreview: true,
+  };
+}

@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES2023",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "rootDir": ".",
+    "outDir": "./.test-dist",
+    "types": ["node"],
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "ignoreDeprecations": "6.0"
+  },
+  "include": [
+    "src/lib/routes.ts",
+    "src/lib/market/types.ts",
+    "src/lib/market/config.ts",
+    "src/lib/market/resolve.ts",
+    "src/lib/content/types.ts",
+    "src/data/siteContent.ts",
+    "tests/**/*.ts"
+  ]
+}
