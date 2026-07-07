@@ -9,7 +9,7 @@ import { formatMoney } from "../lib/market/config";
 import { useCart } from "../hooks/useCart";
 
 const REGION_DISCLAIMERS = {
-  NA: "Statements about wellness support describe general product positioning only and are not intended to diagnose, treat, cure, or prevent disease.",
+  NA: "",
   UK: "BioAro products are presented as food supplements. Do not exceed the recommended daily dose and do not use supplements as a substitute for a varied, balanced diet and healthy lifestyle.",
 } as const;
 
@@ -113,9 +113,11 @@ export default function Product() {
                 </div>
               ))}
             </div>
-            <div className="mt-6 rounded-2xl border border-ink/10 bg-white/45 px-4 py-4 text-sm leading-relaxed text-ink/55">
-              {REGION_DISCLAIMERS[region]}
-            </div>
+            {REGION_DISCLAIMERS[region] ? (
+              <div className="mt-6 rounded-2xl border border-ink/10 bg-white/45 px-4 py-4 text-sm leading-relaxed text-ink/55">
+                {REGION_DISCLAIMERS[region]}
+              </div>
+            ) : null}
           </section>
 
           <section className="glass-card p-6 md:p-8">
