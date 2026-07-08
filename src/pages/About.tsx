@@ -1,17 +1,17 @@
 import { FlaskConical, Heart, ShieldCheck } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroJars from "../assets/hero-jars.jpg";
+import ctaProductVisual from "../assets/cta/dark-luxury-cta-product-visual.png";
 
 export default function About() {
   return (
-    <div className="pt-32 pb-24">
+    <div className="pt-24 pb-20 md:pt-32 md:pb-24">
       <div className="container-bio">
         <span className="eyebrow">About BioAro</span>
         <h1 className="mt-3 max-w-2xl text-4xl md:text-5xl">BioAro is building a more intentional wellness experience.</h1>
 
         <div className="mt-14 grid items-center gap-12 md:grid-cols-2">
           <div className="glass-card aspect-[4/5] overflow-hidden order-2 md:order-1">
-            <img src={heroJars} alt="BioAro product lineup" className="h-full w-full object-cover" />
+            <img src={ctaProductVisual} alt="BioAro product lineup" className="h-full w-full object-cover" />
           </div>
           <div className="order-1 md:order-2">
             <p className="font-display text-2xl leading-snug italic text-ink/80">

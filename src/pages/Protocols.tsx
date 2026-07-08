@@ -4,7 +4,7 @@ import { PROTOCOLS, PROTOCOLS_INTRO, PROTOCOLS_PAGE_HERO } from "../data/siteCon
 
 export default function Protocols() {
   return (
-    <div className="pt-32 pb-24">
+    <div className="pt-24 pb-20 md:pt-32 md:pb-24">
       <div className="container-bio">
         <PageHero {...PROTOCOLS_PAGE_HERO} />
         <div className="mt-10 max-w-3xl text-sm leading-relaxed text-ink/55">{PROTOCOLS_INTRO}</div>

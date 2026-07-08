@@ -3,7 +3,7 @@ import { SUPPORT_EMAILS, SUPPORT_PAGE_HERO, SUPPORT_RESPONSE_TIMELINE, SUPPORT_T
 
 export default function ContactSupport() {
   return (
-    <div className="pt-32 pb-24">
+    <div className="pt-24 pb-20 md:pt-32 md:pb-24">
       <div className="container-bio">
         <PageHero {...SUPPORT_PAGE_HERO} />
 

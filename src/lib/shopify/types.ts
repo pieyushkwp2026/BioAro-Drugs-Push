@@ -1,4 +1,4 @@
-export type ProductCategory = "Longevity" | "Focus" | "Recovery" | "Sleep";
+export type ProductCategory = "Longevity" | "Wellness" | "Focus" | "Energy" | "Performance";
 
 export interface MoneyAmount {
   amount: number;
@@ -15,6 +15,26 @@ export interface ProductIngredient {
   amount: string;
   purpose: string;
   whyIncluded?: string;
+  image?: string;
+}
+
+export interface ProductWhyItem {
+  icon: "energy" | "aging" | "balance" | "heart" | "brain" | "shield" | "flame" | "droplet" | "sparkle";
+  title: string;
+  description: string;
+}
+
+export interface ProductEfficacyMetric {
+  label: string;
+  unit: string;
+  placeboValue: number;
+  productValue: number;
+  caption: string;
+}
+
+export interface ProductRating {
+  average: number;
+  count: number;
 }
 
 export interface ProductFact {
@@ -39,19 +59,23 @@ export interface ProductEditorial {
   tagline: string;
   description: string;
   badge?: string;
-  image: ProductImage;
+  image?: ProductImage;
   category: ProductCategory;
   tags: string[];
   bestFor: string;
   dosage: string;
   servings: string;
   supplyLabel: string;
+  rating: ProductRating;
   benefits: string[];
+  whyItems: ProductWhyItem[];
   trustNotes: string[];
   warnings: string[];
   ingredients: ProductIngredient[];
   supplementFacts: ProductFact[];
   science: ProductScienceStep[];
+  evidencePoints: string[];
+  efficacyMetric: ProductEfficacyMetric;
   faq: ProductFAQ[];
   priceByCountry: Record<"US" | "CA" | "GB", number>;
   compareAtByCountry?: Partial<Record<"US" | "CA" | "GB", number>>;

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Account() {
   return (
-    <div className="pt-32 pb-24 min-h-screen">
+    <div className="pt-24 pb-20 md:pt-32 md:pb-24 min-h-screen">
       <div className="container-bio">
         <div className="mx-auto max-w-xl text-center">
           <span className="eyebrow">Account access</span>

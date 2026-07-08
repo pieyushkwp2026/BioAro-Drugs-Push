@@ -4,7 +4,7 @@ import { FAQ_CATEGORIES, FAQ_PAGE_HERO } from "../data/siteContent";
 
 export default function Faq() {
   return (
-    <div className="pt-32 pb-24">
+    <div className="pt-24 pb-20 md:pt-32 md:pb-24">
       <div className="container-bio">
         <PageHero {...FAQ_PAGE_HERO} />
         <div className="mt-12 space-y-8">

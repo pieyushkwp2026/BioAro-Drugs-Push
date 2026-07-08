@@ -3,20 +3,20 @@ import { Minus, Plus, ShoppingBag, X } from "lucide-react";
 import { useCart } from "../../hooks/useCart";
 import { formatMoney } from "../../lib/market/config";
 import { useMarket } from "../../hooks/useMarket";
+import { ROUTES } from "../../lib/routes";
 
 export default function CartDrawer() {
   const { cart, closeCart, error, isLoading, isOpen, removeLine, updateQuantity } = useCart();
   const { country } = useMarket();
 
+  if (!isOpen) {
+    return null;
+  }
+
   return (
     <>
-      <div
-        onClick={closeCart}
-        className={`fixed inset-0 z-40 bg-ink/30 transition-opacity ${isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`}
-      />
-      <aside
-        className={`fixed right-0 top-0 z-50 flex h-full w-full max-w-md flex-col bg-cream shadow-glass-lg transition-transform duration-300 ${isOpen ? "translate-x-0" : "translate-x-full"}`}
-      >
+      <div onClick={closeCart} className="fixed inset-0 z-40 bg-ink/30" />
+      <aside className="fixed right-0 top-0 z-50 flex h-full w-full max-w-md flex-col bg-cream shadow-glass-lg">
         <div className="flex items-center justify-between border-b border-ink/10 px-6 py-5">
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-full glass">
@@ -43,11 +43,11 @@ export default function CartDrawer() {
               <div className="flex h-16 w-16 items-center justify-center rounded-full glass">
                 <ShoppingBag size={22} className="text-forest-600" />
               </div>
-              <h2 className="mt-5 text-2xl">Your cart is empty.</h2>
+              <h2 className="mt-5 text-2xl">Your routine starts here.</h2>
               <p className="mt-3 max-w-xs text-sm leading-relaxed text-ink/55">
-                Add a product to start a routine. Market-aware pricing and policies will carry through to checkout.
+                Explore BioAro formulas and save your preferred products before online ordering opens.
               </p>
-              <Link to="/shop" onClick={closeCart} className="btn-primary mt-7">
+              <Link to={ROUTES.shop} onClick={closeCart} className="btn-primary mt-7">
                 Explore formulas
               </Link>
             </div>
@@ -99,15 +99,15 @@ export default function CartDrawer() {
 
         <div className="border-t border-ink/10 px-6 py-5">
           <div className="flex items-center justify-between text-sm">
-            <span className="text-ink/55">Subtotal</span>
+            <span className="text-ink/55">Estimated subtotal</span>
             <span className="font-medium">{formatMoney(cart.subtotal.amount, country)}</span>
           </div>
           <p className="mt-3 text-xs leading-relaxed text-ink/45">
-            Taxes, shipping, and any market-specific delivery details are confirmed during checkout.
+            Product availability, pricing, and delivery details will be confirmed at launch.
           </p>
           {cart.isPreview && (
-            <p className="mt-3 rounded-2xl border border-ink/10 bg-white/50 px-4 py-3 text-xs leading-relaxed text-ink/50">
-              Preview mode is active because Shopify credentials are not configured in this environment. Connect the Storefront API to enable live checkout.
+            <p className="mt-3 rounded-2xl border border-[#ddd8c9] bg-[#f7f4ee] px-4 py-3 text-xs leading-relaxed text-[#6d665f]">
+              Online checkout is opening soon. For now, you can browse formulas and request availability updates.
             </p>
           )}
           {cart.checkoutUrl ? (
@@ -115,9 +115,9 @@ export default function CartDrawer() {
               Proceed to checkout
             </a>
           ) : (
-            <button disabled className="btn-primary mt-5 w-full opacity-60">
-              Checkout unavailable in preview
-            </button>
+            <Link to={ROUTES.support} onClick={closeCart} className="btn-primary mt-5 w-full">
+              Request availability
+            </Link>
           )}
           {isLoading && <p className="mt-3 text-center text-xs text-ink/40">Updating cart…</p>}
         </div>

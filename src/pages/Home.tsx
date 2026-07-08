@@ -1,7 +1,6 @@
 import { Fragment, type FormEvent, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  Activity,
   ArrowRight,
   Brain,
   CalendarRange,
@@ -14,40 +13,35 @@ import {
   Leaf,
   Mail,
   MoonStar,
-  HeartPulse,
   ShieldCheck,
   Sparkles,
   SunMedium,
   X,
   Zap,
 } from "lucide-react";
+import { FlagCA } from "../components/layout/Flags";
 import ProductCard from "../components/sections/ProductCard";
+import heroPerformanceBackground from "../assets/hero/hero-performance-background.png";
 import heroRunnerTransparent from "../assets/hero/hero-runner-transparent.png";
-import heroScenery from "../assets/hero/hero-scenery.png";
 import essentialLongevityCard from "../assets/figma-home/essential-longevity-card.png";
 import essentialFocusCard from "../assets/figma-home/essential-focus-card.png";
 import essentialRecoveryCard from "../assets/figma-home/essential-recovery-card.png";
 import essentialSleepCard from "../assets/figma-home/essential-sleep-card.png";
-import evidenceLabPanel from "../assets/figma-home/evidence-lab-panel.png";
+import evidenceLabPanel from "../assets/figma-home/evidence-lab-scene-3-4.png";
 import founderVisual from "../assets/figma-home/founder-bun-woman.png";
 import { SUPPORT_EMAILS } from "../data/siteContent";
+import { JOURNAL_ARTICLES } from "../data/journal";
 import { useMarket } from "../hooks/useMarket";
 import { ROUTES } from "../lib/routes";
 import { fetchAllProducts } from "../lib/shopify/productService";
 import type { CatalogProduct } from "../lib/shopify/types";
-
-const HERO_METRICS = [
-  { value: "72", label: "Resting HR", Icon: HeartPulse },
-  { value: "86", label: "Energy", Icon: Zap },
-  { value: "7h 42m", label: "Sleep", Icon: MoonStar },
-  { value: "48 ms", label: "HRV", Icon: Activity },
-] as const;
+import ctaProductVisual from "../assets/cta/dark-luxury-cta-product-visual.png";
 
 const HERO_TRUST_ITEMS = [
   { label: "100+", subtitle: "Tests Per Batch", Icon: ShieldCheck },
   { label: "cGMP", subtitle: "Certified", Icon: FlaskConical },
   { label: "3rd Party", subtitle: "Tested", Icon: Sparkles },
-  { label: "Made in", subtitle: "USA", Icon: UsaFlagIcon },
+  { label: "Formulated in", subtitle: "Canada", Icon: CanadaFlagIcon },
 ] as const;
 
 type IconProps = {
@@ -55,61 +49,15 @@ type IconProps = {
   size?: number;
 };
 
-function UsaFlagIcon({ className, size = 52 }: IconProps) {
+function CanadaFlagIcon({ className, size = 52 }: IconProps) {
   return (
-    <svg
-      viewBox="0 0 80 56"
-      aria-hidden="true"
-      focusable="false"
+    <FlagCA
       className={className}
-      width={size}
-      height={Math.round((size * 56) / 80)}
-    >
-      <defs>
-        <clipPath id="bioaro-usa-flag-clip">
-          <rect width="80" height="56" rx="4" />
-        </clipPath>
-      </defs>
-      <rect width="80" height="56" rx="4" fill="#fff" />
-      <g clipPath="url(#bioaro-usa-flag-clip)">
-        {Array.from({ length: 7 }).map((_, index) => (
-          <rect key={`stripe-${index}`} y={index * 8} width="80" height="4" fill="#d91c3f" />
-        ))}
-        <rect x="0" y="0" width="34" height="28" fill="#1f4aa8" />
-        <g fill="#fff">
-          <circle cx="4.5" cy="4.5" r="1" />
-          <circle cx="10.5" cy="4.5" r="1" />
-          <circle cx="16.5" cy="4.5" r="1" />
-          <circle cx="22.5" cy="4.5" r="1" />
-          <circle cx="28.5" cy="4.5" r="1" />
-          <circle cx="7.5" cy="8.5" r="1" />
-          <circle cx="13.5" cy="8.5" r="1" />
-          <circle cx="19.5" cy="8.5" r="1" />
-          <circle cx="25.5" cy="8.5" r="1" />
-          <circle cx="31.5" cy="8.5" r="1" />
-          <circle cx="4.5" cy="12.5" r="1" />
-          <circle cx="10.5" cy="12.5" r="1" />
-          <circle cx="16.5" cy="12.5" r="1" />
-          <circle cx="22.5" cy="12.5" r="1" />
-          <circle cx="28.5" cy="12.5" r="1" />
-          <circle cx="7.5" cy="16.5" r="1" />
-          <circle cx="13.5" cy="16.5" r="1" />
-          <circle cx="19.5" cy="16.5" r="1" />
-          <circle cx="25.5" cy="16.5" r="1" />
-          <circle cx="31.5" cy="16.5" r="1" />
-          <circle cx="4.5" cy="20.5" r="1" />
-          <circle cx="10.5" cy="20.5" r="1" />
-          <circle cx="16.5" cy="20.5" r="1" />
-          <circle cx="22.5" cy="20.5" r="1" />
-          <circle cx="28.5" cy="20.5" r="1" />
-          <circle cx="7.5" cy="24.5" r="1" />
-          <circle cx="13.5" cy="24.5" r="1" />
-          <circle cx="19.5" cy="24.5" r="1" />
-          <circle cx="25.5" cy="24.5" r="1" />
-          <circle cx="31.5" cy="24.5" r="1" />
-        </g>
-      </g>
-    </svg>
+      style={{
+        width: `${size}px`,
+        height: `${Math.round((size * 16) / 24)}px`,
+      }}
+    />
   );
 }
 
@@ -125,9 +73,9 @@ const CREDIBILITY_ITEMS = [
     Icon: ShieldCheck,
   },
   {
-    title: "Made in USA",
+    title: "Formulated in Canada",
     subtitle: "Trusted Quality",
-    Icon: UsaFlagIcon,
+    Icon: CanadaFlagIcon,
   },
 ] as const;
 
@@ -284,19 +232,13 @@ const PERKS = [
   },
 ] as const;
 
-const JOURNAL_ARTICLES = [
-  { cat: "Foundations", title: "What are Bioactives?", readTime: "6 min read" },
-  { cat: "Protocols", title: "The Morning Longevity Stack", readTime: "8 min read" },
-  { cat: "Recovery", title: "Sleep Optimization Guide", readTime: "10 min read" },
-] as const;
-
 function ComparisonState({ value }: { value: "yes" | "no" | "mixed" }) {
   if (value === "yes") {
     return <Check size={16} className="text-[#2f4f3e]" aria-hidden="true" />;
   }
 
   if (value === "mixed") {
-    return <span className="text-[14px] font-medium text-[#8a8678]">Mixed</span>;
+    return <span className="text-[12px] font-medium text-[#8a8678] sm:text-[13px] md:text-[14px]">Mixed</span>;
   }
 
   return <X size={16} className="text-[#c4bfaf]" aria-hidden="true" />;
@@ -329,88 +271,85 @@ export default function Home() {
       <section className="overflow-hidden bg-[#f7f2ea] pt-28 md:pt-32">
         <div className="container-bio">
           <div className="mx-auto max-w-[1404px]">
-            <div className="grid min-h-[760px] gap-10 lg:grid-cols-[minmax(0,46%)_minmax(0,54%)] lg:items-center lg:gap-12 xl:min-h-[830px]">
-              <div className="max-w-[640px]">
-                <span className="inline-flex items-center rounded-full border border-[#d9c9b0] bg-white/55 px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#9b6a2f]">
-                  SCIENCE-BACKED. HUMAN-FIRST.
-                </span>
-                <h1 className="mt-6 text-balance text-[58px] leading-[0.93] text-ink sm:text-[76px] lg:text-[86px] xl:text-[94px]">
-                  Move better.
-                  <br />
-                  <span className="italic">Recover smarter.</span>
-                </h1>
-                <p className="mt-6 max-w-[490px] text-[17px] leading-[1.7] text-[#2b2824] sm:text-[18px]">
-                  Daily protocols designed to elevate your energy, endurance, recovery, and long-term wellness—so you can perform today and thrive tomorrow.
-                </p>
-                <div className="mt-8 flex flex-wrap gap-4 sm:flex-nowrap">
-                  <Link to={ROUTES.shop} className="btn-primary px-8 py-4 text-[15px]">
-                    Shop Products <ArrowRight size={15} />
-                  </Link>
-                  <Link to={ROUTES.quiz} className="btn-secondary border-[#cfc5b3] bg-white/35 px-8 py-4 text-[15px]">
-                    Build My Stack
-                  </Link>
-                </div>
+            <div className="relative min-h-[680px] overflow-hidden rounded-[28px] bg-[#f7f2ea] md:min-h-[760px] md:rounded-[36px] xl:min-h-[830px]">
+              <div className="absolute inset-0 md:hidden">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_18%,rgba(255,255,255,0.95)_0%,rgba(247,243,236,0.92)_36%,rgba(247,243,236,0.78)_66%,rgba(247,243,236,0.5)_100%)]" />
+                <div className="absolute inset-x-0 bottom-0 h-[44%] bg-[linear-gradient(to_top,rgba(247,243,236,0.96)_0%,rgba(247,243,236,0.35)_58%,rgba(247,243,236,0)_100%)]" />
+                <img
+                  src={heroRunnerTransparent}
+                  alt=""
+                  aria-hidden="true"
+                  className="absolute bottom-0 right-0 h-[76%] w-auto max-w-[92vw] object-contain object-bottom drop-shadow-[0_26px_34px_rgba(31,26,20,0.12)]"
+                />
               </div>
+              <div className="absolute inset-0 hidden md:block">
+                <img
+                  src={heroPerformanceBackground}
+                  alt=""
+                  aria-hidden="true"
+                  className="h-full w-full object-cover object-[76%_56%] opacity-70 md:object-[66%_50%] md:opacity-100"
+                />
+              </div>
+              <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(247,243,236,0.97)_0%,rgba(247,243,236,0.92)_28%,rgba(247,243,236,0.72)_56%,rgba(247,243,236,0.42)_78%,rgba(247,243,236,0.18)_100%)] md:bg-[linear-gradient(90deg,rgba(247,242,234,0.98)_0%,rgba(247,242,234,0.9)_18%,rgba(247,242,234,0.72)_30%,rgba(247,242,234,0.3)_52%,rgba(247,242,234,0.08)_70%,rgba(247,242,234,0)_84%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_20%,rgba(255,255,255,0.58)_0%,rgba(255,255,255,0.22)_18%,rgba(255,255,255,0)_44%)] md:bg-[radial-gradient(circle_at_24%_22%,rgba(255,255,255,0.55)_0%,rgba(255,255,255,0.18)_18%,rgba(255,255,255,0)_42%)]" />
 
-              <div className="relative ml-auto w-full max-w-[840px] lg:max-w-[880px]">
-                <div className="relative aspect-[1.04] min-h-[660px] overflow-hidden rounded-[36px] md:aspect-[1.0] lg:min-h-[800px] xl:min-h-[840px]">
-                  <div className="absolute inset-0">
-                    <img
-                      src={heroScenery}
-                      alt=""
-                      aria-hidden="true"
-                      className="h-full w-full object-cover object-[64%_48%] scale-[1.14]"
-                    />
+              <div className="relative z-10 flex min-h-[680px] flex-col justify-start px-4 py-7 sm:px-6 md:min-h-[760px] md:justify-between md:px-14 md:py-14 md:pb-[132px] lg:min-h-[800px] lg:px-14 xl:min-h-[830px] xl:px-[58px] xl:pb-[142px]">
+                <div className="max-w-[390px] sm:max-w-[460px] md:max-w-[640px]">
+                  <span className="inline-flex max-w-full items-center rounded-full border border-[#d9c9b0] bg-white/78 px-3.5 py-2 text-center text-[9.5px] font-semibold uppercase leading-[1.35] tracking-[0.14em] text-[#9b6a2f] backdrop-blur-sm sm:px-5 sm:text-[11px] sm:tracking-[0.18em]">
+                    SCIENCE-BACKED. HUMAN-FIRST.
+                  </span>
+                  <h1 className="mt-5 text-balance text-[clamp(42px,12vw,72px)] leading-[1] tracking-[-0.03em] text-ink md:mt-6 md:text-[86px] md:leading-[0.93] xl:text-[94px]">
+                    Move better.
+                    <br />
+                    <span className="italic">Recover smarter.</span>
+                  </h1>
+                  <p className="mt-5 max-w-[340px] text-[16px] leading-[1.6] text-[#2b2824] sm:max-w-[430px] sm:text-[17px] sm:leading-[1.7] md:mt-6 md:max-w-[490px] md:text-[18px]">
+                    Daily protocols designed to elevate your energy, endurance, recovery, and long-term wellness so you can perform today and thrive tomorrow.
+                  </p>
+                  <div className="mt-7 flex max-w-[360px] flex-col gap-3 md:mt-8 md:max-w-none md:flex-row md:flex-nowrap">
+                    <Link to={ROUTES.shop} className="btn-primary w-full px-8 py-4 text-[15px] md:w-auto">
+                      Shop Products <ArrowRight size={15} />
+                    </Link>
+                    <Link to={ROUTES.quiz} className="btn-secondary w-full border-[#cfc5b3] bg-white/72 px-8 py-4 text-[15px] backdrop-blur-sm md:w-auto">
+                      Build My Stack
+                    </Link>
                   </div>
-                  <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(247,242,234,0.98)_0%,rgba(247,242,234,0.82)_12%,rgba(247,242,234,0.42)_28%,rgba(247,242,234,0.1)_52%,rgba(247,242,234,0)_76%)]" />
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_60%_50%,rgba(255,255,255,0.14)_0%,rgba(255,255,255,0)_40%),radial-gradient(circle_at_76%_64%,rgba(223,231,207,0.16)_0%,rgba(223,231,207,0)_28%),radial-gradient(circle_at_58%_88%,rgba(247,242,234,0.42)_0%,rgba(247,242,234,0)_28%)]" />
+                </div>
 
-                  <div className="absolute right-[16%] top-[12%] hidden h-[330px] w-[330px] rounded-full border border-[#dfe6cf]/72 md:block" />
-                  <div className="absolute right-[9%] top-[7%] hidden h-[470px] w-[470px] rounded-full border border-[#edf1e5]/78 md:block" />
-
-                  <img
-                    src={heroRunnerTransparent}
-                    alt="Athletic runner representing daily performance and recovery"
-                    className="absolute bottom-[3%] right-[12%] h-[92%] w-auto max-w-none object-contain object-bottom drop-shadow-[0_32px_50px_rgba(31,26,20,0.16)] sm:right-[10%] md:h-[94%] lg:right-[14%] xl:right-[16%] xl:h-[95%]"
-                  />
-
-                  <div className="absolute right-[0.5%] top-[14%] hidden w-[170px] flex-col gap-3 md:flex lg:w-[184px]">
-                    {HERO_METRICS.map((metric) => (
-                      <div
-                        key={metric.label}
-                        className="flex items-center gap-3 rounded-full border border-[rgba(120,110,95,0.12)] bg-white/70 px-4 py-3 shadow-[0_18px_50px_rgba(40,34,26,0.08)] backdrop-blur-[16px]"
-                      >
-                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#e6dcc7] bg-white text-[#86a36f]">
-                          <metric.Icon size={18} />
-                        </div>
-                        <div>
-                          <p className="text-[20px] font-medium leading-none text-[#2c2a26]">{metric.value}</p>
-                          <p className="mt-0.5 text-[12px] leading-none text-[#7d776e]">{metric.label}</p>
-                        </div>
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 hidden md:block">
+                  <div className="mx-auto max-w-[1404px] px-14 pb-10 xl:px-[58px]">
+                    <div className="max-w-[670px] rounded-[26px] border border-white/40 bg-[#f7f2ea]/72 px-5 py-5 shadow-[0_18px_40px_-32px_rgba(27,26,23,0.24)] backdrop-blur-md">
+                      <div className="grid grid-cols-[repeat(4,minmax(0,1fr))] gap-3">
+                        {HERO_TRUST_ITEMS.map((item, index) => (
+                          <Fragment key={item.label}>
+                            <div className="flex min-h-[88px] flex-col items-center justify-start gap-2 rounded-2xl bg-white/40 px-2 py-3 text-center">
+                              <div className="flex h-[35px] w-[35px] items-center justify-center rounded-full bg-white/75 text-ink">
+                                <item.Icon size={16} />
+                              </div>
+                              <p className="text-[12px] leading-[1.3] text-[#131012]">
+                                <span className="block">{item.label}</span>
+                                <span className="block">{item.subtitle}</span>
+                              </p>
+                            </div>
+                            {index < HERO_TRUST_ITEMS.length - 1 ? <div className="hidden" /> : null}
+                          </Fragment>
+                        ))}
                       </div>
-                    ))}
-                  </div>
-
-                  <div className="pointer-events-none absolute left-0 top-0 h-full w-[30%] bg-[linear-gradient(to_right,#f7f2ea_0%,rgba(247,242,234,0.8)_24%,rgba(247,242,234,0.18)_58%,rgba(247,242,234,0)_100%)]" />
-
-                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[16%] bg-[linear-gradient(to_top,rgba(247,242,234,0.78)_0%,rgba(247,242,234,0.24)_30%,rgba(247,242,234,0)_100%)]" />
-
-                  <div className="pointer-events-none absolute left-[22px] top-[22px] hidden text-[0px] md:block">
-                    {/* TODO: Add clean product packshots here when final assets are available. */}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="mt-9 max-w-[670px] border-t border-[#e4ddcf] pt-8 lg:mt-10">
-              <div className="grid gap-y-5 sm:grid-cols-2 lg:grid-cols-[106px_1px_106px_1px_106px_1px_106px] lg:items-start lg:gap-y-0">
+            <div className="mt-6 max-w-[670px] border-t border-[#e4ddcf] pt-6 md:hidden">
+              <div className="grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-[106px_1px_106px_1px_106px_1px_106px] lg:items-start lg:gap-y-0">
                 {HERO_TRUST_ITEMS.map((item, index) => (
                   <Fragment key={item.label}>
-                    <div className="flex h-[90px] w-[106px] flex-col items-center gap-[10px] justify-start">
+                    <div className="flex w-full flex-col items-center justify-start gap-2 rounded-2xl bg-white/35 px-2 py-3 text-center md:h-[90px] md:w-[106px] md:gap-[10px] md:bg-transparent md:px-0 md:py-0">
                       <div className="flex h-[35px] w-[35px] items-center justify-center rounded-full bg-white/75 text-ink">
                         <item.Icon size={16} />
                       </div>
-                      <p className="text-center text-[13px] leading-[1.35] text-[#131012]">
+                      <p className="text-[12px] leading-[1.3] text-[#131012] md:text-[13px] md:leading-[1.35]">
                         <span className="block">{item.label}</span>
                         <span className="block">{item.subtitle}</span>
                       </p>
@@ -425,13 +364,13 @@ export default function Home() {
       </section>
 
       <section className="bg-[#f8f3f0] py-9">
-        <div className="container-bio overflow-x-auto">
-          <div className="mx-auto flex min-w-max max-w-[1404px] gap-5 lg:min-w-0 lg:grid lg:grid-cols-5">
+        <div className="container-bio">
+          <div className="mx-auto grid max-w-[1404px] gap-5 sm:grid-cols-2 lg:grid-cols-5">
             {OUTCOME_PILLS.map((item) => (
               <Link
                 key={item.title}
                 to={item.href}
-                className="flex h-[116px] w-[265px] items-center gap-3 rounded-2xl border border-[#e6e2d4] bg-[#fbf9f5] px-5 py-5 transition-colors hover:bg-white"
+                className="flex min-h-[116px] w-full items-center gap-3 rounded-2xl border border-[#e6e2d4] bg-[#fbf9f5] px-5 py-5 transition-colors hover:bg-white"
               >
                 <div className={`flex h-[42px] w-[42px] items-center justify-center rounded-[16px_6px_16px_6px] ${item.tone}`}>
                   <item.Icon size={20} className="text-ink" />
@@ -547,25 +486,27 @@ export default function Home() {
           <div className="mx-auto grid max-w-[1040px] gap-14 lg:grid-cols-[0.9fr_1.3fr]">
           <div className="max-w-[550px]">
             <span className="eyebrow">The Difference</span>
-            <h2 className="mt-4 text-[46px] leading-[0.95] text-ink md:text-[58px]">Why most supplements fall short.</h2>
+            <h2 className="mt-4 text-[42px] leading-[0.98] text-ink md:text-[58px]">Why most supplements fall short.</h2>
             <p className="mt-6 max-w-[420px] text-[15px] leading-8 text-[#131012]">
               Many supplements promise more than they deliver. BioAro Drugs is built around transparency, evidence, and formulations designed with purpose.
             </p>
           </div>
 
           <div className="overflow-hidden rounded-[16px] border border-[#e6e2d4] bg-[#fbf8f2]">
-            <div className="grid grid-cols-[1.2fr_0.65fr_0.55fr] border-b border-[#e6e2d4] text-[11.5px] font-semibold uppercase tracking-[0.08em]">
-              <div className="bg-[#f1eee6] px-5 py-4 text-[#131012]">Standard</div>
-              <div className="bg-[#eae7dc] px-5 py-4 text-[#131012]">BioAro Drugs</div>
-              <div className="bg-[#f1eee6] px-5 py-4 text-[#131012]">Typical</div>
+            <div className="grid grid-cols-[1.55fr_0.85fr_0.7fr] border-b border-[#e6e2d4] text-[9.5px] font-semibold uppercase tracking-[0.06em] sm:text-[10.5px] md:grid-cols-[1.2fr_0.65fr_0.55fr] md:text-[11.5px]">
+              <div className="bg-[#f1eee6] px-4 py-4 text-[#131012] sm:px-5">Standard</div>
+              <div className="bg-[#eae7dc] px-3 py-4 text-center text-[#131012] sm:px-4 md:px-5">BioAro Drugs</div>
+              <div className="bg-[#f1eee6] px-3 py-4 text-center text-[#131012] sm:px-4 md:px-5">Typical</div>
             </div>
             {COMPARISON_ROWS.map((row) => (
-              <div key={row.label} className="grid grid-cols-[1.2fr_0.65fr_0.55fr] border-b border-[#e6e2d4] last:border-b-0">
-                <div className="px-5 py-5 text-[14px] text-[#1b1a17]">{row.label}</div>
-                <div className="flex items-center justify-center border-x border-[#e6e2d4] px-5 py-5">
+              <div key={row.label} className="grid grid-cols-[1.55fr_0.85fr_0.7fr] border-b border-[#e6e2d4] last:border-b-0 md:grid-cols-[1.2fr_0.65fr_0.55fr]">
+                <div className="px-4 py-4 text-[13px] leading-[1.45] text-[#1b1a17] sm:px-5 sm:text-[14px] md:py-5">
+                  {row.label}
+                </div>
+                <div className="flex items-center justify-center border-x border-[#e6e2d4] px-3 py-4 sm:px-4 md:px-5 md:py-5">
                   <ComparisonState value={row.bioaro} />
                 </div>
-                <div className="flex items-center justify-center px-5 py-5">
+                <div className="flex items-center justify-center px-3 py-4 sm:px-4 md:px-5 md:py-5">
                   <ComparisonState value={row.typical} />
                 </div>
               </div>
@@ -584,10 +525,8 @@ export default function Home() {
 
             <div className="pt-6 lg:pt-0">
               <span className="eyebrow">Science &amp; Trust</span>
-              <h2 className="mt-4 max-w-[640px] text-[48px] leading-[0.9] text-ink md:text-[61px]">
-                Built around evidence -
-                <br />
-                not <span className="italic text-forest-600">trends.</span>
+              <h2 className="mt-4 max-w-[640px] text-[42px] leading-[0.96] text-ink md:text-[61px] md:leading-[0.9]">
+                Built around evidence,<span className="md:whitespace-nowrap"> not <span className="italic text-forest-600">trends.</span></span>
               </h2>
               <p className="mt-7 max-w-[420px] text-[15px] leading-8 text-[#131012]">
                 BioAro Drugs is being built around transparent labeling, ingredient context, and quality documentation where available.
@@ -613,11 +552,11 @@ export default function Home() {
                     <div
                       key={item.title}
                       className={`flex w-full items-center gap-[10px] px-4 py-[18px] md:w-[33.3333%] md:px-4 ${
-                        item.title !== "Made in USA" ? "md:border-r md:border-[#e1ddce]" : ""
+                        item.title !== "Formulated in Canada" ? "md:border-r md:border-[#e1ddce]" : ""
                       }`}
                     >
                       <div className="flex h-[52px] w-[52px] shrink-0 items-center justify-center text-[#0f3d1e]">
-                        <item.Icon size={item.title === "Made in USA" ? 52 : 48} className="h-auto w-auto" />
+                        <item.Icon size={item.title === "Formulated in Canada" ? 52 : 48} className="h-auto w-auto" />
                       </div>
                       <div className="min-w-0">
                         <p className="text-[14.5px] font-semibold leading-none text-[#1B1A17]">
@@ -638,9 +577,9 @@ export default function Home() {
         <div className="container-bio">
           <div className="mx-auto max-w-[680px] text-center">
             <span className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[#6b5e58]">The BioAro Method</span>
-            <h2 className="mt-4 text-[48px] leading-[0.95] text-ink md:text-[62px]">
-              <span className="block whitespace-nowrap">One protocol. Three windows.</span>
-              <span className="block">All day.</span>
+            <h2 className="mx-auto mt-4 max-w-[10ch] text-[36px] leading-[0.98] text-ink sm:text-[42px] md:max-w-none md:text-[62px]">
+              <span className="block md:inline md:whitespace-nowrap">One protocol. Three windows.</span>
+              <span className="block md:inline md:ml-3">All day.</span>
             </h2>
           </div>
 
@@ -719,12 +658,9 @@ export default function Home() {
           <div className="mx-auto mt-14 grid max-w-[1040px] gap-12 lg:grid-cols-[0.98fr_1.02fr] lg:items-start">
             <div className="pt-1">
               <span className="eyebrow">LETTER FROM THE FOUNDER</span>
-              <blockquote className="mt-6 max-w-[672px] font-display text-[42px] font-normal leading-[40.5px] text-ink">
+              <blockquote className="mt-6 max-w-[672px] font-display text-[31px] font-normal leading-[1.16] text-ink sm:text-[33px] md:text-[35px]">
                 We believe everyone deserves to live better, not by guessing, but by understanding. Through years of research and conversations with 10,000+ participants, we found that people want to take control of their health but often don&apos;t know where to begin. BioAro Drugs exists to make that first step simpler with clear, effective formulas built for longevity, focus, recovery, and sleep. Because better health should feel easier, clearer, and more personal ❤️.
               </blockquote>
-              <p className="mt-6 max-w-[640px] text-[16px] leading-[1.9] text-[#4d4540]">
-                Better health should feel easier, clearer, and more personal, with routine guidance, dosage clarity, and support language that stays grounded.
-              </p>
               <div className="mt-10 flex items-center gap-3.5">
                 <div className="h-11 w-11 rounded-full bg-forest-600" />
                 <div>
@@ -758,17 +694,28 @@ export default function Home() {
           </div>
 
             <div className="mt-12 grid gap-5 lg:grid-cols-3">
-            {JOURNAL_ARTICLES.map((article) => (
+            {JOURNAL_ARTICLES.slice(0, 3).map((article) => (
               <Link
                 key={article.title}
                 to={ROUTES.journal}
-                className="rounded-2xl border border-[#e2ded2] bg-[#f2f0ec] p-7 transition-colors hover:bg-white"
+                className="group overflow-hidden rounded-2xl border border-[#e2ded2] bg-[#f2f0ec] transition-colors hover:bg-white"
               >
-                <span className="text-[12px] font-semibold uppercase tracking-[0.16em] text-forest-600">{article.cat}</span>
-                <h3 className="mt-4 text-[28px] leading-tight text-[#1e1816]">{article.title}</h3>
-                <div className="mt-6 flex items-center justify-between pt-4 text-[13px] text-[#8a8678]">
-                  <span>{article.readTime}</span>
-                  <span>→</span>
+                <div className="aspect-[16/10] overflow-hidden bg-[#ece8de]">
+                  <img
+                    src={article.img}
+                    alt={article.alt}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                  />
+                </div>
+                <div className="p-7">
+                  <span className="text-[12px] font-semibold uppercase tracking-[0.16em] text-forest-600">{article.cat}</span>
+                  <h3 className="mt-4 text-[25px] leading-[1.05] text-[#1e1816] sm:text-[26px] md:text-[28px]">{article.title}</h3>
+                  <p className="mt-4 text-[14px] leading-7 text-[#564b46]">{article.excerpt}</p>
+                  <div className="mt-6 flex items-center justify-between pt-4 text-[13px] text-[#8a8678]">
+                    <span>{article.readTime}</span>
+                    <span>→</span>
+                  </div>
                 </div>
               </Link>
             ))}
@@ -777,7 +724,7 @@ export default function Home() {
             <div className="mt-12 flex flex-col gap-8 rounded-[24px] border border-[#e2ded2] bg-[#f2f0ec] px-[57px] pb-[55px] pt-[67px] lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-[550px]">
               <span className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#a49a95]">The Dispatch</span>
-              <h2 className="mt-3 text-[38px] leading-none md:text-[43px]">
+              <h2 className="mt-3 text-[34px] leading-[0.98] md:text-[43px]">
                 Premium wellness, in your inbox
                 <br />
                 weekly.
@@ -803,26 +750,53 @@ export default function Home() {
           </div>
 
           <div
-            className="mt-12 flex min-h-[468px] flex-col items-center justify-center gap-[26px] rounded-[28px] px-10 py-[114px] text-center text-white"
-            style={{ background: "radial-gradient(circle at 50% 30%, rgba(43,36,24,1) 0%, rgba(22,18,16,1) 68%)" }}
+            className="relative mt-12 overflow-hidden rounded-[32px] border border-white/10 px-6 py-12 text-white shadow-[0_32px_90px_-48px_rgba(10,8,6,0.8)] sm:px-10 sm:py-14 lg:px-14 lg:py-16"
+            style={{
+              background:
+                "radial-gradient(circle at 18% 18%, rgba(97,128,71,0.24) 0%, rgba(97,128,71,0) 36%), radial-gradient(circle at 82% 18%, rgba(180,137,63,0.20) 0%, rgba(180,137,63,0) 34%), radial-gradient(circle at 50% 84%, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 40%), linear-gradient(180deg, #1b1511 0%, #15100d 100%)",
+            }}
           >
-            <h2 className="text-[52px] leading-none md:text-[68px]">Your next level starts daily.</h2>
-            <p className="mx-auto max-w-[460px] text-[15px] leading-7 text-[#c9c4b6]">
-              Explore premium bioactive protocols, personalized to your goals, with support pages designed to work together as one launch-ready experience.
-            </p>
-            <div className="flex flex-wrap justify-center gap-[14px] pt-[14px]">
-              <Link
-                to={ROUTES.shop}
-                className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3.5 text-[15px] font-medium text-ink transition-colors hover:bg-[#f4f1ea]"
-              >
-                Shop Now
-              </Link>
-              <Link
-                to={ROUTES.quiz}
-                className="inline-flex items-center justify-center rounded-full border border-white/30 px-7 py-3.5 text-[15px] font-medium text-white transition-colors hover:bg-white/10"
-              >
-                Build My Stack
-              </Link>
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0)_26%,rgba(255,255,255,0.02)_52%,rgba(255,255,255,0)_76%,rgba(255,255,255,0.035)_100%)] opacity-60" />
+            <div className="relative z-10 grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:gap-14">
+              <div className="text-center lg:text-left">
+                <span className="eyebrow text-[#c6b59a]">Ready to begin</span>
+                <h2 className="mx-auto mt-4 max-w-[11ch] font-display text-[clamp(2.55rem,4.8vw,4.4rem)] leading-[1] tracking-[-0.02em] text-white lg:mx-0">
+                  Your daily protocol starts here.
+                </h2>
+                <p className="mx-auto mt-5 max-w-[34rem] text-[15px] leading-7 text-[#d7cfbf] sm:text-[16px] lg:mx-0 lg:max-w-[34rem]">
+                  Science-backed formulas for energy, recovery, focus, sleep, and long-term wellness - built to fit your routine, not complicate it.
+                </p>
+
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start">
+                  <Link
+                    to={ROUTES.shop}
+                    className="inline-flex w-full items-center justify-center rounded-full bg-[#f6f1e7] px-7 py-3.5 text-[15px] font-medium text-ink transition-transform transition-colors hover:-translate-y-0.5 hover:bg-white sm:w-auto"
+                  >
+                    Shop Products
+                  </Link>
+                  <Link
+                    to={ROUTES.quiz}
+                    className="inline-flex w-full items-center justify-center rounded-full border border-white/22 bg-white/6 px-7 py-3.5 text-[15px] font-medium text-white transition-colors hover:border-white/35 hover:bg-white/10 sm:w-auto"
+                  >
+                    Build My Stack
+                  </Link>
+                </div>
+
+                <div className="mx-auto mt-8 inline-flex max-w-full flex-wrap items-center justify-center gap-x-3 gap-y-2 rounded-full border border-white/10 bg-white/6 px-4 py-3 text-[12px] leading-5 text-[#e3ddce] backdrop-blur-sm lg:mx-0 lg:justify-start">
+                  <span>Third-party tested</span>
+                  <span className="text-white/35">•</span>
+                  <span>cGMP certified</span>
+                  <span className="text-white/35">•</span>
+                  <span>Formulated in Canada</span>
+                </div>
+              </div>
+
+              <div className="relative mx-auto w-full max-w-[560px] lg:mx-0 lg:justify-self-end">
+                <div className="absolute inset-6 rounded-[28px] bg-[radial-gradient(circle_at_50%_35%,rgba(111,146,77,0.28)_0%,rgba(111,146,77,0)_48%),radial-gradient(circle_at_70%_30%,rgba(186,141,63,0.24)_0%,rgba(186,141,63,0)_42%)] blur-2xl" />
+                <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-white/5 shadow-[0_28px_55px_-38px_rgba(0,0,0,0.8)]">
+                  <img src={ctaProductVisual} alt="BioAro luxury product visual" className="h-full w-full object-cover" />
+                </div>
+              </div>
             </div>
           </div>
           </div>

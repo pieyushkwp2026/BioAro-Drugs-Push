@@ -5,7 +5,7 @@ import { fetchAllProducts } from "../lib/shopify/productService";
 import type { CatalogProduct } from "../lib/shopify/types";
 import { useMarket } from "../hooks/useMarket";
 
-const FILTERS = ["All", "Longevity", "Focus", "Recovery", "Sleep"] as const;
+const FILTERS = ["All", "Longevity", "Wellness", "Focus", "Energy", "Performance"] as const;
 const SORTS = ["Featured", "Price: Low to High", "Price: High to Low"] as const;
 
 type FilterOption = (typeof FILTERS)[number];
@@ -49,12 +49,12 @@ export default function Shop() {
   };
 
   return (
-    <div className="pt-32 pb-20">
+    <div className="pt-24 pb-16 md:pt-32 md:pb-20">
       <div className="container-bio">
         <span className="eyebrow">Shop</span>
-        <h1 className="mt-3 text-[48px] leading-none md:text-[64px]">All formulas.</h1>
+        <h1 className="mt-3 text-4xl leading-none sm:text-[48px] md:text-[64px]">All formulas.</h1>
         <p className="mt-5 max-w-2xl text-[15px] leading-7 text-[#564b46]">
-          Explore BioAro products through a cleaner, routine-led catalog with market-aware pricing, dosage guidance, and direct cart access.
+          Explore BioAro products through a cleaner, routine-led catalog with market-aware pricing and dosage guidance.
         </p>
 
         <div className="mt-10 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">

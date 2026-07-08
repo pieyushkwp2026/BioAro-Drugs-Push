@@ -3,7 +3,7 @@ import { PARTNER_AUDIENCES, PARTNER_BUILDOUT_POINTS, PARTNER_OPPORTUNITIES, PART
 
 export default function Partners() {
   return (
-    <div className="pt-32 pb-24">
+    <div className="pt-24 pb-20 md:pt-32 md:pb-24">
       <div className="container-bio">
         <PageHero {...PARTNERS_PAGE_HERO} />
 

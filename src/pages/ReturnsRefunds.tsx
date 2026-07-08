@@ -8,7 +8,7 @@ export default function ReturnsRefunds() {
   const page = getRegionalPolicyContent(region, RETURNS_CONTENT);
 
   return (
-    <div className="pt-32 pb-24">
+    <div className="pt-24 pb-20 md:pt-32 md:pb-24">
       <div className="container-bio">
         <PageHero {...page.hero} primaryCta={page.cta} />
         <div className="mt-12 space-y-5">

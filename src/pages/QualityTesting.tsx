@@ -6,7 +6,7 @@ export default function QualityTesting() {
   const hasDocuments = QUALITY_DOCUMENTS.length > 0;
 
   return (
-    <div className="pt-32 pb-24">
+    <div className="pt-24 pb-20 md:pt-32 md:pb-24">
       <div className="container-bio">
         <PageHero {...QUALITY_PAGE_HERO} />
         <div className="mt-12 grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">

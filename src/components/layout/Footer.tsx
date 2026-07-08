@@ -1,5 +1,7 @@
-import { BookOpen, Headphones, Users } from "lucide-react";
+import { BookOpen, FlaskConical, Mail, MapPin, ShieldCheck, Users } from "lucide-react";
 import { Link } from "react-router-dom";
+import bioAroMark from "../../assets/logo/bioaro-mark.png";
+import { FlagCA } from "./Flags";
 import { ROUTES } from "../../lib/routes";
 
 const SHOP_LINKS = [
@@ -8,13 +10,14 @@ const SHOP_LINKS = [
   { label: "Focus", href: "/shop?category=Focus" },
   { label: "Recovery", href: "/shop?category=Recovery" },
   { label: "Sleep", href: ROUTES.protocols },
+  { label: "Build My Stack", href: ROUTES.quiz },
 ];
 
-const LEARN_LINKS = [
-  { label: "Science", href: ROUTES.science },
+const SCIENCE_LINKS = [
+  { label: "Our Standards", href: ROUTES.quality },
+  { label: "Ingredient Library", href: ROUTES.science },
+  { label: "Testing & Quality", href: ROUTES.quality },
   { label: "Journal", href: ROUTES.journal },
-  { label: "Wellness Quiz", href: ROUTES.quiz },
-  { label: "About", href: ROUTES.about },
 ];
 
 const SUPPORT_LINKS = [
@@ -22,27 +25,38 @@ const SUPPORT_LINKS = [
   { label: "Shipping Policy", href: ROUTES.shipping },
   { label: "Returns & Refunds", href: ROUTES.returns },
   { label: "Supplement Disclaimer", href: ROUTES.disclaimer },
+  { label: "FAQs", href: ROUTES.faq },
 ];
 
 const COMPANY_LINKS = [
   { label: "About BioAro", href: ROUTES.about },
   { label: "Partners", href: ROUTES.partners },
+  { label: "Contact", href: ROUTES.support },
 ];
 
-const QUICK_LINKS = [
+const TRUST_PILLS = [
+  { Icon: ShieldCheck, label: "cGMP Certified" },
+  { Icon: FlaskConical, label: "Third-Party Tested" },
+  { Icon: FlagCA, label: "Formulated in Canada" },
+];
+
+const SOCIAL_LINKS = [
   { Icon: BookOpen, label: "Journal", href: ROUTES.journal },
-  { Icon: Headphones, label: "Support", href: ROUTES.support },
   { Icon: Users, label: "Partners", href: ROUTES.partners },
+  { Icon: Mail, label: "Email", href: "mailto:support@bioarodrugs.com" },
 ];
 
 function FooterColumn({ title, links }: { title: string; links: Array<{ label: string; href: string }> }) {
   return (
     <div>
-      <p className="text-[11.5px] font-bold uppercase tracking-[0.1em] text-[#8a8678]">{title}</p>
-      <ul className="mt-[18px] space-y-3 text-[14.5px] text-[#131012]">
+      <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-forest-600">{title}</p>
+      <ul className="mt-3 space-y-0.5">
         {links.map((link) => (
           <li key={link.label}>
-            <Link to={link.href} className="transition-colors hover:text-forest-600">
+            <Link
+              to={link.href}
+              className="block py-1.5 text-[14px] text-[#2a2723] transition-colors hover:text-forest-600"
+            >
               {link.label}
             </Link>
           </li>
@@ -54,44 +68,87 @@ function FooterColumn({ title, links }: { title: string; links: Array<{ label: s
 
 export default function Footer() {
   return (
-    <footer className="bg-[#f1eee6] pt-16">
+    <footer className="border-t border-[#ddd4c5] bg-[#eee7db] pt-10 sm:pt-12">
       <div className="container-bio">
-        <div className="grid gap-12 pb-12 md:grid-cols-[1.6fr_repeat(4,minmax(0,1fr))]">
-          <div className="max-w-[280px]">
-            <Link to="/" className="flex items-center gap-3 text-ink">
-              <span className="flex h-[22px] w-[22px] items-center justify-center rounded-full border-2 border-gold">
-                <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-              </span>
-              <span className="text-[19px] font-semibold tracking-[0.01em]">BioAro Drugs</span>
-            </Link>
-            <p className="mt-4 text-[14px] leading-6 text-[#131012]">
-              Premium bioactive formulas engineered for people who expect more from health.
-            </p>
-            <div className="mt-6 flex gap-2.5">
-              {QUICK_LINKS.map(({ Icon, label, href }) => (
-                <Link
+        <div className="grid gap-10 pb-8 lg:grid-cols-[minmax(280px,1.05fr)_minmax(0,1.95fr)] lg:gap-12">
+          <div className="max-w-[360px]">
+            <div>
+              <Link to="/" className="flex items-center gap-3 text-ink">
+                <img src={bioAroMark} alt="" aria-hidden="true" className="h-7 w-7 object-contain" />
+                <span className="text-[20px] font-semibold tracking-[0.01em]">BioAro Drugs</span>
+              </Link>
+
+              <p className="mt-4 max-w-[320px] text-[14px] leading-6 text-[#2d2a26]">
+                Premium bioactive formulas designed for better daily energy, recovery, focus, sleep, and long-term wellness.
+              </p>
+            </div>
+
+            <div className="mt-5 flex flex-wrap gap-2">
+              {TRUST_PILLS.map(({ Icon, label }) => (
+                <div
                   key={label}
-                  to={href}
-                  aria-label={label}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-[#ddd8c9] text-ink transition-colors hover:bg-white"
+                  className="inline-flex items-center gap-2 rounded-full border border-[#dfd5c4] bg-white/45 px-3 py-1.5 text-[11.5px] font-medium text-[#214a35]"
                 >
-                  <Icon size={15} />
-                </Link>
+                  <Icon size={14} />
+                  <span>{label}</span>
+                </div>
               ))}
+            </div>
+
+            <div className="mt-5 space-y-3 text-[13px] leading-6 text-[#4c443d]">
+              <div className="flex items-start gap-3">
+                <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#edf2ea] text-forest-600">
+                  <MapPin size={15} />
+                </span>
+                <div>
+                  <p className="font-medium text-ink">BioAro Drugs</p>
+                  <p>Vicarage House, 58-60 Kensington Church Street</p>
+                  <p>London, W8 4DB</p>
+                </div>
+              </div>
+
+              <a
+                href="mailto:support@bioarodrugs.com"
+                className="flex items-center gap-3 transition-colors hover:text-forest-600"
+              >
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#dfd5c4] bg-white/55 text-forest-600">
+                  <Mail size={14} />
+                </span>
+                <span>support@bioarodrugs.com</span>
+              </a>
             </div>
           </div>
 
-          <FooterColumn title="Shop" links={SHOP_LINKS} />
-          <FooterColumn title="Learn" links={LEARN_LINKS} />
-          <FooterColumn title="Support" links={SUPPORT_LINKS} />
-          <FooterColumn title="Company" links={COMPANY_LINKS} />
+          <div className="grid gap-8 sm:grid-cols-2 xl:grid-cols-4 xl:gap-12">
+            <FooterColumn title="Shop" links={SHOP_LINKS} />
+            <FooterColumn title="Science" links={SCIENCE_LINKS} />
+            <FooterColumn title="Support" links={SUPPORT_LINKS} />
+            <FooterColumn title="Company" links={COMPANY_LINKS} />
+          </div>
         </div>
 
-        <div className="flex flex-col gap-3 border-t border-[#e1ddce] py-6 text-[13px] text-[#8a8678] sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} BioAro Drugs Inc.</p>
-          <Link to={ROUTES.support} className="transition-colors hover:text-ink">
-            support@bioarodrugs.com
-          </Link>
+        <div className="flex flex-col gap-4 border-t border-[#ddd4c5] py-5 text-[#7d766c] lg:flex-row lg:items-center lg:justify-between lg:gap-6">
+          <p className="text-[12px]">© {new Date().getFullYear()} BioAro Drugs Inc.</p>
+
+          <p className="max-w-[660px] text-[12px] leading-5 lg:text-center">
+            These statements have not been evaluated by regulatory authorities. Products are not intended to diagnose,
+            treat, cure, or prevent disease.
+          </p>
+
+          <div className="flex flex-wrap gap-2.5 lg:justify-end">
+            {SOCIAL_LINKS.map(({ Icon, label, href }) => (
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                target={href.startsWith("http") ? "_blank" : undefined}
+                rel={href.startsWith("http") ? "noreferrer" : undefined}
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-[#d8cfbf] bg-[#f8f4ed] text-[#214a35] transition-colors hover:bg-white hover:text-forest-600"
+              >
+                <Icon size={16} />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

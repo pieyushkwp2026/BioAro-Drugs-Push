@@ -45,7 +45,7 @@ const STEPS = [
 
 export default function Science() {
   return (
-    <div className="pt-32 pb-24">
+    <div className="pt-24 pb-20 md:pt-32 md:pb-24">
       <div className="container-bio">
         <span className="eyebrow">Science & structure</span>
         <h1 className="mt-3 max-w-2xl text-4xl md:text-5xl">A premium wellness storefront needs more than a product grid.</h1>

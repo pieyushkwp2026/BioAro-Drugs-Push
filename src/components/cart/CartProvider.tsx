@@ -55,7 +55,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       } catch (loadError) {
         if (!active) return;
         setCart(createEmptyCart(country));
-        setError(loadError instanceof Error ? loadError.message : "Unable to load cart.");
+        setError(loadError instanceof Error ? "We couldn't refresh your saved products just now. Please try again." : "We couldn't refresh your saved products just now. Please try again.");
       } finally {
         if (active) setIsLoading(false);
       }
@@ -75,7 +75,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         const syncedCart = await syncCartMarket(country);
         if (active) setCart(syncedCart);
       } catch {
-        if (active) setError("Unable to refresh cart pricing for the selected market.");
+        if (active) setError("We couldn't refresh launch pricing for your selected region just now.");
       }
     })();
 
@@ -96,7 +96,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         setCart(nextCart);
         setIsOpen(true);
       } catch (actionError) {
-        setError(actionError instanceof Error ? actionError.message : "Unable to update cart.");
+        setError(actionError instanceof Error ? "We couldn't update your saved products just now. Please try again." : "We couldn't update your saved products just now. Please try again.");
       } finally {
         setIsLoading(false);
       }

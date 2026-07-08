@@ -4,6 +4,7 @@ import { Menu, ShoppingBag, X } from "lucide-react";
 import RegionSelector from "./RegionSelector";
 import { PRIMARY_NAV, ROUTES } from "../../lib/routes";
 import { useCart } from "../../hooks/useCart";
+import bioAroMark from "../../assets/logo/bioaro-mark.png";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -25,9 +26,7 @@ export default function Header() {
       <div className="container-bio">
         <div className="flex min-h-[76px] items-center justify-between gap-6">
           <Link to="/" className="flex items-center gap-3 text-ink">
-            <span className="flex h-[22px] w-[22px] items-center justify-center rounded-full border-2 border-gold">
-              <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-            </span>
+            <img src={bioAroMark} alt="" aria-hidden="true" className="h-[24px] w-[24px] object-contain" />
             <span className="text-[19px] font-semibold tracking-[0.01em]">BioAro Drugs</span>
           </Link>
 

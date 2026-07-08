@@ -35,7 +35,7 @@ export default function RegionSelector() {
         aria-label="Select region"
         className="flex h-9 items-center gap-2 rounded-full border border-[#ddd8c9] bg-white/70 px-3 text-[13px] text-ink transition-colors hover:bg-white"
       >
-        <SelectedFlag className="h-3.5 w-5 shrink-0 overflow-hidden rounded-[2px]" />
+        <SelectedFlag className="h-3.5 w-[22px] shrink-0 overflow-hidden rounded-[2px]" />
         <span>{currentMarket.shortLabel}</span>
         <ChevronDown size={13} className={`transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
@@ -57,7 +57,7 @@ export default function RegionSelector() {
                   country === market.country ? "bg-white" : "hover:bg-white/70"
                 }`}
               >
-                <Flag className="h-4 w-6 shrink-0 overflow-hidden rounded-[2px]" />
+                <Flag className="h-4 w-[26px] shrink-0 overflow-hidden rounded-[2px]" />
                 <span className="flex-1">{market.label}</span>
                 <span className="text-xs text-[#8a8678]">{market.currency}</span>
               </button>

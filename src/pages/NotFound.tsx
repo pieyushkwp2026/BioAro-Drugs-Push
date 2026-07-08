@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function NotFound() {
   return (
-    <div className="pt-36 pb-24">
+    <div className="pt-24 pb-20 md:pt-36 md:pb-24">
       <div className="container-bio text-center">
         <span className="eyebrow">Not found</span>
         <h1 className="mt-3 text-4xl md:text-5xl">This page isn't available.</h1>

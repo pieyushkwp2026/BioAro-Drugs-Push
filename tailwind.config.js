@@ -12,7 +12,7 @@ export default {
       },
       fontFamily: {
         display: ["'Cormorant Garamond'", "serif"],
-        body: ["'Inter'", "sans-serif"],
+        body: ["Inter", "sans-serif"],
       },
       backdropBlur: { xs: "2px" },
       boxShadow: {

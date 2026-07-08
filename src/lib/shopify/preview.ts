@@ -50,7 +50,7 @@ export function buildPreviewLine(handle: string, quantity: number, country: Coun
     title: product.title,
     handle: product.handle,
     price: product.price,
-    image: product.image,
+    image: product.image ?? { src: "", alt: product.title },
   };
 }
 
