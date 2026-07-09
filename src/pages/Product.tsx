@@ -24,7 +24,7 @@ const WHY_ICONS: Record<ProductWhyItem["icon"], typeof Zap> = {
 
 const REGION_DISCLAIMERS = {
   NA: "Statements about wellness support describe general product positioning only and are not intended to diagnose, treat, cure, or prevent disease.",
-  UK: "BioAro products are presented as food supplements. Do not exceed the recommended daily dose and do not use supplements as a substitute for a varied, balanced diet and healthy lifestyle.",
+  UK: "BioAro products are presented as food supplements. Food supplements should not be used as a substitute for a varied, balanced diet and a healthy lifestyle.",
 } as const;
 
 function initialsFor(title: string) {
@@ -65,6 +65,7 @@ export default function Product() {
   }
 
   const maxEfficacy = Math.max(product.efficacyMetric.placeboValue, product.efficacyMetric.productValue);
+  const showGraph = product.efficacyMetric.label !== "" && maxEfficacy > 0;
 
   return (
     <div className="pt-24 pb-20 md:pt-32 md:pb-24">
@@ -201,26 +202,28 @@ export default function Product() {
               ))}
             </ul>
 
-            <div className="mt-6 rounded-2xl bg-white/60 p-5">
-              <p className="text-sm font-medium">{product.efficacyMetric.label}</p>
-              <div className="mt-6 flex items-end justify-center gap-10">
-                <div className="text-center">
-                  <div
-                    className="mx-auto w-10 rounded-t-md bg-sand"
-                    style={{ height: `${(product.efficacyMetric.placeboValue / maxEfficacy) * 96}px` }}
-                  />
-                  <p className="mt-2 text-xs text-ink/45">Placebo</p>
+            {showGraph && (
+              <div className="mt-6 rounded-2xl bg-white/60 p-5">
+                <p className="text-sm font-medium">{product.efficacyMetric.label}</p>
+                <div className="mt-6 flex items-end justify-center gap-10">
+                  <div className="text-center">
+                    <div
+                      className="mx-auto w-10 rounded-t-md bg-sand"
+                      style={{ height: `${(product.efficacyMetric.placeboValue / maxEfficacy) * 96}px` }}
+                    />
+                    <p className="mt-2 text-xs text-ink/45">Placebo</p>
+                  </div>
+                  <div className="text-center">
+                    <div
+                      className="mx-auto w-10 rounded-t-md bg-forest-600"
+                      style={{ height: `${(product.efficacyMetric.productValue / maxEfficacy) * 96}px` }}
+                    />
+                    <p className="mt-2 text-xs text-ink/45">{product.title}</p>
+                  </div>
                 </div>
-                <div className="text-center">
-                  <div
-                    className="mx-auto w-10 rounded-t-md bg-forest-600"
-                    style={{ height: `${(product.efficacyMetric.productValue / maxEfficacy) * 96}px` }}
-                  />
-                  <p className="mt-2 text-xs text-ink/45">{product.title}</p>
-                </div>
+                <p className="mt-4 text-center text-[11px] text-ink/40">{product.efficacyMetric.caption}</p>
               </div>
-              <p className="mt-4 text-center text-[11px] text-ink/40">{product.efficacyMetric.caption}</p>
-            </div>
+            )}
           </section>
 
           <section className="glass-card p-7 md:p-10">
@@ -313,13 +316,20 @@ export default function Product() {
             <h2 className="text-2xl md:text-3xl">Supplement facts</h2>
             <div className="mt-5 divide-y divide-ink/10">
               {product.supplementFacts.map((fact) => (
-                <div key={fact.label} className="flex items-center justify-between gap-3 py-3 text-sm">
-                  <span className="text-ink/55">{fact.label}</span>
+                <div key={fact.label} className="flex items-start justify-between gap-3 py-3 text-sm">
+                  <span className="shrink-0 text-ink/55">{fact.label}</span>
                   <span className="font-medium text-right">{fact.value}</span>
                 </div>
               ))}
             </div>
-            <div className="mt-6 rounded-2xl border border-ink/10 bg-white/45 px-4 py-4 text-sm leading-relaxed text-ink/55">
+            {product.responsibleBusiness && (
+              <div className="mt-6 border-t border-ink/10 pt-5 text-xs text-ink/45 leading-relaxed">
+                <p className="font-medium text-ink/60">Responsible Food Business</p>
+                <p className="mt-1">{product.responsibleBusiness.name}</p>
+                <p>{product.responsibleBusiness.address}</p>
+              </div>
+            )}
+            <div className="mt-4 rounded-2xl border border-ink/10 bg-white/45 px-4 py-4 text-sm leading-relaxed text-ink/55">
               {REGION_DISCLAIMERS[region]}
             </div>
           </section>
@@ -337,8 +347,23 @@ export default function Product() {
           </section>
         </div>
 
+        {/* Quality & Compliance — above FAQ */}
+        {product.qualityPoints && product.qualityPoints.length > 0 && (
+          <section className="mt-12 glass-card p-6 md:p-8">
+            <span className="eyebrow">Quality & Compliance</span>
+            <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+              {product.qualityPoints.map((point) => (
+                <li key={point} className="flex items-center gap-2 text-sm text-ink/70">
+                  <Check size={15} className="shrink-0 text-forest-600" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
         {/* FAQ */}
-        <section className="mt-24 max-w-3xl">
+        <section className="mt-12 max-w-3xl">
           <span className="eyebrow">FAQ</span>
           <h2 className="mt-2 mb-6 text-3xl">Frequently asked questions</h2>
           <AccordionGroup

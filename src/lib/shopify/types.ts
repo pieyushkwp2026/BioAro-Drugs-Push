@@ -52,6 +52,11 @@ export interface ProductFAQ {
   answer: string;
 }
 
+export interface ProductResponsibleBusiness {
+  name: string;
+  address: string;
+}
+
 export interface ProductEditorial {
   id: string;
   handle: string;
@@ -71,6 +76,8 @@ export interface ProductEditorial {
   whyItems: ProductWhyItem[];
   trustNotes: string[];
   warnings: string[];
+  qualityPoints?: string[];
+  responsibleBusiness?: ProductResponsibleBusiness;
   ingredients: ProductIngredient[];
   supplementFacts: ProductFact[];
   science: ProductScienceStep[];
