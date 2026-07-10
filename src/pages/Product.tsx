@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Check, Star, Zap, Dna, Scale, Heart, Brain, Shield, Flame, Droplet, Sparkles, ArrowRight } from "lucide-react";
+import { Check, Zap, Dna, Scale, Heart, Brain, Shield, Flame, Droplet, Sparkles, ArrowRight } from "lucide-react";
 import AccordionGroup from "../components/page/AccordionGroup";
 import IngredientCard from "../components/sections/IngredientCard";
 import PlaceholderBottle from "../components/sections/PlaceholderBottle";
@@ -8,7 +8,7 @@ import { fetchProductByHandle, fetchAllProducts } from "../lib/shopify/productSe
 import type { CatalogProduct, ProductWhyItem } from "../lib/shopify/types";
 import { useMarket } from "../hooks/useMarket";
 import { formatMoney } from "../lib/market/config";
-import { COMPARISON_ROWS, TESTIMONIALS, FEATURED_TESTIMONIAL } from "../data/pdpContent";
+import { COMPARISON_ROWS } from "../data/pdpContent";
 
 const WHY_ICONS: Record<ProductWhyItem["icon"], typeof Zap> = {
   energy: Zap,
@@ -88,16 +88,6 @@ export default function Product() {
             <span className="eyebrow">{product.category}</span>
             <h1 className="mt-3 text-4xl md:text-5xl">{product.title}</h1>
             <p className="mt-3 text-forest-600">{product.tagline}</p>
-
-            <div className="mt-3 flex items-center gap-2 text-sm">
-              <div className="flex items-center gap-0.5 text-gold-400">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} size={14} fill="currentColor" strokeWidth={0} />
-                ))}
-              </div>
-              <span className="font-medium text-ink">{product.rating.average}</span>
-              <span className="text-ink/40">· {product.rating.count.toLocaleString()} reviews</span>
-            </div>
 
             <p className="mt-5 text-ink/60 leading-relaxed">{product.description}</p>
 
@@ -244,41 +234,6 @@ export default function Product() {
             </div>
           </section>
         </div>
-
-        {/* Testimonials */}
-        <section className="mt-24">
-          <span className="eyebrow">What our customers say</span>
-          <h2 className="mt-2 text-3xl">Real people. Real routines.</h2>
-          <div className="mt-8 grid gap-5 lg:grid-cols-[1.4fr_1fr]">
-            <div className="grid gap-4 sm:grid-cols-3">
-              {TESTIMONIALS.map((testimonial) => (
-                <div key={testimonial.name} className="glass-card p-5">
-                  <div className="flex items-center gap-0.5 text-gold-400">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star key={i} size={12} fill="currentColor" strokeWidth={0} />
-                    ))}
-                  </div>
-                  <p className="mt-3 text-sm leading-relaxed text-ink/70">{testimonial.quote}</p>
-                  <p className="mt-4 text-xs font-medium text-ink">{testimonial.name}</p>
-                  <p className="text-xs text-ink/40">{testimonial.location}</p>
-                </div>
-              ))}
-            </div>
-            <div className="glass-dark relative flex flex-col justify-center overflow-hidden rounded-[24px] p-8 text-white">
-              <span className="text-3xl text-white/30">&ldquo;</span>
-              <p className="mt-2 text-xl leading-snug">{FEATURED_TESTIMONIAL.quote}</p>
-              <div className="mt-6 flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-sm font-medium">
-                  {FEATURED_TESTIMONIAL.initials}
-                </div>
-                <div>
-                  <p className="text-sm font-medium">{FEATURED_TESTIMONIAL.name}</p>
-                  <p className="text-xs text-white/50">{FEATURED_TESTIMONIAL.location}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* Complete your daily routine */}
         {routineMates.length > 0 && (
