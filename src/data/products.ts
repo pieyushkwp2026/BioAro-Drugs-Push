@@ -35,12 +35,12 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
   {
     id: "longevity",
     handle: "longevity-plus",
-    title: "Longevity+",
+    title: "LONgevity+",
     badge: "NAD+ Booster",
     tagline: "Supports healthy ageing and everyday vitality.",
     description:
       "Daily wellness formula designed to support healthy ageing and cellular energy, featuring NMN, resveratrol, CoQ10, curcumin, vitamin D3, and vitamin B12, helping support everyday vitality and cellular wellbeing.",
-    image: { src: longevityImg, alt: "BioAro Longevity+ bottle" },
+    image: { src: longevityImg, alt: "BioAro LONgevity+ bottle" },
     category: "Longevity",
     tags: ["Cellular Energy", "Healthy Aging", "NAD+ Support"],
     bestFor: "Adults focused on long-term vitality, cellular wellness, and proactive healthy aging.",
@@ -116,9 +116,9 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       caption: "Based on published clinical studies of NMN supplementation, 12-week window.",
     },
     faq: [
-      { question: "How should I take Longevity+?", answer: "Take 2 capsules daily with food, or as directed on the product label." },
+      { question: "How should I take LONgevity+?", answer: "Take 2 capsules daily with food, or as directed on the product label." },
       { question: "When will I see results?", answer: "Individual experiences vary depending on diet, lifestyle and consistency of use." },
-      { question: "Is it suitable for vegetarians?", answer: "Yes, Longevity+ is formulated in vegan capsules." },
+      { question: "Is it suitable for vegetarians?", answer: "Yes, LONgevity+ is formulated in vegan capsules." },
       { question: "Are there any side effects?", answer: "Please follow the recommended intake on the label and consult a healthcare professional before use if you are pregnant, breastfeeding, taking medication or managing a medical condition." },
       { question: "Is it safe to take with other supplements?", answer: "Check with a healthcare professional if you are on medication or combining multiple supplements." },
       { question: "What is your return policy?", answer: "See our returns & refunds page for full details." },
