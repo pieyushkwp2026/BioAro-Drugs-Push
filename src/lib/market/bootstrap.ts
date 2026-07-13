@@ -1,4 +1,4 @@
-import { isCountryCode } from "./config";
+import { getMarketConfigByMarket, isCountryCode, marketFromCountryCode, normalizeMarketIdentifier } from "../../config/markets";
 import type { MarketBootstrap } from "./types";
 
 declare global {
@@ -10,12 +10,20 @@ declare global {
 const BOOTSTRAP_URL = import.meta.env.VITE_MARKET_BOOTSTRAP_URL;
 
 function normalizeBootstrap(value: Partial<MarketBootstrap> | null | undefined): MarketBootstrap | null {
-  if (!value?.country || !isCountryCode(value.country)) return null;
+  if (!value) return null;
 
+  const market =
+    (value.market && normalizeMarketIdentifier(value.market)) ||
+    (value.country && isCountryCode(value.country) ? marketFromCountryCode(value.country) : null);
+
+  if (!market) return null;
+
+  const marketConfig = getMarketConfigByMarket(market);
   return {
-    country: value.country,
-    currency: value.currency ?? (value.country === "CA" ? "CAD" : value.country === "GB" ? "GBP" : "USD"),
-    experienceRegion: value.experienceRegion ?? (value.country === "GB" ? "UK" : "NA"),
+    market,
+    country: value.country ?? marketConfig.countryCode,
+    currency: value.currency ?? marketConfig.currency,
+    experienceRegion: value.experienceRegion ?? marketConfig.experienceRegion,
   };
 }
 

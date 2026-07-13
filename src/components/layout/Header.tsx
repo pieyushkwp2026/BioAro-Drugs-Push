@@ -4,12 +4,14 @@ import { Menu, ShoppingBag, X } from "lucide-react";
 import RegionSelector from "./RegionSelector";
 import { PRIMARY_NAV, ROUTES } from "../../lib/routes";
 import { useCart } from "../../hooks/useCart";
+import { useMarketHref } from "../../hooks/useMarketHref";
 import bioAroMark from "../../assets/logo/bioaro-mark.png";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const { cart, openCart } = useCart();
+  const marketHref = useMarketHref();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -25,7 +27,7 @@ export default function Header() {
     >
       <div className="container-bio">
         <div className="flex min-h-[76px] items-center justify-between gap-6">
-          <Link to="/" className="flex items-center gap-3 text-ink">
+          <Link to={marketHref(ROUTES.home)} className="flex items-center gap-3 text-ink">
             <img src={bioAroMark} alt="" aria-hidden="true" className="h-[24px] w-[24px] object-contain" />
             <span className="text-[19px] font-semibold tracking-[0.01em]">BioAro Drugs</span>
           </Link>
@@ -34,7 +36,7 @@ export default function Header() {
             {PRIMARY_NAV.map((item) => (
               <NavLink
                 key={item.href}
-                to={item.href}
+                to={marketHref(item.href)}
                 className={({ isActive }) =>
                   `text-[15px] transition-colors ${isActive ? "font-medium text-ink" : "text-[#131012] hover:text-forest-600"}`
                 }
@@ -87,7 +89,7 @@ export default function Header() {
               {PRIMARY_NAV.map((item) => (
                 <Link
                   key={item.href}
-                  to={item.href}
+                  to={marketHref(item.href)}
                   onClick={() => setOpen(false)}
                   className="rounded-2xl px-3 py-3 text-[15px] text-ink transition-colors hover:bg-white/70"
                 >
@@ -95,7 +97,7 @@ export default function Header() {
                 </Link>
               ))}
               <Link
-                to={ROUTES.support}
+                to={marketHref(ROUTES.support)}
                 onClick={() => setOpen(false)}
                 className="rounded-2xl px-3 py-3 text-[15px] text-ink transition-colors hover:bg-white/70"
               >

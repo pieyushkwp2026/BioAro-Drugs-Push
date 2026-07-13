@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import bioAroMark from "../../assets/logo/bioaro-mark.png";
 import { FlagCA } from "./Flags";
 import { ROUTES } from "../../lib/routes";
+import { useMarket } from "../../hooks/useMarket";
+import { useMarketHref } from "../../hooks/useMarketHref";
+import { getMarketConfigByMarket } from "../../config/markets";
 
 const SHOP_LINKS = [
   { label: "All Products", href: ROUTES.shop },
@@ -43,10 +46,11 @@ const TRUST_PILLS = [
 const SOCIAL_LINKS = [
   { Icon: BookOpen, label: "Journal", href: ROUTES.journal },
   { Icon: Users, label: "Partners", href: ROUTES.partners },
-  { Icon: Mail, label: "Email", href: "mailto:support@bioarodrugs.com" },
 ];
 
 function FooterColumn({ title, links }: { title: string; links: Array<{ label: string; href: string }> }) {
+  const marketHref = useMarketHref();
+
   return (
     <div>
       <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-forest-600">{title}</p>
@@ -54,7 +58,7 @@ function FooterColumn({ title, links }: { title: string; links: Array<{ label: s
         {links.map((link) => (
           <li key={link.label}>
             <Link
-              to={link.href}
+              to={marketHref(link.href)}
               className="block py-1.5 text-[14px] text-[#2a2723] transition-colors hover:text-forest-600"
             >
               {link.label}
@@ -67,13 +71,20 @@ function FooterColumn({ title, links }: { title: string; links: Array<{ label: s
 }
 
 export default function Footer() {
+  const { market } = useMarket();
+  const marketHref = useMarketHref();
+  const marketConfig = getMarketConfigByMarket(market);
+  const addressLine = marketConfig.address
+    ? `${marketConfig.address.line1}, ${marketConfig.address.line2}, ${marketConfig.address.city}, ${marketConfig.address.postcode}, ${marketConfig.address.country}`
+    : "Regional business details pending approval.";
+
   return (
     <footer className="border-t border-[#ddd4c5] bg-[#eee7db] pt-10 sm:pt-12">
       <div className="container-bio">
         <div className="grid gap-10 pb-8 lg:grid-cols-[minmax(280px,1.05fr)_minmax(0,1.95fr)] lg:gap-12">
           <div className="max-w-[360px]">
             <div>
-              <Link to="/" className="flex items-center gap-3 text-ink">
+              <Link to={marketHref(ROUTES.home)} className="flex items-center gap-3 text-ink">
                 <img src={bioAroMark} alt="" aria-hidden="true" className="h-7 w-7 object-contain" />
                 <span className="text-[20px] font-semibold tracking-[0.01em]">BioAro Drugs</span>
               </Link>
@@ -101,20 +112,17 @@ export default function Footer() {
                   <MapPin size={15} />
                 </span>
                 <div>
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-forest-600">Responsible Food Business</p>
-                  <p className="mt-1 font-medium text-ink">BioAro Drugs</p>
-                  <p>Vicarage House, 58-60 Kensington Church Street, London, W8 4DB, United Kingdom</p>
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-forest-600">Responsible Food Business</p>
+                  <p className="font-medium text-ink">BioAro Drugs</p>
+                  <p>{addressLine}</p>
                 </div>
               </div>
 
-              <a
-                href="mailto:support@bioarodrugs.com"
-                className="flex items-center gap-3 transition-colors hover:text-forest-600"
-              >
+              <a href={`mailto:${marketConfig.supportEmail}`} className="flex items-center gap-3 transition-colors hover:text-forest-600">
                 <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#dfd5c4] bg-white/55 text-forest-600">
                   <Mail size={14} />
                 </span>
-                <span>support@bioarodrugs.com</span>
+                <span>{marketConfig.supportEmail}</span>
               </a>
             </div>
           </div>
@@ -130,24 +138,37 @@ export default function Footer() {
         <div className="flex flex-col gap-4 border-t border-[#ddd4c5] py-5 text-[#7d766c] lg:flex-row lg:items-center lg:justify-between lg:gap-6">
           <p className="text-[12px]">© {new Date().getFullYear()} BioAro Drugs Inc.</p>
 
-          <p className="max-w-[660px] text-[12px] leading-5 lg:text-center">
-            These statements have not been evaluated by regulatory authorities. Products are not intended to diagnose,
-            treat, cure, or prevent disease.
-          </p>
-
           <div className="flex flex-wrap gap-2.5 lg:justify-end">
             {SOCIAL_LINKS.map(({ Icon, label, href }) => (
-              <a
-                key={label}
-                href={href}
-                aria-label={label}
-                target={href.startsWith("http") ? "_blank" : undefined}
-                rel={href.startsWith("http") ? "noreferrer" : undefined}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-[#d8cfbf] bg-[#f8f4ed] text-[#214a35] transition-colors hover:bg-white hover:text-forest-600"
-              >
-                <Icon size={16} />
-              </a>
+              href.startsWith("mailto:") || href.startsWith("http") ? (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noreferrer" : undefined}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-[#d8cfbf] bg-[#f8f4ed] text-[#214a35] transition-colors hover:bg-white hover:text-forest-600"
+                >
+                  <Icon size={16} />
+                </a>
+              ) : (
+                <Link
+                  key={label}
+                  to={marketHref(href)}
+                  aria-label={label}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-[#d8cfbf] bg-[#f8f4ed] text-[#214a35] transition-colors hover:bg-white hover:text-forest-600"
+                >
+                  <Icon size={16} />
+                </Link>
+              )
             ))}
+            <a
+              href={`mailto:${marketConfig.supportEmail}`}
+              aria-label="Email"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-[#d8cfbf] bg-[#f8f4ed] text-[#214a35] transition-colors hover:bg-white hover:text-forest-600"
+            >
+              <Mail size={16} />
+            </a>
           </div>
         </div>
       </div>

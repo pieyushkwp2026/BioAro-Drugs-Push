@@ -1,5 +1,7 @@
 import { ClipboardCheck, FlaskConical, Leaf, ShieldCheck } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useMarketHref } from "../hooks/useMarketHref";
+import { ROUTES } from "../lib/routes";
 
 const PILLARS = [
   {
@@ -44,6 +46,8 @@ const STEPS = [
 ];
 
 export default function Science() {
+  const marketHref = useMarketHref();
+
   return (
     <div className="pt-24 pb-20 md:pt-32 md:pb-24">
       <div className="container-bio">
@@ -86,7 +90,7 @@ export default function Science() {
             </p>
           </div>
           <div className="flex items-end">
-            <Link to="/living-2-0" className="btn-secondary !bg-white/10 !text-cream hover:!bg-white/15">
+            <Link to={marketHref(ROUTES.living)} className="btn-secondary !bg-white/10 !text-cream hover:!bg-white/15">
               Explore Living 2.0
             </Link>
           </div>

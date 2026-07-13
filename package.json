@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview --host 127.0.0.1 --port 5173",
-    "test": "tsc -p tsconfig.test.json && node --test .test-dist/tests/*.test.js"
+    "test": "tsc -p tsconfig.test.json && printf '{\"type\":\"commonjs\"}' > .test-dist/package.json && node --test .test-dist/tests/*.test.js"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",

@@ -1,8 +1,12 @@
 import { FlaskConical, Heart, ShieldCheck } from "lucide-react";
 import { Link } from "react-router-dom";
 import ctaProductVisual from "../assets/cta/dark-luxury-cta-product-visual.png";
+import { useMarketHref } from "../hooks/useMarketHref";
+import { ROUTES } from "../lib/routes";
 
 export default function About() {
+  const marketHref = useMarketHref();
+
   return (
     <div className="pt-24 pb-20 md:pt-32 md:pb-24">
       <div className="container-bio">
@@ -20,7 +24,7 @@ export default function About() {
             <p className="mt-6 text-sm leading-relaxed text-ink/55">
               BioAro Drugs is the action layer of a wider system. The goal is to give customers a premium storefront that explains what each product is for, how it fits into the day, and where support and policy details live when questions arise.
             </p>
-            <Link to="/living-2-0" className="mt-6 inline-flex items-center gap-1 text-sm text-forest-600 transition-all hover:gap-2">
+            <Link to={marketHref(ROUTES.living)} className="mt-6 inline-flex items-center gap-1 text-sm text-forest-600 transition-all hover:gap-2">
               Read the Living 2.0 approach
             </Link>
           </div>

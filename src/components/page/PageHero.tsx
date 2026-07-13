@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
+import { useMarketHref } from "../../hooks/useMarketHref";
 import type { PageCta, PageHeroContent } from "../../lib/content/types";
 
 function ActionButton({ action }: { action: PageCta }) {
+  const marketHref = useMarketHref();
   const className =
     action.variant === "secondary"
       ? "btn-secondary"
@@ -9,7 +11,7 @@ function ActionButton({ action }: { action: PageCta }) {
         ? "text-sm text-forest-600 hover:text-forest-700"
         : "btn-primary";
 
-  const isExternal = action.href.startsWith("mailto:");
+  const isExternal = action.href.startsWith("mailto:") || action.href.startsWith("http");
 
   if (isExternal) {
     return (
@@ -20,7 +22,7 @@ function ActionButton({ action }: { action: PageCta }) {
   }
 
   return (
-    <Link to={action.href} className={className}>
+    <Link to={marketHref(action.href)} className={className}>
       {action.label}
     </Link>
   );

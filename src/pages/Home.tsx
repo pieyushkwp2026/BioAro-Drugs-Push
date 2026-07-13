@@ -32,6 +32,7 @@ import founderVisual from "../assets/figma-home/founder-bun-woman.png";
 import { SUPPORT_EMAILS } from "../data/siteContent";
 import { JOURNAL_ARTICLES } from "../data/journal";
 import { useMarket } from "../hooks/useMarket";
+import { useMarketHref } from "../hooks/useMarketHref";
 import { ROUTES } from "../lib/routes";
 import { fetchAllProducts } from "../lib/shopify/productService";
 import type { CatalogProduct } from "../lib/shopify/types";
@@ -246,6 +247,7 @@ function ComparisonState({ value }: { value: "yes" | "no" | "mixed" }) {
 
 export default function Home() {
   const { country } = useMarket();
+  const marketHref = useMarketHref();
   const [products, setProducts] = useState<CatalogProduct[]>([]);
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const supportEmail = SUPPORT_EMAILS[0]?.value ?? "support@bioarodrugs.com";
@@ -307,10 +309,10 @@ export default function Home() {
                     Daily protocols designed to elevate your energy, endurance, recovery, and long-term wellness so you can perform today and thrive tomorrow.
                   </p>
                   <div className="mt-7 flex max-w-[360px] flex-col gap-3 md:mt-8 md:max-w-none md:flex-row md:flex-nowrap">
-                    <Link to={ROUTES.shop} className="btn-primary w-full px-8 py-4 text-[15px] md:w-auto">
+                    <Link to={marketHref(ROUTES.shop)} className="btn-primary w-full px-8 py-4 text-[15px] md:w-auto">
                       Shop Products <ArrowRight size={15} />
                     </Link>
-                    <Link to={ROUTES.quiz} className="btn-secondary w-full border-[#cfc5b3] bg-white/72 px-8 py-4 text-[15px] backdrop-blur-sm md:w-auto">
+                    <Link to={marketHref(ROUTES.quiz)} className="btn-secondary w-full border-[#cfc5b3] bg-white/72 px-8 py-4 text-[15px] backdrop-blur-sm md:w-auto">
                       Build My Stack
                     </Link>
                   </div>
@@ -369,7 +371,7 @@ export default function Home() {
             {OUTCOME_PILLS.map((item) => (
               <Link
                 key={item.title}
-                to={item.href}
+                to={marketHref(item.href)}
                 className="flex min-h-[116px] w-full items-center gap-3 rounded-2xl border border-[#e6e2d4] bg-[#fbf9f5] px-5 py-5 transition-colors hover:bg-white"
               >
                 <div className={`flex h-[42px] w-[42px] items-center justify-center rounded-[16px_6px_16px_6px] ${item.tone}`}>
@@ -407,7 +409,7 @@ export default function Home() {
             {ESSENTIALS.map((item, index) => (
               <Link
                 key={item.title}
-                to={item.href}
+                to={marketHref(item.href)}
                 className="overflow-hidden rounded-[18px] border border-[#e6e2d4] bg-[#f9f6f4] shadow-[0_24px_50px_-40px_rgba(27,26,23,0.35)] transition-transform duration-300 hover:-translate-y-1"
               >
                 <div className="relative h-[251px] overflow-hidden bg-[#f3f0e8]">
@@ -451,7 +453,7 @@ export default function Home() {
                 <p className="mt-2 text-[14px] text-[#131012]">Take our 60-second quiz and we&apos;ll build your perfect stack.</p>
               </div>
             </div>
-            <Link to={ROUTES.quiz} className="btn-primary whitespace-nowrap">
+            <Link to={marketHref(ROUTES.quiz)} className="btn-primary whitespace-nowrap">
               <Sparkles size={14} /> Take the Wellness Quiz <ArrowRight size={15} />
             </Link>
           </div>
@@ -467,7 +469,7 @@ export default function Home() {
               <span className="eyebrow">Daily essentials</span>
               <h2 className="mt-3 text-[40px] leading-none md:text-[46px]">The essentials for better daily performance.</h2>
             </div>
-            <Link to={ROUTES.shop} className="text-[15px] text-[#131012] transition-colors hover:text-forest-600">
+            <Link to={marketHref(ROUTES.shop)} className="text-[15px] text-[#131012] transition-colors hover:text-forest-600">
               All products →
             </Link>
           </div>
@@ -604,7 +606,7 @@ export default function Home() {
                 <p className="mt-5 max-w-[380px] text-[17px] leading-8 text-[#131012]">
                   Answer a few simple questions and we&apos;ll recommend the BioAro stack that fits your goals.
                 </p>
-                <Link to={ROUTES.quiz} className="btn-primary mt-8 inline-flex">
+                <Link to={marketHref(ROUTES.quiz)} className="btn-primary mt-8 inline-flex">
                   Take the Wellness Quiz
                 </Link>
               </div>
@@ -668,7 +670,7 @@ export default function Home() {
                   <p className="text-[12.5px] text-[#8a8678]">Founder &amp; Chief Science Officer</p>
                 </div>
               </div>
-              <Link to={ROUTES.living} className="mt-8 inline-flex items-center gap-2 text-[14px] font-semibold text-forest-600">
+              <Link to={marketHref(ROUTES.living)} className="mt-8 inline-flex items-center gap-2 text-[14px] font-semibold text-forest-600">
                 Explore Living 2.0 <ArrowRight size={14} />
               </Link>
             </div>
@@ -688,7 +690,7 @@ export default function Home() {
               <span className="eyebrow">Journal</span>
               <h2 className="mt-3 text-[36px] leading-none md:text-[40px]">Education hub.</h2>
             </div>
-            <Link to={ROUTES.journal} className="text-[15px] text-[#131012] transition-colors hover:text-forest-600">
+            <Link to={marketHref(ROUTES.journal)} className="text-[15px] text-[#131012] transition-colors hover:text-forest-600">
               All articles →
             </Link>
           </div>
@@ -697,7 +699,7 @@ export default function Home() {
             {JOURNAL_ARTICLES.slice(0, 3).map((article) => (
               <Link
                 key={article.title}
-                to={ROUTES.journal}
+                to={marketHref(ROUTES.journal)}
                 className="group overflow-hidden rounded-2xl border border-[#e2ded2] bg-[#f2f0ec] transition-colors hover:bg-white"
               >
                 <div className="aspect-[16/10] overflow-hidden bg-[#ece8de]">
@@ -769,13 +771,13 @@ export default function Home() {
 
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start">
                   <Link
-                    to={ROUTES.shop}
+                    to={marketHref(ROUTES.shop)}
                     className="inline-flex w-full items-center justify-center rounded-full bg-[#f6f1e7] px-7 py-3.5 text-[15px] font-medium text-ink transition-transform transition-colors hover:-translate-y-0.5 hover:bg-white sm:w-auto"
                   >
                     Shop Products
                   </Link>
                   <Link
-                    to={ROUTES.quiz}
+                    to={marketHref(ROUTES.quiz)}
                     className="inline-flex w-full items-center justify-center rounded-full border border-white/22 bg-white/6 px-7 py-3.5 text-[15px] font-medium text-white transition-colors hover:border-white/35 hover:bg-white/10 sm:w-auto"
                   >
                     Build My Stack

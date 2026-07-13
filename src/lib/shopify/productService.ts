@@ -1,10 +1,12 @@
 import { getPreviewProductByHandle, PREVIEW_PRODUCTS } from "../../data/products";
+import { getMarketConfigByCountry } from "../../config/markets";
 import type { CountryCode } from "../market/types";
 import { isShopifyConfigured, shopifyFetch } from "./client";
 import { buildCatalogProduct, buildPreviewCatalog, money } from "./preview";
 import type { CatalogProduct, ProductEditorial, ProductImage, ShopifyProduct } from "./types";
 
 const USE_MOCK_DATA = import.meta.env.VITE_SHOPIFY_USE_MOCK_DATA === "true";
+type ShopifyCurrencyCode = ShopifyProduct["price"]["currencyCode"];
 
 interface ShopifyProductNode {
   id: string;
@@ -16,8 +18,8 @@ interface ShopifyProductNode {
   selectedOrFirstAvailableVariant?: {
     id: string;
     image?: { url: string; altText: string | null } | null;
-    price: { amount: string; currencyCode: "USD" | "CAD" | "GBP" };
-    compareAtPrice?: { amount: string; currencyCode: "USD" | "CAD" | "GBP" } | null;
+    price: { amount: string; currencyCode: ShopifyCurrencyCode };
+    compareAtPrice?: { amount: string; currencyCode: ShopifyCurrencyCode } | null;
   } | null;
 }
 
@@ -149,6 +151,12 @@ async function fetchShopifyProduct(handle: string, country: CountryCode) {
 }
 
 export async function fetchAllProducts(country: CountryCode): Promise<CatalogProduct[]> {
+  const marketConfig = getMarketConfigByCountry(country);
+
+  if (!marketConfig.availableProducts.length) {
+    return buildPreviewCatalog(country);
+  }
+
   if (!isShopifyConfigured() || USE_MOCK_DATA) {
     return buildPreviewCatalog(country);
   }
@@ -165,6 +173,11 @@ export async function fetchAllProducts(country: CountryCode): Promise<CatalogPro
 
 export async function fetchProductByHandle(handle: string, country: CountryCode): Promise<CatalogProduct | undefined> {
   const previewProduct = getPreviewProductByHandle(handle);
+  const marketConfig = getMarketConfigByCountry(country);
+
+  if (!marketConfig.availableProducts.length) {
+    return previewProduct ? buildCatalogProduct(previewProduct, country) : undefined;
+  }
 
   if (!isShopifyConfigured() || USE_MOCK_DATA) {
     return previewProduct ? buildCatalogProduct(previewProduct, country) : undefined;

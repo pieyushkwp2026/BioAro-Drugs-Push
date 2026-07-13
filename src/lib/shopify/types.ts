@@ -1,8 +1,10 @@
+import type { CountryCode } from "../market/types";
+
 export type ProductCategory = "Longevity" | "Wellness" | "Focus" | "Energy" | "Performance";
 
 export interface MoneyAmount {
   amount: number;
-  currencyCode: "USD" | "CAD" | "GBP";
+  currencyCode: "USD" | "CAD" | "GBP" | "AED";
 }
 
 export interface ProductImage {
@@ -85,8 +87,8 @@ export interface ProductEditorial {
   evidencePoints: string[];
   efficacyMetric: ProductEfficacyMetric;
   faq: ProductFAQ[];
-  priceByCountry: Record<"US" | "CA" | "GB", number>;
-  compareAtByCountry?: Partial<Record<"US" | "CA" | "GB", number>>;
+  priceByCountry: Partial<Record<CountryCode, number>>;
+  compareAtByCountry?: Partial<Record<CountryCode, number>>;
 }
 
 export interface ShopifyProduct {

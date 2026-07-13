@@ -9,6 +9,8 @@ import { fetchProductByHandle, fetchAllProducts } from "../lib/shopify/productSe
 import type { CatalogProduct, ProductWhyItem } from "../lib/shopify/types";
 import { useMarket } from "../hooks/useMarket";
 import { formatMoney } from "../lib/market/config";
+import { useMarketHref } from "../hooks/useMarketHref";
+import { ROUTES } from "../lib/routes";
 import { COMPARISON_ROWS } from "../data/pdpContent";
 import ScienceFormulaVisual from "../components/sections/ScienceFormulaVisual";
 import QualityPurityStrip from "../components/sections/QualityPurityStrip";
@@ -39,6 +41,7 @@ function initialsFor(title: string) {
 export default function Product() {
   const { handle } = useParams();
   const { country, region } = useMarket();
+  const marketHref = useMarketHref();
   const [product, setProduct] = useState<CatalogProduct | null | undefined>(undefined);
   const [catalog, setCatalog] = useState<CatalogProduct[]>([]);
 
@@ -61,7 +64,7 @@ export default function Product() {
     return (
       <div className="pt-40 pb-20 text-center">
         <p className="text-ink/50">Product not found.</p>
-        <Link to="/shop" className="text-forest-600 underline mt-2 inline-block">
+        <Link to={marketHref(ROUTES.shop)} className="text-forest-600 underline mt-2 inline-block">
           Back to shop
         </Link>
       </div>
@@ -75,7 +78,7 @@ export default function Product() {
   return (
     <div className="pt-24 pb-20 md:pt-32 md:pb-24">
       <div className="container-bio">
-        <Link to="/shop" className="text-sm text-ink/50 hover:text-ink">
+        <Link to={marketHref(ROUTES.shop)} className="text-sm text-ink/50 hover:text-ink">
           &larr; Shop
         </Link>
 
@@ -109,7 +112,9 @@ export default function Product() {
                 <p className="text-sm font-medium">{product.supplyLabel}</p>
                 <p className="mt-1 text-sm text-ink/55">{product.servings}</p>
               </div>
-              <p className="font-display text-3xl">{formatMoney(product.price.amount, country)}</p>
+              <p className="font-display text-3xl">
+                {product.availableForSale ? formatMoney(product.price.amount, country) : "Coming soon"}
+              </p>
             </div>
             <div className="mt-4 rounded-[22px] border border-ink/10 bg-[rgba(255,255,255,0.56)] px-4 py-4 shadow-[0_12px_28px_-24px_rgba(27,26,23,0.24)]">
               <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-forest-600">Best for</p>
@@ -242,7 +247,7 @@ export default function Product() {
               {routineMates.map((mate) => (
                 <Link
                   key={mate.handle}
-                  to={`/shop/${mate.handle}`}
+                  to={marketHref(`/products/${mate.handle}`)}
                   className="flex items-center gap-4 rounded-2xl border border-ink/10 bg-white/50 p-4 transition-colors hover:bg-white"
                 >
                   <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-[#f1eee6] p-2">
@@ -315,14 +320,14 @@ export default function Product() {
               <h3 className="text-2xl">Ready to invest in your future?</h3>
               <p className="mt-2 text-sm text-white/60">Every healthier tomorrow begins with today's decisions.</p>
             </div>
-            <Link to="/shop" className="btn-secondary mt-6 !border-white/20 !text-white hover:!bg-white/10">
+            <Link to={marketHref(ROUTES.shop)} className="btn-secondary mt-6 !border-white/20 !text-white hover:!bg-white/10">
               Browse all formulas
             </Link>
           </div>
           <div className="rounded-[24px] bg-[#EEF2EC] p-8">
             <h3 className="text-2xl">Want a more personalized approach?</h3>
             <p className="mt-2 text-sm text-ink/60">Take the quiz to build a routine matched to your goals.</p>
-            <Link to="/quiz" className="btn-primary mt-6">
+            <Link to={marketHref(ROUTES.quiz)} className="btn-primary mt-6">
               Take the quiz
             </Link>
           </div>

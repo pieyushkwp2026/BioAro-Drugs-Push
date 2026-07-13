@@ -1,49 +1,52 @@
-import type { CountryCode, ExperienceRegion, MarketConfig } from "./types";
+import {
+  DEFAULT_MARKET,
+  MARKET_CONFIGS as REGIONAL_MARKET_CONFIGS,
+  MARKET_ORDER as REGIONAL_MARKET_ORDER,
+  countryFromMarketCode,
+  getMarketConfigByCountry,
+  getMarketConfigByMarket,
+  isCountryCode,
+  isMarketCode,
+  marketFromCountryCode,
+  type CountryCode,
+  type CurrencyCode,
+  type ExperienceRegion,
+  type MarketCode,
+  type MarketConfig,
+} from "../../config/markets";
+import type { MarketIdentifier } from "./types";
 
-export const MARKET_STORAGE_KEY = "bioaro.market.country";
+export const MARKET_STORAGE_KEY = "bioaro.market.code";
 
-export const MARKET_CONFIGS: Record<CountryCode, MarketConfig> = {
-  US: {
-    country: "US",
-    currency: "USD",
-    experienceRegion: "NA",
-    label: "United States",
-    shortLabel: "US",
-  },
-  CA: {
-    country: "CA",
-    currency: "CAD",
-    experienceRegion: "NA",
-    label: "Canada",
-    shortLabel: "CA",
-  },
-  GB: {
-    country: "GB",
-    currency: "GBP",
-    experienceRegion: "UK",
-    label: "United Kingdom",
-    shortLabel: "UK",
-  },
-};
+export const MARKET_CONFIGS = REGIONAL_MARKET_CONFIGS;
+export const MARKET_ORDER = REGIONAL_MARKET_ORDER;
+export { DEFAULT_MARKET, isCountryCode, isMarketCode, marketFromCountryCode, countryFromMarketCode, getMarketConfigByCountry, getMarketConfigByMarket };
+export type { CountryCode, CurrencyCode, ExperienceRegion, MarketCode, MarketConfig, MarketIdentifier };
 
-export const MARKET_ORDER: CountryCode[] = ["US", "CA", "GB"];
-
-export function isCountryCode(value: string): value is CountryCode {
-  return value in MARKET_CONFIGS;
-}
-
-export function getMarketConfig(country: CountryCode): MarketConfig {
-  return MARKET_CONFIGS[country];
+export function getMarketConfig(identifier: MarketIdentifier | string): MarketConfig {
+  if (isMarketCode(identifier)) {
+    return getMarketConfigByMarket(identifier);
+  }
+  if (isCountryCode(identifier)) {
+    return getMarketConfigByCountry(identifier);
+  }
+  const normalized = identifier.toLowerCase();
+  if (isMarketCode(normalized)) return getMarketConfigByMarket(normalized);
+  const upper = identifier.toUpperCase();
+  if (isCountryCode(upper)) return getMarketConfigByCountry(upper);
+  return getMarketConfigByMarket(DEFAULT_MARKET);
 }
 
 export function getExperienceRegion(country: CountryCode): ExperienceRegion {
-  return MARKET_CONFIGS[country].experienceRegion;
+  return getMarketConfigByCountry(country).experienceRegion;
 }
 
-export function currencySymbol(currency: MarketConfig["currency"]): string {
+export function currencySymbol(currency: CurrencyCode): string {
   switch (currency) {
     case "CAD":
       return "CA$";
+    case "AED":
+      return "AED";
     case "GBP":
       return "£";
     default:
@@ -51,10 +54,13 @@ export function currencySymbol(currency: MarketConfig["currency"]): string {
   }
 }
 
-export function formatMoney(amount: number, country: CountryCode): string {
-  return new Intl.NumberFormat("en", {
+export function formatMoney(amount: number, countryOrMarket: CountryCode | MarketCode): string {
+  const market = isMarketCode(countryOrMarket) ? countryOrMarket : marketFromCountryCode(countryOrMarket);
+  const marketConfig = getMarketConfigByMarket(market);
+
+  return new Intl.NumberFormat(marketConfig.locale, {
     style: "currency",
-    currency: getMarketConfig(country).currency,
+    currency: marketConfig.currency,
     maximumFractionDigits: 2,
   }).format(amount);
 }
