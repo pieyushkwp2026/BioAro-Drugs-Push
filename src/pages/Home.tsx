@@ -699,7 +699,7 @@ export default function Home() {
             {JOURNAL_ARTICLES.slice(0, 3).map((article) => (
               <Link
                 key={article.title}
-                to={marketHref(ROUTES.journal)}
+                to={marketHref(`${ROUTES.journal}/${article.slug}`)}
                 className="group overflow-hidden rounded-2xl border border-[#e2ded2] bg-[#f2f0ec] transition-colors hover:bg-white"
               >
                 <div className="aspect-[16/10] overflow-hidden bg-[#ece8de]">

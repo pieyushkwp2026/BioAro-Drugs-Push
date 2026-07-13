@@ -6,6 +6,7 @@ import Product from "./pages/Product";
 import Quiz from "./pages/Quiz";
 import Science from "./pages/Science";
 import Journal from "./pages/Journal";
+import JournalArticle from "./pages/JournalArticle";
 import About from "./pages/About";
 import Account from "./pages/Account";
 import SupplementDisclaimer from "./pages/SupplementDisclaimer";
@@ -33,6 +34,7 @@ const REGIONAL_PAGES = [
   { path: "quiz", element: <Quiz /> },
   { path: "science", element: <Science /> },
   { path: "journal", element: <Journal /> },
+  { path: "journal/:slug", element: <JournalArticle /> },
   { path: "about", element: <About /> },
   { path: "account", element: <Account /> },
   { path: "supplement-disclaimer", element: <SupplementDisclaimer /> },
@@ -70,6 +72,15 @@ function LegacyProductRedirect() {
 
   if (!handle) return <Navigate to={buildMarketHref(market, `/shop${location.search}`)} replace />;
   return <Navigate to={buildMarketHref(market, `/products/${handle}${location.search}`)} replace />;
+}
+
+function LegacyJournalArticleRedirect() {
+  const { market } = useMarket();
+  const { slug } = useParams();
+  const location = useLocation();
+
+  if (!slug) return <Navigate to={buildMarketHref(market, `/journal${location.search}`)} replace />;
+  return <Navigate to={buildMarketHref(market, `/journal/${slug}${location.search}`)} replace />;
 }
 
 function RegionalProductRedirect() {
@@ -112,6 +123,7 @@ function LegacyRedirectRoutes() {
       <Route path="/quiz" element={<LegacyRouteRedirect target="/quiz" />} />
       <Route path="/science" element={<LegacyRouteRedirect target="/science" />} />
       <Route path="/journal" element={<LegacyRouteRedirect target="/journal" />} />
+      <Route path="/journal/:slug" element={<LegacyJournalArticleRedirect />} />
       <Route path="/about" element={<LegacyRouteRedirect target="/about" />} />
       <Route path="/account" element={<LegacyRouteRedirect target="/account" />} />
       <Route path="/supplement-disclaimer" element={<LegacyRouteRedirect target="/supplement-disclaimer" />} />
