@@ -90,6 +90,12 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       { name: "Vitamin B12", amount: "250 µg", purpose: "Contributes to normal energy-yielding metabolism.", whyIncluded: "Vitamin B12 contributes to normal homocysteine metabolism.", image: vitaminB12Img },
       { name: "Vitamin D3", amount: "25 µg / 1,000 IU", purpose: "Contributes to the normal function of the immune system.", whyIncluded: "Rounds out the formula's healthy aging support.", image: vitaminD3Img },
     ],
+    otherIngredients: [
+      "Microcrystalline Cellulose",
+      "Silicon Dioxide",
+      "Maize Starch",
+      "Hypromellose capsule",
+    ],
     supplementFacts: [
       { label: "Recommended daily intake", value: "Take 2 capsules daily with food, or as directed on the product label." },
       { label: "Servings per container", value: "30" },
@@ -178,6 +184,16 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       { name: "Astaxanthin", amount: "8 mg", purpose: "Supports antioxidant defense.", whyIncluded: "A potent antioxidant carotenoid that supports cellular wellness.", image: astaxanthinImg },
       { name: "Spermidine Trihydrochloride", amount: "2 mg", purpose: "Supports healthy cellular renewal.", whyIncluded: "Included for its role in supporting cellular renewal processes.", image: spermidineImg },
       { name: "Vitamin E", amount: "6 mg", purpose: "Vitamin E contributes to the protection of cells from oxidative stress.", whyIncluded: "Rounds out the formula's antioxidant support.", image: vitaminEImg },
+    ],
+    otherIngredients: [
+      "Starch",
+      "Capsule Shell (Hydroxypropyl/ Methyl Cellulose)",
+      "Co-Enzyme Q10",
+      "Astaxarthin",
+      "Spermidine",
+      "Mannesium Bisglycinate",
+      "Vitamin E",
+      "Anti-Caking Agent (Silicon Dioxide)",
     ],
     supplementFacts: [
       { label: "Recommended daily intake", value: "Take 2 capsules daily with food, or as directed on the product label." },
@@ -349,6 +365,10 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       { name: "Ferrous Bisglycinate", amount: "8 mg", purpose: "Iron contributes to the reduction of tiredness and fatigue and normal oxygen transport in the body.", whyIncluded: "A gentle iron form included to support energy levels.", image: ferrousBisglycinateImg },
       { name: "Vitamin B12", amount: "200 µg", purpose: "Vitamin B12 contributes to normal energy-yielding metabolism.", whyIncluded: "Supports energy metabolism throughout the day.", image: vitaminB12Img },
     ],
+    otherIngredients: [
+      "Citric Acid",
+      "Sucralose",
+    ],
     supplementFacts: [
       { label: "Recommended daily intake", value: "Mix 1 sachet with water daily, or as directed on the product label." },
       { label: "Servings per container", value: "20" },
@@ -519,6 +539,11 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       { name: "Potassium Chloride", amount: "Part of 300 mg electrolyte blend", purpose: "Supports hydration and electrolyte balance.", whyIncluded: "An electrolyte supporting fluid balance during training.", image: potassiumChlorideImg },
       { name: "Sodium Chloride", amount: "Part of 300 mg electrolyte blend", purpose: "Supports hydration and electrolyte balance.", whyIncluded: "An electrolyte supporting fluid balance during training.", image: sodiumChlorideImg },
       { name: "Magnesium Bisglycinate", amount: "Part of 300 mg electrolyte blend", purpose: "Magnesium contributes to normal muscle function.", whyIncluded: "Rounds out the electrolyte blend for muscle support.", image: magnesiumBisglycinateImg },
+    ],
+    otherIngredients: [
+      "Citric Acid",
+      "Natural Flavour",
+      "Sucralose",
     ],
     supplementFacts: [
       { label: "Recommended daily intake", value: "Mix 1 sachet with water daily, during or after training, or as directed on the product label." },

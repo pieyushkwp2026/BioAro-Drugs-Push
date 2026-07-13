@@ -4,11 +4,15 @@ import { Check, Zap, Dna, Scale, Heart, Brain, Shield, Flame, Droplet, Sparkles,
 import AccordionGroup from "../components/page/AccordionGroup";
 import IngredientCard from "../components/sections/IngredientCard";
 import PlaceholderBottle from "../components/sections/PlaceholderBottle";
+import OtherIngredientsSection from "../components/sections/OtherIngredientsSection";
 import { fetchProductByHandle, fetchAllProducts } from "../lib/shopify/productService";
 import type { CatalogProduct, ProductWhyItem } from "../lib/shopify/types";
 import { useMarket } from "../hooks/useMarket";
 import { formatMoney } from "../lib/market/config";
 import { COMPARISON_ROWS } from "../data/pdpContent";
+import ScienceFormulaVisual from "../components/sections/ScienceFormulaVisual";
+import QualityPurityStrip from "../components/sections/QualityPurityStrip";
+import { getScienceVisual } from "../data/scienceVisuals";
 
 const WHY_ICONS: Record<ProductWhyItem["icon"], typeof Zap> = {
   energy: Zap,
@@ -66,6 +70,7 @@ export default function Product() {
 
   const maxEfficacy = Math.max(product.efficacyMetric.placeboValue, product.efficacyMetric.productValue);
   const showGraph = product.efficacyMetric.label !== "" && maxEfficacy > 0;
+  const scienceVisual = getScienceVisual(product.handle);
 
   return (
     <div className="pt-24 pb-20 md:pt-32 md:pb-24">
@@ -106,10 +111,13 @@ export default function Product() {
               </div>
               <p className="font-display text-3xl">{formatMoney(product.price.amount, country)}</p>
             </div>
-            <p className="mt-3 text-sm text-ink/45">{product.bestFor}</p>
+            <div className="mt-4 rounded-[22px] border border-ink/10 bg-[rgba(255,255,255,0.56)] px-4 py-4 shadow-[0_12px_28px_-24px_rgba(27,26,23,0.24)]">
+              <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-forest-600">Best for</p>
+              <p className="mt-2 text-sm leading-relaxed text-ink/60">{product.bestFor}</p>
+            </div>
 
             <div className="mt-8">
-              <h2 className="text-xl">What to expect from this page</h2>
+              <h2 className="text-xl">Benefits</h2>
               <ul className="mt-4 space-y-3">
                 {product.benefits.map((benefit) => (
                   <li key={benefit} className="flex gap-3 text-sm text-ink/65">
@@ -143,26 +151,12 @@ export default function Product() {
         </section>
 
         {/* Science behind the formula */}
-        <section className="glass-card mt-10 grid gap-8 p-6 md:p-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
-          <div>
-            <span className="eyebrow">Science behind the formula</span>
-            <h2 className="mt-2 text-2xl">A synergistic blend of clinically studied ingredients working at the cellular level.</h2>
-          </div>
-          <div className="flex flex-wrap items-center gap-3">
-            {product.science.map((step, index) => (
-              <div key={step.title} className="flex items-center gap-3">
-                <div className="w-32 text-center">
-                  <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-forest-600/10 text-forest-600">
-                    <Shield size={18} />
-                  </div>
-                  <p className="mt-2 text-sm font-medium">{step.title}</p>
-                  <p className="mt-1 text-xs text-ink/45 leading-snug">{step.description}</p>
-                </div>
-                {index < product.science.length - 1 && <ArrowRight size={16} className="hidden shrink-0 text-ink/25 md:block" />}
-              </div>
-            ))}
-          </div>
-        </section>
+        <ScienceFormulaVisual
+          backgroundImage={scienceVisual.backgroundImage}
+          backgroundImageAlt={scienceVisual.backgroundImageAlt}
+          backgroundPosition={scienceVisual.backgroundPosition}
+          formulaSteps={product.science}
+        />
 
         {/* Key ingredients */}
         <section className="mt-24">
@@ -178,6 +172,10 @@ export default function Product() {
             ))}
           </div>
         </section>
+
+        {product.otherIngredients && product.otherIngredients.length > 0 && (
+          <OtherIngredientsSection items={product.otherIngredients} />
+        )}
 
         {/* Backed by science + comparison */}
         <div className="mt-24 grid gap-5 lg:grid-cols-2">
@@ -277,13 +275,6 @@ export default function Product() {
                 </div>
               ))}
             </div>
-            {product.responsibleBusiness && (
-              <div className="mt-6 border-t border-ink/10 pt-5 text-xs text-ink/45 leading-relaxed">
-                <p className="font-medium text-ink/60">Responsible Food Business</p>
-                <p className="mt-1">{product.responsibleBusiness.name}</p>
-                <p>{product.responsibleBusiness.address}</p>
-              </div>
-            )}
             <div className="mt-4 rounded-2xl border border-ink/10 bg-white/45 px-4 py-4 text-sm leading-relaxed text-ink/55">
               {REGION_DISCLAIMERS[region]}
             </div>
@@ -302,20 +293,8 @@ export default function Product() {
           </section>
         </div>
 
-        {/* Quality & Compliance — above FAQ */}
-        {product.qualityPoints && product.qualityPoints.length > 0 && (
-          <section className="mt-12 glass-card p-6 md:p-8">
-            <span className="eyebrow">Quality & Compliance</span>
-            <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-              {product.qualityPoints.map((point) => (
-                <li key={point} className="flex items-center gap-2 text-sm text-ink/70">
-                  <Check size={15} className="shrink-0 text-forest-600" />
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
+        {/* Quality & Purity — above FAQ */}
+        <QualityPurityStrip productHandle={product.handle} />
 
         {/* FAQ */}
         <section className="mt-12 max-w-3xl">

@@ -101,9 +101,9 @@ export default function Footer() {
                   <MapPin size={15} />
                 </span>
                 <div>
-                  <p className="font-medium text-ink">BioAro Drugs</p>
-                  <p>Vicarage House, 58-60 Kensington Church Street</p>
-                  <p>London, W8 4DB</p>
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-forest-600">Responsible Food Business</p>
+                  <p className="mt-1 font-medium text-ink">BioAro Drugs</p>
+                  <p>Vicarage House, 58-60 Kensington Church Street, London, W8 4DB, United Kingdom</p>
                 </div>
               </div>
 

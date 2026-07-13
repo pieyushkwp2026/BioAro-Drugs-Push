@@ -79,6 +79,7 @@ export interface ProductEditorial {
   qualityPoints?: string[];
   responsibleBusiness?: ProductResponsibleBusiness;
   ingredients: ProductIngredient[];
+  otherIngredients?: string[];
   supplementFacts: ProductFact[];
   science: ProductScienceStep[];
   evidencePoints: string[];
