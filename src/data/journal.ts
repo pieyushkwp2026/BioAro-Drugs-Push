@@ -115,7 +115,7 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
           heading: "Consistency over intensity",
           body: [
             "Wellness routines often fail because they are built like short-term challenges. Longevity requires a different mindset. A smaller routine followed consistently is usually more valuable than an ambitious routine that becomes too complicated to maintain.",
-            "This is where product design matters. Clear serving guidance, transparent ingredients, and simple formats help reduce friction. If the product is easy to understand, it is easier to place into a daily rhythm.",
+            "Clear serving guidance, transparent ingredients, and simple formats make a routine easier to follow. When a product is easy to understand, it is easier to place into a daily rhythm.",
           ],
         },
         {

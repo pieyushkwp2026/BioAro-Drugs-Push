@@ -16,8 +16,7 @@ export const CA_MARKET: MarketConfig = {
   checkoutMessage: "Online ordering for Canada is opening soon.",
   shippingMessage: "Canada delivery details will be confirmed at launch.",
   taxMessage: "Canadian taxes and delivery details will be confirmed when ordering becomes available.",
-  legalDisclaimer:
-    "PLACEHOLDER — insert approved Canadian regulatory and supplement disclaimer copy before launch.",
+  legalDisclaimer: "Regional legal and regulatory information will be published before ordering opens.",
   shippingPolicyPath: "/shipping-policy",
   returnsPolicyPath: "/returns-refunds",
   privacyPolicyPath: "/privacy-policy",

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { Check, Zap, Dna, Scale, Heart, Brain, Shield, Flame, Droplet, Sparkles, ArrowRight } from "lucide-react";
 import AccordionGroup from "../components/page/AccordionGroup";
 import IngredientCard from "../components/sections/IngredientCard";
@@ -15,6 +15,8 @@ import { COMPARISON_ROWS } from "../data/pdpContent";
 import ScienceFormulaVisual from "../components/sections/ScienceFormulaVisual";
 import QualityPurityStrip from "../components/sections/QualityPurityStrip";
 import { getScienceVisual } from "../data/scienceVisuals";
+import { getMarketConfigByMarket } from "../config/markets";
+import { absoluteUrl, canonicalForMarket } from "../lib/seo";
 
 const WHY_ICONS: Record<ProductWhyItem["icon"], typeof Zap> = {
   energy: Zap,
@@ -40,7 +42,8 @@ function initialsFor(title: string) {
 
 export default function Product() {
   const { handle } = useParams();
-  const { country, region } = useMarket();
+  const location = useLocation();
+  const { country, market, region } = useMarket();
   const marketHref = useMarketHref();
   const [product, setProduct] = useState<CatalogProduct | null | undefined>(undefined);
   const [catalog, setCatalog] = useState<CatalogProduct[]>([]);
@@ -53,6 +56,50 @@ export default function Product() {
   useEffect(() => {
     void fetchAllProducts(country).then(setCatalog);
   }, [country]);
+
+  useEffect(() => {
+    document.head.querySelector('script[data-bioaro-product-schema="true"]')?.remove();
+
+    if (!product || !handle) return;
+
+    const marketConfig = getMarketConfigByMarket(market);
+    const schema: Record<string, unknown> = {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      name: product.title,
+      description: product.description,
+      brand: {
+        "@type": "Brand",
+        name: "BioAro Drugs",
+      },
+      sku: product.handle,
+      url: canonicalForMarket(market, location.pathname),
+    };
+
+    if (product.image?.src) {
+      schema.image = [absoluteUrl(product.image.src)];
+    }
+
+    if (product.availableForSale) {
+      schema.offers = {
+        "@type": "Offer",
+        price: product.price.amount,
+        priceCurrency: marketConfig.currency,
+        availability: "https://schema.org/InStock",
+        url: canonicalForMarket(market, location.pathname),
+      };
+    }
+
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.dataset.bioaroProductSchema = "true";
+    script.textContent = JSON.stringify(schema);
+    document.head.appendChild(script);
+
+    return () => {
+      script.remove();
+    };
+  }, [handle, location.pathname, market, product]);
 
   const routineMates = useMemo(
     () => catalog.filter((item) => item.handle !== handle).slice(0, 2),

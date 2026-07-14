@@ -16,8 +16,7 @@ export const US_MARKET: MarketConfig = {
   checkoutMessage: "Online ordering for the United States is opening soon.",
   shippingMessage: "US delivery details will be confirmed at launch.",
   taxMessage: "US taxes and delivery details will be confirmed when ordering becomes available.",
-  legalDisclaimer:
-    "PLACEHOLDER — insert approved US regulatory and supplement disclaimer copy before launch.",
+  legalDisclaimer: "Regional legal and regulatory information will be published before ordering opens.",
   shippingPolicyPath: "/shipping-policy",
   returnsPolicyPath: "/returns-refunds",
   privacyPolicyPath: "/privacy-policy",

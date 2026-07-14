@@ -1,9 +1,10 @@
-import cellomegaImg from "../assets/products/cellomega-plus.jpeg";
-import longevityImg from "../assets/products/longevity-plus.jpeg";
-import creagenBrainImg from "../assets/products/creagen-brain-smart-start.jpeg";
-import creagenFemmeImg from "../assets/products/creagen-femme-power.jpeg";
 import creagenRawImg from "../assets/products/creagen-raw-power.jpeg";
 import creagenProImg from "../assets/products/creagen-pro-power.png";
+import cellomegaPrimaryImg from "../assets/products/cellomega-plus-primary.png";
+import longevityPrimaryImg from "../assets/products/longevity-plus-primary.png";
+import creagenBrainPrimaryImg from "../assets/products/creagen-brain-boost-primary.png";
+import creagenFemmePrimaryImg from "../assets/products/creagen-femme-energy-primary.png";
+import glutaraPrimaryImg from "../assets/products/glutara-primary.png";
 
 import nmnImg from "../assets/ingredients/nmn.png";
 import resveratrolImg from "../assets/ingredients/resveratrol.png";
@@ -40,7 +41,7 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
     tagline: "Supports healthy ageing and everyday vitality.",
     description:
       "Daily wellness formula designed to support healthy ageing and cellular energy, featuring NMN, resveratrol, CoQ10, curcumin, vitamin D3, and vitamin B12, helping support everyday vitality and cellular wellbeing.",
-    image: { src: longevityImg, alt: "BioAro LONgevity+ bottle" },
+    image: { src: longevityPrimaryImg, alt: "BioAro LONgevity+ product and lid" },
     category: "Longevity",
     tags: ["Cellular Energy", "Healthy Aging", "NAD+ Support"],
     bestFor: "Adults focused on long-term vitality, cellular wellness, and proactive healthy aging.",
@@ -139,7 +140,7 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
     tagline: "Heart, brain, and cellular wellness support.",
     description:
       "CellOmega+ combines algae-derived omega-3s, CoQ10, magnesium bisglycinate, astaxanthin, spermidine, and vitamin E in a daily wellness formula. EPA and DHA contribute to the normal function of the heart. Designed to support heart, brain, and metabolic health as part of a balanced lifestyle.",
-    image: { src: cellomegaImg, alt: "BioAro CellOmega+ bottle" },
+    image: { src: cellomegaPrimaryImg, alt: "BioAro CellOmega+ product and lid" },
     category: "Wellness",
     tags: ["Heart Health", "Brain Health", "Cellular Wellness"],
     bestFor: "Adults seeking foundational support for cellular wellness, heart health, brain health, and healthy aging.",
@@ -238,7 +239,7 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
     tagline: "Nutritional support for training, work and everyday wellbeing.",
     description:
       "CREAGEN Brain Boost combines creatine monohydrate with magnesium glycinate and vitamin B12. Designed for active individuals seeking nutritional support for training, work and everyday wellbeing.",
-    image: { src: creagenBrainImg, alt: "BioAro Smart Start sachet" },
+    image: { src: creagenBrainPrimaryImg, alt: "BioAro Creagen Brain Boost product set" },
     category: "Focus",
     tags: ["Focus", "Mental Clarity", "Recovery"],
     bestFor: "Professionals, students, creators, and active adults seeking nutritional support for training, work and everyday wellbeing.",
@@ -324,7 +325,7 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       "CREAGEN Femme Energy combines creatine monohydrate, ferrous bisglycinate and vitamin B12 to support women's nutritional needs during active lifestyles.",
     category: "Energy",
     tags: ["Women's Energy", "Vitality", "Active Performance"],
-    image: { src: creagenFemmeImg, alt: "BioAro Creagen Femme Energy sachet" },
+    image: { src: creagenFemmePrimaryImg, alt: "BioAro Creagen Femme Energy product and lid" },
     bestFor: "Women looking for nutritional support for active lifestyles, everyday energy and wellbeing.",
     dosage: "Mix 1 sachet with water daily, or as directed on the product label.",
     servings: "20 x 5g sachets · 20 servings",
@@ -590,6 +591,7 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       "Glutara combines liposomal glutathione, vitamin C, hyaluronic acid and B vitamins in a carefully formulated daily wellness supplement with piperine to support ingredient absorption.",
     category: "Wellness",
     tags: ["Antioxidant Support", "Daily Wellness", "Skin Care Routine"],
+    image: { src: glutaraPrimaryImg, alt: "BioAro Glutara product container" },
     bestFor: "Adults seeking daily antioxidant support, skin care routine support, and everyday wellness.",
     dosage: "Mix 1 sachet with water daily, or as directed on the product label.",
     servings: "18g sachets · 30 servings",

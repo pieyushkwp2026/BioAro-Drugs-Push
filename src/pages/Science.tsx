@@ -7,41 +7,41 @@ const PILLARS = [
   {
     icon: FlaskConical,
     title: "Research first",
-    desc: "Product storytelling starts from evidence and practical use cases, then gets translated into plain-language guidance.",
+    desc: "We explain the evidence behind each formula in clear, practical language.",
   },
   {
     icon: ShieldCheck,
     title: "Clear disclaimers",
-    desc: "Market-specific policy and disclaimer blocks help keep the experience responsible for different launch regions.",
+    desc: "Clear safety, policy, and disclaimer information helps you make informed decisions in your region.",
   },
   {
     icon: ClipboardCheck,
     title: "Routine structure",
-    desc: "Products are presented with dosage, warnings, supplement facts, and protocol context instead of vague merchandising language.",
+    desc: "Product pages bring together dosage, warnings, supplement facts, and routine guidance in one place.",
   },
   {
     icon: Leaf,
     title: "Quality pathway",
-    desc: "Quality information is built so customer-facing proof assets can be added as documentation is finalized.",
+    desc: "Quality information is shared clearly whenever product-specific documentation is available.",
   },
 ];
 
 const STEPS = [
   {
-    title: "Identify the customer goal",
+    title: "Start with your goal",
     desc: "Start with the routine need: focus, longevity, recovery, sleep, or foundational daily support.",
   },
   {
-    title: "Explain the product fit",
-    desc: "Show what the product is for, where it sits in the day, and what it pairs with in a broader stack.",
+    title: "Understand the formula",
+    desc: "See what the product supports, when it fits into your day, and how it may complement your routine.",
   },
   {
     title: "Make guidance visible",
-    desc: "Keep dosage, warnings, supplement facts, and FAQ content close to the add-to-cart decision.",
+    desc: "Find dosage, warnings, supplement facts, and common questions alongside the product information.",
   },
   {
-    title: "Connect support surfaces",
-    desc: "Use shipping, returns, disclaimer, and support pages to answer questions before they become friction.",
+    title: "Find help when you need it",
+    desc: "Shipping, returns, safety, and support information are available whenever you have a question.",
   },
 ];
 
@@ -51,10 +51,10 @@ export default function Science() {
   return (
     <div className="pt-24 pb-20 md:pt-32 md:pb-24">
       <div className="container-bio">
-        <span className="eyebrow">Science & structure</span>
-        <h1 className="mt-3 max-w-2xl text-4xl md:text-5xl">A premium wellness storefront needs more than a product grid.</h1>
+        <span className="eyebrow">Science &amp; quality</span>
+        <h1 className="mt-3 max-w-2xl text-4xl md:text-5xl">Better wellness starts with better information.</h1>
         <p className="mt-5 max-w-2xl text-ink/55 leading-relaxed">
-          The BioAro launch experience is built around evidence-led storytelling, clearer product guidance, and support content that helps customers act with more confidence.
+          BioAro explains the evidence, ingredients, and practical guidance behind each formula so you can choose and use products with more confidence.
         </p>
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -70,7 +70,7 @@ export default function Science() {
         </div>
 
         <div className="mt-24">
-          <h2 className="text-3xl">From product interest to informed action.</h2>
+          <h2 className="text-3xl">From questions to informed choices.</h2>
           <div className="mt-10 grid gap-5 md:grid-cols-4">
             {STEPS.map((step, index) => (
               <div key={step.title} className="glass-card p-6">
@@ -84,9 +84,9 @@ export default function Science() {
 
         <div className="glass-dark mt-24 grid gap-10 rounded-4xl p-12 text-cream md:grid-cols-2 md:p-16">
           <div>
-            <h2 className="text-3xl md:text-4xl">Living 2.0 connects understanding and action.</h2>
+            <h2 className="text-3xl md:text-4xl">Understand your routine. Take action with confidence.</h2>
             <p className="mt-4 leading-relaxed text-cream/60">
-              BioAro Labs represents the understanding layer, while BioAro Drugs carries the action layer. The storefront is designed to make that connection feel tangible.
+              Explore practical health education from BioAro Labs alongside formulas designed to support everyday routines from BioAro Drugs.
             </p>
           </div>
           <div className="flex items-end">

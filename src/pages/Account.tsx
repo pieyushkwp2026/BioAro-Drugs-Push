@@ -10,9 +10,9 @@ export default function Account() {
       <div className="container-bio">
         <div className="mx-auto max-w-xl text-center">
           <span className="eyebrow">Account access</span>
-          <h1 className="mt-3 text-3xl md:text-4xl">Customer accounts are not exposed in this launch surface yet.</h1>
+          <h1 className="mt-3 text-3xl md:text-4xl">Account access is coming soon.</h1>
           <p className="mt-4 text-sm leading-relaxed text-ink/55">
-            Orders, product questions, and support requests are handled through the product pages, cart flow, and support team while the wider account experience is being finalized.
+            For now, you can browse products and contact our support team about orders, product questions, and availability.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link to={marketHref(ROUTES.support)} className="btn-primary">

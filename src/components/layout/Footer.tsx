@@ -76,7 +76,7 @@ export default function Footer() {
   const marketConfig = getMarketConfigByMarket(market);
   const addressLine = marketConfig.address
     ? `${marketConfig.address.line1}, ${marketConfig.address.line2}, ${marketConfig.address.city}, ${marketConfig.address.postcode}, ${marketConfig.address.country}`
-    : "Regional business details pending approval.";
+    : "Regional address details will be published when ordering opens.";
 
   return (
     <footer className="border-t border-[#ddd4c5] bg-[#eee7db] pt-10 sm:pt-12">

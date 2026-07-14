@@ -16,8 +16,7 @@ export const AE_MARKET: MarketConfig = {
   checkoutMessage: "Online ordering for the UAE is opening soon.",
   shippingMessage: "UAE delivery details will be confirmed at launch.",
   taxMessage: "UAE taxes and delivery details will be confirmed when ordering becomes available.",
-  legalDisclaimer:
-    "PLACEHOLDER — insert approved UAE regulatory and supplement disclaimer copy before production launch.",
+  legalDisclaimer: "Regional legal and regulatory information will be published before ordering opens.",
   shippingPolicyPath: "/shipping-policy",
   returnsPolicyPath: "/returns-refunds",
   privacyPolicyPath: "/privacy-policy",

@@ -171,7 +171,7 @@ const EVIDENCE_ITEMS = [
   },
   {
     title: "Documentation ready",
-    description: "Quality or proof documents are surfaced when available.",
+    description: "Quality documents are shared when available.",
     Icon: FileCheck2,
   },
   {
@@ -212,8 +212,8 @@ const PERKS = [
     Icon: ClipboardList,
   },
   {
-    title: "Market-aware pricing",
-    description: "Pricing and currency match your region.",
+    title: "Clear local pricing",
+    description: "Prices and currency match your region.",
     Icon: Globe2,
   },
   {
@@ -222,8 +222,8 @@ const PERKS = [
     Icon: Mail,
   },
   {
-    title: "Quality path",
-    description: "Documentation request flow when available.",
+    title: "Quality information",
+    description: "Request quality information when available.",
     Icon: FileCheck2,
   },
   {
@@ -531,7 +531,7 @@ export default function Home() {
                 Built around evidence,<span className="md:whitespace-nowrap"> not <span className="italic text-forest-600">trends.</span></span>
               </h2>
               <p className="mt-7 max-w-[420px] text-[15px] leading-8 text-[#131012]">
-                BioAro Drugs is being built around transparent labeling, ingredient context, and quality documentation where available.
+                BioAro Drugs is grounded in transparent labels, useful ingredient context, and quality information where available.
               </p>
 
               <div className="mt-8 max-w-[620px] space-y-0">
@@ -632,7 +632,7 @@ export default function Home() {
       <section className="pb-24 pt-6">
         <div className="container-bio">
           <div className="mx-auto max-w-[620px] text-center">
-            <span className="eyebrow">Living 2.0 Support</span>
+              <span className="eyebrow">Living 2.0 guidance</span>
             <h2 className="mt-4 text-[42px] leading-[0.95] text-ink md:text-[52px]">Stay consistent. Feel the difference.</h2>
           </div>
 

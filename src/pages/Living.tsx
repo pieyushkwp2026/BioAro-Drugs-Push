@@ -166,7 +166,7 @@ export default function Living() {
                 Live Better.
               </h1>
               <p className="mt-7 max-w-xl text-lg leading-relaxed text-white/72 md:text-xl">
-                BioAro is building an ecosystem where testing, science and daily routines work together to support better health decisions over time.
+                BioAro brings testing, science, and daily routines together to support better health decisions over time.
               </p>
               <div className="mt-10 flex flex-col gap-3 sm:flex-row">
                 <Link to={marketHref(ROUTES.shop)} className="btn-primary !bg-white !text-ink hover:!bg-[#f4ead8]">
@@ -202,7 +202,7 @@ export default function Living() {
 
       <section className="border-y border-[#e2d9cb] bg-[#fcfaf6] py-24 md:py-32">
         <div className="container-bio">
-          <SectionIntro eyebrow="The framework" title="A better system for better health." />
+          <SectionIntro eyebrow="The approach" title="A clearer approach to better health." />
           <div className="mt-16 grid gap-10 lg:grid-cols-3 lg:gap-0">
             {frameworkSteps.map((step, index) => (
               <article key={step.title} className={`lg:px-10 ${index === 0 ? "lg:pl-0" : "lg:border-l lg:border-[#ded5c6]"} ${index === 2 ? "lg:pr-0" : ""}`}>
@@ -229,7 +229,7 @@ export default function Living() {
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>
             <SectionIntro
-              eyebrow="The ecosystem"
+              eyebrow="The BioAro approach"
               title="Better health happens when everything works together."
               description="Living 2.0 is not a single product or a single test. It is a connected way to understand, act, stay consistent and improve over time."
             />
@@ -357,7 +357,7 @@ export default function Living() {
             <span className="text-[12px] font-semibold uppercase tracking-[0.2em] text-[#d8c29c]">Ready to begin</span>
             <h2 className="mt-4 text-4xl leading-[1.02] md:text-6xl">Ready to build better health?</h2>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/66">
-              Explore the BioAro ecosystem and find a clearer starting point for energy, recovery, focus, sleep and long-term wellness.
+              Explore BioAro and find a clearer starting point for energy, recovery, focus, sleep, and long-term wellness.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Link to={marketHref(ROUTES.shop)} className="btn-primary !bg-white !text-ink hover:!bg-[#f4ead8]">

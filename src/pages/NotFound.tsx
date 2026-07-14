@@ -11,7 +11,7 @@ export default function NotFound() {
         <span className="eyebrow">Not found</span>
         <h1 className="mt-3 text-4xl md:text-5xl">This page isn't available.</h1>
         <p className="mx-auto mt-5 max-w-md text-ink/55">
-          The route may have moved as the BioAro launch structure comes together. Use the main navigation or head back to the shop.
+          We could not find that page. Use the main navigation or return to the shop to continue exploring BioAro.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Link to={marketHref(ROUTES.shop)} className="btn-primary">
