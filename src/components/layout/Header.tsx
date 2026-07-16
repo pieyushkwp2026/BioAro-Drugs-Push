@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { Menu, ShoppingBag, X } from "lucide-react";
 import RegionSelector from "./RegionSelector";
 import { PRIMARY_NAV, ROUTES } from "../../lib/routes";
 import { useCart } from "../../hooks/useCart";
 import { useMarketHref } from "../../hooks/useMarketHref";
+import { stripMarketPrefix } from "../../lib/marketRouting";
 import bioAroMark from "../../assets/logo/bioaro-mark.png";
 
 export default function Header() {
@@ -12,18 +13,27 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const { cart, openCart } = useCart();
   const marketHref = useMarketHref();
+  const { pathname } = useLocation();
+  const isRegionalHomepage = stripMarketPrefix(pathname) === "/";
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > (isRegionalHomepage ? 48 : 24));
+    onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [isRegionalHomepage]);
+
+  const headerSurface = isRegionalHomepage
+    ? scrolled
+      ? "border-b border-white/55 bg-[#f8f5ef]/86 shadow-[0_10px_30px_rgba(35,29,20,0.08)] backdrop-blur-xl"
+      : "border-transparent bg-transparent shadow-none backdrop-blur-none"
+    : scrolled
+      ? "border-b border-[#e7e1d5] bg-cream/90 backdrop-blur-md"
+      : "bg-transparent";
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled ? "border-b border-[#e7e1d5] bg-cream/90 backdrop-blur-md" : "bg-transparent"
-      }`}
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${headerSurface}`}
     >
       <div className="container-bio">
         <div className="flex min-h-[76px] items-center justify-between gap-6">
