@@ -8,8 +8,8 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import evidenceLabScene from "../assets/figma-home/evidence-lab-scene-3-4.png";
-import formulationResearchCollage from "../assets/science/formulation-research-collage.png";
+import researchSectionScientist from "../assets/science/research-section-scientist.png";
+import scienceHeroScientist from "../assets/science/science-hero-scientist.png";
 import labGlasswareStudy from "../assets/science/lab-glassware-study.png";
 import coq10 from "../assets/ingredients/coq10.png";
 import creatine from "../assets/ingredients/creatine-monohydrate.png";
@@ -83,7 +83,7 @@ export default function Science() {
             </div>
           </div>
           <div className="group relative overflow-hidden rounded-[32px] bg-[#e8e2d7] shadow-glass-lg">
-            <img src={formulationResearchCollage} alt="BioAro formulation research scene with products, laboratory glassware, study notes, and ingredient evidence" className="aspect-[4/5] h-full w-full object-cover object-center transition-transform duration-1000 group-hover:scale-[1.02]" />
+            <img src={scienceHeroScientist} alt="Scientist conducting laboratory analysis" className="aspect-[4/5] h-full w-full object-cover object-center transition-transform duration-1000 group-hover:scale-[1.02]" />
             <div className="absolute bottom-5 left-5 flex items-center gap-3 rounded-full border border-white/50 bg-white/55 px-4 py-2 text-xs text-ink backdrop-blur-md">
               <Microscope size={15} className="text-forest-600" /> Evidence-led formulation
             </div>
@@ -94,7 +94,7 @@ export default function Science() {
       <section className="container-bio mt-28 md:mt-40">
         <div className="grid overflow-hidden rounded-[32px] bg-[#e4e9e2] lg:grid-cols-[1.1fr_0.9fr]">
           <div className="relative min-h-[380px] overflow-hidden lg:min-h-[560px]">
-            <img src={evidenceLabScene} alt="BioAro laboratory still life representing ingredient research and formulation" className="h-full w-full object-cover transition-transform duration-1000 hover:scale-[1.02]" />
+            <img src={researchSectionScientist} alt="Scientist performing laboratory analysis with pipette equipment" className="h-full w-full object-cover transition-transform duration-1000 hover:scale-[1.02]" />
           </div>
           <div className="flex flex-col justify-center p-8 md:p-14 lg:p-20">
             <SectionLabel>Research, made useful</SectionLabel>

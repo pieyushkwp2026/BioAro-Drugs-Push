@@ -22,11 +22,11 @@ import {
 import { FlagCA } from "../components/layout/Flags";
 import ProductCard from "../components/sections/ProductCard";
 import heroCreagenRecovery from "../assets/hero/hero-creagen-recovery.png";
-import essentialLongevityCard from "../assets/figma-home/essential-longevity-card.png";
-import essentialFocusCard from "../assets/figma-home/essential-focus-card.png";
-import essentialRecoveryCard from "../assets/figma-home/essential-recovery-card.png";
-import essentialSleepCard from "../assets/figma-home/essential-sleep-card.png";
-import evidenceLabPanel from "../assets/figma-home/evidence-lab-scene-3-4.png";
+import essentialLongevityEditorial from "../assets/figma-home/essential-longevity-editorial.png";
+import essentialFocusEditorial from "../assets/figma-home/essential-focus-editorial.png";
+import essentialRecoveryEditorial from "../assets/figma-home/essential-recovery-editorial.png";
+import essentialSleepEditorial from "../assets/figma-home/essential-sleep-editorial.png";
+import evidenceScientistEditorial from "../assets/figma-home/evidence-scientist-editorial.png";
 import founderVisual from "../assets/figma-home/founder-bun-woman.png";
 import { SUPPORT_EMAILS } from "../data/siteContent";
 import { JOURNAL_ARTICLES } from "../data/journal";
@@ -122,7 +122,9 @@ const ESSENTIALS = [
     title: "Longevity",
     description: "Support healthy aging, cellular energy, and long-term vitality.",
     href: `${ROUTES.shop}?category=Longevity`,
-    image: essentialLongevityCard,
+    editorialImage: essentialLongevityEditorial,
+    editorialAlt: "Young green plant growing from a glass flask in a sunlit laboratory",
+    editorialPosition: "center",
     Icon: Leaf,
     chips: ["NMN", "Resveratrol", "Omega-3"],
   },
@@ -130,7 +132,9 @@ const ESSENTIALS = [
     title: "Focus",
     description: "Promote mental clarity, sustained energy, and cognitive performance.",
     href: `${ROUTES.shop}?category=Focus`,
-    image: essentialFocusCard,
+    editorialImage: essentialFocusEditorial,
+    editorialAlt: "Person writing at a desk in a sunlit laboratory",
+    editorialPosition: "center",
     Icon: Brain,
     chips: ["Creatine", "Citicoline", "L-Theanine"],
   },
@@ -138,7 +142,9 @@ const ESSENTIALS = [
     title: "Recovery",
     description: "Recover faster, reduce soreness, and support peak performance.",
     href: `${ROUTES.shop}?category=Recovery`,
-    image: essentialRecoveryCard,
+    editorialImage: essentialRecoveryEditorial,
+    editorialAlt: "Athlete resting after training on a sunlit coastal terrace",
+    editorialPosition: "center",
     Icon: Dumbbell,
     chips: ["Creatine", "Betaine", "Electrolytes"],
   },
@@ -146,7 +152,9 @@ const ESSENTIALS = [
     title: "Sleep",
     description: "Promote deeper sleep, calm your mind, and wake up refreshed.",
     href: ROUTES.protocols,
-    image: essentialSleepCard,
+    editorialImage: essentialSleepEditorial,
+    editorialAlt: "Person sleeping in a moonlit bedroom",
+    editorialPosition: "60% center",
     Icon: MoonStar,
     chips: ["Magnesium", "Apigenin", "Glycine"],
   },
@@ -390,45 +398,53 @@ export default function Home() {
               Every formula supports one of four core needs: live longer, think sharper, recover faster, and sleep deeper.
             </p>
           </div>
-
-            <div className="mt-12 grid gap-5 lg:grid-cols-4">
-            {ESSENTIALS.map((item, index) => (
-              <Link
-                key={item.title}
-                to={marketHref(item.href)}
-                className="overflow-hidden rounded-[18px] border border-[#e6e2d4] bg-[#f9f6f4] shadow-[0_24px_50px_-40px_rgba(27,26,23,0.35)] transition-transform duration-300 hover:-translate-y-1"
-              >
-                <div className="relative h-[251px] overflow-hidden bg-[#f3f0e8]">
-                  <img src={item.image} alt="" className="h-full w-full object-cover" />
-                  <span className="absolute left-5 top-5 text-[13px] font-semibold text-[#06301a]">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <div className="absolute bottom-5 left-5 flex h-[42px] w-[42px] items-center justify-center rounded-full border border-[#e1ddce] bg-[#e7e8e0] text-ink">
-                    <item.Icon size={20} />
-                  </div>
-                </div>
-                <div className="flex h-[calc(100%-251px)] flex-col p-6">
-                  <h3 className="text-[32px] leading-none text-ink">{item.title}</h3>
-                  <div className="mt-4 h-px w-9 bg-[#d6d0c0]" />
-                  <p className="mt-4 text-[14px] leading-6 text-[#131012]">{item.description}</p>
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    {item.chips.map((chip) => (
-                      <span
-                        key={chip}
-                        className="rounded-full border border-[#e1ddce] px-3 py-1.5 text-[11px] uppercase tracking-[0.04em] text-[#131012]"
-                      >
-                        {chip}
-                      </span>
-                    ))}
-                  </div>
-                  <span className="mt-auto pt-8 text-[13.5px] font-semibold text-forest-600">
-                    Explore {item.title.toLowerCase()} →
-                  </span>
-                </div>
-              </Link>
-            ))}
           </div>
 
+          <div className="mx-auto mt-12 max-w-[1440px]">
+            <div className="grid grid-cols-1 items-start gap-5 md:grid-cols-2 xl:grid-cols-4">
+              {ESSENTIALS.map((item, index) => (
+                <Link
+                  key={item.title}
+                  to={marketHref(item.href)}
+                  className="group relative h-[590px] overflow-hidden rounded-[20px] border border-[#d7cfbe] bg-[#222518] shadow-[0_24px_50px_-40px_rgba(27,26,23,0.55)] transition-shadow duration-500 hover:shadow-[0_30px_65px_-35px_rgba(27,26,23,0.72)] sm:h-[640px] lg:h-[720px]"
+                >
+                  <img
+                    src={item.editorialImage}
+                    alt={item.editorialAlt}
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transform-none"
+                    style={{ objectPosition: item.editorialPosition }}
+                  />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(16,20,12,0.16)_0%,rgba(20,24,14,0.02)_28%,rgba(25,29,16,0.28)_47%,rgba(22,25,14,0.78)_69%,rgba(17,20,11,0.96)_100%)]" />
+                  <span className="absolute left-5 top-5 text-[15px] font-semibold tracking-[0.04em] text-[#fffdf6]">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+
+                  <div className="absolute left-6 top-[48%] flex h-[46px] w-[46px] items-center justify-center rounded-full border border-white/65 bg-[#31422b]/35 text-[#fffdf6] backdrop-blur-sm">
+                    <item.Icon size={21} strokeWidth={1.5} />
+                  </div>
+
+                  <div className="absolute inset-x-0 bottom-0 p-7 text-[#fffdf6] sm:p-8">
+                    <h3 className="font-display text-[42px] leading-[0.9] tracking-[-0.02em] sm:text-[46px]">{item.title}</h3>
+                    <div className="mt-5 h-px w-11 bg-[#f4efdf]/80" />
+                    <p className="mt-5 max-w-[24ch] text-[16px] leading-6 text-[#fffdf6]/94 sm:text-[17px]">
+                      {item.description}
+                    </p>
+                    <p className="mt-7 text-[12px] font-medium text-[#e3d4ae]">Featuring</p>
+                    <p className="mt-2 text-[14px] leading-6 text-[#fffdf6]">{item.chips.join("  •  ")}</p>
+                    <span className="mt-8 inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#b8e0c1]">
+                      Explore {item.title.toLowerCase()}
+                      <ArrowRight
+                        size={16}
+                        className="transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transform-none"
+                      />
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="mx-auto max-w-[1040px]">
             <div className="mt-8 flex flex-col gap-6 rounded-[20px] border border-[#e2ded2] bg-[#f6f3f0] px-8 py-8 lg:flex-row lg:items-center lg:justify-between lg:px-10">
             <div className="flex items-center gap-4">
               <div className="flex h-[52px] w-[52px] items-center justify-center rounded-full bg-[#e3e8de] text-forest-600">
@@ -508,7 +524,7 @@ export default function Home() {
         <div className="container-bio">
           <div className="mx-auto grid max-w-[1472px] gap-[60px] lg:grid-cols-[685px_minmax(0,1fr)] lg:items-center">
             <div className="overflow-hidden rounded-[22px] lg:aspect-[685/930]">
-              <img src={evidenceLabPanel} alt="Laboratory quality and formulation workflow" className="h-full w-full object-cover" />
+              <img src={evidenceScientistEditorial} alt="Scientist conducting laboratory work" className="h-full w-full object-cover" />
             </div>
 
             <div className="pt-6 lg:pt-0">
