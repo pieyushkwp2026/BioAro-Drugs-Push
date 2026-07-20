@@ -3,16 +3,10 @@ import { getMarketConfigByCountry } from "../../config/markets";
 import type { CountryCode } from "../market/types";
 import { isShopifyConfigured, shopifyFetch } from "./client";
 import { buildCatalogProduct, buildPreviewCatalog, money } from "./preview";
-import type { CatalogProduct, MetafieldTitleTextItem, ProductEditorial, ProductImage, ProductMetafields, ShopifyProduct } from "./types";
+import type { CatalogProduct, ProductEditorial, ProductImage, ShopifyProduct } from "./types";
 
 const USE_MOCK_DATA = import.meta.env.VITE_SHOPIFY_USE_MOCK_DATA === "true";
 type ShopifyCurrencyCode = ShopifyProduct["price"]["currencyCode"];
-
-interface ShopifyMetafieldNode {
-  key: string;
-  value: string;
-  type: string;
-}
 
 interface ShopifyProductNode {
   id: string;
@@ -27,7 +21,6 @@ interface ShopifyProductNode {
     price: { amount: string; currencyCode: ShopifyCurrencyCode };
     compareAtPrice?: { amount: string; currencyCode: ShopifyCurrencyCode } | null;
   } | null;
-  metafields?: (ShopifyMetafieldNode | null)[];
 }
 
 interface ProductsQueryData {
@@ -37,42 +30,6 @@ interface ProductsQueryData {
 interface ProductQueryData {
   product: ShopifyProductNode | null;
 }
-
-const METAFIELD_IDENTIFIERS: { namespace: string; key: string }[] = [
-  { namespace: "custom", key: "pdp_subtitle" },
-  { namespace: "custom", key: "short_description" },
-  { namespace: "custom", key: "hero_tags" },
-  { namespace: "custom", key: "hero_bullets" },
-  { namespace: "custom", key: "supply_label" },
-  { namespace: "custom", key: "serving_size" },
-  { namespace: "custom", key: "directions" },
-  { namespace: "custom", key: "warnings" },
-  { namespace: "custom", key: "storage_instructions" },
-  { namespace: "custom", key: "allergen_info" },
-  { namespace: "custom", key: "disclaimer" },
-  { namespace: "custom", key: "rating_average" },
-  { namespace: "custom", key: "rating_count" },
-  { namespace: "custom", key: "rating_label" },
-  { namespace: "custom", key: "why_formula_headline" },
-  { namespace: "custom", key: "why_formula_body" },
-  { namespace: "custom", key: "science_headline" },
-  { namespace: "custom", key: "ingredients_headline" },
-  { namespace: "custom", key: "evidence_headline" },
-  { namespace: "custom", key: "faq_headline" },
-  { namespace: "custom", key: "bundle_headline" },
-  { namespace: "custom", key: "bundle_description" },
-  { namespace: "custom", key: "trust_badges" },
-  { namespace: "custom", key: "benefit_cards" },
-  { namespace: "custom", key: "science_steps" },
-  { namespace: "custom", key: "ingredients" },
-  { namespace: "custom", key: "supplement_facts_rows" },
-  { namespace: "custom", key: "clinical_evidence" },
-  { namespace: "custom", key: "comparison_rows" },
-  { namespace: "custom", key: "faqs" },
-  { namespace: "custom", key: "testimonials" },
-  { namespace: "custom", key: "labs_cta" },
-  { namespace: "custom", key: "final_cta" },
-];
 
 const PRODUCT_FIELDS = `
   id
@@ -99,80 +56,7 @@ const PRODUCT_FIELDS = `
       currencyCode
     }
   }
-  metafields(identifiers: [
-    ${METAFIELD_IDENTIFIERS.map((m) => `{namespace: "${m.namespace}", key: "${m.key}"}`).join(",\n    ")}
-  ]) {
-    key
-    value
-    type
-  }
 `;
-
-function safeJsonArray(value: string): MetafieldTitleTextItem[] | undefined {
-  try {
-    const parsed = JSON.parse(value);
-    return Array.isArray(parsed) ? parsed : undefined;
-  } catch {
-    return undefined;
-  }
-}
-
-function mapMetafields(nodes: (ShopifyMetafieldNode | null)[] | undefined): ProductMetafields | undefined {
-  if (!nodes || nodes.length === 0) return undefined;
-
-  const byKey = new Map<string, ShopifyMetafieldNode>();
-  for (const node of nodes) {
-    if (node) byKey.set(node.key, node);
-  }
-
-  const str = (key: string) => byKey.get(key)?.value;
-  const num = (key: string) => {
-    const v = byKey.get(key)?.value;
-    return v !== undefined ? Number(v) : undefined;
-  };
-  const jsonArr = (key: string) => {
-    const v = byKey.get(key)?.value;
-    return v !== undefined ? safeJsonArray(v) : undefined;
-  };
-
-  const metafields: ProductMetafields = {
-    pdpSubtitle: str("pdp_subtitle"),
-    shortDescription: str("short_description"),
-    heroTags: str("hero_tags"),
-    heroBullets: str("hero_bullets"),
-    supplyLabel: str("supply_label"),
-    servingSize: str("serving_size"),
-    directions: str("directions"),
-    warnings: str("warnings"),
-    storageInstructions: str("storage_instructions"),
-    allergenInfo: str("allergen_info"),
-    disclaimer: str("disclaimer"),
-    ratingAverage: num("rating_average"),
-    ratingCount: num("rating_count"),
-    ratingLabel: str("rating_label"),
-    whyFormulaHeadline: str("why_formula_headline"),
-    whyFormulaBody: str("why_formula_body"),
-    scienceHeadline: str("science_headline"),
-    ingredientsHeadline: str("ingredients_headline"),
-    evidenceHeadline: str("evidence_headline"),
-    faqHeadline: str("faq_headline"),
-    bundleHeadline: str("bundle_headline"),
-    bundleDescription: str("bundle_description"),
-    trustBadges: jsonArr("trust_badges"),
-    benefitCards: jsonArr("benefit_cards"),
-    scienceSteps: jsonArr("science_steps"),
-    ingredients: str("ingredients"),
-    supplementFactsRows: jsonArr("supplement_facts_rows"),
-    clinicalEvidence: jsonArr("clinical_evidence"),
-    comparisonRows: jsonArr("comparison_rows"),
-    faqs: jsonArr("faqs"),
-    testimonials: jsonArr("testimonials"),
-    labsCta: str("labs_cta"),
-    finalCta: str("final_cta"),
-  };
-
-  return metafields;
-}
 
 function mapProductImage(node: ShopifyProductNode): ProductImage {
   const fallbackAlt = `${node.title} product image`;
@@ -211,7 +95,6 @@ function mapShopifyProduct(node: ShopifyProductNode): ShopifyProduct {
       : undefined,
     availableForSale: node.availableForSale,
     variantId: node.selectedOrFirstAvailableVariant?.id ?? `missing-variant-${node.handle}`,
-    metafields: mapMetafields(node.metafields),
   };
 }
 
@@ -220,28 +103,12 @@ function mergeProduct(previewProduct: ProductEditorial, shopifyProduct: ShopifyP
     return buildCatalogProduct(previewProduct, country);
   }
 
-  const mf = shopifyProduct.metafields;
-
   return {
     ...previewProduct,
     id: shopifyProduct.id,
     title: shopifyProduct.title || previewProduct.title,
-    tagline: mf?.pdpSubtitle || previewProduct.tagline,
-    description: mf?.shortDescription || shopifyProduct.description || previewProduct.description,
+    description: shopifyProduct.description || previewProduct.description,
     image: shopifyProduct.image.src ? shopifyProduct.image : previewProduct.image,
-    supplyLabel: mf?.supplyLabel || previewProduct.supplyLabel,
-    servings: mf?.servingSize || previewProduct.servings,
-    bestFor: mf?.whyFormulaBody || previewProduct.bestFor,
-    dosage: mf?.directions || previewProduct.dosage,
-    rating: {
-      average: mf?.ratingAverage ?? previewProduct.rating.average,
-      count: mf?.ratingCount ?? previewProduct.rating.count,
-    },
-    trustNotes: mf?.trustBadges?.map((item) => item.text) ?? previewProduct.trustNotes,
-    warnings: mf?.warnings ? mf.warnings.split("\n").filter(Boolean) : previewProduct.warnings,
-    evidencePoints: mf?.clinicalEvidence?.map((item) => item.text) ?? previewProduct.evidencePoints,
-    science: mf?.scienceSteps?.map((item) => ({ title: item.title, description: item.text })) ?? previewProduct.science,
-    faq: mf?.faqs?.map((item) => ({ question: item.title, answer: item.text })) ?? previewProduct.faq,
     price: shopifyProduct.price,
     compareAtPrice: shopifyProduct.compareAtPrice,
     availableForSale: shopifyProduct.availableForSale,
