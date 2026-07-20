@@ -4,6 +4,7 @@ import type { CatalogProduct } from "../../lib/shopify/types";
 import { useMarket } from "../../hooks/useMarket";
 import { useMarketHref } from "../../hooks/useMarketHref";
 import { formatMoney } from "../../lib/market/config";
+import { PRODUCT_CARD_IMAGES } from "../../data/productCardImages";
 import ProductImageStage from "./ProductImageStage";
 
 export default function ProductCard({ product }: { product: CatalogProduct }) {
@@ -12,6 +13,7 @@ export default function ProductCard({ product }: { product: CatalogProduct }) {
   const productHref = marketHref(`/products/${product.handle}`);
   const words = product.title.split(" ").filter(Boolean);
   const initials = (words[0]?.[0] ?? "") + (words[1]?.[0] ?? "");
+  const cardImage = PRODUCT_CARD_IMAGES[product.handle] ?? product.image;
 
   return (
     <article className="group flex h-full flex-col">
@@ -20,7 +22,7 @@ export default function ProductCard({ product }: { product: CatalogProduct }) {
           <span className="absolute left-4 top-4 z-10 rounded-md bg-white px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.08em] text-ink">
             {product.badge ?? "Bestseller"}
           </span>
-          <ProductImageStage src={product.image?.src} alt={product.image?.alt} initials={initials} />
+          <ProductImageStage src={cardImage?.src} alt={cardImage?.alt} initials={initials} />
         </Link>
 
         <div className="flex flex-1 flex-col px-5 pb-4 pt-3">
