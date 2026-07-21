@@ -9,7 +9,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroPerformanceBackground from "../assets/hero/hero-performance-background.png";
+import aboutHeroProtocolPreparation from "../assets/about/about-hero-protocol-preparation.png";
 import labGlasswareStudy from "../assets/science/lab-glassware-study.png";
 import { useMarketHref } from "../hooks/useMarketHref";
 import { ROUTES } from "../lib/routes";
@@ -53,9 +53,9 @@ export default function About() {
     <main className="overflow-hidden">
       <section className="relative isolate min-h-[640px] overflow-hidden bg-cream md:min-h-[720px]">
         <img
-          src={heroPerformanceBackground}
-          alt="Runner moving through a bright coastal landscape beside BioAro products"
-          className="absolute inset-0 h-full w-full object-cover object-[68%_center] transition-transform duration-700 hover:scale-[1.015] motion-reduce:transition-none motion-reduce:hover:scale-100"
+          src={aboutHeroProtocolPreparation}
+          alt="Hand preparing a BioAro Creagen drink alongside the BioAro product range"
+          className="absolute inset-0 h-full w-full object-cover object-[60%_47%] transition-transform duration-700 hover:scale-[1.015] motion-reduce:transition-none motion-reduce:hover:scale-100"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-cream via-cream/90 to-transparent md:via-cream/65" />
         <div className="container-bio relative flex min-h-[640px] items-center py-24 md:min-h-[720px]">

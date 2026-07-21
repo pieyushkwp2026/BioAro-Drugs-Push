@@ -43,6 +43,16 @@ import brainBoostOpenPack from "../assets/products/creagen-brain-boost-02-open-p
 import brainBoostFlatlay from "../assets/products/creagen-brain-boost-03-flatlay-1x1.png";
 import brainBoostDetail from "../assets/products/creagen-brain-boost-04-product-detail-1x1.png";
 import brainBoostIngredients from "../assets/products/creagen-brain-boost-05-ingredients-1x1.png";
+import proPowerHero from "../assets/products/creagen-pro-power-01-hero-1x1.jpg";
+import proPowerIngredients from "../assets/products/creagen-pro-power-02-ingredients-1x1.jpg";
+import proPowerLifestyle from "../assets/products/creagen-pro-power-03-lifestyle-1x1.jpg";
+import proPowerBenefits from "../assets/products/creagen-pro-power-04-benefits-1x1.jpg";
+import proPowerRoutine from "../assets/products/creagen-pro-power-05-product-routine-1x1.jpg";
+import glutaraHero from "../assets/products/glutara-01-hero-1x1.jpg";
+import glutaraIngredients from "../assets/products/glutara-02-ingredients-1x1.jpg";
+import glutaraLifestyle from "../assets/products/glutara-03-lifestyle-1x1.jpg";
+import glutaraBenefits from "../assets/products/glutara-04-benefits-1x1.jpg";
+import glutaraRoutine from "../assets/products/glutara-05-product-routine-1x1.jpg";
 
 const WHY_ICONS: Record<ProductWhyItem["icon"], typeof Zap> = {
   energy: Zap,
@@ -96,6 +106,20 @@ const PRODUCT_GALLERIES: Record<string, ProductGalleryImage[]> = {
     { src: brainBoostFlatlay, alt: "Creagen Brain Boost container and sachets flat lay", fit: "cover" },
     { src: brainBoostDetail, alt: "Creagen Brain Boost container with branded lid and sachet", fit: "cover" },
     { src: brainBoostIngredients, alt: "Creagen Brain Boost key ingredients and serving amounts", fit: "contain" },
+  ],
+  "creagen-pro-power": [
+    { src: proPowerHero, alt: "Creagen Pro Power container with two individual sachets", fit: "cover" },
+    { src: proPowerIngredients, alt: "Creagen Pro Power ingredients with powder and individual sachets", fit: "cover" },
+    { src: proPowerLifestyle, alt: "Athlete preparing Creagen Pro Power in a gym", fit: "cover" },
+    { src: proPowerBenefits, alt: "Creagen Pro Power formula benefits and performance support information", fit: "contain" },
+    { src: proPowerRoutine, alt: "Open Creagen Pro Power container with shaker and sachets", fit: "cover" },
+  ],
+  glutara: [
+    { src: glutaraHero, alt: "Glutara product container on a stone surface", fit: "cover" },
+    { src: glutaraIngredients, alt: "Glutara ingredients with sachets and powder samples", fit: "cover" },
+    { src: glutaraLifestyle, alt: "Woman preparing Glutara with water as part of a daily routine", fit: "cover" },
+    { src: glutaraBenefits, alt: "Glutara formula benefits and antioxidant support information", fit: "contain" },
+    { src: glutaraRoutine, alt: "Open Glutara container with sachets, water, and powder", fit: "cover" },
   ],
 };
 

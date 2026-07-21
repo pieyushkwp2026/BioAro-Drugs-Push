@@ -5,6 +5,8 @@ import {
   Brain,
   CalendarRange,
   Check,
+  ChevronLeft,
+  ChevronRight,
   ClipboardList,
   Dumbbell,
   FileCheck2,
@@ -35,7 +37,7 @@ import { useMarketHref } from "../hooks/useMarketHref";
 import { ROUTES } from "../lib/routes";
 import { fetchAllProducts } from "../lib/shopify/productService";
 import type { CatalogProduct } from "../lib/shopify/types";
-import ctaProductVisual from "../assets/cta/dark-luxury-cta-product-visual.png";
+import rawPowerLifestyle from "../assets/about/protocol-slider/creagen-raw-power-lifestyle.png";
 
 const HERO_TRUST_ITEMS = [
   { label: "Evidence-led", subtitle: "Formulas", Icon: FlaskConical },
@@ -48,6 +50,89 @@ type IconProps = {
   className?: string;
   size?: number;
 };
+
+type ProtocolLifestyleSlide = {
+  src: string;
+  alt: string;
+  objectPosition: string;
+  ariaLabel?: string;
+};
+
+const PROTOCOL_LIFESTYLE_SLIDES: ProtocolLifestyleSlide[] = [
+  {
+    src: rawPowerLifestyle,
+    alt: "Athlete preparing Creagen Raw Power in a shaker as part of a daily performance routine",
+    objectPosition: "52% 50%",
+    ariaLabel: "Creagen Raw Power daily performance routine",
+  },
+];
+
+function ProtocolLifestyleSlider() {
+  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
+  const hasMultipleSlides = PROTOCOL_LIFESTYLE_SLIDES.length > 1;
+
+  const showSlide = (nextIndex: number) => {
+    setActiveSlideIndex((nextIndex + PROTOCOL_LIFESTYLE_SLIDES.length) % PROTOCOL_LIFESTYLE_SLIDES.length);
+  };
+
+  return (
+    <div
+      className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10 bg-white/5 shadow-[0_28px_55px_-38px_rgba(0,0,0,0.8)]"
+      aria-label="Daily protocol lifestyle images"
+      role={hasMultipleSlides ? "region" : undefined}
+    >
+      {PROTOCOL_LIFESTYLE_SLIDES.map((slide, index) => (
+        <img
+          key={slide.src}
+          src={slide.src}
+          alt={index === activeSlideIndex ? slide.alt : ""}
+          aria-hidden={index !== activeSlideIndex}
+          loading="lazy"
+          decoding="async"
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 motion-reduce:transition-none ${
+            index === activeSlideIndex ? "opacity-100" : "pointer-events-none opacity-0"
+          }`}
+          style={{ objectPosition: slide.objectPosition }}
+        />
+      ))}
+
+      {hasMultipleSlides ? (
+        <>
+          <button
+            type="button"
+            onClick={() => showSlide(activeSlideIndex - 1)}
+            className="absolute bottom-4 left-4 inline-flex size-10 items-center justify-center rounded-full border border-white/25 bg-black/30 text-white backdrop-blur-sm transition-colors hover:bg-black/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            aria-label="Show previous lifestyle image"
+          >
+            <ChevronLeft size={18} aria-hidden="true" />
+          </button>
+          <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 items-center gap-2" aria-label="Lifestyle image navigation">
+            {PROTOCOL_LIFESTYLE_SLIDES.map((slide, index) => (
+              <button
+                key={slide.src}
+                type="button"
+                onClick={() => showSlide(index)}
+                className={`h-2 rounded-full transition-[width,background-color] duration-500 motion-reduce:transition-none ${
+                  index === activeSlideIndex ? "w-6 bg-white" : "w-2 bg-white/55 hover:bg-white/80"
+                } focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
+                aria-label={`Show ${slide.ariaLabel ?? `lifestyle image ${index + 1}`}`}
+                aria-current={index === activeSlideIndex ? "true" : undefined}
+              />
+            ))}
+          </div>
+          <button
+            type="button"
+            onClick={() => showSlide(activeSlideIndex + 1)}
+            className="absolute bottom-4 right-4 inline-flex size-10 items-center justify-center rounded-full border border-white/25 bg-black/30 text-white backdrop-blur-sm transition-colors hover:bg-black/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            aria-label="Show next lifestyle image"
+          >
+            <ChevronRight size={18} aria-hidden="true" />
+          </button>
+        </>
+      ) : null}
+    </div>
+  );
+}
 
 function CanadaFlagIcon({ className, size = 52 }: IconProps) {
   return (
@@ -797,9 +882,7 @@ export default function Home() {
 
               <div className="relative mx-auto w-full max-w-[560px] lg:mx-0 lg:justify-self-end">
                 <div className="absolute inset-6 rounded-[28px] bg-[radial-gradient(circle_at_50%_35%,rgba(111,146,77,0.28)_0%,rgba(111,146,77,0)_48%),radial-gradient(circle_at_70%_30%,rgba(186,141,63,0.24)_0%,rgba(186,141,63,0)_42%)] blur-2xl" />
-                <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-white/5 shadow-[0_28px_55px_-38px_rgba(0,0,0,0.8)]">
-                  <img src={ctaProductVisual} alt="BioAro luxury product visual" className="h-full w-full object-cover" />
-                </div>
+                <ProtocolLifestyleSlider />
               </div>
             </div>
           </div>
