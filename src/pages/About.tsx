@@ -51,14 +51,14 @@ export default function About() {
 
   return (
     <main className="overflow-hidden">
-      <section className="relative isolate min-h-[640px] overflow-hidden bg-cream md:min-h-[720px]">
+      <section className="relative isolate min-h-[680px] overflow-hidden bg-cream md:min-h-[760px]">
         <img
           src={aboutHeroProtocolPreparation}
           alt="Hand preparing a BioAro Creagen drink alongside the BioAro product range"
           className="absolute inset-0 h-full w-full object-cover object-[60%_47%] transition-transform duration-700 hover:scale-[1.015] motion-reduce:transition-none motion-reduce:hover:scale-100"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-cream via-cream/90 to-transparent md:via-cream/65" />
-        <div className="container-bio relative flex min-h-[640px] items-center py-24 md:min-h-[720px]">
+        <div className="absolute inset-0 bg-gradient-to-r from-cream via-cream/20 to-transparent md:via-cream/30" />
+        <div className="container-bio relative flex min-h-[680px] items-center py-24 md:min-h-[760px]">
           <div className="max-w-xl">
             <span className="eyebrow">About BioAro</span>
             <h1 className="mt-5 max-w-lg text-5xl leading-[0.95] md:text-7xl">
