@@ -3,7 +3,7 @@ import { getMarketConfigByCountry } from "../../config/markets";
 import type { CountryCode } from "../market/types";
 import { isShopifyConfigured, shopifyFetch } from "./client";
 import { buildCatalogProduct, buildPreviewCatalog, money } from "./preview";
-import type { CatalogProduct, MetafieldTitleTextItem, ProductEditorial, ProductImage, ProductMetafields, ShopifyProduct } from "./types";
+import type { CatalogProduct, MetafieldComparisonRow, MetafieldTestimonial, MetafieldTitleTextItem, ProductEditorial, ProductImage, ProductMetafields, ShopifyProduct } from "./types";
 
 const USE_MOCK_DATA = import.meta.env.VITE_SHOPIFY_USE_MOCK_DATA === "true";
 type ShopifyCurrencyCode = ShopifyProduct["price"]["currencyCode"];
@@ -108,7 +108,7 @@ const PRODUCT_FIELDS = `
   }
 `;
 
-function safeJsonArray(value: string): MetafieldTitleTextItem[] | undefined {
+function safeJsonArray<T>(value: string): T[] | undefined {
   try {
     const parsed = JSON.parse(value);
     return Array.isArray(parsed) ? parsed : undefined;
@@ -130,9 +130,9 @@ function mapMetafields(nodes: (ShopifyMetafieldNode | null)[] | undefined): Prod
     const v = byKey.get(key)?.value;
     return v !== undefined ? Number(v) : undefined;
   };
-  const jsonArr = (key: string) => {
+  const jsonArr = <T,>(key: string) => {
     const v = byKey.get(key)?.value;
-    return v !== undefined ? safeJsonArray(v) : undefined;
+    return v !== undefined ? safeJsonArray<T>(v) : undefined;
   };
 
   const metafields: ProductMetafields = {
@@ -158,15 +158,15 @@ function mapMetafields(nodes: (ShopifyMetafieldNode | null)[] | undefined): Prod
     faqHeadline: str("faq_headline"),
     bundleHeadline: str("bundle_headline"),
     bundleDescription: str("bundle_description"),
-    trustBadges: jsonArr("trust_badges"),
-    benefitCards: jsonArr("benefit_cards"),
-    scienceSteps: jsonArr("science_steps"),
+    trustBadges: jsonArr<MetafieldTitleTextItem>("trust_badges"),
+    benefitCards: jsonArr<MetafieldTitleTextItem>("benefit_cards"),
+    scienceSteps: jsonArr<MetafieldTitleTextItem>("science_steps"),
     ingredients: str("ingredients"),
-    supplementFactsRows: jsonArr("supplement_facts_rows"),
-    clinicalEvidence: jsonArr("clinical_evidence"),
-    comparisonRows: jsonArr("comparison_rows"),
-    faqs: jsonArr("faqs"),
-    testimonials: jsonArr("testimonials"),
+    supplementFactsRows: jsonArr<MetafieldTitleTextItem>("supplement_facts_rows"),
+    clinicalEvidence: jsonArr<MetafieldTitleTextItem>("clinical_evidence"),
+    comparisonRows: jsonArr<MetafieldComparisonRow>("comparison_rows"),
+    faqs: jsonArr<MetafieldTitleTextItem>("faqs"),
+    testimonials: jsonArr<MetafieldTestimonial>("testimonials"),
     labsCta: str("labs_cta"),
     finalCta: str("final_cta"),
   };
@@ -215,6 +215,63 @@ function mapShopifyProduct(node: ShopifyProductNode): ShopifyProduct {
   };
 }
 
+// Builds a full CatalogProduct purely from Shopify data + metafields, used when
+// there is no matching local preview product (new Shopify-only products).
+function buildShopifyOnlyProduct(shopifyProduct: ShopifyProduct): CatalogProduct {
+  const mf = shopifyProduct.metafields;
+
+  return {
+    id: shopifyProduct.id,
+    handle: shopifyProduct.handle,
+    title: shopifyProduct.title,
+    tagline: mf?.pdpSubtitle || "Product details will be available soon.",
+    description: mf?.shortDescription || shopifyProduct.description,
+    badge: undefined,
+    image: shopifyProduct.image,
+    category: "Longevity",
+    tags: [],
+    bestFor: mf?.whyFormulaBody || "Contact support for guidance when this product becomes available.",
+    dosage: mf?.directions || "Follow the product label guidance once available.",
+    servings: mf?.servingSize || "See packaging",
+    supplyLabel: mf?.supplyLabel || "Availability coming soon",
+    rating: {
+      average: mf?.ratingAverage ?? 0,
+      count: mf?.ratingCount ?? 0,
+    },
+    benefits: mf?.benefitCards?.map((item) => item.text) ?? ["Product guidance will be available when this market opens."],
+    whyItems: [],
+    trustNotes: mf?.trustBadges?.map((item) => item.text) ?? ["Contact support with product questions while availability is being prepared."],
+    warnings: mf?.warnings ? mf.warnings.split("\n").filter(Boolean) : ["Consult a healthcare professional before use."],
+    ingredients: mf?.ingredients
+      ? [{ name: mf.ingredients, amount: "", purpose: "" }]
+      : [],
+    evidencePoints: mf?.clinicalEvidence?.map((item) => item.text) ?? [],
+    efficacyMetric: { label: "", unit: "", placeboValue: 0, productValue: 0, caption: "" },
+    supplementFacts:
+      mf?.supplementFactsRows?.map((item) => ({ label: item.title, value: item.text })) ?? [
+        { label: "Serving size", value: mf?.servingSize || "See packaging" },
+        { label: "Servings per container", value: "See packaging" },
+      ],
+    science: mf?.scienceSteps?.map((item) => ({ title: item.title, description: item.text })) ?? [
+      { title: "Product information", description: "Product-specific information will be available when this market opens." },
+    ],
+    faq: mf?.faqs?.map((item) => ({ question: item.title, answer: item.text })) ?? [
+      { question: "Need more detail?", answer: "Contact support for guidance when this product becomes available." },
+    ],
+    testimonials: mf?.testimonials,
+    comparisonRows: mf?.comparisonRows,
+    priceByCountry: {
+      US: shopifyProduct.price.currencyCode === "USD" ? shopifyProduct.price.amount : money(shopifyProduct.price.amount, "US").amount,
+      CA: shopifyProduct.price.currencyCode === "CAD" ? shopifyProduct.price.amount : money(shopifyProduct.price.amount, "CA").amount,
+      GB: shopifyProduct.price.currencyCode === "GBP" ? shopifyProduct.price.amount : money(shopifyProduct.price.amount, "GB").amount,
+    },
+    price: shopifyProduct.price,
+    compareAtPrice: shopifyProduct.compareAtPrice,
+    availableForSale: shopifyProduct.availableForSale,
+    variantId: shopifyProduct.variantId,
+  };
+}
+
 function mergeProduct(previewProduct: ProductEditorial, shopifyProduct: ShopifyProduct | undefined, country: CountryCode): CatalogProduct {
   if (!shopifyProduct) {
     return buildCatalogProduct(previewProduct, country);
@@ -237,11 +294,16 @@ function mergeProduct(previewProduct: ProductEditorial, shopifyProduct: ShopifyP
       average: mf?.ratingAverage ?? previewProduct.rating.average,
       count: mf?.ratingCount ?? previewProduct.rating.count,
     },
+    benefits: mf?.benefitCards?.map((item) => item.text) ?? previewProduct.benefits,
     trustNotes: mf?.trustBadges?.map((item) => item.text) ?? previewProduct.trustNotes,
     warnings: mf?.warnings ? mf.warnings.split("\n").filter(Boolean) : previewProduct.warnings,
     evidencePoints: mf?.clinicalEvidence?.map((item) => item.text) ?? previewProduct.evidencePoints,
     science: mf?.scienceSteps?.map((item) => ({ title: item.title, description: item.text })) ?? previewProduct.science,
     faq: mf?.faqs?.map((item) => ({ question: item.title, answer: item.text })) ?? previewProduct.faq,
+    supplementFacts:
+      mf?.supplementFactsRows?.map((item) => ({ label: item.title, value: item.text })) ?? previewProduct.supplementFacts,
+    testimonials: mf?.testimonials ?? previewProduct.testimonials,
+    comparisonRows: mf?.comparisonRows ?? previewProduct.comparisonRows,
     price: shopifyProduct.price,
     compareAtPrice: shopifyProduct.compareAtPrice,
     availableForSale: shopifyProduct.availableForSale,
@@ -298,7 +360,16 @@ export async function fetchAllProducts(country: CountryCode): Promise<CatalogPro
     const shopifyProducts = await fetchShopifyProducts(country);
     const byHandle = new Map(shopifyProducts.map((product) => [product.handle, product]));
 
-    return PREVIEW_PRODUCTS.map((previewProduct) => mergeProduct(previewProduct, byHandle.get(previewProduct.handle), country));
+    const mergedPreviewProducts = PREVIEW_PRODUCTS.map((previewProduct) =>
+      mergeProduct(previewProduct, byHandle.get(previewProduct.handle), country),
+    );
+
+    const previewHandles = new Set(PREVIEW_PRODUCTS.map((p) => p.handle));
+    const shopifyOnlyProducts = shopifyProducts
+      .filter((product) => !previewHandles.has(product.handle))
+      .map((product) => buildShopifyOnlyProduct(product));
+
+    return [...mergedPreviewProducts, ...shopifyOnlyProducts];
   } catch {
     return buildPreviewCatalog(country);
   }
@@ -321,44 +392,7 @@ export async function fetchProductByHandle(handle: string, country: CountryCode)
     if (previewProduct) return mergeProduct(previewProduct, shopifyProduct, country);
     if (!shopifyProduct) return undefined;
 
-    return {
-      id: shopifyProduct.id,
-      handle: shopifyProduct.handle,
-      title: shopifyProduct.title,
-      tagline: "Product details will be available soon.",
-      description: shopifyProduct.description,
-      badge: undefined,
-      image: shopifyProduct.image,
-      category: "Longevity",
-      tags: [],
-      bestFor: "Contact support for guidance when this product becomes available.",
-      dosage: "Follow the product label guidance once available.",
-      servings: "See packaging",
-      supplyLabel: "Availability coming soon",
-      rating: { average: 0, count: 0 },
-      benefits: ["Product guidance will be available when this market opens."],
-      whyItems: [],
-      trustNotes: ["Contact support with product questions while availability is being prepared."],
-      warnings: ["Consult a healthcare professional before use."],
-      ingredients: [],
-      evidencePoints: [],
-      efficacyMetric: { label: "", unit: "", placeboValue: 0, productValue: 0, caption: "" },
-      supplementFacts: [
-        { label: "Serving size", value: "See packaging" },
-        { label: "Servings per container", value: "See packaging" },
-      ],
-      science: [{ title: "Product information", description: "Product-specific information will be available when this market opens." }],
-      faq: [{ question: "Need more detail?", answer: "Contact support for guidance when this product becomes available." }],
-      priceByCountry: {
-        US: shopifyProduct.price.currencyCode === "USD" ? shopifyProduct.price.amount : money(shopifyProduct.price.amount, "US").amount,
-        CA: shopifyProduct.price.currencyCode === "CAD" ? shopifyProduct.price.amount : money(shopifyProduct.price.amount, "CA").amount,
-        GB: shopifyProduct.price.currencyCode === "GBP" ? shopifyProduct.price.amount : money(shopifyProduct.price.amount, "GB").amount,
-      },
-      price: shopifyProduct.price,
-      compareAtPrice: shopifyProduct.compareAtPrice,
-      availableForSale: shopifyProduct.availableForSale,
-      variantId: shopifyProduct.variantId,
-    };
+    return buildShopifyOnlyProduct(shopifyProduct);
   } catch {
     return previewProduct ? buildCatalogProduct(previewProduct, country) : undefined;
   }

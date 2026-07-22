@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
-import { Check, Zap, Dna, Scale, Heart, Brain, Shield, Flame, Droplet, Sparkles, ArrowRight } from "lucide-react";
+import { Check, Zap, Dna, Scale, Heart, Brain, Shield, Flame, Droplet, Sparkles, ArrowRight, Star, Quote } from "lucide-react";
 import AccordionGroup from "../components/page/AccordionGroup";
 import IngredientCard from "../components/sections/IngredientCard";
 import PlaceholderBottle from "../components/sections/PlaceholderBottle";
@@ -210,6 +210,7 @@ export default function Product() {
   const showGraph = product.efficacyMetric.label !== "" && maxEfficacy > 0;
   const scienceVisual = getScienceVisual(product.handle);
   const productGallery = PRODUCT_GALLERIES[product.handle];
+  const comparisonRows = product.comparisonRows && product.comparisonRows.length > 0 ? product.comparisonRows : COMPARISON_ROWS;
 
   return (
     <div className="pt-24 pb-20 md:pt-32 md:pb-24">
@@ -237,6 +238,23 @@ export default function Product() {
             <h1 className="mt-3 text-4xl md:text-5xl">{product.title}</h1>
             <p className="mt-3 text-forest-600">{product.tagline}</p>
 
+            {product.rating.count > 0 && (
+              <div className="mt-3 flex items-center gap-2">
+                <div className="flex items-center gap-0.5">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star
+                      key={i}
+                      size={14}
+                      className={i < Math.round(product.rating.average) ? "fill-forest-600 text-forest-600" : "text-ink/20"}
+                    />
+                  ))}
+                </div>
+                <span className="text-sm text-ink/55">
+                  {product.rating.average.toFixed(1)} ({product.rating.count.toLocaleString()} reviews)
+                </span>
+              </div>
+            )}
+
             <p className="mt-5 text-ink/60 leading-relaxed">{product.description}</p>
 
             <div className="mt-6 flex flex-wrap gap-2">
@@ -246,6 +264,20 @@ export default function Product() {
                 </span>
               ))}
             </div>
+
+            {product.trustNotes.length > 0 && (
+              <div className="mt-3 flex flex-wrap gap-2">
+                {product.trustNotes.map((note) => (
+                  <span
+                    key={note}
+                    className="inline-flex items-center gap-1.5 rounded-full bg-forest-600/10 px-3 py-1.5 text-xs font-medium text-forest-600"
+                  >
+                    <Check size={12} />
+                    {note}
+                  </span>
+                ))}
+              </div>
+            )}
 
             <div className="glass-card mt-6 flex items-center justify-between gap-4 p-5">
               <div>
@@ -367,7 +399,7 @@ export default function Product() {
                 <span>BioAro {product.title.replace(/\+$/, "")}</span>
                 <span>Typical supplement</span>
               </div>
-              {COMPARISON_ROWS.map((row) => (
+              {comparisonRows.map((row) => (
                 <div key={row.label} className="grid grid-cols-3 items-center gap-4 py-4 md:py-5">
                   <span className="text-ink/60">{row.label}</span>
                   <span className="font-medium text-forest-600">{row.bioaro}</span>
@@ -403,6 +435,31 @@ export default function Product() {
                   </div>
                   <ArrowRight size={16} className="shrink-0 text-ink/30" />
                 </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Testimonials */}
+        {product.testimonials && product.testimonials.length > 0 && (
+          <section className="mt-24">
+            <span className="eyebrow">What people are saying</span>
+            <h2 className="mt-2 text-3xl">Real results from real customers.</h2>
+            <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {product.testimonials.map((testimonial) => (
+                <div key={testimonial.name} className="glass-card p-6">
+                  <Quote size={20} className="text-forest-600/40" />
+                  <p className="mt-4 text-sm leading-relaxed text-ink/70">{testimonial.quote}</p>
+                  <div className="mt-5 flex items-center gap-3">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-forest-600/10 text-xs font-medium text-forest-600">
+                      {testimonial.initials}
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium">{testimonial.name}</p>
+                      <p className="text-xs text-ink/45">{testimonial.location}</p>
+                    </div>
+                  </div>
+                </div>
               ))}
             </div>
           </section>
