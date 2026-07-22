@@ -54,6 +54,21 @@ export interface MetafieldTitleTextItem {
   text: string;
 }
 
+// Shape for testimonial metafields (requires initials, name, location, quote).
+export interface MetafieldTestimonial {
+  initials: string;
+  name: string;
+  location: string;
+  quote: string;
+}
+
+// Shape for comparison table rows (requires label, bioaro, typical).
+export interface MetafieldComparisonRow {
+  label: string;
+  bioaro: string;
+  typical: string;
+}
+
 export interface ProductMetafields {
   pdpSubtitle?: string;
   shortDescription?: string;
@@ -83,9 +98,9 @@ export interface ProductMetafields {
   ingredients?: string;
   supplementFactsRows?: MetafieldTitleTextItem[];
   clinicalEvidence?: MetafieldTitleTextItem[];
-  comparisonRows?: MetafieldTitleTextItem[];
+  comparisonRows?: MetafieldComparisonRow[];
   faqs?: MetafieldTitleTextItem[];
-  testimonials?: MetafieldTitleTextItem[];
+  testimonials?: MetafieldTestimonial[];
   labsCta?: string;
   finalCta?: string;
 }
@@ -118,6 +133,8 @@ export interface ProductEditorial {
   evidencePoints: string[];
   efficacyMetric: ProductEfficacyMetric;
   faq: ProductFAQ[];
+  testimonials?: MetafieldTestimonial[];
+  comparisonRows?: MetafieldComparisonRow[];
   priceByCountry: Partial<Record<CountryCode, number>>;
   compareAtByCountry?: Partial<Record<CountryCode, number>>;
 }
