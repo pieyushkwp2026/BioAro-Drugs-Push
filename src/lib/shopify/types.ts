@@ -137,6 +137,7 @@ export interface ProductEditorial {
   comparisonRows?: MetafieldComparisonRow[];
   priceByCountry: Partial<Record<CountryCode, number>>;
   compareAtByCountry?: Partial<Record<CountryCode, number>>;
+  metafields?: ProductMetafields;
 }
 export interface ShopifyProduct {
   id: string;

@@ -25,7 +25,7 @@ export function money(amount: number, country: CountryCode): MoneyAmount {
 export function buildCatalogProduct(product: ProductEditorial, country: CountryCode): CatalogProduct {
   const market = marketFromCountryCode(country);
   const availableForSale = isProductAvailableInMarket(product.handle, market);
-  const priceAmount = availableForSale ? product.priceByCountry[country] ?? 0 : 0;
+  const priceAmount = product.priceByCountry[country] ?? 0;
 
   return {
     ...product,
