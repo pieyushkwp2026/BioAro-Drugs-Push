@@ -44,7 +44,7 @@ export default function Partners() {
             </div>
 
             <div className="mt-8 rounded-3xl border border-ink/10 bg-white/45 px-5 py-6">
-              <p className="text-lg font-medium">What we're building</p>
+              <p className="text-lg font-medium">How we work together</p>
               <ul className="mt-4 space-y-2 text-sm text-ink/60">
                 {PARTNER_BUILDOUT_POINTS.map((point) => (
                   <li key={point} className="flex gap-2">

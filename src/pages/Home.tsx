@@ -1,4 +1,4 @@
-import { Fragment, type FormEvent, useEffect, useState } from "react";
+import { type FormEvent, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -21,26 +21,26 @@ import {
 } from "lucide-react";
 import { FlagCA } from "../components/layout/Flags";
 import ProductCard from "../components/sections/ProductCard";
-import heroPerformanceBackground from "../assets/hero/hero-performance-background.png";
-import heroRunnerTransparent from "../assets/hero/hero-runner-transparent.png";
-import essentialLongevityCard from "../assets/figma-home/essential-longevity-card.png";
-import essentialFocusCard from "../assets/figma-home/essential-focus-card.png";
-import essentialRecoveryCard from "../assets/figma-home/essential-recovery-card.png";
-import essentialSleepCard from "../assets/figma-home/essential-sleep-card.png";
-import evidenceLabPanel from "../assets/figma-home/evidence-lab-scene-3-4.png";
+import heroCreagenRecovery from "../assets/hero/hero-creagen-recovery.png";
+import essentialLongevityEditorial from "../assets/figma-home/essential-longevity-editorial.png";
+import essentialFocusEditorial from "../assets/figma-home/essential-focus-editorial.png";
+import essentialRecoveryEditorial from "../assets/figma-home/essential-recovery-editorial.png";
+import essentialSleepEditorial from "../assets/figma-home/essential-sleep-editorial.png";
+import evidenceScientistEditorial from "../assets/figma-home/evidence-scientist-editorial.png";
 import founderVisual from "../assets/figma-home/founder-bun-woman.png";
 import { SUPPORT_EMAILS } from "../data/siteContent";
 import { JOURNAL_ARTICLES } from "../data/journal";
 import { useMarket } from "../hooks/useMarket";
+import { useMarketHref } from "../hooks/useMarketHref";
 import { ROUTES } from "../lib/routes";
 import { fetchAllProducts } from "../lib/shopify/productService";
 import type { CatalogProduct } from "../lib/shopify/types";
 import ctaProductVisual from "../assets/cta/dark-luxury-cta-product-visual.png";
 
 const HERO_TRUST_ITEMS = [
-  { label: "100+", subtitle: "Tests Per Batch", Icon: ShieldCheck },
-  { label: "cGMP", subtitle: "Certified", Icon: FlaskConical },
-  { label: "3rd Party", subtitle: "Tested", Icon: Sparkles },
+  { label: "Evidence-led", subtitle: "Formulas", Icon: FlaskConical },
+  { label: "Third-party", subtitle: "Tested", Icon: ShieldCheck },
+  { label: "Transparent", subtitle: "Ingredients", Icon: Leaf },
   { label: "Formulated in", subtitle: "Canada", Icon: CanadaFlagIcon },
 ] as const;
 
@@ -122,7 +122,9 @@ const ESSENTIALS = [
     title: "Longevity",
     description: "Support healthy aging, cellular energy, and long-term vitality.",
     href: `${ROUTES.shop}?category=Longevity`,
-    image: essentialLongevityCard,
+    editorialImage: essentialLongevityEditorial,
+    editorialAlt: "Young green plant growing from a glass flask in a sunlit laboratory",
+    editorialPosition: "center",
     Icon: Leaf,
     chips: ["NMN", "Resveratrol", "Omega-3"],
   },
@@ -130,7 +132,9 @@ const ESSENTIALS = [
     title: "Focus",
     description: "Promote mental clarity, sustained energy, and cognitive performance.",
     href: `${ROUTES.shop}?category=Focus`,
-    image: essentialFocusCard,
+    editorialImage: essentialFocusEditorial,
+    editorialAlt: "Person writing at a desk in a sunlit laboratory",
+    editorialPosition: "center",
     Icon: Brain,
     chips: ["Creatine", "Citicoline", "L-Theanine"],
   },
@@ -138,7 +142,9 @@ const ESSENTIALS = [
     title: "Recovery",
     description: "Recover faster, reduce soreness, and support peak performance.",
     href: `${ROUTES.shop}?category=Recovery`,
-    image: essentialRecoveryCard,
+    editorialImage: essentialRecoveryEditorial,
+    editorialAlt: "Athlete resting after training on a sunlit coastal terrace",
+    editorialPosition: "center",
     Icon: Dumbbell,
     chips: ["Creatine", "Betaine", "Electrolytes"],
   },
@@ -146,7 +152,9 @@ const ESSENTIALS = [
     title: "Sleep",
     description: "Promote deeper sleep, calm your mind, and wake up refreshed.",
     href: ROUTES.protocols,
-    image: essentialSleepCard,
+    editorialImage: essentialSleepEditorial,
+    editorialAlt: "Person sleeping in a moonlit bedroom",
+    editorialPosition: "60% center",
     Icon: MoonStar,
     chips: ["Magnesium", "Apigenin", "Glycine"],
   },
@@ -170,7 +178,7 @@ const EVIDENCE_ITEMS = [
   },
   {
     title: "Documentation ready",
-    description: "Quality or proof documents are surfaced when available.",
+    description: "Quality documents are shared when available.",
     Icon: FileCheck2,
   },
   {
@@ -211,8 +219,8 @@ const PERKS = [
     Icon: ClipboardList,
   },
   {
-    title: "Market-aware pricing",
-    description: "Pricing and currency match your region.",
+    title: "Clear local pricing",
+    description: "Prices and currency match your region.",
     Icon: Globe2,
   },
   {
@@ -221,8 +229,8 @@ const PERKS = [
     Icon: Mail,
   },
   {
-    title: "Quality path",
-    description: "Documentation request flow when available.",
+    title: "Quality information",
+    description: "Request quality information when available.",
     Icon: FileCheck2,
   },
   {
@@ -244,8 +252,21 @@ function ComparisonState({ value }: { value: "yes" | "no" | "mixed" }) {
   return <X size={16} className="text-[#c4bfaf]" aria-hidden="true" />;
 }
 
+function HeroScene() {
+  return (
+    <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+      <img
+        src={heroCreagenRecovery}
+        alt=""
+        className="hero-campaign-image absolute inset-0 h-full w-full object-cover object-[70%_50%] sm:object-[68%_50%] md:object-[58%_50%] lg:object-[54%_50%] xl:object-center"
+      />
+    </div>
+  );
+}
+
 export default function Home() {
   const { country } = useMarket();
+  const marketHref = useMarketHref();
   const [products, setProducts] = useState<CatalogProduct[]>([]);
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const supportEmail = SUPPORT_EMAILS[0]?.value ?? "support@bioarodrugs.com";
@@ -268,98 +289,73 @@ export default function Home() {
 
   return (
     <div className="bg-[#f8f6f4]">
-      <section className="overflow-hidden bg-[#f7f2ea] pt-28 md:pt-32">
-        <div className="container-bio">
-          <div className="mx-auto max-w-[1404px]">
-            <div className="relative min-h-[680px] overflow-hidden rounded-[28px] bg-[#f7f2ea] md:min-h-[760px] md:rounded-[36px] xl:min-h-[830px]">
-              <div className="absolute inset-0 md:hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_18%,rgba(255,255,255,0.95)_0%,rgba(247,243,236,0.92)_36%,rgba(247,243,236,0.78)_66%,rgba(247,243,236,0.5)_100%)]" />
-                <div className="absolute inset-x-0 bottom-0 h-[44%] bg-[linear-gradient(to_top,rgba(247,243,236,0.96)_0%,rgba(247,243,236,0.35)_58%,rgba(247,243,236,0)_100%)]" />
-                <img
-                  src={heroRunnerTransparent}
-                  alt=""
-                  aria-hidden="true"
-                  className="absolute bottom-0 right-0 h-[76%] w-auto max-w-[92vw] object-contain object-bottom drop-shadow-[0_26px_34px_rgba(31,26,20,0.12)]"
-                />
-              </div>
-              <div className="absolute inset-0 hidden md:block">
-                <img
-                  src={heroPerformanceBackground}
-                  alt=""
-                  aria-hidden="true"
-                  className="h-full w-full object-cover object-[76%_56%] opacity-70 md:object-[66%_50%] md:opacity-100"
-                />
-              </div>
-              <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(247,243,236,0.97)_0%,rgba(247,243,236,0.92)_28%,rgba(247,243,236,0.72)_56%,rgba(247,243,236,0.42)_78%,rgba(247,243,236,0.18)_100%)] md:bg-[linear-gradient(90deg,rgba(247,242,234,0.98)_0%,rgba(247,242,234,0.9)_18%,rgba(247,242,234,0.72)_30%,rgba(247,242,234,0.3)_52%,rgba(247,242,234,0.08)_70%,rgba(247,242,234,0)_84%)]" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_20%,rgba(255,255,255,0.58)_0%,rgba(255,255,255,0.22)_18%,rgba(255,255,255,0)_44%)] md:bg-[radial-gradient(circle_at_24%_22%,rgba(255,255,255,0.55)_0%,rgba(255,255,255,0.18)_18%,rgba(255,255,255,0)_42%)]" />
+      <style>{`
+        @keyframes hero-campaign-breathe {
+          from { transform: scale(1); }
+          to { transform: scale(1.018); }
+        }
 
-              <div className="relative z-10 flex min-h-[680px] flex-col justify-start px-4 py-7 sm:px-6 md:min-h-[760px] md:justify-between md:px-14 md:py-14 md:pb-[132px] lg:min-h-[800px] lg:px-14 xl:min-h-[830px] xl:px-[58px] xl:pb-[142px]">
-                <div className="max-w-[390px] sm:max-w-[460px] md:max-w-[640px]">
-                  <span className="inline-flex max-w-full items-center rounded-full border border-[#d9c9b0] bg-white/78 px-3.5 py-2 text-center text-[9.5px] font-semibold uppercase leading-[1.35] tracking-[0.14em] text-[#9b6a2f] backdrop-blur-sm sm:px-5 sm:text-[11px] sm:tracking-[0.18em]">
-                    SCIENCE-BACKED. HUMAN-FIRST.
+        .hero-campaign-image {
+          animation: hero-campaign-breathe 24s ease-in-out infinite alternate;
+          transform-origin: 62% 52%;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .hero-campaign-image { animation: none; }
+        }
+      `}</style>
+      <section className="overflow-hidden bg-[#f7f2ea]">
+        <div className="w-full">
+          <div className="relative w-full overflow-hidden bg-[#f7f2ea] md:aspect-[16/10] md:min-h-[820px] xl:min-h-[900px] 2xl:min-h-[940px]">
+              <div className="relative flex flex-col md:absolute md:inset-0 md:block">
+                <div className="order-1 px-5 pb-9 pt-24 sm:px-8 sm:pt-28 md:absolute md:inset-y-0 md:left-0 md:z-10 md:flex md:w-[51%] md:flex-col md:justify-center md:bg-[linear-gradient(90deg,rgba(247,242,234,0.98)_0%,rgba(247,242,234,0.88)_46%,rgba(247,242,234,0.34)_72%,rgba(247,242,234,0)_100%)] md:px-12 md:pb-40 md:pt-28 lg:w-[48%] lg:px-16 xl:w-[46%] xl:px-[72px]">
+                  <div className="max-w-[390px] sm:max-w-[470px] md:max-w-[610px]">
+                    <span className="inline-flex max-w-full items-center rounded-full border border-[#d9c9b0]/80 bg-white/58 px-4 py-2 text-center text-[9.5px] font-semibold uppercase leading-[1.35] tracking-[0.16em] text-[#8d602c] backdrop-blur-md sm:px-5 sm:text-[11px] sm:tracking-[0.2em]">
+                      SCIENCE. NATURE. YOU.
+                    </span>
+                    <h1 className="mt-5 max-w-[720px] text-balance text-[clamp(44px,12vw,74px)] leading-[0.96] tracking-[-0.035em] text-ink md:mt-6 md:text-[clamp(68px,6vw,88px)] md:leading-[0.92] xl:text-[94px]">
+                      Move better.
+                      <br />
+                      <span className="italic">Recover smarter.</span>
+                    </h1>
+                    <p className="mt-6 max-w-[350px] text-[16px] leading-[1.65] text-[#2b2824] sm:max-w-[440px] sm:text-[17px] sm:leading-[1.7] md:mt-7 md:max-w-[500px] md:text-[18px]">
+                      Science-backed supplements and nutrition protocols for longevity, performance, recovery, and everyday wellness.
+                    </p>
+                    <div className="mt-7 flex max-w-[380px] flex-col gap-3 md:mt-9 md:max-w-none lg:flex-row lg:flex-nowrap">
+                      <Link to={marketHref(ROUTES.shop)} className="btn-primary min-h-[54px] w-full px-8 py-4 text-[15px] shadow-[0_14px_30px_rgba(25,22,17,0.16)] lg:w-auto">
+                        Shop Products <ArrowRight size={15} />
+                      </Link>
+                      <Link to={marketHref(ROUTES.quiz)} className="btn-secondary min-h-[54px] w-full border-[#cfc5b3]/90 bg-white/58 px-8 py-4 text-[15px] backdrop-blur-md lg:w-auto">
+                        Build My Stack <ArrowRight size={15} />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="order-2 relative aspect-[4/3] min-h-[370px] overflow-hidden sm:min-h-[460px] md:absolute md:inset-0 md:min-h-0 md:aspect-auto">
+                  <HeroScene />
+                  <span className="sr-only">
+                    BioAro products on a sunlit coastal path with a runner and subtle scientific details.
                   </span>
-                  <h1 className="mt-5 text-balance text-[clamp(42px,12vw,72px)] leading-[1] tracking-[-0.03em] text-ink md:mt-6 md:text-[86px] md:leading-[0.93] xl:text-[94px]">
-                    Move better.
-                    <br />
-                    <span className="italic">Recover smarter.</span>
-                  </h1>
-                  <p className="mt-5 max-w-[340px] text-[16px] leading-[1.6] text-[#2b2824] sm:max-w-[430px] sm:text-[17px] sm:leading-[1.7] md:mt-6 md:max-w-[490px] md:text-[18px]">
-                    Daily protocols designed to elevate your energy, endurance, recovery, and long-term wellness so you can perform today and thrive tomorrow.
-                  </p>
-                  <div className="mt-7 flex max-w-[360px] flex-col gap-3 md:mt-8 md:max-w-none md:flex-row md:flex-nowrap">
-                    <Link to={ROUTES.shop} className="btn-primary w-full px-8 py-4 text-[15px] md:w-auto">
-                      Shop Products <ArrowRight size={15} />
-                    </Link>
-                    <Link to={ROUTES.quiz} className="btn-secondary w-full border-[#cfc5b3] bg-white/72 px-8 py-4 text-[15px] backdrop-blur-sm md:w-auto">
-                      Build My Stack
-                    </Link>
-                  </div>
                 </div>
 
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 hidden md:block">
-                  <div className="mx-auto max-w-[1404px] px-14 pb-10 xl:px-[58px]">
-                    <div className="max-w-[670px] rounded-[26px] border border-white/40 bg-[#f7f2ea]/72 px-5 py-5 shadow-[0_18px_40px_-32px_rgba(27,26,23,0.24)] backdrop-blur-md">
-                      <div className="grid grid-cols-[repeat(4,minmax(0,1fr))] gap-3">
-                        {HERO_TRUST_ITEMS.map((item, index) => (
-                          <Fragment key={item.label}>
-                            <div className="flex min-h-[88px] flex-col items-center justify-start gap-2 rounded-2xl bg-white/40 px-2 py-3 text-center">
-                              <div className="flex h-[35px] w-[35px] items-center justify-center rounded-full bg-white/75 text-ink">
-                                <item.Icon size={16} />
-                              </div>
-                              <p className="text-[12px] leading-[1.3] text-[#131012]">
-                                <span className="block">{item.label}</span>
-                                <span className="block">{item.subtitle}</span>
-                              </p>
-                            </div>
-                            {index < HERO_TRUST_ITEMS.length - 1 ? <div className="hidden" /> : null}
-                          </Fragment>
-                        ))}
+                <div className="order-3 border-t border-white/70 bg-[rgba(247,242,234,0.88)] px-5 py-3 backdrop-blur-lg sm:px-8 md:absolute md:inset-x-8 md:bottom-20 md:z-20 md:rounded-[22px] md:border md:border-white/70 md:bg-[rgba(247,242,234,0.84)] md:px-4 md:py-3 md:shadow-[0_18px_50px_rgba(35,29,20,0.08)] lg:inset-x-16 lg:bottom-28 xl:inset-x-[72px] xl:bottom-32">
+                  <div className="grid grid-cols-2 md:grid-cols-4">
+                    {HERO_TRUST_ITEMS.map((item) => (
+                      <div key={item.label} className="flex min-h-[64px] items-center justify-center gap-3 border-white/45 px-3 py-2 text-left even:border-l md:min-h-[62px] md:border-l md:px-5 first:md:border-l-0">
+                        <div className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-full border border-white/55 bg-white/52 text-ink">
+                          <item.Icon size={13} />
+                        </div>
+                        <p className="text-[11.5px] leading-[1.3] text-[#131012] sm:text-[12px]">
+                          <span className="block">{item.label}</span>
+                          <span className="block">{item.subtitle}</span>
+                        </p>
                       </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>
             </div>
-
-            <div className="mt-6 max-w-[670px] border-t border-[#e4ddcf] pt-6 md:hidden">
-              <div className="grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-[106px_1px_106px_1px_106px_1px_106px] lg:items-start lg:gap-y-0">
-                {HERO_TRUST_ITEMS.map((item, index) => (
-                  <Fragment key={item.label}>
-                    <div className="flex w-full flex-col items-center justify-start gap-2 rounded-2xl bg-white/35 px-2 py-3 text-center md:h-[90px] md:w-[106px] md:gap-[10px] md:bg-transparent md:px-0 md:py-0">
-                      <div className="flex h-[35px] w-[35px] items-center justify-center rounded-full bg-white/75 text-ink">
-                        <item.Icon size={16} />
-                      </div>
-                      <p className="text-[12px] leading-[1.3] text-[#131012] md:text-[13px] md:leading-[1.35]">
-                        <span className="block">{item.label}</span>
-                        <span className="block">{item.subtitle}</span>
-                      </p>
-                    </div>
-                    {index < HERO_TRUST_ITEMS.length - 1 ? <div className="hidden h-[91px] w-px bg-[#ebe1db] lg:block" /> : null}
-                  </Fragment>
-                ))}
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -369,7 +365,7 @@ export default function Home() {
             {OUTCOME_PILLS.map((item) => (
               <Link
                 key={item.title}
-                to={item.href}
+                to={marketHref(item.href)}
                 className="flex min-h-[116px] w-full items-center gap-3 rounded-2xl border border-[#e6e2d4] bg-[#fbf9f5] px-5 py-5 transition-colors hover:bg-white"
               >
                 <div className={`flex h-[42px] w-[42px] items-center justify-center rounded-[16px_6px_16px_6px] ${item.tone}`}>
@@ -402,45 +398,53 @@ export default function Home() {
               Every formula supports one of four core needs: live longer, think sharper, recover faster, and sleep deeper.
             </p>
           </div>
-
-            <div className="mt-12 grid gap-5 lg:grid-cols-4">
-            {ESSENTIALS.map((item, index) => (
-              <Link
-                key={item.title}
-                to={item.href}
-                className="overflow-hidden rounded-[18px] border border-[#e6e2d4] bg-[#f9f6f4] shadow-[0_24px_50px_-40px_rgba(27,26,23,0.35)] transition-transform duration-300 hover:-translate-y-1"
-              >
-                <div className="relative h-[251px] overflow-hidden bg-[#f3f0e8]">
-                  <img src={item.image} alt="" className="h-full w-full object-cover" />
-                  <span className="absolute left-5 top-5 text-[13px] font-semibold text-[#06301a]">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <div className="absolute bottom-5 left-5 flex h-[42px] w-[42px] items-center justify-center rounded-full border border-[#e1ddce] bg-[#e7e8e0] text-ink">
-                    <item.Icon size={20} />
-                  </div>
-                </div>
-                <div className="flex h-[calc(100%-251px)] flex-col p-6">
-                  <h3 className="text-[32px] leading-none text-ink">{item.title}</h3>
-                  <div className="mt-4 h-px w-9 bg-[#d6d0c0]" />
-                  <p className="mt-4 text-[14px] leading-6 text-[#131012]">{item.description}</p>
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    {item.chips.map((chip) => (
-                      <span
-                        key={chip}
-                        className="rounded-full border border-[#e1ddce] px-3 py-1.5 text-[11px] uppercase tracking-[0.04em] text-[#131012]"
-                      >
-                        {chip}
-                      </span>
-                    ))}
-                  </div>
-                  <span className="mt-auto pt-8 text-[13.5px] font-semibold text-forest-600">
-                    Explore {item.title.toLowerCase()} →
-                  </span>
-                </div>
-              </Link>
-            ))}
           </div>
 
+          <div className="mx-auto mt-12 max-w-[1440px]">
+            <div className="grid grid-cols-1 items-start gap-5 md:grid-cols-2 xl:grid-cols-4">
+              {ESSENTIALS.map((item, index) => (
+                <Link
+                  key={item.title}
+                  to={marketHref(item.href)}
+                  className="group relative h-[590px] overflow-hidden rounded-[20px] border border-[#d7cfbe] bg-[#222518] shadow-[0_24px_50px_-40px_rgba(27,26,23,0.55)] transition-shadow duration-500 hover:shadow-[0_30px_65px_-35px_rgba(27,26,23,0.72)] sm:h-[640px] lg:h-[720px]"
+                >
+                  <img
+                    src={item.editorialImage}
+                    alt={item.editorialAlt}
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transform-none"
+                    style={{ objectPosition: item.editorialPosition }}
+                  />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(16,20,12,0.16)_0%,rgba(20,24,14,0.02)_28%,rgba(25,29,16,0.28)_47%,rgba(22,25,14,0.78)_69%,rgba(17,20,11,0.96)_100%)]" />
+                  <span className="absolute left-5 top-5 text-[15px] font-semibold tracking-[0.04em] text-[#fffdf6]">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+
+                  <div className="absolute left-6 top-[48%] flex h-[46px] w-[46px] items-center justify-center rounded-full border border-white/65 bg-[#31422b]/35 text-[#fffdf6] backdrop-blur-sm">
+                    <item.Icon size={21} strokeWidth={1.5} />
+                  </div>
+
+                  <div className="absolute inset-x-0 bottom-0 p-7 text-[#fffdf6] sm:p-8">
+                    <h3 className="font-display text-[42px] leading-[0.9] tracking-[-0.02em] sm:text-[46px]">{item.title}</h3>
+                    <div className="mt-5 h-px w-11 bg-[#f4efdf]/80" />
+                    <p className="mt-5 max-w-[24ch] text-[16px] leading-6 text-[#fffdf6]/94 sm:text-[17px]">
+                      {item.description}
+                    </p>
+                    <p className="mt-7 text-[12px] font-medium text-[#e3d4ae]">Featuring</p>
+                    <p className="mt-2 text-[14px] leading-6 text-[#fffdf6]">{item.chips.join("  •  ")}</p>
+                    <span className="mt-8 inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#b8e0c1]">
+                      Explore {item.title.toLowerCase()}
+                      <ArrowRight
+                        size={16}
+                        className="transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transform-none"
+                      />
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="mx-auto max-w-[1040px]">
             <div className="mt-8 flex flex-col gap-6 rounded-[20px] border border-[#e2ded2] bg-[#f6f3f0] px-8 py-8 lg:flex-row lg:items-center lg:justify-between lg:px-10">
             <div className="flex items-center gap-4">
               <div className="flex h-[52px] w-[52px] items-center justify-center rounded-full bg-[#e3e8de] text-forest-600">
@@ -451,7 +455,7 @@ export default function Home() {
                 <p className="mt-2 text-[14px] text-[#131012]">Take our 60-second quiz and we&apos;ll build your perfect stack.</p>
               </div>
             </div>
-            <Link to={ROUTES.quiz} className="btn-primary whitespace-nowrap">
+            <Link to={marketHref(ROUTES.quiz)} className="btn-primary whitespace-nowrap">
               <Sparkles size={14} /> Take the Wellness Quiz <ArrowRight size={15} />
             </Link>
           </div>
@@ -467,7 +471,7 @@ export default function Home() {
               <span className="eyebrow">Daily essentials</span>
               <h2 className="mt-3 text-[40px] leading-none md:text-[46px]">The essentials for better daily performance.</h2>
             </div>
-            <Link to={ROUTES.shop} className="text-[15px] text-[#131012] transition-colors hover:text-forest-600">
+            <Link to={marketHref(ROUTES.shop)} className="text-[15px] text-[#131012] transition-colors hover:text-forest-600">
               All products →
             </Link>
           </div>
@@ -520,7 +524,7 @@ export default function Home() {
         <div className="container-bio">
           <div className="mx-auto grid max-w-[1472px] gap-[60px] lg:grid-cols-[685px_minmax(0,1fr)] lg:items-center">
             <div className="overflow-hidden rounded-[22px] lg:aspect-[685/930]">
-              <img src={evidenceLabPanel} alt="Laboratory quality and formulation workflow" className="h-full w-full object-cover" />
+              <img src={evidenceScientistEditorial} alt="Scientist conducting laboratory work" className="h-full w-full object-cover" />
             </div>
 
             <div className="pt-6 lg:pt-0">
@@ -529,7 +533,7 @@ export default function Home() {
                 Built around evidence,<span className="md:whitespace-nowrap"> not <span className="italic text-forest-600">trends.</span></span>
               </h2>
               <p className="mt-7 max-w-[420px] text-[15px] leading-8 text-[#131012]">
-                BioAro Drugs is being built around transparent labeling, ingredient context, and quality documentation where available.
+                BioAro Drugs is grounded in transparent labels, useful ingredient context, and quality information where available.
               </p>
 
               <div className="mt-8 max-w-[620px] space-y-0">
@@ -604,7 +608,7 @@ export default function Home() {
                 <p className="mt-5 max-w-[380px] text-[17px] leading-8 text-[#131012]">
                   Answer a few simple questions and we&apos;ll recommend the BioAro stack that fits your goals.
                 </p>
-                <Link to={ROUTES.quiz} className="btn-primary mt-8 inline-flex">
+                <Link to={marketHref(ROUTES.quiz)} className="btn-primary mt-8 inline-flex">
                   Take the Wellness Quiz
                 </Link>
               </div>
@@ -630,7 +634,7 @@ export default function Home() {
       <section className="pb-24 pt-6">
         <div className="container-bio">
           <div className="mx-auto max-w-[620px] text-center">
-            <span className="eyebrow">Living 2.0 Support</span>
+              <span className="eyebrow">Living 2.0 guidance</span>
             <h2 className="mt-4 text-[42px] leading-[0.95] text-ink md:text-[52px]">Stay consistent. Feel the difference.</h2>
           </div>
 
@@ -668,7 +672,7 @@ export default function Home() {
                   <p className="text-[12.5px] text-[#8a8678]">Founder &amp; Chief Science Officer</p>
                 </div>
               </div>
-              <Link to={ROUTES.living} className="mt-8 inline-flex items-center gap-2 text-[14px] font-semibold text-forest-600">
+              <Link to={marketHref(ROUTES.living)} className="mt-8 inline-flex items-center gap-2 text-[14px] font-semibold text-forest-600">
                 Explore Living 2.0 <ArrowRight size={14} />
               </Link>
             </div>
@@ -688,7 +692,7 @@ export default function Home() {
               <span className="eyebrow">Journal</span>
               <h2 className="mt-3 text-[36px] leading-none md:text-[40px]">Education hub.</h2>
             </div>
-            <Link to={ROUTES.journal} className="text-[15px] text-[#131012] transition-colors hover:text-forest-600">
+            <Link to={marketHref(ROUTES.journal)} className="text-[15px] text-[#131012] transition-colors hover:text-forest-600">
               All articles →
             </Link>
           </div>
@@ -697,7 +701,7 @@ export default function Home() {
             {JOURNAL_ARTICLES.slice(0, 3).map((article) => (
               <Link
                 key={article.title}
-                to={ROUTES.journal}
+                to={marketHref(`${ROUTES.journal}/${article.slug}`)}
                 className="group overflow-hidden rounded-2xl border border-[#e2ded2] bg-[#f2f0ec] transition-colors hover:bg-white"
               >
                 <div className="aspect-[16/10] overflow-hidden bg-[#ece8de]">
@@ -769,13 +773,13 @@ export default function Home() {
 
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start">
                   <Link
-                    to={ROUTES.shop}
+                    to={marketHref(ROUTES.shop)}
                     className="inline-flex w-full items-center justify-center rounded-full bg-[#f6f1e7] px-7 py-3.5 text-[15px] font-medium text-ink transition-transform transition-colors hover:-translate-y-0.5 hover:bg-white sm:w-auto"
                   >
                     Shop Products
                   </Link>
                   <Link
-                    to={ROUTES.quiz}
+                    to={marketHref(ROUTES.quiz)}
                     className="inline-flex w-full items-center justify-center rounded-full border border-white/22 bg-white/6 px-7 py-3.5 text-[15px] font-medium text-white transition-colors hover:border-white/35 hover:bg-white/10 sm:w-auto"
                   >
                     Build My Stack

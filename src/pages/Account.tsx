@@ -1,20 +1,24 @@
 import { Link } from "react-router-dom";
+import { useMarketHref } from "../hooks/useMarketHref";
+import { ROUTES } from "../lib/routes";
 
 export default function Account() {
+  const marketHref = useMarketHref();
+
   return (
     <div className="pt-24 pb-20 md:pt-32 md:pb-24 min-h-screen">
       <div className="container-bio">
         <div className="mx-auto max-w-xl text-center">
           <span className="eyebrow">Account access</span>
-          <h1 className="mt-3 text-3xl md:text-4xl">Customer accounts are not exposed in this launch surface yet.</h1>
+          <h1 className="mt-3 text-3xl md:text-4xl">Account access is coming soon.</h1>
           <p className="mt-4 text-sm leading-relaxed text-ink/55">
-            Orders, product questions, and support requests are handled through the product pages, cart flow, and support team while the wider account experience is being finalized.
+            For now, you can browse products and contact our support team about orders, product questions, and availability.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Link to="/contact-support" className="btn-primary">
+            <Link to={marketHref(ROUTES.support)} className="btn-primary">
               Contact support
             </Link>
-            <Link to="/shop" className="btn-secondary">
+            <Link to={marketHref(ROUTES.shop)} className="btn-secondary">
               Browse products
             </Link>
           </div>

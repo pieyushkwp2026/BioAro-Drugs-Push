@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /checkout
+Disallow: /cart
+Disallow: /*?*preview=
+Disallow: /*?*market=
+Disallow: /api/
+Sitemap: https://bioarodrugs.com/sitemap.xml

@@ -1,14 +1,22 @@
 import { useEffect, useMemo, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { Check, Zap, Dna, Scale, Heart, Brain, Shield, Flame, Droplet, Sparkles, ArrowRight } from "lucide-react";
+import { Link, useLocation, useParams } from "react-router-dom";
+import { Check, Zap, Dna, Scale, Heart, Brain, Shield, Flame, Droplet, Sparkles, ArrowRight, Star, Quote } from "lucide-react";
 import AccordionGroup from "../components/page/AccordionGroup";
 import IngredientCard from "../components/sections/IngredientCard";
 import PlaceholderBottle from "../components/sections/PlaceholderBottle";
+import OtherIngredientsSection from "../components/sections/OtherIngredientsSection";
 import { fetchProductByHandle, fetchAllProducts } from "../lib/shopify/productService";
 import type { CatalogProduct, ProductWhyItem } from "../lib/shopify/types";
 import { useMarket } from "../hooks/useMarket";
 import { formatMoney } from "../lib/market/config";
+import { useMarketHref } from "../hooks/useMarketHref";
+import { ROUTES } from "../lib/routes";
 import { COMPARISON_ROWS } from "../data/pdpContent";
+import ScienceFormulaVisual from "../components/sections/ScienceFormulaVisual";
+import QualityPurityStrip from "../components/sections/QualityPurityStrip";
+import { getScienceVisual } from "../data/scienceVisuals";
+import { getMarketConfigByMarket } from "../config/markets";
+import { absoluteUrl, canonicalForMarket } from "../lib/seo";
 
 const WHY_ICONS: Record<ProductWhyItem["icon"], typeof Zap> = {
   energy: Zap,
@@ -34,7 +42,9 @@ function initialsFor(title: string) {
 
 export default function Product() {
   const { handle } = useParams();
-  const { country, region } = useMarket();
+  const location = useLocation();
+  const { country, market, region } = useMarket();
+  const marketHref = useMarketHref();
   const [product, setProduct] = useState<CatalogProduct | null | undefined>(undefined);
   const [catalog, setCatalog] = useState<CatalogProduct[]>([]);
 
@@ -47,6 +57,50 @@ export default function Product() {
     void fetchAllProducts(country).then(setCatalog);
   }, [country]);
 
+  useEffect(() => {
+    document.head.querySelector('script[data-bioaro-product-schema="true"]')?.remove();
+
+    if (!product || !handle) return;
+
+    const marketConfig = getMarketConfigByMarket(market);
+    const schema: Record<string, unknown> = {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      name: product.title,
+      description: product.description,
+      brand: {
+        "@type": "Brand",
+        name: "BioAro Drugs",
+      },
+      sku: product.handle,
+      url: canonicalForMarket(market, location.pathname),
+    };
+
+    if (product.image?.src) {
+      schema.image = [absoluteUrl(product.image.src)];
+    }
+
+    if (product.availableForSale) {
+      schema.offers = {
+        "@type": "Offer",
+        price: product.price.amount,
+        priceCurrency: marketConfig.currency,
+        availability: "https://schema.org/InStock",
+        url: canonicalForMarket(market, location.pathname),
+      };
+    }
+
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.dataset.bioaroProductSchema = "true";
+    script.textContent = JSON.stringify(schema);
+    document.head.appendChild(script);
+
+    return () => {
+      script.remove();
+    };
+  }, [handle, location.pathname, market, product]);
+
   const routineMates = useMemo(
     () => catalog.filter((item) => item.handle !== handle).slice(0, 2),
     [catalog, handle],
@@ -57,7 +111,7 @@ export default function Product() {
     return (
       <div className="pt-40 pb-20 text-center">
         <p className="text-ink/50">Product not found.</p>
-        <Link to="/shop" className="text-forest-600 underline mt-2 inline-block">
+        <Link to={marketHref(ROUTES.shop)} className="text-forest-600 underline mt-2 inline-block">
           Back to shop
         </Link>
       </div>
@@ -66,11 +120,13 @@ export default function Product() {
 
   const maxEfficacy = Math.max(product.efficacyMetric.placeboValue, product.efficacyMetric.productValue);
   const showGraph = product.efficacyMetric.label !== "" && maxEfficacy > 0;
+  const scienceVisual = getScienceVisual(product.handle);
+  const comparisonRows = product.comparisonRows && product.comparisonRows.length > 0 ? product.comparisonRows : COMPARISON_ROWS;
 
   return (
     <div className="pt-24 pb-20 md:pt-32 md:pb-24">
       <div className="container-bio">
-        <Link to="/shop" className="text-sm text-ink/50 hover:text-ink">
+        <Link to={marketHref(ROUTES.shop)} className="text-sm text-ink/50 hover:text-ink">
           &larr; Shop
         </Link>
 
@@ -89,6 +145,23 @@ export default function Product() {
             <h1 className="mt-3 text-4xl md:text-5xl">{product.title}</h1>
             <p className="mt-3 text-forest-600">{product.tagline}</p>
 
+            {product.rating.count > 0 && (
+              <div className="mt-3 flex items-center gap-2">
+                <div className="flex items-center gap-0.5">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star
+                      key={i}
+                      size={14}
+                      className={i < Math.round(product.rating.average) ? "fill-forest-600 text-forest-600" : "text-ink/20"}
+                    />
+                  ))}
+                </div>
+                <span className="text-sm text-ink/55">
+                  {product.rating.average.toFixed(1)} ({product.rating.count.toLocaleString()} reviews)
+                </span>
+              </div>
+            )}
+
             <p className="mt-5 text-ink/60 leading-relaxed">{product.description}</p>
 
             <div className="mt-6 flex flex-wrap gap-2">
@@ -99,17 +172,38 @@ export default function Product() {
               ))}
             </div>
 
+            {product.trustNotes.length > 0 && (
+              <div className="mt-3 flex flex-wrap gap-2">
+                {product.trustNotes.map((note) => (
+                  <span
+                    key={note}
+                    className="inline-flex items-center gap-1.5 rounded-full bg-forest-600/10 px-3 py-1.5 text-xs font-medium text-forest-600"
+                  >
+                    <Check size={12} />
+                    {note}
+                  </span>
+                ))}
+              </div>
+            )}
+
             <div className="glass-card mt-6 flex items-center justify-between gap-4 p-5">
               <div>
                 <p className="text-sm font-medium">{product.supplyLabel}</p>
                 <p className="mt-1 text-sm text-ink/55">{product.servings}</p>
               </div>
-              <p className="font-display text-3xl">{formatMoney(product.price.amount, country)}</p>
+              <p className="font-display text-3xl">
+                {formatMoney(product.price.amount, country)}
+              </p>
             </div>
-            <p className="mt-3 text-sm text-ink/45">{product.bestFor}</p>
+            <div className="mt-4 rounded-[22px] border border-ink/10 bg-[rgba(255,255,255,0.56)] px-4 py-4 shadow-[0_12px_28px_-24px_rgba(27,26,23,0.24)]">
+              <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-forest-600">
+                {product.metafields?.whyFormulaHeadline ?? "Best for"}
+              </p>
+              <p className="mt-2 text-sm leading-relaxed text-ink/60">{product.bestFor}</p>
+            </div>
 
             <div className="mt-8">
-              <h2 className="text-xl">What to expect from this page</h2>
+              <h2 className="text-xl">Benefits</h2>
               <ul className="mt-4 space-y-3">
                 {product.benefits.map((benefit) => (
                   <li key={benefit} className="flex gap-3 text-sm text-ink/65">
@@ -143,33 +237,22 @@ export default function Product() {
         </section>
 
         {/* Science behind the formula */}
-        <section className="glass-card mt-10 grid gap-8 p-6 md:p-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
-          <div>
-            <span className="eyebrow">Science behind the formula</span>
-            <h2 className="mt-2 text-2xl">A synergistic blend of clinically studied ingredients working at the cellular level.</h2>
-          </div>
-          <div className="flex flex-wrap items-center gap-3">
-            {product.science.map((step, index) => (
-              <div key={step.title} className="flex items-center gap-3">
-                <div className="w-32 text-center">
-                  <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-forest-600/10 text-forest-600">
-                    <Shield size={18} />
-                  </div>
-                  <p className="mt-2 text-sm font-medium">{step.title}</p>
-                  <p className="mt-1 text-xs text-ink/45 leading-snug">{step.description}</p>
-                </div>
-                {index < product.science.length - 1 && <ArrowRight size={16} className="hidden shrink-0 text-ink/25 md:block" />}
-              </div>
-            ))}
-          </div>
-        </section>
+        <ScienceFormulaVisual
+          backgroundImage={scienceVisual.backgroundImage}
+          backgroundImageAlt={scienceVisual.backgroundImageAlt}
+          backgroundPosition={scienceVisual.backgroundPosition}
+          formulaSteps={product.science}
+          headline={product.metafields?.scienceHeadline}
+        />
 
         {/* Key ingredients */}
         <section className="mt-24">
           <div className="flex items-end justify-between">
             <div>
               <span className="eyebrow">Key ingredients</span>
-              <h2 className="mt-2 text-3xl">Clinically studied. Purposefully dosed.</h2>
+              <h2 className="mt-2 text-3xl">
+                {product.metafields?.ingredientsHeadline ?? "Clinically studied. Purposefully dosed."}
+              </h2>
             </div>
           </div>
           <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
@@ -179,10 +262,14 @@ export default function Product() {
           </div>
         </section>
 
+        {product.otherIngredients && product.otherIngredients.length > 0 && (
+          <OtherIngredientsSection items={product.otherIngredients} />
+        )}
+
         {/* Backed by science + comparison */}
         <div className="mt-24 grid gap-5 lg:grid-cols-2">
           <section className="glass-card p-6 md:p-8" style={{ background: "linear-gradient(180deg, #EEF2EC, #F8F6F4)" }}>
-            <h2 className="text-2xl">Backed by science</h2>
+            <h2 className="text-2xl">{product.metafields?.evidenceHeadline ?? "Backed by science"}</h2>
             <ul className="mt-5 space-y-3 text-sm">
               {product.evidencePoints.map((point) => (
                 <li key={point} className="flex items-center gap-2 text-ink/70">
@@ -224,7 +311,7 @@ export default function Product() {
                 <span>BioAro {product.title.replace(/\+$/, "")}</span>
                 <span>Typical supplement</span>
               </div>
-              {COMPARISON_ROWS.map((row) => (
+              {comparisonRows.map((row) => (
                 <div key={row.label} className="grid grid-cols-3 items-center gap-4 py-4 md:py-5">
                   <span className="text-ink/60">{row.label}</span>
                   <span className="font-medium text-forest-600">{row.bioaro}</span>
@@ -244,7 +331,7 @@ export default function Product() {
               {routineMates.map((mate) => (
                 <Link
                   key={mate.handle}
-                  to={`/shop/${mate.handle}`}
+                  to={marketHref(`/products/${mate.handle}`)}
                   className="flex items-center gap-4 rounded-2xl border border-ink/10 bg-white/50 p-4 transition-colors hover:bg-white"
                 >
                   <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-[#f1eee6] p-2">
@@ -265,6 +352,31 @@ export default function Product() {
           </section>
         )}
 
+        {/* Testimonials */}
+        {product.testimonials && product.testimonials.length > 0 && (
+          <section className="mt-24">
+            <span className="eyebrow">What people are saying</span>
+            <h2 className="mt-2 text-3xl">Real results from real customers.</h2>
+            <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {product.testimonials.map((testimonial) => (
+                <div key={testimonial.name} className="glass-card p-6">
+                  <Quote size={20} className="text-forest-600/40" />
+                  <p className="mt-4 text-sm leading-relaxed text-ink/70">{testimonial.quote}</p>
+                  <div className="mt-5 flex items-center gap-3">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-forest-600/10 text-xs font-medium text-forest-600">
+                      {testimonial.initials}
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium">{testimonial.name}</p>
+                      <p className="text-xs text-ink/45">{testimonial.location}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
         {/* Supplement facts + warnings */}
         <div className="mt-24 grid gap-5 lg:grid-cols-[0.95fr_1.05fr]">
           <section className="glass-card p-6 md:p-8">
@@ -277,13 +389,6 @@ export default function Product() {
                 </div>
               ))}
             </div>
-            {product.responsibleBusiness && (
-              <div className="mt-6 border-t border-ink/10 pt-5 text-xs text-ink/45 leading-relaxed">
-                <p className="font-medium text-ink/60">Responsible Food Business</p>
-                <p className="mt-1">{product.responsibleBusiness.name}</p>
-                <p>{product.responsibleBusiness.address}</p>
-              </div>
-            )}
             <div className="mt-4 rounded-2xl border border-ink/10 bg-white/45 px-4 py-4 text-sm leading-relaxed text-ink/55">
               {REGION_DISCLAIMERS[region]}
             </div>
@@ -302,25 +407,15 @@ export default function Product() {
           </section>
         </div>
 
-        {/* Quality & Compliance — above FAQ */}
-        {product.qualityPoints && product.qualityPoints.length > 0 && (
-          <section className="mt-12 glass-card p-6 md:p-8">
-            <span className="eyebrow">Quality & Compliance</span>
-            <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-              {product.qualityPoints.map((point) => (
-                <li key={point} className="flex items-center gap-2 text-sm text-ink/70">
-                  <Check size={15} className="shrink-0 text-forest-600" />
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
+        {/* Quality & Purity — above FAQ */}
+        <QualityPurityStrip productHandle={product.handle} />
 
         {/* FAQ */}
         <section className="mt-12 max-w-3xl">
           <span className="eyebrow">FAQ</span>
-          <h2 className="mt-2 mb-6 text-3xl">Frequently asked questions</h2>
+          <h2 className="mt-2 mb-6 text-3xl">
+            {product.metafields?.faqHeadline ?? "Frequently asked questions"}
+          </h2>
           <AccordionGroup
             items={product.faq.map((item) => ({
               title: item.question,
@@ -336,14 +431,14 @@ export default function Product() {
               <h3 className="text-2xl">Ready to invest in your future?</h3>
               <p className="mt-2 text-sm text-white/60">Every healthier tomorrow begins with today's decisions.</p>
             </div>
-            <Link to="/shop" className="btn-secondary mt-6 !border-white/20 !text-white hover:!bg-white/10">
+            <Link to={marketHref(ROUTES.shop)} className="btn-secondary mt-6 !border-white/20 !text-white hover:!bg-white/10">
               Browse all formulas
             </Link>
           </div>
           <div className="rounded-[24px] bg-[#EEF2EC] p-8">
             <h3 className="text-2xl">Want a more personalized approach?</h3>
             <p className="mt-2 text-sm text-ink/60">Take the quiz to build a routine matched to your goals.</p>
-            <Link to="/quiz" className="btn-primary mt-6">
+            <Link to={marketHref(ROUTES.quiz)} className="btn-primary mt-6">
               Take the quiz
             </Link>
           </div>

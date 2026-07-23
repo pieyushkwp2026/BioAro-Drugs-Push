@@ -224,7 +224,7 @@ export const LIVING_SECTIONS: PageSectionContent[] = [
   {
     title: "The Philosophy",
     paragraphs: [
-      "Most wellness products are sold in isolation. Living 2.0 is our framework for moving beyond guesswork and making health feel more intentional over time.",
+      "Most wellness products are considered in isolation. Living 2.0 brings clearer information and practical routines together to make health feel more intentional over time.",
       "It begins with understanding your health more clearly, continues with targeted action through daily routines and formulations, and grows through consistency, review, and refinement.",
     ],
   },
@@ -239,7 +239,7 @@ export const LIVING_SECTIONS: PageSectionContent[] = [
   {
     title: "Where BioAro Drugs Fits",
     paragraphs: [
-      "BioAro Drugs is the action layer of the ecosystem. Our formulations are designed to support routines across longevity, focus, recovery, sleep, and daily resilience.",
+      "BioAro Drugs provides formulations designed to support routines across longevity, focus, recovery, sleep, and daily resilience.",
       "Rather than acting as generic add-ons, they are intended to sit inside a more thoughtful health system.",
     ],
   },
@@ -276,16 +276,16 @@ export const QUALITY_SECTIONS: PageSectionContent[] = [
   },
   {
     title: "Important Note",
-    paragraphs: ["Some documents may be provided in summary form for customer readability, while more detailed documentation may be available on request for qualified partners, practitioners, or distributor conversations."],
+    paragraphs: ["Product information may be available as a clear summary, with more detailed documentation available on request for qualified partners, practitioners, or distributors."],
   },
 ];
 
 export const QUALITY_DOCUMENTS: QualityDocument[] = [];
 
 export const QUALITY_EMPTY_STATE = {
-  title: "Documentation is being finalized.",
+  title: "Quality documentation is coming soon.",
   description:
-    "Customer-ready proof assets and certificate summaries will appear here once they have been reviewed for the relevant products and markets.",
+    "Product-specific quality information will be added here as it becomes available. Contact support if you have a question about a formula.",
 };
 
 export const FAQ_PAGE_HERO: PageHeroContent = {
@@ -335,7 +335,7 @@ export const FAQ_CATEGORIES: FAQCategory[] = [
     items: [
       {
         question: "Are your products third-party tested?",
-        answer: "Quality and testing information will be made available through our quality documentation and product content as those materials are finalized.",
+        answer: "Quality and testing information is shared on product pages and in our quality documentation when available.",
       },
       {
         question: "Why do you highlight ingredient forms and dosages?",
@@ -375,7 +375,7 @@ export const PROTOCOLS_PAGE_HERO: PageHeroContent = {
   eyebrow: "Protocols",
   title: "Build a smarter daily routine.",
   description:
-    "BioAro protocols are designed to help customers move from isolated supplement purchases to more intentional, outcome-led routines.",
+    "BioAro protocols bring complementary formulas together around everyday goals such as longevity, focus, recovery, and sleep.",
   primaryCta: { label: "Explore the Wellness Collection", href: ROUTES.shop },
   secondaryCta: { label: "Take the Wellness Quiz", href: ROUTES.quiz, variant: "secondary" },
 };
@@ -411,7 +411,7 @@ export const PARTNERS_PAGE_HERO: PageHeroContent = {
   eyebrow: "Partners",
   title: "Built for forward-thinking clinics, distributors, and practitioner-led networks.",
   description:
-    "BioAro is developing a premium wellness platform designed to support modern health conversations with stronger product storytelling, clearer quality positioning, and a more structured customer journey.",
+    "We work with clinics, practitioners, distributors, and selected retail partners who value clear product education and thoughtful wellness routines.",
   primaryCta: { label: "Start a Partner Conversation", href: "mailto:partners@bioarodrugs.com" },
 };
 
@@ -420,15 +420,15 @@ export const PARTNER_AUDIENCES = [
   "Wellness practitioners",
   "Distributors",
   "Select retail partners",
-  "Strategic go-to-market collaborators",
+  "Wellness collaborators",
 ];
 
 export const PARTNER_REASONS = [
   "Premium, modern brand presentation",
-  "Clearer protocol-based product storytelling",
+  "Clear protocol-based product education",
   "Quality-first positioning",
-  "Ecosystem potential across Labs and Drugs",
-  "Support for category education and customer confidence",
+  "A connected perspective across Labs and Drugs",
+  "Support for education and customer confidence",
 ];
 
 export const PARTNER_OPPORTUNITIES: PageCta[] = [
@@ -440,10 +440,10 @@ export const PARTNER_OPPORTUNITIES: PageCta[] = [
 ];
 
 export const PARTNER_BUILDOUT_POINTS = [
-  "Stronger product education",
-  "Improved trust architecture",
-  "Cleaner market-specific compliance presentation",
-  "Long-term integration between insight and action",
+  "Clear product education",
+  "Transparent quality information",
+  "Responsible market-specific communication",
+  "Practical connections between insight and action",
 ];
 
 export function getRegionalPolicyContent(region: ExperienceRegion, content: RegionalPolicyContent): PolicyPageContent {

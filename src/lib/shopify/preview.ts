@@ -1,4 +1,5 @@
 import { getPreviewProductByHandle, PREVIEW_PRODUCTS } from "../../data/products";
+import { getMarketConfigByCountry, isProductAvailableInMarket, marketFromCountryCode } from "../../config/markets";
 import type { CartLine, CartState, CatalogProduct, MoneyAmount, ProductEditorial } from "./types";
 import type { CountryCode } from "../market/types";
 
@@ -14,18 +15,23 @@ export function previewVariantId(handle: string) {
 }
 
 export function money(amount: number, country: CountryCode): MoneyAmount {
+  const marketConfig = getMarketConfigByCountry(country);
   return {
     amount,
-    currencyCode: country === "CA" ? "CAD" : country === "GB" ? "GBP" : "USD",
+    currencyCode: marketConfig.currency,
   };
 }
 
 export function buildCatalogProduct(product: ProductEditorial, country: CountryCode): CatalogProduct {
+  const market = marketFromCountryCode(country);
+  const availableForSale = isProductAvailableInMarket(product.handle, market);
+  const priceAmount = product.priceByCountry[country] ?? 0;
+
   return {
     ...product,
-    price: money(product.priceByCountry[country], country),
-    compareAtPrice: product.compareAtByCountry?.[country] ? money(product.compareAtByCountry[country], country) : undefined,
-    availableForSale: true,
+    price: money(priceAmount, country),
+    compareAtPrice: availableForSale && product.compareAtByCountry?.[country] ? money(product.compareAtByCountry[country], country) : undefined,
+    availableForSale,
     variantId: previewVariantId(product.handle),
   };
 }
@@ -41,7 +47,7 @@ export function buildPreviewProductByHandle(handle: string, country: CountryCode
 
 export function buildPreviewLine(handle: string, quantity: number, country: CountryCode): CartLine | null {
   const product = buildPreviewProductByHandle(handle, country);
-  if (!product) return null;
+  if (!product || !product.availableForSale) return null;
 
   return {
     id: `preview-line-${handle}`,

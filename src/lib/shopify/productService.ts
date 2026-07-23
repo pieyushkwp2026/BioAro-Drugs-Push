@@ -1,10 +1,12 @@
-import { getPreviewProductByHandle, PREVIEW_PRODUCTS } from "../../data/products";
+import { getPreviewProductByHandle } from "../../data/products";
 import type { CountryCode } from "../market/types";
 import { isShopifyConfigured, shopifyFetch } from "./client";
-import { buildCatalogProduct, buildPreviewCatalog, money } from "./preview";
-import type { CatalogProduct, ProductEditorial, ProductImage, ShopifyProduct } from "./types";
+import { buildCatalogProduct, buildPreviewCatalog } from "./preview";
+import { createShopifyProduct, mapProductMetafields, mergeShopifyProduct, type ShopifyMetafieldNode } from "./productMapping";
+import type { CatalogProduct, ProductImage, ShopifyProduct } from "./types";
 
 const USE_MOCK_DATA = import.meta.env.VITE_SHOPIFY_USE_MOCK_DATA === "true";
+type ShopifyCurrencyCode = ShopifyProduct["price"]["currencyCode"];
 
 interface ShopifyProductNode {
   id: string;
@@ -13,12 +15,16 @@ interface ShopifyProductNode {
   description: string;
   availableForSale: boolean;
   featuredImage?: { url: string; altText: string | null } | null;
-  selectedOrFirstAvailableVariant?: {
+  selectedOrFirstAvailableVariant?: ShopifyVariantNode | null;
+  variants?: { nodes: ShopifyVariantNode[] };
+  metafields?: (ShopifyMetafieldNode | null)[];
+}
+
+interface ShopifyVariantNode {
     id: string;
     image?: { url: string; altText: string | null } | null;
-    price: { amount: string; currencyCode: "USD" | "CAD" | "GBP" };
-    compareAtPrice?: { amount: string; currencyCode: "USD" | "CAD" | "GBP" } | null;
-  } | null;
+    price: { amount: string; currencyCode: ShopifyCurrencyCode };
+    compareAtPrice?: { amount: string; currencyCode: ShopifyCurrencyCode } | null;
 }
 
 interface ProductsQueryData {
@@ -28,6 +34,42 @@ interface ProductsQueryData {
 interface ProductQueryData {
   product: ShopifyProductNode | null;
 }
+
+const METAFIELD_IDENTIFIERS: { namespace: string; key: string }[] = [
+  { namespace: "custom", key: "pdp_subtitle" },
+  { namespace: "custom", key: "short_description" },
+  { namespace: "custom", key: "hero_tags" },
+  { namespace: "custom", key: "hero_bullets" },
+  { namespace: "custom", key: "supply_label" },
+  { namespace: "custom", key: "serving_size" },
+  { namespace: "custom", key: "directions" },
+  { namespace: "custom", key: "warnings" },
+  { namespace: "custom", key: "storage_instructions" },
+  { namespace: "custom", key: "allergen_info" },
+  { namespace: "custom", key: "disclaimer" },
+  { namespace: "custom", key: "rating_average" },
+  { namespace: "custom", key: "rating_count" },
+  { namespace: "custom", key: "rating_label" },
+  { namespace: "custom", key: "why_formula_headline" },
+  { namespace: "custom", key: "why_formula_body" },
+  { namespace: "custom", key: "science_headline" },
+  { namespace: "custom", key: "ingredients_headline" },
+  { namespace: "custom", key: "evidence_headline" },
+  { namespace: "custom", key: "faq_headline" },
+  { namespace: "custom", key: "bundle_headline" },
+  { namespace: "custom", key: "bundle_description" },
+  { namespace: "custom", key: "trust_badges" },
+  { namespace: "custom", key: "benefit_cards" },
+  { namespace: "custom", key: "science_steps" },
+  { namespace: "custom", key: "ingredients" },
+  { namespace: "custom", key: "supplement_facts_rows" },
+  { namespace: "custom", key: "clinical_evidence" },
+  { namespace: "custom", key: "comparison_rows" },
+  { namespace: "custom", key: "faqs" },
+  { namespace: "custom", key: "testimonials" },
+  { namespace: "custom", key: "labs_cta" },
+  { namespace: "custom", key: "final_cta" },
+];
 
 const PRODUCT_FIELDS = `
   id
@@ -54,14 +96,39 @@ const PRODUCT_FIELDS = `
       currencyCode
     }
   }
+  variants(first: 1) {
+    nodes {
+      id
+      image {
+        url
+        altText
+      }
+      price {
+        amount
+        currencyCode
+      }
+      compareAtPrice {
+        amount
+        currencyCode
+      }
+    }
+  }
+  metafields(identifiers: [
+    ${METAFIELD_IDENTIFIERS.map((m) => `{namespace: "${m.namespace}", key: "${m.key}"}`).join(",\n    ")}
+  ]) {
+    key
+    value
+    type
+  }
 `;
 
 function mapProductImage(node: ShopifyProductNode): ProductImage {
   const fallbackAlt = `${node.title} product image`;
-  if (node.selectedOrFirstAvailableVariant?.image?.url) {
+  const variant = node.selectedOrFirstAvailableVariant ?? node.variants?.nodes[0];
+  if (variant?.image?.url) {
     return {
-      src: node.selectedOrFirstAvailableVariant.image.url,
-      alt: node.selectedOrFirstAvailableVariant.image.altText ?? fallbackAlt,
+      src: variant.image.url,
+      alt: variant.image.altText ?? fallbackAlt,
     };
   }
 
@@ -72,8 +139,10 @@ function mapProductImage(node: ShopifyProductNode): ProductImage {
 }
 
 function mapShopifyProduct(node: ShopifyProductNode): ShopifyProduct {
-  const amount = Number(node.selectedOrFirstAvailableVariant?.price.amount ?? 0);
-  const compareAtAmount = node.selectedOrFirstAvailableVariant?.compareAtPrice?.amount;
+  // Products can be unavailable in a market while still having a contextual price.
+  const variant = node.selectedOrFirstAvailableVariant ?? node.variants?.nodes[0];
+  const amount = Number(variant?.price.amount ?? 0);
+  const compareAtAmount = variant?.compareAtPrice?.amount;
 
   return {
     id: node.id,
@@ -83,34 +152,17 @@ function mapShopifyProduct(node: ShopifyProductNode): ShopifyProduct {
     image: mapProductImage(node),
     price: {
       amount,
-      currencyCode: node.selectedOrFirstAvailableVariant?.price.currencyCode ?? "USD",
+      currencyCode: variant?.price.currencyCode ?? "USD",
     },
     compareAtPrice: compareAtAmount
       ? {
           amount: Number(compareAtAmount),
-          currencyCode: node.selectedOrFirstAvailableVariant?.compareAtPrice?.currencyCode ?? "USD",
+          currencyCode: variant?.compareAtPrice?.currencyCode ?? "USD",
         }
       : undefined,
     availableForSale: node.availableForSale,
-    variantId: node.selectedOrFirstAvailableVariant?.id ?? `missing-variant-${node.handle}`,
-  };
-}
-
-function mergeProduct(previewProduct: ProductEditorial, shopifyProduct: ShopifyProduct | undefined, country: CountryCode): CatalogProduct {
-  if (!shopifyProduct) {
-    return buildCatalogProduct(previewProduct, country);
-  }
-
-  return {
-    ...previewProduct,
-    id: shopifyProduct.id,
-    title: shopifyProduct.title || previewProduct.title,
-    description: shopifyProduct.description || previewProduct.description,
-    image: shopifyProduct.image.src ? shopifyProduct.image : previewProduct.image,
-    price: shopifyProduct.price,
-    compareAtPrice: shopifyProduct.compareAtPrice,
-    availableForSale: shopifyProduct.availableForSale,
-    variantId: shopifyProduct.variantId,
+    variantId: variant?.id ?? `missing-variant-${node.handle}`,
+    metafields: mapProductMetafields(node.metafields),
   };
 }
 
@@ -155,9 +207,12 @@ export async function fetchAllProducts(country: CountryCode): Promise<CatalogPro
 
   try {
     const shopifyProducts = await fetchShopifyProducts(country);
-    const byHandle = new Map(shopifyProducts.map((product) => [product.handle, product]));
-
-    return PREVIEW_PRODUCTS.map((previewProduct) => mergeProduct(previewProduct, byHandle.get(previewProduct.handle), country));
+    return shopifyProducts.map((shopifyProduct) => {
+      const previewProduct = getPreviewProductByHandle(shopifyProduct.handle);
+      return previewProduct
+        ? mergeShopifyProduct(previewProduct, shopifyProduct, country)
+        : createShopifyProduct(shopifyProduct, country);
+    });
   } catch {
     return buildPreviewCatalog(country);
   }
@@ -172,47 +227,9 @@ export async function fetchProductByHandle(handle: string, country: CountryCode)
 
   try {
     const shopifyProduct = await fetchShopifyProduct(handle, country);
-    if (previewProduct) return mergeProduct(previewProduct, shopifyProduct, country);
+    if (previewProduct && shopifyProduct) return mergeShopifyProduct(previewProduct, shopifyProduct, country);
     if (!shopifyProduct) return undefined;
-
-    return {
-      id: shopifyProduct.id,
-      handle: shopifyProduct.handle,
-      title: shopifyProduct.title,
-      tagline: "Product information is being finalized.",
-      description: shopifyProduct.description,
-      badge: undefined,
-      image: shopifyProduct.image,
-      category: "Longevity",
-      tags: [],
-      bestFor: "Support details are being finalized.",
-      dosage: "Follow the product label guidance once available.",
-      servings: "See packaging",
-      supplyLabel: "Details coming soon",
-      rating: { average: 0, count: 0 },
-      benefits: ["Product guidance is being finalized for this market."],
-      whyItems: [],
-      trustNotes: ["Support can help with product questions while the content library is being finalized."],
-      warnings: ["Consult a healthcare professional before use."],
-      ingredients: [],
-      evidencePoints: [],
-      efficacyMetric: { label: "", unit: "", placeboValue: 0, productValue: 0, caption: "" },
-      supplementFacts: [
-        { label: "Serving size", value: "See packaging" },
-        { label: "Servings per container", value: "See packaging" },
-      ],
-      science: [{ title: "Product information", description: "Editorial content for this product is being finalized." }],
-      faq: [{ question: "Need more detail?", answer: "Contact support for guidance while product-specific content is being finalized." }],
-      priceByCountry: {
-        US: shopifyProduct.price.currencyCode === "USD" ? shopifyProduct.price.amount : money(shopifyProduct.price.amount, "US").amount,
-        CA: shopifyProduct.price.currencyCode === "CAD" ? shopifyProduct.price.amount : money(shopifyProduct.price.amount, "CA").amount,
-        GB: shopifyProduct.price.currencyCode === "GBP" ? shopifyProduct.price.amount : money(shopifyProduct.price.amount, "GB").amount,
-      },
-      price: shopifyProduct.price,
-      compareAtPrice: shopifyProduct.compareAtPrice,
-      availableForSale: shopifyProduct.availableForSale,
-      variantId: shopifyProduct.variantId,
-    };
+    return createShopifyProduct(shopifyProduct, country);
   } catch {
     return previewProduct ? buildCatalogProduct(previewProduct, country) : undefined;
   }

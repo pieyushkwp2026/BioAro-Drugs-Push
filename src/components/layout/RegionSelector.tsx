@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { FlagCA, FlagGB, FlagUS } from "./Flags";
+import { FlagAE, FlagCA, FlagGB, FlagUS } from "./Flags";
 import { useMarket } from "../../hooks/useMarket";
 import { MARKET_ORDER, getMarketConfig } from "../../lib/market/config";
 import type { CountryCode } from "../../lib/market/types";
@@ -9,10 +9,11 @@ const FLAGS = {
   US: FlagUS,
   CA: FlagCA,
   GB: FlagGB,
+  AE: FlagAE,
 };
 
 export default function RegionSelector() {
-  const { country, setCountry } = useMarket();
+  const { market, setMarket } = useMarket();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -25,8 +26,8 @@ export default function RegionSelector() {
     return () => document.removeEventListener("mousedown", onClick);
   }, []);
 
-  const currentMarket = getMarketConfig(country);
-  const SelectedFlag = FLAGS[country];
+  const currentMarket = getMarketConfig(market);
+  const SelectedFlag = FLAGS[currentMarket.countryCode];
 
   return (
     <div className="relative" ref={ref}>
@@ -42,24 +43,24 @@ export default function RegionSelector() {
 
       {open && (
         <div className="absolute right-0 z-50 mt-2 w-56 rounded-[18px] border border-[#e1ddce] bg-[#f7f3ed] p-1.5 shadow-glass-lg">
-          {MARKET_ORDER.map((marketCountry) => {
-            const market = getMarketConfig(marketCountry);
-            const Flag = FLAGS[marketCountry];
+          {MARKET_ORDER.map((marketCode) => {
+            const option = getMarketConfig(marketCode);
+            const Flag = FLAGS[option.countryCode as CountryCode];
 
             return (
               <button
-                key={market.country}
+                key={option.code}
                 onClick={() => {
-                  setCountry(marketCountry as CountryCode);
+                  setMarket(option.code);
                   setOpen(false);
                 }}
                 className={`flex w-full items-center gap-3 rounded-[14px] px-3 py-2.5 text-left text-sm transition-colors ${
-                  country === market.country ? "bg-white" : "hover:bg-white/70"
+                  market === option.code ? "bg-white" : "hover:bg-white/70"
                 }`}
               >
                 <Flag className="h-4 w-[26px] shrink-0 overflow-hidden rounded-[2px]" />
-                <span className="flex-1">{market.label}</span>
-                <span className="text-xs text-[#8a8678]">{market.currency}</span>
+                <span className="flex-1">{option.name}</span>
+                <span className="text-xs text-[#8a8678]">{option.currency}</span>
               </button>
             );
           })}

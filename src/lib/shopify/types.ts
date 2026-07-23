@@ -1,15 +1,13 @@
+import type { CountryCode } from "../market/types";
 export type ProductCategory = "Longevity" | "Wellness" | "Focus" | "Energy" | "Performance";
-
 export interface MoneyAmount {
   amount: number;
-  currencyCode: "USD" | "CAD" | "GBP";
+  currencyCode: "USD" | "CAD" | "GBP" | "AED";
 }
-
 export interface ProductImage {
   src: string;
   alt: string;
 }
-
 export interface ProductIngredient {
   name: string;
   amount: string;
@@ -17,13 +15,11 @@ export interface ProductIngredient {
   whyIncluded?: string;
   image?: string;
 }
-
 export interface ProductWhyItem {
   icon: "energy" | "aging" | "balance" | "heart" | "brain" | "shield" | "flame" | "droplet" | "sparkle";
   title: string;
   description: string;
 }
-
 export interface ProductEfficacyMetric {
   label: string;
   unit: string;
@@ -31,30 +27,82 @@ export interface ProductEfficacyMetric {
   productValue: number;
   caption: string;
 }
-
 export interface ProductRating {
   average: number;
   count: number;
 }
-
 export interface ProductFact {
   label: string;
   value: string;
 }
-
 export interface ProductScienceStep {
   title: string;
   description: string;
 }
-
 export interface ProductFAQ {
   question: string;
   answer: string;
 }
-
 export interface ProductResponsibleBusiness {
   name: string;
   address: string;
+}
+
+// Generic shape used by simple JSON metafields like Trust badges, Benefit cards, etc.
+export interface MetafieldTitleTextItem {
+  title: string;
+  text: string;
+}
+
+// Shape for testimonial metafields (requires initials, name, location, quote).
+export interface MetafieldTestimonial {
+  initials: string;
+  name: string;
+  location: string;
+  quote: string;
+}
+
+// Shape for comparison table rows (requires label, bioaro, typical).
+export interface MetafieldComparisonRow {
+  label: string;
+  bioaro: string;
+  typical: string;
+}
+
+export interface ProductMetafields {
+  pdpSubtitle?: string;
+  shortDescription?: string;
+  heroTags?: string;
+  heroBullets?: string;
+  supplyLabel?: string;
+  servingSize?: string;
+  directions?: string;
+  warnings?: string;
+  storageInstructions?: string;
+  allergenInfo?: string;
+  disclaimer?: string;
+  ratingAverage?: number;
+  ratingCount?: number;
+  ratingLabel?: string;
+  whyFormulaHeadline?: string;
+  whyFormulaBody?: string;
+  scienceHeadline?: string;
+  ingredientsHeadline?: string;
+  evidenceHeadline?: string;
+  faqHeadline?: string;
+  bundleHeadline?: string;
+  bundleDescription?: string;
+  trustBadges?: MetafieldTitleTextItem[];
+  benefitCards?: MetafieldTitleTextItem[];
+  scienceSteps?: MetafieldTitleTextItem[];
+  ingredients?: string;
+  supplementFactsRows?: MetafieldTitleTextItem[];
+  clinicalEvidence?: MetafieldTitleTextItem[];
+  comparisonRows?: MetafieldComparisonRow[];
+  faqs?: MetafieldTitleTextItem[];
+  testimonials?: MetafieldTestimonial[];
+  labsCta?: string;
+  finalCta?: string;
 }
 
 export interface ProductEditorial {
@@ -79,15 +127,18 @@ export interface ProductEditorial {
   qualityPoints?: string[];
   responsibleBusiness?: ProductResponsibleBusiness;
   ingredients: ProductIngredient[];
+  otherIngredients?: string[];
   supplementFacts: ProductFact[];
   science: ProductScienceStep[];
   evidencePoints: string[];
   efficacyMetric: ProductEfficacyMetric;
   faq: ProductFAQ[];
-  priceByCountry: Record<"US" | "CA" | "GB", number>;
-  compareAtByCountry?: Partial<Record<"US" | "CA" | "GB", number>>;
+  testimonials?: MetafieldTestimonial[];
+  comparisonRows?: MetafieldComparisonRow[];
+  priceByCountry: Partial<Record<CountryCode, number>>;
+  compareAtByCountry?: Partial<Record<CountryCode, number>>;
+  metafields?: ProductMetafields;
 }
-
 export interface ShopifyProduct {
   id: string;
   handle: string;
@@ -98,15 +149,14 @@ export interface ShopifyProduct {
   compareAtPrice?: MoneyAmount;
   availableForSale: boolean;
   variantId: string;
+  metafields?: ProductMetafields;
 }
-
 export interface CatalogProduct extends ProductEditorial {
   price: MoneyAmount;
   compareAtPrice?: MoneyAmount;
   availableForSale: boolean;
   variantId: string;
 }
-
 export interface CartLine {
   id: string;
   merchandiseId: string;
@@ -116,7 +166,6 @@ export interface CartLine {
   price: MoneyAmount;
   image: ProductImage;
 }
-
 export interface CartState {
   id: string;
   checkoutUrl: string | null;

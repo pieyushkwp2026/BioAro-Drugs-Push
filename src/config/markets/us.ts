@@ -1,0 +1,26 @@
+import type { MarketConfig } from "./types";
+
+export const US_MARKET: MarketConfig = {
+  code: "us",
+  countryCode: "US",
+  name: "United States",
+  shortLabel: "US",
+  locale: "en-US",
+  currency: "USD",
+  currencySymbol: "$",
+  flag: "🇺🇸",
+  companyName: "BioAro Drugs",
+  supportEmail: "support@bioarodrugs.com",
+  address: null,
+  checkoutEnabled: false,
+  checkoutMessage: "Online ordering for the United States is opening soon.",
+  shippingMessage: "US delivery details will be confirmed at launch.",
+  taxMessage: "US taxes and delivery details will be confirmed when ordering becomes available.",
+  legalDisclaimer: "Regional legal and regulatory information will be published before ordering opens.",
+  shippingPolicyPath: "/shipping-policy",
+  returnsPolicyPath: "/returns-refunds",
+  privacyPolicyPath: "/privacy-policy",
+  availableProducts: [],
+  comingSoonProducts: ["longevity-plus", "cellomega-plus", "creagen-brain-boost", "creagen-femme-energy", "creagen-raw-power", "creagen-pro-power", "glutara"],
+  experienceRegion: "NA",
+};
