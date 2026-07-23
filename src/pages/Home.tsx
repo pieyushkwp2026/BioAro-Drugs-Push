@@ -22,7 +22,7 @@ import {
   Zap,
 } from "lucide-react";
 import { FlagCA } from "../components/layout/Flags";
-import ProductCard from "../components/sections/ProductCard";
+import HomepageProductCarousel from "../components/sections/HomepageProductCarousel";
 import heroCreagenRecovery from "../assets/hero/hero-creagen-recovery.png";
 import essentialLongevityEditorial from "../assets/figma-home/essential-longevity-editorial.png";
 import essentialFocusEditorial from "../assets/figma-home/essential-focus-editorial.png";
@@ -360,8 +360,6 @@ export default function Home() {
     void fetchAllProducts(country).then(setProducts);
   }, [country]);
 
-  const featuredProducts = products.slice(0, 4);
-
   function handleNewsletterSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const email = newsletterEmail.trim();
@@ -548,27 +546,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="pb-24 pt-8">
-        <div className="container-bio">
-          <div className="mx-auto max-w-[1404px]">
-            <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <div>
-              <span className="eyebrow">Daily essentials</span>
-              <h2 className="mt-3 text-[40px] leading-none md:text-[46px]">The essentials for better daily performance.</h2>
-            </div>
-            <Link to={marketHref(ROUTES.shop)} className="text-[15px] text-[#131012] transition-colors hover:text-forest-600">
-              All products →
-            </Link>
-          </div>
-
-            <div className="mt-12 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-            {featuredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-          </div>
-        </div>
-      </section>
+      <HomepageProductCarousel products={products} />
 
       <section className="py-24">
         <div className="container-bio">
