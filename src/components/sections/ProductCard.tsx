@@ -29,7 +29,7 @@ export default function ProductCard({ product }: { product: CatalogProduct }) {
               <h3 className="max-w-[220px] text-[21px] leading-[1.08] text-ink">{product.title}</h3>
             </Link>
             <span className="pt-1 text-[16px] font-semibold text-ink">
-              {product.availableForSale ? formatMoney(product.price.amount, country) : "Coming soon"}
+              {formatMoney(product.price.amount, country)}
             </span>
           </div>
 

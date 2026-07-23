@@ -192,11 +192,13 @@ export default function Product() {
                 <p className="mt-1 text-sm text-ink/55">{product.servings}</p>
               </div>
               <p className="font-display text-3xl">
-                {product.availableForSale ? formatMoney(product.price.amount, country) : "Coming soon"}
+                {formatMoney(product.price.amount, country)}
               </p>
             </div>
             <div className="mt-4 rounded-[22px] border border-ink/10 bg-[rgba(255,255,255,0.56)] px-4 py-4 shadow-[0_12px_28px_-24px_rgba(27,26,23,0.24)]">
-              <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-forest-600">Best for</p>
+              <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-forest-600">
+                {product.metafields?.whyFormulaHeadline ?? "Best for"}
+              </p>
               <p className="mt-2 text-sm leading-relaxed text-ink/60">{product.bestFor}</p>
             </div>
 
@@ -240,6 +242,7 @@ export default function Product() {
           backgroundImageAlt={scienceVisual.backgroundImageAlt}
           backgroundPosition={scienceVisual.backgroundPosition}
           formulaSteps={product.science}
+          headline={product.metafields?.scienceHeadline}
         />
 
         {/* Key ingredients */}
@@ -247,7 +250,9 @@ export default function Product() {
           <div className="flex items-end justify-between">
             <div>
               <span className="eyebrow">Key ingredients</span>
-              <h2 className="mt-2 text-3xl">Clinically studied. Purposefully dosed.</h2>
+              <h2 className="mt-2 text-3xl">
+                {product.metafields?.ingredientsHeadline ?? "Clinically studied. Purposefully dosed."}
+              </h2>
             </div>
           </div>
           <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
@@ -264,7 +269,7 @@ export default function Product() {
         {/* Backed by science + comparison */}
         <div className="mt-24 grid gap-5 lg:grid-cols-2">
           <section className="glass-card p-6 md:p-8" style={{ background: "linear-gradient(180deg, #EEF2EC, #F8F6F4)" }}>
-            <h2 className="text-2xl">Backed by science</h2>
+            <h2 className="text-2xl">{product.metafields?.evidenceHeadline ?? "Backed by science"}</h2>
             <ul className="mt-5 space-y-3 text-sm">
               {product.evidencePoints.map((point) => (
                 <li key={point} className="flex items-center gap-2 text-ink/70">
@@ -408,7 +413,9 @@ export default function Product() {
         {/* FAQ */}
         <section className="mt-12 max-w-3xl">
           <span className="eyebrow">FAQ</span>
-          <h2 className="mt-2 mb-6 text-3xl">Frequently asked questions</h2>
+          <h2 className="mt-2 mb-6 text-3xl">
+            {product.metafields?.faqHeadline ?? "Frequently asked questions"}
+          </h2>
           <AccordionGroup
             items={product.faq.map((item) => ({
               title: item.question,
