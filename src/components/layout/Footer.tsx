@@ -75,7 +75,13 @@ export default function Footer() {
   const marketHref = useMarketHref();
   const marketConfig = getMarketConfigByMarket(market);
   const addressLine = marketConfig.address
-    ? `${marketConfig.address.line1}, ${marketConfig.address.line2}, ${marketConfig.address.city}, ${marketConfig.address.postcode}, ${marketConfig.address.country}`
+    ? [
+        marketConfig.address.line1,
+        marketConfig.address.line2,
+        marketConfig.address.city,
+        marketConfig.address.postcode,
+        marketConfig.address.country,
+      ].filter(Boolean).join(", ")
     : "Regional address details will be published when ordering opens.";
 
   return (

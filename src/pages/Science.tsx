@@ -1,11 +1,13 @@
 import {
   ArrowRight,
   BookOpen,
+  Check,
   ClipboardCheck,
   FlaskConical,
   Leaf,
   Microscope,
   ShieldCheck,
+  X,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import researchSectionScientist from "../assets/science/research-section-scientist.png";
@@ -60,8 +62,24 @@ const PATHWAY = [
   { title: "Wellness Quiz", description: "Find a practical starting point based on your current goals.", href: ROUTES.quiz },
 ];
 
+const COMPARISON_ROWS = [
+  { label: "Every dose disclosed on label", bioaro: "yes", typical: "no" },
+  { label: "Testing or proof status stated clearly", bioaro: "yes", typical: "mixed" },
+  { label: "Research-led ingredient selection", bioaro: "yes", typical: "mixed" },
+  { label: "No hidden proprietary blends", bioaro: "yes", typical: "no" },
+  { label: "Excipient details shown clearly", bioaro: "yes", typical: "mixed" },
+  { label: "Manufacturing details stated clearly", bioaro: "yes", typical: "mixed" },
+  { label: "Support and policy guidance by market", bioaro: "yes", typical: "no" },
+] as const;
+
 function SectionLabel({ children, className = "" }: { children: string; className?: string }) {
   return <span className={`eyebrow ${className}`}>{children}</span>;
+}
+
+function ComparisonState({ value }: { value: "yes" | "no" | "mixed" }) {
+  if (value === "yes") return <Check size={16} className="text-[#2f4f3e]" aria-hidden="true" />;
+  if (value === "mixed") return <span className="text-[12px] font-medium text-[#8a8678] sm:text-[13px] md:text-[14px]">Mixed</span>;
+  return <X size={16} className="text-[#c4bfaf]" aria-hidden="true" />;
 }
 
 export default function Science() {
@@ -165,6 +183,33 @@ export default function Science() {
               <div className="flex min-h-[190px] flex-col p-7 md:p-8"><h3 className="text-2xl">{ingredient.name}</h3><p className="mt-3 text-base leading-relaxed text-ink/55">{ingredient.description}</p><Link to={marketHref(ROUTES.science)} className="mt-auto pt-6 inline-flex items-center gap-2 text-sm font-medium text-forest-600">Explore ingredient <ArrowRight size={14} /></Link></div>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="container-bio mt-28 md:mt-40">
+        <div className="mx-auto grid max-w-[1040px] gap-14 lg:grid-cols-[0.9fr_1.3fr]">
+          <div className="max-w-[550px]">
+            <SectionLabel>The difference</SectionLabel>
+            <h2 className="mt-4 text-[42px] leading-[0.98] text-ink md:text-[58px]">Why most supplements fall short.</h2>
+            <p className="mt-6 max-w-[420px] text-[15px] leading-8 text-[#131012]">
+              Many supplements promise more than they deliver. BioAro Drugs is built around transparency, evidence, and formulations designed with purpose.
+            </p>
+          </div>
+
+          <div className="overflow-hidden rounded-[16px] border border-[#e6e2d4] bg-[#fbf8f2]">
+            <div className="grid grid-cols-[1.55fr_0.85fr_0.7fr] border-b border-[#e6e2d4] text-[9.5px] font-semibold uppercase tracking-[0.06em] sm:text-[10.5px] md:grid-cols-[1.2fr_0.65fr_0.55fr] md:text-[11.5px]">
+              <div className="bg-[#f1eee6] px-4 py-4 text-[#131012] sm:px-5">Standard</div>
+              <div className="bg-[#eae7dc] px-3 py-4 text-center text-[#131012] sm:px-4 md:px-5">BioAro Drugs</div>
+              <div className="bg-[#f1eee6] px-3 py-4 text-center text-[#131012] sm:px-4 md:px-5">Typical</div>
+            </div>
+            {COMPARISON_ROWS.map((row) => (
+              <div key={row.label} className="grid grid-cols-[1.55fr_0.85fr_0.7fr] border-b border-[#e6e2d4] last:border-b-0 md:grid-cols-[1.2fr_0.65fr_0.55fr]">
+                <div className="px-4 py-4 text-[13px] leading-[1.45] text-[#1b1a17] sm:px-5 sm:text-[14px] md:py-5">{row.label}</div>
+                <div className="flex items-center justify-center border-x border-[#e6e2d4] px-3 py-4 sm:px-4 md:px-5 md:py-5"><ComparisonState value={row.bioaro} /></div>
+                <div className="flex items-center justify-center px-3 py-4 sm:px-4 md:px-5 md:py-5"><ComparisonState value={row.typical} /></div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

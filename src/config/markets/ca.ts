@@ -11,7 +11,12 @@ export const CA_MARKET: MarketConfig = {
   flag: "🇨🇦",
   companyName: "BioAro Drugs",
   supportEmail: "support@bioarodrugs.com",
-  address: null,
+  address: {
+    line1: "Calgary Place Tower 1",
+    line2: "#1020 - 330 - 5th Avenue SW",
+    city: "Calgary, Alberta",
+    country: "Canada",
+  },
   checkoutEnabled: false,
   checkoutMessage: "Online ordering for Canada is opening soon.",
   shippingMessage: "Canada delivery details will be confirmed at launch.",

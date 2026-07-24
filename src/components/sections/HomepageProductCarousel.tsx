@@ -125,7 +125,14 @@ export default function HomepageProductCarousel({ products }: { products: Catalo
   };
 
   const onPointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
-    if (event.pointerType !== "mouse") return;
+    if (
+      event.pointerType !== "mouse" ||
+      event.button !== 0 ||
+      (event.target instanceof Element &&
+        event.target.closest("a, button, input, select, textarea, label"))
+    ) {
+      return;
+    }
     const track = trackRef.current;
     if (!track) return;
     dragRef.current = { pointerId: event.pointerId, startX: event.clientX, startScrollLeft: track.scrollLeft };
