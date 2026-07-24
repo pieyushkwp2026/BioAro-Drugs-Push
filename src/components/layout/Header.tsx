@@ -28,7 +28,7 @@ export default function Header() {
   const headerSurface = isRegionalHomepage
     ? scrolled
       ? "border-b border-white/55 bg-[#f8f5ef]/86 shadow-[0_10px_30px_rgba(35,29,20,0.08)] backdrop-blur-xl"
-      : "border-transparent bg-transparent shadow-none backdrop-blur-none"
+      : "border-white/40 bg-[#f8f5ef]/82 shadow-[0_6px_24px_rgba(35,29,20,0.06)] backdrop-blur-md xl:border-transparent xl:bg-transparent xl:shadow-none xl:backdrop-blur-none"
     : scrolled
       ? "border-b border-[#e7e1d5] bg-cream/90 backdrop-blur-md"
       : "bg-transparent";
@@ -41,13 +41,13 @@ export default function Header() {
       className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${headerSurface}`}
     >
       <div className="container-bio">
-        <div className="flex min-h-[76px] items-center justify-between gap-6">
-          <Link to={marketHref(ROUTES.home)} className="flex items-center gap-3 text-ink">
-            <img src={bioAroMark} alt="" aria-hidden="true" className="h-[24px] w-[24px] object-contain" />
-            <span className="text-[19px] font-semibold tracking-[0.01em]">BioAro Drugs</span>
+        <div className="flex min-h-[76px] items-center justify-between gap-3 sm:gap-6">
+          <Link to={marketHref(ROUTES.home)} className="flex shrink-0 items-center gap-2.5 text-ink sm:gap-3">
+            <img src={bioAroMark} alt="" aria-hidden="true" className="h-[24px] w-[24px] shrink-0 object-contain" />
+            <span className="whitespace-nowrap text-[16px] font-semibold tracking-[0.01em] sm:text-[19px]">BioAro Drugs</span>
           </Link>
 
-          <nav className="hidden items-center gap-9 lg:flex">
+          <nav className="hidden items-center gap-9 xl:flex">
             {PRIMARY_NAV.map((item) => (
               <NavLink
                 key={item.href}
@@ -61,7 +61,7 @@ export default function Header() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex shrink-0 items-center gap-2 sm:gap-3">
             <div className="hidden md:block">
               <RegionSelector />
             </div>
@@ -103,7 +103,7 @@ export default function Header() {
             <button
               aria-label="Menu"
               onClick={() => setOpen((value) => !value)}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-[#ddd8c9] bg-white/70 transition-colors hover:bg-white lg:hidden"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-[#ddd8c9] bg-white/70 transition-colors hover:bg-white xl:hidden"
             >
               {open ? <X size={18} /> : <Menu size={18} />}
             </button>
@@ -111,7 +111,7 @@ export default function Header() {
         </div>
 
         {open && (
-          <div className="rounded-[24px] border border-[#e1ddce] bg-[#f7f3ed] p-5 shadow-glass-lg lg:hidden">
+          <div className="rounded-[24px] border border-[#e1ddce] bg-[#f7f3ed] p-5 shadow-glass-lg xl:hidden">
             <div className="mb-5 md:hidden">
               <RegionSelector />
             </div>

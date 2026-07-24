@@ -11,7 +11,12 @@ export const AE_MARKET: MarketConfig = {
   flag: "🇦🇪",
   companyName: "BioAro Drugs",
   supportEmail: "support@bioarodrugs.com",
-  address: null,
+  address: {
+    line1: "AB Center - 3rd floor office 302",
+    line2: "Sheikh Zayed Rd - Al Barsha - Al Barsha 1",
+    city: "Dubai",
+    country: "United Arab Emirates",
+  },
   checkoutEnabled: false,
   checkoutMessage: "Online ordering for the UAE is opening soon.",
   shippingMessage: "UAE delivery details will be confirmed at launch.",

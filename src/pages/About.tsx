@@ -82,21 +82,24 @@ export default function About() {
       <section className="container-bio py-20 md:py-28">
         <div className="grid gap-12 md:grid-cols-[0.9fr_1.1fr] md:gap-24">
           <div>
-            <span className="eyebrow">Our purpose</span>
+            <span className="eyebrow">Founded in Canada · 2021</span>
             <h2 className="mt-4 max-w-md text-4xl leading-tight md:text-5xl">
-              Our mission isn&apos;t to sell supplements. It&apos;s to help you make better health decisions.
+              Built from a search for supplements that truly work.
             </h2>
           </div>
           <div className="max-w-xl self-end">
             <p className="text-base leading-relaxed text-ink/65 md:text-lg">
-              The wellness space is noisy and confusing. We believe clarity creates confidence. That&apos;s why we explain the evidence, the ingredients, and the reasoning behind every formula.
+              BioAro is a family-founded company, born from a simple search for supplements that delivered meaningful results. When we could not find what we were looking for, we set out to create it ourselves.
             </p>
             <blockquote className="mt-8 border-l-2 border-forest-600 pl-5 font-display text-2xl italic leading-snug text-forest-700 md:text-3xl">
-              “Better health decisions start with better understanding, clearer action, and routines that customers can actually stay with.”
+              By bringing together science, innovation, and premium ingredients, we develop high-quality formulations designed to support long-term health and wellbeing.
             </blockquote>
-            <Link to={marketHref(ROUTES.living)} className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-forest-600 transition-all hover:gap-3">
-              Read the Living 2.0 approach <ArrowRight size={15} />
-            </Link>
+            <a
+              href="https://bioaro.com"
+              className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-forest-600 transition-all hover:gap-3"
+            >
+              Visit BioAro.com <ArrowRight size={15} />
+            </a>
           </div>
         </div>
       </section>
