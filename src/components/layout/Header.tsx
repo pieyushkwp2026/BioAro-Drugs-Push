@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { Menu, ShoppingBag, X } from "lucide-react";
+import { Menu, ShoppingBag, User, X } from "lucide-react";
 import RegionSelector from "./RegionSelector";
 import { PRIMARY_NAV, ROUTES } from "../../lib/routes";
 import { useCart } from "../../hooks/useCart";
+import { useAuth } from "../../hooks/useAuth";
 import { useMarketHref } from "../../hooks/useMarketHref";
 import { stripMarketPrefix } from "../../lib/marketRouting";
 import bioAroMark from "../../assets/logo/bioaro-mark.png";
@@ -12,6 +13,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const { cart, openCart } = useCart();
+  const { isAuthenticated, customer } = useAuth();
   const marketHref = useMarketHref();
   const { pathname } = useLocation();
   const isRegionalHomepage = stripMarketPrefix(pathname) === "/";
@@ -30,6 +32,9 @@ export default function Header() {
     : scrolled
       ? "border-b border-[#e7e1d5] bg-cream/90 backdrop-blur-md"
       : "bg-transparent";
+
+  const accountHref = isAuthenticated ? marketHref(ROUTES.account) : "/auth";
+  const accountLabel = isAuthenticated ? customer?.firstName ?? "Account" : "Sign in";
 
   return (
     <header
@@ -60,6 +65,21 @@ export default function Header() {
             <div className="hidden md:block">
               <RegionSelector />
             </div>
+            <Link
+              to={accountHref}
+              aria-label={accountLabel}
+              className="hidden h-9 items-center gap-2 rounded-full border border-[#ddd8c9] bg-white/70 px-4 text-sm text-ink transition-colors hover:bg-white md:flex"
+            >
+              <User size={16} />
+              <span>{accountLabel}</span>
+            </Link>
+            <Link
+              to={accountHref}
+              aria-label={accountLabel}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-[#ddd8c9] bg-white/70 transition-colors hover:bg-white md:hidden"
+            >
+              <User size={16} />
+            </Link>
             <button
               onClick={openCart}
               aria-label="Cart"
@@ -106,6 +126,13 @@ export default function Header() {
                   {item.label}
                 </Link>
               ))}
+              <Link
+                to={accountHref}
+                onClick={() => setOpen(false)}
+                className="rounded-2xl px-3 py-3 text-[15px] text-ink transition-colors hover:bg-white/70"
+              >
+                {accountLabel}
+              </Link>
               <Link
                 to={marketHref(ROUTES.support)}
                 onClick={() => setOpen(false)}

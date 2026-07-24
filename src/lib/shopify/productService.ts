@@ -14,6 +14,7 @@ interface ShopifyProductNode {
   title: string;
   description: string;
   availableForSale: boolean;
+  bestseller?: { value: string } | null;
   featuredImage?: { url: string; altText: string | null } | null;
   selectedOrFirstAvailableVariant?: ShopifyVariantNode | null;
   variants?: { nodes: ShopifyVariantNode[] };
@@ -77,6 +78,9 @@ const PRODUCT_FIELDS = `
   title
   description
   availableForSale
+  bestseller: metafield(namespace: "custom", key: "bestseller") {
+    value
+  }
   featuredImage {
     url
     altText
@@ -161,6 +165,7 @@ function mapShopifyProduct(node: ShopifyProductNode): ShopifyProduct {
         }
       : undefined,
     availableForSale: node.availableForSale,
+    isBestseller: node.bestseller?.value === "true",
     variantId: variant?.id ?? `missing-variant-${node.handle}`,
     metafields: mapProductMetafields(node.metafields),
   };

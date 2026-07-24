@@ -243,6 +243,7 @@ export function mergeShopifyProduct(previewProduct: ProductEditorial, shopifyPro
     price: shopifyProduct.price,
     compareAtPrice: shopifyProduct.compareAtPrice,
     availableForSale: shopifyProduct.availableForSale,
+    isBestseller: shopifyProduct.isBestseller,
     variantId: shopifyProduct.variantId,
   };
 }
@@ -292,6 +293,7 @@ export function createShopifyProduct(shopifyProduct: ShopifyProduct, country: Co
     price: shopifyProduct.price,
     compareAtPrice: shopifyProduct.compareAtPrice,
     availableForSale: shopifyProduct.availableForSale,
+    isBestseller: shopifyProduct.isBestseller,
     variantId: shopifyProduct.variantId,
   };
 }

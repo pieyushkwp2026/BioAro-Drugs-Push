@@ -112,6 +112,7 @@ export interface ProductEditorial {
   tagline: string;
   description: string;
   badge?: string;
+  isBestseller?: boolean;
   image?: ProductImage;
   category: ProductCategory;
   tags: string[];
@@ -148,6 +149,7 @@ export interface ShopifyProduct {
   price: MoneyAmount;
   compareAtPrice?: MoneyAmount;
   availableForSale: boolean;
+  isBestseller?: boolean;
   variantId: string;
   metafields?: ProductMetafields;
 }

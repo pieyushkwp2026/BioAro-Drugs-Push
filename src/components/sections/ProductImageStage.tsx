@@ -24,20 +24,20 @@ export default function ProductImageStage({
   } as CSSProperties;
 
   return (
-    <div className="relative flex aspect-[4/3] w-full items-center justify-center overflow-hidden bg-[#eeeae1] p-6 sm:p-7 md:p-8">
+    <div className="relative flex aspect-[4/3] w-full items-center justify-center overflow-hidden bg-[#eeeae1]">
       {src ? (
         <img
           src={src}
           alt={alt}
           loading="lazy"
           decoding="async"
-          className="h-full w-full origin-center scale-[var(--image-scale)] object-contain transition-transform duration-500 group-hover:scale-[calc(var(--image-scale)*1.05)]"
+          className="h-full w-full origin-center scale-[var(--image-scale)] object-cover object-center transition-transform duration-500 group-hover:scale-[calc(var(--image-scale)*1.05)]"
           style={imageStyle}
         />
       ) : (
         <PlaceholderBottle
           initials={initials}
-          className="h-full w-full max-w-[140px] origin-center scale-[var(--image-scale)] transition-transform duration-500 group-hover:scale-[calc(var(--image-scale)*1.05)]"
+          className="h-full w-full max-w-[140px] origin-center scale-[var(--image-scale)] p-6 transition-transform duration-500 group-hover:scale-[calc(var(--image-scale)*1.05)] sm:p-7 md:p-8"
           style={imageStyle}
         />
       )}
