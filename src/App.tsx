@@ -19,8 +19,11 @@ import Faq from "./pages/Faq";
 import Protocols from "./pages/Protocols";
 import Partners from "./pages/Partners";
 import NotFound from "./pages/NotFound";
+import AuthLogin from "./pages/AuthLogin";
+import AuthCallback from "./pages/AuthCallback";
 import { MarketProvider } from "./lib/market/context";
 import { CartProvider } from "./components/cart/CartProvider";
+import { AuthProvider } from "./components/auth/AuthProvider";
 import { buildMarketHref } from "./lib/marketRouting";
 import { useMarket } from "./hooks/useMarket";
 import type { MarketCode } from "./config/markets";
@@ -144,13 +147,17 @@ export default function App() {
     <BrowserRouter>
       <MarketProvider>
         <CartProvider>
-          <Routes>
-            <Route path="/" element={<LegacyRootRedirect />} />
-            {RegionalRoutes()}
-            <Route path="/:market/shop/:handle" element={<RegionalProductRedirect />} />
-            {LegacyRedirectRoutes()}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <AuthProvider>
+            <Routes>
+              <Route path="/" element={<LegacyRootRedirect />} />
+              <Route path="/auth" element={<AuthLogin />} />
+              <Route path="/auth/callback" element={<AuthCallback />} />
+              {RegionalRoutes()}
+              <Route path="/:market/shop/:handle" element={<RegionalProductRedirect />} />
+              {LegacyRedirectRoutes()}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </AuthProvider>
         </CartProvider>
       </MarketProvider>
     </BrowserRouter>
