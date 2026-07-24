@@ -152,6 +152,8 @@ export default function App() {
               <Route path="/" element={<LegacyRootRedirect />} />
               <Route path="/auth" element={<AuthLogin />} />
               <Route path="/auth/callback" element={<AuthCallback />} />
+              <Route path="/:market/auth" element={<AuthLogin />} />
+              <Route path="/:market/auth/callback" element={<AuthCallback />} />
               {RegionalRoutes()}
               <Route path="/:market/shop/:handle" element={<RegionalProductRedirect />} />
               {LegacyRedirectRoutes()}

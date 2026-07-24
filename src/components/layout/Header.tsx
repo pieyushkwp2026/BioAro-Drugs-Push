@@ -33,7 +33,7 @@ export default function Header() {
       ? "border-b border-[#e7e1d5] bg-cream/90 backdrop-blur-md"
       : "bg-transparent";
 
-  const accountHref = isAuthenticated ? marketHref(ROUTES.account) : "/auth";
+  const accountHref = isAuthenticated ? marketHref(ROUTES.account) : marketHref("/auth");
   const accountLabel = isAuthenticated ? customer?.firstName ?? "Account" : "Sign in";
 
   return (

@@ -63,7 +63,7 @@ export default function Account() {
             For now, you can browse products and contact our support team about orders, product questions, and availability.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Link to="/auth" className="btn-primary">
+            <Link to={marketHref("/auth")} className="btn-primary">
               Sign in
             </Link>
             <Link to={marketHref(ROUTES.support)} className="btn-secondary">
