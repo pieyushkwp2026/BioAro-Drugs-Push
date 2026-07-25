@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
-import { Check, Zap, Dna, Scale, Heart, Brain, Shield, Flame, Droplet, Sparkles, ArrowRight, Star, Quote } from "lucide-react";
+import { Check, Zap, Dna, Scale, Heart, Brain, Shield, Flame, Droplet, Sparkles, ArrowRight, Quote } from "lucide-react";
 import AccordionGroup from "../components/page/AccordionGroup";
 import IngredientCard from "../components/sections/IngredientCard";
 import PlaceholderBottle from "../components/sections/PlaceholderBottle";
@@ -257,23 +257,6 @@ export default function Product() {
             <h1 className="mt-3 text-4xl md:text-5xl">{product.title}</h1>
             <p className="mt-3 text-forest-600">{product.tagline}</p>
 
-            {product.rating.count > 0 && (
-              <div className="mt-3 flex items-center gap-2">
-                <div className="flex items-center gap-0.5">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star
-                      key={i}
-                      size={14}
-                      className={i < Math.round(product.rating.average) ? "fill-forest-600 text-forest-600" : "text-ink/20"}
-                    />
-                  ))}
-                </div>
-                <span className="text-sm text-ink/55">
-                  {product.rating.average.toFixed(1)} ({product.rating.count.toLocaleString()} reviews)
-                </span>
-              </div>
-            )}
-
             <p className="mt-5 text-ink/60 leading-relaxed">{product.description}</p>
 
             <div className="mt-6 flex flex-wrap gap-2">
@@ -283,20 +266,6 @@ export default function Product() {
                 </span>
               ))}
             </div>
-
-            {product.trustNotes.length > 0 && (
-              <div className="mt-3 flex flex-wrap gap-2">
-                {product.trustNotes.map((note) => (
-                  <span
-                    key={note}
-                    className="inline-flex items-center gap-1.5 rounded-full bg-forest-600/10 px-3 py-1.5 text-xs font-medium text-forest-600"
-                  >
-                    <Check size={12} />
-                    {note}
-                  </span>
-                ))}
-              </div>
-            )}
 
             <div className="glass-card mt-6 flex items-center justify-between gap-4 p-5">
               <div>

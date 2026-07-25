@@ -136,6 +136,54 @@ function ingredientReferenceItems(references: ShopifyMetaobjectReference[] | und
   return ingredients.length ? ingredients : undefined;
 }
 
+function normalizeKey(value: string) {
+  return value.trim().toLowerCase().replace(/[^a-z0-9]+/g, "");
+}
+
+function isCompleteIngredient(ingredient: ProductIngredient) {
+  return Boolean(
+    ingredient.name.trim()
+    && ingredient.amount.trim()
+    && ingredient.purpose.trim()
+    && ingredient.whyIncluded?.trim()
+    && ingredient.image,
+  );
+}
+
+function ingredientDetailsForKnownProduct(
+  editorialIngredients: ProductIngredient[],
+  shopifyIngredients: ProductIngredient[] | undefined,
+) {
+  if (!shopifyIngredients?.length) return editorialIngredients;
+  if (shopifyIngredients.every(isCompleteIngredient)) return shopifyIngredients;
+
+  const shopifyByName = new Map(shopifyIngredients.map((ingredient) => [normalizeKey(ingredient.name), ingredient]));
+
+  return editorialIngredients.map((editorialIngredient) => {
+    const shopifyIngredient = shopifyByName.get(normalizeKey(editorialIngredient.name));
+    if (!shopifyIngredient) return editorialIngredient;
+
+    return {
+      name: shopifyIngredient.name.trim() || editorialIngredient.name,
+      amount: shopifyIngredient.amount.trim() || editorialIngredient.amount,
+      purpose: shopifyIngredient.purpose.trim() || editorialIngredient.purpose,
+      whyIncluded: shopifyIngredient.whyIncluded?.trim() || editorialIngredient.whyIncluded,
+      image: shopifyIngredient.image || editorialIngredient.image,
+    };
+  });
+}
+
+function whyItemsForKnownProduct(editorial: ProductEditorial, benefitItems: MetafieldTitleTextItem[] | undefined) {
+  if (!benefitItems?.length) return editorial.whyItems;
+  if (benefitItems.length !== editorial.whyItems.length) return editorial.whyItems;
+
+  return benefitItems.map((item, index) => ({
+    ...editorial.whyItems[index],
+    title: item.title,
+    description: item.text,
+  }));
+}
+
 function productImageReference(reference: ShopifyImageReference | null | undefined, fallbackAlt: string) {
   const image = reference?.image;
   return image?.url ? { src: image.url, alt: image.altText ?? fallbackAlt } : undefined;
@@ -273,12 +321,12 @@ function applyMetafields(editorial: ProductEditorial, shopifyProduct: ShopifyPro
       count: metafields?.ratingCount ?? editorial.rating.count,
     },
     benefits: benefitItems?.map((item) => item.text) ?? textList(metafields?.heroBullets) ?? editorial.benefits,
-    whyItems: benefitItems?.map((item) => ({ icon: "shield" as const, title: item.title, description: item.text })) ?? editorial.whyItems,
+    whyItems: whyItemsForKnownProduct(editorial, benefitItems),
     trustNotes: metafields?.trustBadges?.map((item) => item.text) ?? editorial.trustNotes,
     warnings,
     // A basic Shopify text list cannot replace the approved ingredient cards.
     // Only the rich, image-capable reference field is authoritative for a known PDP.
-    ingredients: metafields?.ingredientDetails ?? editorial.ingredients,
+    ingredients: ingredientDetailsForKnownProduct(editorial.ingredients, metafields?.ingredientDetails),
     supplementFacts: facts(metafields?.supplementFactsRows) ?? editorial.supplementFacts,
     evidencePoints: metafields?.clinicalEvidence?.map((item) => item.text) ?? editorial.evidencePoints,
     science: science(metafields?.scienceSteps) ?? editorial.science,
