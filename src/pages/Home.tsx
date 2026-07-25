@@ -160,6 +160,7 @@ const CREDIBILITY_ITEMS = [
   },
 ] as const;
 
+/*
 const OUTCOME_PILLS = [
   {
     title: "More Energy",
@@ -197,6 +198,7 @@ const OUTCOME_PILLS = [
     tone: "bg-[#f5dede]",
   },
 ] as const;
+*/
 
 const ESSENTIALS = [
   {
@@ -368,11 +370,11 @@ export default function Home() {
                   </span>
                 </div>
 
-                <div className="order-3 border-t border-white/70 bg-[rgba(247,242,234,0.88)] px-5 py-3 backdrop-blur-lg sm:px-8 xl:absolute xl:inset-x-[72px] xl:bottom-8 xl:z-20 xl:rounded-[22px] xl:border xl:border-white/70 xl:bg-[rgba(247,242,234,0.84)] xl:px-4 xl:py-3 xl:shadow-[0_18px_50px_rgba(35,29,20,0.08)]">
+                <div className="order-3 border-t border-white/75 bg-[rgba(247,242,234,0.74)] px-5 py-4 shadow-[0_-10px_36px_rgba(35,29,20,0.04)] backdrop-blur-2xl sm:px-8 xl:absolute xl:bottom-8 xl:left-1/2 xl:z-20 xl:w-[calc(100%-144px)] xl:max-w-[1320px] xl:-translate-x-1/2 xl:rounded-[24px] xl:border xl:border-white/75 xl:bg-[rgba(247,242,234,0.68)] xl:px-5 xl:py-5 xl:shadow-[0_22px_70px_rgba(35,29,20,0.12),inset_0_1px_0_rgba(255,255,255,0.72)]">
                   <div className="grid grid-cols-2 md:grid-cols-4">
                     {HERO_TRUST_ITEMS.map((item) => (
-                      <div key={item.label} className="flex min-h-[64px] items-center justify-center gap-3 border-white/45 px-3 py-2 text-left even:border-l md:min-h-[62px] md:border-l md:px-5 first:md:border-l-0">
-                        <div className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-full border border-white/55 bg-white/52 text-ink">
+                      <div key={item.label} className="flex min-h-[74px] items-center justify-center gap-3 border-white/50 px-3 py-3 text-left even:border-l md:min-h-[72px] md:border-l md:px-5 first:md:border-l-0">
+                        <div className="flex h-[32px] w-[32px] shrink-0 items-center justify-center rounded-full border border-white/65 bg-white/58 text-ink shadow-[0_10px_24px_rgba(35,29,20,0.08)]">
                           <item.Icon size={13} />
                         </div>
                         <p className="text-[11.5px] leading-[1.3] text-[#131012] sm:text-[12px]">
@@ -388,6 +390,8 @@ export default function Home() {
         </div>
       </section>
 
+      {/*
+      Outcome shortcut row paused by request. Keep the markup available for quick restoration.
       <section className="bg-[#f8f3f0] py-9">
         <div className="container-bio">
           <div className="mx-auto grid max-w-[1404px] gap-5 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
@@ -410,6 +414,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      */}
 
       <section className="py-20">
         <div className="container-bio">
