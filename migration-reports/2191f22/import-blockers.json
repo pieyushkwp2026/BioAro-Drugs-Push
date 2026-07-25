@@ -1,0 +1,525 @@
+{
+  "sourceCommit": "2191f22d39e952c35d0df543336496bd28b388c9",
+  "blockers": [
+    {
+      "handle": "longevity-plus",
+      "kind": "field",
+      "source": "ingredients",
+      "target": "custom.ingredients",
+      "status": "BLOCKED_RICH_INGREDIENTS_NEED_REFERENCE_FIELD",
+      "detail": "The current text field can preserve ingredient names only. It cannot retain ingredient doses, purposes, why-included copy, or ingredient images."
+    },
+    {
+      "handle": "longevity-plus",
+      "kind": "asset",
+      "source": "src/assets/ingredients/nmn.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "longevity-plus",
+      "kind": "asset",
+      "source": "src/assets/ingredients/resveratrol.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "longevity-plus",
+      "kind": "asset",
+      "source": "src/assets/ingredients/coq10.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "longevity-plus",
+      "kind": "asset",
+      "source": "src/assets/ingredients/curcumin.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "longevity-plus",
+      "kind": "asset",
+      "source": "src/assets/ingredients/vitamin-b12.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "longevity-plus",
+      "kind": "asset",
+      "source": "src/assets/ingredients/vitamin-d3.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "longevity-plus",
+      "kind": "asset",
+      "source": "src/assets/science/longevity-plus-lifestyle.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "longevity-plus",
+      "kind": "commercial",
+      "source": "sku",
+      "target": null,
+      "status": "BLOCKED_SOURCE_DATA_MISSING",
+      "detail": "Must be supplied or configured in Shopify; the migration will not guess it."
+    },
+    {
+      "handle": "longevity-plus",
+      "kind": "commercial",
+      "source": "inventory",
+      "target": null,
+      "status": "BLOCKED_SOURCE_DATA_MISSING",
+      "detail": "Must be supplied or configured in Shopify; the migration will not guess it."
+    },
+    {
+      "handle": "longevity-plus",
+      "kind": "commercial",
+      "source": "AED market price",
+      "target": null,
+      "status": "BLOCKED_SOURCE_DATA_MISSING",
+      "detail": "Must be supplied or configured in Shopify; the migration will not guess it."
+    },
+    {
+      "handle": "cellomega-plus",
+      "kind": "field",
+      "source": "ingredients",
+      "target": "custom.ingredients",
+      "status": "BLOCKED_RICH_INGREDIENTS_NEED_REFERENCE_FIELD",
+      "detail": "The current text field can preserve ingredient names only. It cannot retain ingredient doses, purposes, why-included copy, or ingredient images."
+    },
+    {
+      "handle": "cellomega-plus",
+      "kind": "asset",
+      "source": "src/assets/ingredients/omega-3-fatty-acids.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "cellomega-plus",
+      "kind": "asset",
+      "source": "src/assets/ingredients/magnesium-bisglycinate.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "cellomega-plus",
+      "kind": "asset",
+      "source": "src/assets/ingredients/coq10.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "cellomega-plus",
+      "kind": "asset",
+      "source": "src/assets/ingredients/astaxanthin.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "cellomega-plus",
+      "kind": "asset",
+      "source": "src/assets/ingredients/spermidine-trihydrochloride.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "cellomega-plus",
+      "kind": "asset",
+      "source": "src/assets/ingredients/vitamin-e.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "cellomega-plus",
+      "kind": "asset",
+      "source": "src/assets/figma-home/cellomega-science-bg.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "cellomega-plus",
+      "kind": "commercial",
+      "source": "sku",
+      "target": null,
+      "status": "BLOCKED_SOURCE_DATA_MISSING",
+      "detail": "Must be supplied or configured in Shopify; the migration will not guess it."
+    },
+    {
+      "handle": "cellomega-plus",
+      "kind": "commercial",
+      "source": "inventory",
+      "target": null,
+      "status": "BLOCKED_SOURCE_DATA_MISSING",
+      "detail": "Must be supplied or configured in Shopify; the migration will not guess it."
+    },
+    {
+      "handle": "cellomega-plus",
+      "kind": "commercial",
+      "source": "AED market price",
+      "target": null,
+      "status": "BLOCKED_SOURCE_DATA_MISSING",
+      "detail": "Must be supplied or configured in Shopify; the migration will not guess it."
+    },
+    {
+      "handle": "creagen-brain-boost",
+      "kind": "field",
+      "source": "ingredients",
+      "target": "custom.ingredients",
+      "status": "BLOCKED_RICH_INGREDIENTS_NEED_REFERENCE_FIELD",
+      "detail": "The current text field can preserve ingredient names only. It cannot retain ingredient doses, purposes, why-included copy, or ingredient images."
+    },
+    {
+      "handle": "creagen-brain-boost",
+      "kind": "asset",
+      "source": "src/assets/ingredients/creatine-monohydrate.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "creagen-brain-boost",
+      "kind": "asset",
+      "source": "src/assets/ingredients/magnesium-glycinate.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "creagen-brain-boost",
+      "kind": "asset",
+      "source": "src/assets/ingredients/vitamin-b12.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "creagen-brain-boost",
+      "kind": "asset",
+      "source": "src/assets/science/creagen-brain-boost-lifestyle.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "creagen-brain-boost",
+      "kind": "commercial",
+      "source": "sku",
+      "target": null,
+      "status": "BLOCKED_SOURCE_DATA_MISSING",
+      "detail": "Must be supplied or configured in Shopify; the migration will not guess it."
+    },
+    {
+      "handle": "creagen-brain-boost",
+      "kind": "commercial",
+      "source": "inventory",
+      "target": null,
+      "status": "BLOCKED_SOURCE_DATA_MISSING",
+      "detail": "Must be supplied or configured in Shopify; the migration will not guess it."
+    },
+    {
+      "handle": "creagen-brain-boost",
+      "kind": "commercial",
+      "source": "AED market price",
+      "target": null,
+      "status": "BLOCKED_SOURCE_DATA_MISSING",
+      "detail": "Must be supplied or configured in Shopify; the migration will not guess it."
+    },
+    {
+      "handle": "creagen-femme-energy",
+      "kind": "field",
+      "source": "ingredients",
+      "target": "custom.ingredients",
+      "status": "BLOCKED_RICH_INGREDIENTS_NEED_REFERENCE_FIELD",
+      "detail": "The current text field can preserve ingredient names only. It cannot retain ingredient doses, purposes, why-included copy, or ingredient images."
+    },
+    {
+      "handle": "creagen-femme-energy",
+      "kind": "asset",
+      "source": "src/assets/ingredients/creatine-monohydrate.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "creagen-femme-energy",
+      "kind": "asset",
+      "source": "src/assets/ingredients/ferrous-bisglycinate.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "creagen-femme-energy",
+      "kind": "asset",
+      "source": "src/assets/ingredients/vitamin-b12.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "creagen-femme-energy",
+      "kind": "asset",
+      "source": "src/assets/science/creagen-femme-energy-lifestyle.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "creagen-femme-energy",
+      "kind": "commercial",
+      "source": "sku",
+      "target": null,
+      "status": "BLOCKED_SOURCE_DATA_MISSING",
+      "detail": "Must be supplied or configured in Shopify; the migration will not guess it."
+    },
+    {
+      "handle": "creagen-femme-energy",
+      "kind": "commercial",
+      "source": "inventory",
+      "target": null,
+      "status": "BLOCKED_SOURCE_DATA_MISSING",
+      "detail": "Must be supplied or configured in Shopify; the migration will not guess it."
+    },
+    {
+      "handle": "creagen-femme-energy",
+      "kind": "commercial",
+      "source": "AED market price",
+      "target": null,
+      "status": "BLOCKED_SOURCE_DATA_MISSING",
+      "detail": "Must be supplied or configured in Shopify; the migration will not guess it."
+    },
+    {
+      "handle": "creagen-raw-power",
+      "kind": "field",
+      "source": "ingredients",
+      "target": "custom.ingredients",
+      "status": "BLOCKED_RICH_INGREDIENTS_NEED_REFERENCE_FIELD",
+      "detail": "The current text field can preserve ingredient names only. It cannot retain ingredient doses, purposes, why-included copy, or ingredient images."
+    },
+    {
+      "handle": "creagen-raw-power",
+      "kind": "asset",
+      "source": "src/assets/ingredients/creatine-monohydrate.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "creagen-raw-power",
+      "kind": "asset",
+      "source": "src/assets/science/creagen-raw-power-lifestyle.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "creagen-raw-power",
+      "kind": "commercial",
+      "source": "sku",
+      "target": null,
+      "status": "BLOCKED_SOURCE_DATA_MISSING",
+      "detail": "Must be supplied or configured in Shopify; the migration will not guess it."
+    },
+    {
+      "handle": "creagen-raw-power",
+      "kind": "commercial",
+      "source": "inventory",
+      "target": null,
+      "status": "BLOCKED_SOURCE_DATA_MISSING",
+      "detail": "Must be supplied or configured in Shopify; the migration will not guess it."
+    },
+    {
+      "handle": "creagen-raw-power",
+      "kind": "commercial",
+      "source": "AED market price",
+      "target": null,
+      "status": "BLOCKED_SOURCE_DATA_MISSING",
+      "detail": "Must be supplied or configured in Shopify; the migration will not guess it."
+    },
+    {
+      "handle": "creagen-pro-power",
+      "kind": "field",
+      "source": "ingredients",
+      "target": "custom.ingredients",
+      "status": "BLOCKED_RICH_INGREDIENTS_NEED_REFERENCE_FIELD",
+      "detail": "The current text field can preserve ingredient names only. It cannot retain ingredient doses, purposes, why-included copy, or ingredient images."
+    },
+    {
+      "handle": "creagen-pro-power",
+      "kind": "asset",
+      "source": "src/assets/ingredients/creatine-monohydrate.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "creagen-pro-power",
+      "kind": "asset",
+      "source": "src/assets/ingredients/beta-alanine.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "creagen-pro-power",
+      "kind": "asset",
+      "source": "src/assets/ingredients/potassium-chloride.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "creagen-pro-power",
+      "kind": "asset",
+      "source": "src/assets/ingredients/sodium-chloride.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "creagen-pro-power",
+      "kind": "asset",
+      "source": "src/assets/ingredients/magnesium-bisglycinate.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "creagen-pro-power",
+      "kind": "asset",
+      "source": "src/assets/science/creagen-pro-power-lifestyle.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "creagen-pro-power",
+      "kind": "commercial",
+      "source": "sku",
+      "target": null,
+      "status": "BLOCKED_SOURCE_DATA_MISSING",
+      "detail": "Must be supplied or configured in Shopify; the migration will not guess it."
+    },
+    {
+      "handle": "creagen-pro-power",
+      "kind": "commercial",
+      "source": "inventory",
+      "target": null,
+      "status": "BLOCKED_SOURCE_DATA_MISSING",
+      "detail": "Must be supplied or configured in Shopify; the migration will not guess it."
+    },
+    {
+      "handle": "creagen-pro-power",
+      "kind": "commercial",
+      "source": "AED market price",
+      "target": null,
+      "status": "BLOCKED_SOURCE_DATA_MISSING",
+      "detail": "Must be supplied or configured in Shopify; the migration will not guess it."
+    },
+    {
+      "handle": "glutara",
+      "kind": "field",
+      "source": "ingredients",
+      "target": "custom.ingredients",
+      "status": "BLOCKED_RICH_INGREDIENTS_NEED_REFERENCE_FIELD",
+      "detail": "The current text field can preserve ingredient names only. It cannot retain ingredient doses, purposes, why-included copy, or ingredient images."
+    },
+    {
+      "handle": "glutara",
+      "kind": "asset",
+      "source": "src/assets/ingredients/liposomal-glutathione.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "glutara",
+      "kind": "asset",
+      "source": "src/assets/ingredients/vitamin-c.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "glutara",
+      "kind": "asset",
+      "source": "src/assets/ingredients/hyaluronic-acid.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "glutara",
+      "kind": "asset",
+      "source": "src/assets/ingredients/vitamin-b1.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "glutara",
+      "kind": "asset",
+      "source": "src/assets/ingredients/vitamin-b6.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "glutara",
+      "kind": "asset",
+      "source": "src/assets/ingredients/piperine.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "glutara",
+      "kind": "asset",
+      "source": "src/assets/science/glutara-lifestyle.png",
+      "target": "Shopify Files + file reference",
+      "status": "BLOCKED_REFERENCE_FIELD_DECISION",
+      "detail": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+    },
+    {
+      "handle": "glutara",
+      "kind": "commercial",
+      "source": "sku",
+      "target": null,
+      "status": "BLOCKED_SOURCE_DATA_MISSING",
+      "detail": "Must be supplied or configured in Shopify; the migration will not guess it."
+    },
+    {
+      "handle": "glutara",
+      "kind": "commercial",
+      "source": "inventory",
+      "target": null,
+      "status": "BLOCKED_SOURCE_DATA_MISSING",
+      "detail": "Must be supplied or configured in Shopify; the migration will not guess it."
+    },
+    {
+      "handle": "glutara",
+      "kind": "commercial",
+      "source": "AED market price",
+      "target": null,
+      "status": "BLOCKED_SOURCE_DATA_MISSING",
+      "detail": "Must be supplied or configured in Shopify; the migration will not guess it."
+    }
+  ]
+}

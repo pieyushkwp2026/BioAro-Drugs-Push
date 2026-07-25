@@ -8,7 +8,10 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview --host 127.0.0.1 --port 5173",
-    "test": "tsc -p tsconfig.test.json && printf '{\"type\":\"commonjs\"}' > .test-dist/package.json && node --test .test-dist/tests/*.test.js"
+    "test": "tsc -p tsconfig.test.json && printf '{\"type\":\"commonjs\"}' > .test-dist/package.json && node --test .test-dist/tests/*.test.js",
+    "shopify:catalogue:dry-run": "node scripts/shopify-catalogue-dry-run.mjs",
+    "shopify:catalogue:import-preview": "node scripts/shopify-catalogue-import-preview.mjs",
+    "shopify:catalogue:apply": "node scripts/shopify-catalogue-apply.mjs"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",

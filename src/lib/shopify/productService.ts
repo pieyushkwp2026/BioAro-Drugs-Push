@@ -63,6 +63,8 @@ const METAFIELD_IDENTIFIERS: { namespace: string; key: string }[] = [
   { namespace: "custom", key: "benefit_cards" },
   { namespace: "custom", key: "science_steps" },
   { namespace: "custom", key: "ingredients" },
+  { namespace: "custom", key: "ingredient_details" },
+  { namespace: "custom", key: "science_visual" },
   { namespace: "custom", key: "supplement_facts_rows" },
   { namespace: "custom", key: "clinical_evidence" },
   { namespace: "custom", key: "comparison_rows" },
@@ -123,6 +125,32 @@ const PRODUCT_FIELDS = `
     key
     value
     type
+    reference {
+      ... on MediaImage {
+        image {
+          url
+          altText
+        }
+      }
+    }
+    references(first: 50) {
+      nodes {
+        ... on Metaobject {
+          fields {
+            key
+            value
+            reference {
+              ... on MediaImage {
+                image {
+                  url
+                  altText
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 `;
 

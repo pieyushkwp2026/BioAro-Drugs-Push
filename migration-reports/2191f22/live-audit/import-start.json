@@ -1,0 +1,13 @@
+{
+  "sourceCommit": "2191f22d39e952c35d0df543336496bd28b388c9",
+  "products": [
+    "longevity-plus",
+    "cellomega-plus",
+    "creagen-brain-boost",
+    "creagen-femme-energy",
+    "creagen-raw-power",
+    "creagen-pro-power",
+    "glutara"
+  ],
+  "mode": "REPLACE_TEST_RECORD_AND_CREATE_DRAFTS"
+}

@@ -64,6 +64,45 @@ test("maps Shopify metafields into a Shopify-only regional PDP model", () => {
   assert.ok(product.warnings.includes("Storage: Store in a cool, dry place."));
 });
 
+test("prefers approved Shopify ingredient references and science imagery for a dedicated PDP", () => {
+  const metafields = mapProductMetafields([
+    {
+      key: "ingredient_details",
+      type: "list.metaobject_reference",
+      value: "[]",
+      references: {
+        nodes: [{
+          fields: [
+            { key: "name", value: "Magnesium Bisglycinate" },
+            { key: "amount", value: "170 mg" },
+            { key: "purpose", value: "Supports normal muscle function." },
+            { key: "why_included", value: "A highly bioavailable magnesium form." },
+            { key: "image", value: "gid://shopify/MediaImage/1", reference: { image: { url: "https://cdn.shopify.com/magnesium.png", altText: "Magnesium powder" } } },
+          ],
+        }],
+      },
+    },
+    {
+      key: "science_visual",
+      type: "file_reference",
+      value: "gid://shopify/MediaImage/2",
+      reference: { image: { url: "https://cdn.shopify.com/science.png", altText: "Formula science visual" } },
+    },
+  ]);
+
+  assert.deepEqual(metafields?.ingredientDetails, [{
+    name: "Magnesium Bisglycinate",
+    amount: "170 mg",
+    purpose: "Supports normal muscle function.",
+    whyIncluded: "A highly bioavailable magnesium form.",
+    image: "https://cdn.shopify.com/magnesium.png",
+  }]);
+  assert.deepEqual(metafields?.scienceVisual, {
+    src: "https://cdn.shopify.com/science.png",
+    alt: "Formula science visual",
+  });
+});
+
 test("uses Shopify data when present and preserves editorial fields when metafields are absent", () => {
   const product = mergeShopifyProduct(
     previewProduct,
@@ -79,6 +118,25 @@ test("uses Shopify data when present and preserves editorial fields when metafie
   assert.deepEqual(product.warnings, ["Preview warning"]);
 });
 
+test("keeps approved editorial ingredient cards until Shopify provides rich ingredient references", () => {
+  const editorialWithIngredient = {
+    ...previewProduct,
+    ingredients: [{ name: "Creatine", amount: "6 g", purpose: "Supports performance.", image: "/creatine.png" }],
+  };
+  const product = mergeShopifyProduct(
+    editorialWithIngredient,
+    {
+      ...shopifyProduct,
+      metafields: mapProductMetafields([
+        { key: "ingredients", type: "single_line_text_field", value: "Creatine Monohydrate" },
+      ]),
+    },
+    "GB",
+  );
+
+  assert.deepEqual(product.ingredients, editorialWithIngredient.ingredients);
+});
+
 test("ignores invalid JSON metafields instead of throwing", () => {
   const metafields = mapProductMetafields([
     { key: "benefit_cards", type: "json", value: "not-json" },
@@ -87,4 +145,28 @@ test("ignores invalid JSON metafields instead of throwing", () => {
 
   assert.equal(metafields?.benefitCards, undefined);
   assert.equal(metafields?.heroBullets, "Focus\nClarity");
+});
+
+test("keeps partial Shopify-only PDPs grounded in returned metafields only", () => {
+  const partialProduct = createShopifyProduct(
+    {
+      ...shopifyProduct,
+      handle: "partial-shopify-formula",
+      metafields: mapProductMetafields([
+        { key: "pdp_subtitle", type: "single_line_text_field", value: "Test subtitle" },
+        { key: "short_description", type: "multi_line_text_field", value: "Test description for verification" },
+        { key: "ingredients", type: "single_line_text_field", value: "Test Ingredient Complex" },
+      ]),
+    },
+    "GB",
+  );
+
+  assert.equal(partialProduct.tagline, "Test subtitle");
+  assert.equal(partialProduct.description, "Test description for verification");
+  assert.deepEqual(partialProduct.ingredients, [{ name: "Test Ingredient Complex", amount: "", purpose: "" }]);
+  assert.deepEqual(partialProduct.benefits, []);
+  assert.deepEqual(partialProduct.whyItems, []);
+  assert.deepEqual(partialProduct.comparisonRows, []);
+  assert.deepEqual(partialProduct.supplementFacts, []);
+  assert.deepEqual(partialProduct.faq, []);
 });

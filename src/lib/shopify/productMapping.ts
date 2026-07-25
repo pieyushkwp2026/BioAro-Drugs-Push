@@ -15,6 +15,20 @@ export interface ShopifyMetafieldNode {
   key: string;
   value: string;
   type: string;
+  reference?: ShopifyImageReference | null;
+  references?: { nodes: ShopifyMetaobjectReference[] } | null;
+}
+
+export interface ShopifyImageReference {
+  image?: { url: string; altText?: string | null } | null;
+}
+
+export interface ShopifyMetaobjectReference {
+  fields?: Array<{
+    key: string;
+    value: string;
+    reference?: ShopifyImageReference | null;
+  }>;
 }
 
 function asRecord(value: unknown): Record<string, unknown> | undefined {
@@ -87,8 +101,44 @@ function ingredientItems(value: string | undefined): ProductIngredient[] | undef
 
     return ingredients.length ? ingredients : undefined;
   } catch {
-    return undefined;
+    const values = textList(value);
+    return values?.map((name) => ({
+      name,
+      amount: "",
+      purpose: "",
+    }));
   }
+}
+
+function imageFromReference(reference: ShopifyImageReference | null | undefined): ProductIngredient["image"] | undefined {
+  const image = reference?.image;
+  return image?.url ? image.url : undefined;
+}
+
+function ingredientReferenceItems(references: ShopifyMetaobjectReference[] | undefined): ProductIngredient[] | undefined {
+  if (!references?.length) return undefined;
+
+  const ingredients = references.flatMap((reference) => {
+    const fields = new Map((reference.fields ?? []).map((field) => [field.key, field]));
+    const name = fields.get("name")?.value?.trim();
+    if (!name) return [];
+
+    const imageField = fields.get("image");
+    return [{
+      name,
+      amount: fields.get("amount")?.value?.trim() ?? "",
+      purpose: fields.get("purpose")?.value?.trim() ?? "",
+      whyIncluded: fields.get("why_included")?.value?.trim() || undefined,
+      image: imageFromReference(imageField?.reference),
+    }];
+  });
+
+  return ingredients.length ? ingredients : undefined;
+}
+
+function productImageReference(reference: ShopifyImageReference | null | undefined, fallbackAlt: string) {
+  const image = reference?.image;
+  return image?.url ? { src: image.url, alt: image.altText ?? fallbackAlt } : undefined;
 }
 
 function facts(items: MetafieldTitleTextItem[] | undefined) {
@@ -184,6 +234,8 @@ export function mapProductMetafields(nodes: (ShopifyMetafieldNode | null)[] | un
     benefitCards: items("benefit_cards"),
     scienceSteps: items("science_steps"),
     ingredients: str("ingredients"),
+    ingredientDetails: ingredientReferenceItems(byKey.get("ingredient_details")?.references?.nodes),
+    scienceVisual: productImageReference(byKey.get("science_visual")?.reference, "Product science visual"),
     supplementFactsRows: items("supplement_facts_rows"),
     clinicalEvidence: items("clinical_evidence"),
     comparisonRows: comparisonRows(str("comparison_rows")),
@@ -224,7 +276,9 @@ function applyMetafields(editorial: ProductEditorial, shopifyProduct: ShopifyPro
     whyItems: benefitItems?.map((item) => ({ icon: "shield" as const, title: item.title, description: item.text })) ?? editorial.whyItems,
     trustNotes: metafields?.trustBadges?.map((item) => item.text) ?? editorial.trustNotes,
     warnings,
-    ingredients: ingredientItems(metafields?.ingredients) ?? editorial.ingredients,
+    // A basic Shopify text list cannot replace the approved ingredient cards.
+    // Only the rich, image-capable reference field is authoritative for a known PDP.
+    ingredients: metafields?.ingredientDetails ?? editorial.ingredients,
     supplementFacts: facts(metafields?.supplementFactsRows) ?? editorial.supplementFacts,
     evidencePoints: metafields?.clinicalEvidence?.map((item) => item.text) ?? editorial.evidencePoints,
     science: science(metafields?.scienceSteps) ?? editorial.science,
@@ -276,14 +330,14 @@ export function createShopifyProduct(shopifyProduct: ShopifyProduct, country: Co
     whyItems: metafields?.benefitCards?.map((item) => ({ icon: "shield" as const, title: item.title, description: item.text })) ?? [],
     trustNotes: metafields?.trustBadges?.map((item) => item.text) ?? [],
     warnings,
-    ingredients: ingredientItems(metafields?.ingredients) ?? [],
+    ingredients: metafields?.ingredientDetails ?? ingredientItems(metafields?.ingredients) ?? [],
     supplementFacts: facts(metafields?.supplementFactsRows) ?? [],
     science: science(metafields?.scienceSteps) ?? [],
     evidencePoints: metafields?.clinicalEvidence?.map((item) => item.text) ?? [],
     efficacyMetric: { label: "", unit: "", placeboValue: 0, productValue: 0, caption: "" },
     faq: metafields?.faqs?.map((item) => ({ question: item.title, answer: item.text })) ?? [],
     testimonials: metafields?.testimonials,
-    comparisonRows: metafields?.comparisonRows,
+    comparisonRows: metafields?.comparisonRows ?? [],
     priceByCountry: { [country]: shopifyProduct.price.amount },
     metafields,
   };

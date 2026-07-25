@@ -138,11 +138,13 @@ export default function Product() {
 
   useEffect(() => {
     if (!handle) return;
-    void fetchProductByHandle(handle, country).then((nextProduct) => setProduct(nextProduct ?? null));
+    void fetchProductByHandle(handle, country)
+      .then((nextProduct) => setProduct(nextProduct ?? null))
+      .catch(() => setProduct(null));
   }, [country, handle]);
 
   useEffect(() => {
-    void fetchAllProducts(country).then(setCatalog);
+    void fetchAllProducts(country).then(setCatalog).catch(() => setCatalog([]));
   }, [country]);
 
   useEffect(() => {
@@ -208,9 +210,26 @@ export default function Product() {
 
   const maxEfficacy = Math.max(product.efficacyMetric.placeboValue, product.efficacyMetric.productValue);
   const showGraph = product.efficacyMetric.label !== "" && maxEfficacy > 0;
-  const scienceVisual = getScienceVisual(product.handle);
+  const fallbackScienceVisual = getScienceVisual(product.handle);
+  const scienceVisual = product.metafields?.scienceVisual
+    ? {
+      ...fallbackScienceVisual,
+      backgroundImage: product.metafields.scienceVisual.src,
+      backgroundImageAlt: product.metafields.scienceVisual.alt,
+    }
+    : fallbackScienceVisual;
   const productGallery = PRODUCT_GALLERIES[product.handle];
-  const comparisonRows = product.comparisonRows && product.comparisonRows.length > 0 ? product.comparisonRows : COMPARISON_ROWS;
+  const comparisonRows = product.comparisonRows !== undefined ? product.comparisonRows : COMPARISON_ROWS;
+  const hasBestFor = product.bestFor.trim().length > 0;
+  const hasBenefits = product.benefits.length > 0;
+  const hasWhyItems = product.whyItems.length > 0;
+  const hasScience = product.science.length > 0;
+  const hasIngredients = product.ingredients.length > 0;
+  const hasEvidence = product.evidencePoints.length > 0 || showGraph;
+  const hasComparison = comparisonRows.length > 0;
+  const hasSupplementFacts = product.supplementFacts.length > 0;
+  const hasWarnings = product.warnings.length > 0;
+  const hasFaq = product.faq.length > 0;
 
   return (
     <div className="pt-24 pb-20 md:pt-32 md:pb-24">
@@ -288,132 +307,152 @@ export default function Product() {
                 {formatMoney(product.price.amount, country)}
               </p>
             </div>
-            <div className="mt-4 rounded-[22px] border border-ink/10 bg-[rgba(255,255,255,0.56)] px-4 py-4 shadow-[0_12px_28px_-24px_rgba(27,26,23,0.24)]">
-              <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-forest-600">
-                {product.metafields?.whyFormulaHeadline ?? "Best for"}
-              </p>
-              <p className="mt-2 text-sm leading-relaxed text-ink/60">{product.bestFor}</p>
-            </div>
+            {hasBestFor && (
+              <div className="mt-4 rounded-[22px] border border-ink/10 bg-[rgba(255,255,255,0.56)] px-4 py-4 shadow-[0_12px_28px_-24px_rgba(27,26,23,0.24)]">
+                <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-forest-600">
+                  {product.metafields?.whyFormulaHeadline ?? "Best for"}
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-ink/60">{product.bestFor}</p>
+              </div>
+            )}
 
-            <div className="mt-8">
-              <h2 className="text-xl">Benefits</h2>
-              <ul className="mt-4 space-y-3">
-                {product.benefits.map((benefit) => (
-                  <li key={benefit} className="flex gap-3 text-sm text-ink/65">
-                    <Check size={16} className="mt-0.5 shrink-0 text-forest-600" />
-                    <span>{benefit}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {hasBenefits && (
+              <div className="mt-8">
+                <h2 className="text-xl">Benefits</h2>
+                <ul className="mt-4 space-y-3">
+                  {product.benefits.map((benefit) => (
+                    <li key={benefit} className="flex gap-3 text-sm text-ink/65">
+                      <Check size={16} className="mt-0.5 shrink-0 text-forest-600" />
+                      <span>{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         </div>
 
         {/* Why this product */}
-        <section className="mt-24">
-          <span className="eyebrow">Why {product.title}?</span>
-          <h2 className="mt-2 max-w-xl text-3xl">Built around what matters for this routine, not everything at once.</h2>
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
-            {product.whyItems.map((item) => {
-              const Icon = WHY_ICONS[item.icon];
-              return (
-                <div key={item.title} className="text-center md:text-left">
-                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-forest-600/10 text-forest-600 md:mx-0">
-                    <Icon size={20} />
+        {hasWhyItems && (
+          <section className="mt-24">
+            <span className="eyebrow">Why {product.title}?</span>
+            <h2 className="mt-2 max-w-xl text-3xl">
+              {product.metafields?.whyFormulaHeadline ?? "Built around what matters for this routine, not everything at once."}
+            </h2>
+            <div className="mt-8 grid gap-6 md:grid-cols-3">
+              {product.whyItems.map((item) => {
+                const Icon = WHY_ICONS[item.icon];
+                return (
+                  <div key={item.title} className="text-center md:text-left">
+                    <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-forest-600/10 text-forest-600 md:mx-0">
+                      <Icon size={20} />
+                    </div>
+                    <h3 className="mt-4 text-lg">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-ink/55">{item.description}</p>
                   </div>
-                  <h3 className="mt-4 text-lg">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-ink/55">{item.description}</p>
-                </div>
-              );
-            })}
-          </div>
-        </section>
+                );
+              })}
+            </div>
+          </section>
+        )}
 
         {/* Science behind the formula */}
-        <ScienceFormulaVisual
-          backgroundImage={scienceVisual.backgroundImage}
-          backgroundImageAlt={scienceVisual.backgroundImageAlt}
-          backgroundPosition={scienceVisual.backgroundPosition}
-          formulaSteps={product.science}
-          headline={product.metafields?.scienceHeadline}
-        />
+        {hasScience && (
+          <ScienceFormulaVisual
+            backgroundImage={scienceVisual.backgroundImage}
+            backgroundImageAlt={scienceVisual.backgroundImageAlt}
+            backgroundPosition={scienceVisual.backgroundPosition}
+            formulaSteps={product.science}
+            headline={product.metafields?.scienceHeadline}
+          />
+        )}
 
         {/* Key ingredients */}
-        <section className="mt-24">
-          <div className="flex items-end justify-between">
-            <div>
-              <span className="eyebrow">Key ingredients</span>
-              <h2 className="mt-2 text-3xl">
-                {product.metafields?.ingredientsHeadline ?? "Clinically studied. Purposefully dosed."}
-              </h2>
+        {hasIngredients && (
+          <section className="mt-24">
+            <div className="flex items-end justify-between">
+              <div>
+                <span className="eyebrow">Key ingredients</span>
+                <h2 className="mt-2 text-3xl">
+                  {product.metafields?.ingredientsHeadline ?? "Clinically studied. Purposefully dosed."}
+                </h2>
+              </div>
             </div>
-          </div>
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {product.ingredients.map((ingredient) => (
-              <IngredientCard key={ingredient.name} ingredient={ingredient} />
-            ))}
-          </div>
-        </section>
+            <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+              {product.ingredients.map((ingredient) => (
+                <IngredientCard key={ingredient.name} ingredient={ingredient} />
+              ))}
+            </div>
+          </section>
+        )}
 
         {product.otherIngredients && product.otherIngredients.length > 0 && (
           <OtherIngredientsSection items={product.otherIngredients} />
         )}
 
         {/* Backed by science + comparison */}
-        <div className="mt-24 grid gap-5 lg:grid-cols-2">
-          <section className="glass-card p-6 md:p-8" style={{ background: "linear-gradient(180deg, #EEF2EC, #F8F6F4)" }}>
-            <h2 className="text-2xl">{product.metafields?.evidenceHeadline ?? "Backed by science"}</h2>
-            <ul className="mt-5 space-y-3 text-sm">
-              {product.evidencePoints.map((point) => (
-                <li key={point} className="flex items-center gap-2 text-ink/70">
-                  <Check size={16} className="shrink-0 text-forest-600" />
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
+        {(hasEvidence || hasComparison) && (
+          <div className="mt-24 grid gap-5 lg:grid-cols-2">
+            {hasEvidence && (
+              <section className="glass-card p-6 md:p-8" style={{ background: "linear-gradient(180deg, #EEF2EC, #F8F6F4)" }}>
+                <h2 className="text-2xl">{product.metafields?.evidenceHeadline ?? "Backed by science"}</h2>
+                {product.evidencePoints.length > 0 && (
+                  <ul className="mt-5 space-y-3 text-sm">
+                    {product.evidencePoints.map((point) => (
+                      <li key={point} className="flex items-center gap-2 text-ink/70">
+                        <Check size={16} className="shrink-0 text-forest-600" />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
 
-            {showGraph && (
-              <div className="mt-6 rounded-2xl bg-white/60 p-5">
-                <p className="text-sm font-medium">{product.efficacyMetric.label}</p>
-                <div className="mt-6 flex items-end justify-center gap-10">
-                  <div className="text-center">
-                    <div
-                      className="mx-auto w-10 rounded-t-md bg-sand"
-                      style={{ height: `${(product.efficacyMetric.placeboValue / maxEfficacy) * 96}px` }}
-                    />
-                    <p className="mt-2 text-xs text-ink/45">Placebo</p>
+                {showGraph && (
+                  <div className="mt-6 rounded-2xl bg-white/60 p-5">
+                    <p className="text-sm font-medium">{product.efficacyMetric.label}</p>
+                    <div className="mt-6 flex items-end justify-center gap-10">
+                      <div className="text-center">
+                        <div
+                          className="mx-auto w-10 rounded-t-md bg-sand"
+                          style={{ height: `${(product.efficacyMetric.placeboValue / maxEfficacy) * 96}px` }}
+                        />
+                        <p className="mt-2 text-xs text-ink/45">Placebo</p>
+                      </div>
+                      <div className="text-center">
+                        <div
+                          className="mx-auto w-10 rounded-t-md bg-forest-600"
+                          style={{ height: `${(product.efficacyMetric.productValue / maxEfficacy) * 96}px` }}
+                        />
+                        <p className="mt-2 text-xs text-ink/45">{product.title}</p>
+                      </div>
+                    </div>
+                    <p className="mt-4 text-center text-[11px] text-ink/40">{product.efficacyMetric.caption}</p>
                   </div>
-                  <div className="text-center">
-                    <div
-                      className="mx-auto w-10 rounded-t-md bg-forest-600"
-                      style={{ height: `${(product.efficacyMetric.productValue / maxEfficacy) * 96}px` }}
-                    />
-                    <p className="mt-2 text-xs text-ink/45">{product.title}</p>
-                  </div>
-                </div>
-                <p className="mt-4 text-center text-[11px] text-ink/40">{product.efficacyMetric.caption}</p>
-              </div>
+                )}
+              </section>
             )}
-          </section>
 
-          <section className="glass-card p-7 md:p-10">
-            <h2 className="text-[28px] leading-tight md:text-[34px]">BioAro vs. typical supplements</h2>
-            <div className="mt-6 divide-y divide-ink/10 text-[15px] md:text-[17px]">
-              <div className="grid grid-cols-3 gap-4 pb-4 text-[11px] font-medium uppercase tracking-[0.08em] text-ink/45 md:text-[12px]">
-                <span />
-                <span>BioAro {product.title.replace(/\+$/, "")}</span>
-                <span>Typical supplement</span>
-              </div>
-              {comparisonRows.map((row) => (
-                <div key={row.label} className="grid grid-cols-3 items-center gap-4 py-4 md:py-5">
-                  <span className="text-ink/60">{row.label}</span>
-                  <span className="font-medium text-forest-600">{row.bioaro}</span>
-                  <span className="text-ink/40">{row.typical}</span>
+            {hasComparison && (
+              <section className="glass-card p-7 md:p-10">
+                <h2 className="text-[28px] leading-tight md:text-[34px]">BioAro vs. typical supplements</h2>
+                <div className="mt-6 divide-y divide-ink/10 text-[15px] md:text-[17px]">
+                  <div className="grid grid-cols-3 gap-4 pb-4 text-[11px] font-medium uppercase tracking-[0.08em] text-ink/45 md:text-[12px]">
+                    <span />
+                    <span>BioAro {product.title.replace(/\+$/, "")}</span>
+                    <span>Typical supplement</span>
+                  </div>
+                  {comparisonRows.map((row) => (
+                    <div key={row.label} className="grid grid-cols-3 items-center gap-4 py-4 md:py-5">
+                      <span className="text-ink/60">{row.label}</span>
+                      <span className="font-medium text-forest-600">{row.bioaro}</span>
+                      <span className="text-ink/40">{row.typical}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </section>
-        </div>
+              </section>
+            )}
+          </div>
+        )}
 
         {/* Complete your daily routine */}
         {routineMates.length > 0 && (
@@ -471,51 +510,59 @@ export default function Product() {
         )}
 
         {/* Supplement facts + warnings */}
-        <div className="mt-24 grid gap-5 lg:grid-cols-[0.95fr_1.05fr]">
-          <section className="glass-card p-6 md:p-8">
-            <h2 className="text-2xl md:text-3xl">Supplement facts</h2>
-            <div className="mt-5 divide-y divide-ink/10">
-              {product.supplementFacts.map((fact) => (
-                <div key={fact.label} className="flex items-start justify-between gap-3 py-3 text-sm">
-                  <span className="shrink-0 text-ink/55">{fact.label}</span>
-                  <span className="font-medium text-right">{fact.value}</span>
+        {(hasSupplementFacts || hasWarnings) && (
+          <div className="mt-24 grid gap-5 lg:grid-cols-[0.95fr_1.05fr]">
+            {hasSupplementFacts && (
+              <section className="glass-card p-6 md:p-8">
+                <h2 className="text-2xl md:text-3xl">Supplement facts</h2>
+                <div className="mt-5 divide-y divide-ink/10">
+                  {product.supplementFacts.map((fact) => (
+                    <div key={fact.label} className="flex items-start justify-between gap-3 py-3 text-sm">
+                      <span className="shrink-0 text-ink/55">{fact.label}</span>
+                      <span className="font-medium text-right">{fact.value}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-            <div className="mt-4 rounded-2xl border border-ink/10 bg-white/45 px-4 py-4 text-sm leading-relaxed text-ink/55">
-              {REGION_DISCLAIMERS[region]}
-            </div>
-          </section>
+                <div className="mt-4 rounded-2xl border border-ink/10 bg-white/45 px-4 py-4 text-sm leading-relaxed text-ink/55">
+                  {REGION_DISCLAIMERS[region]}
+                </div>
+              </section>
+            )}
 
-          <section className="glass-card p-6 md:p-8">
-            <h2 className="text-2xl md:text-3xl">Warnings</h2>
-            <ul className="mt-5 space-y-3 text-sm leading-relaxed text-ink/60">
-              {product.warnings.map((warning) => (
-                <li key={warning} className="flex gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-forest-600 shrink-0" />
-                  <span>{warning}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
-        </div>
+            {hasWarnings && (
+              <section className="glass-card p-6 md:p-8">
+                <h2 className="text-2xl md:text-3xl">Warnings</h2>
+                <ul className="mt-5 space-y-3 text-sm leading-relaxed text-ink/60">
+                  {product.warnings.map((warning) => (
+                    <li key={warning} className="flex gap-3">
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-forest-600 shrink-0" />
+                      <span>{warning}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+          </div>
+        )}
 
         {/* Quality & Purity — above FAQ */}
         <QualityPurityStrip productHandle={product.handle} />
 
         {/* FAQ */}
-        <section className="mt-12 max-w-3xl">
-          <span className="eyebrow">FAQ</span>
-          <h2 className="mt-2 mb-6 text-3xl">
-            {product.metafields?.faqHeadline ?? "Frequently asked questions"}
-          </h2>
-          <AccordionGroup
-            items={product.faq.map((item) => ({
-              title: item.question,
-              body: item.answer,
-            }))}
-          />
-        </section>
+        {hasFaq && (
+          <section className="mt-12 max-w-3xl">
+            <span className="eyebrow">FAQ</span>
+            <h2 className="mt-2 mb-6 text-3xl">
+              {product.metafields?.faqHeadline ?? "Frequently asked questions"}
+            </h2>
+            <AccordionGroup
+              items={product.faq.map((item) => ({
+                title: item.question,
+                body: item.answer,
+              }))}
+            />
+          </section>
+        )}
 
         {/* Bottom CTA banners */}
         <div className="mt-24 grid gap-5 md:grid-cols-2">

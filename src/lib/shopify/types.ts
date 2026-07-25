@@ -96,6 +96,8 @@ export interface ProductMetafields {
   benefitCards?: MetafieldTitleTextItem[];
   scienceSteps?: MetafieldTitleTextItem[];
   ingredients?: string;
+  ingredientDetails?: ProductIngredient[];
+  scienceVisual?: ProductImage;
   supplementFactsRows?: MetafieldTitleTextItem[];
   clinicalEvidence?: MetafieldTitleTextItem[];
   comparisonRows?: MetafieldComparisonRow[];
