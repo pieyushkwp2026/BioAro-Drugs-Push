@@ -9,15 +9,15 @@ import {
 import { buildMarketPath, buildMarketHref, getMarketFromPathname, stripMarketPrefix } from "../marketRouting";
 import { loadMarketBootstrap } from "./bootstrap";
 import { resolveMarket } from "./resolve";
-import type { CountryCode, MarketCode, MarketSource } from "./types";
+import type { CountryCode, CurrencyCode, ExperienceRegion, MarketCode, MarketSource } from "./types";
 import { MarketContext } from "./market-context";
 import { MARKET_STORAGE_KEY } from "./config";
 
 export interface MarketContextValue {
   market: MarketCode;
   country: CountryCode;
-  region: "NA" | "UK";
-  currency: "USD" | "CAD" | "GBP" | "AED";
+  region: ExperienceRegion;
+  currency: CurrencyCode;
   source: MarketSource;
   ready: boolean;
   setMarket: (market: MarketCode) => void;

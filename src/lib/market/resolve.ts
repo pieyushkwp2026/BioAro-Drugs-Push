@@ -1,4 +1,4 @@
-import { DEFAULT_MARKET, countryFromMarketCode, normalizeMarketIdentifier, type MarketCode } from "../../config/markets";
+import { DEFAULT_MARKET, countryFromMarketCode, getMarketConfigByMarket, normalizeMarketIdentifier, type MarketCode } from "../../config/markets";
 import type { CountryCode, ExperienceRegion, MarketBootstrap, MarketSource } from "./types";
 
 export interface ResolveMarketOptions {
@@ -24,6 +24,10 @@ function marketFromLanguage(language: string): MarketCode | null {
   return null;
 }
 
+function experienceRegionForMarket(market: MarketCode): ExperienceRegion {
+  return getMarketConfigByMarket(market).experienceRegion;
+}
+
 export function resolveMarket({ pathname, savedMarket, bootstrap, browserLanguages = [] }: ResolveMarketOptions): ResolvedMarket {
   if (pathname) {
     const firstSegment = pathname.split("/").filter(Boolean)[0];
@@ -32,7 +36,7 @@ export function resolveMarket({ pathname, savedMarket, bootstrap, browserLanguag
       return {
         market: fromPath,
         country: countryFromMarketCode(fromPath),
-        experienceRegion: fromPath === "uk" ? "UK" : "NA",
+        experienceRegion: experienceRegionForMarket(fromPath),
         source: "path",
       };
     }
@@ -44,7 +48,7 @@ export function resolveMarket({ pathname, savedMarket, bootstrap, browserLanguag
       return {
         market: fromSaved,
         country: countryFromMarketCode(fromSaved),
-        experienceRegion: fromSaved === "uk" ? "UK" : "NA",
+        experienceRegion: experienceRegionForMarket(fromSaved),
         source: "override",
       };
     }
@@ -55,7 +59,7 @@ export function resolveMarket({ pathname, savedMarket, bootstrap, browserLanguag
     return {
       market,
       country: countryFromMarketCode(market),
-      experienceRegion: market === "uk" ? "UK" : "NA",
+      experienceRegion: experienceRegionForMarket(market),
       source: "geoip",
     };
   }
@@ -65,7 +69,7 @@ export function resolveMarket({ pathname, savedMarket, bootstrap, browserLanguag
     return {
       market,
       country: countryFromMarketCode(market),
-      experienceRegion: market === "uk" ? "UK" : "NA",
+      experienceRegion: experienceRegionForMarket(market),
       source: "geoip",
     };
   }
@@ -76,7 +80,7 @@ export function resolveMarket({ pathname, savedMarket, bootstrap, browserLanguag
   return {
     market,
     country: countryFromMarketCode(market),
-    experienceRegion: market === "uk" ? "UK" : "NA",
+    experienceRegion: experienceRegionForMarket(market),
     source: "fallback",
   };
 }

@@ -8,6 +8,7 @@ import OtherIngredientsSection from "../components/sections/OtherIngredientsSect
 import { fetchProductByHandle, fetchAllProducts } from "../lib/shopify/productService";
 import type { CatalogProduct, ProductWhyItem } from "../lib/shopify/types";
 import { useMarket } from "../hooks/useMarket";
+import { useCart } from "../hooks/useCart";
 import { formatMoney } from "../lib/market/config";
 import { useMarketHref } from "../hooks/useMarketHref";
 import { ROUTES } from "../lib/routes";
@@ -69,7 +70,12 @@ const WHY_ICONS: Record<ProductWhyItem["icon"], typeof Zap> = {
 const REGION_DISCLAIMERS = {
   NA: "Statements about wellness support describe general product positioning only and are not intended to diagnose, treat, cure, or prevent disease.",
   UK: "BioAro products are presented as food supplements. Food supplements should not be used as a substitute for a varied, balanced diet and a healthy lifestyle.",
+  AE: "BioAro products are presented as food supplements. Product guidance is educational and may vary by market.",
 } as const;
+
+function hasLiveShopifyVariant(product: CatalogProduct) {
+  return Boolean(product.variantId && !product.variantId.startsWith("missing-variant-") && !product.variantId.startsWith("preview-variant-"));
+}
 
 const PRODUCT_GALLERIES: Record<string, ProductGalleryImage[]> = {
   "creagen-femme-energy": [
@@ -133,8 +139,10 @@ export default function Product() {
   const location = useLocation();
   const { country, market, region } = useMarket();
   const marketHref = useMarketHref();
+  const { addProduct, error: cartError } = useCart();
   const [product, setProduct] = useState<CatalogProduct | null | undefined>(undefined);
   const [catalog, setCatalog] = useState<CatalogProduct[]>([]);
+  const [isAddingToCart, setIsAddingToCart] = useState(false);
 
   useEffect(() => {
     if (!handle) return;
@@ -230,6 +238,18 @@ export default function Product() {
   const hasSupplementFacts = product.supplementFacts.length > 0;
   const hasWarnings = product.warnings.length > 0;
   const hasFaq = product.faq.length > 0;
+  const canAddToCart = product.availableForSale && hasLiveShopifyVariant(product);
+
+  async function handleAddToCart() {
+    if (!product || !canAddToCart || isAddingToCart) return;
+
+    setIsAddingToCart(true);
+    try {
+      await addProduct(product, 1);
+    } finally {
+      setIsAddingToCart(false);
+    }
+  }
 
   return (
     <div className="pt-24 pb-20 md:pt-32 md:pb-24">
@@ -275,6 +295,27 @@ export default function Product() {
               <p className="font-display text-3xl">
                 {formatMoney(product.price.amount, country)}
               </p>
+            </div>
+            <div className="mt-4">
+              <button
+                type="button"
+                onClick={() => void handleAddToCart()}
+                disabled={!canAddToCart || isAddingToCart}
+                className="flex w-full items-center justify-center gap-2 rounded-full bg-ink px-6 py-4 text-sm font-semibold text-white shadow-[0_18px_40px_-24px_rgba(27,26,23,0.65)] transition hover:bg-forest-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest-600 disabled:cursor-not-allowed disabled:bg-ink/25 disabled:text-white/75"
+              >
+                <span>{isAddingToCart ? "Adding..." : canAddToCart ? "Add to cart" : "Currently unavailable"}</span>
+                <ArrowRight size={16} />
+              </button>
+              {cartError && (
+                <p role="alert" className="mt-3 text-sm text-[#9f3d2c]">
+                  {cartError}
+                </p>
+              )}
+              {!canAddToCart && (
+                <p className="mt-3 text-xs leading-relaxed text-ink/45">
+                  Add to cart appears once this product has an active Shopify variant available in your selected market.
+                </p>
+              )}
             </div>
             {hasBestFor && (
               <div className="mt-4 rounded-[22px] border border-ink/10 bg-[rgba(255,255,255,0.56)] px-4 py-4 shadow-[0_12px_28px_-24px_rgba(27,26,23,0.24)]">

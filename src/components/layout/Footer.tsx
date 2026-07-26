@@ -43,7 +43,37 @@ const TRUST_PILLS = [
   { Icon: FlagCA, label: "Formulated in Canada" },
 ];
 
+function InstagramIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg
+      aria-hidden="true"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+function XIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.78 3h3.07l-6.7 7.66L22 21h-6.15l-4.82-6.3L5.51 21H2.44l7.17-8.2L2 3h6.31l4.35 5.75L17.78 3Zm-1.08 16.18h1.7L7.38 4.72H5.56L16.7 19.18Z" />
+    </svg>
+  );
+}
+
 const SOCIAL_LINKS = [
+  { Icon: InstagramIcon, label: "Instagram", href: "https://www.instagram.com/bioarodrugs?igsh=MTlmcGZrMGg0d3owdQ==" },
+  { Icon: XIcon, label: "X", href: "https://x.com/bioarodrugs?s=11" },
   { Icon: BookOpen, label: "Journal", href: ROUTES.journal },
   { Icon: Users, label: "Partners", href: ROUTES.partners },
 ];

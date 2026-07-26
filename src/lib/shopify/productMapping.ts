@@ -4,12 +4,21 @@ import type {
   MetafieldTestimonial,
   MetafieldTitleTextItem,
   ProductEditorial,
+  ProductCategory,
   ProductIngredient,
   ProductMetafields,
   ProductScienceStep,
   ShopifyProduct,
 } from "./types";
 import type { CountryCode } from "../market/types";
+
+const CATEGORY_BY_METAFIELD_VALUE: Record<string, ProductCategory> = {
+  longevity: "Longevity",
+  wellness: "Wellness",
+  focus: "Focus",
+  energy: "Energy",
+  performance: "Performance",
+};
 
 export interface ShopifyMetafieldNode {
   key: string;
@@ -37,6 +46,11 @@ function asRecord(value: unknown): Record<string, unknown> | undefined {
 
 function textFrom(value: unknown): string | undefined {
   return typeof value === "string" && value.trim() ? value.trim() : undefined;
+}
+
+function productCategory(value: string | undefined): ProductCategory | undefined {
+  const normalized = value?.trim().toLowerCase();
+  return normalized ? CATEGORY_BY_METAFIELD_VALUE[normalized] : undefined;
 }
 
 function titleTextItems(value: string): MetafieldTitleTextItem[] | undefined {
@@ -256,6 +270,7 @@ export function mapProductMetafields(nodes: (ShopifyMetafieldNode | null)[] | un
   };
 
   return {
+    category: productCategory(str("category")),
     pdpSubtitle: str("pdp_subtitle"),
     shortDescription: str("short_description"),
     heroTags: str("hero_tags"),
@@ -308,6 +323,7 @@ function applyMetafields(editorial: ProductEditorial, shopifyProduct: ShopifyPro
     ...editorial,
     id: shopifyProduct.id,
     title: shopifyProduct.title || editorial.title,
+    category: metafields?.category ?? editorial.category,
     tagline: metafields?.pdpSubtitle || editorial.tagline,
     description: metafields?.shortDescription || shopifyProduct.description || editorial.description,
     image: shopifyProduct.image.src ? shopifyProduct.image : editorial.image,
@@ -367,7 +383,7 @@ export function createShopifyProduct(shopifyProduct: ShopifyProduct, country: Co
     description: metafields?.shortDescription || shopifyProduct.description || "",
     badge: undefined,
     image: shopifyProduct.image,
-    category: "Wellness",
+    category: metafields?.category ?? "Wellness",
     tags: textList(metafields?.heroTags) ?? [],
     bestFor: metafields?.whyFormulaBody || "",
     dosage: metafields?.directions || "",

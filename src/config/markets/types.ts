@@ -1,7 +1,7 @@
 export type MarketCode = "uk" | "us" | "ca" | "ae";
 export type CountryCode = "GB" | "US" | "CA" | "AE";
 export type CurrencyCode = "GBP" | "USD" | "CAD" | "AED";
-export type ExperienceRegion = "UK" | "NA";
+export type ExperienceRegion = "UK" | "NA" | "AE";
 
 export interface MarketAddress {
   line1: string;

@@ -37,6 +37,7 @@ interface ProductQueryData {
 }
 
 const METAFIELD_IDENTIFIERS: { namespace: string; key: string }[] = [
+  { namespace: "custom", key: "category" },
   { namespace: "custom", key: "pdp_subtitle" },
   { namespace: "custom", key: "short_description" },
   { namespace: "custom", key: "hero_tags" },

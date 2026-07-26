@@ -87,6 +87,16 @@ export const DISCLAIMER_CONTENT: RegionalPolicyContent = {
         ],
       },
     ],
+    AE: [
+      {
+        title: "United Arab Emirates",
+        paragraphs: [
+          "BioAro Drugs products are presented as food supplements for general wellness support.",
+          "Product information is provided for educational purposes and should not be interpreted as medical advice or a disease-treatment claim.",
+          "Always follow the product label and speak with a qualified healthcare professional before use if you are pregnant, breastfeeding, taking medication, or managing a medical condition.",
+        ],
+      },
+    ],
   },
 };
 
@@ -157,6 +167,16 @@ export const SHIPPING_CONTENT: RegionalPolicyContent = {
         ],
       },
     ],
+    AE: [
+      {
+        title: "United Arab Emirates Shipping",
+        paragraphs: [
+          "UAE delivery options, rates, and estimated timelines are shown at checkout.",
+          "Shipping rates are calculated at checkout unless a free shipping threshold or promotion applies.",
+          "Delivery times may vary depending on destination, carrier conditions, and local delivery requirements.",
+        ],
+      },
+    ],
   },
 };
 
@@ -208,6 +228,7 @@ export const RETURNS_CONTENT: RegionalPolicyContent = {
   variants: {
     NA: [],
     UK: [],
+    AE: [],
   },
 };
 

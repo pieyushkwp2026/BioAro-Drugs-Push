@@ -5,7 +5,7 @@ import { useAuth } from "../hooks/useAuth";
 import { useMarketHref } from "../hooks/useMarketHref";
 import { ROUTES } from "../lib/routes";
 import bioAroMark from "../assets/logo/bioaro-mark.png";
-import authVisual from "../assets/about/protocol-slider/creagen-raw-power-lifestyle.png";
+import authVisual from "../assets/auth/shopify-account-runner-products.png";
 
 const AUTH_PROMISES = [
   {
@@ -77,15 +77,12 @@ export default function AuthLogin() {
           <section className="relative order-1 min-h-[390px] overflow-hidden bg-ink lg:order-2 lg:min-h-0">
             <img
               src={authVisual}
-              alt="BioAro product routine with Creagen Raw Power being prepared."
-              className="absolute inset-0 h-full w-full object-cover object-[48%_50%]"
+              alt="Runner with BioAro LONgevity+ and CellOmega+ products in a science-led outdoor wellness scene."
+              className="absolute inset-0 h-full w-full object-cover object-center"
               loading="eager"
               decoding="async"
             />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(27,26,23,0.02),rgba(27,26,23,0.52)),linear-gradient(90deg,rgba(27,26,23,0.26),rgba(27,26,23,0.02)_58%)]" />
-            <div className="absolute left-6 top-6 hidden h-14 w-14 items-center justify-center rounded-full border border-white/45 bg-white/12 text-white shadow-[0_18px_44px_rgba(0,0,0,0.18)] backdrop-blur-xl sm:flex lg:left-10 lg:top-10">
-              <img src={bioAroMark} alt="" aria-hidden="true" className="h-7 w-7 brightness-0 invert" />
-            </div>
             <div className="absolute inset-x-5 bottom-5 rounded-[24px] border border-white/18 bg-white/14 p-5 text-white shadow-[0_20px_60px_rgba(0,0,0,0.22)] backdrop-blur-xl sm:inset-x-8 sm:bottom-8 sm:p-6 lg:left-10 lg:right-auto lg:max-w-[520px]">
               <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/70">Your BioAro account</p>
               <p className="mt-3 max-w-[520px] font-display text-3xl leading-[1.05] tracking-[-0.02em] sm:text-4xl">

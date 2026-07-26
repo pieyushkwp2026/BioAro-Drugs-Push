@@ -70,6 +70,7 @@ export interface MetafieldComparisonRow {
 }
 
 export interface ProductMetafields {
+  category?: ProductCategory;
   pdpSubtitle?: string;
   shortDescription?: string;
   heroTags?: string;

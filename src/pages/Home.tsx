@@ -20,12 +20,12 @@ import { FlagCA } from "../components/layout/Flags";
 import HomepageProductCarousel from "../components/sections/HomepageProductCarousel";
 import heroRunnersSunrise from "../assets/hero/hero-runners-sunrise.png";
 import realRoutinesNadiaLongevity from "../assets/home/real-routines-nadia-longevity.png";
-import essentialLongevityEditorial from "../assets/figma-home/essential-longevity-editorial.png";
-import essentialFocusEditorial from "../assets/figma-home/essential-focus-editorial.png";
-import essentialRecoveryEditorial from "../assets/figma-home/essential-recovery-editorial.png";
+import essentialLongevityEditorial from "../assets/figma-home/essential-longevity-mountain-couple.png";
+import essentialFocusEditorial from "../assets/figma-home/essential-focus-study-man.png";
+import essentialRecoveryEditorial from "../assets/figma-home/essential-recovery-coastal-woman.png";
 import essentialSleepEditorial from "../assets/figma-home/essential-sleep-editorial.png";
 import evidenceScientistEditorial from "../assets/figma-home/evidence-scientist-editorial.png";
-import founderVisual from "../assets/figma-home/founder-bun-woman.png";
+import founderVisual from "../assets/figma-home/founder-sikh-portrait.png";
 import { SUPPORT_EMAILS } from "../data/siteContent";
 import { JOURNAL_ARTICLES } from "../data/journal";
 import { useMarket } from "../hooks/useMarket";
@@ -206,8 +206,8 @@ const ESSENTIALS = [
     description: "Support healthy aging, cellular energy, and long-term vitality.",
     href: `${ROUTES.shop}?category=Longevity`,
     editorialImage: essentialLongevityEditorial,
-    editorialAlt: "Young green plant growing from a glass flask in a sunlit laboratory",
-    editorialPosition: "center",
+    editorialAlt: "Older couple hiking together in a mountain landscape",
+    editorialPosition: "50% center",
     Icon: Leaf,
     chips: ["NMN", "Resveratrol", "Omega-3"],
   },
@@ -216,8 +216,8 @@ const ESSENTIALS = [
     description: "Promote mental clarity, sustained energy, and cognitive performance.",
     href: `${ROUTES.shop}?category=Focus`,
     editorialImage: essentialFocusEditorial,
-    editorialAlt: "Person writing at a desk in a sunlit laboratory",
-    editorialPosition: "center",
+    editorialAlt: "Man writing in a calm study with warm natural light",
+    editorialPosition: "50% center",
     Icon: Brain,
     chips: ["Creatine", "Citicoline", "L-Theanine"],
   },
@@ -226,8 +226,8 @@ const ESSENTIALS = [
     description: "Recover faster, reduce soreness, and support peak performance.",
     href: `${ROUTES.shop}?category=Recovery`,
     editorialImage: essentialRecoveryEditorial,
-    editorialAlt: "Athlete resting after training on a sunlit coastal terrace",
-    editorialPosition: "center",
+    editorialAlt: "Athlete seated on a coastal terrace after training",
+    editorialPosition: "50% center",
     Icon: Dumbbell,
     chips: ["Creatine", "Betaine", "Electrolytes"],
   },
@@ -656,9 +656,12 @@ export default function Home() {
               </blockquote>
               <div className="mt-10 flex items-center gap-3.5">
                 <div className="h-11 w-11 rounded-full bg-forest-600" />
-                <div>
-                  <p className="text-[14.5px] font-semibold text-ink">Dr. Elena Park, PhD</p>
-                  <p className="text-[12.5px] text-[#8a8678]">Founder &amp; Chief Science Officer</p>
+                <div className="max-w-[420px]">
+                  <p className="text-[14.5px] font-semibold text-ink">Dr. Anmol Kapoor, MD</p>
+                  <p className="text-[12.5px] leading-relaxed text-[#8a8678]">
+                    Founder, Chairman &amp; CEO, BioAro; Cardiologist and Precision Health Innovator. Fellow of the Royal
+                    College of Physicians and Surgeons of Canada
+                  </p>
                 </div>
               </div>
               <Link to={marketHref(ROUTES.living)} className="mt-8 inline-flex items-center gap-2 text-[14px] font-semibold text-forest-600">
@@ -667,7 +670,7 @@ export default function Home() {
             </div>
 
             <div className="overflow-hidden rounded-[20px] shadow-[0_24px_50px_-40px_rgba(27,26,23,0.35)]">
-              <img src={founderVisual} alt="BioAro Labs visual" className="h-full w-full object-cover" />
+              <img src={founderVisual} alt="BioAro founder portrait" className="h-full w-full object-cover" />
             </div>
           </div>
         </div>
