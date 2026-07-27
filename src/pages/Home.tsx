@@ -17,6 +17,7 @@ import {
   Zap,
 } from "lucide-react";
 import { FlagCA } from "../components/layout/Flags";
+import HeroAISearch from "../components/sections/HeroAISearch";
 import HomepageProductCarousel from "../components/sections/HomepageProductCarousel";
 import heroRunnersSunrise from "../assets/hero/hero-runners-sunrise.png";
 import realRoutinesNadiaLongevity from "../assets/home/real-routines-nadia-longevity.png";
@@ -302,6 +303,7 @@ export default function Home() {
   const marketHref = useMarketHref();
   const [products, setProducts] = useState<CatalogProduct[]>([]);
   const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [isRecommendationSheetOpen, setIsRecommendationSheetOpen] = useState(false);
   const supportEmail = SUPPORT_EMAILS[0]?.value ?? "support@bioarodrugs.com";
 
   useEffect(() => {
@@ -352,14 +354,10 @@ export default function Home() {
                     <p className="mt-6 max-w-[350px] text-[16px] leading-[1.65] text-[#2b2824] sm:max-w-[440px] sm:text-[17px] sm:leading-[1.7] md:mt-7 md:max-w-[500px] md:text-[18px]">
                       Science-backed supplements and nutrition protocols for longevity, performance, recovery, and everyday wellness.
                     </p>
-                    <div className="mt-7 flex max-w-[380px] flex-col gap-3 md:mt-9 md:max-w-none xl:flex-row xl:flex-nowrap">
-                      <Link to={marketHref(ROUTES.shop)} className="btn-primary min-h-[54px] w-full px-8 py-4 text-[15px] shadow-[0_14px_30px_rgba(25,22,17,0.16)] xl:w-auto">
-                        Shop Products <ArrowRight size={15} />
-                      </Link>
-                      <Link to={marketHref(ROUTES.quiz)} className="btn-secondary min-h-[54px] w-full border-[#cfc5b3]/90 bg-white/58 px-8 py-4 text-[15px] backdrop-blur-md xl:w-auto">
-                        Build My Stack <ArrowRight size={15} />
-                      </Link>
-                    </div>
+                    <HeroAISearch
+                      shopHref={marketHref(ROUTES.shop)}
+                      onSheetOpenChange={setIsRecommendationSheetOpen}
+                    />
                   </div>
                 </div>
 
@@ -370,21 +368,23 @@ export default function Home() {
                   </span>
                 </div>
 
-                <div className="order-3 border-t border-white/75 bg-[rgba(247,242,234,0.74)] px-5 py-4 shadow-[0_-10px_36px_rgba(35,29,20,0.04)] backdrop-blur-2xl sm:px-8 xl:absolute xl:bottom-8 xl:left-1/2 xl:z-20 xl:w-[calc(100%-144px)] xl:max-w-[1320px] xl:-translate-x-1/2 xl:rounded-[24px] xl:border xl:border-white/75 xl:bg-[rgba(247,242,234,0.68)] xl:px-5 xl:py-5 xl:shadow-[0_22px_70px_rgba(35,29,20,0.12),inset_0_1px_0_rgba(255,255,255,0.72)]">
-                  <div className="grid grid-cols-2 md:grid-cols-4">
-                    {HERO_TRUST_ITEMS.map((item) => (
-                      <div key={item.label} className="flex min-h-[74px] items-center justify-center gap-3 border-white/50 px-3 py-3 text-left even:border-l md:min-h-[72px] md:border-l md:px-5 first:md:border-l-0">
-                        <div className="flex h-[32px] w-[32px] shrink-0 items-center justify-center rounded-full border border-white/65 bg-white/58 text-ink shadow-[0_10px_24px_rgba(35,29,20,0.08)]">
-                          <item.Icon size={13} />
+                {!isRecommendationSheetOpen ? (
+                  <div className="order-3 border-t border-white/75 bg-[rgba(247,242,234,0.74)] px-5 py-4 shadow-[0_-10px_36px_rgba(35,29,20,0.04)] backdrop-blur-2xl sm:px-8 xl:absolute xl:bottom-8 xl:left-1/2 xl:z-20 xl:w-[calc(100%-144px)] xl:max-w-[1320px] xl:-translate-x-1/2 xl:rounded-[24px] xl:border xl:border-white/75 xl:bg-[rgba(247,242,234,0.68)] xl:px-5 xl:py-5 xl:shadow-[0_22px_70px_rgba(35,29,20,0.12),inset_0_1px_0_rgba(255,255,255,0.72)]">
+                    <div className="grid grid-cols-2 md:grid-cols-4">
+                      {HERO_TRUST_ITEMS.map((item) => (
+                        <div key={item.label} className="flex min-h-[74px] items-center justify-center gap-3 border-white/50 px-3 py-3 text-left even:border-l md:min-h-[72px] md:border-l md:px-5 first:md:border-l-0">
+                          <div className="flex h-[32px] w-[32px] shrink-0 items-center justify-center rounded-full border border-white/65 bg-white/58 text-ink shadow-[0_10px_24px_rgba(35,29,20,0.08)]">
+                            <item.Icon size={13} />
+                          </div>
+                          <p className="text-[11.5px] leading-[1.3] text-[#131012] sm:text-[12px]">
+                            <span className="block">{item.label}</span>
+                            <span className="block">{item.subtitle}</span>
+                          </p>
                         </div>
-                        <p className="text-[11.5px] leading-[1.3] text-[#131012] sm:text-[12px]">
-                          <span className="block">{item.label}</span>
-                          <span className="block">{item.subtitle}</span>
-                        </p>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
-                </div>
+                ) : null}
               </div>
             </div>
         </div>
