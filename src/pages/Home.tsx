@@ -1,45 +1,46 @@
-import { type FormEvent, useEffect, useState } from "react";
+import { Fragment, type FormEvent, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
   Brain,
-  ChevronLeft,
-  ChevronRight,
+  CalendarRange,
+  Check,
   ClipboardList,
   Dumbbell,
   FileCheck2,
   FlaskConical,
+  Globe2,
   Leaf,
+  Mail,
   MoonStar,
   ShieldCheck,
   Sparkles,
   SunMedium,
+  X,
   Zap,
 } from "lucide-react";
 import { FlagCA } from "../components/layout/Flags";
-import HeroAISearch from "../components/sections/HeroAISearch";
-import HomepageProductCarousel from "../components/sections/HomepageProductCarousel";
-import heroRunnersSunrise from "../assets/hero/hero-runners-sunrise.png";
-import realRoutinesNadiaLongevity from "../assets/home/real-routines-nadia-longevity.png";
-import essentialLongevityEditorial from "../assets/figma-home/essential-longevity-mountain-couple.png";
-import essentialFocusEditorial from "../assets/figma-home/essential-focus-study-man.png";
-import essentialRecoveryEditorial from "../assets/figma-home/essential-recovery-coastal-woman.png";
-import essentialSleepEditorial from "../assets/figma-home/essential-sleep-editorial.png";
-import evidenceScientistEditorial from "../assets/figma-home/evidence-scientist-editorial.png";
-import founderVisual from "../assets/figma-home/founder-sikh-portrait.png";
+import ProductCard from "../components/sections/ProductCard";
+import heroPerformanceBackground from "../assets/hero/hero-performance-background.png";
+import heroRunnerTransparent from "../assets/hero/hero-runner-transparent.png";
+import essentialLongevityCard from "../assets/figma-home/essential-longevity-card.png";
+import essentialFocusCard from "../assets/figma-home/essential-focus-card.png";
+import essentialRecoveryCard from "../assets/figma-home/essential-recovery-card.png";
+import essentialSleepCard from "../assets/figma-home/essential-sleep-card.png";
+import evidenceLabPanel from "../assets/figma-home/evidence-lab-scene-3-4.png";
+import founderVisual from "../assets/figma-home/founder-bun-woman.png";
 import { SUPPORT_EMAILS } from "../data/siteContent";
 import { JOURNAL_ARTICLES } from "../data/journal";
 import { useMarket } from "../hooks/useMarket";
-import { useMarketHref } from "../hooks/useMarketHref";
 import { ROUTES } from "../lib/routes";
 import { fetchAllProducts } from "../lib/shopify/productService";
 import type { CatalogProduct } from "../lib/shopify/types";
-import rawPowerLifestyle from "../assets/about/protocol-slider/creagen-raw-power-lifestyle.png";
+import ctaProductVisual from "../assets/cta/dark-luxury-cta-product-visual.png";
 
 const HERO_TRUST_ITEMS = [
-  { label: "Evidence-led", subtitle: "Formulas", Icon: FlaskConical },
-  { label: "Third-party", subtitle: "Tested", Icon: ShieldCheck },
-  { label: "Transparent", subtitle: "Ingredients", Icon: Leaf },
+  { label: "100+", subtitle: "Tests Per Batch", Icon: ShieldCheck },
+  { label: "cGMP", subtitle: "Certified", Icon: FlaskConical },
+  { label: "3rd Party", subtitle: "Tested", Icon: Sparkles },
   { label: "Formulated in", subtitle: "Canada", Icon: CanadaFlagIcon },
 ] as const;
 
@@ -47,89 +48,6 @@ type IconProps = {
   className?: string;
   size?: number;
 };
-
-type ProtocolLifestyleSlide = {
-  src: string;
-  alt: string;
-  objectPosition: string;
-  ariaLabel?: string;
-};
-
-const PROTOCOL_LIFESTYLE_SLIDES: ProtocolLifestyleSlide[] = [
-  {
-    src: rawPowerLifestyle,
-    alt: "Athlete preparing Creagen Raw Power in a shaker as part of a daily performance routine",
-    objectPosition: "52% 50%",
-    ariaLabel: "Creagen Raw Power daily performance routine",
-  },
-];
-
-function ProtocolLifestyleSlider() {
-  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
-  const hasMultipleSlides = PROTOCOL_LIFESTYLE_SLIDES.length > 1;
-
-  const showSlide = (nextIndex: number) => {
-    setActiveSlideIndex((nextIndex + PROTOCOL_LIFESTYLE_SLIDES.length) % PROTOCOL_LIFESTYLE_SLIDES.length);
-  };
-
-  return (
-    <div
-      className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10 bg-white/5 shadow-[0_28px_55px_-38px_rgba(0,0,0,0.8)]"
-      aria-label="Daily protocol lifestyle images"
-      role={hasMultipleSlides ? "region" : undefined}
-    >
-      {PROTOCOL_LIFESTYLE_SLIDES.map((slide, index) => (
-        <img
-          key={slide.src}
-          src={slide.src}
-          alt={index === activeSlideIndex ? slide.alt : ""}
-          aria-hidden={index !== activeSlideIndex}
-          loading="lazy"
-          decoding="async"
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 motion-reduce:transition-none ${
-            index === activeSlideIndex ? "opacity-100" : "pointer-events-none opacity-0"
-          }`}
-          style={{ objectPosition: slide.objectPosition }}
-        />
-      ))}
-
-      {hasMultipleSlides ? (
-        <>
-          <button
-            type="button"
-            onClick={() => showSlide(activeSlideIndex - 1)}
-            className="absolute bottom-4 left-4 inline-flex size-10 items-center justify-center rounded-full border border-white/25 bg-black/30 text-white backdrop-blur-sm transition-colors hover:bg-black/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-            aria-label="Show previous lifestyle image"
-          >
-            <ChevronLeft size={18} aria-hidden="true" />
-          </button>
-          <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 items-center gap-2" aria-label="Lifestyle image navigation">
-            {PROTOCOL_LIFESTYLE_SLIDES.map((slide, index) => (
-              <button
-                key={slide.src}
-                type="button"
-                onClick={() => showSlide(index)}
-                className={`h-2 rounded-full transition-[width,background-color] duration-500 motion-reduce:transition-none ${
-                  index === activeSlideIndex ? "w-6 bg-white" : "w-2 bg-white/55 hover:bg-white/80"
-                } focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
-                aria-label={`Show ${slide.ariaLabel ?? `lifestyle image ${index + 1}`}`}
-                aria-current={index === activeSlideIndex ? "true" : undefined}
-              />
-            ))}
-          </div>
-          <button
-            type="button"
-            onClick={() => showSlide(activeSlideIndex + 1)}
-            className="absolute bottom-4 right-4 inline-flex size-10 items-center justify-center rounded-full border border-white/25 bg-black/30 text-white backdrop-blur-sm transition-colors hover:bg-black/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-            aria-label="Show next lifestyle image"
-          >
-            <ChevronRight size={18} aria-hidden="true" />
-          </button>
-        </>
-      ) : null}
-    </div>
-  );
-}
 
 function CanadaFlagIcon({ className, size = 52 }: IconProps) {
   return (
@@ -161,7 +79,6 @@ const CREDIBILITY_ITEMS = [
   },
 ] as const;
 
-/*
 const OUTCOME_PILLS = [
   {
     title: "More Energy",
@@ -199,16 +116,13 @@ const OUTCOME_PILLS = [
     tone: "bg-[#f5dede]",
   },
 ] as const;
-*/
 
 const ESSENTIALS = [
   {
     title: "Longevity",
     description: "Support healthy aging, cellular energy, and long-term vitality.",
     href: `${ROUTES.shop}?category=Longevity`,
-    editorialImage: essentialLongevityEditorial,
-    editorialAlt: "Older couple hiking together in a mountain landscape",
-    editorialPosition: "50% center",
+    image: essentialLongevityCard,
     Icon: Leaf,
     chips: ["NMN", "Resveratrol", "Omega-3"],
   },
@@ -216,9 +130,7 @@ const ESSENTIALS = [
     title: "Focus",
     description: "Promote mental clarity, sustained energy, and cognitive performance.",
     href: `${ROUTES.shop}?category=Focus`,
-    editorialImage: essentialFocusEditorial,
-    editorialAlt: "Man writing in a calm study with warm natural light",
-    editorialPosition: "50% center",
+    image: essentialFocusCard,
     Icon: Brain,
     chips: ["Creatine", "Citicoline", "L-Theanine"],
   },
@@ -226,9 +138,7 @@ const ESSENTIALS = [
     title: "Recovery",
     description: "Recover faster, reduce soreness, and support peak performance.",
     href: `${ROUTES.shop}?category=Recovery`,
-    editorialImage: essentialRecoveryEditorial,
-    editorialAlt: "Athlete seated on a coastal terrace after training",
-    editorialPosition: "50% center",
+    image: essentialRecoveryCard,
     Icon: Dumbbell,
     chips: ["Creatine", "Betaine", "Electrolytes"],
   },
@@ -236,12 +146,20 @@ const ESSENTIALS = [
     title: "Sleep",
     description: "Promote deeper sleep, calm your mind, and wake up refreshed.",
     href: ROUTES.protocols,
-    editorialImage: essentialSleepEditorial,
-    editorialAlt: "Person sleeping in a moonlit bedroom",
-    editorialPosition: "60% center",
+    image: essentialSleepCard,
     Icon: MoonStar,
     chips: ["Magnesium", "Apigenin", "Glycine"],
   },
+] as const;
+
+const COMPARISON_ROWS = [
+  { label: "Every dose disclosed on label", bioaro: "yes", typical: "no" },
+  { label: "Testing or proof status stated clearly", bioaro: "yes", typical: "mixed" },
+  { label: "Research-led ingredient selection", bioaro: "yes", typical: "mixed" },
+  { label: "No hidden proprietary blends", bioaro: "yes", typical: "no" },
+  { label: "Excipient details shown clearly", bioaro: "yes", typical: "mixed" },
+  { label: "Manufacturing details stated clearly", bioaro: "yes", typical: "mixed" },
+  { label: "Support and policy guidance by market", bioaro: "yes", typical: "no" },
 ] as const;
 
 const EVIDENCE_ITEMS = [
@@ -252,7 +170,7 @@ const EVIDENCE_ITEMS = [
   },
   {
     title: "Documentation ready",
-    description: "Quality documents are shared when available.",
+    description: "Quality or proof documents are surfaced when available.",
     Icon: FileCheck2,
   },
   {
@@ -286,29 +204,57 @@ const PROTOCOL_STEPS: ReadonlyArray<{ step: string; label: string; span?: number
   { step: "STEP 5", label: "Recommendation", span: 2 },
 ] as const;
 
-function HeroScene() {
-  return (
-    <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
-      <img
-        src={heroRunnersSunrise}
-        alt=""
-        className="hero-campaign-image absolute inset-0 h-full w-full object-cover object-[68%_50%] sm:object-[65%_50%] xl:object-center"
-      />
-    </div>
-  );
+const PERKS = [
+  {
+    title: "Clear dosage",
+    description: "Guidance on every product page.",
+    Icon: ClipboardList,
+  },
+  {
+    title: "Market-aware pricing",
+    description: "Pricing and currency match your region.",
+    Icon: Globe2,
+  },
+  {
+    title: "Support first",
+    description: "Email help before and after purchase.",
+    Icon: Mail,
+  },
+  {
+    title: "Quality path",
+    description: "Documentation request flow when available.",
+    Icon: FileCheck2,
+  },
+  {
+    title: "Routine guidance",
+    description: "Protocols help reduce guesswork.",
+    Icon: CalendarRange,
+  },
+] as const;
+
+function ComparisonState({ value }: { value: "yes" | "no" | "mixed" }) {
+  if (value === "yes") {
+    return <Check size={16} className="text-[#2f4f3e]" aria-hidden="true" />;
+  }
+
+  if (value === "mixed") {
+    return <span className="text-[12px] font-medium text-[#8a8678] sm:text-[13px] md:text-[14px]">Mixed</span>;
+  }
+
+  return <X size={16} className="text-[#c4bfaf]" aria-hidden="true" />;
 }
 
 export default function Home() {
   const { country } = useMarket();
-  const marketHref = useMarketHref();
   const [products, setProducts] = useState<CatalogProduct[]>([]);
   const [newsletterEmail, setNewsletterEmail] = useState("");
-  const [isRecommendationSheetOpen, setIsRecommendationSheetOpen] = useState(false);
   const supportEmail = SUPPORT_EMAILS[0]?.value ?? "support@bioarodrugs.com";
 
   useEffect(() => {
     void fetchAllProducts(country).then(setProducts);
   }, [country]);
+
+  const featuredProducts = products.slice(0, 4);
 
   function handleNewsletterSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -322,83 +268,108 @@ export default function Home() {
 
   return (
     <div className="bg-[#f8f6f4]">
-      <style>{`
-        @keyframes hero-campaign-breathe {
-          from { transform: scale(1); }
-          to { transform: scale(1.018); }
-        }
+      <section className="overflow-hidden bg-[#f7f2ea] pt-32 sm:pt-36 md:pt-40 lg:pt-44">
+        <div className="container-bio">
+          <div className="mx-auto max-w-[1404px]">
+            <div className="relative min-h-[680px] overflow-hidden rounded-[28px] bg-[#f7f2ea] md:min-h-[760px] md:rounded-[36px] xl:min-h-[830px]">
+              <div className="absolute inset-0 md:hidden">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_18%,rgba(255,255,255,0.95)_0%,rgba(247,243,236,0.92)_36%,rgba(247,243,236,0.78)_66%,rgba(247,243,236,0.5)_100%)]" />
+                <div className="absolute inset-x-0 bottom-0 h-[44%] bg-[linear-gradient(to_top,rgba(247,243,236,0.96)_0%,rgba(247,243,236,0.35)_58%,rgba(247,243,236,0)_100%)]" />
+                <img
+                  src={heroRunnerTransparent}
+                  alt=""
+                  aria-hidden="true"
+                  className="absolute bottom-0 right-0 h-[76%] w-auto max-w-[92vw] object-contain object-bottom drop-shadow-[0_26px_34px_rgba(31,26,20,0.12)]"
+                />
+              </div>
+              <div className="absolute inset-0 hidden md:block">
+                <img
+                  src={heroPerformanceBackground}
+                  alt=""
+                  aria-hidden="true"
+                  className="h-full w-full object-cover object-[76%_56%] opacity-70 md:object-[66%_50%] md:opacity-100"
+                />
+              </div>
+              <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(247,243,236,0.97)_0%,rgba(247,243,236,0.92)_28%,rgba(247,243,236,0.72)_56%,rgba(247,243,236,0.42)_78%,rgba(247,243,236,0.18)_100%)] md:bg-[linear-gradient(90deg,rgba(247,242,234,0.98)_0%,rgba(247,242,234,0.9)_18%,rgba(247,242,234,0.72)_30%,rgba(247,242,234,0.3)_52%,rgba(247,242,234,0.08)_70%,rgba(247,242,234,0)_84%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_20%,rgba(255,255,255,0.58)_0%,rgba(255,255,255,0.22)_18%,rgba(255,255,255,0)_44%)] md:bg-[radial-gradient(circle_at_24%_22%,rgba(255,255,255,0.55)_0%,rgba(255,255,255,0.18)_18%,rgba(255,255,255,0)_42%)]" />
 
-        .hero-campaign-image {
-          animation: hero-campaign-breathe 24s ease-in-out infinite alternate;
-          transform-origin: 62% 52%;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .hero-campaign-image { animation: none; }
-        }
-      `}</style>
-      <section className="overflow-hidden bg-[#f7f2ea]">
-        <div className="w-full">
-          <div className="relative w-full overflow-hidden bg-[#f7f2ea] xl:aspect-[2/1]">
-              <div className="relative flex flex-col xl:absolute xl:inset-0 xl:block">
-                <div className="order-1 px-5 pb-9 pt-24 sm:px-8 sm:pt-28 xl:absolute xl:inset-y-0 xl:left-0 xl:z-10 xl:flex xl:w-[46%] xl:flex-col xl:justify-center xl:bg-[linear-gradient(90deg,rgba(247,242,234,0.98)_0%,rgba(247,242,234,0.88)_46%,rgba(247,242,234,0.34)_72%,rgba(247,242,234,0)_100%)] xl:px-[72px] xl:pb-64 xl:pt-28">
-                  <div className="max-w-[390px] sm:max-w-[470px] md:max-w-[610px]">
-                    <span className="inline-flex max-w-full items-center rounded-full border border-[#d9c9b0]/80 bg-white/58 px-4 py-2 text-center text-[9.5px] font-semibold uppercase leading-[1.35] tracking-[0.16em] text-[#8d602c] backdrop-blur-md sm:px-5 sm:text-[11px] sm:tracking-[0.2em]">
-                      SCIENCE. NATURE. YOU.
-                    </span>
-                    <h1 className="mt-5 max-w-[720px] text-balance text-[clamp(44px,12vw,74px)] leading-[0.96] tracking-[-0.035em] text-ink md:mt-6 md:text-[clamp(68px,6vw,88px)] md:leading-[0.92] xl:text-[94px]">
-                      Move better.
-                      <br />
-                      <span className="italic">Recover smarter.</span>
-                    </h1>
-                    <p className="mt-6 max-w-[350px] text-[16px] leading-[1.65] text-[#2b2824] sm:max-w-[440px] sm:text-[17px] sm:leading-[1.7] md:mt-7 md:max-w-[500px] md:text-[18px]">
-                      Science-backed supplements and nutrition protocols for longevity, performance, recovery, and everyday wellness.
-                    </p>
-                    <HeroAISearch
-                      shopHref={marketHref(ROUTES.shop)}
-                      onSheetOpenChange={setIsRecommendationSheetOpen}
-                    />
+              <div className="relative z-10 flex min-h-[680px] flex-col justify-start px-4 py-7 sm:px-6 md:min-h-[760px] md:justify-between md:px-14 md:py-14 md:pb-[132px] lg:min-h-[800px] lg:px-14 xl:min-h-[830px] xl:px-[58px] xl:pb-[142px]">
+                <div className="max-w-[390px] sm:max-w-[460px] md:max-w-[640px]">
+                  <span className="inline-flex max-w-full items-center rounded-full border border-[#d9c9b0] bg-white/78 px-3.5 py-2 text-center text-[9.5px] font-semibold uppercase leading-[1.35] tracking-[0.14em] text-[#9b6a2f] backdrop-blur-sm sm:px-5 sm:text-[11px] sm:tracking-[0.18em]">
+                    SCIENCE-BACKED. HUMAN-FIRST.
+                  </span>
+                  <h1 className="mt-5 text-balance text-[clamp(42px,12vw,72px)] leading-[1] tracking-[-0.03em] text-ink md:mt-6 md:text-[86px] md:leading-[0.93] xl:text-[94px]">
+                    Move better.
+                    <br />
+                    <span className="italic">Recover smarter.</span>
+                  </h1>
+                  <p className="mt-5 max-w-[340px] text-[16px] leading-[1.6] text-[#2b2824] sm:max-w-[430px] sm:text-[17px] sm:leading-[1.7] md:mt-6 md:max-w-[490px] md:text-[18px]">
+                    Daily protocols designed to elevate your energy, endurance, recovery, and long-term wellness so you can perform today and thrive tomorrow.
+                  </p>
+                  <div className="mt-7 flex max-w-[360px] flex-col gap-3 md:mt-8 md:max-w-none md:flex-row md:flex-nowrap">
+                    <Link to={ROUTES.shop} className="btn-primary w-full px-8 py-4 text-[15px] md:w-auto">
+                      Shop Products <ArrowRight size={15} />
+                    </Link>
+                    <Link to={ROUTES.quiz} className="btn-secondary w-full border-[#cfc5b3] bg-white/72 px-8 py-4 text-[15px] backdrop-blur-sm md:w-auto">
+                      Build My Stack
+                    </Link>
                   </div>
                 </div>
 
-                <div className="order-2 relative aspect-[4/3] min-h-[370px] overflow-hidden sm:aspect-[16/10] sm:min-h-[460px] xl:absolute xl:inset-0 xl:min-h-0 xl:aspect-auto">
-                  <HeroScene />
-                  <span className="sr-only">
-                    BioAro products on a sunlit coastal path with a runner and subtle scientific details.
-                  </span>
-                </div>
-
-                {!isRecommendationSheetOpen ? (
-                  <div className="order-3 border-t border-white/75 bg-[rgba(247,242,234,0.74)] px-5 py-4 shadow-[0_-10px_36px_rgba(35,29,20,0.04)] backdrop-blur-2xl sm:px-8 xl:absolute xl:bottom-8 xl:left-1/2 xl:z-20 xl:w-[calc(100%-144px)] xl:max-w-[1320px] xl:-translate-x-1/2 xl:rounded-[24px] xl:border xl:border-white/75 xl:bg-[rgba(247,242,234,0.68)] xl:px-5 xl:py-5 xl:shadow-[0_22px_70px_rgba(35,29,20,0.12),inset_0_1px_0_rgba(255,255,255,0.72)]">
-                    <div className="grid grid-cols-2 md:grid-cols-4">
-                      {HERO_TRUST_ITEMS.map((item) => (
-                        <div key={item.label} className="flex min-h-[74px] items-center justify-center gap-3 border-white/50 px-3 py-3 text-left even:border-l md:min-h-[72px] md:border-l md:px-5 first:md:border-l-0">
-                          <div className="flex h-[32px] w-[32px] shrink-0 items-center justify-center rounded-full border border-white/65 bg-white/58 text-ink shadow-[0_10px_24px_rgba(35,29,20,0.08)]">
-                            <item.Icon size={13} />
-                          </div>
-                          <p className="text-[11.5px] leading-[1.3] text-[#131012] sm:text-[12px]">
-                            <span className="block">{item.label}</span>
-                            <span className="block">{item.subtitle}</span>
-                          </p>
-                        </div>
-                      ))}
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 hidden md:block">
+                  <div className="mx-auto max-w-[1404px] px-14 pb-10 xl:px-[58px]">
+                    <div className="max-w-[670px] rounded-[26px] border border-white/40 bg-[#f7f2ea]/72 px-5 py-5 shadow-[0_18px_40px_-32px_rgba(27,26,23,0.24)] backdrop-blur-md">
+                      <div className="grid grid-cols-[repeat(4,minmax(0,1fr))] gap-3">
+                        {HERO_TRUST_ITEMS.map((item, index) => (
+                          <Fragment key={item.label}>
+                            <div className="flex min-h-[88px] flex-col items-center justify-start gap-2 rounded-2xl bg-white/40 px-2 py-3 text-center">
+                              <div className="flex h-[35px] w-[35px] items-center justify-center rounded-full bg-white/75 text-ink">
+                                <item.Icon size={16} />
+                              </div>
+                              <p className="text-[12px] leading-[1.3] text-[#131012]">
+                                <span className="block">{item.label}</span>
+                                <span className="block">{item.subtitle}</span>
+                              </p>
+                            </div>
+                            {index < HERO_TRUST_ITEMS.length - 1 ? <div className="hidden" /> : null}
+                          </Fragment>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                ) : null}
+                </div>
               </div>
             </div>
+
+            <div className="mt-6 max-w-[670px] border-t border-[#e4ddcf] pt-6 md:hidden">
+              <div className="grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-[106px_1px_106px_1px_106px_1px_106px] lg:items-start lg:gap-y-0">
+                {HERO_TRUST_ITEMS.map((item, index) => (
+                  <Fragment key={item.label}>
+                    <div className="flex w-full flex-col items-center justify-start gap-2 rounded-2xl bg-white/35 px-2 py-3 text-center md:h-[90px] md:w-[106px] md:gap-[10px] md:bg-transparent md:px-0 md:py-0">
+                      <div className="flex h-[35px] w-[35px] items-center justify-center rounded-full bg-white/75 text-ink">
+                        <item.Icon size={16} />
+                      </div>
+                      <p className="text-[12px] leading-[1.3] text-[#131012] md:text-[13px] md:leading-[1.35]">
+                        <span className="block">{item.label}</span>
+                        <span className="block">{item.subtitle}</span>
+                      </p>
+                    </div>
+                    {index < HERO_TRUST_ITEMS.length - 1 ? <div className="hidden h-[91px] w-px bg-[#ebe1db] lg:block" /> : null}
+                  </Fragment>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/*
-      Outcome shortcut row paused by request. Keep the markup available for quick restoration.
       <section className="bg-[#f8f3f0] py-9">
         <div className="container-bio">
-          <div className="mx-auto grid max-w-[1404px] gap-5 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
+          <div className="mx-auto grid max-w-[1404px] gap-5 sm:grid-cols-2 lg:grid-cols-5">
             {OUTCOME_PILLS.map((item) => (
               <Link
                 key={item.title}
-                to={marketHref(item.href)}
+                to={item.href}
                 className="flex min-h-[116px] w-full items-center gap-3 rounded-2xl border border-[#e6e2d4] bg-[#fbf9f5] px-5 py-5 transition-colors hover:bg-white"
               >
                 <div className={`flex h-[42px] w-[42px] items-center justify-center rounded-[16px_6px_16px_6px] ${item.tone}`}>
@@ -414,11 +385,10 @@ export default function Home() {
           </div>
         </div>
       </section>
-      */}
 
       <section className="py-20">
         <div className="container-bio">
-          <div className="mx-auto max-w-[1440px]">
+          <div className="mx-auto max-w-[1040px]">
             <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-[680px]">
               <span className="eyebrow">Built for outcomes</span>
@@ -428,54 +398,49 @@ export default function Home() {
                 better daily <span className="italic text-forest-600">performance.</span>
               </h2>
             </div>
-          </div>
+            <p className="max-w-[300px] text-[15px] leading-6 text-[#131012]">
+              Every formula supports one of four core needs: live longer, think sharper, recover faster, and sleep deeper.
+            </p>
           </div>
 
-          <div className="mx-auto mt-12 max-w-[1440px]">
-            <div className="grid grid-cols-1 items-start gap-5 md:grid-cols-2 xl:grid-cols-4">
-              {ESSENTIALS.map((item, index) => (
-                <Link
-                  key={item.title}
-                  to={marketHref(item.href)}
-                  className="group relative h-[590px] overflow-hidden rounded-[20px] border border-[#d7cfbe] bg-[#222518] shadow-[0_24px_50px_-40px_rgba(27,26,23,0.55)] transition-shadow duration-500 hover:shadow-[0_30px_65px_-35px_rgba(27,26,23,0.72)] sm:h-[640px] lg:h-[720px]"
-                >
-                  <img
-                    src={item.editorialImage}
-                    alt={item.editorialAlt}
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transform-none"
-                    style={{ objectPosition: item.editorialPosition }}
-                  />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(16,20,12,0.16)_0%,rgba(20,24,14,0.02)_28%,rgba(25,29,16,0.28)_47%,rgba(22,25,14,0.78)_69%,rgba(17,20,11,0.96)_100%)]" />
-                  <span className="absolute left-5 top-5 text-[15px] font-semibold tracking-[0.04em] text-[#fffdf6]">
+            <div className="mt-12 grid gap-5 lg:grid-cols-4">
+            {ESSENTIALS.map((item, index) => (
+              <Link
+                key={item.title}
+                to={item.href}
+                className="overflow-hidden rounded-[18px] border border-[#e6e2d4] bg-[#f9f6f4] shadow-[0_24px_50px_-40px_rgba(27,26,23,0.35)] transition-transform duration-300 hover:-translate-y-1"
+              >
+                <div className="relative h-[251px] overflow-hidden bg-[#f3f0e8]">
+                  <img src={item.image} alt="" className="h-full w-full object-cover" />
+                  <span className="absolute left-5 top-5 text-[13px] font-semibold text-[#06301a]">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-
-                  <div className="absolute left-6 top-[48%] flex h-[46px] w-[46px] items-center justify-center rounded-full border border-white/65 bg-[#31422b]/35 text-[#fffdf6] backdrop-blur-sm">
-                    <item.Icon size={21} strokeWidth={1.5} />
+                  <div className="absolute bottom-5 left-5 flex h-[42px] w-[42px] items-center justify-center rounded-full border border-[#e1ddce] bg-[#e7e8e0] text-ink">
+                    <item.Icon size={20} />
                   </div>
-
-                  <div className="absolute inset-x-0 bottom-0 p-7 text-[#fffdf6] sm:p-8">
-                    <h3 className="font-display text-[42px] leading-[0.9] tracking-[-0.02em] sm:text-[46px]">{item.title}</h3>
-                    <div className="mt-5 h-px w-11 bg-[#f4efdf]/80" />
-                    <p className="mt-5 max-w-[24ch] text-[16px] leading-6 text-[#fffdf6]/94 sm:text-[17px]">
-                      {item.description}
-                    </p>
-                    <p className="mt-7 text-[12px] font-medium text-[#e3d4ae]">Featuring</p>
-                    <p className="mt-2 text-[14px] leading-6 text-[#fffdf6]">{item.chips.join("  •  ")}</p>
-                    <span className="mt-8 inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#b8e0c1]">
-                      Explore {item.title.toLowerCase()}
-                      <ArrowRight
-                        size={16}
-                        className="transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transform-none"
-                      />
-                    </span>
+                </div>
+                <div className="flex h-[calc(100%-251px)] flex-col p-6">
+                  <h3 className="text-[32px] leading-none text-ink">{item.title}</h3>
+                  <div className="mt-4 h-px w-9 bg-[#d6d0c0]" />
+                  <p className="mt-4 text-[14px] leading-6 text-[#131012]">{item.description}</p>
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {item.chips.map((chip) => (
+                      <span
+                        key={chip}
+                        className="rounded-full border border-[#e1ddce] px-3 py-1.5 text-[11px] uppercase tracking-[0.04em] text-[#131012]"
+                      >
+                        {chip}
+                      </span>
+                    ))}
                   </div>
-                </Link>
-              ))}
-            </div>
+                  <span className="mt-auto pt-8 text-[13.5px] font-semibold text-forest-600">
+                    Explore {item.title.toLowerCase()} →
+                  </span>
+                </div>
+              </Link>
+            ))}
           </div>
 
-          <div className="mx-auto max-w-[1040px]">
             <div className="mt-8 flex flex-col gap-6 rounded-[20px] border border-[#e2ded2] bg-[#f6f3f0] px-8 py-8 lg:flex-row lg:items-center lg:justify-between lg:px-10">
             <div className="flex items-center gap-4">
               <div className="flex h-[52px] w-[52px] items-center justify-center rounded-full bg-[#e3e8de] text-forest-600">
@@ -486,7 +451,7 @@ export default function Home() {
                 <p className="mt-2 text-[14px] text-[#131012]">Take our 60-second quiz and we&apos;ll build your perfect stack.</p>
               </div>
             </div>
-            <Link to={marketHref(ROUTES.quiz)} className="btn-primary whitespace-nowrap">
+            <Link to={ROUTES.quiz} className="btn-primary whitespace-nowrap">
               <Sparkles size={14} /> Take the Wellness Quiz <ArrowRight size={15} />
             </Link>
           </div>
@@ -494,62 +459,82 @@ export default function Home() {
         </div>
       </section>
 
-      <HomepageProductCarousel products={products} />
-
-      <section className="py-16 sm:py-20 xl:py-24">
+      <section className="pb-24 pt-8">
         <div className="container-bio">
-          <div className="relative mx-auto min-h-[640px] max-w-[1500px] overflow-hidden rounded-[28px] bg-[#17150f] shadow-[0_28px_70px_-46px_rgba(19,16,11,0.75)] sm:min-h-[680px] xl:min-h-0 xl:aspect-[2/1]">
-            <img
-              src={realRoutinesNadiaLongevity}
-              alt="A customer holding BioAro Longevity+ as part of a morning routine"
-              className="absolute inset-0 h-full w-full object-cover object-[72%_center] sm:object-[66%_center] md:object-[62%_center] xl:object-center"
-              loading="lazy"
-              decoding="async"
-            />
-            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(16,15,12,0.98)_0%,rgba(17,15,11,0.93)_30%,rgba(17,15,11,0.56)_51%,rgba(17,15,11,0.06)_76%,rgba(17,15,11,0)_100%)]" />
-            <div className="relative z-10 flex min-h-[640px] max-w-[590px] flex-col justify-center px-7 py-12 text-[#fbf8f0] sm:min-h-[680px] sm:px-12 sm:py-14 md:px-16 xl:min-h-0 xl:px-20">
-              <span className="text-[13px] font-semibold uppercase tracking-[0.2em] text-[#dfa82d]">Real routines</span>
-              <blockquote className="mt-7 font-display text-[38px] leading-[0.98] tracking-[-0.025em] sm:text-[50px] md:text-[54px] xl:text-[58px]">
-                &ldquo;I wanted support that felt considered — not another promise I had to believe.&rdquo;
-              </blockquote>
-              <div className="mt-8 h-px w-40 bg-[#d4a82f]" />
-              <p className="mt-8 max-w-[430px] text-[16px] leading-7 text-white/88 sm:text-[18px]">
-                LONgevity+ became part of a simple morning routine built around consistency.
-              </p>
-              <Link
-                to={marketHref(ROUTES.product.replace(":handle", "longevity-plus"))}
-                className="mt-8 inline-flex w-fit items-center gap-3 rounded-full border border-[#d4a82f] px-6 py-3.5 text-[15px] font-semibold text-[#e7b743] transition-colors hover:bg-[#d4a82f] hover:text-[#17150f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#e7b743] sm:mt-9 sm:px-7 sm:text-[16px]"
-              >
-                Explore LONgevity+ <ArrowRight size={18} aria-hidden="true" />
-              </Link>
+          <div className="mx-auto max-w-[1404px]">
+            <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <span className="eyebrow">Daily essentials</span>
+              <h2 className="mt-3 text-[40px] leading-none md:text-[46px]">The essentials for better daily performance.</h2>
             </div>
+            <Link to={ROUTES.shop} className="text-[15px] text-[#131012] transition-colors hover:text-forest-600">
+              All products →
+            </Link>
+          </div>
+
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+            {featuredProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
           </div>
         </div>
       </section>
 
-      <section className="pb-16 sm:pb-20 xl:pb-24">
+      <section className="py-24">
         <div className="container-bio">
-          <div className="mx-auto grid max-w-[1472px] gap-10 sm:gap-12 xl:grid-cols-2 xl:items-center xl:gap-[60px]">
-            <div className="aspect-[4/5] overflow-hidden rounded-[22px] sm:aspect-[4/3] md:aspect-[16/10] xl:aspect-[685/930]">
-              <img
-                src={evidenceScientistEditorial}
-                alt="Scientist conducting laboratory work"
-                className="h-full w-full object-cover object-[center_42%] sm:object-center"
-              />
+          <div className="mx-auto grid max-w-[1040px] gap-14 lg:grid-cols-[0.9fr_1.3fr]">
+          <div className="max-w-[550px]">
+            <span className="eyebrow">The Difference</span>
+            <h2 className="mt-4 text-[42px] leading-[0.98] text-ink md:text-[58px]">Why most supplements fall short.</h2>
+            <p className="mt-6 max-w-[420px] text-[15px] leading-8 text-[#131012]">
+              Many supplements promise more than they deliver. BioAro Drugs is built around transparency, evidence, and formulations designed with purpose.
+            </p>
+          </div>
+
+          <div className="overflow-hidden rounded-[16px] border border-[#e6e2d4] bg-[#fbf8f2]">
+            <div className="grid grid-cols-[1.55fr_0.85fr_0.7fr] border-b border-[#e6e2d4] text-[9.5px] font-semibold uppercase tracking-[0.06em] sm:text-[10.5px] md:grid-cols-[1.2fr_0.65fr_0.55fr] md:text-[11.5px]">
+              <div className="bg-[#f1eee6] px-4 py-4 text-[#131012] sm:px-5">Standard</div>
+              <div className="bg-[#eae7dc] px-3 py-4 text-center text-[#131012] sm:px-4 md:px-5">BioAro Drugs</div>
+              <div className="bg-[#f1eee6] px-3 py-4 text-center text-[#131012] sm:px-4 md:px-5">Typical</div>
+            </div>
+            {COMPARISON_ROWS.map((row) => (
+              <div key={row.label} className="grid grid-cols-[1.55fr_0.85fr_0.7fr] border-b border-[#e6e2d4] last:border-b-0 md:grid-cols-[1.2fr_0.65fr_0.55fr]">
+                <div className="px-4 py-4 text-[13px] leading-[1.45] text-[#1b1a17] sm:px-5 sm:text-[14px] md:py-5">
+                  {row.label}
+                </div>
+                <div className="flex items-center justify-center border-x border-[#e6e2d4] px-3 py-4 sm:px-4 md:px-5 md:py-5">
+                  <ComparisonState value={row.bioaro} />
+                </div>
+                <div className="flex items-center justify-center px-3 py-4 sm:px-4 md:px-5 md:py-5">
+                  <ComparisonState value={row.typical} />
+                </div>
+              </div>
+            ))}
+          </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-24">
+        <div className="container-bio">
+          <div className="mx-auto grid max-w-[1472px] gap-[60px] lg:grid-cols-[685px_minmax(0,1fr)] lg:items-center">
+            <div className="overflow-hidden rounded-[22px] lg:aspect-[685/930]">
+              <img src={evidenceLabPanel} alt="Laboratory quality and formulation workflow" className="h-full w-full object-cover" />
             </div>
 
-            <div>
+            <div className="pt-6 lg:pt-0">
               <span className="eyebrow">Science &amp; Trust</span>
-              <h2 className="mt-4 max-w-[640px] text-[40px] leading-[0.96] text-ink sm:text-[48px] md:text-[56px] md:leading-[0.9] xl:text-[61px]">
+              <h2 className="mt-4 max-w-[640px] text-[42px] leading-[0.96] text-ink md:text-[61px] md:leading-[0.9]">
                 Built around evidence,<span className="md:whitespace-nowrap"> not <span className="italic text-forest-600">trends.</span></span>
               </h2>
-              <p className="mt-6 max-w-[420px] text-[15px] leading-7 text-[#131012] sm:mt-7 sm:text-[16px] sm:leading-8">
-                BioAro Drugs is grounded in transparent labels, useful ingredient context, and quality information where available.
+              <p className="mt-7 max-w-[420px] text-[15px] leading-8 text-[#131012]">
+                BioAro Drugs is being built around transparent labeling, ingredient context, and quality documentation where available.
               </p>
 
-              <div className="mt-7 max-w-[620px] space-y-0 sm:mt-8">
+              <div className="mt-8 max-w-[620px] space-y-0">
                 {EVIDENCE_ITEMS.map((item) => (
-                  <div key={item.title} className="flex items-start gap-4 border-b border-[#e1ddce] px-0 py-4 last:border-b-0 sm:py-[18px]">
+                  <div key={item.title} className="flex items-start gap-4 border-b border-[#e1ddce] px-0 py-[18px] last:border-b-0">
                     <div className="flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-[19px] bg-[#e3e8de] text-forest-600">
                       <item.Icon size={18} />
                     </div>
@@ -561,13 +546,13 @@ export default function Home() {
                 ))}
               </div>
 
-              <div className="mt-7 w-full max-w-[1200px] overflow-hidden rounded-[28px] border border-[#e2d8c3] bg-[#faf8f4] shadow-[0_12px_30px_-24px_rgba(27,26,23,0.35)] sm:mt-8">
-                <div className="flex flex-col divide-y divide-[#e1ddce] sm:flex-row sm:divide-y-0">
+              <div className="mt-8 w-full max-w-[1200px] overflow-hidden rounded-[28px] border border-[#e2d8c3] bg-[#faf8f4] shadow-[0_12px_30px_-24px_rgba(27,26,23,0.35)]">
+                <div className="flex flex-col divide-y divide-[#e1ddce] md:flex-row md:divide-y-0">
                   {CREDIBILITY_ITEMS.map((item) => (
                     <div
                       key={item.title}
-                      className={`flex w-full items-center gap-[10px] px-4 py-[18px] sm:w-[33.3333%] sm:px-3 md:px-4 ${
-                        item.title !== "Formulated in Canada" ? "sm:border-r sm:border-[#e1ddce]" : ""
+                      className={`flex w-full items-center gap-[10px] px-4 py-[18px] md:w-[33.3333%] md:px-4 ${
+                        item.title !== "Formulated in Canada" ? "md:border-r md:border-[#e1ddce]" : ""
                       }`}
                     >
                       <div className="flex h-[52px] w-[52px] shrink-0 items-center justify-center text-[#0f3d1e]">
@@ -591,9 +576,10 @@ export default function Home() {
       <section className="pb-24 pt-4">
         <div className="container-bio">
           <div className="mx-auto max-w-[680px] text-center">
-            <span className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[#6b5e58]">Your routine</span>
+            <span className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[#6b5e58]">The BioAro Method</span>
             <h2 className="mx-auto mt-4 max-w-[10ch] text-[36px] leading-[0.98] text-ink sm:text-[42px] md:max-w-none md:text-[62px]">
-              One protocol. All day.
+              <span className="block md:inline md:whitespace-nowrap">One protocol. Three windows.</span>
+              <span className="block md:inline md:ml-3">All day.</span>
             </h2>
           </div>
 
@@ -613,13 +599,13 @@ export default function Home() {
           <div className="mx-auto mt-8 max-w-[1404px] rounded-[24px] bg-[#f2f0ec] px-8 py-10 lg:px-14 lg:py-14">
             <div className="grid gap-10 lg:grid-cols-2 lg:gap-12">
               <div className="max-w-[420px]">
-                <span className="eyebrow">Personalised guidance</span>
-                <h2 className="mt-4 text-[40px] leading-[0.98] text-ink md:text-[48px]">Build your protocol.</h2>
+                <span className="eyebrow">Personalize</span>
+                <h2 className="mt-4 text-[40px] leading-[0.98] text-ink md:text-[48px]">Find your perfect protocol.</h2>
                 <p className="mt-5 max-w-[380px] text-[17px] leading-8 text-[#131012]">
-                  Answer a few simple questions to find a practical starting point for your goals and routine.
+                  Answer a few simple questions and we&apos;ll recommend the BioAro stack that fits your goals.
                 </p>
-                <Link to={marketHref(ROUTES.quiz)} className="btn-primary mt-8 inline-flex">
-                  Build My Stack
+                <Link to={ROUTES.quiz} className="btn-primary mt-8 inline-flex">
+                  Take the Wellness Quiz
                 </Link>
               </div>
 
@@ -641,6 +627,27 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="pb-24 pt-6">
+        <div className="container-bio">
+          <div className="mx-auto max-w-[620px] text-center">
+            <span className="eyebrow">Living 2.0 Support</span>
+            <h2 className="mt-4 text-[42px] leading-[0.95] text-ink md:text-[52px]">Stay consistent. Feel the difference.</h2>
+          </div>
+
+          <div className="mx-auto mt-12 grid max-w-[1040px] gap-4 md:grid-cols-2 xl:grid-cols-5">
+            {PERKS.map((item) => (
+              <div key={item.title} className="rounded-[16px] border border-[#e2ded2] bg-[#f2f0ec] px-5 py-6">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#f8f6f1] text-ink">
+                  <item.Icon size={18} />
+                </div>
+                <h3 className="mt-4 text-[15.5px] font-semibold text-ink">{item.title}</h3>
+                <p className="mt-1 text-[12.5px] leading-6 text-[#131012]">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="py-24">
         <div className="container-bio">
           <div className="mx-auto max-w-[700px] text-center">
@@ -656,21 +663,18 @@ export default function Home() {
               </blockquote>
               <div className="mt-10 flex items-center gap-3.5">
                 <div className="h-11 w-11 rounded-full bg-forest-600" />
-                <div className="max-w-[420px]">
-                  <p className="text-[14.5px] font-semibold text-ink">Dr. Anmol Kapoor, MD</p>
-                  <p className="text-[12.5px] leading-relaxed text-[#8a8678]">
-                    Founder, Chairman &amp; CEO, BioAro; Cardiologist and Precision Health Innovator. Fellow of the Royal
-                    College of Physicians and Surgeons of Canada
-                  </p>
+                <div>
+                  <p className="text-[14.5px] font-semibold text-ink">Dr. Elena Park, PhD</p>
+                  <p className="text-[12.5px] text-[#8a8678]">Founder &amp; Chief Science Officer</p>
                 </div>
               </div>
-              <Link to={marketHref(ROUTES.living)} className="mt-8 inline-flex items-center gap-2 text-[14px] font-semibold text-forest-600">
+              <Link to={ROUTES.living} className="mt-8 inline-flex items-center gap-2 text-[14px] font-semibold text-forest-600">
                 Explore Living 2.0 <ArrowRight size={14} />
               </Link>
             </div>
 
             <div className="overflow-hidden rounded-[20px] shadow-[0_24px_50px_-40px_rgba(27,26,23,0.35)]">
-              <img src={founderVisual} alt="BioAro founder portrait" className="h-full w-full object-cover" />
+              <img src={founderVisual} alt="BioAro Labs visual" className="h-full w-full object-cover" />
             </div>
           </div>
         </div>
@@ -684,7 +688,7 @@ export default function Home() {
               <span className="eyebrow">Journal</span>
               <h2 className="mt-3 text-[36px] leading-none md:text-[40px]">Education hub.</h2>
             </div>
-            <Link to={marketHref(ROUTES.journal)} className="text-[15px] text-[#131012] transition-colors hover:text-forest-600">
+            <Link to={ROUTES.journal} className="text-[15px] text-[#131012] transition-colors hover:text-forest-600">
               All articles →
             </Link>
           </div>
@@ -693,7 +697,7 @@ export default function Home() {
             {JOURNAL_ARTICLES.slice(0, 3).map((article) => (
               <Link
                 key={article.title}
-                to={marketHref(`${ROUTES.journal}/${article.slug}`)}
+                to={ROUTES.journal}
                 className="group overflow-hidden rounded-2xl border border-[#e2ded2] bg-[#f2f0ec] transition-colors hover:bg-white"
               >
                 <div className="aspect-[16/10] overflow-hidden bg-[#ece8de]">
@@ -765,13 +769,13 @@ export default function Home() {
 
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start">
                   <Link
-                    to={marketHref(ROUTES.shop)}
+                    to={ROUTES.shop}
                     className="inline-flex w-full items-center justify-center rounded-full bg-[#f6f1e7] px-7 py-3.5 text-[15px] font-medium text-ink transition-transform transition-colors hover:-translate-y-0.5 hover:bg-white sm:w-auto"
                   >
                     Shop Products
                   </Link>
                   <Link
-                    to={marketHref(ROUTES.quiz)}
+                    to={ROUTES.quiz}
                     className="inline-flex w-full items-center justify-center rounded-full border border-white/22 bg-white/6 px-7 py-3.5 text-[15px] font-medium text-white transition-colors hover:border-white/35 hover:bg-white/10 sm:w-auto"
                   >
                     Build My Stack
@@ -789,7 +793,9 @@ export default function Home() {
 
               <div className="relative mx-auto w-full max-w-[560px] lg:mx-0 lg:justify-self-end">
                 <div className="absolute inset-6 rounded-[28px] bg-[radial-gradient(circle_at_50%_35%,rgba(111,146,77,0.28)_0%,rgba(111,146,77,0)_48%),radial-gradient(circle_at_70%_30%,rgba(186,141,63,0.24)_0%,rgba(186,141,63,0)_42%)] blur-2xl" />
-                <ProtocolLifestyleSlider />
+                <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-white/5 shadow-[0_28px_55px_-38px_rgba(0,0,0,0.8)]">
+                  <img src={ctaProductVisual} alt="BioAro luxury product visual" className="h-full w-full object-cover" />
+                </div>
               </div>
             </div>
           </div>
