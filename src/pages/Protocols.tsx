@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import PageHero from "../components/page/PageHero";
 import { PROTOCOLS, PROTOCOLS_INTRO, PROTOCOLS_PAGE_HERO } from "../data/siteContent";
+import { useMarketHref } from "../hooks/useMarketHref";
 
 export default function Protocols() {
+  const marketHref = useMarketHref();
+
   return (
     <div className="pt-24 pb-20 md:pt-32 md:pb-24">
       <div className="container-bio">
@@ -27,7 +30,7 @@ export default function Protocols() {
               <p className="mt-6 text-sm leading-relaxed text-ink/55">{protocol.positioning}</p>
               <div className="mt-6 flex flex-wrap gap-2">
                 {protocol.handleGroup.map((handle) => (
-                  <Link key={handle} to={`/shop/${handle}`} className="btn-secondary !px-4 !py-2 !text-xs">
+                  <Link key={handle} to={marketHref(`/products/${handle}`)} className="btn-secondary !px-4 !py-2 !text-xs">
                     View product
                   </Link>
                 ))}

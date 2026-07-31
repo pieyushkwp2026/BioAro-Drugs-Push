@@ -1,0 +1,62 @@
+{
+  "mode": "apply_missing_only",
+  "sourceCommit": "2191f22d39e952c35d0df543336496bd28b388c9",
+  "results": [
+    {
+      "handle": "longevity-plus",
+      "productId": "gid://shopify/Product/7700294140007",
+      "status": "skipped_existing_rich_ingredients",
+      "existingCount": 6,
+      "sourceCount": 6,
+      "wrote": false
+    },
+    {
+      "handle": "cellomega-plus",
+      "productId": "gid://shopify/Product/7700286144615",
+      "status": "skipped_existing_rich_ingredients",
+      "existingCount": 6,
+      "sourceCount": 6,
+      "wrote": false
+    },
+    {
+      "handle": "creagen-brain-boost",
+      "productId": "gid://shopify/Product/7700293550183",
+      "status": "skipped_existing_rich_ingredients",
+      "existingCount": 3,
+      "sourceCount": 3,
+      "wrote": false
+    },
+    {
+      "handle": "creagen-femme-energy",
+      "productId": "gid://shopify/Product/7700293746791",
+      "status": "skipped_existing_rich_ingredients",
+      "existingCount": 3,
+      "sourceCount": 3,
+      "wrote": false
+    },
+    {
+      "handle": "creagen-raw-power",
+      "productId": "gid://shopify/Product/7700293943399",
+      "status": "skipped_existing_rich_ingredients",
+      "existingCount": 1,
+      "sourceCount": 1,
+      "wrote": false
+    },
+    {
+      "handle": "creagen-pro-power",
+      "productId": "gid://shopify/Product/7700293812327",
+      "status": "skipped_existing_rich_ingredients",
+      "existingCount": 5,
+      "sourceCount": 5,
+      "wrote": false
+    },
+    {
+      "handle": "glutara",
+      "productId": "gid://shopify/Product/7700294041703",
+      "status": "skipped_existing_rich_ingredients",
+      "existingCount": 6,
+      "sourceCount": 6,
+      "wrote": false
+    }
+  ]
+}

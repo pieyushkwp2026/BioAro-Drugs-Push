@@ -5,7 +5,7 @@ export const ROUTES = {
   science: "/science",
   journal: "/journal",
   about: "/about",
-  product: "/shop/:handle",
+  product: "/products/:handle",
   support: "/contact-support",
   disclaimer: "/supplement-disclaimer",
   shipping: "/shipping-policy",

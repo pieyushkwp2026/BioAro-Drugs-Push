@@ -1,12 +1,15 @@
+import type { CSSProperties } from "react";
+
 interface PlaceholderBottleProps {
   initials: string;
   accent?: string;
   className?: string;
+  style?: CSSProperties;
 }
 
-export default function PlaceholderBottle({ initials, accent = "#B08A4E", className }: PlaceholderBottleProps) {
+export default function PlaceholderBottle({ initials, accent = "#B08A4E", className, style }: PlaceholderBottleProps) {
   return (
-    <svg viewBox="0 0 200 220" className={className} role="img" aria-label={`${initials} bottle placeholder`}>
+    <svg viewBox="0 0 200 220" className={className} style={style} role="img" aria-label={`${initials} product illustration`}>
       <ellipse cx="100" cy="205" rx="62" ry="10" fill="#1B1A17" opacity="0.08" />
       <rect x="82" y="10" width="36" height="18" rx="4" fill="#2F4F3E" />
       <rect x="86" y="4" width="28" height="10" rx="3" fill="#1F3C2D" />

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Clock3, RotateCcw, ShieldCheck, Sparkles } from "lucide-react";
 import quizHero from "../assets/quiz/wellness-quiz-hero.png";
+import { useMarketHref } from "../hooks/useMarketHref";
 
 const QUESTIONS = [
   { q: "What's your main goal right now?", options: ["Live longer", "Think sharper", "Recover faster", "Sleep deeper"] },
@@ -24,6 +25,7 @@ const TRUST_CUES = [
 ];
 
 export default function Quiz() {
+  const marketHref = useMarketHref();
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
 
@@ -124,7 +126,7 @@ export default function Quiz() {
                   This quick quiz is meant to guide exploration, not replace personalized medical advice.
                 </p>
                 <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-                  <Link to={`/shop/${result.handle}`} className="btn-primary justify-center">
+                  <Link to={marketHref(`/products/${result.handle}`)} className="btn-primary justify-center">
                     View {result.name} <ArrowRight size={15} />
                   </Link>
                   <button onClick={restart} className="btn-secondary justify-center">

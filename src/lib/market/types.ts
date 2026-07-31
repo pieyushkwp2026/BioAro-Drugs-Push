@@ -1,17 +1,26 @@
-export type CountryCode = "US" | "CA" | "GB";
-export type ExperienceRegion = "NA" | "UK";
-export type MarketSource = "override" | "geoip" | "fallback";
+import type {
+  CountryCode as RegionalCountryCode,
+  CurrencyCode as RegionalCurrencyCode,
+  ExperienceRegion as RegionalExperienceRegion,
+  MarketAddress,
+  MarketCode as RegionalMarketCode,
+  MarketConfig as RegionalMarketConfig,
+  MarketIdentifier,
+} from "../../config/markets";
+
+export type CountryCode = RegionalCountryCode;
+export type ExperienceRegion = RegionalExperienceRegion;
+export type MarketCode = RegionalMarketCode;
+export type CurrencyCode = RegionalCurrencyCode;
+export type MarketConfig = RegionalMarketConfig;
 
 export interface MarketBootstrap {
-  country: CountryCode;
-  currency: "USD" | "CAD" | "GBP";
-  experienceRegion: ExperienceRegion;
+  market?: MarketCode;
+  country?: CountryCode;
+  currency?: CurrencyCode;
+  experienceRegion?: ExperienceRegion;
 }
 
-export interface MarketConfig {
-  country: CountryCode;
-  currency: "USD" | "CAD" | "GBP";
-  experienceRegion: ExperienceRegion;
-  label: string;
-  shortLabel: string;
-}
+export type MarketSource = "override" | "geoip" | "fallback" | "path";
+
+export type { MarketAddress, MarketIdentifier };

@@ -6,8 +6,10 @@ import {
   type ReactNode,
 } from "react";
 import { useMarket } from "../../hooks/useMarket";
+import { getMarketConfigByCountry } from "../../config/markets";
 import { addCartItem, loadCart, removeCartLine, syncCartMarket, updateCartLine } from "../../lib/shopify/cartService";
 import type { CartState, CatalogProduct } from "../../lib/shopify/types";
+import type { CountryCode } from "../../lib/market/types";
 import { CartContext } from "./cart-context";
 
 export interface CartContextValue {
@@ -22,8 +24,8 @@ export interface CartContextValue {
   removeLine: (lineId: string) => Promise<void>;
 }
 
-function createEmptyCart(country: "US" | "CA" | "GB"): CartState {
-  const currencyCode = country === "CA" ? "CAD" : country === "GB" ? "GBP" : "USD";
+function createEmptyCart(country: CountryCode): CartState {
+  const currencyCode = getMarketConfigByCountry(country).currency;
   return {
     id: "",
     checkoutUrl: null,

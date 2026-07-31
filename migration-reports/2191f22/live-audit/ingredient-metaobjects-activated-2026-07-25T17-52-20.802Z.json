@@ -1,0 +1,382 @@
+{
+  "mode": "activate_existing_ingredient_metaobjects_only",
+  "sourceCommit": "2191f22d39e952c35d0df543336496bd28b388c9",
+  "handles": [
+    "longevity-plus",
+    "cellomega-plus",
+    "creagen-brain-boost",
+    "creagen-femme-energy",
+    "creagen-raw-power",
+    "creagen-pro-power",
+    "glutara"
+  ],
+  "products": [
+    {
+      "handle": "longevity-plus",
+      "productId": "gid://shopify/Product/7700294140007",
+      "refCount": 6
+    },
+    {
+      "handle": "cellomega-plus",
+      "productId": "gid://shopify/Product/7700286144615",
+      "refCount": 6
+    },
+    {
+      "handle": "creagen-brain-boost",
+      "productId": "gid://shopify/Product/7700293550183",
+      "refCount": 3
+    },
+    {
+      "handle": "creagen-femme-energy",
+      "productId": "gid://shopify/Product/7700293746791",
+      "refCount": 3
+    },
+    {
+      "handle": "creagen-raw-power",
+      "productId": "gid://shopify/Product/7700293943399",
+      "refCount": 1
+    },
+    {
+      "handle": "creagen-pro-power",
+      "productId": "gid://shopify/Product/7700293812327",
+      "refCount": 5
+    },
+    {
+      "handle": "glutara",
+      "productId": "gid://shopify/Product/7700294041703",
+      "refCount": 6
+    }
+  ],
+  "metaobjects": [
+    {
+      "id": "gid://shopify/Metaobject/222189224039",
+      "handle": "nmn",
+      "type": "ingredient",
+      "products": [
+        "longevity-plus"
+      ],
+      "before": "DRAFT",
+      "after": "ACTIVE",
+      "action": "activated"
+    },
+    {
+      "id": "gid://shopify/Metaobject/222189256807",
+      "handle": "resveratrol",
+      "type": "ingredient",
+      "products": [
+        "longevity-plus"
+      ],
+      "before": "DRAFT",
+      "after": "ACTIVE",
+      "action": "activated"
+    },
+    {
+      "id": "gid://shopify/Metaobject/222189289575",
+      "handle": "coq10-3",
+      "type": "ingredient",
+      "products": [
+        "longevity-plus"
+      ],
+      "before": "DRAFT",
+      "after": "ACTIVE",
+      "action": "activated"
+    },
+    {
+      "id": "gid://shopify/Metaobject/222189322343",
+      "handle": "curcumin",
+      "type": "ingredient",
+      "products": [
+        "longevity-plus"
+      ],
+      "before": "DRAFT",
+      "after": "ACTIVE",
+      "action": "activated"
+    },
+    {
+      "id": "gid://shopify/Metaobject/222189355111",
+      "handle": "vitamin-b12-2",
+      "type": "ingredient",
+      "products": [
+        "longevity-plus"
+      ],
+      "before": "DRAFT",
+      "after": "ACTIVE",
+      "action": "activated"
+    },
+    {
+      "id": "gid://shopify/Metaobject/222189387879",
+      "handle": "vitamin-d3",
+      "type": "ingredient",
+      "products": [
+        "longevity-plus"
+      ],
+      "before": "DRAFT",
+      "after": "ACTIVE",
+      "action": "activated"
+    },
+    {
+      "id": "gid://shopify/Metaobject/222188306535",
+      "handle": "algae-powder-omega-3-2",
+      "type": "ingredient",
+      "products": [
+        "cellomega-plus"
+      ],
+      "before": "DRAFT",
+      "after": "ACTIVE",
+      "action": "activated"
+    },
+    {
+      "id": "gid://shopify/Metaobject/222188339303",
+      "handle": "magnesium-bisglycinate-2",
+      "type": "ingredient",
+      "products": [
+        "cellomega-plus"
+      ],
+      "before": "DRAFT",
+      "after": "ACTIVE",
+      "action": "activated"
+    },
+    {
+      "id": "gid://shopify/Metaobject/222188372071",
+      "handle": "coq10-2",
+      "type": "ingredient",
+      "products": [
+        "cellomega-plus"
+      ],
+      "before": "DRAFT",
+      "after": "ACTIVE",
+      "action": "activated"
+    },
+    {
+      "id": "gid://shopify/Metaobject/222188404839",
+      "handle": "astaxanthin-2",
+      "type": "ingredient",
+      "products": [
+        "cellomega-plus"
+      ],
+      "before": "DRAFT",
+      "after": "ACTIVE",
+      "action": "activated"
+    },
+    {
+      "id": "gid://shopify/Metaobject/222188437607",
+      "handle": "spermidine-trihydrochloride-2",
+      "type": "ingredient",
+      "products": [
+        "cellomega-plus"
+      ],
+      "before": "DRAFT",
+      "after": "ACTIVE",
+      "action": "activated"
+    },
+    {
+      "id": "gid://shopify/Metaobject/222188470375",
+      "handle": "vitamin-e-2",
+      "type": "ingredient",
+      "products": [
+        "cellomega-plus"
+      ],
+      "before": "DRAFT",
+      "after": "ACTIVE",
+      "action": "activated"
+    },
+    {
+      "id": "gid://shopify/Metaobject/222188503143",
+      "handle": "creatine-monohydrate",
+      "type": "ingredient",
+      "products": [
+        "creagen-brain-boost"
+      ],
+      "before": "DRAFT",
+      "after": "ACTIVE",
+      "action": "activated"
+    },
+    {
+      "id": "gid://shopify/Metaobject/222188535911",
+      "handle": "magnesium-glycinate",
+      "type": "ingredient",
+      "products": [
+        "creagen-brain-boost"
+      ],
+      "before": "DRAFT",
+      "after": "ACTIVE",
+      "action": "activated"
+    },
+    {
+      "id": "gid://shopify/Metaobject/222188568679",
+      "handle": "vitamin-b12",
+      "type": "ingredient",
+      "products": [
+        "creagen-brain-boost"
+      ],
+      "before": "DRAFT",
+      "after": "ACTIVE",
+      "action": "activated"
+    },
+    {
+      "id": "gid://shopify/Metaobject/222188601447",
+      "handle": "creatine-monohydrate-1",
+      "type": "ingredient",
+      "products": [
+        "creagen-femme-energy"
+      ],
+      "before": "DRAFT",
+      "after": "ACTIVE",
+      "action": "activated"
+    },
+    {
+      "id": "gid://shopify/Metaobject/222188634215",
+      "handle": "ferrous-bisglycinate",
+      "type": "ingredient",
+      "products": [
+        "creagen-femme-energy"
+      ],
+      "before": "DRAFT",
+      "after": "ACTIVE",
+      "action": "activated"
+    },
+    {
+      "id": "gid://shopify/Metaobject/222188666983",
+      "handle": "vitamin-b12-1",
+      "type": "ingredient",
+      "products": [
+        "creagen-femme-energy"
+      ],
+      "before": "DRAFT",
+      "after": "ACTIVE",
+      "action": "activated"
+    },
+    {
+      "id": "gid://shopify/Metaobject/222189715559",
+      "handle": "creatine-monohydrate-5",
+      "type": "ingredient",
+      "products": [
+        "creagen-raw-power"
+      ],
+      "before": "DRAFT",
+      "after": "ACTIVE",
+      "action": "activated"
+    },
+    {
+      "id": "gid://shopify/Metaobject/222189486183",
+      "handle": "creatine-monohydrate-4",
+      "type": "ingredient",
+      "products": [
+        "creagen-pro-power"
+      ],
+      "before": "DRAFT",
+      "after": "ACTIVE",
+      "action": "activated"
+    },
+    {
+      "id": "gid://shopify/Metaobject/222189518951",
+      "handle": "beta-alanine-1",
+      "type": "ingredient",
+      "products": [
+        "creagen-pro-power"
+      ],
+      "before": "DRAFT",
+      "after": "ACTIVE",
+      "action": "activated"
+    },
+    {
+      "id": "gid://shopify/Metaobject/222189551719",
+      "handle": "potassium-chloride-1",
+      "type": "ingredient",
+      "products": [
+        "creagen-pro-power"
+      ],
+      "before": "DRAFT",
+      "after": "ACTIVE",
+      "action": "activated"
+    },
+    {
+      "id": "gid://shopify/Metaobject/222189584487",
+      "handle": "sodium-chloride-1",
+      "type": "ingredient",
+      "products": [
+        "creagen-pro-power"
+      ],
+      "before": "DRAFT",
+      "after": "ACTIVE",
+      "action": "activated"
+    },
+    {
+      "id": "gid://shopify/Metaobject/222189617255",
+      "handle": "magnesium-bisglycinate-4",
+      "type": "ingredient",
+      "products": [
+        "creagen-pro-power"
+      ],
+      "before": "DRAFT",
+      "after": "ACTIVE",
+      "action": "activated"
+    },
+    {
+      "id": "gid://shopify/Metaobject/222190141543",
+      "handle": "liposomal-glutathione-1",
+      "type": "ingredient",
+      "products": [
+        "glutara"
+      ],
+      "before": "DRAFT",
+      "after": "ACTIVE",
+      "action": "activated"
+    },
+    {
+      "id": "gid://shopify/Metaobject/222190174311",
+      "handle": "vitamin-c-1",
+      "type": "ingredient",
+      "products": [
+        "glutara"
+      ],
+      "before": "DRAFT",
+      "after": "ACTIVE",
+      "action": "activated"
+    },
+    {
+      "id": "gid://shopify/Metaobject/222190207079",
+      "handle": "hyaluronic-acid-1",
+      "type": "ingredient",
+      "products": [
+        "glutara"
+      ],
+      "before": "DRAFT",
+      "after": "ACTIVE",
+      "action": "activated"
+    },
+    {
+      "id": "gid://shopify/Metaobject/222190239847",
+      "handle": "vitamin-b1-1",
+      "type": "ingredient",
+      "products": [
+        "glutara"
+      ],
+      "before": "DRAFT",
+      "after": "ACTIVE",
+      "action": "activated"
+    },
+    {
+      "id": "gid://shopify/Metaobject/222190272615",
+      "handle": "vitamin-b6-1",
+      "type": "ingredient",
+      "products": [
+        "glutara"
+      ],
+      "before": "DRAFT",
+      "after": "ACTIVE",
+      "action": "activated"
+    },
+    {
+      "id": "gid://shopify/Metaobject/222190305383",
+      "handle": "piperine-1",
+      "type": "ingredient",
+      "products": [
+        "glutara"
+      ],
+      "before": "DRAFT",
+      "after": "ACTIVE",
+      "action": "activated"
+    }
+  ]
+}

@@ -3,11 +3,15 @@ import { Minus, Plus, ShoppingBag, X } from "lucide-react";
 import { useCart } from "../../hooks/useCart";
 import { formatMoney } from "../../lib/market/config";
 import { useMarket } from "../../hooks/useMarket";
+import { useMarketHref } from "../../hooks/useMarketHref";
 import { ROUTES } from "../../lib/routes";
+import { getMarketConfigByCountry } from "../../config/markets";
 
 export default function CartDrawer() {
   const { cart, closeCart, error, isLoading, isOpen, removeLine, updateQuantity } = useCart();
   const { country } = useMarket();
+  const marketHref = useMarketHref();
+  const marketConfig = getMarketConfigByCountry(country);
 
   if (!isOpen) {
     return null;
@@ -47,7 +51,7 @@ export default function CartDrawer() {
               <p className="mt-3 max-w-xs text-sm leading-relaxed text-ink/55">
                 Explore BioAro formulas and save your preferred products before online ordering opens.
               </p>
-              <Link to={ROUTES.shop} onClick={closeCart} className="btn-primary mt-7">
+              <Link to={marketHref(ROUTES.shop)} onClick={closeCart} className="btn-primary mt-7">
                 Explore formulas
               </Link>
             </div>
@@ -61,7 +65,7 @@ export default function CartDrawer() {
                     </div>
                     <div className="min-w-0 flex-1">
                       <div className="flex items-start justify-between gap-3">
-                        <Link to={`/shop/${line.handle}`} onClick={closeCart} className="text-sm font-medium hover:text-forest-600">
+                        <Link to={marketHref(`/products/${line.handle}`)} onClick={closeCart} className="text-sm font-medium hover:text-forest-600">
                           {line.title}
                         </Link>
                         <button onClick={() => void removeLine(line.id)} className="text-xs text-ink/40 hover:text-ink">
@@ -103,11 +107,11 @@ export default function CartDrawer() {
             <span className="font-medium">{formatMoney(cart.subtotal.amount, country)}</span>
           </div>
           <p className="mt-3 text-xs leading-relaxed text-ink/45">
-            Product availability, pricing, and delivery details will be confirmed at launch.
+            {marketConfig.shippingMessage}
           </p>
           {cart.isPreview && (
             <p className="mt-3 rounded-2xl border border-[#ddd8c9] bg-[#f7f4ee] px-4 py-3 text-xs leading-relaxed text-[#6d665f]">
-              Online checkout is opening soon. For now, you can browse formulas and request availability updates.
+              {marketConfig.checkoutMessage} For now, you can browse formulas and request availability updates.
             </p>
           )}
           {cart.checkoutUrl ? (
@@ -115,7 +119,7 @@ export default function CartDrawer() {
               Proceed to checkout
             </a>
           ) : (
-            <Link to={ROUTES.support} onClick={closeCart} className="btn-primary mt-5 w-full">
+            <Link to={marketHref(ROUTES.support)} onClick={closeCart} className="btn-primary mt-5 w-full">
               Request availability
             </Link>
           )}

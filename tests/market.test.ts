@@ -5,14 +5,27 @@ import { DISCLAIMER_CONTENT, getRegionalPolicyContent, QUALITY_DOCUMENTS } from 
 
 test("saved market override wins over geo-ip and browser fallback", () => {
   const resolved = resolveMarket({
-    savedCountry: "CA",
+    savedMarket: "ca",
     bootstrap: { country: "GB", currency: "GBP", experienceRegion: "UK" },
     browserLanguages: ["en-GB"],
   });
 
+  assert.equal(resolved.market, "ca");
   assert.equal(resolved.country, "CA");
   assert.equal(resolved.experienceRegion, "NA");
   assert.equal(resolved.source, "override");
+});
+
+test("market route prefix wins over saved and inferred markets", () => {
+  const resolved = resolveMarket({
+    pathname: "/ae/products/longevity-plus",
+    savedMarket: "uk",
+    browserLanguages: ["en-GB"],
+  });
+
+  assert.equal(resolved.market, "ae");
+  assert.equal(resolved.country, "AE");
+  assert.equal(resolved.source, "path");
 });
 
 test("geo-ip market is used when there is no override", () => {

@@ -1,4 +1,5 @@
 import type { CountryCode } from "../market/types";
+import { getMarketConfigByCountry } from "../../config/markets";
 import { isShopifyConfigured, shopifyFetch } from "./client";
 import {
   buildPreviewCart,
@@ -8,14 +9,15 @@ import {
 import type { CartState, CatalogProduct, MoneyAmount, ProductImage } from "./types";
 
 const USE_MOCK_DATA = import.meta.env.VITE_SHOPIFY_USE_MOCK_DATA === "true";
+type ShopifyCurrencyCode = MoneyAmount["currencyCode"];
 
 interface ShopifyCartNode {
   id: string;
   checkoutUrl: string;
   totalQuantity: number;
   cost: {
-    subtotalAmount: { amount: string; currencyCode: "USD" | "CAD" | "GBP" };
-    totalAmount: { amount: string; currencyCode: "USD" | "CAD" | "GBP" };
+    subtotalAmount: { amount: string; currencyCode: ShopifyCurrencyCode };
+    totalAmount: { amount: string; currencyCode: ShopifyCurrencyCode };
   };
   lines: {
     edges: Array<{
@@ -26,7 +28,7 @@ interface ShopifyCartNode {
           id: string;
           title: string;
           image?: { url: string; altText: string | null } | null;
-          price: { amount: string; currencyCode: "USD" | "CAD" | "GBP" };
+          price: { amount: string; currencyCode: ShopifyCurrencyCode };
           product: {
             handle: string;
             title: string;
@@ -112,7 +114,7 @@ function writePreviewSnapshot(lines: Array<{ handle: string; quantity: number }>
   window.localStorage.setItem(PREVIEW_CART_STORAGE_KEY, JSON.stringify({ lines }));
 }
 
-function mapMoney(value: { amount: string; currencyCode: "USD" | "CAD" | "GBP" }): MoneyAmount {
+function mapMoney(value: { amount: string; currencyCode: ShopifyCurrencyCode }): MoneyAmount {
   return {
     amount: Number(value.amount),
     currencyCode: value.currencyCode,
@@ -176,8 +178,8 @@ export async function loadCart(country: CountryCode): Promise<CartState> {
       id: "",
       checkoutUrl: null,
       totalQuantity: 0,
-      subtotal: { amount: 0, currencyCode: country === "CA" ? "CAD" : country === "GB" ? "GBP" : "USD" },
-      total: { amount: 0, currencyCode: country === "CA" ? "CAD" : country === "GB" ? "GBP" : "USD" },
+      subtotal: { amount: 0, currencyCode: getMarketConfigByCountry(country).currency },
+      total: { amount: 0, currencyCode: getMarketConfigByCountry(country).currency },
       lines: [],
       isPreview: false,
     };
@@ -206,8 +208,8 @@ export async function loadCart(country: CountryCode): Promise<CartState> {
       id: "",
       checkoutUrl: null,
       totalQuantity: 0,
-      subtotal: { amount: 0, currencyCode: country === "CA" ? "CAD" : country === "GB" ? "GBP" : "USD" },
-      total: { amount: 0, currencyCode: country === "CA" ? "CAD" : country === "GB" ? "GBP" : "USD" },
+      subtotal: { amount: 0, currencyCode: getMarketConfigByCountry(country).currency },
+      total: { amount: 0, currencyCode: getMarketConfigByCountry(country).currency },
       lines: [],
       isPreview: false,
     };

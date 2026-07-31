@@ -1,0 +1,32 @@
+{
+  "sourceCommit": "2191f22d39e952c35d0df543336496bd28b388c9",
+  "policy": "proposal_only_no_shopify_mutations",
+  "existingStorefrontIdentifiers": [
+    "custom.pdp_subtitle",
+    "custom.short_description",
+    "custom.hero_tags",
+    "custom.hero_bullets",
+    "custom.supply_label",
+    "custom.serving_size",
+    "custom.directions",
+    "custom.warnings",
+    "custom.why_formula_body"
+  ],
+  "proposedMetaobjects": [
+    "ingredient",
+    "benefit",
+    "faq",
+    "comparison_row",
+    "protocol_step",
+    "trust_point",
+    "science_feature"
+  ],
+  "sharedUiAssetsKeptInCode": [
+    "Lucide icons",
+    "navigation icons",
+    "shared quality symbols",
+    "decorative UI artwork",
+    "generic section backgrounds"
+  ],
+  "rule": "A future live importer may write only definitions and fields explicitly approved after this proposal is reviewed."
+}

@@ -1,7 +1,12 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { JOURNAL_ARTICLES } from "../data/journal";
+import { ROUTES } from "../lib/routes";
+import { useMarketHref } from "../hooks/useMarketHref";
 
 export default function Journal() {
+  const marketHref = useMarketHref();
+
   return (
     <div className="pt-24 pb-20 md:pt-32 md:pb-24">
       <div className="container-bio">
@@ -11,7 +16,7 @@ export default function Journal() {
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {JOURNAL_ARTICLES.map((article) => (
-            <article key={article.title} className="glass-card group overflow-hidden">
+            <Link key={article.title} to={marketHref(`${ROUTES.journal}/${article.slug}`)} className="glass-card group block overflow-hidden">
               <div className="aspect-[16/10] overflow-hidden bg-[#f2f0ec]">
                 <img src={article.img} alt={article.alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
               </div>
@@ -23,7 +28,7 @@ export default function Journal() {
                   Read article <ArrowRight size={13} />
                 </span>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </div>

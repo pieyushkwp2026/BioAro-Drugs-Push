@@ -1,0 +1,2207 @@
+{
+  "summary": {
+    "sourceCommit": "2191f22d39e952c35d0df543336496bd28b388c9",
+    "mode": "LOCAL_PREVIEW_ONLY",
+    "approvedExistingProductUpdates": false,
+    "approvedExistingProductReplacement": true,
+    "shopifyReadAuditCompleted": true,
+    "sourceProductCount": 7,
+    "createDraftCount": 6,
+    "exactMatchUpdateCount": 0,
+    "exactMatchReplacementCount": 1,
+    "awaitingShopifyAuditCount": 0,
+    "readyFieldWriteCount": 119,
+    "blockedItemCount": 65,
+    "shopifyMutationsPerformed": 0
+  },
+  "products": [
+    {
+      "handle": "longevity-plus",
+      "title": "LONgevity+",
+      "source": {
+        "commit": "2191f22d39e952c35d0df543336496bd28b388c9",
+        "productData": "src/data/products.ts"
+      },
+      "productAction": {
+        "action": "REPLACE_EXISTING_TEST_PRODUCT_WITH_DRAFT_AFTER_SNAPSHOT",
+        "productId": "gid://shopify/Product/7671681744999",
+        "currentStatus": "ACTIVE",
+        "reason": "Exact Shopify handle match is approved as test data replacement. The live importer must first save a complete audit snapshot, then delete only this exact product ID and create the frozen-source product as DRAFT."
+      },
+      "coreFields": {
+        "title": "LONgevity+",
+        "handle": "longevity-plus",
+        "description": "Daily wellness formula designed to support healthy ageing and cellular energy, featuring NMN, resveratrol, CoQ10, curcumin, vitamin D3, and vitamin B12, helping support everyday vitality and cellular wellbeing.",
+        "category": "Longevity",
+        "targetStatus": "DRAFT"
+      },
+      "fieldMappings": [
+        {
+          "source": "tagline",
+          "target": "custom.pdp_subtitle",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "description",
+          "target": "custom.short_description",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "multi_line_text_field"
+        },
+        {
+          "source": "tags",
+          "target": "custom.hero_tags",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "join_with_semicolon",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "benefits",
+          "target": "custom.hero_bullets",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "join_with_newline",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "supplyLabel",
+          "target": "custom.supply_label",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "servings",
+          "target": "custom.serving_size",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "dosage",
+          "target": "custom.directions",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "multi_line_text_field"
+        },
+        {
+          "source": "warnings",
+          "target": "custom.warnings",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "join_with_newline",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "multi_line_text_field"
+        },
+        {
+          "source": "bestFor",
+          "target": "custom.why_formula_body",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "multi_line_text_field"
+        },
+        {
+          "source": "whyItems",
+          "target": "custom.benefit_cards",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "trustNotes",
+          "target": "custom.trust_badges",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "science",
+          "target": "custom.science_steps",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "supplementFacts",
+          "target": "custom.supplement_facts_rows",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "evidencePoints",
+          "target": "custom.clinical_evidence",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "comparisonRows",
+          "target": "custom.comparison_rows",
+          "expectedShopifyType": "json",
+          "transform": "comparison_row_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "faq",
+          "target": "custom.faqs",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "testimonials",
+          "target": "custom.testimonials",
+          "expectedShopifyType": "json",
+          "transform": "testimonial_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "ingredients",
+          "target": "custom.ingredients",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "names_only",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus",
+          "status": "BLOCKED_RICH_INGREDIENTS_NEED_REFERENCE_FIELD",
+          "existingType": "single_line_text_field",
+          "reason": "The current text field can preserve ingredient names only. It cannot retain ingredient doses, purposes, why-included copy, or ingredient images."
+        }
+      ],
+      "assetActions": [
+        {
+          "role": "primary_media",
+          "path": "src/assets/products/longevity-plus-primary.png",
+          "alt": "BioAro LONgevity+ product and lid",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/longevity-plus-01-hero-1x1.png",
+          "alt": "Longevity Plus product box and bottle",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/longevity-plus-02-close-up-1x1.png",
+          "alt": "Longevity Plus bottle in front of product packaging",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/longevity-plus-03-open-pack-1x1.png",
+          "alt": "Open Longevity Plus packaging with branded lid",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/longevity-plus-04-ingredients-1x1.png",
+          "alt": "Longevity Plus key ingredients and serving amounts",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/longevity-plus-05-lifestyle-1x1.png",
+          "alt": "Woman preparing Longevity Plus as part of a daily routine",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/nmn.png",
+          "alt": "NMN",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/resveratrol.png",
+          "alt": "Resveratrol",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/coq10.png",
+          "alt": "CoQ10",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/curcumin.png",
+          "alt": "Curcumin",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/vitamin-b12.png",
+          "alt": "Vitamin B12",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/vitamin-d3.png",
+          "alt": "Vitamin D3",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        },
+        {
+          "role": "science_visual",
+          "path": "src/assets/science/longevity-plus-lifestyle.png",
+          "alt": "LONgevity+ coastal vitality lifestyle visual",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        }
+      ],
+      "unresolvedCommercialData": [
+        "sku",
+        "inventory",
+        "AED market price"
+      ]
+    },
+    {
+      "handle": "cellomega-plus",
+      "title": "CellOmega+",
+      "source": {
+        "commit": "2191f22d39e952c35d0df543336496bd28b388c9",
+        "productData": "src/data/products.ts"
+      },
+      "productAction": {
+        "action": "CREATE_DRAFT_AFTER_APPROVAL",
+        "productId": null,
+        "currentStatus": null,
+        "reason": "No exact Shopify handle match. The future importer may create this source product only as DRAFT after approval."
+      },
+      "coreFields": {
+        "title": "CellOmega+",
+        "handle": "cellomega-plus",
+        "description": "CellOmega+ combines algae-derived omega-3s, CoQ10, magnesium bisglycinate, astaxanthin, spermidine, and vitamin E in a daily wellness formula. EPA and DHA contribute to the normal function of the heart. Designed to support heart, brain, and metabolic health as part of a balanced lifestyle.",
+        "category": "Wellness",
+        "targetStatus": "DRAFT"
+      },
+      "fieldMappings": [
+        {
+          "source": "tagline",
+          "target": "custom.pdp_subtitle",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "description",
+          "target": "custom.short_description",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "multi_line_text_field"
+        },
+        {
+          "source": "tags",
+          "target": "custom.hero_tags",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "join_with_semicolon",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "benefits",
+          "target": "custom.hero_bullets",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "join_with_newline",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "supplyLabel",
+          "target": "custom.supply_label",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "servings",
+          "target": "custom.serving_size",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "dosage",
+          "target": "custom.directions",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "multi_line_text_field"
+        },
+        {
+          "source": "warnings",
+          "target": "custom.warnings",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "join_with_newline",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "multi_line_text_field"
+        },
+        {
+          "source": "bestFor",
+          "target": "custom.why_formula_body",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "multi_line_text_field"
+        },
+        {
+          "source": "whyItems",
+          "target": "custom.benefit_cards",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "trustNotes",
+          "target": "custom.trust_badges",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "science",
+          "target": "custom.science_steps",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "supplementFacts",
+          "target": "custom.supplement_facts_rows",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "evidencePoints",
+          "target": "custom.clinical_evidence",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "comparisonRows",
+          "target": "custom.comparison_rows",
+          "expectedShopifyType": "json",
+          "transform": "comparison_row_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "faq",
+          "target": "custom.faqs",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "testimonials",
+          "target": "custom.testimonials",
+          "expectedShopifyType": "json",
+          "transform": "testimonial_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "ingredients",
+          "target": "custom.ingredients",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "names_only",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus",
+          "status": "BLOCKED_RICH_INGREDIENTS_NEED_REFERENCE_FIELD",
+          "existingType": "single_line_text_field",
+          "reason": "The current text field can preserve ingredient names only. It cannot retain ingredient doses, purposes, why-included copy, or ingredient images."
+        }
+      ],
+      "assetActions": [
+        {
+          "role": "primary_media",
+          "path": "src/assets/products/cellomega-plus-primary.png",
+          "alt": "BioAro CellOmega+ product and lid",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/cellomega-plus-01-hero-1x1.png",
+          "alt": "CellOmega Plus packaging, bottle, and capsules",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/cellomega-plus-02-ingredients-1x1.png",
+          "alt": "CellOmega Plus bottle with algae and supporting ingredients",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/cellomega-plus-03-ingredients-list-1x1.png",
+          "alt": "CellOmega Plus key ingredients and serving amounts",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/cellomega-plus-04-lifestyle-1x1.png",
+          "alt": "CellOmega Plus bottle in a morning wellness routine",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/cellomega-plus-05-product-1x1.png",
+          "alt": "CellOmega Plus packaging and bottle close-up",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/omega-3-fatty-acids.png",
+          "alt": "Algae Powder (Omega-3)",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/magnesium-bisglycinate.png",
+          "alt": "Magnesium Bisglycinate",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/coq10.png",
+          "alt": "CoQ10",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/astaxanthin.png",
+          "alt": "Astaxanthin",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/spermidine-trihydrochloride.png",
+          "alt": "Spermidine Trihydrochloride",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/vitamin-e.png",
+          "alt": "Vitamin E",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        },
+        {
+          "role": "science_visual",
+          "path": "src/assets/figma-home/cellomega-science-bg.png",
+          "alt": "CellOmega+ coastal lifestyle visual",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        }
+      ],
+      "unresolvedCommercialData": [
+        "sku",
+        "inventory",
+        "AED market price"
+      ]
+    },
+    {
+      "handle": "creagen-brain-boost",
+      "title": "Creagen Brain Boost",
+      "source": {
+        "commit": "2191f22d39e952c35d0df543336496bd28b388c9",
+        "productData": "src/data/products.ts"
+      },
+      "productAction": {
+        "action": "CREATE_DRAFT_AFTER_APPROVAL",
+        "productId": null,
+        "currentStatus": null,
+        "reason": "No exact Shopify handle match. The future importer may create this source product only as DRAFT after approval."
+      },
+      "coreFields": {
+        "title": "Creagen Brain Boost",
+        "handle": "creagen-brain-boost",
+        "description": "CREAGEN Brain Boost combines creatine monohydrate with magnesium glycinate and vitamin B12. Designed for active individuals seeking nutritional support for training, work and everyday wellbeing.",
+        "category": "Focus",
+        "targetStatus": "DRAFT"
+      },
+      "fieldMappings": [
+        {
+          "source": "tagline",
+          "target": "custom.pdp_subtitle",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "description",
+          "target": "custom.short_description",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "multi_line_text_field"
+        },
+        {
+          "source": "tags",
+          "target": "custom.hero_tags",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "join_with_semicolon",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "benefits",
+          "target": "custom.hero_bullets",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "join_with_newline",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "supplyLabel",
+          "target": "custom.supply_label",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "servings",
+          "target": "custom.serving_size",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "dosage",
+          "target": "custom.directions",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "multi_line_text_field"
+        },
+        {
+          "source": "warnings",
+          "target": "custom.warnings",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "join_with_newline",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "multi_line_text_field"
+        },
+        {
+          "source": "bestFor",
+          "target": "custom.why_formula_body",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "multi_line_text_field"
+        },
+        {
+          "source": "whyItems",
+          "target": "custom.benefit_cards",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "trustNotes",
+          "target": "custom.trust_badges",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "science",
+          "target": "custom.science_steps",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "supplementFacts",
+          "target": "custom.supplement_facts_rows",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "evidencePoints",
+          "target": "custom.clinical_evidence",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "comparisonRows",
+          "target": "custom.comparison_rows",
+          "expectedShopifyType": "json",
+          "transform": "comparison_row_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "faq",
+          "target": "custom.faqs",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "testimonials",
+          "target": "custom.testimonials",
+          "expectedShopifyType": "json",
+          "transform": "testimonial_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "ingredients",
+          "target": "custom.ingredients",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "names_only",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost",
+          "status": "BLOCKED_RICH_INGREDIENTS_NEED_REFERENCE_FIELD",
+          "existingType": "single_line_text_field",
+          "reason": "The current text field can preserve ingredient names only. It cannot retain ingredient doses, purposes, why-included copy, or ingredient images."
+        }
+      ],
+      "assetActions": [
+        {
+          "role": "primary_media",
+          "path": "src/assets/products/creagen-brain-boost-primary.png",
+          "alt": "BioAro Creagen Brain Boost product set",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-brain-boost-01-hero-1x1.png",
+          "alt": "Creagen Brain Boost container with sachet and water",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-brain-boost-02-open-pack-1x1.png",
+          "alt": "Open Creagen Brain Boost container with individual sachets",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-brain-boost-03-flatlay-1x1.png",
+          "alt": "Creagen Brain Boost container and sachets flat lay",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-brain-boost-04-product-detail-1x1.png",
+          "alt": "Creagen Brain Boost container with branded lid and sachet",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-brain-boost-05-ingredients-1x1.png",
+          "alt": "Creagen Brain Boost key ingredients and serving amounts",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/creatine-monohydrate.png",
+          "alt": "Creatine Monohydrate",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/magnesium-glycinate.png",
+          "alt": "Magnesium Glycinate",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/vitamin-b12.png",
+          "alt": "Vitamin B12",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        },
+        {
+          "role": "science_visual",
+          "path": "src/assets/science/creagen-brain-boost-lifestyle.png",
+          "alt": "Creagen Brain Boost focus and productivity lifestyle visual",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        }
+      ],
+      "unresolvedCommercialData": [
+        "sku",
+        "inventory",
+        "AED market price"
+      ]
+    },
+    {
+      "handle": "creagen-femme-energy",
+      "title": "Creagen Femme Energy",
+      "source": {
+        "commit": "2191f22d39e952c35d0df543336496bd28b388c9",
+        "productData": "src/data/products.ts"
+      },
+      "productAction": {
+        "action": "CREATE_DRAFT_AFTER_APPROVAL",
+        "productId": null,
+        "currentStatus": null,
+        "reason": "No exact Shopify handle match. The future importer may create this source product only as DRAFT after approval."
+      },
+      "coreFields": {
+        "title": "Creagen Femme Energy",
+        "handle": "creagen-femme-energy",
+        "description": "CREAGEN Femme Energy combines creatine monohydrate, ferrous bisglycinate and vitamin B12 to support women's nutritional needs during active lifestyles.",
+        "category": "Energy",
+        "targetStatus": "DRAFT"
+      },
+      "fieldMappings": [
+        {
+          "source": "tagline",
+          "target": "custom.pdp_subtitle",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "description",
+          "target": "custom.short_description",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "multi_line_text_field"
+        },
+        {
+          "source": "tags",
+          "target": "custom.hero_tags",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "join_with_semicolon",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "benefits",
+          "target": "custom.hero_bullets",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "join_with_newline",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "supplyLabel",
+          "target": "custom.supply_label",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "servings",
+          "target": "custom.serving_size",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "dosage",
+          "target": "custom.directions",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "multi_line_text_field"
+        },
+        {
+          "source": "warnings",
+          "target": "custom.warnings",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "join_with_newline",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "multi_line_text_field"
+        },
+        {
+          "source": "bestFor",
+          "target": "custom.why_formula_body",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "multi_line_text_field"
+        },
+        {
+          "source": "whyItems",
+          "target": "custom.benefit_cards",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "trustNotes",
+          "target": "custom.trust_badges",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "science",
+          "target": "custom.science_steps",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "supplementFacts",
+          "target": "custom.supplement_facts_rows",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "evidencePoints",
+          "target": "custom.clinical_evidence",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "comparisonRows",
+          "target": "custom.comparison_rows",
+          "expectedShopifyType": "json",
+          "transform": "comparison_row_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "faq",
+          "target": "custom.faqs",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "testimonials",
+          "target": "custom.testimonials",
+          "expectedShopifyType": "json",
+          "transform": "testimonial_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "ingredients",
+          "target": "custom.ingredients",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "names_only",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy",
+          "status": "BLOCKED_RICH_INGREDIENTS_NEED_REFERENCE_FIELD",
+          "existingType": "single_line_text_field",
+          "reason": "The current text field can preserve ingredient names only. It cannot retain ingredient doses, purposes, why-included copy, or ingredient images."
+        }
+      ],
+      "assetActions": [
+        {
+          "role": "primary_media",
+          "path": "src/assets/products/creagen-femme-energy-primary.png",
+          "alt": "BioAro Creagen Femme Energy product and lid",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-femme-energy-01-hero-1x1.png",
+          "alt": "Creagen Femme Energy jar with an individual sachet",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-femme-energy-02-open-pack-1x1.png",
+          "alt": "Open Creagen Femme Energy jar with branded lid",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-femme-energy-03-sachet-1x1.png",
+          "alt": "Creagen Femme Energy five gram sachet",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-femme-energy-04-ingredients-1x1.png",
+          "alt": "Creagen Femme Energy key ingredients and serving amounts",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-femme-energy-05-lifestyle-1x1.png",
+          "alt": "Woman preparing Creagen Femme Energy sachet with water",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/creatine-monohydrate.png",
+          "alt": "Creatine Monohydrate",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/ferrous-bisglycinate.png",
+          "alt": "Ferrous Bisglycinate",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/vitamin-b12.png",
+          "alt": "Vitamin B12",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        },
+        {
+          "role": "science_visual",
+          "path": "src/assets/science/creagen-femme-energy-lifestyle.png",
+          "alt": "Creagen Femme Energy wellness lifestyle visual",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        }
+      ],
+      "unresolvedCommercialData": [
+        "sku",
+        "inventory",
+        "AED market price"
+      ]
+    },
+    {
+      "handle": "creagen-raw-power",
+      "title": "Creagen Raw Power",
+      "source": {
+        "commit": "2191f22d39e952c35d0df543336496bd28b388c9",
+        "productData": "src/data/products.ts"
+      },
+      "productAction": {
+        "action": "CREATE_DRAFT_AFTER_APPROVAL",
+        "productId": null,
+        "currentStatus": null,
+        "reason": "No exact Shopify handle match. The future importer may create this source product only as DRAFT after approval."
+      },
+      "coreFields": {
+        "title": "Creagen Raw Power",
+        "handle": "creagen-raw-power",
+        "description": "CREAGEN Raw Power provides pure creatine monohydrate for athletes and active individuals. Creatine increases physical performance in successive bursts of short-term, high-intensity exercise. Designed for strength training, sprint exercise and high-intensity performance.",
+        "category": "Performance",
+        "targetStatus": "DRAFT"
+      },
+      "fieldMappings": [
+        {
+          "source": "tagline",
+          "target": "custom.pdp_subtitle",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "description",
+          "target": "custom.short_description",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "multi_line_text_field"
+        },
+        {
+          "source": "tags",
+          "target": "custom.hero_tags",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "join_with_semicolon",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "benefits",
+          "target": "custom.hero_bullets",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "join_with_newline",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "supplyLabel",
+          "target": "custom.supply_label",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "servings",
+          "target": "custom.serving_size",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "dosage",
+          "target": "custom.directions",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "multi_line_text_field"
+        },
+        {
+          "source": "warnings",
+          "target": "custom.warnings",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "join_with_newline",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "multi_line_text_field"
+        },
+        {
+          "source": "bestFor",
+          "target": "custom.why_formula_body",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "multi_line_text_field"
+        },
+        {
+          "source": "whyItems",
+          "target": "custom.benefit_cards",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "trustNotes",
+          "target": "custom.trust_badges",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "science",
+          "target": "custom.science_steps",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "supplementFacts",
+          "target": "custom.supplement_facts_rows",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "evidencePoints",
+          "target": "custom.clinical_evidence",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "comparisonRows",
+          "target": "custom.comparison_rows",
+          "expectedShopifyType": "json",
+          "transform": "comparison_row_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "faq",
+          "target": "custom.faqs",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "testimonials",
+          "target": "custom.testimonials",
+          "expectedShopifyType": "json",
+          "transform": "testimonial_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "ingredients",
+          "target": "custom.ingredients",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "names_only",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power",
+          "status": "BLOCKED_RICH_INGREDIENTS_NEED_REFERENCE_FIELD",
+          "existingType": "single_line_text_field",
+          "reason": "The current text field can preserve ingredient names only. It cannot retain ingredient doses, purposes, why-included copy, or ingredient images."
+        }
+      ],
+      "assetActions": [
+        {
+          "role": "primary_media",
+          "path": "src/assets/products/creagen-raw-power.jpeg",
+          "alt": "BioAro Creagen Raw Power sachet",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-raw-power-01-hero-1x1.png",
+          "alt": "Creagen Raw Power product container",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-raw-power-02-product-detail-1x1.png",
+          "alt": "Creagen Raw Power product container with a serving glass",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-raw-power-03-open-pack-1x1.png",
+          "alt": "Open Creagen Raw Power container with individual sachets",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-raw-power-04-product-scene-1x1.png",
+          "alt": "Creagen Raw Power container and sachets in a dark studio setting",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-raw-power-05-ingredients-1x1.png",
+          "alt": "Creagen Raw Power formula benefits and serving information",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/creatine-monohydrate.png",
+          "alt": "Creatine Monohydrate",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        },
+        {
+          "role": "science_visual",
+          "path": "src/assets/science/creagen-raw-power-lifestyle.png",
+          "alt": "Creagen Raw Power strength lifestyle visual",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        }
+      ],
+      "unresolvedCommercialData": [
+        "sku",
+        "inventory",
+        "AED market price"
+      ]
+    },
+    {
+      "handle": "creagen-pro-power",
+      "title": "Creagen Pro Power",
+      "source": {
+        "commit": "2191f22d39e952c35d0df543336496bd28b388c9",
+        "productData": "src/data/products.ts"
+      },
+      "productAction": {
+        "action": "CREATE_DRAFT_AFTER_APPROVAL",
+        "productId": null,
+        "currentStatus": null,
+        "reason": "No exact Shopify handle match. The future importer may create this source product only as DRAFT after approval."
+      },
+      "coreFields": {
+        "title": "Creagen Pro Power",
+        "handle": "creagen-pro-power",
+        "description": "CREAGEN Pro Power combines creatine monohydrate, beta-alanine and essential electrolytes in a performance-focused formula designed for high-intensity training and active lifestyles.",
+        "category": "Performance",
+        "targetStatus": "DRAFT"
+      },
+      "fieldMappings": [
+        {
+          "source": "tagline",
+          "target": "custom.pdp_subtitle",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "description",
+          "target": "custom.short_description",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "multi_line_text_field"
+        },
+        {
+          "source": "tags",
+          "target": "custom.hero_tags",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "join_with_semicolon",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "benefits",
+          "target": "custom.hero_bullets",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "join_with_newline",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "supplyLabel",
+          "target": "custom.supply_label",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "servings",
+          "target": "custom.serving_size",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "dosage",
+          "target": "custom.directions",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "multi_line_text_field"
+        },
+        {
+          "source": "warnings",
+          "target": "custom.warnings",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "join_with_newline",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "multi_line_text_field"
+        },
+        {
+          "source": "bestFor",
+          "target": "custom.why_formula_body",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "multi_line_text_field"
+        },
+        {
+          "source": "whyItems",
+          "target": "custom.benefit_cards",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "trustNotes",
+          "target": "custom.trust_badges",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "science",
+          "target": "custom.science_steps",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "supplementFacts",
+          "target": "custom.supplement_facts_rows",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "evidencePoints",
+          "target": "custom.clinical_evidence",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "comparisonRows",
+          "target": "custom.comparison_rows",
+          "expectedShopifyType": "json",
+          "transform": "comparison_row_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "faq",
+          "target": "custom.faqs",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "testimonials",
+          "target": "custom.testimonials",
+          "expectedShopifyType": "json",
+          "transform": "testimonial_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "ingredients",
+          "target": "custom.ingredients",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "names_only",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power",
+          "status": "BLOCKED_RICH_INGREDIENTS_NEED_REFERENCE_FIELD",
+          "existingType": "single_line_text_field",
+          "reason": "The current text field can preserve ingredient names only. It cannot retain ingredient doses, purposes, why-included copy, or ingredient images."
+        }
+      ],
+      "assetActions": [
+        {
+          "role": "primary_media",
+          "path": "src/assets/products/creagen-pro-power.png",
+          "alt": "BioAro Creagen Pro Power sachet",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-pro-power-01-hero-1x1.jpg",
+          "alt": "Creagen Pro Power container with two individual sachets",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-pro-power-02-ingredients-1x1.jpg",
+          "alt": "Creagen Pro Power ingredients with powder and individual sachets",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-pro-power-03-lifestyle-1x1.jpg",
+          "alt": "Athlete preparing Creagen Pro Power in a gym",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-pro-power-04-benefits-1x1.jpg",
+          "alt": "Creagen Pro Power formula benefits and performance support information",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-pro-power-05-product-routine-1x1.jpg",
+          "alt": "Open Creagen Pro Power container with shaker and sachets",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/creatine-monohydrate.png",
+          "alt": "Creatine Monohydrate",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/beta-alanine.png",
+          "alt": "Beta-Alanine",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/potassium-chloride.png",
+          "alt": "Potassium Chloride",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/sodium-chloride.png",
+          "alt": "Sodium Chloride",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/magnesium-bisglycinate.png",
+          "alt": "Magnesium Bisglycinate",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        },
+        {
+          "role": "science_visual",
+          "path": "src/assets/science/creagen-pro-power-lifestyle.png",
+          "alt": "Creagen Pro Power performance lifestyle visual",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        }
+      ],
+      "unresolvedCommercialData": [
+        "sku",
+        "inventory",
+        "AED market price"
+      ]
+    },
+    {
+      "handle": "glutara",
+      "title": "Glutara",
+      "source": {
+        "commit": "2191f22d39e952c35d0df543336496bd28b388c9",
+        "productData": "src/data/products.ts"
+      },
+      "productAction": {
+        "action": "CREATE_DRAFT_AFTER_APPROVAL",
+        "productId": null,
+        "currentStatus": null,
+        "reason": "No exact Shopify handle match. The future importer may create this source product only as DRAFT after approval."
+      },
+      "coreFields": {
+        "title": "Glutara",
+        "handle": "glutara",
+        "description": "Glutara combines liposomal glutathione, vitamin C, hyaluronic acid and B vitamins in a carefully formulated daily wellness supplement with piperine to support ingredient absorption.",
+        "category": "Wellness",
+        "targetStatus": "DRAFT"
+      },
+      "fieldMappings": [
+        {
+          "source": "tagline",
+          "target": "custom.pdp_subtitle",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "description",
+          "target": "custom.short_description",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "multi_line_text_field"
+        },
+        {
+          "source": "tags",
+          "target": "custom.hero_tags",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "join_with_semicolon",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "benefits",
+          "target": "custom.hero_bullets",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "join_with_newline",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "supplyLabel",
+          "target": "custom.supply_label",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "servings",
+          "target": "custom.serving_size",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "single_line_text_field"
+        },
+        {
+          "source": "dosage",
+          "target": "custom.directions",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "multi_line_text_field"
+        },
+        {
+          "source": "warnings",
+          "target": "custom.warnings",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "join_with_newline",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "multi_line_text_field"
+        },
+        {
+          "source": "bestFor",
+          "target": "custom.why_formula_body",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "multi_line_text_field"
+        },
+        {
+          "source": "whyItems",
+          "target": "custom.benefit_cards",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "trustNotes",
+          "target": "custom.trust_badges",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "science",
+          "target": "custom.science_steps",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "supplementFacts",
+          "target": "custom.supplement_facts_rows",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "evidencePoints",
+          "target": "custom.clinical_evidence",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "comparisonRows",
+          "target": "custom.comparison_rows",
+          "expectedShopifyType": "json",
+          "transform": "comparison_row_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "faq",
+          "target": "custom.faqs",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "testimonials",
+          "target": "custom.testimonials",
+          "expectedShopifyType": "json",
+          "transform": "testimonial_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara",
+          "status": "READY_AFTER_PRODUCT_APPROVAL",
+          "existingType": "json"
+        },
+        {
+          "source": "ingredients",
+          "target": "custom.ingredients",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "names_only",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara",
+          "status": "BLOCKED_RICH_INGREDIENTS_NEED_REFERENCE_FIELD",
+          "existingType": "single_line_text_field",
+          "reason": "The current text field can preserve ingredient names only. It cannot retain ingredient doses, purposes, why-included copy, or ingredient images."
+        }
+      ],
+      "assetActions": [
+        {
+          "role": "primary_media",
+          "path": "src/assets/products/glutara-primary.png",
+          "alt": "BioAro Glutara product container",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/glutara-01-hero-1x1.jpg",
+          "alt": "Glutara product container on a stone surface",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/glutara-02-ingredients-1x1.jpg",
+          "alt": "Glutara ingredients with sachets and powder samples",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/glutara-03-lifestyle-1x1.jpg",
+          "alt": "Woman preparing Glutara with water as part of a daily routine",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/glutara-04-benefits-1x1.jpg",
+          "alt": "Glutara formula benefits and antioxidant support information",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/glutara-05-product-routine-1x1.jpg",
+          "alt": "Open Glutara container with sachets, water, and powder",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media",
+          "proposedAction": "UPLOAD_AND_ATTACH_AS_PRODUCT_MEDIA_AFTER_APPROVAL",
+          "approvalBlocker": null
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/liposomal-glutathione.png",
+          "alt": "Liposomal Glutathione",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/vitamin-c.png",
+          "alt": "Vitamin C",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/hyaluronic-acid.png",
+          "alt": "Hyaluronic Acid",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/vitamin-b1.png",
+          "alt": "Vitamin B1",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/vitamin-b6.png",
+          "alt": "Vitamin B6",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/piperine.png",
+          "alt": "Piperine",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        },
+        {
+          "role": "science_visual",
+          "path": "src/assets/science/glutara-lifestyle.png",
+          "alt": "Glutara lifestyle visual with warm sunset light",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference",
+          "proposedAction": "UPLOAD_TO_SHOPIFY_FILES_AFTER_APPROVAL",
+          "approvalBlocker": "A compatible product reference field is required before this image can be connected to a PDP panel without losing its product-specific meaning."
+        }
+      ],
+      "unresolvedCommercialData": [
+        "sku",
+        "inventory",
+        "AED market price"
+      ]
+    }
+  ]
+}

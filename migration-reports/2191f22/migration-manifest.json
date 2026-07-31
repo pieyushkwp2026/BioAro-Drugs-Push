@@ -1,0 +1,2852 @@
+{
+  "sourceCommit": "2191f22d39e952c35d0df543336496bd28b388c9",
+  "products": [
+    {
+      "source": {
+        "commit": "2191f22d39e952c35d0df543336496bd28b388c9",
+        "productData": "src/data/products.ts"
+      },
+      "product": {
+        "handle": "longevity-plus",
+        "title": "LONgevity+",
+        "description": "Daily wellness formula designed to support healthy ageing and cellular energy, featuring NMN, resveratrol, CoQ10, curcumin, vitamin D3, and vitamin B12, helping support everyday vitality and cellular wellbeing.",
+        "status": "DRAFT_ON_APPROVED_LIVE_IMPORT",
+        "category": "Longevity",
+        "badge": "NAD+ Booster",
+        "sku": null,
+        "priceByCountry": {
+          "US": 113.99,
+          "CA": 150.99,
+          "GB": 89.99
+        },
+        "missingCommercialData": [
+          "sku",
+          "inventory",
+          "AED market price"
+        ]
+      },
+      "pdp": {
+        "tagline": "Supports healthy ageing and everyday vitality.",
+        "tags": [
+          "Cellular Energy",
+          "Healthy Aging",
+          "NAD+ Support"
+        ],
+        "supplyLabel": "30-day supply",
+        "servings": "60 vegan capsules · 30 servings",
+        "dosage": "Recommended daily intake: Take 2 capsules daily with food, or as directed on the product label.",
+        "bestFor": "Adults focused on long-term vitality, cellular wellness, and proactive healthy aging.",
+        "benefits": [
+          "Contains ingredients selected to support cellular function",
+          "Developed to support healthy ageing as part of a healthy lifestyle",
+          "Helps protect cells from oxidative stress"
+        ],
+        "whyItems": [
+          {
+            "icon": "energy",
+            "title": "Cellular Energy",
+            "description": "Formulated with ingredients selected for cellular energy support."
+          },
+          {
+            "icon": "aging",
+            "title": "Healthy Aging",
+            "description": "Developed to support healthy ageing as part of a healthy lifestyle."
+          },
+          {
+            "icon": "balance",
+            "title": "Methylation Balance",
+            "description": "Includes vitamin B12, which contributes to normal homocysteine metabolism."
+          }
+        ],
+        "trustNotes": [
+          "Third-party tested for purity & potency.",
+          "Transparent label, nothing hidden.",
+          "Certificates of Analysis available upon request."
+        ],
+        "qualityPoints": [
+          "Formulated in Canada",
+          "Manufactured in a GMP-certified facility",
+          "Third-party tested for identity and purity",
+          "Transparent ingredient dosages",
+          "Vegan capsules",
+          "No proprietary blends",
+          "UK Food Supplement compliant"
+        ],
+        "warnings": [
+          "Consult your healthcare professional before use if you are pregnant, breastfeeding, taking medication or have a medical condition.",
+          "Do not exceed the recommended daily intake.",
+          "Keep out of reach of young children.",
+          "Food supplements should not be used as a substitute for a varied, balanced diet and a healthy lifestyle."
+        ],
+        "ingredients": [
+          {
+            "name": "NMN",
+            "amount": "500 mg",
+            "purpose": "Supports NAD+ production and cellular energy.",
+            "whyIncluded": "The core precursor that helps raise cellular NAD+ levels.",
+            "image": "src/assets/ingredients/nmn.png"
+          },
+          {
+            "name": "Resveratrol",
+            "amount": "200 mg",
+            "purpose": "Supports healthy aging pathways and longevity.",
+            "whyIncluded": "Works alongside NAD+ support to help activate longevity pathways.",
+            "image": "src/assets/ingredients/resveratrol.png"
+          },
+          {
+            "name": "CoQ10",
+            "amount": "100 mg",
+            "purpose": "Supports cellular energy and heart health.",
+            "whyIncluded": "Supports mitochondrial energy output at the cellular level.",
+            "image": "src/assets/ingredients/coq10.png"
+          },
+          {
+            "name": "Curcumin",
+            "amount": "100 mg",
+            "purpose": "Supports antioxidant defense.",
+            "whyIncluded": "Helps protect cells from oxidative stress.",
+            "image": "src/assets/ingredients/curcumin.png"
+          },
+          {
+            "name": "Vitamin B12",
+            "amount": "250 µg",
+            "purpose": "Contributes to normal energy-yielding metabolism.",
+            "whyIncluded": "Vitamin B12 contributes to normal homocysteine metabolism.",
+            "image": "src/assets/ingredients/vitamin-b12.png"
+          },
+          {
+            "name": "Vitamin D3",
+            "amount": "25 µg / 1,000 IU",
+            "purpose": "Contributes to the normal function of the immune system.",
+            "whyIncluded": "Rounds out the formula's healthy aging support.",
+            "image": "src/assets/ingredients/vitamin-d3.png"
+          }
+        ],
+        "otherIngredients": [
+          "Microcrystalline Cellulose",
+          "Silicon Dioxide",
+          "Maize Starch",
+          "Hypromellose capsule"
+        ],
+        "supplementFacts": [
+          {
+            "label": "Recommended daily intake",
+            "value": "Take 2 capsules daily with food, or as directed on the product label."
+          },
+          {
+            "label": "Servings per container",
+            "value": "30"
+          },
+          {
+            "label": "Format",
+            "value": "Vegan capsules"
+          }
+        ],
+        "science": [
+          {
+            "title": "NMN",
+            "description": "Supports NAD+ production at the cellular level."
+          },
+          {
+            "title": "Supports NAD+",
+            "description": "Increases cellular NAD+ levels available for energy metabolism."
+          },
+          {
+            "title": "Cellular Energy",
+            "description": "Supports mitochondrial function and repair."
+          },
+          {
+            "title": "Healthy Aging",
+            "description": "Supports everyday vitality and cellular wellbeing."
+          }
+        ],
+        "evidencePoints": [
+          "27+ published studies reviewed",
+          "Third-party tested for purity & potency",
+          "cGMP certified manufacturing",
+          "Transparent label, nothing hidden",
+          "No proprietary blends"
+        ],
+        "faq": [
+          {
+            "question": "How should I take LONgevity+?",
+            "answer": "Take 2 capsules daily with food, or as directed on the product label."
+          },
+          {
+            "question": "When will I see results?",
+            "answer": "Individual experiences vary depending on diet, lifestyle and consistency of use."
+          },
+          {
+            "question": "Is it suitable for vegetarians?",
+            "answer": "Yes, LONgevity+ is formulated in vegan capsules."
+          },
+          {
+            "question": "Are there any side effects?",
+            "answer": "Please follow the recommended intake on the label and consult a healthcare professional before use if you are pregnant, breastfeeding, taking medication or managing a medical condition."
+          },
+          {
+            "question": "Is it safe to take with other supplements?",
+            "answer": "Check with a healthcare professional if you are on medication or combining multiple supplements."
+          },
+          {
+            "question": "What is your return policy?",
+            "answer": "See our returns & refunds page for full details."
+          }
+        ],
+        "comparisonRows": []
+      },
+      "assets": [
+        {
+          "role": "primary_media",
+          "path": "src/assets/products/longevity-plus-primary.png",
+          "alt": "BioAro LONgevity+ product and lid",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/longevity-plus-01-hero-1x1.png",
+          "alt": "Longevity Plus product box and bottle",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/longevity-plus-02-close-up-1x1.png",
+          "alt": "Longevity Plus bottle in front of product packaging",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/longevity-plus-03-open-pack-1x1.png",
+          "alt": "Open Longevity Plus packaging with branded lid",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/longevity-plus-04-ingredients-1x1.png",
+          "alt": "Longevity Plus key ingredients and serving amounts",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/longevity-plus-05-lifestyle-1x1.png",
+          "alt": "Woman preparing Longevity Plus as part of a daily routine",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/nmn.png",
+          "alt": "NMN",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/resveratrol.png",
+          "alt": "Resveratrol",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/coq10.png",
+          "alt": "CoQ10",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/curcumin.png",
+          "alt": "Curcumin",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/vitamin-b12.png",
+          "alt": "Vitamin B12",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/vitamin-d3.png",
+          "alt": "Vitamin D3",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        },
+        {
+          "role": "science_visual",
+          "path": "src/assets/science/longevity-plus-lifestyle.png",
+          "alt": "LONgevity+ coastal vitality lifestyle visual",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        }
+      ],
+      "proposedMappings": [
+        {
+          "source": "tagline",
+          "target": "custom.pdp_subtitle",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus"
+        },
+        {
+          "source": "description",
+          "target": "custom.short_description",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus"
+        },
+        {
+          "source": "tags",
+          "target": "custom.hero_tags",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "join_with_semicolon",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus"
+        },
+        {
+          "source": "benefits",
+          "target": "custom.hero_bullets",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "join_with_newline",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus"
+        },
+        {
+          "source": "supplyLabel",
+          "target": "custom.supply_label",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus"
+        },
+        {
+          "source": "servings",
+          "target": "custom.serving_size",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus"
+        },
+        {
+          "source": "dosage",
+          "target": "custom.directions",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus"
+        },
+        {
+          "source": "warnings",
+          "target": "custom.warnings",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "join_with_newline",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus"
+        },
+        {
+          "source": "bestFor",
+          "target": "custom.why_formula_body",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus"
+        },
+        {
+          "source": "whyItems",
+          "target": "custom.benefit_cards",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus"
+        },
+        {
+          "source": "trustNotes",
+          "target": "custom.trust_badges",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus"
+        },
+        {
+          "source": "science",
+          "target": "custom.science_steps",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus"
+        },
+        {
+          "source": "supplementFacts",
+          "target": "custom.supplement_facts_rows",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus"
+        },
+        {
+          "source": "evidencePoints",
+          "target": "custom.clinical_evidence",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus"
+        },
+        {
+          "source": "comparisonRows",
+          "target": "custom.comparison_rows",
+          "expectedShopifyType": "json",
+          "transform": "comparison_row_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus"
+        },
+        {
+          "source": "faq",
+          "target": "custom.faqs",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus"
+        },
+        {
+          "source": "testimonials",
+          "target": "custom.testimonials",
+          "expectedShopifyType": "json",
+          "transform": "testimonial_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus"
+        },
+        {
+          "source": "ingredients",
+          "target": "custom.ingredients",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "names_only",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "longevity-plus"
+        }
+      ]
+    },
+    {
+      "source": {
+        "commit": "2191f22d39e952c35d0df543336496bd28b388c9",
+        "productData": "src/data/products.ts"
+      },
+      "product": {
+        "handle": "cellomega-plus",
+        "title": "CellOmega+",
+        "description": "CellOmega+ combines algae-derived omega-3s, CoQ10, magnesium bisglycinate, astaxanthin, spermidine, and vitamin E in a daily wellness formula. EPA and DHA contribute to the normal function of the heart. Designed to support heart, brain, and metabolic health as part of a balanced lifestyle.",
+        "status": "DRAFT_ON_APPROVED_LIVE_IMPORT",
+        "category": "Wellness",
+        "badge": "Essential Omega Wellness",
+        "sku": null,
+        "priceByCountry": {
+          "US": 110,
+          "CA": 146,
+          "GB": 64.99
+        },
+        "missingCommercialData": [
+          "sku",
+          "inventory",
+          "AED market price"
+        ]
+      },
+      "pdp": {
+        "tagline": "Heart, brain, and cellular wellness support.",
+        "tags": [
+          "Heart Health",
+          "Brain Health",
+          "Cellular Wellness"
+        ],
+        "supplyLabel": "30-day supply",
+        "servings": "60 vegan capsules · 30 servings",
+        "dosage": "Take 2 capsules daily with food, or as directed on the product label.",
+        "bestFor": "Adults seeking foundational support for cellular wellness, heart health, brain health, and healthy aging.",
+        "benefits": [
+          "EPA and DHA contribute to the normal function of the heart",
+          "Magnesium contributes to normal muscle function and normal psychological function",
+          "Vitamin E contributes to the protection of cells from oxidative stress"
+        ],
+        "whyItems": [
+          {
+            "icon": "heart",
+            "title": "Heart Health",
+            "description": "EPA and DHA contribute to the normal function of the heart."
+          },
+          {
+            "icon": "brain",
+            "title": "Brain Function",
+            "description": "Supports cognitive function and mental clarity."
+          },
+          {
+            "icon": "balance",
+            "title": "Cellular Protection",
+            "description": "Vitamin E contributes to the protection of cells from oxidative stress."
+          }
+        ],
+        "trustNotes": [
+          "Third-party tested for purity & potency.",
+          "Transparent label, nothing hidden.",
+          "Certificates of Analysis available upon request."
+        ],
+        "qualityPoints": [
+          "Formulated in Canada",
+          "Manufactured in a GMP-certified facility",
+          "Third-party tested for identity and purity",
+          "Transparent ingredient dosages",
+          "Vegan capsules",
+          "No proprietary blends",
+          "UK Food Supplement compliant"
+        ],
+        "warnings": [
+          "Consult your healthcare professional before use if you are pregnant, breastfeeding, taking medication or have a medical condition.",
+          "Do not exceed the recommended daily intake.",
+          "Keep out of reach of young children.",
+          "Food supplements should not be used as a substitute for a varied, balanced diet and a healthy lifestyle."
+        ],
+        "ingredients": [
+          {
+            "name": "Algae Powder (Omega-3)",
+            "amount": "1,000 mg",
+            "purpose": "EPA and DHA contribute to the normal function of the heart.",
+            "whyIncluded": "A plant-based omega-3 source providing EPA (30%) and DHA (10%).",
+            "image": "src/assets/ingredients/omega-3-fatty-acids.png"
+          },
+          {
+            "name": "Magnesium Bisglycinate",
+            "amount": "170 mg",
+            "purpose": "Magnesium contributes to normal muscle function and normal psychological function.",
+            "whyIncluded": "A highly bioavailable magnesium form for daily wellness support.",
+            "image": "src/assets/ingredients/magnesium-bisglycinate.png"
+          },
+          {
+            "name": "CoQ10",
+            "amount": "50 mg",
+            "purpose": "Supports cellular energy and heart health.",
+            "whyIncluded": "Supports mitochondrial energy output alongside the omega blend.",
+            "image": "src/assets/ingredients/coq10.png"
+          },
+          {
+            "name": "Astaxanthin",
+            "amount": "8 mg",
+            "purpose": "Supports antioxidant defense.",
+            "whyIncluded": "A potent antioxidant carotenoid that supports cellular wellness.",
+            "image": "src/assets/ingredients/astaxanthin.png"
+          },
+          {
+            "name": "Spermidine Trihydrochloride",
+            "amount": "2 mg",
+            "purpose": "Supports healthy cellular renewal.",
+            "whyIncluded": "Included for its role in supporting cellular renewal processes.",
+            "image": "src/assets/ingredients/spermidine-trihydrochloride.png"
+          },
+          {
+            "name": "Vitamin E",
+            "amount": "6 mg",
+            "purpose": "Vitamin E contributes to the protection of cells from oxidative stress.",
+            "whyIncluded": "Rounds out the formula's antioxidant support.",
+            "image": "src/assets/ingredients/vitamin-e.png"
+          }
+        ],
+        "otherIngredients": [
+          "Starch",
+          "Capsule Shell (Hydroxypropyl/ Methyl Cellulose)",
+          "Co-Enzyme Q10",
+          "Astaxarthin",
+          "Spermidine",
+          "Mannesium Bisglycinate",
+          "Vitamin E",
+          "Anti-Caking Agent (Silicon Dioxide)"
+        ],
+        "supplementFacts": [
+          {
+            "label": "Recommended daily intake",
+            "value": "Take 2 capsules daily with food, or as directed on the product label."
+          },
+          {
+            "label": "Servings per container",
+            "value": "30"
+          },
+          {
+            "label": "Format",
+            "value": "Vegan capsules"
+          }
+        ],
+        "science": [
+          {
+            "title": "Omega-3 Uptake",
+            "description": "Algae-derived EPA and DHA are absorbed to support system-wide wellness."
+          },
+          {
+            "title": "Supports Circulation",
+            "description": "EPA and DHA contribute to the normal function of the heart."
+          },
+          {
+            "title": "Brain & Heart Function",
+            "description": "Supports cognitive clarity and heart health together."
+          },
+          {
+            "title": "Cellular Protection",
+            "description": "Vitamin E contributes to the protection of cells from oxidative stress."
+          }
+        ],
+        "evidencePoints": [
+          "Published Omega-3 Research",
+          "Third-party tested for purity & potency",
+          "cGMP certified manufacturing",
+          "Transparent label, nothing hidden",
+          "No proprietary blends"
+        ],
+        "faq": [
+          {
+            "question": "How should I take CellOmega+?",
+            "answer": "Take 2 capsules daily with food, or as directed on the product label."
+          },
+          {
+            "question": "When will I see results?",
+            "answer": "Individual experiences vary depending on diet, lifestyle and consistency of use."
+          },
+          {
+            "question": "Is it suitable for vegetarians?",
+            "answer": "Yes, CellOmega+ uses an algae-derived omega-3 source and vegan capsules."
+          },
+          {
+            "question": "Are there any side effects?",
+            "answer": "Please follow the recommended intake on the label and consult a healthcare professional before use if you are pregnant, breastfeeding, taking medication or managing a medical condition."
+          },
+          {
+            "question": "Is it safe to take with other supplements?",
+            "answer": "Check with a healthcare professional if you are on medication or combining multiple supplements."
+          },
+          {
+            "question": "What is your return policy?",
+            "answer": "See our returns & refunds page for full details."
+          }
+        ],
+        "comparisonRows": []
+      },
+      "assets": [
+        {
+          "role": "primary_media",
+          "path": "src/assets/products/cellomega-plus-primary.png",
+          "alt": "BioAro CellOmega+ product and lid",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/cellomega-plus-01-hero-1x1.png",
+          "alt": "CellOmega Plus packaging, bottle, and capsules",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/cellomega-plus-02-ingredients-1x1.png",
+          "alt": "CellOmega Plus bottle with algae and supporting ingredients",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/cellomega-plus-03-ingredients-list-1x1.png",
+          "alt": "CellOmega Plus key ingredients and serving amounts",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/cellomega-plus-04-lifestyle-1x1.png",
+          "alt": "CellOmega Plus bottle in a morning wellness routine",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/cellomega-plus-05-product-1x1.png",
+          "alt": "CellOmega Plus packaging and bottle close-up",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/omega-3-fatty-acids.png",
+          "alt": "Algae Powder (Omega-3)",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/magnesium-bisglycinate.png",
+          "alt": "Magnesium Bisglycinate",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/coq10.png",
+          "alt": "CoQ10",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/astaxanthin.png",
+          "alt": "Astaxanthin",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/spermidine-trihydrochloride.png",
+          "alt": "Spermidine Trihydrochloride",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/vitamin-e.png",
+          "alt": "Vitamin E",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        },
+        {
+          "role": "science_visual",
+          "path": "src/assets/figma-home/cellomega-science-bg.png",
+          "alt": "CellOmega+ coastal lifestyle visual",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        }
+      ],
+      "proposedMappings": [
+        {
+          "source": "tagline",
+          "target": "custom.pdp_subtitle",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus"
+        },
+        {
+          "source": "description",
+          "target": "custom.short_description",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus"
+        },
+        {
+          "source": "tags",
+          "target": "custom.hero_tags",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "join_with_semicolon",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus"
+        },
+        {
+          "source": "benefits",
+          "target": "custom.hero_bullets",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "join_with_newline",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus"
+        },
+        {
+          "source": "supplyLabel",
+          "target": "custom.supply_label",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus"
+        },
+        {
+          "source": "servings",
+          "target": "custom.serving_size",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus"
+        },
+        {
+          "source": "dosage",
+          "target": "custom.directions",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus"
+        },
+        {
+          "source": "warnings",
+          "target": "custom.warnings",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "join_with_newline",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus"
+        },
+        {
+          "source": "bestFor",
+          "target": "custom.why_formula_body",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus"
+        },
+        {
+          "source": "whyItems",
+          "target": "custom.benefit_cards",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus"
+        },
+        {
+          "source": "trustNotes",
+          "target": "custom.trust_badges",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus"
+        },
+        {
+          "source": "science",
+          "target": "custom.science_steps",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus"
+        },
+        {
+          "source": "supplementFacts",
+          "target": "custom.supplement_facts_rows",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus"
+        },
+        {
+          "source": "evidencePoints",
+          "target": "custom.clinical_evidence",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus"
+        },
+        {
+          "source": "comparisonRows",
+          "target": "custom.comparison_rows",
+          "expectedShopifyType": "json",
+          "transform": "comparison_row_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus"
+        },
+        {
+          "source": "faq",
+          "target": "custom.faqs",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus"
+        },
+        {
+          "source": "testimonials",
+          "target": "custom.testimonials",
+          "expectedShopifyType": "json",
+          "transform": "testimonial_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus"
+        },
+        {
+          "source": "ingredients",
+          "target": "custom.ingredients",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "names_only",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "cellomega-plus"
+        }
+      ]
+    },
+    {
+      "source": {
+        "commit": "2191f22d39e952c35d0df543336496bd28b388c9",
+        "productData": "src/data/products.ts"
+      },
+      "product": {
+        "handle": "creagen-brain-boost",
+        "title": "Creagen Brain Boost",
+        "description": "CREAGEN Brain Boost combines creatine monohydrate with magnesium glycinate and vitamin B12. Designed for active individuals seeking nutritional support for training, work and everyday wellbeing.",
+        "status": "DRAFT_ON_APPROVED_LIVE_IMPORT",
+        "category": "Focus",
+        "badge": "Cognitive Focus Support",
+        "sku": null,
+        "priceByCountry": {
+          "US": 50,
+          "CA": 67,
+          "GB": 34.99
+        },
+        "missingCommercialData": [
+          "sku",
+          "inventory",
+          "AED market price"
+        ]
+      },
+      "pdp": {
+        "tagline": "Nutritional support for training, work and everyday wellbeing.",
+        "tags": [
+          "Focus",
+          "Mental Clarity",
+          "Recovery"
+        ],
+        "supplyLabel": "20-day supply",
+        "servings": "20 x 5g sachets · 20 servings",
+        "dosage": "Mix 1 sachet with water daily, or as directed on the product label.",
+        "bestFor": "Professionals, students, creators, and active adults seeking nutritional support for training, work and everyday wellbeing.",
+        "benefits": [
+          "Creatine increases physical performance in successive bursts of short-term, high-intensity exercise",
+          "Magnesium contributes to normal muscle function",
+          "Vitamin B12 contributes to normal energy-yielding metabolism"
+        ],
+        "whyItems": [
+          {
+            "icon": "brain",
+            "title": "Physical Performance",
+            "description": "Creatine increases physical performance in successive bursts of short-term, high-intensity exercise."
+          },
+          {
+            "icon": "flame",
+            "title": "Muscle Function",
+            "description": "Magnesium contributes to normal muscle function."
+          },
+          {
+            "icon": "energy",
+            "title": "Energy Metabolism",
+            "description": "Vitamin B12 contributes to normal energy-yielding metabolism."
+          }
+        ],
+        "trustNotes": [
+          "Third-party tested for purity & potency.",
+          "Transparent label, nothing hidden.",
+          "Certificates of Analysis available upon request."
+        ],
+        "qualityPoints": [
+          "Formulated in Canada",
+          "Manufactured in a GMP-certified facility",
+          "Third-party tested for identity and purity",
+          "Transparent ingredient dosages",
+          "No proprietary blends",
+          "UK Food Supplement compliant"
+        ],
+        "warnings": [
+          "Consult your healthcare professional before use if you are pregnant, breastfeeding, taking medication or have a medical condition.",
+          "Do not exceed the recommended daily intake.",
+          "Keep out of reach of young children.",
+          "Food supplements should not be used as a substitute for a varied, balanced diet and a healthy lifestyle."
+        ],
+        "ingredients": [
+          {
+            "name": "Creatine Monohydrate",
+            "amount": "3 g",
+            "purpose": "Creatine increases physical performance in successive bursts of short-term, high-intensity exercise.",
+            "whyIncluded": "The core active for physical performance support.",
+            "image": "src/assets/ingredients/creatine-monohydrate.png"
+          },
+          {
+            "name": "Magnesium Glycinate",
+            "amount": "100 mg",
+            "purpose": "Magnesium contributes to normal muscle function.",
+            "whyIncluded": "A well-absorbed magnesium form supporting muscle function.",
+            "image": "src/assets/ingredients/magnesium-glycinate.png"
+          },
+          {
+            "name": "Vitamin B12",
+            "amount": "2.4 µg",
+            "purpose": "Vitamin B12 contributes to normal energy-yielding metabolism.",
+            "whyIncluded": "Supports energy metabolism throughout the day.",
+            "image": "src/assets/ingredients/vitamin-b12.png"
+          }
+        ],
+        "otherIngredients": [],
+        "supplementFacts": [
+          {
+            "label": "Recommended daily intake",
+            "value": "Mix 1 sachet with water daily, or as directed on the product label."
+          },
+          {
+            "label": "Servings per container",
+            "value": "20"
+          },
+          {
+            "label": "Format",
+            "value": "Powder sachets"
+          }
+        ],
+        "science": [
+          {
+            "title": "Absorb & Circulate",
+            "description": "Creatine and cofactors are absorbed to support energy systems."
+          },
+          {
+            "title": "Physical Performance",
+            "description": "Creatine increases physical performance in successive bursts of short-term, high-intensity exercise."
+          },
+          {
+            "title": "Muscle & Energy Support",
+            "description": "Magnesium and B12 contribute to normal muscle function and energy-yielding metabolism."
+          }
+        ],
+        "evidencePoints": [
+          "27+ published studies reviewed",
+          "Third-party tested for purity & potency",
+          "cGMP certified manufacturing",
+          "Transparent label, nothing hidden",
+          "No proprietary blends"
+        ],
+        "faq": [
+          {
+            "question": "How should I take Creagen Brain Boost?",
+            "answer": "Mix 1 sachet with water daily, or as directed on the product label."
+          },
+          {
+            "question": "When will I see results?",
+            "answer": "Individual experiences vary depending on diet, lifestyle, training and consistency of use."
+          },
+          {
+            "question": "Is it suitable for vegetarians?",
+            "answer": "Yes, this formula is vegetarian-friendly."
+          },
+          {
+            "question": "Are there any side effects?",
+            "answer": "Please follow the recommended intake on the label and consult a healthcare professional before use if you are pregnant, breastfeeding, taking medication or managing a medical condition."
+          },
+          {
+            "question": "Is it safe to take with other supplements?",
+            "answer": "If you are taking medication or combining multiple supplements, seek professional advice before use."
+          },
+          {
+            "question": "What is your return policy?",
+            "answer": "See our returns & refunds page for full details."
+          }
+        ],
+        "comparisonRows": []
+      },
+      "assets": [
+        {
+          "role": "primary_media",
+          "path": "src/assets/products/creagen-brain-boost-primary.png",
+          "alt": "BioAro Creagen Brain Boost product set",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-brain-boost-01-hero-1x1.png",
+          "alt": "Creagen Brain Boost container with sachet and water",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-brain-boost-02-open-pack-1x1.png",
+          "alt": "Open Creagen Brain Boost container with individual sachets",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-brain-boost-03-flatlay-1x1.png",
+          "alt": "Creagen Brain Boost container and sachets flat lay",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-brain-boost-04-product-detail-1x1.png",
+          "alt": "Creagen Brain Boost container with branded lid and sachet",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-brain-boost-05-ingredients-1x1.png",
+          "alt": "Creagen Brain Boost key ingredients and serving amounts",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/creatine-monohydrate.png",
+          "alt": "Creatine Monohydrate",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/magnesium-glycinate.png",
+          "alt": "Magnesium Glycinate",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/vitamin-b12.png",
+          "alt": "Vitamin B12",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        },
+        {
+          "role": "science_visual",
+          "path": "src/assets/science/creagen-brain-boost-lifestyle.png",
+          "alt": "Creagen Brain Boost focus and productivity lifestyle visual",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        }
+      ],
+      "proposedMappings": [
+        {
+          "source": "tagline",
+          "target": "custom.pdp_subtitle",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost"
+        },
+        {
+          "source": "description",
+          "target": "custom.short_description",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost"
+        },
+        {
+          "source": "tags",
+          "target": "custom.hero_tags",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "join_with_semicolon",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost"
+        },
+        {
+          "source": "benefits",
+          "target": "custom.hero_bullets",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "join_with_newline",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost"
+        },
+        {
+          "source": "supplyLabel",
+          "target": "custom.supply_label",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost"
+        },
+        {
+          "source": "servings",
+          "target": "custom.serving_size",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost"
+        },
+        {
+          "source": "dosage",
+          "target": "custom.directions",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost"
+        },
+        {
+          "source": "warnings",
+          "target": "custom.warnings",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "join_with_newline",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost"
+        },
+        {
+          "source": "bestFor",
+          "target": "custom.why_formula_body",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost"
+        },
+        {
+          "source": "whyItems",
+          "target": "custom.benefit_cards",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost"
+        },
+        {
+          "source": "trustNotes",
+          "target": "custom.trust_badges",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost"
+        },
+        {
+          "source": "science",
+          "target": "custom.science_steps",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost"
+        },
+        {
+          "source": "supplementFacts",
+          "target": "custom.supplement_facts_rows",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost"
+        },
+        {
+          "source": "evidencePoints",
+          "target": "custom.clinical_evidence",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost"
+        },
+        {
+          "source": "comparisonRows",
+          "target": "custom.comparison_rows",
+          "expectedShopifyType": "json",
+          "transform": "comparison_row_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost"
+        },
+        {
+          "source": "faq",
+          "target": "custom.faqs",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost"
+        },
+        {
+          "source": "testimonials",
+          "target": "custom.testimonials",
+          "expectedShopifyType": "json",
+          "transform": "testimonial_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost"
+        },
+        {
+          "source": "ingredients",
+          "target": "custom.ingredients",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "names_only",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-brain-boost"
+        }
+      ]
+    },
+    {
+      "source": {
+        "commit": "2191f22d39e952c35d0df543336496bd28b388c9",
+        "productData": "src/data/products.ts"
+      },
+      "product": {
+        "handle": "creagen-femme-energy",
+        "title": "Creagen Femme Energy",
+        "description": "CREAGEN Femme Energy combines creatine monohydrate, ferrous bisglycinate and vitamin B12 to support women's nutritional needs during active lifestyles.",
+        "status": "DRAFT_ON_APPROVED_LIVE_IMPORT",
+        "category": "Energy",
+        "badge": "Women's Energy Support",
+        "sku": null,
+        "priceByCountry": {
+          "US": 55,
+          "CA": 73,
+          "GB": 29.99
+        },
+        "missingCommercialData": [
+          "sku",
+          "inventory",
+          "AED market price"
+        ]
+      },
+      "pdp": {
+        "tagline": "Nutritional support for active women.",
+        "tags": [
+          "Women's Energy",
+          "Vitality",
+          "Active Performance"
+        ],
+        "supplyLabel": "20-day supply",
+        "servings": "20 x 5g sachets · 20 servings",
+        "dosage": "Mix 1 sachet with water daily, or as directed on the product label.",
+        "bestFor": "Women looking for nutritional support for active lifestyles, everyday energy and wellbeing.",
+        "benefits": [
+          "Creatine increases physical performance in successive bursts of short-term, high-intensity exercise",
+          "Iron contributes to the reduction of tiredness and fatigue",
+          "Iron contributes to normal oxygen transport in the body",
+          "Vitamin B12 contributes to normal energy-yielding metabolism"
+        ],
+        "whyItems": [
+          {
+            "icon": "energy",
+            "title": "Active Performance",
+            "description": "Creatine increases physical performance in successive bursts of short-term, high-intensity exercise."
+          },
+          {
+            "icon": "flame",
+            "title": "Reduce Fatigue",
+            "description": "Iron contributes to the reduction of tiredness and fatigue."
+          },
+          {
+            "icon": "balance",
+            "title": "Energy Metabolism",
+            "description": "Vitamin B12 contributes to normal energy-yielding metabolism."
+          }
+        ],
+        "trustNotes": [
+          "Third-party tested for purity & potency.",
+          "Transparent label, nothing hidden.",
+          "Certificates of Analysis available upon request."
+        ],
+        "qualityPoints": [
+          "Formulated in Canada",
+          "Manufactured in a GMP-certified facility",
+          "Third-party tested for identity and purity",
+          "Transparent ingredient dosages",
+          "No proprietary blends",
+          "UK Food Supplement compliant"
+        ],
+        "warnings": [
+          "Consult your healthcare professional before use if you are pregnant, breastfeeding, taking medication or have a medical condition.",
+          "Do not exceed the recommended daily intake.",
+          "Keep out of reach of young children.",
+          "Food supplements should not be used as a substitute for a varied, balanced diet and a healthy lifestyle."
+        ],
+        "ingredients": [
+          {
+            "name": "Creatine Monohydrate",
+            "amount": "3.5 g",
+            "purpose": "Creatine increases physical performance in successive bursts of short-term, high-intensity exercise.",
+            "whyIncluded": "The core active supporting active performance.",
+            "image": "src/assets/ingredients/creatine-monohydrate.png"
+          },
+          {
+            "name": "Ferrous Bisglycinate",
+            "amount": "8 mg",
+            "purpose": "Iron contributes to the reduction of tiredness and fatigue and normal oxygen transport in the body.",
+            "whyIncluded": "A gentle iron form included to support energy levels.",
+            "image": "src/assets/ingredients/ferrous-bisglycinate.png"
+          },
+          {
+            "name": "Vitamin B12",
+            "amount": "200 µg",
+            "purpose": "Vitamin B12 contributes to normal energy-yielding metabolism.",
+            "whyIncluded": "Supports energy metabolism throughout the day.",
+            "image": "src/assets/ingredients/vitamin-b12.png"
+          }
+        ],
+        "otherIngredients": [
+          "Citric Acid",
+          "Sucralose"
+        ],
+        "supplementFacts": [
+          {
+            "label": "Recommended daily intake",
+            "value": "Mix 1 sachet with water daily, or as directed on the product label."
+          },
+          {
+            "label": "Servings per container",
+            "value": "20"
+          },
+          {
+            "label": "Format",
+            "value": "Powder sachets"
+          }
+        ],
+        "science": [
+          {
+            "title": "Absorb & Circulate",
+            "description": "Creatine and iron cofactors are absorbed to support daily nutritional needs."
+          },
+          {
+            "title": "Support Active Lifestyle",
+            "description": "Creatine increases physical performance in successive bursts of short-term, high-intensity exercise."
+          },
+          {
+            "title": "Energy & Vitality",
+            "description": "Iron and B12 contribute to the reduction of tiredness and normal energy-yielding metabolism."
+          }
+        ],
+        "evidencePoints": [
+          "27+ published studies reviewed",
+          "Third-party tested for purity & potency",
+          "cGMP certified manufacturing",
+          "Transparent label, nothing hidden",
+          "No proprietary blends"
+        ],
+        "faq": [
+          {
+            "question": "How should I take Creagen Femme Energy?",
+            "answer": "Mix 1 sachet with water daily, or as directed on the product label."
+          },
+          {
+            "question": "When will I see results?",
+            "answer": "Individual experiences vary depending on diet, lifestyle and consistency of use."
+          },
+          {
+            "question": "Is it suitable for vegetarians?",
+            "answer": "Yes, this formula is vegetarian-friendly."
+          },
+          {
+            "question": "Are there any side effects?",
+            "answer": "Please follow the recommended intake on the label and consult a healthcare professional before use if you are pregnant, breastfeeding, taking medication or managing a medical condition."
+          },
+          {
+            "question": "Is it safe to take with other supplements?",
+            "answer": "If you are taking medication or other iron-containing products, seek professional advice before use."
+          },
+          {
+            "question": "What is your return policy?",
+            "answer": "See our returns & refunds page for full details."
+          }
+        ],
+        "comparisonRows": []
+      },
+      "assets": [
+        {
+          "role": "primary_media",
+          "path": "src/assets/products/creagen-femme-energy-primary.png",
+          "alt": "BioAro Creagen Femme Energy product and lid",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-femme-energy-01-hero-1x1.png",
+          "alt": "Creagen Femme Energy jar with an individual sachet",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-femme-energy-02-open-pack-1x1.png",
+          "alt": "Open Creagen Femme Energy jar with branded lid",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-femme-energy-03-sachet-1x1.png",
+          "alt": "Creagen Femme Energy five gram sachet",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-femme-energy-04-ingredients-1x1.png",
+          "alt": "Creagen Femme Energy key ingredients and serving amounts",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-femme-energy-05-lifestyle-1x1.png",
+          "alt": "Woman preparing Creagen Femme Energy sachet with water",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/creatine-monohydrate.png",
+          "alt": "Creatine Monohydrate",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/ferrous-bisglycinate.png",
+          "alt": "Ferrous Bisglycinate",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/vitamin-b12.png",
+          "alt": "Vitamin B12",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        },
+        {
+          "role": "science_visual",
+          "path": "src/assets/science/creagen-femme-energy-lifestyle.png",
+          "alt": "Creagen Femme Energy wellness lifestyle visual",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        }
+      ],
+      "proposedMappings": [
+        {
+          "source": "tagline",
+          "target": "custom.pdp_subtitle",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy"
+        },
+        {
+          "source": "description",
+          "target": "custom.short_description",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy"
+        },
+        {
+          "source": "tags",
+          "target": "custom.hero_tags",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "join_with_semicolon",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy"
+        },
+        {
+          "source": "benefits",
+          "target": "custom.hero_bullets",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "join_with_newline",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy"
+        },
+        {
+          "source": "supplyLabel",
+          "target": "custom.supply_label",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy"
+        },
+        {
+          "source": "servings",
+          "target": "custom.serving_size",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy"
+        },
+        {
+          "source": "dosage",
+          "target": "custom.directions",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy"
+        },
+        {
+          "source": "warnings",
+          "target": "custom.warnings",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "join_with_newline",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy"
+        },
+        {
+          "source": "bestFor",
+          "target": "custom.why_formula_body",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy"
+        },
+        {
+          "source": "whyItems",
+          "target": "custom.benefit_cards",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy"
+        },
+        {
+          "source": "trustNotes",
+          "target": "custom.trust_badges",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy"
+        },
+        {
+          "source": "science",
+          "target": "custom.science_steps",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy"
+        },
+        {
+          "source": "supplementFacts",
+          "target": "custom.supplement_facts_rows",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy"
+        },
+        {
+          "source": "evidencePoints",
+          "target": "custom.clinical_evidence",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy"
+        },
+        {
+          "source": "comparisonRows",
+          "target": "custom.comparison_rows",
+          "expectedShopifyType": "json",
+          "transform": "comparison_row_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy"
+        },
+        {
+          "source": "faq",
+          "target": "custom.faqs",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy"
+        },
+        {
+          "source": "testimonials",
+          "target": "custom.testimonials",
+          "expectedShopifyType": "json",
+          "transform": "testimonial_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy"
+        },
+        {
+          "source": "ingredients",
+          "target": "custom.ingredients",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "names_only",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-femme-energy"
+        }
+      ]
+    },
+    {
+      "source": {
+        "commit": "2191f22d39e952c35d0df543336496bd28b388c9",
+        "productData": "src/data/products.ts"
+      },
+      "product": {
+        "handle": "creagen-raw-power",
+        "title": "Creagen Raw Power",
+        "description": "CREAGEN Raw Power provides pure creatine monohydrate for athletes and active individuals. Creatine increases physical performance in successive bursts of short-term, high-intensity exercise. Designed for strength training, sprint exercise and high-intensity performance.",
+        "status": "DRAFT_ON_APPROVED_LIVE_IMPORT",
+        "category": "Performance",
+        "badge": "Pure 6g Creatine",
+        "sku": null,
+        "priceByCountry": {
+          "US": 45,
+          "CA": 60,
+          "GB": 24.99
+        },
+        "missingCommercialData": [
+          "sku",
+          "inventory",
+          "AED market price"
+        ]
+      },
+      "pdp": {
+        "tagline": "Pure creatine to support high-intensity exercise performance.",
+        "tags": [
+          "High-Intensity Performance",
+          "Strength",
+          "Pure Creatine"
+        ],
+        "supplyLabel": "20-day supply",
+        "servings": "20 x 7.5g sachets · 20 servings",
+        "dosage": "Mix 1 sachet with water daily, before or after training, or as directed on the product label.",
+        "bestFor": "Active adults, fitness users, athletes, and anyone looking for straightforward creatine support.",
+        "benefits": [
+          "Provides 6 g of creatine monohydrate per serving",
+          "Supports high-intensity training and repeated exercise efforts",
+          "Designed for strength, power and performance-focused routines"
+        ],
+        "whyItems": [
+          {
+            "icon": "flame",
+            "title": "High-Intensity Performance",
+            "description": "Supports high-intensity exercise performance."
+          },
+          {
+            "icon": "energy",
+            "title": "Strength Output",
+            "description": "Designed for strength and power-focused training."
+          },
+          {
+            "icon": "shield",
+            "title": "Pure Creatine",
+            "description": "Provides 6 g of creatine monohydrate per serving."
+          }
+        ],
+        "trustNotes": [
+          "Third-party tested for purity & potency.",
+          "Transparent label, nothing hidden.",
+          "Certificates of Analysis available upon request."
+        ],
+        "qualityPoints": [
+          "Formulated in Canada",
+          "Manufactured in a GMP-certified facility",
+          "Third-party tested for identity and purity",
+          "Transparent ingredient dosages",
+          "No proprietary blends",
+          "UK Food Supplement compliant"
+        ],
+        "warnings": [
+          "Consult your healthcare professional before use if you are pregnant, breastfeeding, taking medication or have a medical condition.",
+          "Do not exceed the recommended daily intake.",
+          "Keep out of reach of young children.",
+          "Drink plenty of water throughout the day when using creatine.",
+          "Food supplements should not be used as a substitute for a varied, balanced diet and a healthy lifestyle."
+        ],
+        "ingredients": [
+          {
+            "name": "Creatine Monohydrate",
+            "amount": "6 g",
+            "purpose": "Creatine increases physical performance in successive bursts of short-term, high-intensity exercise.",
+            "whyIncluded": "A single-ingredient, straightforward creatine dose.",
+            "image": "src/assets/ingredients/creatine-monohydrate.png"
+          }
+        ],
+        "otherIngredients": [],
+        "supplementFacts": [
+          {
+            "label": "Recommended daily intake",
+            "value": "Mix 1 sachet with water daily, before or after training, or as directed on the product label."
+          },
+          {
+            "label": "Servings per container",
+            "value": "20"
+          },
+          {
+            "label": "Format",
+            "value": "Powder sachets"
+          }
+        ],
+        "science": [
+          {
+            "title": "Pure Creatine",
+            "description": "6 g of creatine monohydrate per serving."
+          },
+          {
+            "title": "Fuel Training",
+            "description": "Creatine increases physical performance in successive bursts of short-term, high-intensity exercise."
+          },
+          {
+            "title": "Build Performance",
+            "description": "Designed for strength, power and performance-focused routines."
+          },
+          {
+            "title": "Recover & Repeat",
+            "description": "Supports repeated exercise efforts as part of a training routine."
+          }
+        ],
+        "evidencePoints": [
+          "Illustration based on published creatine research",
+          "Third-party tested for purity & potency",
+          "cGMP certified manufacturing",
+          "Transparent label, nothing hidden",
+          "No proprietary blends"
+        ],
+        "faq": [
+          {
+            "question": "How should I take Creagen Raw Power?",
+            "answer": "Mix 1 sachet with water daily, before or after training, or as directed on the product label."
+          },
+          {
+            "question": "When will I see results?",
+            "answer": "Individual experiences vary depending on diet, lifestyle, training and consistency of use."
+          },
+          {
+            "question": "Is it suitable for vegetarians?",
+            "answer": "Yes, this formula is vegetarian-friendly."
+          },
+          {
+            "question": "Are there any side effects?",
+            "answer": "Please follow the recommended intake on the label and stay well hydrated. Consult a healthcare professional before use if you are pregnant, breastfeeding, taking medication or managing a medical condition."
+          },
+          {
+            "question": "Is it safe to take with other supplements?",
+            "answer": "If you are taking medication or combining multiple supplements, seek professional advice before use."
+          },
+          {
+            "question": "What is your return policy?",
+            "answer": "See our returns & refunds page for full details."
+          }
+        ],
+        "comparisonRows": []
+      },
+      "assets": [
+        {
+          "role": "primary_media",
+          "path": "src/assets/products/creagen-raw-power.jpeg",
+          "alt": "BioAro Creagen Raw Power sachet",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-raw-power-01-hero-1x1.png",
+          "alt": "Creagen Raw Power product container",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-raw-power-02-product-detail-1x1.png",
+          "alt": "Creagen Raw Power product container with a serving glass",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-raw-power-03-open-pack-1x1.png",
+          "alt": "Open Creagen Raw Power container with individual sachets",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-raw-power-04-product-scene-1x1.png",
+          "alt": "Creagen Raw Power container and sachets in a dark studio setting",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-raw-power-05-ingredients-1x1.png",
+          "alt": "Creagen Raw Power formula benefits and serving information",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/creatine-monohydrate.png",
+          "alt": "Creatine Monohydrate",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        },
+        {
+          "role": "science_visual",
+          "path": "src/assets/science/creagen-raw-power-lifestyle.png",
+          "alt": "Creagen Raw Power strength lifestyle visual",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        }
+      ],
+      "proposedMappings": [
+        {
+          "source": "tagline",
+          "target": "custom.pdp_subtitle",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power"
+        },
+        {
+          "source": "description",
+          "target": "custom.short_description",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power"
+        },
+        {
+          "source": "tags",
+          "target": "custom.hero_tags",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "join_with_semicolon",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power"
+        },
+        {
+          "source": "benefits",
+          "target": "custom.hero_bullets",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "join_with_newline",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power"
+        },
+        {
+          "source": "supplyLabel",
+          "target": "custom.supply_label",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power"
+        },
+        {
+          "source": "servings",
+          "target": "custom.serving_size",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power"
+        },
+        {
+          "source": "dosage",
+          "target": "custom.directions",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power"
+        },
+        {
+          "source": "warnings",
+          "target": "custom.warnings",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "join_with_newline",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power"
+        },
+        {
+          "source": "bestFor",
+          "target": "custom.why_formula_body",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power"
+        },
+        {
+          "source": "whyItems",
+          "target": "custom.benefit_cards",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power"
+        },
+        {
+          "source": "trustNotes",
+          "target": "custom.trust_badges",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power"
+        },
+        {
+          "source": "science",
+          "target": "custom.science_steps",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power"
+        },
+        {
+          "source": "supplementFacts",
+          "target": "custom.supplement_facts_rows",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power"
+        },
+        {
+          "source": "evidencePoints",
+          "target": "custom.clinical_evidence",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power"
+        },
+        {
+          "source": "comparisonRows",
+          "target": "custom.comparison_rows",
+          "expectedShopifyType": "json",
+          "transform": "comparison_row_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power"
+        },
+        {
+          "source": "faq",
+          "target": "custom.faqs",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power"
+        },
+        {
+          "source": "testimonials",
+          "target": "custom.testimonials",
+          "expectedShopifyType": "json",
+          "transform": "testimonial_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power"
+        },
+        {
+          "source": "ingredients",
+          "target": "custom.ingredients",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "names_only",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-raw-power"
+        }
+      ]
+    },
+    {
+      "source": {
+        "commit": "2191f22d39e952c35d0df543336496bd28b388c9",
+        "productData": "src/data/products.ts"
+      },
+      "product": {
+        "handle": "creagen-pro-power",
+        "title": "Creagen Pro Power",
+        "description": "CREAGEN Pro Power combines creatine monohydrate, beta-alanine and essential electrolytes in a performance-focused formula designed for high-intensity training and active lifestyles.",
+        "status": "DRAFT_ON_APPROVED_LIVE_IMPORT",
+        "category": "Performance",
+        "badge": "Performance Blend",
+        "sku": null,
+        "priceByCountry": {
+          "US": 65,
+          "CA": 86,
+          "GB": 34.99
+        },
+        "missingCommercialData": [
+          "sku",
+          "inventory",
+          "AED market price"
+        ]
+      },
+      "pdp": {
+        "tagline": "High-intensity performance, hydration and endurance support.",
+        "tags": [
+          "High-Intensity Performance",
+          "Hydration",
+          "Endurance"
+        ],
+        "supplyLabel": "20-day supply",
+        "servings": "20 x 10g sachets · 20 servings",
+        "dosage": "Mix 1 sachet with water daily, during or after training, or as directed on the product label.",
+        "bestFor": "Athletes, gym users, active professionals, and performance-focused adults.",
+        "benefits": [
+          "Provides 6 g of creatine monohydrate per serving",
+          "Supports hydration through added electrolytes",
+          "Designed for high-intensity training and demanding workouts"
+        ],
+        "whyItems": [
+          {
+            "icon": "flame",
+            "title": "Strength & Endurance",
+            "description": "Designed for high-intensity training and repeated exercise efforts."
+          },
+          {
+            "icon": "droplet",
+            "title": "Hydration Balance",
+            "description": "Helps maintain hydration through added electrolytes."
+          },
+          {
+            "icon": "shield",
+            "title": "Performance Routine",
+            "description": "Supports your training routine after demanding workouts."
+          }
+        ],
+        "trustNotes": [
+          "Third-party tested for purity & potency.",
+          "Transparent label, nothing hidden.",
+          "Certificates of Analysis available upon request."
+        ],
+        "qualityPoints": [
+          "Formulated in Canada",
+          "Manufactured in a GMP-certified facility",
+          "Third-party tested for identity and purity",
+          "Transparent ingredient dosages",
+          "No proprietary blends",
+          "UK Food Supplement compliant"
+        ],
+        "warnings": [
+          "Consult your healthcare professional before use if you are pregnant, breastfeeding, taking medication or have a medical condition.",
+          "Do not exceed the recommended daily intake.",
+          "Keep out of reach of young children.",
+          "A temporary tingling sensation from beta-alanine is normal.",
+          "Food supplements should not be used as a substitute for a varied, balanced diet and a healthy lifestyle."
+        ],
+        "ingredients": [
+          {
+            "name": "Creatine Monohydrate",
+            "amount": "6 g",
+            "purpose": "Creatine increases physical performance in successive bursts of short-term, high-intensity exercise.",
+            "whyIncluded": "The performance foundation of the formula.",
+            "image": "src/assets/ingredients/creatine-monohydrate.png"
+          },
+          {
+            "name": "Beta-Alanine",
+            "amount": "1.6 g",
+            "purpose": "Supports muscular endurance during high-intensity training.",
+            "whyIncluded": "Helps buffer muscle fatigue during intense training.",
+            "image": "src/assets/ingredients/beta-alanine.png"
+          },
+          {
+            "name": "Potassium Chloride",
+            "amount": "Part of 300 mg electrolyte blend",
+            "purpose": "Supports hydration and electrolyte balance.",
+            "whyIncluded": "An electrolyte supporting fluid balance during training.",
+            "image": "src/assets/ingredients/potassium-chloride.png"
+          },
+          {
+            "name": "Sodium Chloride",
+            "amount": "Part of 300 mg electrolyte blend",
+            "purpose": "Supports hydration and electrolyte balance.",
+            "whyIncluded": "An electrolyte supporting fluid balance during training.",
+            "image": "src/assets/ingredients/sodium-chloride.png"
+          },
+          {
+            "name": "Magnesium Bisglycinate",
+            "amount": "Part of 300 mg electrolyte blend",
+            "purpose": "Magnesium contributes to normal muscle function.",
+            "whyIncluded": "Rounds out the electrolyte blend for muscle support.",
+            "image": "src/assets/ingredients/magnesium-bisglycinate.png"
+          }
+        ],
+        "otherIngredients": [
+          "Citric Acid",
+          "Natural Flavour",
+          "Sucralose"
+        ],
+        "supplementFacts": [
+          {
+            "label": "Recommended daily intake",
+            "value": "Mix 1 sachet with water daily, during or after training, or as directed on the product label."
+          },
+          {
+            "label": "Servings per container",
+            "value": "20"
+          },
+          {
+            "label": "Format",
+            "value": "Powder sachets"
+          }
+        ],
+        "science": [
+          {
+            "title": "Creatine + Beta-Alanine + Electrolytes",
+            "description": "A performance-focused combination for high-intensity training."
+          },
+          {
+            "title": "High-Intensity Training",
+            "description": "Creatine increases physical performance in successive bursts of short-term, high-intensity exercise."
+          },
+          {
+            "title": "Hydration Support",
+            "description": "Electrolytes help maintain hydration during demanding workouts."
+          },
+          {
+            "title": "Performance-Focused Routine",
+            "description": "Supports your training routine as part of an active lifestyle."
+          }
+        ],
+        "evidencePoints": [
+          "Illustration based on published creatine and beta-alanine research",
+          "Third-party tested for purity & potency",
+          "cGMP certified manufacturing",
+          "Transparent label, nothing hidden",
+          "No proprietary blends"
+        ],
+        "faq": [
+          {
+            "question": "How should I take Creagen Pro Power?",
+            "answer": "Mix 1 sachet with water during or after training, or as directed on the product label."
+          },
+          {
+            "question": "When will I see results?",
+            "answer": "Individual experiences vary depending on diet, lifestyle, training and consistency of use."
+          },
+          {
+            "question": "Is it suitable for vegetarians?",
+            "answer": "Yes, this formula is vegetarian-friendly."
+          },
+          {
+            "question": "Are there any side effects?",
+            "answer": "A mild tingling from beta-alanine is normal and temporary. Please follow the recommended intake on the label and consult a healthcare professional before use if appropriate."
+          },
+          {
+            "question": "Is it safe to take with other supplements?",
+            "answer": "If you are taking medication or combining multiple supplements, seek professional advice before use."
+          },
+          {
+            "question": "What is your return policy?",
+            "answer": "See our returns & refunds page for full details."
+          }
+        ],
+        "comparisonRows": []
+      },
+      "assets": [
+        {
+          "role": "primary_media",
+          "path": "src/assets/products/creagen-pro-power.png",
+          "alt": "BioAro Creagen Pro Power sachet",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-pro-power-01-hero-1x1.jpg",
+          "alt": "Creagen Pro Power container with two individual sachets",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-pro-power-02-ingredients-1x1.jpg",
+          "alt": "Creagen Pro Power ingredients with powder and individual sachets",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-pro-power-03-lifestyle-1x1.jpg",
+          "alt": "Athlete preparing Creagen Pro Power in a gym",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-pro-power-04-benefits-1x1.jpg",
+          "alt": "Creagen Pro Power formula benefits and performance support information",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/creagen-pro-power-05-product-routine-1x1.jpg",
+          "alt": "Open Creagen Pro Power container with shaker and sachets",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/creatine-monohydrate.png",
+          "alt": "Creatine Monohydrate",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/beta-alanine.png",
+          "alt": "Beta-Alanine",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/potassium-chloride.png",
+          "alt": "Potassium Chloride",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/sodium-chloride.png",
+          "alt": "Sodium Chloride",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/magnesium-bisglycinate.png",
+          "alt": "Magnesium Bisglycinate",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        },
+        {
+          "role": "science_visual",
+          "path": "src/assets/science/creagen-pro-power-lifestyle.png",
+          "alt": "Creagen Pro Power performance lifestyle visual",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        }
+      ],
+      "proposedMappings": [
+        {
+          "source": "tagline",
+          "target": "custom.pdp_subtitle",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power"
+        },
+        {
+          "source": "description",
+          "target": "custom.short_description",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power"
+        },
+        {
+          "source": "tags",
+          "target": "custom.hero_tags",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "join_with_semicolon",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power"
+        },
+        {
+          "source": "benefits",
+          "target": "custom.hero_bullets",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "join_with_newline",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power"
+        },
+        {
+          "source": "supplyLabel",
+          "target": "custom.supply_label",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power"
+        },
+        {
+          "source": "servings",
+          "target": "custom.serving_size",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power"
+        },
+        {
+          "source": "dosage",
+          "target": "custom.directions",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power"
+        },
+        {
+          "source": "warnings",
+          "target": "custom.warnings",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "join_with_newline",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power"
+        },
+        {
+          "source": "bestFor",
+          "target": "custom.why_formula_body",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power"
+        },
+        {
+          "source": "whyItems",
+          "target": "custom.benefit_cards",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power"
+        },
+        {
+          "source": "trustNotes",
+          "target": "custom.trust_badges",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power"
+        },
+        {
+          "source": "science",
+          "target": "custom.science_steps",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power"
+        },
+        {
+          "source": "supplementFacts",
+          "target": "custom.supplement_facts_rows",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power"
+        },
+        {
+          "source": "evidencePoints",
+          "target": "custom.clinical_evidence",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power"
+        },
+        {
+          "source": "comparisonRows",
+          "target": "custom.comparison_rows",
+          "expectedShopifyType": "json",
+          "transform": "comparison_row_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power"
+        },
+        {
+          "source": "faq",
+          "target": "custom.faqs",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power"
+        },
+        {
+          "source": "testimonials",
+          "target": "custom.testimonials",
+          "expectedShopifyType": "json",
+          "transform": "testimonial_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power"
+        },
+        {
+          "source": "ingredients",
+          "target": "custom.ingredients",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "names_only",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "creagen-pro-power"
+        }
+      ]
+    },
+    {
+      "source": {
+        "commit": "2191f22d39e952c35d0df543336496bd28b388c9",
+        "productData": "src/data/products.ts"
+      },
+      "product": {
+        "handle": "glutara",
+        "title": "Glutara",
+        "description": "Glutara combines liposomal glutathione, vitamin C, hyaluronic acid and B vitamins in a carefully formulated daily wellness supplement with piperine to support ingredient absorption.",
+        "status": "DRAFT_ON_APPROVED_LIVE_IMPORT",
+        "category": "Wellness",
+        "badge": "Advanced Liposomal Delivery",
+        "sku": null,
+        "priceByCountry": {
+          "US": 70,
+          "CA": 93,
+          "GB": 45.99
+        },
+        "missingCommercialData": [
+          "sku",
+          "inventory",
+          "AED market price"
+        ]
+      },
+      "pdp": {
+        "tagline": "Daily antioxidant support with vitamins and clinically selected ingredients.",
+        "tags": [
+          "Antioxidant Support",
+          "Daily Wellness",
+          "Skin Care Routine"
+        ],
+        "supplyLabel": "30-day supply",
+        "servings": "18g sachets · 30 servings",
+        "dosage": "Mix 1 sachet with water daily, or as directed on the product label.",
+        "bestFor": "Adults seeking daily antioxidant support, skin care routine support, and everyday wellness.",
+        "benefits": [
+          "Provides 500 mg liposomal glutathione per serving",
+          "Contains vitamin C, which contributes to the protection of cells from oxidative stress",
+          "Formulated with liposomal delivery and piperine"
+        ],
+        "whyItems": [
+          {
+            "icon": "shield",
+            "title": "Antioxidant Defense",
+            "description": "Contains vitamin C, which contributes to the protection of cells from oxidative stress."
+          },
+          {
+            "icon": "droplet",
+            "title": "Skin Care Routine",
+            "description": "Formulated with hyaluronic acid for daily skincare routines."
+          },
+          {
+            "icon": "sparkle",
+            "title": "Cellular Wellness",
+            "description": "Liposomal delivery combined with piperine to optimise ingredient delivery."
+          }
+        ],
+        "trustNotes": [
+          "Third-party tested for purity & potency.",
+          "Transparent label, nothing hidden.",
+          "Certificates of Analysis available upon request."
+        ],
+        "qualityPoints": [
+          "Formulated in Canada",
+          "Manufactured in a GMP-certified facility",
+          "Third-party tested for identity and purity",
+          "Transparent ingredient dosages",
+          "No proprietary blends",
+          "UK Food Supplement compliant"
+        ],
+        "warnings": [
+          "Consult your healthcare professional before use if you are pregnant, breastfeeding, taking medication or have a medical condition.",
+          "Piperine may interact with certain medications — check with a healthcare professional.",
+          "Do not exceed the recommended daily intake.",
+          "Keep out of reach of young children.",
+          "Food supplements should not be used as a substitute for a varied, balanced diet and a healthy lifestyle."
+        ],
+        "ingredients": [
+          {
+            "name": "Liposomal Glutathione",
+            "amount": "500 mg",
+            "purpose": "Provides 500 mg liposomal glutathione per serving.",
+            "whyIncluded": "Delivered via liposomal technology to support ingredient absorption.",
+            "image": "src/assets/ingredients/liposomal-glutathione.png"
+          },
+          {
+            "name": "Vitamin C",
+            "amount": "200 mg",
+            "purpose": "Contributes to the protection of cells from oxidative stress. Contributes to normal collagen formation for the normal function of skin.",
+            "whyIncluded": "An authorised antioxidant vitamin supporting skin and cellular health.",
+            "image": "src/assets/ingredients/vitamin-c.png"
+          },
+          {
+            "name": "Hyaluronic Acid",
+            "amount": "150 mg",
+            "purpose": "Formulated for daily skincare routines.",
+            "whyIncluded": "Included to support daily skincare routine.",
+            "image": "src/assets/ingredients/hyaluronic-acid.png"
+          },
+          {
+            "name": "Vitamin B1",
+            "amount": "20 mg",
+            "purpose": "Contributes to normal energy-yielding metabolism.",
+            "whyIncluded": "A B-vitamin cofactor supporting daily wellness.",
+            "image": "src/assets/ingredients/vitamin-b1.png"
+          },
+          {
+            "name": "Vitamin B6",
+            "amount": "5 mg",
+            "purpose": "Contributes to the normal function of the immune system. Contributes to the reduction of tiredness and fatigue.",
+            "whyIncluded": "A B-vitamin cofactor supporting immune function and energy.",
+            "image": "src/assets/ingredients/vitamin-b6.png"
+          },
+          {
+            "name": "Piperine",
+            "amount": "5 mg",
+            "purpose": "Included to support absorption of the other ingredients.",
+            "whyIncluded": "Included to optimise ingredient delivery.",
+            "image": "src/assets/ingredients/piperine.png"
+          }
+        ],
+        "otherIngredients": [],
+        "supplementFacts": [
+          {
+            "label": "Recommended daily intake",
+            "value": "Mix 1 sachet with water daily, or as directed on the product label."
+          },
+          {
+            "label": "Servings per container",
+            "value": "30"
+          },
+          {
+            "label": "Format",
+            "value": "Powder sachets"
+          }
+        ],
+        "science": [
+          {
+            "title": "Liposomal Delivery",
+            "description": "Liposomal technology combined with piperine to support ingredient absorption."
+          },
+          {
+            "title": "Enhanced Ingredient Uptake",
+            "description": "Piperine supports absorption of the core ingredients."
+          },
+          {
+            "title": "Vitamin C Supports Protection",
+            "description": "Vitamin C contributes to the protection of cells from oxidative stress."
+          },
+          {
+            "title": "Daily Wellness Routine",
+            "description": "A daily formula designed to complement a balanced lifestyle."
+          }
+        ],
+        "evidencePoints": [
+          "27+ published studies reviewed",
+          "Third-party tested for purity & potency",
+          "cGMP certified manufacturing",
+          "Transparent label, nothing hidden",
+          "No proprietary blends"
+        ],
+        "faq": [
+          {
+            "question": "How should I take Glutara?",
+            "answer": "Mix 1 sachet with water daily, or as directed on the product label."
+          },
+          {
+            "question": "When will I see results?",
+            "answer": "Individual experiences vary depending on diet, lifestyle and consistency of use."
+          },
+          {
+            "question": "Is it suitable for vegetarians?",
+            "answer": "Yes, this formula is vegetarian-friendly."
+          },
+          {
+            "question": "Are there any side effects?",
+            "answer": "Please follow the recommended intake on the label. Consult a healthcare professional before use if you are pregnant, breastfeeding, taking medication or managing a medical condition. Piperine may interact with certain medications."
+          },
+          {
+            "question": "Is it safe to take with other supplements?",
+            "answer": "If you are taking medication or combining multiple supplements, seek professional advice before use."
+          },
+          {
+            "question": "What is your return policy?",
+            "answer": "See our returns & refunds page for full details."
+          }
+        ],
+        "comparisonRows": []
+      },
+      "assets": [
+        {
+          "role": "primary_media",
+          "path": "src/assets/products/glutara-primary.png",
+          "alt": "BioAro Glutara product container",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/glutara-01-hero-1x1.jpg",
+          "alt": "Glutara product container on a stone surface",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/glutara-02-ingredients-1x1.jpg",
+          "alt": "Glutara ingredients with sachets and powder samples",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/glutara-03-lifestyle-1x1.jpg",
+          "alt": "Woman preparing Glutara with water as part of a daily routine",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/glutara-04-benefits-1x1.jpg",
+          "alt": "Glutara formula benefits and antioxidant support information",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "gallery_media",
+          "path": "src/assets/products/glutara-05-product-routine-1x1.jpg",
+          "alt": "Open Glutara container with sachets, water, and powder",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "product media"
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/liposomal-glutathione.png",
+          "alt": "Liposomal Glutathione",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/vitamin-c.png",
+          "alt": "Vitamin C",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/hyaluronic-acid.png",
+          "alt": "Hyaluronic Acid",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/vitamin-b1.png",
+          "alt": "Vitamin B1",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/vitamin-b6.png",
+          "alt": "Vitamin B6",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        },
+        {
+          "role": "ingredient_image",
+          "path": "src/assets/ingredients/piperine.png",
+          "alt": "Piperine",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        },
+        {
+          "role": "science_visual",
+          "path": "src/assets/science/glutara-lifestyle.png",
+          "alt": "Glutara lifestyle visual with warm sunset light",
+          "existsAtSourceCommit": true,
+          "proposedShopifyTarget": "Shopify Files + file reference"
+        }
+      ],
+      "proposedMappings": [
+        {
+          "source": "tagline",
+          "target": "custom.pdp_subtitle",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara"
+        },
+        {
+          "source": "description",
+          "target": "custom.short_description",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara"
+        },
+        {
+          "source": "tags",
+          "target": "custom.hero_tags",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "join_with_semicolon",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara"
+        },
+        {
+          "source": "benefits",
+          "target": "custom.hero_bullets",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "join_with_newline",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara"
+        },
+        {
+          "source": "supplyLabel",
+          "target": "custom.supply_label",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara"
+        },
+        {
+          "source": "servings",
+          "target": "custom.serving_size",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara"
+        },
+        {
+          "source": "dosage",
+          "target": "custom.directions",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara"
+        },
+        {
+          "source": "warnings",
+          "target": "custom.warnings",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "join_with_newline",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara"
+        },
+        {
+          "source": "bestFor",
+          "target": "custom.why_formula_body",
+          "expectedShopifyType": "multi_line_text_field",
+          "transform": "direct",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara"
+        },
+        {
+          "source": "whyItems",
+          "target": "custom.benefit_cards",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara"
+        },
+        {
+          "source": "trustNotes",
+          "target": "custom.trust_badges",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara"
+        },
+        {
+          "source": "science",
+          "target": "custom.science_steps",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara"
+        },
+        {
+          "source": "supplementFacts",
+          "target": "custom.supplement_facts_rows",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara"
+        },
+        {
+          "source": "evidencePoints",
+          "target": "custom.clinical_evidence",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara"
+        },
+        {
+          "source": "comparisonRows",
+          "target": "custom.comparison_rows",
+          "expectedShopifyType": "json",
+          "transform": "comparison_row_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara"
+        },
+        {
+          "source": "faq",
+          "target": "custom.faqs",
+          "expectedShopifyType": "json",
+          "transform": "title_text_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara"
+        },
+        {
+          "source": "testimonials",
+          "target": "custom.testimonials",
+          "expectedShopifyType": "json",
+          "transform": "testimonial_array",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara"
+        },
+        {
+          "source": "ingredients",
+          "target": "custom.ingredients",
+          "expectedShopifyType": "single_line_text_field",
+          "transform": "names_only",
+          "mode": "use_only_if_existing_definition_is_compatible",
+          "handle": "glutara"
+        }
+      ]
+    }
+  ]
+}
