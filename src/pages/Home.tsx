@@ -387,7 +387,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="py-10 sm:py-14 md:py-16 lg:py-20">
         <div className="container-bio">
           <div className="mx-auto max-w-[1040px]">
             <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
@@ -460,7 +460,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="pb-24 pt-8">
+      <section className="pb-12 pt-6 sm:pb-16 sm:pt-8 md:pb-20 lg:pb-24">
         <div className="container-bio">
           <div className="mx-auto max-w-[1404px]">
             <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
@@ -482,7 +482,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-24">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24">
         <div className="container-bio">
           <div className="mx-auto grid max-w-[1040px] gap-14 lg:grid-cols-[0.9fr_1.3fr]">
           <div className="max-w-[550px]">
@@ -517,7 +517,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="pb-24">
+      <section className="pb-12 sm:pb-16 md:pb-20 lg:pb-24">
         <div className="container-bio">
           <div className="mx-auto grid max-w-[1472px] gap-[60px] lg:grid-cols-[685px_minmax(0,1fr)] lg:items-center">
             <div className="overflow-hidden rounded-[22px] lg:aspect-[685/930]">
@@ -574,7 +574,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="pb-24 pt-4">
+      <section className="pb-12 pt-4 sm:pb-16 md:pb-20 lg:pb-24">
         <div className="container-bio">
           <div className="mx-auto max-w-[680px] text-center">
             <span className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[#6b5e58]">The BioAro Method</span>
@@ -628,7 +628,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="pb-24 pt-6">
+      <section className="pb-12 pt-6 sm:pb-16 md:pb-20 lg:pb-24">
         <div className="container-bio">
           <div className="mx-auto max-w-[620px] text-center">
             <span className="eyebrow">Living 2.0 Support</span>
@@ -649,7 +649,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-24">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24">
         <div className="container-bio">
           <div className="mx-auto max-w-[700px] text-center">
             <span className="text-[13px] text-gold">★★★★★</span>
@@ -681,7 +681,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="pb-24 pt-6">
+      <section className="pb-12 pt-6 sm:pb-16 md:pb-20 lg:pb-24">
         <div className="container-bio">
           <div className="mx-auto max-w-[1404px]">
             <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
@@ -802,8 +802,9 @@ export default function Home() {
           </div>
           </div>
         </div>
-       <Testimonials />
       </section>
+
+      <Testimonials />
     </div>
   );
 }
