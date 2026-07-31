@@ -36,6 +36,7 @@ import { ROUTES } from "../lib/routes";
 import { fetchAllProducts } from "../lib/shopify/productService";
 import type { CatalogProduct } from "../lib/shopify/types";
 import ctaProductVisual from "../assets/cta/dark-luxury-cta-product-visual.png";
+import Testimonials from "../components/sections/Testimonials";
 
 const HERO_TRUST_ITEMS = [
   { label: "100+", subtitle: "Tests Per Batch", Icon: ShieldCheck },
@@ -801,6 +802,7 @@ export default function Home() {
           </div>
           </div>
         </div>
+       <Testimonials />
       </section>
     </div>
   );
