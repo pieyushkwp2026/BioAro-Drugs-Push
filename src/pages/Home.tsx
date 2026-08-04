@@ -19,6 +19,7 @@ import {
 import { FlagCA } from "../components/layout/Flags";
 import HeroAISearch from "../components/sections/HeroAISearch";
 import HomepageProductCarousel from "../components/sections/HomepageProductCarousel";
+import Testimonials from "../components/sections/Testimonials";
 import heroRunnersSunrise from "../assets/hero/hero-runners-sunrise.png";
 import realRoutinesNadiaLongevity from "../assets/home/real-routines-nadia-longevity.png";
 import essentialLongevityEditorial from "../assets/figma-home/essential-longevity-mountain-couple.png";
@@ -416,7 +417,7 @@ export default function Home() {
       </section>
       */}
 
-      <section className="py-20">
+      <section className="py-10 sm:py-14 md:py-16 lg:py-20">
         <div className="container-bio">
           <div className="mx-auto max-w-[1440px]">
             <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
@@ -588,7 +589,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="pb-24 pt-4">
+      <section className="pb-12 pt-4 sm:pb-16 md:pb-20 lg:pb-24">
         <div className="container-bio">
           <div className="mx-auto max-w-[680px] text-center">
             <span className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[#6b5e58]">Your routine</span>
@@ -641,7 +642,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-24">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24">
         <div className="container-bio">
           <div className="mx-auto max-w-[700px] text-center">
             <span className="text-[13px] text-gold">★★★★★</span>
@@ -676,7 +677,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="pb-24 pt-6">
+      <section className="pb-12 pt-6 sm:pb-16 md:pb-20 lg:pb-24">
         <div className="container-bio">
           <div className="mx-auto max-w-[1404px]">
             <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
@@ -796,6 +797,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Testimonials />
     </div>
   );
 }

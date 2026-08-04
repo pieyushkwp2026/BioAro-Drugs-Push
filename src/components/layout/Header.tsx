@@ -31,7 +31,7 @@ export default function Header() {
       : "border-white/40 bg-[#f8f5ef]/82 shadow-[0_6px_24px_rgba(35,29,20,0.06)] backdrop-blur-md xl:border-transparent xl:bg-transparent xl:shadow-none xl:backdrop-blur-none"
     : scrolled
       ? "border-b border-[#e7e1d5] bg-cream/90 backdrop-blur-md"
-      : "bg-transparent";
+      : "bg-cream/35 backdrop-blur-sm";
 
   const accountHref = isAuthenticated ? marketHref(ROUTES.account) : marketHref("/auth");
   const accountLabel = isAuthenticated ? customer?.firstName ?? "Account" : "Sign in";
