@@ -417,7 +417,11 @@ export default function Home() {
       </section>
       */}
 
-      <section className="py-10 sm:py-14 md:py-16 lg:py-20">
+      <div className="md:hidden">
+        <HomepageProductCarousel products={products} />
+      </div>
+
+      <section className="hidden py-10 sm:py-14 md:block md:py-16 lg:py-20">
         <div className="container-bio">
           <div className="mx-auto max-w-[1440px]">
             <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
@@ -495,7 +499,9 @@ export default function Home() {
         </div>
       </section>
 
-      <HomepageProductCarousel products={products} />
+      <div className="hidden md:block">
+        <HomepageProductCarousel products={products} />
+      </div>
 
       <section className="py-16 sm:py-20 xl:py-24">
         <div className="container-bio">
@@ -528,7 +534,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="pb-16 sm:pb-20 xl:pb-24">
+      <section className="hidden pb-16 sm:pb-20 md:block xl:pb-24">
         <div className="container-bio">
           <div className="mx-auto grid max-w-[1472px] gap-10 sm:gap-12 xl:grid-cols-2 xl:items-center xl:gap-[60px]">
             <div className="aspect-[4/5] overflow-hidden rounded-[22px] sm:aspect-[4/3] md:aspect-[16/10] xl:aspect-[685/930]">
@@ -589,7 +595,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="pb-12 pt-4 sm:pb-16 md:pb-20 lg:pb-24">
+      <section className="hidden pb-12 pt-4 sm:pb-16 md:block md:pb-20 lg:pb-24">
         <div className="container-bio">
           <div className="mx-auto max-w-[680px] text-center">
             <span className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[#6b5e58]">Your routine</span>
@@ -652,11 +658,10 @@ export default function Home() {
           <div className="mx-auto mt-14 grid max-w-[1040px] gap-12 lg:grid-cols-[0.98fr_1.02fr] lg:items-start">
             <div className="pt-1">
               <span className="eyebrow">LETTER FROM THE FOUNDER</span>
-              <blockquote className="mt-6 max-w-[672px] font-display text-[31px] font-normal leading-[1.16] text-ink sm:text-[33px] md:text-[35px]">
+              <blockquote className="mt-6 max-w-[672px] font-display text-[20px] font-normal leading-[1.32] text-ink sm:text-[33px] sm:leading-[1.16] md:text-[35px]">
                 We believe everyone deserves to live better, not by guessing, but by understanding. Through years of research and conversations with 10,000+ participants, we found that people want to take control of their health but often don&apos;t know where to begin. BioAro Drugs exists to make that first step simpler with clear, effective formulas built for longevity, focus, recovery, and sleep. Because better health should feel easier, clearer, and more personal ❤️.
               </blockquote>
               <div className="mt-10 flex items-center gap-3.5">
-                <div className="h-11 w-11 rounded-full bg-forest-600" />
                 <div className="max-w-[420px]">
                   <p className="text-[14.5px] font-semibold text-ink">Dr. Anmol Kapoor, MD</p>
                   <p className="text-[12.5px] leading-relaxed text-[#8a8678]">
