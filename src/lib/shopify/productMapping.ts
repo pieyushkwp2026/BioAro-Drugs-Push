@@ -1,10 +1,12 @@
 import type {
   CatalogProduct,
+  FeatureBadgeIcon,
   MetafieldComparisonRow,
   MetafieldTestimonial,
   MetafieldTitleTextItem,
   ProductEditorial,
   ProductCategory,
+  ProductFeatureBadge,
   ProductIngredient,
   ProductMetafields,
   ProductScienceStep,
@@ -63,6 +65,31 @@ function titleTextItems(value: string): MetafieldTitleTextItem[] | undefined {
       const title = textFrom(record?.title) ?? textFrom(record?.name) ?? textFrom(record?.label);
       const text = textFrom(record?.text) ?? textFrom(record?.description) ?? textFrom(record?.value);
       return title && text ? [{ title, text }] : [];
+    });
+
+    return items.length ? items : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
+const KNOWN_BADGE_ICONS = new Set([
+  "capsule", "noHassle", "routine", "travel", "quality", "omega",
+  "meal", "sachet", "mix", "bag", "formula", "pure", "training", "dosed",
+]);
+
+function featureBadgeItems(value: string | undefined): ProductFeatureBadge[] | undefined {
+  if (!value) return undefined;
+  try {
+    const parsed = JSON.parse(value);
+    if (!Array.isArray(parsed)) return undefined;
+
+    const items = parsed.flatMap((item) => {
+      const record = asRecord(item);
+      const label = textFrom(record?.label) ?? textFrom(record?.title) ?? textFrom(record?.text);
+      const iconRaw = textFrom(record?.icon);
+      const icon: FeatureBadgeIcon = (iconRaw && KNOWN_BADGE_ICONS.has(iconRaw) ? iconRaw : "quality") as FeatureBadgeIcon;
+      return label ? [{ icon, label }] : [];
     });
 
     return items.length ? items : undefined;
@@ -306,6 +333,7 @@ export function mapProductMetafields(nodes: (ShopifyMetafieldNode | null)[] | un
     testimonials: testimonials(str("testimonials")),
     labsCta: str("labs_cta"),
     finalCta: str("final_cta"),
+    featureBadges: featureBadgeItems(str("pdp_badges")),
   };
 }
 
@@ -339,6 +367,7 @@ function applyMetafields(editorial: ProductEditorial, shopifyProduct: ShopifyPro
     benefits: benefitItems?.map((item) => item.text) ?? textList(metafields?.heroBullets) ?? editorial.benefits,
     whyItems: whyItemsForKnownProduct(editorial, benefitItems),
     trustNotes: metafields?.trustBadges?.map((item) => item.text) ?? editorial.trustNotes,
+    featureBadges: metafields?.featureBadges ?? editorial.featureBadges ?? [],
     warnings,
     // A basic Shopify text list cannot replace the approved ingredient cards.
     // Only the rich, image-capable reference field is authoritative for a known PDP.
@@ -393,6 +422,7 @@ export function createShopifyProduct(shopifyProduct: ShopifyProduct, country: Co
     benefits: metafields?.benefitCards?.map((item) => item.text) ?? textList(metafields?.heroBullets) ?? [],
     whyItems: metafields?.benefitCards?.map((item) => ({ icon: "shield" as const, title: item.title, description: item.text })) ?? [],
     trustNotes: metafields?.trustBadges?.map((item) => item.text) ?? [],
+    featureBadges: metafields?.featureBadges ?? [],
     warnings,
     ingredients: metafields?.ingredientDetails ?? ingredientItems(metafields?.ingredients) ?? [],
     supplementFacts: facts(metafields?.supplementFactsRows) ?? [],

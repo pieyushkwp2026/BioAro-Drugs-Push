@@ -73,6 +73,7 @@ const METAFIELD_IDENTIFIERS: { namespace: string; key: string }[] = [
   { namespace: "custom", key: "testimonials" },
   { namespace: "custom", key: "labs_cta" },
   { namespace: "custom", key: "final_cta" },
+  { namespace: "custom", key: "pdp_badges" },
 ];
 
 const PRODUCT_FIELDS = `

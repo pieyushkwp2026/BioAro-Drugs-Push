@@ -20,6 +20,26 @@ export interface ProductWhyItem {
   title: string;
   description: string;
 }
+// Icon key vocabulary for the PDP feature-badge row (product page, below description).
+export type FeatureBadgeIcon =
+  | "capsule"
+  | "noHassle"
+  | "routine"
+  | "travel"
+  | "quality"
+  | "omega"
+  | "meal"
+  | "sachet"
+  | "mix"
+  | "bag"
+  | "formula"
+  | "pure"
+  | "training"
+  | "dosed";
+export interface ProductFeatureBadge {
+  icon: FeatureBadgeIcon;
+  label: string;
+}
 export interface ProductEfficacyMetric {
   label: string;
   unit: string;
@@ -106,6 +126,7 @@ export interface ProductMetafields {
   testimonials?: MetafieldTestimonial[];
   labsCta?: string;
   finalCta?: string;
+  featureBadges?: ProductFeatureBadge[];
 }
 
 export interface ProductEditorial {
@@ -126,6 +147,7 @@ export interface ProductEditorial {
   rating: ProductRating;
   benefits: string[];
   whyItems: ProductWhyItem[];
+  featureBadges: ProductFeatureBadge[];
   trustNotes: string[];
   warnings: string[];
   qualityPoints?: string[];

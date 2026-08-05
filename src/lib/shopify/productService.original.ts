@@ -205,6 +205,7 @@ export async function fetchProductByHandle(handle: string, country: CountryCode)
       rating: { average: 0, count: 0 },
       benefits: ["Product guidance will be available when this market opens."],
       whyItems: [],
+      featureBadges: [],
       trustNotes: ["Contact support with product questions while availability is being prepared."],
       warnings: ["Consult a healthcare professional before use."],
       ingredients: [],

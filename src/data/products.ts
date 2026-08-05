@@ -59,6 +59,13 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       { icon: "aging", title: "Healthy Aging", description: "Developed to support healthy ageing as part of a healthy lifestyle." },
       { icon: "balance", title: "Methylation Balance", description: "Includes vitamin B12, which contributes to normal homocysteine metabolism." },
     ],
+    featureBadges: [
+      { icon: "capsule", label: "Two-Capsule Serving" },
+      { icon: "noHassle", label: "No Mixing Required" },
+      { icon: "routine", label: "Simple Morning Routine" },
+      { icon: "travel", label: "Compact for Travel" },
+      { icon: "quality", label: "Tested for Quality" },
+    ],
     trustNotes: [
       "Third-party tested for purity & potency.",
       "Transparent label, nothing hidden.",
@@ -157,6 +164,13 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       { icon: "heart", title: "Heart Health", description: "EPA and DHA contribute to the normal function of the heart." },
       { icon: "brain", title: "Brain Function", description: "Supports cognitive function and mental clarity." },
       { icon: "balance", title: "Cellular Protection", description: "Vitamin E contributes to the protection of cells from oxidative stress." },
+    ],
+    featureBadges: [
+      { icon: "omega", label: "Plant-Based Omega" },
+      { icon: "noHassle", label: "No Fishy Liquid" },
+      { icon: "capsule", label: "Easy Daily Capsules" },
+      { icon: "meal", label: "Meal-Time Friendly" },
+      { icon: "quality", label: "Purity Tested" },
     ],
     trustNotes: [
       "Third-party tested for purity & potency.",
@@ -257,6 +271,13 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       { icon: "flame", title: "Muscle Function", description: "Magnesium contributes to normal muscle function." },
       { icon: "energy", title: "Energy Metabolism", description: "Vitamin B12 contributes to normal energy-yielding metabolism." },
     ],
+    featureBadges: [
+      { icon: "sachet", label: "Pre-Measured Sachet" },
+      { icon: "mix", label: "Ready to Mix" },
+      { icon: "noHassle", label: "No Scoop Required" },
+      { icon: "bag", label: "Work-Bag Friendly" },
+      { icon: "formula", label: "Transparent Formula" },
+    ],
     trustNotes: [
       "Third-party tested for purity & potency.",
       "Transparent label, nothing hidden.",
@@ -341,6 +362,13 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       { icon: "energy", title: "Active Performance", description: "Creatine increases physical performance in successive bursts of short-term, high-intensity exercise." },
       { icon: "flame", title: "Reduce Fatigue", description: "Iron contributes to the reduction of tiredness and fatigue." },
       { icon: "balance", title: "Energy Metabolism", description: "Vitamin B12 contributes to normal energy-yielding metabolism." },
+    ],
+    featureBadges: [
+      { icon: "sachet", label: "Handbag-Friendly Sachet" },
+      { icon: "mix", label: "Easy to Mix" },
+      { icon: "noHassle", label: "No Tub or Scoop" },
+      { icon: "training", label: "Built for Active Days" },
+      { icon: "dosed", label: "Clearly Dosed" },
     ],
     trustNotes: [
       "Third-party tested for purity & potency.",
@@ -430,6 +458,13 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       { icon: "energy", title: "Strength Output", description: "Designed for strength and power-focused training." },
       { icon: "shield", title: "Pure Creatine", description: "Provides 6 g of creatine monohydrate per serving." },
     ],
+    featureBadges: [
+      { icon: "sachet", label: "Single-Serve Sachet" },
+      { icon: "mix", label: "Quick to Mix" },
+      { icon: "noHassle", label: "No Bulky Tub" },
+      { icon: "bag", label: "Gym-Bag Ready" },
+      { icon: "pure", label: "Pure Creatine" },
+    ],
     trustNotes: [
       "Third-party tested for purity & potency.",
       "Transparent label, nothing hidden.",
@@ -513,6 +548,13 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       { icon: "flame", title: "Strength & Endurance", description: "Designed for high-intensity training and repeated exercise efforts." },
       { icon: "droplet", title: "Hydration Balance", description: "Helps maintain hydration through added electrolytes." },
       { icon: "shield", title: "Performance Routine", description: "Supports your training routine after demanding workouts." },
+    ],
+    featureBadges: [
+      { icon: "sachet", label: "All-in-One Sachet" },
+      { icon: "dosed", label: "Pre-Measured Serving" },
+      { icon: "noHassle", label: "No Scoop Required" },
+      { icon: "training", label: "Training-Day Ready" },
+      { icon: "quality", label: "Tested for Quality" },
     ],
     trustNotes: [
       "Third-party tested for purity & potency.",
@@ -606,6 +648,13 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       { icon: "shield", title: "Antioxidant Defense", description: "Contains vitamin C, which contributes to the protection of cells from oxidative stress." },
       { icon: "droplet", title: "Skin Care Routine", description: "Formulated with hyaluronic acid for daily skincare routines." },
       { icon: "sparkle", title: "Cellular Wellness", description: "Liposomal delivery combined with piperine to optimise ingredient delivery." },
+    ],
+    featureBadges: [
+      { icon: "formula", label: "Liposomal Formula" },
+      { icon: "routine", label: "Simple Daily Serving" },
+      { icon: "noHassle", label: "No Complicated Prep" },
+      { icon: "travel", label: "Compact for Travel" },
+      { icon: "quality", label: "Purity Tested" },
     ],
     trustNotes: [
       "Third-party tested for purity & potency.",

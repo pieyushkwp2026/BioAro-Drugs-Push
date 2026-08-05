@@ -1,12 +1,15 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
-import { Check, Zap, Dna, Scale, Heart, Brain, Shield, Flame, Droplet, Sparkles, ArrowRight, Quote } from "lucide-react";
+import {
+  Check, Zap, Dna, Scale, Heart, Brain, Shield, Flame, Droplet, Sparkles, ArrowRight, Quote,
+  Pill, Ban, Sun, Briefcase, ShieldCheck, UtensilsCrossed, Package, RefreshCw, FlaskConical, CheckCircle2,
+} from "lucide-react";
 import AccordionGroup from "../components/page/AccordionGroup";
 import IngredientCard from "../components/sections/IngredientCard";
 import PlaceholderBottle from "../components/sections/PlaceholderBottle";
 import OtherIngredientsSection from "../components/sections/OtherIngredientsSection";
 import { fetchProductByHandle, fetchAllProducts } from "../lib/shopify/productService";
-import type { CatalogProduct, ProductWhyItem } from "../lib/shopify/types";
+import type { CatalogProduct, ProductFeatureBadge, ProductWhyItem } from "../lib/shopify/types";
 import { useMarket } from "../hooks/useMarket";
 import { useCart } from "../hooks/useCart";
 import { formatMoney } from "../lib/market/config";
@@ -54,6 +57,23 @@ import glutaraIngredients from "../assets/products/glutara-02-ingredients-1x1.jp
 import glutaraLifestyle from "../assets/products/glutara-03-lifestyle-1x1.jpg";
 import glutaraBenefits from "../assets/products/glutara-04-benefits-1x1.jpg";
 import glutaraRoutine from "../assets/products/glutara-05-product-routine-1x1.jpg";
+
+const BADGE_ICONS: Record<ProductFeatureBadge["icon"], typeof Pill> = {
+  capsule: Pill,
+  noHassle: Ban,
+  routine: Sun,
+  travel: Briefcase,
+  quality: ShieldCheck,
+  omega: Droplet,
+  meal: UtensilsCrossed,
+  sachet: Package,
+  mix: RefreshCw,
+  bag: Briefcase,
+  formula: FlaskConical,
+  pure: Sparkles,
+  training: Flame,
+  dosed: CheckCircle2,
+};
 
 const WHY_ICONS: Record<ProductWhyItem["icon"], typeof Zap> = {
   energy: Zap,
@@ -231,6 +251,7 @@ export default function Product() {
   const hasBestFor = product.bestFor.trim().length > 0;
   const hasBenefits = product.benefits.length > 0;
   const hasWhyItems = product.whyItems.length > 0;
+  const hasFeatureBadges = product.featureBadges.length > 0;
   const hasScience = product.science.length > 0;
   const hasIngredients = product.ingredients.length > 0;
   const hasEvidence = product.evidencePoints.length > 0 || showGraph;
@@ -287,6 +308,26 @@ export default function Product() {
               ))}
             </div>
 
+            {hasFeatureBadges && (
+              <div className="mt-6 grid grid-cols-3 gap-3 sm:grid-cols-5">
+                {product.featureBadges.map((item) => {
+                  const Icon = BADGE_ICONS[item.icon];
+                  return (
+                    <div
+                      key={item.label}
+                      className="flex flex-col items-center gap-2 rounded-2xl border border-ink/10 bg-[rgba(255,255,255,0.56)] px-2 py-4 text-center shadow-[0_12px_28px_-24px_rgba(27,26,23,0.24)]"
+                    >
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-forest-600/10 text-forest-600">
+                        <Icon size={18} />
+                      </div>
+                      <p className="text-[11px] font-medium uppercase leading-tight tracking-[0.02em] text-ink/60">
+                        {item.label}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
             <div className="glass-card mt-6 flex items-center justify-between gap-4 p-5">
               <div>
                 <p className="text-sm font-medium">{product.supplyLabel}</p>
