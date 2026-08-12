@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { Menu, ShoppingBag, User, X } from "lucide-react";
+import { ArrowRight, Menu, ShoppingBag, User, X } from "lucide-react";
 import RegionSelector from "./RegionSelector";
 import { PRIMARY_NAV, ROUTES } from "../../lib/routes";
 import { useCart } from "../../hooks/useCart";
@@ -35,6 +35,15 @@ export default function Header() {
 
   const accountHref = isAuthenticated ? marketHref(ROUTES.account) : marketHref("/auth");
   const accountLabel = isAuthenticated ? customer?.firstName ?? "Account" : "Sign in";
+  const homeHref = marketHref(ROUTES.home);
+  const homeNav = [
+    { label: "Science", href: marketHref(ROUTES.science), type: "route" as const },
+    { label: "Use Cases", href: `${homeHref}#use-cases`, type: "anchor" as const },
+    { label: "Our Approach", href: `${homeHref}#our-approach`, type: "anchor" as const },
+    { label: "Journal", href: marketHref(ROUTES.journal), type: "route" as const },
+    { label: "About", href: marketHref(ROUTES.about), type: "route" as const },
+  ];
+  const desktopNav = isRegionalHomepage ? homeNav : PRIMARY_NAV.map((item) => ({ ...item, href: marketHref(item.href), type: "route" as const }));
 
   return (
     <header
@@ -44,31 +53,54 @@ export default function Header() {
         <div className="flex min-h-[76px] items-center justify-between gap-3 sm:gap-6">
           <Link to={marketHref(ROUTES.home)} className="flex shrink-0 items-center gap-2.5 text-ink sm:gap-3">
             <img src={bioAroMark} alt="" aria-hidden="true" className="h-[24px] w-[24px] shrink-0 object-contain" />
-            <span className="whitespace-nowrap text-[16px] font-semibold tracking-[0.01em] sm:text-[19px]">BioAro Drugs</span>
+            <span className={`whitespace-nowrap tracking-[0.01em] ${isRegionalHomepage ? "text-[16px] font-medium sm:text-[18px]" : "text-[16px] font-semibold sm:text-[19px]"}`}>BioAro Drugs</span>
           </Link>
 
-          <nav className="hidden items-center gap-9 xl:flex">
-            {PRIMARY_NAV.map((item) => (
-              <NavLink
-                key={item.href}
-                to={marketHref(item.href)}
-                className={({ isActive }) =>
-                  `text-[15px] transition-colors ${isActive ? "font-medium text-ink" : "text-[#131012] hover:text-forest-600"}`
-                }
-              >
-                {item.label}
-              </NavLink>
+          <nav className={`hidden items-center xl:flex ${isRegionalHomepage ? "gap-10" : "gap-9"}`}>
+            {desktopNav.map((item) => (
+              item.type === "anchor" ? (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="text-[13.5px] font-medium text-[#2c2825] transition-colors hover:text-[#2f5444]"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <NavLink
+                  key={item.href}
+                  to={item.href}
+                  className={({ isActive }) =>
+                    `transition-colors ${isRegionalHomepage ? "text-[13.5px] font-medium" : "text-[15px]"} ${
+                      isActive ? "text-ink" : "text-[#131012] hover:text-forest-600"
+                    }`
+                  }
+                >
+                  {item.label}
+                </NavLink>
+              )
             ))}
           </nav>
 
           <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+            {isRegionalHomepage ? (
+              <a
+                href={`${homeHref}#our-approach`}
+                className="hidden h-10 items-center gap-2 rounded-full border border-[#d6cdbd] bg-white/72 px-4 text-[13px] font-medium text-ink transition-colors hover:bg-white xl:inline-flex"
+              >
+                <span>Explore our approach</span>
+                <ArrowRight size={14} />
+              </a>
+            ) : null}
             <div className="hidden md:block">
               <RegionSelector />
             </div>
             <Link
               to={accountHref}
               aria-label={accountLabel}
-              className="hidden h-9 items-center gap-2 rounded-full border border-[#ddd8c9] bg-white/70 px-4 text-sm text-ink transition-colors hover:bg-white md:flex"
+              className={`hidden items-center gap-2 rounded-full border px-4 text-sm text-ink transition-colors hover:bg-white md:flex ${
+                isRegionalHomepage ? "h-10 border-[#ddd8c9]/80 bg-white/60" : "h-9 border-[#ddd8c9] bg-white/70"
+              }`}
             >
               <User size={16} />
               <span>{accountLabel}</span>
@@ -83,7 +115,9 @@ export default function Header() {
             <button
               onClick={openCart}
               aria-label="Cart"
-              className="hidden h-9 items-center gap-2 rounded-full border border-[#ddd8c9] bg-white/70 px-4 text-sm text-ink transition-colors hover:bg-white md:flex"
+              className={`hidden items-center gap-2 rounded-full border px-4 text-sm text-ink transition-colors hover:bg-white md:flex ${
+                isRegionalHomepage ? "h-10 border-[#ddd8c9]/80 bg-white/60" : "h-9 border-[#ddd8c9] bg-white/70"
+              }`}
             >
               <ShoppingBag size={16} />
               <span>{cart.totalQuantity}</span>
@@ -116,15 +150,26 @@ export default function Header() {
               <RegionSelector />
             </div>
             <nav className="flex flex-col gap-1">
-              {PRIMARY_NAV.map((item) => (
-                <Link
-                  key={item.href}
-                  to={marketHref(item.href)}
-                  onClick={() => setOpen(false)}
-                  className="rounded-2xl px-3 py-3 text-[15px] text-ink transition-colors hover:bg-white/70"
-                >
-                  {item.label}
-                </Link>
+              {(isRegionalHomepage ? homeNav : desktopNav).map((item) => (
+                item.type === "anchor" ? (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className="rounded-2xl px-3 py-3 text-[15px] text-ink transition-colors hover:bg-white/70"
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    onClick={() => setOpen(false)}
+                    className="rounded-2xl px-3 py-3 text-[15px] text-ink transition-colors hover:bg-white/70"
+                  >
+                    {item.label}
+                  </Link>
+                )
               ))}
               <Link
                 to={accountHref}

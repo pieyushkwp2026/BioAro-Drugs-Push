@@ -1,11 +1,14 @@
-import { BookOpen, FlaskConical, Mail, MapPin, ShieldCheck, Users } from "lucide-react";
-import { Link } from "react-router-dom";
+import { type FormEvent, useState } from "react";
+import { ArrowRight, BookOpen, FlaskConical, Mail, MapPin, ShieldCheck, Users } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import bioAroMark from "../../assets/logo/bioaro-mark.png";
 import { FlagCA } from "./Flags";
+import RegionSelector from "./RegionSelector";
 import { ROUTES } from "../../lib/routes";
 import { useMarket } from "../../hooks/useMarket";
 import { useMarketHref } from "../../hooks/useMarketHref";
 import { getMarketConfigByMarket } from "../../config/markets";
+import { stripMarketPrefix } from "../../lib/marketRouting";
 
 const SHOP_LINKS = [
   { label: "All Products", href: ROUTES.shop },
@@ -103,7 +106,10 @@ function FooterColumn({ title, links }: { title: string; links: Array<{ label: s
 export default function Footer() {
   const { market } = useMarket();
   const marketHref = useMarketHref();
+  const { pathname } = useLocation();
   const marketConfig = getMarketConfigByMarket(market);
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const isRegionalHomepage = stripMarketPrefix(pathname) === "/";
   const addressLine = marketConfig.address
     ? [
         marketConfig.address.line1,
@@ -113,6 +119,121 @@ export default function Footer() {
         marketConfig.address.country,
       ].filter(Boolean).join(", ")
     : "Regional address details will be published when ordering opens.";
+
+  function handleNewsletterSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const email = newsletterEmail.trim();
+    if (!email || typeof window === "undefined") return;
+
+    const subject = encodeURIComponent("Footer newsletter subscription request");
+    const body = encodeURIComponent(`Please add this email to the BioAro Drugs newsletter list:\n\n${email}`);
+    window.location.href = `mailto:${marketConfig.supportEmail}?subject=${subject}&body=${body}`;
+  }
+
+  if (isRegionalHomepage) {
+    return (
+      <footer className="bg-[#f2eadf] pb-8 pt-6">
+        <div className="container-bio max-w-[1380px]">
+          <div className="grid gap-10 border-t border-[#ddd2c3] pt-7 lg:grid-cols-[0.9fr_1.3fr_0.8fr] lg:gap-12">
+            <div className="max-w-[280px]">
+              <Link to={marketHref(ROUTES.home)} className="flex items-center gap-3 text-ink">
+                <img src={bioAroMark} alt="" aria-hidden="true" className="h-7 w-7 object-contain" />
+                <span className="text-[20px] font-medium tracking-[0.01em]">BioAro Drugs</span>
+              </Link>
+              <p className="mt-4 text-[13px] leading-6 text-[#5a524b]">
+                Science-backed wellness designed for real life.
+              </p>
+              <div className="mt-5 max-w-[210px]">
+                <RegionSelector />
+              </div>
+            </div>
+
+            <div className="grid gap-8 sm:grid-cols-3">
+              <FooterColumn title="Explore" links={[
+                { label: "Science", href: ROUTES.science },
+                { label: "Use Cases", href: ROUTES.home },
+                { label: "Our Approach", href: ROUTES.science },
+                { label: "Journal", href: ROUTES.journal },
+                { label: "About", href: ROUTES.about },
+              ]} />
+              <FooterColumn title="Support" links={[
+                { label: "FAQs", href: ROUTES.faq },
+                { label: "Contact Us", href: ROUTES.support },
+                { label: "Shipping & Returns", href: ROUTES.returns },
+                { label: "Privacy Policy", href: ROUTES.shipping },
+                { label: "Terms of Service", href: ROUTES.disclaimer },
+              ]} />
+              <div>
+                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-forest-600">Stay in the know</p>
+                <p className="mt-3 text-[13px] leading-6 text-[#5a524b]">
+                  Thoughtful insights on health, longevity, and living well.
+                </p>
+                <form onSubmit={handleNewsletterSubmit} className="mt-4 flex items-center gap-2">
+                  <input
+                    type="email"
+                    value={newsletterEmail}
+                    onChange={(event) => setNewsletterEmail(event.target.value)}
+                    placeholder="Enter your email"
+                    className="h-11 min-w-0 flex-1 rounded-full border border-[#d7ccbd] bg-[#fbf8f3] px-4 text-[13px] text-[#534b44] outline-none placeholder:text-[#8f867d]"
+                    aria-label="Email address"
+                    required
+                  />
+                  <button
+                    type="submit"
+                    className="flex h-11 w-11 items-center justify-center rounded-full bg-[#12100f] text-white transition-colors hover:bg-[#2c4739]"
+                    aria-label="Subscribe"
+                  >
+                    <ArrowRight size={15} />
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div className="space-y-4 text-[12px] leading-6 text-[#6d645c]">
+              <div>
+                <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-forest-600">Responsible Food Business</p>
+                <p className="mt-2 font-medium text-[#322c28]">BioAro Drugs</p>
+                <p>{addressLine}</p>
+              </div>
+              <a href={`mailto:${marketConfig.supportEmail}`} className="inline-flex items-center gap-2 text-[#4f4942] transition-colors hover:text-forest-600">
+                <Mail size={14} />
+                <span>{marketConfig.supportEmail}</span>
+              </a>
+            </div>
+          </div>
+
+          <div className="mt-8 flex flex-col gap-4 border-t border-[#ddd2c3] pt-5 text-[12px] text-[#8b837b] sm:flex-row sm:items-center sm:justify-between">
+            <p>© {new Date().getFullYear()} BioAro Drugs Inc. All rights reserved.</p>
+            <div className="flex flex-wrap gap-2.5">
+              {SOCIAL_LINKS.map(({ Icon, label, href }) => (
+                href.startsWith("http") ? (
+                  <a
+                    key={label}
+                    href={href}
+                    aria-label={label}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex h-9 w-9 items-center justify-center rounded-full border border-[#d8cfbf] bg-[#f8f4ed] text-[#214a35] transition-colors hover:bg-white hover:text-forest-600"
+                  >
+                    <Icon size={15} />
+                  </a>
+                ) : (
+                  <Link
+                    key={label}
+                    to={marketHref(href)}
+                    aria-label={label}
+                    className="flex h-9 w-9 items-center justify-center rounded-full border border-[#d8cfbf] bg-[#f8f4ed] text-[#214a35] transition-colors hover:bg-white hover:text-forest-600"
+                  >
+                    <Icon size={15} />
+                  </Link>
+                )
+              ))}
+            </div>
+          </div>
+        </div>
+      </footer>
+    );
+  }
 
   return (
     <footer className="border-t border-[#ddd4c5] bg-[#eee7db] pt-10 sm:pt-12">

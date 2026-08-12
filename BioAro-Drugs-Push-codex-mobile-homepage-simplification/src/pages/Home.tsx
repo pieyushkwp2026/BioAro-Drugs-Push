@@ -1,809 +1,478 @@
-import { type FormEvent, useEffect, useState } from "react";
+import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
-import {
-  ArrowRight,
-  Brain,
-  ChevronLeft,
-  ChevronRight,
-  ClipboardList,
-  Dumbbell,
-  FileCheck2,
-  FlaskConical,
-  Leaf,
-  MoonStar,
-  ShieldCheck,
-  Sparkles,
-  SunMedium,
-  Zap,
-} from "lucide-react";
-import { FlagCA } from "../components/layout/Flags";
-import HeroAISearch from "../components/sections/HeroAISearch";
-import HomepageProductCarousel from "../components/sections/HomepageProductCarousel";
-import Testimonials from "../components/sections/Testimonials";
+import { ArrowRight, Brain, Dumbbell, Heart, Infinity, Leaf, Sparkles, Target, Waves } from "lucide-react";
 import heroRunnersSunrise from "../assets/hero/hero-runners-sunrise.png";
-import realRoutinesNadiaLongevity from "../assets/home/real-routines-nadia-longevity.png";
 import essentialLongevityEditorial from "../assets/figma-home/essential-longevity-mountain-couple.png";
 import essentialFocusEditorial from "../assets/figma-home/essential-focus-study-man.png";
 import essentialRecoveryEditorial from "../assets/figma-home/essential-recovery-coastal-woman.png";
-import essentialSleepEditorial from "../assets/figma-home/essential-sleep-editorial.png";
+import essentialLongevityCard from "../assets/figma-home/essential-longevity-card.png";
+import essentialFocusCard from "../assets/figma-home/essential-focus-card.png";
+import essentialRecoveryCard from "../assets/figma-home/essential-recovery-card.png";
+import essentialSleepCard from "../assets/figma-home/essential-sleep-card.png";
 import evidenceScientistEditorial from "../assets/figma-home/evidence-scientist-editorial.png";
 import founderVisual from "../assets/figma-home/founder-sikh-portrait.png";
-import { SUPPORT_EMAILS } from "../data/siteContent";
+import realRoutinesNadiaLongevity from "../assets/home/real-routines-nadia-longevity.png";
 import { JOURNAL_ARTICLES } from "../data/journal";
-import { useMarket } from "../hooks/useMarket";
 import { useMarketHref } from "../hooks/useMarketHref";
 import { ROUTES } from "../lib/routes";
-import { fetchAllProducts } from "../lib/shopify/productService";
-import type { CatalogProduct } from "../lib/shopify/types";
-import rawPowerLifestyle from "../assets/about/protocol-slider/creagen-raw-power-lifestyle.png";
 
-const HERO_TRUST_ITEMS = [
-  { label: "Evidence-led", subtitle: "Formulas", Icon: FlaskConical },
-  { label: "Third-party", subtitle: "Tested", Icon: ShieldCheck },
-  { label: "Transparent", subtitle: "Ingredients", Icon: Leaf },
-  { label: "Formulated in", subtitle: "Canada", Icon: CanadaFlagIcon },
-] as const;
-
-type IconProps = {
-  className?: string;
-  size?: number;
-};
-
-type ProtocolLifestyleSlide = {
-  src: string;
-  alt: string;
-  objectPosition: string;
-  ariaLabel?: string;
-};
-
-const PROTOCOL_LIFESTYLE_SLIDES: ProtocolLifestyleSlide[] = [
+const HOME_PILLARS = [
   {
-    src: rawPowerLifestyle,
-    alt: "Athlete preparing Creagen Raw Power in a shaker as part of a daily performance routine",
-    objectPosition: "52% 50%",
-    ariaLabel: "Creagen Raw Power daily performance routine",
-  },
-];
-
-function ProtocolLifestyleSlider() {
-  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
-  const hasMultipleSlides = PROTOCOL_LIFESTYLE_SLIDES.length > 1;
-
-  const showSlide = (nextIndex: number) => {
-    setActiveSlideIndex((nextIndex + PROTOCOL_LIFESTYLE_SLIDES.length) % PROTOCOL_LIFESTYLE_SLIDES.length);
-  };
-
-  return (
-    <div
-      className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-white/10 bg-white/5 shadow-[0_28px_55px_-38px_rgba(0,0,0,0.8)]"
-      aria-label="Daily protocol lifestyle images"
-      role={hasMultipleSlides ? "region" : undefined}
-    >
-      {PROTOCOL_LIFESTYLE_SLIDES.map((slide, index) => (
-        <img
-          key={slide.src}
-          src={slide.src}
-          alt={index === activeSlideIndex ? slide.alt : ""}
-          aria-hidden={index !== activeSlideIndex}
-          loading="lazy"
-          decoding="async"
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 motion-reduce:transition-none ${
-            index === activeSlideIndex ? "opacity-100" : "pointer-events-none opacity-0"
-          }`}
-          style={{ objectPosition: slide.objectPosition }}
-        />
-      ))}
-
-      {hasMultipleSlides ? (
-        <>
-          <button
-            type="button"
-            onClick={() => showSlide(activeSlideIndex - 1)}
-            className="absolute bottom-4 left-4 inline-flex size-10 items-center justify-center rounded-full border border-white/25 bg-black/30 text-white backdrop-blur-sm transition-colors hover:bg-black/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-            aria-label="Show previous lifestyle image"
-          >
-            <ChevronLeft size={18} aria-hidden="true" />
-          </button>
-          <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 items-center gap-2" aria-label="Lifestyle image navigation">
-            {PROTOCOL_LIFESTYLE_SLIDES.map((slide, index) => (
-              <button
-                key={slide.src}
-                type="button"
-                onClick={() => showSlide(index)}
-                className={`h-2 rounded-full transition-[width,background-color] duration-500 motion-reduce:transition-none ${
-                  index === activeSlideIndex ? "w-6 bg-white" : "w-2 bg-white/55 hover:bg-white/80"
-                } focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
-                aria-label={`Show ${slide.ariaLabel ?? `lifestyle image ${index + 1}`}`}
-                aria-current={index === activeSlideIndex ? "true" : undefined}
-              />
-            ))}
-          </div>
-          <button
-            type="button"
-            onClick={() => showSlide(activeSlideIndex + 1)}
-            className="absolute bottom-4 right-4 inline-flex size-10 items-center justify-center rounded-full border border-white/25 bg-black/30 text-white backdrop-blur-sm transition-colors hover:bg-black/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-            aria-label="Show next lifestyle image"
-          >
-            <ChevronRight size={18} aria-hidden="true" />
-          </button>
-        </>
-      ) : null}
-    </div>
-  );
-}
-
-function CanadaFlagIcon({ className, size = 52 }: IconProps) {
-  return (
-    <FlagCA
-      className={className}
-      style={{
-        width: `${size}px`,
-        height: `${Math.round((size * 16) / 24)}px`,
-      }}
-    />
-  );
-}
-
-const CREDIBILITY_ITEMS = [
-  {
-    title: "100+",
-    subtitle: "Tests Per Batch",
-    Icon: FlaskConical,
-  },
-  {
-    title: "cGMP",
-    subtitle: "Certified",
-    Icon: ShieldCheck,
-  },
-  {
-    title: "Formulated in Canada",
-    subtitle: "Trusted Quality",
-    Icon: CanadaFlagIcon,
-  },
-] as const;
-
-/*
-const OUTCOME_PILLS = [
-  {
-    title: "More Energy",
-    description: "Fuel your day, from the inside out.",
-    href: `${ROUTES.shop}?category=Longevity`,
-    Icon: Zap,
-    tone: "bg-[#e3f0e3]",
-  },
-  {
-    title: "Sharper Focus",
-    description: "Think clearly. Stay in flow.",
-    href: `${ROUTES.shop}?category=Focus`,
+    title: "Clarity",
+    description: "Clear mind. Better decisions.",
     Icon: Brain,
-    tone: "bg-[#eae6f5]",
   },
   {
-    title: "Recover Faster",
-    description: "Support muscles. Bounce back stronger.",
-    href: `${ROUTES.shop}?category=Recovery`,
+    title: "Strength",
+    description: "Move, train and build.",
     Icon: Dumbbell,
-    tone: "bg-[#f3e6d8]",
-  },
-  {
-    title: "Sleep Deeper",
-    description: "Rest well. Wake up refreshed.",
-    href: ROUTES.protocols,
-    Icon: MoonStar,
-    tone: "bg-[#dce6f2]",
-  },
-  {
-    title: "Age Better",
-    description: "Support longevity at the cellular level.",
-    href: `${ROUTES.shop}?category=Longevity`,
-    Icon: Leaf,
-    tone: "bg-[#f5dede]",
-  },
-] as const;
-*/
-
-const ESSENTIALS = [
-  {
-    title: "Longevity",
-    description: "Support healthy aging, cellular energy, and long-term vitality.",
-    href: `${ROUTES.shop}?category=Longevity`,
-    editorialImage: essentialLongevityEditorial,
-    editorialAlt: "Older couple hiking together in a mountain landscape",
-    editorialPosition: "50% center",
-    Icon: Leaf,
-    chips: ["NMN", "Resveratrol", "Omega-3"],
-  },
-  {
-    title: "Focus",
-    description: "Promote mental clarity, sustained energy, and cognitive performance.",
-    href: `${ROUTES.shop}?category=Focus`,
-    editorialImage: essentialFocusEditorial,
-    editorialAlt: "Man writing in a calm study with warm natural light",
-    editorialPosition: "50% center",
-    Icon: Brain,
-    chips: ["Creatine", "Citicoline", "L-Theanine"],
   },
   {
     title: "Recovery",
-    description: "Recover faster, reduce soreness, and support peak performance.",
-    href: `${ROUTES.shop}?category=Recovery`,
-    editorialImage: essentialRecoveryEditorial,
-    editorialAlt: "Athlete seated on a coastal terrace after training",
-    editorialPosition: "50% center",
-    Icon: Dumbbell,
-    chips: ["Creatine", "Betaine", "Electrolytes"],
+    description: "Bounce back. Feel like yourself.",
+    Icon: Waves,
   },
   {
-    title: "Sleep",
-    description: "Promote deeper sleep, calm your mind, and wake up refreshed.",
-    href: ROUTES.protocols,
-    editorialImage: essentialSleepEditorial,
-    editorialAlt: "Person sleeping in a moonlit bedroom",
-    editorialPosition: "60% center",
-    Icon: MoonStar,
-    chips: ["Magnesium", "Apigenin", "Glycine"],
+    title: "Longevity",
+    description: "Support today. Protect tomorrow.",
+    Icon: Infinity,
   },
 ] as const;
 
-const EVIDENCE_ITEMS = [
+const HOME_STORIES = [
   {
-    title: "Transparent labels",
-    description: "Every dose disclosed. No hidden blends.",
-    Icon: ClipboardList,
+    title: "Focus & Clarity",
+    description: "Stay sharp. Make clearer decisions. Lead with confidence.",
+    image: essentialFocusEditorial,
+    alt: "Professional working with calm focus near a laptop",
+    href: ROUTES.science,
+    imageClassName: "object-[50%_44%]",
   },
   {
-    title: "Documentation ready",
-    description: "Quality documents are shared when available.",
-    Icon: FileCheck2,
+    title: "Strength & Recovery",
+    description: "Train hard. Recover smarter. Keep moving forward.",
+    image: essentialRecoveryEditorial,
+    alt: "Man resting after training in warm natural light",
+    href: ROUTES.science,
+    imageClassName: "object-[54%_50%]",
   },
   {
-    title: "Traceable ingredient context",
-    description: "Ingredient and sourcing notes are added where disclosed.",
+    title: "Daily Vitality",
+    description: "Support your energy, immunity, and long-term well-being.",
+    image: essentialLongevityEditorial,
+    alt: "Woman enjoying a quiet wellness moment beside a bright window",
+    href: ROUTES.about,
+    imageClassName: "object-[62%_50%]",
+  },
+] as const;
+
+const PHILOSOPHY_POINTS = [
+  {
+    title: "No complicated 12-step routines.",
+    description: "Wellness that's easy to understand and simple to follow.",
+    Icon: Sparkles,
+  },
+  {
+    title: "Built for consistency, not perfection.",
+    description: "Small choices. Sustainable change.",
+    Icon: Target,
+  },
+  {
+    title: "Designed to travel with your life.",
+    description: "At home, at work, or across the world.",
     Icon: Leaf,
   },
   {
-    title: "Manufacturing context",
-    description: "Manufacturing details are shown only when confirmed.",
-    Icon: FlaskConical,
+    title: "Support that fits into modern routines.",
+    description: "Real life is busy. Your wellness should fit.",
+    Icon: Heart,
+  },
+] as const;
+
+const APPROACH_TILES = [
+  {
+    title: "Brain & Clarity",
+    description: "Support focus, memory, and mental sharpness.",
+    image: essentialLongevityCard,
+    alt: "Profile silhouette with illuminated brain concept",
   },
   {
-    title: "Conservative support language",
-    description: "Clear guidance without inflated promises.",
-    Icon: ShieldCheck,
+    title: "Cellular Health",
+    description: "Nourish your cells and protect what matters most.",
+    image: essentialFocusCard,
+    alt: "Abstract cellular forms floating in an ivory environment",
+  },
+  {
+    title: "Strength & Recovery",
+    description: "Build strength, recover better, move with confidence.",
+    image: essentialRecoveryCard,
+    alt: "Athlete seated after training in a sunlit studio",
+  },
+  {
+    title: "Daily Vitality",
+    description: "Foundations for energy, immunity, and whole-body balance.",
+    image: essentialSleepCard,
+    alt: "Woman outdoors in a calm daily vitality portrait",
   },
 ] as const;
 
-const METHOD_WINDOWS = [
-  { label: "Morning", title: "Awaken", description: "Support energy and focus.", Icon: SunMedium },
-  { label: "Midday", title: "Perform", description: "Maintain clarity and consistency.", Icon: Zap },
-  { label: "Evening", title: "Recover", description: "Restore while you sleep.", Icon: MoonStar },
+const SCIENCE_POINTS = [
+  "Science-led formulation philosophy",
+  "Thoughtful, well-researched ingredients",
+  "Made for modern routines",
+  "Quality and trust, always",
 ] as const;
 
-const PROTOCOL_STEPS: ReadonlyArray<{ step: string; label: string; span?: number }> = [
-  { step: "STEP 1", label: "Your goal" },
-  { step: "STEP 2", label: "Sleep quality" },
-  { step: "STEP 3", label: "Energy level" },
-  { step: "STEP 4", label: "Age range" },
-  { step: "STEP 5", label: "Recommendation", span: 2 },
-] as const;
+const FOOTER_JOURNAL_ARTICLES = JOURNAL_ARTICLES.slice(0, 3);
 
-function HeroScene() {
+function HomeSectionLabel({ children, className = "" }: { children: string; className?: string }) {
+  return <span className={`eyebrow text-[10px] tracking-[0.22em] text-[#8e887f] ${className}`}>{children}</span>;
+}
+
+function HomeCta({
+  children,
+  href,
+  variant = "primary",
+}: {
+  children: ReactNode;
+  href: string;
+  variant?: "primary" | "secondary";
+}) {
   return (
-    <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
-      <img
-        src={heroRunnersSunrise}
-        alt=""
-        className="hero-campaign-image absolute inset-0 h-full w-full object-cover object-[68%_50%] sm:object-[65%_50%] xl:object-center"
-      />
-    </div>
+    <Link
+      to={href}
+      className={
+        variant === "primary"
+          ? "inline-flex items-center gap-2 rounded-full bg-[#12100f] px-5 py-3 text-[13px] font-semibold text-white transition-colors hover:bg-[#2c4739]"
+          : "inline-flex items-center gap-2 rounded-full px-1 py-3 text-[13px] font-semibold text-[#1f1a17] transition-colors hover:text-[#2c4739]"
+      }
+    >
+      {children}
+      <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transform-none" />
+    </Link>
+  );
+}
+
+function HomeStoryCard({
+  title,
+  description,
+  image,
+  alt,
+  href,
+  imageClassName,
+}: (typeof HOME_STORIES)[number]) {
+  const marketHref = useMarketHref();
+
+  return (
+    <Link
+      to={marketHref(href)}
+      className="group overflow-hidden rounded-[28px] bg-[#fbf8f2] shadow-[0_18px_45px_-36px_rgba(38,31,24,0.16)] transition-transform duration-300 hover:-translate-y-0.5"
+    >
+      <div className="aspect-[1.13/1] overflow-hidden rounded-[28px] bg-[#efe9de]">
+        <img
+          src={image}
+          alt={alt}
+          className={`h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.025] motion-reduce:transform-none ${imageClassName}`}
+        />
+      </div>
+      <div className="px-5 pb-6 pt-5 sm:px-6">
+        <h3 className="font-display text-[22px] leading-[1.02] tracking-[-0.02em] text-[#1d1916] sm:text-[25px]">{title}</h3>
+        <p className="mt-3 max-w-[25ch] text-[14px] leading-6 text-[#6b635b]">{description}</p>
+        <span className="mt-5 inline-flex items-center gap-2 text-[13px] font-semibold text-[#1d1916]">
+          Explore
+          <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transform-none" />
+        </span>
+      </div>
+    </Link>
   );
 }
 
 export default function Home() {
-  const { country } = useMarket();
   const marketHref = useMarketHref();
-  const [products, setProducts] = useState<CatalogProduct[]>([]);
-  const [newsletterEmail, setNewsletterEmail] = useState("");
-  const [isRecommendationSheetOpen, setIsRecommendationSheetOpen] = useState(false);
-  const supportEmail = SUPPORT_EMAILS[0]?.value ?? "support@bioarodrugs.com";
-
-  useEffect(() => {
-    void fetchAllProducts(country).then(setProducts);
-  }, [country]);
-
-  function handleNewsletterSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const email = newsletterEmail.trim();
-    if (!email || typeof window === "undefined") return;
-
-    const subject = encodeURIComponent("Newsletter subscription request");
-    const body = encodeURIComponent(`Please add this email to the BioAro Drugs newsletter list:\n\n${email}`);
-    window.location.href = `mailto:${supportEmail}?subject=${subject}&body=${body}`;
-  }
 
   return (
-    <div className="bg-[#f8f6f4]">
-      <style>{`
-        @keyframes hero-campaign-breathe {
-          from { transform: scale(1); }
-          to { transform: scale(1.018); }
-        }
-
-        .hero-campaign-image {
-          animation: hero-campaign-breathe 24s ease-in-out infinite alternate;
-          transform-origin: 62% 52%;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .hero-campaign-image { animation: none; }
-        }
-      `}</style>
-      <section className="overflow-hidden bg-[#f7f2ea]">
-        <div className="w-full">
-          <div className="relative w-full overflow-hidden bg-[#f7f2ea] xl:aspect-[2/1]">
-              <div className="relative flex flex-col xl:absolute xl:inset-0 xl:block">
-                <div className="order-1 px-5 pb-9 pt-24 sm:px-8 sm:pt-28 xl:absolute xl:inset-y-0 xl:left-0 xl:z-10 xl:flex xl:w-[46%] xl:flex-col xl:justify-center xl:bg-[linear-gradient(90deg,rgba(247,242,234,0.98)_0%,rgba(247,242,234,0.88)_46%,rgba(247,242,234,0.34)_72%,rgba(247,242,234,0)_100%)] xl:px-[72px] xl:pb-64 xl:pt-28">
-                  <div className="max-w-[390px] sm:max-w-[470px] md:max-w-[610px]">
-                    <span className="inline-flex max-w-full items-center rounded-full border border-[#d9c9b0]/80 bg-white/58 px-4 py-2 text-center text-[9.5px] font-semibold uppercase leading-[1.35] tracking-[0.16em] text-[#8d602c] backdrop-blur-md sm:px-5 sm:text-[11px] sm:tracking-[0.2em]">
-                      SCIENCE. NATURE. YOU.
-                    </span>
-                    <h1 className="mt-5 max-w-[720px] text-balance text-[clamp(44px,12vw,74px)] leading-[0.96] tracking-[-0.035em] text-ink md:mt-6 md:text-[clamp(68px,6vw,88px)] md:leading-[0.92] xl:text-[94px]">
-                      Move better.
-                      <br />
-                      <span className="italic">Recover smarter.</span>
-                    </h1>
-                    <p className="mt-6 max-w-[350px] text-[16px] leading-[1.65] text-[#2b2824] sm:max-w-[440px] sm:text-[17px] sm:leading-[1.7] md:mt-7 md:max-w-[500px] md:text-[18px]">
-                      Science-backed supplements and nutrition protocols for longevity, performance, recovery, and everyday wellness.
-                    </p>
-                    <HeroAISearch
-                      shopHref={marketHref(ROUTES.shop)}
-                      onSheetOpenChange={setIsRecommendationSheetOpen}
-                    />
-                  </div>
+    <div className="bg-[#f8f4ee] text-[#1b1714]">
+      <section className="px-4 pb-8 pt-4 sm:px-6 lg:px-8 lg:pb-10">
+        <div className="mx-auto max-w-[1380px] overflow-hidden rounded-[34px] bg-[#f4efe7] shadow-[0_24px_70px_-48px_rgba(35,29,20,0.32)]">
+          <div className="relative min-h-[760px] overflow-hidden lg:min-h-[880px] xl:min-h-[920px]">
+            <img
+              src={heroRunnersSunrise}
+              alt="People running beside the water in warm sunrise light"
+              className="absolute inset-0 h-full w-full object-cover object-[72%_center]"
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(244,239,231,0.98)_0%,rgba(244,239,231,0.93)_29%,rgba(244,239,231,0.62)_47%,rgba(244,239,231,0.18)_66%,rgba(244,239,231,0)_78%)]" />
+            <div className="relative z-10 flex min-h-[760px] items-start px-8 pb-36 pt-28 sm:px-10 lg:min-h-[880px] lg:px-14 lg:pt-36 xl:min-h-[920px] xl:px-20">
+              <div className="max-w-[430px] pt-10 sm:max-w-[470px] lg:pt-16">
+                <p className="text-[12px] font-medium tracking-[0.02em] text-[#5f564f]">BioAro — Live Forward.</p>
+                <h1 className="mt-8 max-w-[8ch] font-display text-[54px] leading-[0.9] tracking-[-0.04em] text-[#1b1714] sm:text-[68px] lg:text-[84px] xl:text-[88px]">
+                  Keep more of what makes life yours.
+                </h1>
+                <p className="mt-7 max-w-[31ch] text-[15px] leading-7 text-[#514841] sm:text-[16px]">
+                  Science-backed wellness for real life. Clarity for the people who depend on you. Recovery for everything you still want to do.
+                </p>
+                <div className="mt-8 flex flex-wrap items-center gap-3">
+                  <HomeCta href={marketHref(`${ROUTES.home}#our-approach`)} variant="primary">
+                    Explore our approach
+                  </HomeCta>
+                  <HomeCta href={marketHref(`${ROUTES.home}#use-cases`)} variant="secondary">
+                    See use cases
+                  </HomeCta>
                 </div>
-
-                <div className="order-2 relative aspect-[4/3] min-h-[370px] overflow-hidden sm:aspect-[16/10] sm:min-h-[460px] xl:absolute xl:inset-0 xl:min-h-0 xl:aspect-auto">
-                  <HeroScene />
-                  <span className="sr-only">
-                    BioAro products on a sunlit coastal path with a runner and subtle scientific details.
-                  </span>
-                </div>
-
-                {!isRecommendationSheetOpen ? (
-                  <div className="order-3 border-t border-white/75 bg-[rgba(247,242,234,0.74)] px-5 py-4 shadow-[0_-10px_36px_rgba(35,29,20,0.04)] backdrop-blur-2xl sm:px-8 xl:absolute xl:bottom-8 xl:left-1/2 xl:z-20 xl:w-[calc(100%-144px)] xl:max-w-[1320px] xl:-translate-x-1/2 xl:rounded-[24px] xl:border xl:border-white/75 xl:bg-[rgba(247,242,234,0.68)] xl:px-5 xl:py-5 xl:shadow-[0_22px_70px_rgba(35,29,20,0.12),inset_0_1px_0_rgba(255,255,255,0.72)]">
-                    <div className="grid grid-cols-2 md:grid-cols-4">
-                      {HERO_TRUST_ITEMS.map((item) => (
-                        <div key={item.label} className="flex min-h-[74px] items-center justify-center gap-3 border-white/50 px-3 py-3 text-left even:border-l md:min-h-[72px] md:border-l md:px-5 first:md:border-l-0">
-                          <div className="flex h-[32px] w-[32px] shrink-0 items-center justify-center rounded-full border border-white/65 bg-white/58 text-ink shadow-[0_10px_24px_rgba(35,29,20,0.08)]">
-                            <item.Icon size={13} />
-                          </div>
-                          <p className="text-[11.5px] leading-[1.3] text-[#131012] sm:text-[12px]">
-                            <span className="block">{item.label}</span>
-                            <span className="block">{item.subtitle}</span>
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ) : null}
               </div>
             </div>
+          </div>
+
+          <div className="px-4 pb-6 sm:px-6 lg:px-8 lg:pb-8">
+            <div className="relative -mt-12 rounded-[28px] bg-[#fbf8f2] px-5 py-4 shadow-[0_18px_40px_-34px_rgba(34,28,21,0.22)] sm:-mt-14 sm:px-8 sm:py-5">
+              <div className="grid gap-y-5 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 lg:gap-x-0">
+                {HOME_PILLARS.map(({ title, description, Icon }, index) => (
+                  <div
+                    key={title}
+                    className={`flex items-center gap-4 px-3 lg:px-8 ${index > 0 ? "lg:border-l lg:border-[#e8dfd2]" : ""}`}
+                  >
+                    <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[#e4d9cb] text-[#4a453e]">
+                      <Icon size={18} strokeWidth={1.55} />
+                    </span>
+                    <div>
+                      <p className="text-[14px] font-medium text-[#1d1916]">{title}</p>
+                      <p className="mt-1 text-[12px] leading-5 text-[#71685e]">{description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/*
-      Outcome shortcut row paused by request. Keep the markup available for quick restoration.
-      <section className="bg-[#f8f3f0] py-9">
-        <div className="container-bio">
-          <div className="mx-auto grid max-w-[1404px] gap-5 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
-            {OUTCOME_PILLS.map((item) => (
-              <Link
-                key={item.title}
-                to={marketHref(item.href)}
-                className="flex min-h-[116px] w-full items-center gap-3 rounded-2xl border border-[#e6e2d4] bg-[#fbf9f5] px-5 py-5 transition-colors hover:bg-white"
-              >
-                <div className={`flex h-[42px] w-[42px] items-center justify-center rounded-[16px_6px_16px_6px] ${item.tone}`}>
-                  <item.Icon size={20} className="text-ink" />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <p className="text-[14.5px] font-semibold text-ink">{item.title}</p>
-                  <p className="mt-1 text-[12.5px] leading-5 text-[#1b1b1c]">{item.description}</p>
-                </div>
-                <span className="text-[26px] text-[#5a5958]">›</span>
-              </Link>
+      <section id="use-cases" className="scroll-mt-28 pb-16 pt-8 sm:pb-20 lg:pt-14">
+        <div className="container-bio max-w-[1290px]">
+          <div className="grid gap-8 lg:grid-cols-[1.1fr_0.75fr] lg:items-end lg:gap-12">
+            <div>
+              <HomeSectionLabel>REAL LIVES. REAL REASONS.</HomeSectionLabel>
+              <h2 className="mt-4 max-w-[8ch] font-display text-[42px] leading-[0.94] tracking-[-0.03em] text-[#1d1916] sm:text-[54px] lg:text-[66px]">
+                Different lives. Different goals.
+              </h2>
+            </div>
+            <p className="max-w-[26ch] justify-self-start text-[15px] leading-7 text-[#6f675f] lg:justify-self-end lg:text-right">
+              Wellness looks different for everyone. Support what matters most to you.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+            {HOME_STORIES.map((story) => (
+              <HomeStoryCard key={story.title} {...story} />
             ))}
           </div>
         </div>
       </section>
-      */}
 
-      <div className="md:hidden">
-        <HomepageProductCarousel products={products} />
-      </div>
-
-      <section className="hidden py-10 sm:py-14 md:block md:py-16 lg:py-20">
-        <div className="container-bio">
-          <div className="mx-auto max-w-[1440px]">
-            <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <div className="max-w-[680px]">
-              <span className="eyebrow">Built for outcomes</span>
-              <h2 className="mt-4 text-[46px] leading-[0.95] text-ink md:text-[62px]">
-                Four essentials for
-                <br />
-                better daily <span className="italic text-forest-600">performance.</span>
+      <section className="border-y border-[#ece3d7] bg-[#faf7f2] py-14 sm:py-16">
+        <div className="container-bio max-w-[1320px]">
+          <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+            <div>
+              <HomeSectionLabel>WELLNESS THAT FITS REAL LIFE</HomeSectionLabel>
+              <h2 className="mt-4 max-w-[8.5ch] font-display text-[40px] leading-[0.98] tracking-[-0.03em] text-[#1d1916] sm:text-[50px] lg:text-[58px]">
+                Simple. Science-backed. Made for how you live.
               </h2>
             </div>
-          </div>
-          </div>
-
-          <div className="mx-auto mt-12 max-w-[1440px]">
-            <div className="grid grid-cols-1 items-start gap-5 md:grid-cols-2 xl:grid-cols-4">
-              {ESSENTIALS.map((item, index) => (
-                <Link
-                  key={item.title}
-                  to={marketHref(item.href)}
-                  className="group relative h-[590px] overflow-hidden rounded-[20px] border border-[#d7cfbe] bg-[#222518] shadow-[0_24px_50px_-40px_rgba(27,26,23,0.55)] transition-shadow duration-500 hover:shadow-[0_30px_65px_-35px_rgba(27,26,23,0.72)] sm:h-[640px] lg:h-[720px]"
-                >
-                  <img
-                    src={item.editorialImage}
-                    alt={item.editorialAlt}
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transform-none"
-                    style={{ objectPosition: item.editorialPosition }}
-                  />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(16,20,12,0.16)_0%,rgba(20,24,14,0.02)_28%,rgba(25,29,16,0.28)_47%,rgba(22,25,14,0.78)_69%,rgba(17,20,11,0.96)_100%)]" />
-                  <span className="absolute left-5 top-5 text-[15px] font-semibold tracking-[0.04em] text-[#fffdf6]">
-                    {String(index + 1).padStart(2, "0")}
+            <div className="grid gap-7 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+              {PHILOSOPHY_POINTS.map(({ title, description, Icon }) => (
+                <div key={title} className="max-w-[220px]">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[#eadfce] text-[#b98d56]">
+                    <Icon size={18} strokeWidth={1.6} />
                   </span>
-
-                  <div className="absolute left-6 top-[48%] flex h-[46px] w-[46px] items-center justify-center rounded-full border border-white/65 bg-[#31422b]/35 text-[#fffdf6] backdrop-blur-sm">
-                    <item.Icon size={21} strokeWidth={1.5} />
-                  </div>
-
-                  <div className="absolute inset-x-0 bottom-0 p-7 text-[#fffdf6] sm:p-8">
-                    <h3 className="font-display text-[42px] leading-[0.9] tracking-[-0.02em] sm:text-[46px]">{item.title}</h3>
-                    <div className="mt-5 h-px w-11 bg-[#f4efdf]/80" />
-                    <p className="mt-5 max-w-[24ch] text-[16px] leading-6 text-[#fffdf6]/94 sm:text-[17px]">
-                      {item.description}
-                    </p>
-                    <p className="mt-7 text-[12px] font-medium text-[#e3d4ae]">Featuring</p>
-                    <p className="mt-2 text-[14px] leading-6 text-[#fffdf6]">{item.chips.join("  •  ")}</p>
-                    <span className="mt-8 inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#b8e0c1]">
-                      Explore {item.title.toLowerCase()}
-                      <ArrowRight
-                        size={16}
-                        className="transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transform-none"
-                      />
-                    </span>
-                  </div>
-                </Link>
+                  <h3 className="mt-4 text-[14px] font-semibold leading-6 text-[#1e1a17]">{title}</h3>
+                  <p className="mt-2 text-[13px] leading-6 text-[#756d64]">{description}</p>
+                </div>
               ))}
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="mx-auto max-w-[1040px]">
-            <div className="mt-8 flex flex-col gap-6 rounded-[20px] border border-[#e2ded2] bg-[#f6f3f0] px-8 py-8 lg:flex-row lg:items-center lg:justify-between lg:px-10">
-            <div className="flex items-center gap-4">
-              <div className="flex h-[52px] w-[52px] items-center justify-center rounded-full bg-[#e3e8de] text-forest-600">
-                <Sparkles size={20} />
-              </div>
-              <div>
-                <h3 className="text-[38px] leading-none text-ink">Not sure where to start?</h3>
-                <p className="mt-2 text-[14px] text-[#131012]">Take our 60-second quiz and we&apos;ll build your perfect stack.</p>
-              </div>
+      <section id="our-approach" className="scroll-mt-28 py-16 sm:py-20">
+        <div className="container-bio max-w-[1320px]">
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <HomeSectionLabel>OUR APPROACH</HomeSectionLabel>
+              <h2 className="mt-4 max-w-[10ch] font-display text-[40px] leading-[0.98] tracking-[-0.03em] text-[#1d1916] sm:text-[50px] lg:text-[56px]">
+                Support what matters most.
+              </h2>
             </div>
-            <Link to={marketHref(ROUTES.quiz)} className="btn-primary whitespace-nowrap">
-              <Sparkles size={14} /> Take the Wellness Quiz <ArrowRight size={15} />
+            <Link
+              to={marketHref(ROUTES.science)}
+              className="inline-flex items-center gap-2 self-start text-[14px] font-semibold text-[#433d37] transition-colors hover:text-[#2c4739] md:self-auto"
+            >
+              Learn more about our approach
+              <ArrowRight size={14} />
             </Link>
           </div>
-          </div>
-        </div>
-      </section>
 
-      <div className="hidden md:block">
-        <HomepageProductCarousel products={products} />
-      </div>
-
-      <section className="py-16 sm:py-20 xl:py-24">
-        <div className="container-bio">
-          <div className="relative mx-auto min-h-[640px] max-w-[1500px] overflow-hidden rounded-[28px] bg-[#17150f] shadow-[0_28px_70px_-46px_rgba(19,16,11,0.75)] sm:min-h-[680px] xl:min-h-0 xl:aspect-[2/1]">
-            <img
-              src={realRoutinesNadiaLongevity}
-              alt="A customer holding BioAro Longevity+ as part of a morning routine"
-              className="absolute inset-0 h-full w-full object-cover object-[72%_center] sm:object-[66%_center] md:object-[62%_center] xl:object-center"
-              loading="lazy"
-              decoding="async"
-            />
-            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(16,15,12,0.98)_0%,rgba(17,15,11,0.93)_30%,rgba(17,15,11,0.56)_51%,rgba(17,15,11,0.06)_76%,rgba(17,15,11,0)_100%)]" />
-            <div className="relative z-10 flex min-h-[640px] max-w-[590px] flex-col justify-center px-7 py-12 text-[#fbf8f0] sm:min-h-[680px] sm:px-12 sm:py-14 md:px-16 xl:min-h-0 xl:px-20">
-              <span className="text-[13px] font-semibold uppercase tracking-[0.2em] text-[#dfa82d]">Real routines</span>
-              <blockquote className="mt-7 font-display text-[38px] leading-[0.98] tracking-[-0.025em] sm:text-[50px] md:text-[54px] xl:text-[58px]">
-                &ldquo;I wanted support that felt considered — not another promise I had to believe.&rdquo;
-              </blockquote>
-              <div className="mt-8 h-px w-40 bg-[#d4a82f]" />
-              <p className="mt-8 max-w-[430px] text-[16px] leading-7 text-white/88 sm:text-[18px]">
-                LONgevity+ became part of a simple morning routine built around consistency.
-              </p>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            {APPROACH_TILES.map((tile) => (
               <Link
-                to={marketHref(ROUTES.product.replace(":handle", "longevity-plus"))}
-                className="mt-8 inline-flex w-fit items-center gap-3 rounded-full border border-[#d4a82f] px-6 py-3.5 text-[15px] font-semibold text-[#e7b743] transition-colors hover:bg-[#d4a82f] hover:text-[#17150f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#e7b743] sm:mt-9 sm:px-7 sm:text-[16px]"
+                key={tile.title}
+                to={marketHref(ROUTES.science)}
+                className="group overflow-hidden rounded-[24px] bg-[#fbf8f2] shadow-[0_18px_40px_-34px_rgba(35,29,20,0.16)]"
               >
-                Explore LONgevity+ <ArrowRight size={18} aria-hidden="true" />
+                <div className="aspect-[1.08/1] overflow-hidden bg-[#efe8dc]">
+                  <img
+                    src={tile.image}
+                    alt={tile.alt}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.025] motion-reduce:transform-none"
+                  />
+                </div>
+                <div className="px-5 pb-5 pt-4 sm:px-6 sm:pb-6">
+                  <h3 className="font-display text-[22px] leading-[1.02] tracking-[-0.02em] text-[#1d1916]">{tile.title}</h3>
+                  <p className="mt-2 max-w-[22ch] text-[13px] leading-6 text-[#72695f]">{tile.description}</p>
+                </div>
               </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="hidden pb-16 sm:pb-20 md:block xl:pb-24">
-        <div className="container-bio">
-          <div className="mx-auto grid max-w-[1472px] gap-10 sm:gap-12 xl:grid-cols-2 xl:items-center xl:gap-[60px]">
-            <div className="aspect-[4/5] overflow-hidden rounded-[22px] sm:aspect-[4/3] md:aspect-[16/10] xl:aspect-[685/930]">
-              <img
-                src={evidenceScientistEditorial}
-                alt="Scientist conducting laboratory work"
-                className="h-full w-full object-cover object-[center_42%] sm:object-center"
-              />
-            </div>
-
-            <div>
-              <span className="eyebrow">Science &amp; Trust</span>
-              <h2 className="mt-4 max-w-[640px] text-[40px] leading-[0.96] text-ink sm:text-[48px] md:text-[56px] md:leading-[0.9] xl:text-[61px]">
-                Built around evidence,<span className="md:whitespace-nowrap"> not <span className="italic text-forest-600">trends.</span></span>
-              </h2>
-              <p className="mt-6 max-w-[420px] text-[15px] leading-7 text-[#131012] sm:mt-7 sm:text-[16px] sm:leading-8">
-                BioAro Drugs is grounded in transparent labels, useful ingredient context, and quality information where available.
-              </p>
-
-              <div className="mt-7 max-w-[620px] space-y-0 sm:mt-8">
-                {EVIDENCE_ITEMS.map((item) => (
-                  <div key={item.title} className="flex items-start gap-4 border-b border-[#e1ddce] px-0 py-4 last:border-b-0 sm:py-[18px]">
-                    <div className="flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-[19px] bg-[#e3e8de] text-forest-600">
-                      <item.Icon size={18} />
-                    </div>
-                    <div>
-                      <h3 className="text-[15px] font-semibold text-ink">{item.title}</h3>
-                      <p className="mt-1 text-[13.5px] leading-6 text-[#131012]">{item.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-7 w-full max-w-[1200px] overflow-hidden rounded-[28px] border border-[#e2d8c3] bg-[#faf8f4] shadow-[0_12px_30px_-24px_rgba(27,26,23,0.35)] sm:mt-8">
-                <div className="flex flex-col divide-y divide-[#e1ddce] sm:flex-row sm:divide-y-0">
-                  {CREDIBILITY_ITEMS.map((item) => (
-                    <div
-                      key={item.title}
-                      className={`flex w-full items-center gap-[10px] px-4 py-[18px] sm:w-[33.3333%] sm:px-3 md:px-4 ${
-                        item.title !== "Formulated in Canada" ? "sm:border-r sm:border-[#e1ddce]" : ""
-                      }`}
-                    >
-                      <div className="flex h-[52px] w-[52px] shrink-0 items-center justify-center text-[#0f3d1e]">
-                        <item.Icon size={item.title === "Formulated in Canada" ? 52 : 48} className="h-auto w-auto" />
-                      </div>
-                      <div className="min-w-0">
-                        <p className="text-[14.5px] font-semibold leading-none text-[#1B1A17]">
-                          {item.title}
-                        </p>
-                        <p className="mt-2 text-[11.5px] font-normal leading-none text-[#8A8678]">{item.subtitle}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="hidden pb-12 pt-4 sm:pb-16 md:block md:pb-20 lg:pb-24">
-        <div className="container-bio">
-          <div className="mx-auto max-w-[680px] text-center">
-            <span className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[#6b5e58]">Your routine</span>
-            <h2 className="mx-auto mt-4 max-w-[10ch] text-[36px] leading-[0.98] text-ink sm:text-[42px] md:max-w-none md:text-[62px]">
-              One protocol. All day.
-            </h2>
-          </div>
-
-          <div className="mx-auto mt-12 grid max-w-[1404px] gap-5 lg:grid-cols-3">
-            {METHOD_WINDOWS.map((item) => (
-              <div key={item.title} className="rounded-[18px] border border-[#e2ded2] bg-[#f2f0ec] px-[29px] pb-[33px] pt-[29px]">
-                <div className="flex h-7 w-7 items-center justify-center text-[#c7923a]">
-                  <item.Icon size={18} />
-                </div>
-                <p className="mt-5 text-[12px] font-semibold uppercase tracking-[0.14em] text-[#6b5e58]">{item.label}</p>
-                <h3 className="mt-2 text-[21px] leading-none text-ink">{item.title}</h3>
-                <p className="mt-3 text-[14px] leading-[21px] text-[#131012]">{item.description}</p>
-              </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          <div className="mx-auto mt-8 max-w-[1404px] rounded-[24px] bg-[#f2f0ec] px-8 py-10 lg:px-14 lg:py-14">
-            <div className="grid gap-10 lg:grid-cols-2 lg:gap-12">
-              <div className="max-w-[420px]">
-                <span className="eyebrow">Personalised guidance</span>
-                <h2 className="mt-4 text-[40px] leading-[0.98] text-ink md:text-[48px]">Build your protocol.</h2>
-                <p className="mt-5 max-w-[380px] text-[17px] leading-8 text-[#131012]">
-                  Answer a few simple questions to find a practical starting point for your goals and routine.
-                </p>
-                <Link to={marketHref(ROUTES.quiz)} className="btn-primary mt-8 inline-flex">
-                  Build My Stack
-                </Link>
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                {PROTOCOL_STEPS.map((item) => (
-                  <div
-                    key={item.step}
-                    className={`rounded-[14px] border border-[#e2ded2] bg-[#f6f5f2] px-5 py-5 ${
-                      item.span === 2 ? "sm:col-span-2" : ""
-                    }`}
-                  >
-                    <p className="text-[11px] uppercase tracking-[0.08em] text-[#8a8678]">{item.step}</p>
-                    <p className="mt-2 text-[15.5px] font-semibold text-ink">{item.label}</p>
-                  </div>
+      <section className="py-8 sm:py-12">
+        <div className="container-bio max-w-[1320px]">
+          <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-center lg:gap-10">
+            <div className="lg:pr-8">
+              <HomeSectionLabel>SCIENCE. QUALITY. TRUST.</HomeSectionLabel>
+              <h2 className="mt-4 font-display text-[42px] leading-[0.96] tracking-[-0.03em] text-[#1d1916] sm:text-[52px]">
+                Evidence, not noise.
+              </h2>
+              <ul className="mt-8 space-y-4">
+                {SCIENCE_POINTS.map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-[14px] leading-6 text-[#554c44]">
+                    <span className="mt-1.5 flex h-5 w-5 items-center justify-center rounded-full border border-[#c9beb0] text-[10px] text-[#49423b]">
+                      ✓
+                    </span>
+                    <span>{item}</span>
+                  </li>
                 ))}
-              </div>
+              </ul>
+            </div>
+
+            <div className="overflow-hidden rounded-[28px] bg-[#ebe3d7]">
+              <img
+                src={evidenceScientistEditorial}
+                alt="Scientist conducting careful laboratory research"
+                className="h-full w-full object-cover object-center"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-12 sm:py-16 md:py-20 lg:py-24">
-        <div className="container-bio">
-          <div className="mx-auto max-w-[700px] text-center">
-            <span className="text-[13px] text-gold">★★★★★</span>
-            <h2 className="mt-5 text-[40px] leading-[0.98] text-ink md:text-[52px]">Built for people who want clearer answers.</h2>
-          </div>
-
-          <div className="mx-auto mt-14 grid max-w-[1040px] gap-12 lg:grid-cols-[0.98fr_1.02fr] lg:items-start">
-            <div className="pt-1">
-              <span className="eyebrow">LETTER FROM THE FOUNDER</span>
-              <blockquote className="mt-6 max-w-[672px] font-display text-[20px] font-normal leading-[1.32] text-ink sm:text-[33px] sm:leading-[1.16] md:text-[35px]">
-                We believe everyone deserves to live better, not by guessing, but by understanding. Through years of research and conversations with 10,000+ participants, we found that people want to take control of their health but often don&apos;t know where to begin. BioAro Drugs exists to make that first step simpler with clear, effective formulas built for longevity, focus, recovery, and sleep. Because better health should feel easier, clearer, and more personal ❤️.
-              </blockquote>
-              <div className="mt-10 flex items-center gap-3.5">
-                <div className="max-w-[420px]">
-                  <p className="text-[14.5px] font-semibold text-ink">Dr. Anmol Kapoor, MD</p>
-                  <p className="text-[12.5px] leading-relaxed text-[#8a8678]">
-                    Founder, Chairman &amp; CEO, BioAro; Cardiologist and Precision Health Innovator. Fellow of the Royal
-                    College of Physicians and Surgeons of Canada
-                  </p>
+      <section className="py-12 sm:py-16">
+        <div className="container-bio max-w-[1320px]">
+          <div className="grid gap-6 rounded-[28px] bg-[#fbf8f3] p-4 shadow-[0_18px_40px_-34px_rgba(35,29,20,0.16)] lg:grid-cols-[0.96fr_1.04fr] lg:p-5">
+            <div className="overflow-hidden rounded-[22px] bg-[#e8dfd2]">
+              <img
+                src={founderVisual}
+                alt="Founder portrait for BioAro"
+                className="h-full w-full object-cover object-center"
+              />
+            </div>
+            <div className="flex items-center px-4 py-5 sm:px-6 lg:px-10">
+              <div className="max-w-[420px]">
+                <HomeSectionLabel>OUR WHY</HomeSectionLabel>
+                <h2 className="mt-4 font-display text-[40px] leading-[0.98] tracking-[-0.03em] text-[#1d1916] sm:text-[52px]">
+                  Why BioAro exists.
+                </h2>
+                <p className="mt-5 text-[15px] leading-7 text-[#524941]">
+                  I didn&apos;t want to wait for something to go wrong before I started thinking about my health.
+                </p>
+                <p className="mt-4 text-[15px] leading-7 text-[#524941]">
+                  BioAro was born from a simple belief: health support should be clear, effective, and livable.
+                </p>
+                <p className="mt-4 text-[15px] leading-7 text-[#524941]">
+                  We combine science with empathy so you can move forward with confidence, every day.
+                </p>
+                <div className="mt-8">
+                  <p className="font-display text-[28px] italic leading-none text-[#1d1916]">Anju Singh</p>
+                  <p className="mt-2 text-[11px] uppercase tracking-[0.16em] text-[#8f867d]">Founder</p>
                 </div>
               </div>
-              <Link to={marketHref(ROUTES.living)} className="mt-8 inline-flex items-center gap-2 text-[14px] font-semibold text-forest-600">
-                Explore Living 2.0 <ArrowRight size={14} />
-              </Link>
-            </div>
-
-            <div className="overflow-hidden rounded-[20px] shadow-[0_24px_50px_-40px_rgba(27,26,23,0.35)]">
-              <img src={founderVisual} alt="BioAro founder portrait" className="h-full w-full object-cover" />
             </div>
           </div>
         </div>
       </section>
 
-      <section className="pb-12 pt-6 sm:pb-16 md:pb-20 lg:pb-24">
-        <div className="container-bio">
-          <div className="mx-auto max-w-[1404px]">
-            <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+      <section className="py-12 sm:py-16">
+        <div className="container-bio max-w-[1320px]">
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
-              <span className="eyebrow">Journal</span>
-              <h2 className="mt-3 text-[36px] leading-none md:text-[40px]">Education hub.</h2>
+              <HomeSectionLabel>FROM OUR JOURNAL</HomeSectionLabel>
+              <h2 className="mt-4 font-display text-[40px] leading-[0.98] tracking-[-0.03em] text-[#1d1916] sm:text-[50px]">
+                Ideas for living well.
+              </h2>
             </div>
-            <Link to={marketHref(ROUTES.journal)} className="text-[15px] text-[#131012] transition-colors hover:text-forest-600">
-              All articles →
+            <Link
+              to={marketHref(ROUTES.journal)}
+              className="inline-flex items-center gap-2 self-start text-[14px] font-semibold text-[#433d37] transition-colors hover:text-[#2c4739] md:self-auto"
+            >
+              Explore all articles
+              <ArrowRight size={14} />
             </Link>
           </div>
 
-            <div className="mt-12 grid gap-5 lg:grid-cols-3">
-            {JOURNAL_ARTICLES.slice(0, 3).map((article) => (
+          <div className="mt-8 grid gap-4 lg:grid-cols-3">
+            {FOOTER_JOURNAL_ARTICLES.map((article) => (
               <Link
-                key={article.title}
+                key={article.slug}
                 to={marketHref(`${ROUTES.journal}/${article.slug}`)}
-                className="group overflow-hidden rounded-2xl border border-[#e2ded2] bg-[#f2f0ec] transition-colors hover:bg-white"
+                className="group overflow-hidden rounded-[24px] bg-[#fbf8f2] shadow-[0_18px_40px_-34px_rgba(35,29,20,0.16)]"
               >
-                <div className="aspect-[16/10] overflow-hidden bg-[#ece8de]">
+                <div className="aspect-[1.64/1] overflow-hidden bg-[#ece3d8]">
                   <img
                     src={article.img}
                     alt={article.alt}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.025] motion-reduce:transform-none"
                   />
                 </div>
-                <div className="p-7">
-                  <span className="text-[12px] font-semibold uppercase tracking-[0.16em] text-forest-600">{article.cat}</span>
-                  <h3 className="mt-4 text-[25px] leading-[1.05] text-[#1e1816] sm:text-[26px] md:text-[28px]">{article.title}</h3>
-                  <p className="mt-4 text-[14px] leading-7 text-[#564b46]">{article.excerpt}</p>
-                  <div className="mt-6 flex items-center justify-between pt-4 text-[13px] text-[#8a8678]">
-                    <span>{article.readTime}</span>
-                    <span>→</span>
-                  </div>
+                <div className="px-5 pb-5 pt-4 sm:px-6 sm:pb-6">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#9a9289]">{article.cat}</p>
+                  <h3 className="mt-3 font-display text-[24px] leading-[1.04] tracking-[-0.02em] text-[#1d1916]">{article.title}</h3>
+                  <p className="mt-2 text-[13px] leading-6 text-[#72695f]">{article.excerpt}</p>
+                  <span className="mt-5 inline-flex items-center gap-2 text-[13px] font-semibold text-[#1d1916]">
+                    Read more
+                    <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transform-none" />
+                  </span>
                 </div>
               </Link>
             ))}
           </div>
-
-            <div className="mt-12 flex flex-col gap-8 rounded-[24px] border border-[#e2ded2] bg-[#f2f0ec] px-[57px] pb-[55px] pt-[67px] lg:flex-row lg:items-center lg:justify-between">
-            <div className="max-w-[550px]">
-              <span className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#a49a95]">The Dispatch</span>
-              <h2 className="mt-3 text-[34px] leading-[0.98] md:text-[43px]">
-                Premium wellness, in your inbox
-                <br />
-                weekly.
-              </h2>
-              <p className="mt-4 max-w-[360px] text-[14.5px] leading-7 text-[#564b46]">
-                New protocols, science deep-dives and member-only drops. No noise. Unsubscribe anytime.
-              </p>
-            </div>
-            <form onSubmit={handleNewsletterSubmit} className="flex w-full max-w-[377px] flex-col gap-3 sm:flex-row sm:items-start sm:gap-[10px]">
-              <input
-                type="email"
-                value={newsletterEmail}
-                onChange={(event) => setNewsletterEmail(event.target.value)}
-                placeholder="you@domain.com"
-                className="h-12 w-full rounded-full border border-[#ddd8c9] bg-white px-[19px] text-[14px] text-[#757575] outline-none placeholder:text-[#757575]"
-                aria-label="Email address"
-                required
-              />
-              <button type="submit" className="btn-primary h-12 whitespace-nowrap !bg-[#161412] !px-[27px] !py-0 hover:!bg-ink">
-                Subscribe
-              </button>
-            </form>
-          </div>
-
-          <div
-            className="relative mt-12 overflow-hidden rounded-[32px] border border-white/10 px-6 py-12 text-white shadow-[0_32px_90px_-48px_rgba(10,8,6,0.8)] sm:px-10 sm:py-14 lg:px-14 lg:py-16"
-            style={{
-              background:
-                "radial-gradient(circle at 18% 18%, rgba(97,128,71,0.24) 0%, rgba(97,128,71,0) 36%), radial-gradient(circle at 82% 18%, rgba(180,137,63,0.20) 0%, rgba(180,137,63,0) 34%), radial-gradient(circle at 50% 84%, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 40%), linear-gradient(180deg, #1b1511 0%, #15100d 100%)",
-            }}
-          >
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0)_26%,rgba(255,255,255,0.02)_52%,rgba(255,255,255,0)_76%,rgba(255,255,255,0.035)_100%)] opacity-60" />
-            <div className="relative z-10 grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:gap-14">
-              <div className="text-center lg:text-left">
-                <span className="eyebrow text-[#c6b59a]">Ready to begin</span>
-                <h2 className="mx-auto mt-4 max-w-[11ch] font-display text-[clamp(2.55rem,4.8vw,4.4rem)] leading-[1] tracking-[-0.02em] text-white lg:mx-0">
-                  Your daily protocol starts here.
-                </h2>
-                <p className="mx-auto mt-5 max-w-[34rem] text-[15px] leading-7 text-[#d7cfbf] sm:text-[16px] lg:mx-0 lg:max-w-[34rem]">
-                  Science-backed formulas for energy, recovery, focus, sleep, and long-term wellness - built to fit your routine, not complicate it.
-                </p>
-
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start">
-                  <Link
-                    to={marketHref(ROUTES.shop)}
-                    className="inline-flex w-full items-center justify-center rounded-full bg-[#f6f1e7] px-7 py-3.5 text-[15px] font-medium text-ink transition-transform transition-colors hover:-translate-y-0.5 hover:bg-white sm:w-auto"
-                  >
-                    Shop Products
-                  </Link>
-                  <Link
-                    to={marketHref(ROUTES.quiz)}
-                    className="inline-flex w-full items-center justify-center rounded-full border border-white/22 bg-white/6 px-7 py-3.5 text-[15px] font-medium text-white transition-colors hover:border-white/35 hover:bg-white/10 sm:w-auto"
-                  >
-                    Build My Stack
-                  </Link>
-                </div>
-
-                <div className="mx-auto mt-8 inline-flex max-w-full flex-wrap items-center justify-center gap-x-3 gap-y-2 rounded-full border border-white/10 bg-white/6 px-4 py-3 text-[12px] leading-5 text-[#e3ddce] backdrop-blur-sm lg:mx-0 lg:justify-start">
-                  <span>Third-party tested</span>
-                  <span className="text-white/35">•</span>
-                  <span>cGMP certified</span>
-                  <span className="text-white/35">•</span>
-                  <span>Formulated in Canada</span>
-                </div>
-              </div>
-
-              <div className="relative mx-auto w-full max-w-[560px] lg:mx-0 lg:justify-self-end">
-                <div className="absolute inset-6 rounded-[28px] bg-[radial-gradient(circle_at_50%_35%,rgba(111,146,77,0.28)_0%,rgba(111,146,77,0)_48%),radial-gradient(circle_at_70%_30%,rgba(186,141,63,0.24)_0%,rgba(186,141,63,0)_42%)] blur-2xl" />
-                <ProtocolLifestyleSlider />
-              </div>
-            </div>
-          </div>
-          </div>
         </div>
       </section>
 
-      <Testimonials />
+      <section className="px-4 pb-0 pt-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-[1380px] overflow-hidden rounded-t-[30px] bg-[#16110d]">
+          <div className="relative min-h-[420px] overflow-hidden sm:min-h-[480px] lg:min-h-[460px]">
+            <img
+              src={realRoutinesNadiaLongevity}
+              alt="Quiet evening reflection by the water"
+              className="absolute inset-0 h-full w-full object-cover object-[70%_center]"
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(18,14,11,0.94)_0%,rgba(18,14,11,0.85)_34%,rgba(18,14,11,0.3)_62%,rgba(18,14,11,0)_82%)]" />
+            <div className="relative z-10 flex min-h-[420px] items-center px-7 py-10 sm:min-h-[480px] sm:px-10 lg:min-h-[460px] lg:px-14">
+              <div className="max-w-[340px] text-white sm:max-w-[380px]">
+                <h2 className="font-display text-[46px] leading-[0.92] tracking-[-0.03em] sm:text-[58px]">
+                  Keep living like yourself.
+                </h2>
+                <p className="mt-5 text-[15px] leading-7 text-white/78">
+                  More mornings. More movement. More conversations. More independence. More life.
+                </p>
+                <div className="mt-8">
+                  <HomeCta href={marketHref(`${ROUTES.home}#our-approach`)} variant="primary">
+                    Explore our approach
+                  </HomeCta>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
