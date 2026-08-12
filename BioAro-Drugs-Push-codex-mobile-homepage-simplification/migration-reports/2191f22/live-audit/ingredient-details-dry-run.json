@@ -1,0 +1,206 @@
+{
+  "mode": "dry-run",
+  "sourceCommit": "2191f22d39e952c35d0df543336496bd28b388c9",
+  "products": [
+    {
+      "handle": "longevity-plus",
+      "sourceIngredientCount": 6,
+      "imagePaths": [
+        {
+          "name": "NMN",
+          "image": "src/assets/ingredients/nmn.png",
+          "existsAtSourceCommit": true
+        },
+        {
+          "name": "Resveratrol",
+          "image": "src/assets/ingredients/resveratrol.png",
+          "existsAtSourceCommit": true
+        },
+        {
+          "name": "CoQ10",
+          "image": "src/assets/ingredients/coq10.png",
+          "existsAtSourceCommit": true
+        },
+        {
+          "name": "Curcumin",
+          "image": "src/assets/ingredients/curcumin.png",
+          "existsAtSourceCommit": true
+        },
+        {
+          "name": "Vitamin B12",
+          "image": "src/assets/ingredients/vitamin-b12.png",
+          "existsAtSourceCommit": true
+        },
+        {
+          "name": "Vitamin D3",
+          "image": "src/assets/ingredients/vitamin-d3.png",
+          "existsAtSourceCommit": true
+        }
+      ],
+      "proposedWrite": "custom.ingredient_details only"
+    },
+    {
+      "handle": "cellomega-plus",
+      "sourceIngredientCount": 6,
+      "imagePaths": [
+        {
+          "name": "Algae Powder (Omega-3)",
+          "image": "src/assets/ingredients/omega-3-fatty-acids.png",
+          "existsAtSourceCommit": true
+        },
+        {
+          "name": "Magnesium Bisglycinate",
+          "image": "src/assets/ingredients/magnesium-bisglycinate.png",
+          "existsAtSourceCommit": true
+        },
+        {
+          "name": "CoQ10",
+          "image": "src/assets/ingredients/coq10.png",
+          "existsAtSourceCommit": true
+        },
+        {
+          "name": "Astaxanthin",
+          "image": "src/assets/ingredients/astaxanthin.png",
+          "existsAtSourceCommit": true
+        },
+        {
+          "name": "Spermidine Trihydrochloride",
+          "image": "src/assets/ingredients/spermidine-trihydrochloride.png",
+          "existsAtSourceCommit": true
+        },
+        {
+          "name": "Vitamin E",
+          "image": "src/assets/ingredients/vitamin-e.png",
+          "existsAtSourceCommit": true
+        }
+      ],
+      "proposedWrite": "custom.ingredient_details only"
+    },
+    {
+      "handle": "creagen-brain-boost",
+      "sourceIngredientCount": 3,
+      "imagePaths": [
+        {
+          "name": "Creatine Monohydrate",
+          "image": "src/assets/ingredients/creatine-monohydrate.png",
+          "existsAtSourceCommit": true
+        },
+        {
+          "name": "Magnesium Glycinate",
+          "image": "src/assets/ingredients/magnesium-glycinate.png",
+          "existsAtSourceCommit": true
+        },
+        {
+          "name": "Vitamin B12",
+          "image": "src/assets/ingredients/vitamin-b12.png",
+          "existsAtSourceCommit": true
+        }
+      ],
+      "proposedWrite": "custom.ingredient_details only"
+    },
+    {
+      "handle": "creagen-femme-energy",
+      "sourceIngredientCount": 3,
+      "imagePaths": [
+        {
+          "name": "Creatine Monohydrate",
+          "image": "src/assets/ingredients/creatine-monohydrate.png",
+          "existsAtSourceCommit": true
+        },
+        {
+          "name": "Ferrous Bisglycinate",
+          "image": "src/assets/ingredients/ferrous-bisglycinate.png",
+          "existsAtSourceCommit": true
+        },
+        {
+          "name": "Vitamin B12",
+          "image": "src/assets/ingredients/vitamin-b12.png",
+          "existsAtSourceCommit": true
+        }
+      ],
+      "proposedWrite": "custom.ingredient_details only"
+    },
+    {
+      "handle": "creagen-raw-power",
+      "sourceIngredientCount": 1,
+      "imagePaths": [
+        {
+          "name": "Creatine Monohydrate",
+          "image": "src/assets/ingredients/creatine-monohydrate.png",
+          "existsAtSourceCommit": true
+        }
+      ],
+      "proposedWrite": "custom.ingredient_details only"
+    },
+    {
+      "handle": "creagen-pro-power",
+      "sourceIngredientCount": 5,
+      "imagePaths": [
+        {
+          "name": "Creatine Monohydrate",
+          "image": "src/assets/ingredients/creatine-monohydrate.png",
+          "existsAtSourceCommit": true
+        },
+        {
+          "name": "Beta-Alanine",
+          "image": "src/assets/ingredients/beta-alanine.png",
+          "existsAtSourceCommit": true
+        },
+        {
+          "name": "Potassium Chloride",
+          "image": "src/assets/ingredients/potassium-chloride.png",
+          "existsAtSourceCommit": true
+        },
+        {
+          "name": "Sodium Chloride",
+          "image": "src/assets/ingredients/sodium-chloride.png",
+          "existsAtSourceCommit": true
+        },
+        {
+          "name": "Magnesium Bisglycinate",
+          "image": "src/assets/ingredients/magnesium-bisglycinate.png",
+          "existsAtSourceCommit": true
+        }
+      ],
+      "proposedWrite": "custom.ingredient_details only"
+    },
+    {
+      "handle": "glutara",
+      "sourceIngredientCount": 6,
+      "imagePaths": [
+        {
+          "name": "Liposomal Glutathione",
+          "image": "src/assets/ingredients/liposomal-glutathione.png",
+          "existsAtSourceCommit": true
+        },
+        {
+          "name": "Vitamin C",
+          "image": "src/assets/ingredients/vitamin-c.png",
+          "existsAtSourceCommit": true
+        },
+        {
+          "name": "Hyaluronic Acid",
+          "image": "src/assets/ingredients/hyaluronic-acid.png",
+          "existsAtSourceCommit": true
+        },
+        {
+          "name": "Vitamin B1",
+          "image": "src/assets/ingredients/vitamin-b1.png",
+          "existsAtSourceCommit": true
+        },
+        {
+          "name": "Vitamin B6",
+          "image": "src/assets/ingredients/vitamin-b6.png",
+          "existsAtSourceCommit": true
+        },
+        {
+          "name": "Piperine",
+          "image": "src/assets/ingredients/piperine.png",
+          "existsAtSourceCommit": true
+        }
+      ],
+      "proposedWrite": "custom.ingredient_details only"
+    }
+  ],
+  "missingAssets": []
+}

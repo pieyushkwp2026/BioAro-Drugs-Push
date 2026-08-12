@@ -1,0 +1,559 @@
+{
+  "sourceCommit": "2191f22d39e952c35d0df543336496bd28b388c9",
+  "assets": [
+    {
+      "role": "primary_media",
+      "path": "src/assets/products/longevity-plus-primary.png",
+      "alt": "BioAro LONgevity+ product and lid",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/longevity-plus-01-hero-1x1.png",
+      "alt": "Longevity Plus product box and bottle",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/longevity-plus-02-close-up-1x1.png",
+      "alt": "Longevity Plus bottle in front of product packaging",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/longevity-plus-03-open-pack-1x1.png",
+      "alt": "Open Longevity Plus packaging with branded lid",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/longevity-plus-04-ingredients-1x1.png",
+      "alt": "Longevity Plus key ingredients and serving amounts",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/longevity-plus-05-lifestyle-1x1.png",
+      "alt": "Woman preparing Longevity Plus as part of a daily routine",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "ingredient_image",
+      "path": "src/assets/ingredients/nmn.png",
+      "alt": "NMN",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "ingredient_image",
+      "path": "src/assets/ingredients/resveratrol.png",
+      "alt": "Resveratrol",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "ingredient_image",
+      "path": "src/assets/ingredients/coq10.png",
+      "alt": "CoQ10",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "ingredient_image",
+      "path": "src/assets/ingredients/curcumin.png",
+      "alt": "Curcumin",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "ingredient_image",
+      "path": "src/assets/ingredients/vitamin-b12.png",
+      "alt": "Vitamin B12",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "ingredient_image",
+      "path": "src/assets/ingredients/vitamin-d3.png",
+      "alt": "Vitamin D3",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "science_visual",
+      "path": "src/assets/science/longevity-plus-lifestyle.png",
+      "alt": "LONgevity+ coastal vitality lifestyle visual",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "primary_media",
+      "path": "src/assets/products/cellomega-plus-primary.png",
+      "alt": "BioAro CellOmega+ product and lid",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/cellomega-plus-01-hero-1x1.png",
+      "alt": "CellOmega Plus packaging, bottle, and capsules",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/cellomega-plus-02-ingredients-1x1.png",
+      "alt": "CellOmega Plus bottle with algae and supporting ingredients",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/cellomega-plus-03-ingredients-list-1x1.png",
+      "alt": "CellOmega Plus key ingredients and serving amounts",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/cellomega-plus-04-lifestyle-1x1.png",
+      "alt": "CellOmega Plus bottle in a morning wellness routine",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/cellomega-plus-05-product-1x1.png",
+      "alt": "CellOmega Plus packaging and bottle close-up",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "ingredient_image",
+      "path": "src/assets/ingredients/omega-3-fatty-acids.png",
+      "alt": "Algae Powder (Omega-3)",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "ingredient_image",
+      "path": "src/assets/ingredients/magnesium-bisglycinate.png",
+      "alt": "Magnesium Bisglycinate",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "ingredient_image",
+      "path": "src/assets/ingredients/coq10.png",
+      "alt": "CoQ10",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "ingredient_image",
+      "path": "src/assets/ingredients/astaxanthin.png",
+      "alt": "Astaxanthin",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "ingredient_image",
+      "path": "src/assets/ingredients/spermidine-trihydrochloride.png",
+      "alt": "Spermidine Trihydrochloride",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "ingredient_image",
+      "path": "src/assets/ingredients/vitamin-e.png",
+      "alt": "Vitamin E",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "science_visual",
+      "path": "src/assets/figma-home/cellomega-science-bg.png",
+      "alt": "CellOmega+ coastal lifestyle visual",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "primary_media",
+      "path": "src/assets/products/creagen-brain-boost-primary.png",
+      "alt": "BioAro Creagen Brain Boost product set",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/creagen-brain-boost-01-hero-1x1.png",
+      "alt": "Creagen Brain Boost container with sachet and water",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/creagen-brain-boost-02-open-pack-1x1.png",
+      "alt": "Open Creagen Brain Boost container with individual sachets",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/creagen-brain-boost-03-flatlay-1x1.png",
+      "alt": "Creagen Brain Boost container and sachets flat lay",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/creagen-brain-boost-04-product-detail-1x1.png",
+      "alt": "Creagen Brain Boost container with branded lid and sachet",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/creagen-brain-boost-05-ingredients-1x1.png",
+      "alt": "Creagen Brain Boost key ingredients and serving amounts",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "ingredient_image",
+      "path": "src/assets/ingredients/creatine-monohydrate.png",
+      "alt": "Creatine Monohydrate",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "ingredient_image",
+      "path": "src/assets/ingredients/magnesium-glycinate.png",
+      "alt": "Magnesium Glycinate",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "ingredient_image",
+      "path": "src/assets/ingredients/vitamin-b12.png",
+      "alt": "Vitamin B12",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "science_visual",
+      "path": "src/assets/science/creagen-brain-boost-lifestyle.png",
+      "alt": "Creagen Brain Boost focus and productivity lifestyle visual",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "primary_media",
+      "path": "src/assets/products/creagen-femme-energy-primary.png",
+      "alt": "BioAro Creagen Femme Energy product and lid",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/creagen-femme-energy-01-hero-1x1.png",
+      "alt": "Creagen Femme Energy jar with an individual sachet",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/creagen-femme-energy-02-open-pack-1x1.png",
+      "alt": "Open Creagen Femme Energy jar with branded lid",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/creagen-femme-energy-03-sachet-1x1.png",
+      "alt": "Creagen Femme Energy five gram sachet",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/creagen-femme-energy-04-ingredients-1x1.png",
+      "alt": "Creagen Femme Energy key ingredients and serving amounts",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/creagen-femme-energy-05-lifestyle-1x1.png",
+      "alt": "Woman preparing Creagen Femme Energy sachet with water",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "ingredient_image",
+      "path": "src/assets/ingredients/creatine-monohydrate.png",
+      "alt": "Creatine Monohydrate",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "ingredient_image",
+      "path": "src/assets/ingredients/ferrous-bisglycinate.png",
+      "alt": "Ferrous Bisglycinate",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "ingredient_image",
+      "path": "src/assets/ingredients/vitamin-b12.png",
+      "alt": "Vitamin B12",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "science_visual",
+      "path": "src/assets/science/creagen-femme-energy-lifestyle.png",
+      "alt": "Creagen Femme Energy wellness lifestyle visual",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "primary_media",
+      "path": "src/assets/products/creagen-raw-power.jpeg",
+      "alt": "BioAro Creagen Raw Power sachet",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/creagen-raw-power-01-hero-1x1.png",
+      "alt": "Creagen Raw Power product container",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/creagen-raw-power-02-product-detail-1x1.png",
+      "alt": "Creagen Raw Power product container with a serving glass",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/creagen-raw-power-03-open-pack-1x1.png",
+      "alt": "Open Creagen Raw Power container with individual sachets",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/creagen-raw-power-04-product-scene-1x1.png",
+      "alt": "Creagen Raw Power container and sachets in a dark studio setting",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/creagen-raw-power-05-ingredients-1x1.png",
+      "alt": "Creagen Raw Power formula benefits and serving information",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "ingredient_image",
+      "path": "src/assets/ingredients/creatine-monohydrate.png",
+      "alt": "Creatine Monohydrate",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "science_visual",
+      "path": "src/assets/science/creagen-raw-power-lifestyle.png",
+      "alt": "Creagen Raw Power strength lifestyle visual",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "primary_media",
+      "path": "src/assets/products/creagen-pro-power.png",
+      "alt": "BioAro Creagen Pro Power sachet",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/creagen-pro-power-01-hero-1x1.jpg",
+      "alt": "Creagen Pro Power container with two individual sachets",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/creagen-pro-power-02-ingredients-1x1.jpg",
+      "alt": "Creagen Pro Power ingredients with powder and individual sachets",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/creagen-pro-power-03-lifestyle-1x1.jpg",
+      "alt": "Athlete preparing Creagen Pro Power in a gym",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/creagen-pro-power-04-benefits-1x1.jpg",
+      "alt": "Creagen Pro Power formula benefits and performance support information",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/creagen-pro-power-05-product-routine-1x1.jpg",
+      "alt": "Open Creagen Pro Power container with shaker and sachets",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "ingredient_image",
+      "path": "src/assets/ingredients/creatine-monohydrate.png",
+      "alt": "Creatine Monohydrate",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "ingredient_image",
+      "path": "src/assets/ingredients/beta-alanine.png",
+      "alt": "Beta-Alanine",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "ingredient_image",
+      "path": "src/assets/ingredients/potassium-chloride.png",
+      "alt": "Potassium Chloride",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "ingredient_image",
+      "path": "src/assets/ingredients/sodium-chloride.png",
+      "alt": "Sodium Chloride",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "ingredient_image",
+      "path": "src/assets/ingredients/magnesium-bisglycinate.png",
+      "alt": "Magnesium Bisglycinate",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "science_visual",
+      "path": "src/assets/science/creagen-pro-power-lifestyle.png",
+      "alt": "Creagen Pro Power performance lifestyle visual",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "primary_media",
+      "path": "src/assets/products/glutara-primary.png",
+      "alt": "BioAro Glutara product container",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/glutara-01-hero-1x1.jpg",
+      "alt": "Glutara product container on a stone surface",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/glutara-02-ingredients-1x1.jpg",
+      "alt": "Glutara ingredients with sachets and powder samples",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/glutara-03-lifestyle-1x1.jpg",
+      "alt": "Woman preparing Glutara with water as part of a daily routine",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/glutara-04-benefits-1x1.jpg",
+      "alt": "Glutara formula benefits and antioxidant support information",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "gallery_media",
+      "path": "src/assets/products/glutara-05-product-routine-1x1.jpg",
+      "alt": "Open Glutara container with sachets, water, and powder",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "product media"
+    },
+    {
+      "role": "ingredient_image",
+      "path": "src/assets/ingredients/liposomal-glutathione.png",
+      "alt": "Liposomal Glutathione",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "ingredient_image",
+      "path": "src/assets/ingredients/vitamin-c.png",
+      "alt": "Vitamin C",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "ingredient_image",
+      "path": "src/assets/ingredients/hyaluronic-acid.png",
+      "alt": "Hyaluronic Acid",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "ingredient_image",
+      "path": "src/assets/ingredients/vitamin-b1.png",
+      "alt": "Vitamin B1",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "ingredient_image",
+      "path": "src/assets/ingredients/vitamin-b6.png",
+      "alt": "Vitamin B6",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "ingredient_image",
+      "path": "src/assets/ingredients/piperine.png",
+      "alt": "Piperine",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    },
+    {
+      "role": "science_visual",
+      "path": "src/assets/science/glutara-lifestyle.png",
+      "alt": "Glutara lifestyle visual with warm sunset light",
+      "existsAtSourceCommit": true,
+      "proposedShopifyTarget": "Shopify Files + file reference"
+    }
+  ],
+  "missingAssets": []
+}

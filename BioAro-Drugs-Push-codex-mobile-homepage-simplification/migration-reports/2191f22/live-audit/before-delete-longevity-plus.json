@@ -1,0 +1,327 @@
+{
+  "id": "gid://shopify/Product/7671681744999",
+  "title": "Longevity+",
+  "handle": "longevity-plus",
+  "status": "ACTIVE",
+  "descriptionHtml": "<p><meta charset=\"utf-8\"><span>Daily wellness formula designed to support healthy ageing and cellular energy, featuring NMN, resveratrol, CoQ10, curcumin, vitamin D3, and vitamin B12, helping support everyday vitality and cellular wellbeing.</span></p>",
+  "media": {
+    "nodes": [
+      {
+        "id": "gid://shopify/MediaImage/31067673100391",
+        "alt": "",
+        "mediaContentType": "IMAGE"
+      },
+      {
+        "id": "gid://shopify/MediaImage/31067673133159",
+        "alt": "",
+        "mediaContentType": "IMAGE"
+      },
+      {
+        "id": "gid://shopify/MediaImage/31067673165927",
+        "alt": "",
+        "mediaContentType": "IMAGE"
+      },
+      {
+        "id": "gid://shopify/MediaImage/31067673198695",
+        "alt": "",
+        "mediaContentType": "IMAGE"
+      },
+      {
+        "id": "gid://shopify/MediaImage/31067673231463",
+        "alt": "",
+        "mediaContentType": "IMAGE"
+      }
+    ]
+  },
+  "metafields": {
+    "nodes": [
+      {
+        "id": "gid://shopify/Metafield/35719596081255",
+        "namespace": "shopify",
+        "key": "age-group",
+        "type": "list.metaobject_reference",
+        "value": "[\"gid://shopify/Metaobject/210196791399\"]"
+      },
+      {
+        "id": "gid://shopify/Metafield/35719596114023",
+        "namespace": "shopify",
+        "key": "dietary-use",
+        "type": "list.metaobject_reference",
+        "value": "[\"gid://shopify/Metaobject/210196758631\"]"
+      },
+      {
+        "id": "gid://shopify/Metafield/35719596146791",
+        "namespace": "shopify",
+        "key": "ingredient-category",
+        "type": "list.metaobject_reference",
+        "value": "[\"gid://shopify/Metaobject/210196824167\"]"
+      },
+      {
+        "id": "gid://shopify/Metafield/35719596179559",
+        "namespace": "shopify",
+        "key": "route-of-administration",
+        "type": "list.metaobject_reference",
+        "value": "[\"gid://shopify/Metaobject/210196856935\"]"
+      },
+      {
+        "id": "gid://shopify/Metafield/35719596212327",
+        "namespace": "custom",
+        "key": "pdp_subtitle",
+        "type": "single_line_text_field",
+        "value": "Supports healthy ageing and everyday vitality."
+      },
+      {
+        "id": "gid://shopify/Metafield/35719596245095",
+        "namespace": "custom",
+        "key": "short_description",
+        "type": "multi_line_text_field",
+        "value": "Daily wellness formula designed to support healthy ageing and cellular energy, featuring NMN, resveratrol, CoQ10, curcumin, vitamin D3, and vitamin B12, helping support everyday vitality and cellular wellbeing."
+      },
+      {
+        "id": "gid://shopify/Metafield/35719596277863",
+        "namespace": "custom",
+        "key": "hero_tags",
+        "type": "single_line_text_field",
+        "value": "Cellular Energy; Healthy Aging; NAD+ Support"
+      },
+      {
+        "id": "gid://shopify/Metafield/35719985070183",
+        "namespace": "custom",
+        "key": "trust_badges",
+        "type": "json",
+        "value": "[{\"title\":\"Sample\",\"text\":\"Sample text\"}]"
+      },
+      {
+        "id": "gid://shopify/Metafield/35719985102951",
+        "namespace": "custom",
+        "key": "benefit_cards",
+        "type": "json",
+        "value": "[{\"title\":\"Sample\",\"text\":\"Sample text\"}]"
+      },
+      {
+        "id": "gid://shopify/Metafield/35719985135719",
+        "namespace": "custom",
+        "key": "science_steps",
+        "type": "json",
+        "value": "[{\"title\":\"Sample\",\"text\":\"Sample text\"}]"
+      },
+      {
+        "id": "gid://shopify/Metafield/35719985168487",
+        "namespace": "custom",
+        "key": "supplement_facts_rows",
+        "type": "json",
+        "value": "[{\"title\":\"Sample\",\"text\":\"Sample text\"}]"
+      },
+      {
+        "id": "gid://shopify/Metafield/35719985201255",
+        "namespace": "custom",
+        "key": "clinical_evidence",
+        "type": "json",
+        "value": "[{\"title\":\"Sample\",\"text\":\"Sample text\"}]"
+      },
+      {
+        "id": "gid://shopify/Metafield/35719985234023",
+        "namespace": "custom",
+        "key": "comparison_rows",
+        "type": "json",
+        "value": "[{\"title\":\"Sample\",\"text\":\"Sample text\"}]"
+      },
+      {
+        "id": "gid://shopify/Metafield/35719985266791",
+        "namespace": "custom",
+        "key": "faqs",
+        "type": "json",
+        "value": "[{\"title\":\"Sample\",\"text\":\"Sample text\"}]"
+      },
+      {
+        "id": "gid://shopify/Metafield/35719985299559",
+        "namespace": "custom",
+        "key": "testimonials",
+        "type": "json",
+        "value": "[{\"title\":\"Sample\",\"text\":\"Sample text\"}]"
+      },
+      {
+        "id": "gid://shopify/Metafield/35720044019815",
+        "namespace": "custom",
+        "key": "hero_bullets",
+        "type": "single_line_text_field",
+        "value": "Boosts cellular energy"
+      },
+      {
+        "id": "gid://shopify/Metafield/35720044052583",
+        "namespace": "custom",
+        "key": "supply_label",
+        "type": "single_line_text_field",
+        "value": "30-day supply"
+      },
+      {
+        "id": "gid://shopify/Metafield/35720044085351",
+        "namespace": "custom",
+        "key": "serving_size",
+        "type": "single_line_text_field",
+        "value": "2 capsules daily"
+      },
+      {
+        "id": "gid://shopify/Metafield/35720044118119",
+        "namespace": "custom",
+        "key": "directions",
+        "type": "multi_line_text_field",
+        "value": "Take 2 capsules daily with food"
+      },
+      {
+        "id": "gid://shopify/Metafield/35720044150887",
+        "namespace": "custom",
+        "key": "warnings",
+        "type": "multi_line_text_field",
+        "value": "Consult your healthcare provider before use"
+      },
+      {
+        "id": "gid://shopify/Metafield/35720044183655",
+        "namespace": "custom",
+        "key": "storage_instructions",
+        "type": "multi_line_text_field",
+        "value": "Store in a cool, dry place"
+      },
+      {
+        "id": "gid://shopify/Metafield/35720044216423",
+        "namespace": "custom",
+        "key": "allergen_info",
+        "type": "multi_line_text_field",
+        "value": "Contains no major allergens"
+      },
+      {
+        "id": "gid://shopify/Metafield/35720044249191",
+        "namespace": "custom",
+        "key": "disclaimer",
+        "type": "multi_line_text_field",
+        "value": "These statements have not been evaluated by the FDA"
+      },
+      {
+        "id": "gid://shopify/Metafield/35720044281959",
+        "namespace": "custom",
+        "key": "rating_average",
+        "type": "number_decimal",
+        "value": "4.8"
+      },
+      {
+        "id": "gid://shopify/Metafield/35720044314727",
+        "namespace": "custom",
+        "key": "rating_count",
+        "type": "number_integer",
+        "value": "1146"
+      },
+      {
+        "id": "gid://shopify/Metafield/35720044347495",
+        "namespace": "custom",
+        "key": "rating_label",
+        "type": "single_line_text_field",
+        "value": "Verified reviews"
+      },
+      {
+        "id": "gid://shopify/Metafield/35720044380263",
+        "namespace": "custom",
+        "key": "why_formula_headline",
+        "type": "single_line_text_field",
+        "value": "Built around what matters for this routine, not everything at once."
+      },
+      {
+        "id": "gid://shopify/Metafield/35720044413031",
+        "namespace": "custom",
+        "key": "why_formula_body",
+        "type": "multi_line_text_field",
+        "value": "Adults focused on long-term vitality, cellular wellness, and proactive healthy aging."
+      },
+      {
+        "id": "gid://shopify/Metafield/35720044445799",
+        "namespace": "custom",
+        "key": "science_headline",
+        "type": "single_line_text_field",
+        "value": "The science behind it"
+      },
+      {
+        "id": "gid://shopify/Metafield/35720044478567",
+        "namespace": "custom",
+        "key": "ingredients_headline",
+        "type": "single_line_text_field",
+        "value": "Key ingredients"
+      },
+      {
+        "id": "gid://shopify/Metafield/35720044511335",
+        "namespace": "custom",
+        "key": "evidence_headline",
+        "type": "single_line_text_field",
+        "value": "Clinical evidence"
+      },
+      {
+        "id": "gid://shopify/Metafield/35720044544103",
+        "namespace": "custom",
+        "key": "faq_headline",
+        "type": "single_line_text_field",
+        "value": "Frequently asked questions"
+      },
+      {
+        "id": "gid://shopify/Metafield/35720044576871",
+        "namespace": "custom",
+        "key": "bundle_headline",
+        "type": "single_line_text_field",
+        "value": "Save with a bundle"
+      },
+      {
+        "id": "gid://shopify/Metafield/35720044609639",
+        "namespace": "custom",
+        "key": "bundle_description",
+        "type": "multi_line_text_field",
+        "value": "Get more value with our bundle"
+      },
+      {
+        "id": "gid://shopify/Metafield/35720044642407",
+        "namespace": "custom",
+        "key": "ingredients",
+        "type": "single_line_text_field",
+        "value": "Sample ingredient"
+      },
+      {
+        "id": "gid://shopify/Metafield/35720044675175",
+        "namespace": "custom",
+        "key": "bundle_products",
+        "type": "variant_reference",
+        "value": "gid://shopify/ProductVariant/44130453422183"
+      },
+      {
+        "id": "gid://shopify/Metafield/35720044707943",
+        "namespace": "custom",
+        "key": "recommended_product",
+        "type": "product_reference",
+        "value": "gid://shopify/Product/7671681744999"
+      },
+      {
+        "id": "gid://shopify/Metafield/35720044740711",
+        "namespace": "custom",
+        "key": "labs_cta",
+        "type": "single_line_text_field",
+        "value": "Learn more"
+      },
+      {
+        "id": "gid://shopify/Metafield/35720044773479",
+        "namespace": "custom",
+        "key": "final_cta",
+        "type": "single_line_text_field",
+        "value": "Buy now"
+      },
+      {
+        "id": "gid://shopify/Metafield/35976968405095",
+        "namespace": "global",
+        "key": "title_tag",
+        "type": "string",
+        "value": "longevity-plus"
+      },
+      {
+        "id": "gid://shopify/Metafield/36209404346471",
+        "namespace": "custom",
+        "key": "supplement_facts_image",
+        "type": "file_reference",
+        "value": "gid://shopify/MediaImage/31067726970983"
+      }
+    ]
+  }
+}

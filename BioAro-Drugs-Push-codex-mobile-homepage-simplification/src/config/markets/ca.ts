@@ -1,0 +1,31 @@
+import type { MarketConfig } from "./types";
+
+export const CA_MARKET: MarketConfig = {
+  code: "ca",
+  countryCode: "CA",
+  name: "Canada",
+  shortLabel: "CA",
+  locale: "en-CA",
+  currency: "CAD",
+  currencySymbol: "CA$",
+  flag: "🇨🇦",
+  companyName: "BioAro Drugs",
+  supportEmail: "support@bioarodrugs.com",
+  address: {
+    line1: "Calgary Place Tower 1",
+    line2: "#1020 - 330 - 5th Avenue SW",
+    city: "Calgary, Alberta",
+    country: "Canada",
+  },
+  checkoutEnabled: false,
+  checkoutMessage: "Online ordering for Canada is opening soon.",
+  shippingMessage: "Canada delivery details will be confirmed at launch.",
+  taxMessage: "Canadian taxes and delivery details will be confirmed when ordering becomes available.",
+  legalDisclaimer: "Regional legal and regulatory information will be published before ordering opens.",
+  shippingPolicyPath: "/shipping-policy",
+  returnsPolicyPath: "/returns-refunds",
+  privacyPolicyPath: "/privacy-policy",
+  availableProducts: [],
+  comingSoonProducts: ["longevity-plus", "cellomega-plus", "creagen-brain-boost", "creagen-femme-energy", "creagen-raw-power", "creagen-pro-power", "glutara"],
+  experienceRegion: "NA",
+};
