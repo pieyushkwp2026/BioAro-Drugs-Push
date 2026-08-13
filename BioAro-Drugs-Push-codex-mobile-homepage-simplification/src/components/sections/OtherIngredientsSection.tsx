@@ -8,7 +8,7 @@ export default function OtherIngredientsSection({ items }: OtherIngredientsSecti
   return (
     <section className="mt-16">
       <span className="eyebrow">Other ingredients</span>
-      <div className="glass-card mt-4 p-6 md:p-8">
+      <div className="rounded-[24px] border border-line bg-white shadow-glass mt-4 p-6 md:p-8">
         <p className="text-sm leading-relaxed text-ink/55">
           Inactive ingredients and excipients listed for transparency.
         </p>

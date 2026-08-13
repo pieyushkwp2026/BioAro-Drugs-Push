@@ -19,21 +19,21 @@ export default function CartDrawer() {
 
   return (
     <>
-      <div onClick={closeCart} className="fixed inset-0 z-40 bg-ink/30" />
-      <aside className="fixed right-0 top-0 z-50 flex h-full w-full max-w-md flex-col bg-cream shadow-glass-lg">
-        <div className="flex items-center justify-between border-b border-ink/10 px-6 py-5">
+      <div onClick={closeCart} className="fixed inset-0 z-40 bg-[rgba(20,16,13,0.42)]" />
+      <aside className="fixed right-0 top-0 z-50 flex h-full w-full max-w-md flex-col bg-ivory shadow-glass-lg">
+        <div className="flex items-center justify-between border-b border-line px-6 py-5">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full glass">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full border border-line bg-white">
               <ShoppingBag size={17} />
             </div>
             <div>
-              <p className="text-sm font-medium">Your cart</p>
-              <p className="text-xs text-ink/45">{cart.totalQuantity} item{cart.totalQuantity === 1 ? "" : "s"}</p>
+              <p className="text-[15px] font-bold tracking-[-0.015em] text-ink">Your cart</p>
+              <p className="text-[13px] text-ink-400">{cart.totalQuantity} item{cart.totalQuantity === 1 ? "" : "s"}</p>
             </div>
           </div>
           <button
             onClick={closeCart}
-            className="flex h-10 w-10 items-center justify-center rounded-full hover:bg-white/60"
+            className="flex h-10 w-10 items-center justify-center rounded-full text-ink transition-colors hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember"
             aria-label="Close cart"
           >
             <X size={18} />
@@ -44,11 +44,11 @@ export default function CartDrawer() {
           {error && <p className="mb-4 rounded-2xl border border-amber-300/60 bg-amber-50 px-4 py-3 text-sm text-amber-800">{error}</p>}
           {cart.lines.length === 0 ? (
             <div className="flex h-full flex-col items-center justify-center text-center">
-              <div className="flex h-16 w-16 items-center justify-center rounded-full glass">
-                <ShoppingBag size={22} className="text-forest-600" />
+              <div className="flex h-16 w-16 items-center justify-center rounded-full border border-line bg-white">
+                <ShoppingBag size={22} className="text-ember" />
               </div>
-              <h2 className="mt-5 text-2xl">Your routine starts here.</h2>
-              <p className="mt-3 max-w-xs text-sm leading-relaxed text-ink/55">
+              <h2 className="mt-6 text-balance text-[26px] font-bold leading-[1.15] tracking-[-0.03em] text-ink">Your routine starts here.</h2>
+              <p className="mt-3 max-w-xs text-pretty text-[15px] leading-[1.6] text-ink-600">
                 Explore BioAro formulas and save your preferred products before online ordering opens.
               </p>
               <Link to={marketHref(ROUTES.shop)} onClick={closeCart} className="btn-primary mt-7">
@@ -58,23 +58,23 @@ export default function CartDrawer() {
           ) : (
             <div className="space-y-4">
               {cart.lines.map((line) => (
-                <div key={line.id} className="glass-card p-4">
+                <div key={line.id} className="rounded-[20px] border border-line bg-white p-4 shadow-glass">
                   <div className="flex gap-4">
-                    <div className="h-24 w-20 shrink-0 overflow-hidden rounded-2xl bg-[#EDEBE4] p-3">
+                    <div className="h-24 w-20 shrink-0 overflow-hidden rounded-2xl bg-cream-200 p-3">
                       <img src={line.image.src} alt={line.image.alt} className="h-full w-full object-contain" />
                     </div>
                     <div className="min-w-0 flex-1">
                       <div className="flex items-start justify-between gap-3">
-                        <Link to={marketHref(`/products/${line.handle}`)} onClick={closeCart} className="text-sm font-medium hover:text-forest-600">
+                        <Link to={marketHref(`/products/${line.handle}`)} onClick={closeCart} className="text-[15px] font-bold tracking-[-0.015em] text-ink transition-colors hover:text-ember">
                           {line.title}
                         </Link>
-                        <button onClick={() => void removeLine(line.id)} className="text-xs text-ink/40 hover:text-ink">
+                        <button onClick={() => void removeLine(line.id)} className="text-[13px] text-ink-400 transition-colors hover:text-ember">
                           Remove
                         </button>
                       </div>
-                      <p className="mt-2 text-sm text-ink/55">{formatMoney(line.price.amount, country)}</p>
+                      <p className="mt-2 text-[14px] text-ink-600">{formatMoney(line.price.amount, country)}</p>
                       <div className="mt-4 flex items-center justify-between">
-                        <div className="flex items-center gap-2 rounded-full border border-ink/10 bg-white/60 px-2 py-1">
+                        <div className="flex items-center gap-2 rounded-full border border-line bg-white px-2 py-1">
                           <button
                             onClick={() => void updateQuantity(line.id, Math.max(0, line.quantity - 1))}
                             className="flex h-7 w-7 items-center justify-center rounded-full hover:bg-white"

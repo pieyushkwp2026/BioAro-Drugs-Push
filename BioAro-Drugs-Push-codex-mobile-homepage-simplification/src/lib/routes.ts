@@ -76,6 +76,7 @@ export const FOOTER_SECTIONS: FooterSection[] = [
     links: [
       { label: "About BioAro", href: ROUTES.about },
       { label: "Partners", href: ROUTES.partners },
+      { label: "My Account", href: ROUTES.account },
     ],
   },
 ];

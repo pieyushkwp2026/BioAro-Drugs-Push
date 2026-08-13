@@ -77,9 +77,9 @@ function SectionLabel({ children, className = "" }: { children: string; classNam
 }
 
 function ComparisonState({ value }: { value: "yes" | "no" | "mixed" }) {
-  if (value === "yes") return <Check size={16} className="text-[#2f4f3e]" aria-hidden="true" />;
-  if (value === "mixed") return <span className="text-[12px] font-medium text-[#8a8678] sm:text-[13px] md:text-[14px]">Mixed</span>;
-  return <X size={16} className="text-[#c4bfaf]" aria-hidden="true" />;
+  if (value === "yes") return <Check size={16} className="text-[#2A6347]" aria-hidden="true" />;
+  if (value === "mixed") return <span className="text-[12px] font-medium text-[#6B7078] sm:text-[13px] md:text-[14px]">Mixed</span>;
+  return <X size={16} className="text-[#E1DED8]" aria-hidden="true" />;
 }
 
 export default function Science() {
@@ -87,7 +87,7 @@ export default function Science() {
 
   return (
     <main className="overflow-hidden pb-20 md:pb-28">
-      <section className="container-bio pt-28 md:pt-40">
+      <section className="container-bio pt-32 md:pt-44">
         <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(420px,1.1fr)] lg:gap-20">
           <div className="max-w-2xl">
             <SectionLabel>Science &amp; quality</SectionLabel>
@@ -100,7 +100,7 @@ export default function Science() {
               <a href="#ingredient-library" className="btn-secondary">Browse ingredients <ArrowRight size={16} /></a>
             </div>
           </div>
-          <div className="group relative overflow-hidden rounded-[32px] bg-[#e8e2d7] shadow-glass-lg">
+          <div className="group relative overflow-hidden rounded-[32px] bg-[#E1DED8] shadow-glass-lg">
             <img src={scienceHeroScientist} alt="Scientist conducting laboratory analysis" className="aspect-[4/5] h-full w-full object-cover object-center transition-transform duration-1000 group-hover:scale-[1.02]" />
             <div className="absolute bottom-5 left-5 flex items-center gap-3 rounded-full border border-white/50 bg-white/55 px-4 py-2 text-xs text-ink backdrop-blur-md">
               <Microscope size={15} className="text-forest-600" /> Evidence-led formulation
@@ -110,7 +110,7 @@ export default function Science() {
       </section>
 
       <section className="container-bio mt-28 md:mt-40">
-        <div className="grid overflow-hidden rounded-[32px] bg-[#e4e9e2] lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="grid overflow-hidden rounded-[32px] bg-[#F0EBE3] lg:grid-cols-[1.1fr_0.9fr]">
           <div className="relative min-h-[380px] overflow-hidden lg:min-h-[560px]">
             <img src={researchSectionScientist} alt="Scientist performing laboratory analysis with pipette equipment" className="h-full w-full object-cover transition-transform duration-1000 hover:scale-[1.02]" />
           </div>
@@ -179,7 +179,7 @@ export default function Science() {
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {INGREDIENTS.map((ingredient) => (
             <article key={ingredient.name} className="group overflow-hidden rounded-[26px] border border-sand/70 bg-white/55">
-              <div className="flex aspect-[4/3] items-center justify-center overflow-hidden bg-[#f1ede5] p-9 md:p-10"><img src={ingredient.image} alt={ingredient.alt} loading="lazy" className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105" /></div>
+              <div className="flex aspect-[4/3] items-center justify-center overflow-hidden bg-[#F0EBE3] p-9 md:p-10"><img src={ingredient.image} alt={ingredient.alt} loading="lazy" className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105" /></div>
               <div className="flex min-h-[190px] flex-col p-7 md:p-8"><h3 className="text-2xl">{ingredient.name}</h3><p className="mt-3 text-base leading-relaxed text-ink/55">{ingredient.description}</p><Link to={marketHref(ROUTES.science)} className="mt-auto pt-6 inline-flex items-center gap-2 text-sm font-medium text-forest-600">Explore ingredient <ArrowRight size={14} /></Link></div>
             </article>
           ))}
@@ -191,21 +191,21 @@ export default function Science() {
           <div className="max-w-[550px]">
             <SectionLabel>The difference</SectionLabel>
             <h2 className="mt-4 text-[42px] leading-[0.98] text-ink md:text-[58px]">Why most supplements fall short.</h2>
-            <p className="mt-6 max-w-[420px] text-[15px] leading-8 text-[#131012]">
+            <p className="mt-6 max-w-[420px] text-[15px] leading-8 text-[#1C1917]">
               Many supplements promise more than they deliver. BioAro Drugs is built around transparency, evidence, and formulations designed with purpose.
             </p>
           </div>
 
-          <div className="overflow-hidden rounded-[16px] border border-[#e6e2d4] bg-[#fbf8f2]">
-            <div className="grid grid-cols-[1.55fr_0.85fr_0.7fr] border-b border-[#e6e2d4] text-[9.5px] font-semibold uppercase tracking-[0.06em] sm:text-[10.5px] md:grid-cols-[1.2fr_0.65fr_0.55fr] md:text-[11.5px]">
-              <div className="bg-[#f1eee6] px-4 py-4 text-[#131012] sm:px-5">Standard</div>
-              <div className="bg-[#eae7dc] px-3 py-4 text-center text-[#131012] sm:px-4 md:px-5">BioAro Drugs</div>
-              <div className="bg-[#f1eee6] px-3 py-4 text-center text-[#131012] sm:px-4 md:px-5">Typical</div>
+          <div className="overflow-hidden rounded-[16px] border border-[#E1DED8] bg-[#FBF9F6]">
+            <div className="grid grid-cols-[1.55fr_0.85fr_0.7fr] border-b border-[#E1DED8] text-[9.5px] font-semibold uppercase tracking-[0.06em] sm:text-[10.5px] md:grid-cols-[1.2fr_0.65fr_0.55fr] md:text-[11.5px]">
+              <div className="bg-[#F0EBE3] px-4 py-4 text-[#1C1917] sm:px-5">Standard</div>
+              <div className="bg-[#E1DED8] px-3 py-4 text-center text-[#1C1917] sm:px-4 md:px-5">BioAro Drugs</div>
+              <div className="bg-[#F0EBE3] px-3 py-4 text-center text-[#1C1917] sm:px-4 md:px-5">Typical</div>
             </div>
             {COMPARISON_ROWS.map((row) => (
-              <div key={row.label} className="grid grid-cols-[1.55fr_0.85fr_0.7fr] border-b border-[#e6e2d4] last:border-b-0 md:grid-cols-[1.2fr_0.65fr_0.55fr]">
-                <div className="px-4 py-4 text-[13px] leading-[1.45] text-[#1b1a17] sm:px-5 sm:text-[14px] md:py-5">{row.label}</div>
-                <div className="flex items-center justify-center border-x border-[#e6e2d4] px-3 py-4 sm:px-4 md:px-5 md:py-5"><ComparisonState value={row.bioaro} /></div>
+              <div key={row.label} className="grid grid-cols-[1.55fr_0.85fr_0.7fr] border-b border-[#E1DED8] last:border-b-0 md:grid-cols-[1.2fr_0.65fr_0.55fr]">
+                <div className="px-4 py-4 text-[13px] leading-[1.45] text-[#1C1917] sm:px-5 sm:text-[14px] md:py-5">{row.label}</div>
+                <div className="flex items-center justify-center border-x border-[#E1DED8] px-3 py-4 sm:px-4 md:px-5 md:py-5"><ComparisonState value={row.bioaro} /></div>
                 <div className="flex items-center justify-center px-3 py-4 sm:px-4 md:px-5 md:py-5"><ComparisonState value={row.typical} /></div>
               </div>
             ))}
@@ -215,7 +215,7 @@ export default function Science() {
 
       <section className="container-bio mt-28 md:mt-40">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-20">
-          <div className="overflow-hidden rounded-[32px] bg-[#e7e1d7]"><img src={journalQualityDocumentation} alt="BioAro quality documentation and botanical product still life" className="aspect-[4/3] h-full w-full object-cover" /></div>
+          <div className="overflow-hidden rounded-[32px] bg-[#E1DED8]"><img src={journalQualityDocumentation} alt="BioAro quality documentation and botanical product still life" className="aspect-[4/3] h-full w-full object-cover" /></div>
           <div>
             <SectionLabel>Quality &amp; testing</SectionLabel>
             <h2 className="mt-5 max-w-2xl text-4xl leading-[0.96] md:text-6xl">Quality information should be visible, specific, and verifiable.</h2>
@@ -236,11 +236,11 @@ export default function Science() {
       </section>
 
       <section className="container-bio mt-28 md:mt-40">
-        <div className="rounded-[32px] bg-[#e4e9e2] px-6 py-20 text-center md:px-16 md:py-32"><p className="mx-auto max-w-5xl font-display text-4xl leading-[0.95] tracking-[-0.02em] md:text-7xl">“We do not simplify science. We simplify understanding.”</p><span className="mt-8 block text-xs font-semibold uppercase tracking-[0.18em] text-forest-600">BioAro</span></div>
+        <div className="rounded-[32px] bg-[#F0EBE3] px-6 py-20 text-center md:px-16 md:py-32"><p className="mx-auto max-w-5xl font-display text-4xl leading-[0.95] tracking-[-0.02em] md:text-7xl">“We do not simplify science. We simplify understanding.”</p><span className="mt-8 block text-xs font-semibold uppercase tracking-[0.18em] text-forest-600">BioAro</span></div>
       </section>
 
       <section className="container-bio mt-28 md:mt-40">
-        <div className="rounded-[32px] bg-[#1d1915] px-7 py-16 text-center text-cream shadow-[0_24px_70px_rgba(29,25,21,0.18)] md:px-16 md:py-28"><SectionLabel className="!text-cream/75">Start with clarity</SectionLabel><h2 className="mx-auto mt-5 max-w-4xl text-5xl leading-[0.94] text-cream md:text-7xl">Understand your routine. Take action with confidence.</h2><p className="mx-auto mt-7 max-w-xl text-base leading-relaxed text-cream/70 md:text-lg">Explore BioAro formulas, ingredient information, and practical health education.</p><div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row"><Link to={marketHref(ROUTES.shop)} className="btn-primary !bg-cream !text-ink hover:!bg-white">Explore formulas <ArrowRight size={16} /></Link><Link to={marketHref(ROUTES.living)} className="btn-secondary !border-white/25 !bg-white/10 !text-cream hover:!bg-white/15">Explore Living 2.0 <ArrowRight size={16} /></Link></div></div>
+        <div className="rounded-[32px] bg-[#1C1917] px-7 py-16 text-center text-cream shadow-[0_24px_70px_rgba(29,25,21,0.18)] md:px-16 md:py-28"><SectionLabel className="!text-cream/75">Start with clarity</SectionLabel><h2 className="mx-auto mt-5 max-w-4xl text-5xl leading-[0.94] text-cream md:text-7xl">Understand your routine. Take action with confidence.</h2><p className="mx-auto mt-7 max-w-xl text-base leading-relaxed text-cream/70 md:text-lg">Explore BioAro formulas, ingredient information, and practical health education.</p><div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row"><Link to={marketHref(ROUTES.shop)} className="btn-primary">Explore formulas <ArrowRight size={16} /></Link><Link to={marketHref(ROUTES.living)} className="btn-secondary !border-white/25 !bg-white/10 !text-cream hover:!bg-white/15">Explore Living 2.0 <ArrowRight size={16} /></Link></div></div>
       </section>
     </main>
   );

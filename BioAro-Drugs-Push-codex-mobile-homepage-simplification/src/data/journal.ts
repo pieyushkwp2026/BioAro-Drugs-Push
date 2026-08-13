@@ -258,7 +258,7 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
     article: {
       title: "Why Better Sleep Starts Long Before Bedtime",
       heroSummary:
-        "Sleep quality is influenced throughout the day—not just before bed. Learn how healthy routines support restorative sleep and recovery.",
+        "Sleep quality is influenced throughout the day, not just before bed. Learn how healthy routines support restorative sleep and recovery.",
       sections: [
         {
           heading: "Circadian rhythm",

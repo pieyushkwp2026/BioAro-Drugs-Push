@@ -1,4 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+/*
+ * Satoshi is self-hosted so the display voice never depends on a third-party CDN.
+ * These were previously declared inside src/pages/Home.tsx, which meant every other
+ * route fell back to the system sans. Vite fingerprints the url() references below.
+ */
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./assets/fonts/satoshi-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./assets/fonts/satoshi-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./assets/fonts/satoshi-900.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
 
 @tailwind base;
 @tailwind components;
@@ -12,48 +37,108 @@
 
   body {
     @apply bg-cream text-ink font-body antialiased overflow-x-hidden;
+    /* A 140px tile of desaturated grain gives the ivory ground some tooth rather
+       than reading as flat vector fill. Background layer, not an overlay, so it
+       never interferes with stacking or the fixed header. */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23g)' opacity='0.22'/%3E%3C/svg%3E");
   }
 
-  h1,
-  h2,
-  h3,
-  .font-display {
-    font-family: "Cormorant Garamond", serif;
-  }
+  /* The global `h1,h2,h3,.font-display -> Cormorant Garamond` rule was removed here.
+     Headings now inherit Satoshi from body, matching the homepage. */
 
   ::selection {
-    background: #b08a4e33;
+    background: #c1462a26;
   }
 }
 
 @layer components {
+  /* Flat panels, not glassmorphism — backdrop-blur was removed by design decision.
+     The names are kept so the ~22 existing call sites migrate without edits. */
   .glass {
-    @apply border border-white/70 bg-white/70 shadow-glass backdrop-blur-xl;
+    @apply border border-line bg-white shadow-glass;
   }
 
   .glass-dark {
-    @apply border border-white/10 bg-ink/95 shadow-glass-lg backdrop-blur-xl;
+    @apply border border-white/10 bg-ink shadow-glass-lg;
   }
 
   .glass-card {
-    @apply glass rounded-[24px] transition-colors duration-300 hover:bg-white/85;
+    @apply glass rounded-[24px] transition-colors duration-300 hover:bg-cream-50;
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink px-7 py-3.5 text-[15px] font-medium text-white transition-colors duration-300 hover:bg-forest-600;
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-ember px-7 py-3.5 text-[15px] font-bold tracking-[-0.01em] text-white shadow-[0_12px_28px_-14px_rgba(193,70,42,0.9)] transition-[background-color,transform] duration-200 hover:bg-ember-600 active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ember motion-reduce:active:scale-100;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-sand bg-transparent px-7 py-3.5 text-[15px] font-medium text-ink transition-colors duration-300 hover:bg-white;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-line bg-transparent px-7 py-3.5 text-[15px] font-bold tracking-[-0.01em] text-ink transition-[background-color,transform] duration-200 hover:bg-white active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ember motion-reduce:active:scale-100;
   }
 
+  /* Neutral rather than the old forest green, so labels never disagree with the
+     ember accent. The eyebrow pattern itself is worth retiring in a content pass. */
   .eyebrow {
-    @apply text-[12px] font-semibold uppercase tracking-[0.16em] text-[#1A5538];
+    @apply text-[12px] font-bold uppercase tracking-[0.14em] text-ink-400;
   }
 
+  /* box-content is load-bearing: the homepage body applies its gutters OUTSIDE the
+     1240px cap (padded wrapper, capped inner), so a normal border-box container
+     would start its content 48px further right at lg and the header wordmark would
+     not line up with the page beneath it. content-box reproduces the same geometry
+     in a single class, at every breakpoint. */
   .container-bio {
-    @apply mx-auto max-w-[1532px] px-6 md:px-10 lg:px-16;
+    @apply mx-auto box-content max-w-[1240px] px-5 sm:px-8 lg:px-12;
   }
+}
+
+/* Marquee. The track is duplicated in markup and translated by exactly -50%, so the
+   second copy lands where the first began and the loop is seamless. */
+@keyframes bio-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+.bio-marquee {
+  display: flex;
+  width: max-content;
+  animation: bio-marquee var(--marquee-duration, 46s) linear infinite;
+}
+
+.bio-marquee-viewport:hover .bio-marquee {
+  animation-play-state: paused;
+}
+
+/* A hollow ring between items rather than a punctuation character. */
+.bio-marquee-item::after {
+  content: "";
+  display: block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border: 1px solid currentColor;
+  border-radius: 9999px;
+  opacity: 0.55;
+  flex: none;
+}
+
+/* Indeterminate rail for the auth callback wait. Travels the full track rather than
+   looping in place, so it reads as progress on a handoff we cannot measure. */
+@keyframes bio-auth-rail {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(300%); }
+}
+
+.bio-auth-rail {
+  animation: bio-auth-rail 1.4s ease-in-out infinite;
+}
+
+/* Testimonial rows. Lifted out of the component's inline <style> so the
+   reduced-motion guard below can reach them; the archived version had none. */
+@keyframes bioaro-marquee-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes bioaro-marquee-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -64,5 +149,23 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  /* The blanket rule above only forces duration, which would make a marquee
+     snap to its end position rather than stop. Killing the animation name is what
+     actually holds it still. */
+  .bio-marquee,
+  [style*="bioaro-marquee"] {
+    animation-name: none !important;
+    transform: none !important;
+  }
+
+  /* Same reason: forcing the duration alone would park the rail off the end of its
+     track, leaving an empty groove during the wait. Hold it as a filled bar. */
+  .bio-auth-rail {
+    animation-name: none !important;
+    transform: none !important;
+    width: 100%;
+    opacity: 0.5;
   }
 }

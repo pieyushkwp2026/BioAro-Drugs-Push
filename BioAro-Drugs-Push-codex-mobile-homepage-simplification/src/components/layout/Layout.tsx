@@ -3,6 +3,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import CartDrawer from "../cart/CartDrawer";
+import AskLauncher from "../ask/AskLauncher";
 import RegionalSeo from "../seo/RegionalSeo";
 
 function ScrollToTop() {
@@ -26,6 +27,7 @@ export default function Layout() {
       </main>
       <Footer />
       <CartDrawer />
+      <AskLauncher />
     </div>
   );
 }

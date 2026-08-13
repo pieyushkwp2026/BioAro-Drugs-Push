@@ -1,49 +1,39 @@
 import { type FormEvent, useState } from "react";
-import { ArrowRight, BookOpen, FlaskConical, Mail, MapPin, ShieldCheck, Users } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { ArrowRight, Check, Mail, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 import bioAroMark from "../../assets/logo/bioaro-mark.png";
-import { FlagCA } from "./Flags";
 import RegionSelector from "./RegionSelector";
-import { ROUTES } from "../../lib/routes";
+import { FOOTER_SECTIONS, ROUTES } from "../../lib/routes";
 import { useMarket } from "../../hooks/useMarket";
 import { useMarketHref } from "../../hooks/useMarketHref";
 import { getMarketConfigByMarket } from "../../config/markets";
-import { stripMarketPrefix } from "../../lib/marketRouting";
 
-const SHOP_LINKS = [
-  { label: "All Products", href: ROUTES.shop },
-  { label: "Longevity", href: "/shop?category=Longevity" },
-  { label: "Focus", href: "/shop?category=Focus" },
-  { label: "Recovery", href: "/shop?category=Recovery" },
-  { label: "Sleep", href: ROUTES.protocols },
-  { label: "Build My Stack", href: ROUTES.quiz },
-];
+/*
+ * ONE footer, every route. This previously carried two full variants keyed off
+ * `isRegionalHomepage`, which is the same split that made the header look broken
+ * when you navigated off the homepage.
+ *
+ * Link IA comes from FOOTER_SECTIONS in lib/routes.ts, which was already exported
+ * and imported by nothing. The local arrays it replaced contained real bugs:
+ * "/shop?category=Recovery" is not a valid Shop filter (Shop.tsx:8 allows only
+ * All/Longevity/Wellness/Focus/Energy/Performance, and normalizeFilter silently
+ * falls back to All), "Sleep" pointed at /protocols, and three pairs of links had
+ * duplicate destinations. Living 2.0 and the account page were missing entirely.
+ *
+ * No payment-method icons: `checkoutEnabled` is false in every market config, so
+ * advertising card brands on a store that cannot take payment would be untrue.
+ */
 
-const SCIENCE_LINKS = [
-  { label: "Our Standards", href: ROUTES.quality },
-  { label: "Ingredient Library", href: ROUTES.science },
-  { label: "Testing & Quality", href: ROUTES.quality },
-  { label: "Journal", href: ROUTES.journal },
-];
-
-const SUPPORT_LINKS = [
-  { label: "Contact Support", href: ROUTES.support },
-  { label: "Shipping Policy", href: ROUTES.shipping },
-  { label: "Returns & Refunds", href: ROUTES.returns },
-  { label: "Supplement Disclaimer", href: ROUTES.disclaimer },
-  { label: "FAQs", href: ROUTES.faq },
-];
-
-const COMPANY_LINKS = [
-  { label: "About BioAro", href: ROUTES.about },
-  { label: "Partners", href: ROUTES.partners },
-  { label: "Contact", href: ROUTES.support },
-];
-
-const TRUST_PILLS = [
-  { Icon: ShieldCheck, label: "cGMP Certified" },
-  { Icon: FlaskConical, label: "Third-Party Tested" },
-  { Icon: FlagCA, label: "Formulated in Canada" },
+/* Only claims that are actually confirmed. Deliberately no customer counts, no
+   awards, no "clinically tested" - none of those are substantiated. */
+const MARQUEE_ITEMS = [
+  "Third-party tested",
+  "Non-GMO",
+  "Gluten free",
+  "Sugar free",
+  "Nut free",
+  "Vegan",
+  "BioAro Labs helps you understand. BioAro Drugs helps you act.",
 ];
 
 function InstagramIcon({ size = 16 }: { size?: number }) {
@@ -77,39 +67,33 @@ function XIcon({ size = 16 }: { size?: number }) {
 const SOCIAL_LINKS = [
   { Icon: InstagramIcon, label: "Instagram", href: "https://www.instagram.com/bioarodrugs?igsh=MTlmcGZrMGg0d3owdQ==" },
   { Icon: XIcon, label: "X", href: "https://x.com/bioarodrugs?s=11" },
-  { Icon: BookOpen, label: "Journal", href: ROUTES.journal },
-  { Icon: Users, label: "Partners", href: ROUTES.partners },
 ];
 
-function FooterColumn({ title, links }: { title: string; links: Array<{ label: string; href: string }> }) {
-  const marketHref = useMarketHref();
+const LINK_CLASS =
+  "inline-block py-1.5 text-[15px] text-[rgba(247,244,239,0.72)] transition-colors hover:text-[#F7F4EF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C1462A] rounded-sm";
 
+function MarqueeRun() {
   return (
-    <div>
-      <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-forest-600">{title}</p>
-      <ul className="mt-3 space-y-0.5">
-        {links.map((link) => (
-          <li key={link.label}>
-            <Link
-              to={marketHref(link.href)}
-              className="block py-1.5 text-[14px] text-[#2a2723] transition-colors hover:text-forest-600"
-            >
-              {link.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      {MARQUEE_ITEMS.map((item) => (
+        <span
+          key={item}
+          className="bio-marquee-item flex flex-none items-center gap-8 whitespace-nowrap pr-8 text-[22px] font-bold tracking-[-0.02em] text-[#F7F4EF] sm:text-[28px] lg:text-[34px]"
+        >
+          {item}
+        </span>
+      ))}
+    </>
   );
 }
 
 export default function Footer() {
   const { market } = useMarket();
   const marketHref = useMarketHref();
-  const { pathname } = useLocation();
   const marketConfig = getMarketConfigByMarket(market);
   const [newsletterEmail, setNewsletterEmail] = useState("");
-  const isRegionalHomepage = stripMarketPrefix(pathname) === "/";
+  const [subscribed, setSubscribed] = useState(false);
+
   const addressLine = marketConfig.address
     ? [
         marketConfig.address.line1,
@@ -128,205 +112,165 @@ export default function Footer() {
     const subject = encodeURIComponent("Footer newsletter subscription request");
     const body = encodeURIComponent(`Please add this email to the BioAro Drugs newsletter list:\n\n${email}`);
     window.location.href = `mailto:${marketConfig.supportEmail}?subject=${subject}&body=${body}`;
-  }
-
-  if (isRegionalHomepage) {
-    return (
-      <footer className="bg-[#f2eadf] pb-8 pt-6">
-        <div className="container-bio max-w-[1380px]">
-          <div className="grid gap-10 border-t border-[#ddd2c3] pt-7 lg:grid-cols-[0.9fr_1.3fr_0.8fr] lg:gap-12">
-            <div className="max-w-[280px]">
-              <Link to={marketHref(ROUTES.home)} className="flex items-center gap-3 text-ink">
-                <img src={bioAroMark} alt="" aria-hidden="true" className="h-7 w-7 object-contain" />
-                <span className="text-[20px] font-medium tracking-[0.01em]">BioAro Drugs</span>
-              </Link>
-              <p className="mt-4 text-[13px] leading-6 text-[#5a524b]">
-                Science-backed wellness designed for real life.
-              </p>
-              <div className="mt-5 max-w-[210px]">
-                <RegionSelector />
-              </div>
-            </div>
-
-            <div className="grid gap-8 sm:grid-cols-3">
-              <FooterColumn title="Explore" links={[
-                { label: "Science", href: ROUTES.science },
-                { label: "Use Cases", href: ROUTES.home },
-                { label: "Our Approach", href: ROUTES.science },
-                { label: "Journal", href: ROUTES.journal },
-                { label: "About", href: ROUTES.about },
-              ]} />
-              <FooterColumn title="Support" links={[
-                { label: "FAQs", href: ROUTES.faq },
-                { label: "Contact Us", href: ROUTES.support },
-                { label: "Shipping & Returns", href: ROUTES.returns },
-                { label: "Privacy Policy", href: ROUTES.shipping },
-                { label: "Terms of Service", href: ROUTES.disclaimer },
-              ]} />
-              <div>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-forest-600">Stay in the know</p>
-                <p className="mt-3 text-[13px] leading-6 text-[#5a524b]">
-                  Thoughtful insights on health, longevity, and living well.
-                </p>
-                <form onSubmit={handleNewsletterSubmit} className="mt-4 flex items-center gap-2">
-                  <input
-                    type="email"
-                    value={newsletterEmail}
-                    onChange={(event) => setNewsletterEmail(event.target.value)}
-                    placeholder="Enter your email"
-                    className="h-11 min-w-0 flex-1 rounded-full border border-[#d7ccbd] bg-[#fbf8f3] px-4 text-[13px] text-[#534b44] outline-none placeholder:text-[#8f867d]"
-                    aria-label="Email address"
-                    required
-                  />
-                  <button
-                    type="submit"
-                    className="flex h-11 w-11 items-center justify-center rounded-full bg-[#12100f] text-white transition-colors hover:bg-[#2c4739]"
-                    aria-label="Subscribe"
-                  >
-                    <ArrowRight size={15} />
-                  </button>
-                </form>
-              </div>
-            </div>
-
-            <div className="space-y-4 text-[12px] leading-6 text-[#6d645c]">
-              <div>
-                <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-forest-600">Responsible Food Business</p>
-                <p className="mt-2 font-medium text-[#322c28]">BioAro Drugs</p>
-                <p>{addressLine}</p>
-              </div>
-              <a href={`mailto:${marketConfig.supportEmail}`} className="inline-flex items-center gap-2 text-[#4f4942] transition-colors hover:text-forest-600">
-                <Mail size={14} />
-                <span>{marketConfig.supportEmail}</span>
-              </a>
-            </div>
-          </div>
-
-          <div className="mt-8 flex flex-col gap-4 border-t border-[#ddd2c3] pt-5 text-[12px] text-[#8b837b] sm:flex-row sm:items-center sm:justify-between">
-            <p>© {new Date().getFullYear()} BioAro Drugs Inc. All rights reserved.</p>
-            <div className="flex flex-wrap gap-2.5">
-              {SOCIAL_LINKS.map(({ Icon, label, href }) => (
-                href.startsWith("http") ? (
-                  <a
-                    key={label}
-                    href={href}
-                    aria-label={label}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex h-9 w-9 items-center justify-center rounded-full border border-[#d8cfbf] bg-[#f8f4ed] text-[#214a35] transition-colors hover:bg-white hover:text-forest-600"
-                  >
-                    <Icon size={15} />
-                  </a>
-                ) : (
-                  <Link
-                    key={label}
-                    to={marketHref(href)}
-                    aria-label={label}
-                    className="flex h-9 w-9 items-center justify-center rounded-full border border-[#d8cfbf] bg-[#f8f4ed] text-[#214a35] transition-colors hover:bg-white hover:text-forest-600"
-                  >
-                    <Icon size={15} />
-                  </Link>
-                )
-              ))}
-            </div>
-          </div>
-        </div>
-      </footer>
-    );
+    // Previously the field was never cleared and nothing acknowledged the submit,
+    // so on a machine with no mail handler the form appeared simply not to work.
+    setNewsletterEmail("");
+    setSubscribed(true);
   }
 
   return (
-    <footer className="border-t border-[#ddd4c5] bg-[#eee7db] pt-10 sm:pt-12">
-      <div className="container-bio">
-        <div className="grid gap-10 pb-8 lg:grid-cols-[minmax(280px,1.05fr)_minmax(0,1.95fr)] lg:gap-12">
-          <div className="max-w-[360px]">
-            <div>
-              <Link to={marketHref(ROUTES.home)} className="flex items-center gap-3 text-ink">
-                <img src={bioAroMark} alt="" aria-hidden="true" className="h-7 w-7 object-contain" />
-                <span className="text-[20px] font-semibold tracking-[0.01em]">BioAro Drugs</span>
-              </Link>
-
-              <p className="mt-4 max-w-[320px] text-[14px] leading-6 text-[#2d2a26]">
-                Premium bioactive formulas designed for better daily energy, recovery, focus, sleep, and long-term wellness.
-              </p>
-            </div>
-
-            <div className="mt-5 flex flex-wrap gap-2">
-              {TRUST_PILLS.map(({ Icon, label }) => (
-                <div
-                  key={label}
-                  className="inline-flex items-center gap-2 rounded-full border border-[#dfd5c4] bg-white/45 px-3 py-1.5 text-[11.5px] font-medium text-[#214a35]"
-                >
-                  <Icon size={14} />
-                  <span>{label}</span>
-                </div>
+    <footer className="text-[#F7F4EF]">
+      {/* Warm charcoal rather than a saturated colour block: the page is soft ivory
+          throughout and the closing photo band above already ends dark, so this
+          continues that ending instead of interrupting it with a promotional slab.
+          Terracotta survives only as a small accent on the submit pill and hovers.
+          The three bands sit a few points apart so the seams read as intentional. */}
+      <div className="bg-[linear-gradient(180deg,#211D19_0%,#1A1613_100%)]">
+        <div className="container-bio py-16 sm:py-20">
+          <div className="grid gap-12 xl:grid-cols-[1.55fr_auto_0.8fr] xl:gap-16">
+            {/* Four sections, so four columns at lg. A 3-col grid wrapped Company
+                onto its own row and left a hole. */}
+            <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4">
+              {FOOTER_SECTIONS.map((section) => (
+                <nav key={section.title} aria-label={section.title}>
+                  <h2 className="text-[15px] font-bold tracking-[-0.01em] text-[#F7F4EF]">{section.title}</h2>
+                  <ul className="mt-4 space-y-0.5">
+                    {section.links.map((link) => (
+                      <li key={link.label}>
+                        <Link to={marketHref(link.href)} className={LINK_CLASS}>
+                          {link.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
               ))}
             </div>
 
-            <div className="mt-5 space-y-3 text-[13px] leading-6 text-[#4c443d]">
-              <div className="flex items-start gap-3">
-                <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#edf2ea] text-forest-600">
-                  <MapPin size={15} />
-                </span>
-                <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-forest-600">Responsible Food Business</p>
-                  <p className="font-medium text-ink">BioAro Drugs</p>
-                  <p>{addressLine}</p>
-                </div>
-              </div>
+            <div aria-hidden="true" className="hidden w-px bg-[rgba(247,244,239,0.14)] xl:block" />
 
-              <a href={`mailto:${marketConfig.supportEmail}`} className="flex items-center gap-3 transition-colors hover:text-forest-600">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#dfd5c4] bg-white/55 text-forest-600">
-                  <Mail size={14} />
-                </span>
-                <span>{marketConfig.supportEmail}</span>
-              </a>
+            <div>
+              <h2 className="text-balance text-[30px] font-black leading-[1.02] tracking-[-0.035em] text-[#F7F4EF] sm:text-[36px]">
+                Stay in the loop
+              </h2>
+
+              <form onSubmit={handleNewsletterSubmit} className="mt-6">
+                <label htmlFor="footer-email" className="mb-2 block text-[13px] font-medium text-[rgba(247,244,239,0.68)]">
+                  Email address
+                </label>
+                <div className="relative">
+                  <input
+                    id="footer-email"
+                    type="email"
+                    required
+                    value={newsletterEmail}
+                    onChange={(event) => {
+                      setNewsletterEmail(event.target.value);
+                      if (subscribed) setSubscribed(false);
+                    }}
+                    placeholder="you@example.com"
+                    className="h-14 w-full rounded-full border border-[rgba(247,244,239,0.22)] bg-[rgba(247,244,239,0.06)] pl-5 pr-16 text-[15px] text-[#F7F4EF] placeholder:text-[rgba(247,244,239,0.45)] transition-colors focus:border-[rgba(247,244,239,0.55)] focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C1462A]"
+                  />
+                  <button
+                    type="submit"
+                    aria-label="Subscribe"
+                    className="absolute right-2 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-ember text-[#F7F4EF] transition-transform duration-200 hover:bg-ember-600 active:scale-[0.94] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C1462A] motion-reduce:active:scale-100"
+                  >
+                    <ArrowRight size={17} strokeWidth={2.4} />
+                  </button>
+                </div>
+              </form>
+
+              <p className="mt-4 flex items-start gap-2 text-[14px] leading-[1.6] text-[rgba(247,244,239,0.68)]" aria-live="polite">
+                {subscribed ? (
+                  <>
+                    <Check size={16} strokeWidth={2.6} className="mt-0.5 shrink-0" />
+                    <span>Thanks. Your email app should open with a request ready to send.</span>
+                  </>
+                ) : (
+                  <span>Occasional notes on health, longevity and living well. No noise.</span>
+                )}
+              </p>
+
+              <div className="mt-9 flex items-center gap-3">
+                {SOCIAL_LINKS.map(({ Icon, label, href }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={label}
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-[rgba(247,244,239,0.20)] text-[#F7F4EF] transition-colors hover:border-ember hover:bg-ember hover:text-[#F7F4EF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C1462A]"
+                  >
+                    <Icon size={17} />
+                  </a>
+                ))}
+                <a
+                  href={`mailto:${marketConfig.supportEmail}`}
+                  aria-label="Email support"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-[rgba(247,244,239,0.20)] text-[#F7F4EF] transition-colors hover:border-ember hover:bg-ember hover:text-[#F7F4EF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C1462A]"
+                >
+                  <Mail size={17} />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Marquee. Two identical runs translated by -50% give a seamless loop. */}
+      <div className="bio-marquee-viewport overflow-hidden border-y border-[rgba(247,244,239,0.10)] bg-[#262019] py-5">
+        <div className="bio-marquee" style={{ ["--marquee-duration" as string]: "46s" }}>
+          <div className="flex flex-none items-center">
+            <MarqueeRun />
+          </div>
+          <div aria-hidden="true" className="flex flex-none items-center">
+            <MarqueeRun />
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-[#1A1613]">
+        <div className="container-bio py-8">
+          <div className="flex flex-col items-start gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
+              <Link
+                to={marketHref(ROUTES.home)}
+                className="flex items-center gap-2.5 rounded-full text-[#F7F4EF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C1462A]"
+              >
+                <img src={bioAroMark} alt="" aria-hidden="true" className="h-[22px] w-[22px] object-contain" />
+                <span className="text-[15px] font-bold tracking-[-0.02em]">BioAro Drugs</span>
+              </Link>
+              <p className="text-[13px] text-[rgba(247,244,239,0.62)]">
+                &copy; {new Date().getFullYear()} BioAro Drugs Inc. All rights reserved.
+              </p>
+            </div>
+
+            <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-6">
+              <ul className="flex flex-wrap items-center gap-x-5 gap-y-2">
+                {[
+                  { label: "Shipping", href: ROUTES.shipping },
+                  { label: "Returns", href: ROUTES.returns },
+                  { label: "Disclaimer", href: ROUTES.disclaimer },
+                ].map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      to={marketHref(link.href)}
+                      className="rounded-sm text-[13px] text-[rgba(247,244,239,0.62)] transition-colors hover:text-[#F7F4EF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C1462A]"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <RegionSelector />
             </div>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-2 xl:grid-cols-4 xl:gap-12">
-            <FooterColumn title="Shop" links={SHOP_LINKS} />
-            <FooterColumn title="Science" links={SCIENCE_LINKS} />
-            <FooterColumn title="Support" links={SUPPORT_LINKS} />
-            <FooterColumn title="Company" links={COMPANY_LINKS} />
-          </div>
-        </div>
-
-        <div className="flex flex-col gap-4 border-t border-[#ddd4c5] py-5 text-[#7d766c] lg:flex-row lg:items-center lg:justify-between lg:gap-6">
-          <p className="text-[12px]">© {new Date().getFullYear()} BioAro Drugs Inc.</p>
-
-          <div className="flex flex-wrap gap-2.5 lg:justify-end">
-            {SOCIAL_LINKS.map(({ Icon, label, href }) => (
-              href.startsWith("mailto:") || href.startsWith("http") ? (
-                <a
-                  key={label}
-                  href={href}
-                  aria-label={label}
-                  target={href.startsWith("http") ? "_blank" : undefined}
-                  rel={href.startsWith("http") ? "noreferrer" : undefined}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-[#d8cfbf] bg-[#f8f4ed] text-[#214a35] transition-colors hover:bg-white hover:text-forest-600"
-                >
-                  <Icon size={16} />
-                </a>
-              ) : (
-                <Link
-                  key={label}
-                  to={marketHref(href)}
-                  aria-label={label}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-[#d8cfbf] bg-[#f8f4ed] text-[#214a35] transition-colors hover:bg-white hover:text-forest-600"
-                >
-                  <Icon size={16} />
-                </Link>
-              )
-            ))}
-            <a
-              href={`mailto:${marketConfig.supportEmail}`}
-              aria-label="Email"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-[#d8cfbf] bg-[#f8f4ed] text-[#214a35] transition-colors hover:bg-white hover:text-forest-600"
-            >
-              <Mail size={16} />
-            </a>
-          </div>
+          <p className="mt-6 flex items-start gap-2 text-[12.5px] leading-[1.6] text-[rgba(247,244,239,0.52)]">
+            <MapPin size={14} className="mt-0.5 shrink-0" />
+            <span>{addressLine}</span>
+          </p>
         </div>
       </div>
     </footer>

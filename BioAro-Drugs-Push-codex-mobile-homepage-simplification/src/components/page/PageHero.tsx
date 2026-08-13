@@ -8,7 +8,7 @@ function ActionButton({ action }: { action: PageCta }) {
     action.variant === "secondary"
       ? "btn-secondary"
       : action.variant === "link"
-        ? "text-sm text-forest-600 hover:text-forest-700"
+        ? "inline-flex items-center rounded-full py-2 text-[15px] font-bold text-ink underline-offset-[6px] transition-colors hover:text-ember hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ember"
         : "btn-primary";
 
   const isExternal = action.href.startsWith("mailto:") || action.href.startsWith("http");
@@ -32,11 +32,11 @@ export default function PageHero({ eyebrow, title, description, note, primaryCta
   return (
     <div className="max-w-3xl">
       {eyebrow && <span className="eyebrow">{eyebrow}</span>}
-      <h1 className="mt-3 max-w-2xl text-3xl leading-tight sm:text-4xl md:text-5xl">{title}</h1>
-      <p className="mt-4 max-w-2xl text-sm leading-relaxed text-ink/60 sm:mt-5 sm:text-base">{description}</p>
-      {note && <p className="mt-3 max-w-2xl text-sm text-ink/45 leading-relaxed">{note}</p>}
+      <h1 className="mt-4 max-w-[18ch] text-balance text-[36px] font-black leading-[1.0] tracking-[-0.035em] text-ink sm:text-[46px] lg:text-[56px]">{title}</h1>
+      <p className="mt-6 max-w-[58ch] text-pretty text-[17px] leading-[1.6] text-ink-600 sm:text-[18px]">{description}</p>
+      {note && <p className="mt-3 max-w-[58ch] text-pretty text-[15px] leading-[1.6] text-ink-400">{note}</p>}
       {(primaryCta || secondaryCta) && (
-        <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+        <div className="mt-9 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
           {primaryCta && <ActionButton action={primaryCta} />}
           {secondaryCta && <ActionButton action={secondaryCta} />}
         </div>

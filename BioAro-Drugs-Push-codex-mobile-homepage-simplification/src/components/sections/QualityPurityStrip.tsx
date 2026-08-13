@@ -111,7 +111,7 @@ export default function QualityPurityStrip({
     if (!enabledBadges.length) return null;
 
     return (
-      <section className="mt-12 glass-card border border-ink/8 bg-[rgba(255,255,255,0.62)] p-6 md:p-8">
+      <section className="mt-12 rounded-[24px] border border-line bg-white shadow-glass border border-ink/8 bg-[rgba(255,255,255,0.62)] p-6 md:p-8">
         <span className="eyebrow">{title}</span>
         <div className="mt-5 grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
           {enabledBadges.map((item) => (
@@ -135,7 +135,7 @@ export default function QualityPurityStrip({
   const visibleCertifications = CERTIFICATIONS.filter((item) => certificationKeys.includes(item.key));
 
   return (
-    <section className="mt-12 glass-card border border-ink/8 bg-[rgba(255,255,255,0.62)] p-6 md:p-8">
+    <section className="mt-12 rounded-[24px] border border-line bg-white shadow-glass border border-ink/8 bg-[rgba(255,255,255,0.62)] p-6 md:p-8">
       <span className="eyebrow">{title}</span>
       <div className="mt-5 grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
         {visibleCertifications.map((item) => (

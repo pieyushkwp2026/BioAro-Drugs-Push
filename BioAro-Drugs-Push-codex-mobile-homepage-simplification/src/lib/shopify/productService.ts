@@ -319,7 +319,19 @@ async function fetchShopifyProduct(handle: string, country: CountryCode) {
   return data.product ? mapShopifyProduct(data.product) : undefined;
 }
 
-export async function fetchAllProducts(country: CountryCode): Promise<CatalogProduct[]> {
+/**
+ * `preserveServerOrder` keeps Shopify's `sortKey: BEST_SELLING` ranking (already
+ * requested in fetchShopifyProducts) instead of re-sorting by LEGACY_PRODUCT_ORDER.
+ *
+ * It is opt-in precisely so the Shop grid's curated ordering does not change: only
+ * the homepage bestsellers rail passes it, and only that rail is allowed to claim a
+ * sales ranking. Without Shopify configured there is no ranking to preserve, so the
+ * curated order is returned either way, which is the honest fallback.
+ */
+export async function fetchAllProducts(
+  country: CountryCode,
+  options: { preserveServerOrder?: boolean } = {},
+): Promise<CatalogProduct[]> {
   if (!isShopifyConfigured() || USE_MOCK_DATA) {
     return buildPreviewCatalog(country);
   }
@@ -335,6 +347,12 @@ export async function fetchAllProducts(country: CountryCode): Promise<CatalogPro
     const previewOnlyProducts = buildPreviewCatalog(country).filter(
       (previewProduct) => !shopifyProducts.some((shopifyProduct) => shopifyProduct.handle === previewProduct.handle),
     );
+
+    if (options.preserveServerOrder) {
+      // Shopify's ranked products first, in rank order; anything preview-only after.
+      return [...mergedProducts, ...orderProducts(previewOnlyProducts)];
+    }
+
     return orderProducts([...mergedProducts, ...previewOnlyProducts]);
   } catch {
     return orderProducts(buildPreviewCatalog(country));

@@ -29,12 +29,12 @@ export default function IngredientCard({ ingredient }: { ingredient: ProductIngr
         aria-label={`Learn more about ${ingredient.name}`}
         className="group flex w-full flex-col items-center gap-4 rounded-3xl border border-ink/8 bg-white/60 px-4 py-6 text-center transition-colors hover:border-forest-600/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest-600 focus-visible:ring-offset-2"
       >
-        <div className="h-36 w-36 overflow-hidden rounded-3xl bg-[#f1eee6] shadow-[0_14px_28px_-20px_rgba(27,26,23,0.3)] sm:h-40 sm:w-40 lg:h-44 lg:w-44">
+        <div className="h-36 w-36 overflow-hidden rounded-3xl bg-[#F0EBE3] shadow-[0_14px_28px_-20px_rgba(27,26,23,0.3)] sm:h-40 sm:w-40 lg:h-44 lg:w-44">
           {ingredient.image ? (
             <img src={ingredient.image} alt="" className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" />
           ) : (
             <div className="flex h-full w-full items-end justify-start bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.92),_rgba(241,238,230,0.88)_62%,_rgba(231,225,213,0.94))] p-4 text-left">
-              <span className="max-w-[7rem] text-[12px] font-medium leading-tight text-[#766b5f]">
+              <span className="max-w-[7rem] text-[12px] font-medium leading-tight text-[#545961]">
                 {placeholderLabel}
               </span>
             </div>
@@ -51,7 +51,7 @@ export default function IngredientCard({ ingredient }: { ingredient: ProductIngr
             role="dialog"
             aria-modal="true"
             aria-labelledby={`ingredient-${ingredient.name}`}
-            className="relative z-10 w-full max-w-md rounded-3xl border border-white/20 bg-[#fbfaf6] p-6 shadow-glass-lg sm:p-8"
+            className="relative z-10 w-full max-w-md rounded-3xl border border-white/20 bg-[#FBF9F6] p-6 shadow-glass-lg sm:p-8"
           >
             <button
               type="button"
@@ -62,7 +62,7 @@ export default function IngredientCard({ ingredient }: { ingredient: ProductIngr
               <X size={18} aria-hidden="true" />
             </button>
             {ingredient.image && (
-              <div className="mb-6 aspect-[4/3] overflow-hidden rounded-2xl bg-[#f1eee6]">
+              <div className="mb-6 aspect-[4/3] overflow-hidden rounded-2xl bg-[#F0EBE3]">
                 <img src={ingredient.image} alt={ingredient.name} className="h-full w-full object-cover" />
               </div>
             )}

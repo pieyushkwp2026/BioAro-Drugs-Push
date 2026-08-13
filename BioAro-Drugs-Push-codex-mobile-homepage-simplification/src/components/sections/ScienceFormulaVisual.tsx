@@ -25,7 +25,7 @@ export default function ScienceFormulaVisual({
 }: ScienceFormulaVisualProps) {
   return (
     <section
-      className={`relative isolate mt-10 overflow-hidden rounded-[36px] border border-white/28 bg-[#f7f2ea] shadow-[0_32px_90px_rgba(27,26,23,0.14)] lg:min-h-[780px] xl:min-h-[820px] ${className}`.trim()}
+      className={`relative isolate mt-10 overflow-hidden rounded-[36px] border border-white/28 bg-[#F7F4EF] shadow-[0_32px_90px_rgba(27,26,23,0.14)] lg:min-h-[780px] xl:min-h-[820px] ${className}`.trim()}
     >
       <img
         src={backgroundImage}

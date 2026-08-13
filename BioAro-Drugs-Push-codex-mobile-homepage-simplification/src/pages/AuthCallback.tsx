@@ -1,10 +1,21 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
-import { Loader2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import { useAuth } from "../hooks/useAuth";
 import { useMarketHref } from "../hooks/useMarketHref";
+import { ROUTES } from "../lib/routes";
 import bioAroMark from "../assets/logo/bioaro-mark.png";
+
+/*
+ * The return leg of the handoff, and the screen a customer sees seconds after
+ * AuthLogin. It was still on the retired skin (glass card, blurred backdrop, eyebrow,
+ * ink/58 body copy, forest-green spinner), so the flow changed appearance halfway
+ * through. Same ground, same type, same accent as the page it came from.
+ */
+
+const QUIET_LINK =
+  "rounded-full text-[14.5px] font-bold text-ink underline-offset-[5px] transition-colors hover:text-ember hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ember";
 
 export default function AuthCallback() {
   const [searchParams] = useSearchParams();
@@ -23,12 +34,12 @@ export default function AuthCallback() {
     const oauthError = searchParams.get("error");
 
     if (oauthError) {
-      setError("Sign-in was cancelled or denied.");
+      setError("Sign-in was cancelled before it finished.");
       return;
     }
 
     if (!code || !state) {
-      setError("Missing sign-in details. Please try again.");
+      setError("That sign-in link is missing some details.");
       return;
     }
 
@@ -37,33 +48,52 @@ export default function AuthCallback() {
         const returnTo = await handleCallback(code, state);
         navigate(returnTo, { replace: true });
       } catch {
-        setError("Sign-in failed. Please try again.");
+        setError("We could not complete the sign-in.");
       }
     })();
   }, [handleCallback, navigate, searchParams]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#f7f3ed] px-4 py-24">
-      <div className="w-full max-w-[520px] rounded-[32px] border border-white/70 bg-white/72 p-8 text-center shadow-[0_30px_90px_rgba(35,29,20,0.12)] backdrop-blur-2xl sm:p-10">
-        <img src={bioAroMark} alt="" aria-hidden="true" className="mx-auto h-10 w-10 rounded-xl object-contain" />
+    <div className="flex min-h-[100dvh] items-center justify-center bg-cream px-5 py-20">
+      <div className="w-full max-w-[520px] rounded-[28px] border border-line bg-white p-8 shadow-glass sm:p-10">
+        <img src={bioAroMark} alt="" aria-hidden="true" className="h-9 w-9 rounded-[10px] object-contain" />
+
         {error ? (
-          <div className="mt-6">
-            <p className="eyebrow">Account access</p>
-            <h1 className="mt-3 text-4xl leading-none tracking-[-0.02em] text-ink">Sign-in failed</h1>
-            <p className="mt-4 text-sm leading-6 text-ink/58">{error}</p>
-            <Link
-              to={marketHref("/auth")}
-              className="mt-7 inline-flex min-h-[48px] items-center justify-center rounded-full bg-ink px-7 py-3 text-sm font-semibold text-white transition duration-300 hover:bg-forest-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-forest-600"
-            >
-              Try again
-            </Link>
+          <div role="alert">
+            <h1 className="mt-7 text-balance text-[30px] font-black leading-[1.05] tracking-[-0.03em] text-ink sm:text-[34px]">
+              {error}
+            </h1>
+            <p className="mt-4 max-w-[46ch] text-pretty text-[15.5px] leading-[1.6] text-ink-600">
+              Nothing was changed on your account. You can start again, or reach us and we will
+              sort it out with you.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+              <Link to={marketHref("/auth")} className="btn-primary">
+                Try again
+                <ArrowRight size={16} strokeWidth={2.4} aria-hidden="true" />
+              </Link>
+              <Link to={marketHref(ROUTES.support)} className={QUIET_LINK}>
+                Contact support
+              </Link>
+            </div>
           </div>
         ) : (
-          <div className="mt-6">
-            <Loader2 className="mx-auto h-8 w-8 animate-spin text-forest-600" aria-hidden="true" />
-            <p className="mt-6 eyebrow">Account access</p>
-            <h1 className="mt-3 text-4xl leading-none tracking-[-0.02em] text-ink">Signing you in...</h1>
-            <p className="mt-4 text-sm leading-6 text-ink/58">Please wait while we securely connect your BioAro account.</p>
+          <div aria-busy="true" aria-live="polite">
+            <h1 className="mt-7 text-[30px] font-black leading-[1.05] tracking-[-0.03em] text-ink sm:text-[34px]">
+              Signing you in.
+            </h1>
+            <p className="mt-4 max-w-[46ch] text-pretty text-[15.5px] leading-[1.6] text-ink-600">
+              Finishing the secure handoff from Shopify. This takes a moment.
+            </p>
+            {/* An indeterminate rail rather than a spinner: it reads as progress on a
+                wait we cannot measure, and the reduced-motion rule in index.css
+                leaves a static bar instead of a frozen half-turn of a circle. */}
+            <div
+              className="mt-8 h-[3px] w-full overflow-hidden rounded-full bg-cream-200"
+              aria-hidden="true"
+            >
+              <div className="bio-auth-rail h-full w-1/3 rounded-full bg-ember" />
+            </div>
           </div>
         )}
       </div>

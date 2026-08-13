@@ -24,7 +24,7 @@ export default function ProductImageStage({
   } as CSSProperties;
 
   return (
-    <div className="relative flex aspect-[4/3] w-full items-center justify-center overflow-hidden bg-[#eeeae1]">
+    <div className="relative flex aspect-[5/4] w-full items-center justify-center overflow-hidden bg-[#F0EBE3]">
       {src ? (
         <img
           src={src}

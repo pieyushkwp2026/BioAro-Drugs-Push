@@ -934,7 +934,7 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
     ],
     warnings: [
       "Consult your healthcare professional before use if you are pregnant, breastfeeding, taking medication or have a medical condition.",
-      "Piperine may interact with certain medications — check with a healthcare professional.",
+      "Piperine may interact with certain medications. Check with a healthcare professional.",
       "Do not exceed the recommended daily intake.",
       "Keep out of reach of young children.",
       "Food supplements should not be used as a substitute for a varied, balanced diet and a healthy lifestyle.",

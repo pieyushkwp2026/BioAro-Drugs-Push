@@ -49,11 +49,11 @@ export default function Shop() {
   };
 
   return (
-    <div className="pt-24 pb-16 md:pt-32 md:pb-20">
+    <div className="pt-28 pb-16 md:pt-36 md:pb-20">
       <div className="container-bio">
         <span className="eyebrow">Shop</span>
         <h1 className="mt-3 text-4xl leading-none sm:text-[48px] md:text-[64px]">All formulas.</h1>
-        <p className="mt-5 max-w-2xl text-[15px] leading-7 text-[#564b46]">
+        <p className="mt-5 max-w-2xl text-[15px] leading-7 text-[#545961]">
           Explore BioAro products through a cleaner, routine-led catalog with market-aware pricing and dosage guidance.
         </p>
 
@@ -66,7 +66,7 @@ export default function Shop() {
                 className={`rounded-full border px-4 py-2 text-sm transition-colors ${
                   filter === option
                     ? "border-ink bg-ink text-white"
-                    : "border-[#ddd8c9] bg-white/70 text-ink hover:bg-white"
+                    : "border-[#E1DED8] bg-white/70 text-ink hover:bg-white"
                 }`}
               >
                 {option}
@@ -77,7 +77,7 @@ export default function Shop() {
           <select
             value={sort}
             onChange={(event) => setSort(event.target.value as SortOption)}
-            className="h-10 rounded-full border border-[#ddd8c9] bg-white/70 px-4 text-sm text-ink outline-none"
+            className="h-10 rounded-full border border-[#E1DED8] bg-white/70 px-4 text-sm text-ink outline-none"
           >
             {SORTS.map((option) => (
               <option key={option}>{option}</option>
@@ -92,7 +92,7 @@ export default function Shop() {
         </div>
 
         {visible.length === 0 && (
-          <p className="py-20 text-center text-sm text-[#8a8678]">No formulas in this category yet.</p>
+          <p className="py-20 text-center text-sm text-[#6B7078]">No formulas in this category yet.</p>
         )}
       </div>
     </div>

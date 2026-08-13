@@ -2,7 +2,7 @@ import type { SVGProps } from "react";
 
 type FlagProps = SVGProps<SVGSVGElement>;
 
-// Emoji flags don't render on Windows — using inline SVGs instead so they show everywhere.
+// Emoji flags don't render on Windows - using inline SVGs instead so they show everywhere.
 export function FlagUS({ className = "", ...props }: FlagProps) {
   return (
     <svg viewBox="0 0 24 16" className={className} {...props}>

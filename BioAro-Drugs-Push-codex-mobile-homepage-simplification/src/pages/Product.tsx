@@ -430,7 +430,7 @@ export default function Product() {
   }
 
   return (
-    <div className="pt-24 pb-20 md:pt-32 md:pb-24">
+    <div className="pt-28 pb-20 md:pt-36 md:pb-24">
       <div className="container-bio">
         <Link to={marketHref(ROUTES.shop)} className="text-sm text-ink/50 hover:text-ink">
           &larr; Shop
@@ -441,7 +441,7 @@ export default function Product() {
           {productGallery ? (
             <ProductMediaGallery images={productGallery} />
           ) : (
-            <div className="flex items-center justify-center rounded-[32px] bg-[#EDEBE4] p-8 lg:p-12">
+            <div className="flex items-center justify-center rounded-[32px] bg-[#F0EBE3] p-8 lg:p-12">
               {product.image ? (
                 <img src={product.image.src} alt={product.image.alt} className="h-auto w-full max-w-[360px] object-contain drop-shadow-[0_24px_48px_rgba(27,26,23,0.18)]" />
               ) : (
@@ -485,7 +485,7 @@ export default function Product() {
                 })}
               </div>
             )}
-            <div className="glass-card mt-6 flex items-center justify-between gap-4 p-5">
+            <div className="rounded-[24px] border border-line bg-white shadow-glass mt-6 flex items-center justify-between gap-4 p-5">
               <div>
                 <p className="text-sm font-medium">{product.packName ?? product.supplyLabel}</p>
                 <p className="mt-1 text-sm text-ink/55">{product.servings}</p>
@@ -505,7 +505,7 @@ export default function Product() {
                 <ArrowRight size={16} />
               </button>
               {cartError && (
-                <p role="alert" className="mt-3 text-sm text-[#9f3d2c]">
+                <p role="alert" className="mt-3 text-sm text-[#A63A21]">
                   {cartError}
                 </p>
               )}
@@ -606,7 +606,7 @@ export default function Product() {
         {(hasEvidence || hasComparison) && (
           <div className="mt-24 grid gap-5 lg:grid-cols-2">
             {hasEvidence && (
-              <section className="glass-card p-6 md:p-8" style={{ background: "linear-gradient(180deg, #EEF2EC, #F8F6F4)" }}>
+              <section className="rounded-[24px] border border-line bg-white shadow-glass p-6 md:p-8" style={{ background: "linear-gradient(180deg, #F0EBE3, #FBF9F6)" }}>
                 <h2 className="text-2xl">{product.metafields?.evidenceHeadline ?? "Backed by science"}</h2>
                 {enrichedEvidencePoints.length > 0 && (
                   <ul className="mt-5 space-y-3 text-sm">
@@ -645,7 +645,7 @@ export default function Product() {
             )}
 
             {hasComparison && (
-              <section className="glass-card p-7 md:p-10">
+              <section className="rounded-[24px] border border-line bg-white shadow-glass p-7 md:p-10">
                 <h2 className="text-[28px] leading-tight md:text-[34px]">{product.metafields?.comparisonHeadline ?? "BioAro vs. typical supplements"}</h2>
                 <div className="mt-6 divide-y divide-ink/10 text-[15px] md:text-[17px]">
                   <div className="grid grid-cols-3 gap-4 pb-4 text-[11px] font-medium uppercase tracking-[0.08em] text-ink/45 md:text-[12px]">
@@ -668,7 +668,7 @@ export default function Product() {
 
         {/* Complete your daily routine */}
         {routineProducts.length > 0 && (
-          <section className="glass-card mt-24 p-6 md:p-8">
+          <section className="rounded-[24px] border border-line bg-white shadow-glass mt-24 p-6 md:p-8">
             <span className="eyebrow">{product.metafields?.bundleEyebrow ?? "Complete your daily routine"}</span>
             <h2 className="mt-2 text-2xl">{product.metafields?.bundleHeadline ?? "Stack your supplements. Amplify your results."}</h2>
             {product.metafields?.bundleDescription ? (
@@ -681,7 +681,7 @@ export default function Product() {
                   to={marketHref(("tagline" in mate ? `/products/${mate.handle}` : (mate.link ?? `/products/${mate.handle}`)))}
                   className="flex items-center gap-4 rounded-2xl border border-ink/10 bg-white/50 p-4 transition-colors hover:bg-white"
                 >
-                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-[#f1eee6] p-2">
+                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-[#F0EBE3] p-2">
                     {mate.image ? (
                       <img src={mate.image.src} alt={mate.image.alt} className="h-full w-full object-contain" />
                     ) : (
@@ -699,14 +699,13 @@ export default function Product() {
           </section>
         )}
 
-        {/* Testimonials */}
         {product.testimonials && product.testimonials.length > 0 && (
           <section className="mt-24">
             <span className="eyebrow">What people are saying</span>
             <h2 className="mt-2 text-3xl">Real results from real customers.</h2>
             <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {product.testimonials.map((testimonial) => (
-                <div key={testimonial.name} className="glass-card p-6">
+                <div key={testimonial.name} className="rounded-[24px] border border-line bg-white shadow-glass p-6">
                   <Quote size={20} className="text-forest-600/40" />
                   <p className="mt-4 text-sm leading-relaxed text-ink/70">{testimonial.quote}</p>
                   <div className="mt-5 flex items-center gap-3">
@@ -728,7 +727,7 @@ export default function Product() {
         {(hasSupplementFacts || hasWarnings) && (
           <div className="mt-24 grid gap-5 lg:grid-cols-[0.95fr_1.05fr]">
             {hasSupplementFacts && (
-              <section className="glass-card p-6 md:p-8">
+              <section className="rounded-[24px] border border-line bg-white shadow-glass p-6 md:p-8">
                 <h2 className="text-2xl md:text-3xl">{product.metafields?.supplementFactsHeadline ?? "Supplement facts"}</h2>
                 <div className="mt-5 divide-y divide-ink/10">
                   {enrichedSupplementFacts.map((fact) => (
@@ -745,7 +744,7 @@ export default function Product() {
             )}
 
             {hasWarnings && (
-              <section className="glass-card p-6 md:p-8">
+              <section className="rounded-[24px] border border-line bg-white shadow-glass p-6 md:p-8">
                 <h2 className="text-2xl md:text-3xl">{product.metafields?.warningsHeadline ?? "Warnings"}</h2>
                 <ul className="mt-5 space-y-3 text-sm leading-relaxed text-ink/60">
                   {product.warnings.map((warning) => (
@@ -760,7 +759,7 @@ export default function Product() {
           </div>
         )}
 
-        {/* Quality & Purity — above FAQ */}
+        {/* Quality & Purity - above FAQ */}
         <QualityPurityStrip
           title={product.metafields?.qualityHeadline ?? "Quality & Purity"}
           productHandle={product.handle}
@@ -794,7 +793,7 @@ export default function Product() {
               {bottomCtaPrimary?.buttonLabel ?? "Browse all formulas"}
             </Link>
           </div>
-          <div className="rounded-[24px] bg-[#EEF2EC] p-8">
+          <div className="rounded-[24px] bg-[#F0EBE3] p-8">
             <h3 className="text-2xl">{bottomCtaSecondary?.headline ?? "Want a more personalized approach?"}</h3>
             <p className="mt-2 text-sm text-ink/60">{bottomCtaSecondary?.text ?? "Take the quiz to build a routine matched to your goals."}</p>
             <Link to={marketHref(bottomCtaSecondary?.buttonLink ?? ROUTES.quiz)} className="btn-primary mt-6">

@@ -177,7 +177,7 @@ export default function About() {
           <blockquote className="relative mx-auto max-w-3xl font-display text-3xl leading-tight md:text-5xl">
             “We believe everyone deserves clear, honest information so they can take control of their health.”
           </blockquote>
-          <p className="relative mt-6 text-sm font-medium text-forest-600">— BioAro</p>
+          <p className="relative mt-6 text-sm font-medium text-forest-600">BioAro</p>
         </div>
       </section>
 
@@ -193,7 +193,7 @@ export default function About() {
               <h2 className="mt-4 text-4xl leading-tight text-white md:text-6xl">Better information. Better decisions. Better health.</h2>
             </div>
             <div className="relative flex w-full flex-col gap-3 sm:flex-row md:w-auto">
-              <Link to={marketHref(ROUTES.shop)} className="btn-primary bg-white text-ink hover:bg-cream">
+              <Link to={marketHref(ROUTES.shop)} className="btn-primary">
                 Explore products <ArrowRight size={16} />
               </Link>
               <Link to={marketHref(ROUTES.science)} className="btn-secondary border-white/40 text-white hover:bg-white/10">

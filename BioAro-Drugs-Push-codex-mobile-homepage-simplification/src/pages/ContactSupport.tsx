@@ -21,15 +21,15 @@ export default function ContactSupport() {
   }
 
   return (
-    <div className="relative overflow-hidden pt-24 pb-20 md:pt-32 md:pb-24">
+    <div className="relative overflow-hidden pt-28 pb-20 md:pt-36 md:pb-24">
       <div className="pointer-events-none absolute left-[-12%] top-20 h-[360px] w-[360px] rounded-full bg-forest-100/45 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-0 right-[-10%] h-[420px] w-[420px] rounded-full bg-[#e9ddc8]/55 blur-3xl" />
+      <div className="pointer-events-none absolute bottom-0 right-[-10%] h-[420px] w-[420px] rounded-full bg-[#E1DED8]/55 blur-3xl" />
 
       <div className="container-bio relative">
         <PageHero {...SUPPORT_PAGE_HERO} />
 
         <div className="mt-12 grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
-          <section className="glass-card relative overflow-hidden p-6 shadow-[0_28px_90px_rgba(40,35,28,0.08)] md:p-8">
+          <section className="rounded-[24px] border border-line bg-white shadow-glass relative overflow-hidden p-6 shadow-[0_28px_90px_rgba(40,35,28,0.08)] md:p-8">
             <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-forest-600/30 to-transparent" />
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-forest-700">Support concierge</p>
             <h2 className="mt-3 font-display text-3xl leading-tight md:text-4xl">How we can help</h2>
@@ -73,7 +73,7 @@ export default function ContactSupport() {
             </form>
           </section>
 
-          <section className="glass-card relative overflow-hidden p-6 shadow-[0_28px_90px_rgba(40,35,28,0.08)] md:p-8">
+          <section className="rounded-[24px] border border-line bg-white shadow-glass relative overflow-hidden p-6 shadow-[0_28px_90px_rgba(40,35,28,0.08)] md:p-8">
             <div className="absolute right-0 top-0 h-32 w-32 rounded-full bg-forest-50/70 blur-2xl" />
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-forest-700">Contact paths</p>
             <h2 className="mt-3 font-display text-3xl leading-tight md:text-4xl">Direct contacts</h2>

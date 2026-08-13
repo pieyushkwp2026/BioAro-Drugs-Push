@@ -105,7 +105,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         try {
           await loadCustomer(tokens);
         } catch {
-          // Transient network error — keep existing session, don't log out.
+          // Transient network error - keep existing session, don't log out.
         }
       })();
     }, REFRESH_INTERVAL_MS);

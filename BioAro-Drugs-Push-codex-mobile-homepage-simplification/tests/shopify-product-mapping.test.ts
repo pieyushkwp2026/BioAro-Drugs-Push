@@ -37,6 +37,7 @@ const previewProduct: ProductEditorial = {
   servings: "30 servings",
   supplyLabel: "30-day supply",
   rating: { average: 4.8, count: 10 },
+  featureBadges: [],
   benefits: ["Preview benefit"],
   whyItems: [{ icon: "shield", title: "Preview", description: "Preview description" }],
   trustNotes: ["Preview trust note"],

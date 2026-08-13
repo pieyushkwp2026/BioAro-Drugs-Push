@@ -11,7 +11,7 @@ export default function JournalArticle() {
 
   if (!article) {
     return (
-      <div className="pt-24 pb-20 md:pt-32 md:pb-24">
+      <div className="pt-28 pb-20 md:pt-36 md:pb-24">
         <div className="container-bio">
           <Link to={marketHref(ROUTES.journal)} className="inline-flex items-center gap-2 text-sm text-forest-600">
             <ArrowLeft size={14} />
@@ -30,7 +30,7 @@ export default function JournalArticle() {
   }
 
   return (
-    <article className="pt-24 pb-20 md:pt-32 md:pb-24">
+    <article className="pt-28 pb-20 md:pt-36 md:pb-24">
       <div className="container-bio">
         <Link to={marketHref(ROUTES.journal)} className="inline-flex items-center gap-2 text-sm text-forest-600">
           <ArrowLeft size={14} />
@@ -45,7 +45,7 @@ export default function JournalArticle() {
             <div className="mt-6 text-sm text-ink/45">{article.readTime}</div>
           </div>
 
-          <div className="overflow-hidden rounded-[28px] bg-[#f2f0ec] shadow-[0_28px_70px_-55px_rgba(27,26,23,0.5)]">
+          <div className="overflow-hidden rounded-[28px] bg-[#F0EBE3] shadow-[0_28px_70px_-55px_rgba(27,26,23,0.5)]">
             <img src={article.img} alt={article.alt} className="h-full max-h-[520px] w-full object-cover" />
           </div>
         </header>
@@ -66,7 +66,7 @@ export default function JournalArticle() {
 
           <Link
             to={marketHref(ROUTES.shop)}
-            className="inline-flex items-center gap-2 rounded-full bg-[#171613] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-forest-700"
+            className="inline-flex items-center gap-2 rounded-full bg-[#1C1917] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-forest-700"
           >
             {article.article.cta}
             <ArrowRight size={15} />

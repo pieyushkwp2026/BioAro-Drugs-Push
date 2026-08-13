@@ -68,8 +68,8 @@ export default function ProductMediaGallery({ images }: ProductMediaGalleryProps
                 onClick={() => setSelectedIndex(index)}
                 aria-label={`View image ${index + 1} of ${images.length}: ${image.alt}`}
                 aria-pressed={isActive}
-                className={`h-14 w-14 shrink-0 overflow-hidden rounded-xl border-2 bg-[#f5f1ea] transition-[border-color,opacity] duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest-600 sm:h-[76px] sm:w-[76px] md:h-[80px] md:w-[80px] lg:h-[88px] lg:w-[88px] ${
-                  isActive ? "border-[#d85f4d] opacity-100" : "border-[#e2ded2] opacity-75 hover:opacity-100"
+                className={`h-14 w-14 shrink-0 overflow-hidden rounded-xl border-2 bg-[#F7F4EF] transition-[border-color,opacity] duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest-600 sm:h-[76px] sm:w-[76px] md:h-[80px] md:w-[80px] lg:h-[88px] lg:w-[88px] ${
+                  isActive ? "border-[#C1462A] opacity-100" : "border-[#E1DED8] opacity-75 hover:opacity-100"
                 }`}
               >
                 <img
@@ -90,7 +90,7 @@ export default function ProductMediaGallery({ images }: ProductMediaGalleryProps
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
           aria-label={`Open larger view of image ${selectedIndex + 1} of ${images.length}: ${selectedImage.alt}`}
-          className="group relative order-1 aspect-square w-full overflow-hidden rounded-[20px] border border-[#e2ded2] bg-[#f5f1ea] text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-forest-600 sm:order-2"
+          className="group relative order-1 aspect-square w-full overflow-hidden rounded-[20px] border border-[#E1DED8] bg-[#F7F4EF] text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-forest-600 sm:order-2"
         >
           <img
             key={selectedImage.src}
@@ -115,19 +115,19 @@ export default function ProductMediaGallery({ images }: ProductMediaGalleryProps
             type="button"
             onClick={() => setIsLightboxOpen(false)}
             aria-label="Close image viewer"
-            className="absolute inset-0 bg-[#17130f]/80 backdrop-blur-sm"
+            className="absolute inset-0 bg-[#1C1917]/80 backdrop-blur-sm"
           />
           <div className="relative z-10 flex h-full w-full max-w-6xl items-center justify-center">
             <img
               src={selectedImage.src}
               alt={selectedImage.alt}
-              className={`max-h-full max-w-full rounded-[20px] border border-white/15 bg-[#f5f1ea] shadow-2xl ${selectedImage.fit === "contain" ? "object-contain" : "object-contain"}`}
+              className={`max-h-full max-w-full rounded-[20px] border border-white/15 bg-[#F7F4EF] shadow-2xl ${selectedImage.fit === "contain" ? "object-contain" : "object-contain"}`}
             />
             <button
               type="button"
               onClick={() => setIsLightboxOpen(false)}
               aria-label="Close image viewer"
-              className="absolute right-0 top-0 flex h-11 w-11 items-center justify-center rounded-full bg-white text-ink shadow-lg transition-colors hover:bg-[#f5f1ea] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              className="absolute right-0 top-0 flex h-11 w-11 items-center justify-center rounded-full bg-white text-ink shadow-lg transition-colors hover:bg-[#F7F4EF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
               <X size={20} aria-hidden="true" />
             </button>
@@ -135,7 +135,7 @@ export default function ProductMediaGallery({ images }: ProductMediaGalleryProps
               type="button"
               onClick={selectPrevious}
               aria-label="View previous image"
-              className="absolute left-0 flex h-11 w-11 items-center justify-center rounded-full bg-white text-ink shadow-lg transition-colors hover:bg-[#f5f1ea] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              className="absolute left-0 flex h-11 w-11 items-center justify-center rounded-full bg-white text-ink shadow-lg transition-colors hover:bg-[#F7F4EF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
               <ChevronLeft size={22} aria-hidden="true" />
             </button>
@@ -143,7 +143,7 @@ export default function ProductMediaGallery({ images }: ProductMediaGalleryProps
               type="button"
               onClick={selectNext}
               aria-label="View next image"
-              className="absolute right-0 flex h-11 w-11 items-center justify-center rounded-full bg-white text-ink shadow-lg transition-colors hover:bg-[#f5f1ea] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              className="absolute right-0 flex h-11 w-11 items-center justify-center rounded-full bg-white text-ink shadow-lg transition-colors hover:bg-[#F7F4EF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
               <ChevronRight size={22} aria-hidden="true" />
             </button>

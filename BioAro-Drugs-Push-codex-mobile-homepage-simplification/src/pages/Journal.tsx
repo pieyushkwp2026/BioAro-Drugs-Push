@@ -8,7 +8,7 @@ export default function Journal() {
   const marketHref = useMarketHref();
 
   return (
-    <div className="pt-24 pb-20 md:pt-32 md:pb-24">
+    <div className="pt-28 pb-20 md:pt-36 md:pb-24">
       <div className="container-bio">
         <span className="eyebrow">Journal</span>
         <h1 className="mt-3 max-w-lg text-[clamp(2.5rem,10vw,3rem)] leading-[0.98] md:text-5xl">Education hub.</h1>
@@ -16,8 +16,8 @@ export default function Journal() {
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {JOURNAL_ARTICLES.map((article) => (
-            <Link key={article.title} to={marketHref(`${ROUTES.journal}/${article.slug}`)} className="glass-card group block overflow-hidden">
-              <div className="aspect-[16/10] overflow-hidden bg-[#f2f0ec]">
+            <Link key={article.title} to={marketHref(`${ROUTES.journal}/${article.slug}`)} className="rounded-[24px] border border-line bg-white shadow-glass group block overflow-hidden">
+              <div className="aspect-[16/10] overflow-hidden bg-[#F0EBE3]">
                 <img src={article.img} alt={article.alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
               </div>
               <div className="p-6">
