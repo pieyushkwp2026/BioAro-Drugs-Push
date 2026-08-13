@@ -10,16 +10,16 @@ import {
   X,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import researchSectionScientist from "../assets/science/research-section-scientist.png";
-import scienceHeroScientist from "../assets/science/science-hero-scientist.png";
-import labGlasswareStudy from "../assets/science/lab-glassware-study.png";
+import researchSectionScientist from "../assets/science/research-section-scientist.jpg";
+import scienceHeroScientist from "../assets/science/science-hero-scientist.jpg";
+import labGlasswareStudy from "../assets/science/lab-glassware-study.jpg";
 import coq10 from "../assets/ingredients/coq10.png";
-import creatine from "../assets/ingredients/creatine-monohydrate.png";
-import glutathione from "../assets/ingredients/liposomal-glutathione.png";
-import magnesium from "../assets/ingredients/magnesium-bisglycinate.png";
-import omega3 from "../assets/ingredients/omega-3-fatty-acids.png";
-import vitaminB12 from "../assets/ingredients/vitamin-b12.png";
-import journalQualityDocumentation from "../assets/journal/journal-quality-documentation.png";
+import creatine from "../assets/ingredients/creatine-monohydrate.jpg";
+import glutathione from "../assets/ingredients/liposomal-glutathione.jpg";
+import magnesium from "../assets/ingredients/magnesium-bisglycinate.jpg";
+import omega3 from "../assets/ingredients/omega-3-fatty-acids.jpg";
+import vitaminB12 from "../assets/ingredients/vitamin-b12.jpg";
+import journalQualityDocumentation from "../assets/journal/journal-quality-documentation.jpg";
 import { useMarketHref } from "../hooks/useMarketHref";
 import { ROUTES } from "../lib/routes";
 

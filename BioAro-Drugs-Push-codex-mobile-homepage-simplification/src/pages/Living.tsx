@@ -18,12 +18,12 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import ctaProductVisual from "../assets/cta/dark-luxury-cta-product-visual.png";
-import evidenceLabScene from "../assets/figma-home/evidence-lab-scene-3-4.png";
-import heroScenery from "../assets/hero/hero-scenery.png";
-import morningRoutine from "../assets/journal/journal-morning-longevity-stack.png";
-import sleepRoutine from "../assets/journal/journal-sleep-category.png";
-import workdayFocus from "../assets/journal/journal-workday-focus.png";
+import ctaProductVisual from "../assets/cta/dark-luxury-cta-product-visual.jpg";
+import evidenceLabScene from "../assets/figma-home/evidence-lab-scene-3-4.jpg";
+import heroScenery from "../assets/hero/hero-scenery.jpg";
+import morningRoutine from "../assets/journal/journal-morning-longevity-stack.jpg";
+import sleepRoutine from "../assets/journal/journal-sleep-category.jpg";
+import workdayFocus from "../assets/journal/journal-workday-focus.jpg";
 import { useMarketHref } from "../hooks/useMarketHref";
 import { ROUTES } from "../lib/routes";
 

@@ -1,10 +1,10 @@
-import cellomegaScienceBg from "../assets/figma-home/cellomega-science-bg.png";
-import glutaraScienceBg from "../assets/science/glutara-lifestyle.png";
-import brainBoostScienceBg from "../assets/science/creagen-brain-boost-lifestyle.png";
-import rawPowerScienceBg from "../assets/science/creagen-raw-power-lifestyle.png";
-import femmeEnergyScienceBg from "../assets/science/creagen-femme-energy-lifestyle.png";
-import proPowerScienceBg from "../assets/science/creagen-pro-power-lifestyle.png";
-import longevityScienceBg from "../assets/science/longevity-plus-lifestyle.png";
+import cellomegaScienceBg from "../assets/figma-home/cellomega-science-bg.jpg";
+import glutaraScienceBg from "../assets/science/glutara-lifestyle.jpg";
+import brainBoostScienceBg from "../assets/science/creagen-brain-boost-lifestyle.jpg";
+import rawPowerScienceBg from "../assets/science/creagen-raw-power-lifestyle.jpg";
+import femmeEnergyScienceBg from "../assets/science/creagen-femme-energy-lifestyle.jpg";
+import proPowerScienceBg from "../assets/science/creagen-pro-power-lifestyle.jpg";
+import longevityScienceBg from "../assets/science/longevity-plus-lifestyle.jpg";
 
 export interface ScienceVisualConfig {
   backgroundImage: string;

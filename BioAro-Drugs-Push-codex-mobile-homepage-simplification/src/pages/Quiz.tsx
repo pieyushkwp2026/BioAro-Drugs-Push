@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Clock3, RotateCcw, ShieldCheck, Sparkles } from "lucide-react";
-import quizHero from "../assets/quiz/wellness-quiz-hero.png";
+import quizHero from "../assets/quiz/wellness-quiz-hero.jpg";
 import { useMarketHref } from "../hooks/useMarketHref";
 
 const QUESTIONS = [

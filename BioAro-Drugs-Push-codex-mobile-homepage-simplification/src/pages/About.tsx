@@ -9,8 +9,8 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import aboutHeroProtocolPreparation from "../assets/about/about-hero-protocol-preparation.png";
-import labGlasswareStudy from "../assets/science/lab-glassware-study.png";
+import aboutHeroProtocolPreparation from "../assets/about/about-hero-protocol-preparation.jpg";
+import labGlasswareStudy from "../assets/science/lab-glassware-study.jpg";
 import { useMarketHref } from "../hooks/useMarketHref";
 import { ROUTES } from "../lib/routes";
 

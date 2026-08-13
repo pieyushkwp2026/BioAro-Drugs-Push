@@ -1,9 +1,9 @@
-import journalBioactives from "../assets/journal/journal-bioactives.png";
-import journalMorningLongevityStack from "../assets/journal/journal-morning-longevity-stack.png";
-import journalProtocolPages from "../assets/journal/journal-protocol-pages.png";
-import journalWorkdayFocus from "../assets/journal/journal-workday-focus.png";
-import journalSleepCategory from "../assets/journal/journal-sleep-category.png";
-import journalQualityDocumentation from "../assets/journal/journal-quality-documentation.png";
+import journalBioactives from "../assets/journal/journal-bioactives.jpg";
+import journalMorningLongevityStack from "../assets/journal/journal-morning-longevity-stack.jpg";
+import journalProtocolPages from "../assets/journal/journal-protocol-pages.jpg";
+import journalWorkdayFocus from "../assets/journal/journal-workday-focus.jpg";
+import journalSleepCategory from "../assets/journal/journal-sleep-category.jpg";
+import journalQualityDocumentation from "../assets/journal/journal-quality-documentation.jpg";
 
 export interface JournalArticle {
   slug: string;
