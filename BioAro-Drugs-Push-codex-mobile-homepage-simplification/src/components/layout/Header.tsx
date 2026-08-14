@@ -14,12 +14,19 @@ import bioAroMark from "../../assets/logo/bioaro-mark.png";
  * one and not the other, and a different left edge - which read as a broken header
  * the moment you navigated off the homepage. The branch is gone.
  *
- * Quiz is deliberately absent from the nav list: it is the CTA.
+ * BioAro Drugs AI leads: the platform is the front door, so it is the first thing in
+ * the bar as well as the first thing on the page. It points at the Protocol Builder,
+ * which is the capability that is actually live.
+ *
+ * "Why BioAro Drugs" is a homepage section rather than a route, so it is an anchor.
+ * The header CTA is "Build My Protocol" — the single action vocabulary the whole
+ * site now uses, replacing "Find your fit" / "Find my fit" / "Take the quiz".
  */
 const NAV = [
+  { label: "BioAro Drugs AI", href: ROUTES.quiz },
   { label: "Shop", href: ROUTES.shop },
+  { label: "Protocols", href: ROUTES.protocols },
   { label: "Science", href: ROUTES.science },
-  { label: "Journal", href: ROUTES.journal },
   { label: "About", href: ROUTES.about },
 ] as const;
 
@@ -145,7 +152,7 @@ export default function Header() {
               to={marketHref(ROUTES.quiz)}
               className="hidden h-10 items-center gap-2 rounded-full bg-ember px-5 text-[13px] font-bold tracking-[-0.01em] text-white shadow-[0_10px_24px_-14px_rgba(193,70,42,0.9)] transition-[background-color,transform] duration-200 hover:bg-ember-600 active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ember motion-reduce:active:scale-100 xl:inline-flex"
             >
-              <span>Find your fit</span>
+              <span>Build My Protocol</span>
               <ArrowRight size={15} strokeWidth={2.4} />
             </Link>
 
@@ -231,7 +238,7 @@ export default function Header() {
               onClick={() => setOpen(false)}
               className="mb-4 flex h-12 items-center justify-center gap-2 rounded-full bg-ember text-[15px] font-bold tracking-[-0.01em] text-white transition-[background-color,transform] duration-200 hover:bg-ember-600 active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ember motion-reduce:active:scale-100"
             >
-              <span>Find your fit</span>
+              <span>Build My Protocol</span>
               <ArrowRight size={16} strokeWidth={2.4} />
             </Link>
 

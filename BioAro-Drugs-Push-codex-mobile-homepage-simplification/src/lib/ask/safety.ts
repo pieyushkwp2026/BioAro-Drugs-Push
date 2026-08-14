@@ -35,26 +35,53 @@ export const SENSITIVE_TERMS: RegExp[] = [
 ];
 
 export const SAFETY_NOTE =
-  "BioAro AI provides general product guidance using approved BioAro product information. It does not diagnose conditions or replace professional medical advice.";
+  "BioAro Drugs AI provides general product guidance using approved BioAro Drugs product information. It does not diagnose conditions or replace professional medical advice.";
 
 export const SENSITIVE_HEADING = "This needs professional guidance";
 
 export const SENSITIVE_BODY =
-  "BioAro can help you explore general wellness products, but it cannot assess urgent symptoms, diagnose a condition or replace medical care. Please speak with a qualified healthcare professional for personal guidance.";
+  "BioAro Drugs AI can help you explore general wellness products, but it cannot assess urgent symptoms, diagnose a condition or replace medical care. Please speak with a qualified healthcare professional for personal guidance.";
+
+/*
+ * A deliberately tiny exemption list, checked BEFORE the denylist.
+ *
+ * These are regulatory-category questions, not clinical ones — "is this a medicine"
+ * asks what kind of product this is, and BioAro Drugs has an approved answer to it
+ * sitting in the site FAQ: "No. BioAro Drugs products are wellness products and food
+ * supplements. They are not intended to replace medical care."
+ *
+ * Without this, the clinical regex swallowed the query and the brand refused to show
+ * its own approved answer to its own published question. Nothing here weakens the
+ * gate for symptoms, conditions, medication interactions or life stages; those stay
+ * blocked, which is the direction that matters.
+ */
+const NON_CLINICAL_EXEMPTIONS: RegExp[] = [
+  /^\s*(is|are)\s+(this|these|it|they|bioaro\w*)\s+(a\s+)?(medicine|medicines|drug|drugs|medication|medications)\b\s*\??\s*$/i,
+  /^\s*(is|are)\s+(this|these|it|they)\s+(a\s+)?(prescription|pharmaceutical)\b\s*\??\s*$/i,
+];
 
 export function isSensitive(query: string): boolean {
+  if (NON_CLINICAL_EXEMPTIONS.some((pattern) => pattern.test(query))) return false;
   return SENSITIVE_TERMS.some((term) => term.test(query));
 }
 
 /*
- * Questions that are really "choose a product for me". Ask BioAro deliberately does
+ * Questions that are really "choose a product for me". BioAro Drugs AI deliberately does
  * not answer these: the quiz is the recommendation path, and duplicating it inside a
  * text box would give the site two competing recommenders.
  */
 const RECOMMENDATION_PATTERNS: RegExp[] = [
   /\bwhich (one|product|formula)\b/i,
   /\bwhat (should|do) i (take|try|use|start with|buy)\b/i,
-  /\brecommend\w*\b/i,
+  /*
+   * Anchored to first-person intent. This used to be a bare /\brecommend\w*\b/, which
+   * also matched "recommended" — so "what is the recommended dosage", the single most
+   * common supplement question and a purely factual one the corpus can answer, was
+   * bounced to the quiz. BioAro Drugs' own labels use the phrase ("Recommended daily
+   * intake"), so the site was refusing to answer its own wording.
+   */
+  /\b(recommend|suggest)\s+(me|a|an|any|something|which)\b/i,
+  /\bwhat.{0,20}\b(do you|would you)\s+recommend\b/i,
   /\bright for me\b/i,
   /\bbest for me\b/i,
   /\bsuit(s|able for)? me\b/i,

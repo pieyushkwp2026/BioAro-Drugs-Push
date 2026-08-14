@@ -216,22 +216,49 @@ export async function loadCart(country: CountryCode): Promise<CartState> {
   }
 }
 
-export async function addCartItem(product: CatalogProduct, quantity: number, country: CountryCode): Promise<CartState> {
+export interface CartItemInput {
+  product: CatalogProduct;
+  quantity: number;
+}
+
+/*
+ * Adds one or more products in a SINGLE round trip.
+ *
+ * This used to be a single-product function that hardcoded a one-element `lines`
+ * array, even though `cartCreate`/`cartLinesAdd` have always accepted
+ * `[CartLineInput!]`. Adding a protocol that way meant N sequential mutations, N
+ * re-renders, and N cart-drawer opens for what Shopify models as one operation.
+ *
+ * `sellingPlanId` would go on each line here when subscriptions land; nothing else
+ * in this file has to move for that.
+ */
+export async function addCartItems(items: CartItemInput[], country: CountryCode): Promise<CartState> {
+  if (items.length === 0) return loadCart(country);
+
   if (!isShopifyConfigured() || USE_MOCK_DATA) {
     const snapshot = readPreviewSnapshot();
     const nextLines = [...snapshot.lines];
-    const existingIndex = nextLines.findIndex((line) => line.handle === product.handle);
-    if (existingIndex >= 0) {
-      nextLines[existingIndex] = { ...nextLines[existingIndex], quantity: nextLines[existingIndex].quantity + quantity };
-    } else {
-      nextLines.push({ handle: product.handle, quantity });
+    for (const { product, quantity } of items) {
+      const existingIndex = nextLines.findIndex((line) => line.handle === product.handle);
+      if (existingIndex >= 0) {
+        nextLines[existingIndex] = { ...nextLines[existingIndex], quantity: nextLines[existingIndex].quantity + quantity };
+      } else {
+        nextLines.push({ handle: product.handle, quantity });
+      }
     }
     writePreviewSnapshot(nextLines);
     return buildPreviewCart({ lines: nextLines }, country);
   }
 
   const cartId = getStoredCartId();
-  const lines = [{ merchandiseId: product.variantId, quantity }];
+  // Merge duplicate handles before sending: Shopify would create two lines for the
+  // same merchandiseId, which reads as a bug in the drawer. Protocols legitimately
+  // overlap (CellOmega+ appears in two of the three), so this is not hypothetical.
+  const merged = new Map<string, number>();
+  for (const { product, quantity } of items) {
+    merged.set(product.variantId, (merged.get(product.variantId) ?? 0) + quantity);
+  }
+  const lines = [...merged].map(([merchandiseId, quantity]) => ({ merchandiseId, quantity }));
   const mutation = cartId ? "cartLinesAdd" : "cartCreate";
   const query =
     mutation === "cartCreate"
@@ -271,6 +298,10 @@ export async function addCartItem(product: CatalogProduct, quantity: number, cou
   assertNoUserErrors(result);
   setStoredCartId(result.cart.id);
   return mapCart(result.cart);
+}
+
+export function addCartItem(product: CatalogProduct, quantity: number, country: CountryCode): Promise<CartState> {
+  return addCartItems([{ product, quantity }], country);
 }
 
 export async function updateCartLine(lineId: string, quantity: number, country: CountryCode): Promise<CartState> {

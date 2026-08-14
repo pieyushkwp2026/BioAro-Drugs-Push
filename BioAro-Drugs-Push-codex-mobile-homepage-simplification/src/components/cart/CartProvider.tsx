@@ -7,7 +7,7 @@ import {
 } from "react";
 import { useMarket } from "../../hooks/useMarket";
 import { getMarketConfigByCountry } from "../../config/markets";
-import { addCartItem, loadCart, removeCartLine, syncCartMarket, updateCartLine } from "../../lib/shopify/cartService";
+import { addCartItem, addCartItems, loadCart, removeCartLine, syncCartMarket, updateCartLine } from "../../lib/shopify/cartService";
 import type { CartState, CatalogProduct } from "../../lib/shopify/types";
 import type { CountryCode } from "../../lib/market/types";
 import { CartContext } from "./cart-context";
@@ -20,6 +20,8 @@ export interface CartContextValue {
   openCart: () => void;
   closeCart: () => void;
   addProduct: (product: CatalogProduct, quantity?: number) => Promise<void>;
+  /** Adds a whole protocol in one round trip. Duplicate handles are merged. */
+  addProducts: (products: CatalogProduct[], quantity?: number) => Promise<void>;
   updateQuantity: (lineId: string, quantity: number) => Promise<void>;
   removeLine: (lineId: string) => Promise<void>;
 }
@@ -113,6 +115,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
     [country, runCartAction],
   );
 
+  const addProducts = useCallback(
+    async (products: CatalogProduct[], quantity = 1) => {
+      await runCartAction(() => addCartItems(products.map((product) => ({ product, quantity })), country));
+    },
+    [country, runCartAction],
+  );
+
   const updateQuantity = useCallback(
     async (lineId: string, quantity: number) => {
       await runCartAction(() => updateCartLine(lineId, quantity, country));
@@ -136,10 +145,11 @@ export function CartProvider({ children }: { children: ReactNode }) {
       openCart,
       closeCart,
       addProduct,
+      addProducts,
       updateQuantity,
       removeLine,
     }),
-    [addProduct, cart, error, isLoading, isOpen, removeLine, updateQuantity],
+    [addProduct, addProducts, cart, error, isLoading, isOpen, removeLine, updateQuantity],
   );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

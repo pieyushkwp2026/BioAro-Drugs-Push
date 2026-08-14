@@ -75,6 +75,23 @@ function whyIcon(value: string | undefined): ProductWhyItem["icon"] {
   return (value && KNOWN_WHY_ICONS.has(value) ? value : "shield") as ProductWhyItem["icon"];
 }
 
+/*
+ * Accepts the shapes the store ACTUALLY uses, not only the one this parser was
+ * written against.
+ *
+ * Three metafields held real content on every one of the seven live products and all
+ * of it was being discarded here:
+ *
+ *  - `faqs` is authored as [{question, answer}]. Neither key was recognised, so the
+ *    FAQ silently fell back to editorial copy and the CMS entry did nothing.
+ *  - `trust_badges` and `clinical_evidence` are authored as [{title}] with no second
+ *    field. The old `title && text` guard rejected every row, so both always came
+ *    from editorial too.
+ *
+ * A title-only row is now valid and carries an empty `text`; callers already render
+ * the title alone where that is all there is. This unlocks roughly fourteen fields'
+ * worth of populated content across seven products without any data entry.
+ */
 function titleTextItems(value: string): MetafieldTitleTextItem[] | undefined {
   try {
     const parsed = JSON.parse(value);
@@ -82,9 +99,19 @@ function titleTextItems(value: string): MetafieldTitleTextItem[] | undefined {
 
     const items = parsed.flatMap((item) => {
       const record = asRecord(item);
-      const title = textFrom(record?.title) ?? textFrom(record?.name) ?? textFrom(record?.label);
-      const text = textFrom(record?.text) ?? textFrom(record?.description) ?? textFrom(record?.value);
-      return title && text ? [{ title, text }] : [];
+      const title =
+        textFrom(record?.title) ??
+        textFrom(record?.name) ??
+        textFrom(record?.label) ??
+        textFrom(record?.question);
+      const text =
+        textFrom(record?.text) ??
+        textFrom(record?.description) ??
+        textFrom(record?.value) ??
+        textFrom(record?.answer);
+      // A row with only a heading is still content. A row with only a body is not —
+      // there is nowhere to put it.
+      return title ? [{ title, text: text ?? "" }] : [];
     });
 
     return items.length ? items : undefined;
@@ -137,6 +164,35 @@ function textList(value: string | undefined): string[] | undefined {
   }
 
   const values = value.split(/\r?\n|\s*[,;]\s*/).map((item) => item.trim()).filter(Boolean);
+  return values.length ? values : undefined;
+}
+
+/*
+ * Line-separated prose, for fields whose entries are SENTENCES rather than terms.
+ *
+ * `textList` above splits on commas, which is correct for `hero_tags` and
+ * `other_ingredients` — those really are comma-delimited lists. It is wrong for
+ * `warnings`, where every entry is a sentence that contains commas: the live UK
+ * warning "Consult your healthcare professional before use if you are pregnant,
+ * breastfeeding, taking medication or have a medical condition." was rendering as
+ * three separate bullets, one of which was the single word "breastfeeding".
+ *
+ * Newlines only. A JSON array is still honoured first.
+ */
+function sentenceList(value: string | undefined): string[] | undefined {
+  if (!value) return undefined;
+
+  try {
+    const parsed = JSON.parse(value);
+    if (Array.isArray(parsed)) {
+      const values = parsed.flatMap((item) => (typeof item === "string" && item.trim() ? [item.trim()] : []));
+      if (values.length) return values;
+    }
+  } catch {
+    // Plain-text metafields are supported below.
+  }
+
+  const values = value.split(/\r?\n+/).map((item) => item.trim()).filter(Boolean);
   return values.length ? values : undefined;
 }
 
@@ -510,7 +566,7 @@ function applyMetafields(editorial: ProductEditorial, shopifyProduct: ShopifyPro
   const metafields = shopifyProduct.metafields;
   const benefitItems = metafields?.benefitCards;
   const warnings = [
-    ...(textList(metafields?.warnings) ?? editorial.warnings),
+    ...(sentenceList(metafields?.warnings) ?? editorial.warnings),
     metafields?.storageInstructions ? `Storage: ${metafields.storageInstructions}` : undefined,
     metafields?.allergenInfo ? `Allergens: ${metafields.allergenInfo}` : undefined,
     metafields?.disclaimer,
@@ -584,7 +640,7 @@ export function createShopifyProduct(shopifyProduct: ShopifyProduct, country: Co
   const title = shopifyProduct.title;
   const alignedUsdPrice = ROCKTOMIC_USD_PRICE_BY_HANDLE[shopifyProduct.handle];
   const warnings = [
-    ...(textList(metafields?.warnings) ?? []),
+    ...(sentenceList(metafields?.warnings) ?? []),
     metafields?.storageInstructions ? `Storage: ${metafields.storageInstructions}` : undefined,
     metafields?.allergenInfo ? `Allergens: ${metafields.allergenInfo}` : undefined,
     metafields?.disclaimer,

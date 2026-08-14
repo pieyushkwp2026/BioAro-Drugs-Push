@@ -171,3 +171,58 @@ test("keeps partial Shopify-only PDPs grounded in returned metafields only", () 
   assert.deepEqual(partialProduct.supplementFacts, []);
   assert.deepEqual(partialProduct.faq, []);
 });
+
+/*
+ * Regression guards for content the mapper used to discard silently.
+ * All three shapes below are what the live store actually holds.
+ */
+test("accepts faqs authored as question/answer pairs", () => {
+  const metafields = mapProductMetafields([
+    { key: "faqs", type: "json", value: '[{"question":"How do I take it?","answer":"Two capsules with food."}]' },
+  ]);
+
+  assert.deepEqual(metafields?.faqs, [{ title: "How do I take it?", text: "Two capsules with food." }]);
+});
+
+test("accepts title-only rows, which is how trust badges and evidence are authored", () => {
+  const metafields = mapProductMetafields([
+    { key: "trust_badges", type: "json", value: '[{"title":"Third-party tested"}]' },
+    { key: "clinical_evidence", type: "json", value: '[{"title":"27+ published studies reviewed"}]' },
+  ]);
+
+  assert.deepEqual(metafields?.trustBadges, [{ title: "Third-party tested", text: "" }]);
+  assert.deepEqual(metafields?.clinicalEvidence, [{ title: "27+ published studies reviewed", text: "" }]);
+});
+
+test("a row with a body but no heading is still rejected", () => {
+  const metafields = mapProductMetafields([
+    { key: "trust_badges", type: "json", value: '[{"text":"orphaned body copy"}]' },
+  ]);
+
+  assert.equal(metafields?.trustBadges, undefined);
+});
+
+/*
+ * Warnings are sentences, not comma-delimited terms. Splitting on commas turned one
+ * warning into three bullets, one of which was the single word "breastfeeding".
+ */
+test("warnings split on newlines only, so commas inside a sentence survive", () => {
+  const warning = "Consult your healthcare professional before use if you are pregnant, breastfeeding, or taking medication.";
+  const merged = mergeShopifyProduct(
+    previewProduct,
+    { ...shopifyProduct, metafields: mapProductMetafields([{ key: "warnings", type: "multi_line_text_field", value: warning }]) },
+    "AE",
+  );
+
+  assert.ok(merged.warnings.includes(warning), "the sentence must survive intact");
+  assert.ok(!merged.warnings.includes("breastfeeding"), "must not split into fragments");
+});
+
+test("comma-delimited term lists still split, so tags are unaffected", () => {
+  const metafields = mapProductMetafields([
+    { key: "hero_tags", type: "single_line_text_field", value: "Cellular Energy, Healthy Aging, NAD+ Support" },
+  ]);
+  const merged = mergeShopifyProduct(previewProduct, { ...shopifyProduct, metafields }, "AE");
+
+  assert.deepEqual(merged.tags, ["Cellular Energy", "Healthy Aging", "NAD+ Support"]);
+});

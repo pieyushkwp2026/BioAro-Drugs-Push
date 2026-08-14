@@ -53,10 +53,15 @@ export function MarketProvider({ children }: { children: ReactNode }) {
     const savedMarket = window.localStorage.getItem(MARKET_STORAGE_KEY);
 
     if (!supportedMarket) {
-      const nextMarket =
-        location.pathname === "/"
-          ? DEFAULT_MARKET
-          : (savedMarket && resolveMarket({ savedMarket }).market) || DEFAULT_MARKET;
+      /*
+       * "/" used to hardcode DEFAULT_MARKET here while every other market-less path
+       * honoured the saved override. Because the redirect target then resolved with
+       * source "path", the branch below wrote that market straight back to storage —
+       * so one visit to the bare domain silently converted a US visitor into a UK one
+       * and kept them there. Any bookmark, ad click or typed-in domain did it.
+       * Root now resolves exactly like every other market-less path.
+       */
+      const nextMarket = (savedMarket && resolveMarket({ savedMarket }).market) || DEFAULT_MARKET;
       const nextPath = buildMarketHref(nextMarket, `${stripMarketPrefix(location.pathname)}${location.search}`);
       if (`${location.pathname}${location.search}` !== nextPath) {
         navigate(nextPath, { replace: true });

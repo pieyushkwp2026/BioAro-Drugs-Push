@@ -35,11 +35,16 @@ export interface FooterSection {
   links: FooterLink[];
 }
 
+/*
+ * Kept in step with Header.tsx's own NAV. These used to disagree — this list carried
+ * a "Quiz" item while the header's comment said the quiz was deliberately excluded —
+ * so the site had two sources of truth for its primary navigation.
+ */
 export const PRIMARY_NAV: NavItem[] = [
+  { label: "BioAro Drugs AI", href: ROUTES.quiz },
   { label: "Shop", href: ROUTES.shop },
+  { label: "Protocols", href: ROUTES.protocols },
   { label: "Science", href: ROUTES.science },
-  { label: "Quiz", href: ROUTES.quiz },
-  { label: "Journal", href: ROUTES.journal },
   { label: "About", href: ROUTES.about },
 ];
 
@@ -49,7 +54,7 @@ export const FOOTER_SECTIONS: FooterSection[] = [
     links: [
       { label: "All Products", href: ROUTES.shop },
       { label: "Protocols", href: ROUTES.protocols },
-      { label: "Quiz", href: ROUTES.quiz },
+      { label: "Protocol Builder", href: ROUTES.quiz },
     ],
   },
   {
@@ -74,7 +79,7 @@ export const FOOTER_SECTIONS: FooterSection[] = [
   {
     title: "Company",
     links: [
-      { label: "About BioAro", href: ROUTES.about },
+      { label: "About BioAro Drugs", href: ROUTES.about },
       { label: "Partners", href: ROUTES.partners },
       { label: "My Account", href: ROUTES.account },
     ],

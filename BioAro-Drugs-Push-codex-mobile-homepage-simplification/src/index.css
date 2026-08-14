@@ -1,28 +1,50 @@
 /*
- * Satoshi is self-hosted so the display voice never depends on a third-party CDN.
- * These were previously declared inside src/pages/Home.tsx, which meant every other
- * route fell back to the system sans. Vite fingerprints the url() references below.
+ * Plus Jakarta Sans (display) + Inter (body), self-hosted.
+ *
+ * NOT loaded from Google Fonts, and this is not a preference: vercel.json ships
+ * `style-src 'self' 'unsafe-inline'` and `font-src 'self' data:`, which blocks the
+ * fonts.googleapis.com stylesheet AND the fonts.gstatic.com woff2 files. An @import
+ * would work in dev and fail silently in production, dropping every visitor to
+ * system-ui. Self-hosting also removes the third-party round trip entirely rather
+ * than shortening it with preconnect. Both faces are OFL. Vite fingerprints the
+ * url() references below.
+ *
+ * These are VARIABLE fonts: Google serves one file per subset covering the whole
+ * weight axis, so the four files below carry every weight the site uses. Declaring
+ * a range in font-weight is what unlocks that — a fixed `font-weight: 400` would
+ * pin the variable face to one instance and make 600/800 synthesize.
  */
 @font-face {
-  font-family: 'Satoshi';
-  src: url('./assets/fonts/satoshi-400.woff2') format('woff2');
-  font-weight: 400;
+  font-family: 'Plus Jakarta Sans';
+  src: url('./assets/fonts/plus-jakarta-sans-latin.woff2') format('woff2');
+  font-weight: 200 800;
   font-style: normal;
   font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
-  font-family: 'Satoshi';
-  src: url('./assets/fonts/satoshi-700.woff2') format('woff2');
-  font-weight: 700;
+  font-family: 'Plus Jakarta Sans';
+  src: url('./assets/fonts/plus-jakarta-sans-latin-ext.woff2') format('woff2');
+  font-weight: 200 800;
   font-style: normal;
   font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 @font-face {
-  font-family: 'Satoshi';
-  src: url('./assets/fonts/satoshi-900.woff2') format('woff2');
-  font-weight: 900;
+  font-family: 'Inter';
+  src: url('./assets/fonts/inter-latin.woff2') format('woff2');
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('./assets/fonts/inter-latin-ext.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 @tailwind base;
@@ -43,8 +65,19 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23g)' opacity='0.22'/%3E%3C/svg%3E");
   }
 
-  /* The global `h1,h2,h3,.font-display -> Cormorant Garamond` rule was removed here.
-     Headings now inherit Satoshi from body, matching the homepage. */
+  /* Headings must be declared, not inherited. Body is Inter now, so without this
+     rule every heading would silently render in the body face — the display font
+     would load and paint nothing. (The old Cormorant Garamond rule that used to sit
+     here was removed when the whole site was one typeface; two faces bring the need
+     for an explicit rule back.) */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+  }
 
   ::selection {
     background: #c1462a26;
@@ -130,15 +163,68 @@
   animation: bio-auth-rail 1.4s ease-in-out infinite;
 }
 
-/* Testimonial rows. Lifted out of the component's inline <style> so the
-   reduced-motion guard below can reach them; the archived version had none. */
-@keyframes bioaro-marquee-left {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+/* The bioaro-marquee-left/right keyframes that lived here drove the testimonial
+   rows, which are gone along with their 36 invented reviewers. */
+
+/* ------------------------------------------------------------------------ modal
+   The native <dialog> element, reset. The UA stylesheet gives it padding, a solid
+   border, an opaque background, `width/height: fit-content` and a max-width cap —
+   every one of which fights a full-bleed panel on a dimmed backdrop.
+
+   `inset: 0` rather than `100vw/100dvh`: viewport units include the scrollbar
+   gutter on platforms with classic scrollbars, which would offset the centred panel
+   by half the scrollbar width. Insetting a fixed element fills the viewport exactly. */
+.bio-dialog {
+  position: fixed;
+  inset: 0;
+  width: auto;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: hidden;
 }
-@keyframes bioaro-marquee-right {
-  from { transform: translateX(-50%); }
-  to { transform: translateX(0); }
+
+/* The UA hides a closed dialog with `dialog:not([open]) { display: none }` — a
+   TYPE selector, which any utility class outranks. The panel needs `display: flex`
+   for its layout, and that one utility silently resurrected the closed dialog as a
+   full-viewport invisible layer over the entire page: nothing was visible, and
+   nothing underneath it could be clicked.
+
+   It hid from JS-driven tests too, because `element.click()` dispatches directly and
+   skips hit-testing. Only a real pointer event finds it. Restated here as a class
+   selector so it outranks the utility. */
+.bio-dialog:not([open]) {
+  display: none;
+}
+
+/* ::backdrop cannot be reached from a utility class — it is a pseudo-element the
+   browser paints beneath the top layer. Ink at 50%, matching the cart scrim. */
+.bio-dialog::backdrop {
+  background: rgba(20, 16, 13, 0.5);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+
+@keyframes bioDialogIn {
+  from { opacity: 0; transform: translate3d(0, 10px, 0) scale(0.995); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes bioBackdropIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.bio-dialog[open]::backdrop {
+  animation: bioBackdropIn 200ms ease-out both;
+}
+
+.bio-dialog[open] .bio-dialog-panel {
+  animation: bioDialogIn 280ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -154,8 +240,7 @@
   /* The blanket rule above only forces duration, which would make a marquee
      snap to its end position rather than stop. Killing the animation name is what
      actually holds it still. */
-  .bio-marquee,
-  [style*="bioaro-marquee"] {
+  .bio-marquee {
     animation-name: none !important;
     transform: none !important;
   }
@@ -167,5 +252,13 @@
     transform: none !important;
     width: 100%;
     opacity: 0.5;
+  }
+
+  /* The blanket rule at the top of this block selects `*`, `*::before` and
+     `*::after` — none of which match `::backdrop`. Without this the scrim would
+     still fade in for someone who asked motion to stop. */
+  .bio-dialog[open]::backdrop,
+  .bio-dialog[open] .bio-dialog-panel {
+    animation: none !important;
   }
 }

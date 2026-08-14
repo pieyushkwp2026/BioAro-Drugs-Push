@@ -10,7 +10,7 @@ interface PlaceholderBottleProps {
 /*
  * This SVG hardcoded the old palette as literals rather than tokens, so it would
  * have silently desynced the moment the theme moved. Values now track the new
- * system: charcoal #1C1917, ivory #F7F4EF, ember accent, Satoshi lettering.
+ * system: charcoal #1C1917, ivory #F7F4EF, ember accent, Plus Jakarta Sans lettering.
  */
 export default function PlaceholderBottle({ initials, accent = "#C1462A", className, style }: PlaceholderBottleProps) {
   return (
@@ -21,7 +21,7 @@ export default function PlaceholderBottle({ initials, accent = "#C1462A", classN
       <rect x="56" y="28" width="88" height="168" rx="20" fill="#1C1917" />
       <rect x="56" y="28" width="88" height="168" rx="20" fill="url(#bottleSheen)" opacity="0.5" />
       <rect x="60" y="92" width="80" height="46" rx="3" fill={accent} opacity="0.92" />
-      <text x="100" y="120" textAnchor="middle" fontFamily="Satoshi, sans-serif" fontSize="24" fill="#FFFFFF" fontWeight="700" letterSpacing="-0.5">
+      <text x="100" y="120" textAnchor="middle" fontFamily="Plus Jakarta Sans, system-ui, sans-serif" fontSize="24" fill="#FFFFFF" fontWeight="700" letterSpacing="-0.5">
         {initials}
       </text>
       <rect x="66" y="150" width="68" height="3" rx="1.5" fill="#F7F4EF" opacity="0.35" />

@@ -1,168 +1,357 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { ArrowRight, Clock3, RotateCcw, ShieldCheck, Sparkles } from "lucide-react";
-import quizHero from "../assets/quiz/wellness-quiz-hero.jpg";
+import { useMemo, useState } from "react";
+import { Link, useLocation, useSearchParams } from "react-router-dom";
+import { ArrowLeft, ArrowRight, Check, FlaskConical, Info, Plus, RotateCcw } from "lucide-react";
+import { useCart } from "../hooks/useCart";
+import { useCatalog } from "../hooks/useCatalog";
+import { useMarket } from "../hooks/useMarket";
 import { useMarketHref } from "../hooks/useMarketHref";
+import { formatCatalogMoney, isCurrencyAlignedWithMarket } from "../lib/market/config";
+import { ROUTES } from "../lib/routes";
+import { AI_SECTION, BUILDER, GOALS } from "../data/homepage";
+import { buildProtocol, type GoalId, type ProtocolAnswers } from "../lib/protocol/build";
+import type { CatalogProduct } from "../lib/shopify/types";
 
-const QUESTIONS = [
-  { q: "What's your main goal right now?", options: ["Live longer", "Think sharper", "Recover faster", "Sleep deeper"] },
-  { q: "How would you describe your energy by 3pm?", options: ["Strong all day", "Dips a little", "Crashes hard"] },
-  { q: "How's your sleep lately?", options: ["Restful", "Inconsistent", "Poor"] },
-  { q: "Do you train or exercise regularly?", options: ["Daily", "A few times a week", "Rarely"] },
+/*
+ * BioAro Drugs Protocol Builder.
+ *
+ * Renamed from "Wellness quiz". The route stays /quiz so existing links, redirects
+ * and search results keep working; only the experience is renamed, and the site now
+ * uses one vocabulary for it — "Protocols backed by science" is the label, the
+ * Protocol Builder is the flow, "Build My Protocol" is the action. Six competing
+ * labels ("Find your fit", "Find my fit", quiz, stack, protocol, Ask BioAro) collapse
+ * into that one. The AI name lives on the hero search, the band and the chat — the
+ * surfaces where a question actually gets typed.
+ *
+ * The homepage passes ?goal=, so a visitor who already chose on the homepage is not
+ * asked the same question again — which is exactly what the previous version did.
+ */
+
+const STEPS = [
+  {
+    key: "goal" as const,
+    question: "What do you want to improve?",
+    options: GOALS.map((goal) => ({ value: goal.id, label: goal.label })),
+  },
+  {
+    key: "energy" as const,
+    question: "How is your energy by mid-afternoon?",
+    options: [
+      { value: "steady", label: "Steady all day" },
+      { value: "dips", label: "It dips a little" },
+      { value: "crashes", label: "It crashes hard" },
+    ],
+  },
+  {
+    key: "sleep" as const,
+    question: "How has your sleep been lately?",
+    options: [
+      { value: "restful", label: "Restful" },
+      { value: "inconsistent", label: "Inconsistent" },
+      { value: "poor", label: "Poor" },
+    ],
+  },
+  {
+    key: "training" as const,
+    question: "How often do you train?",
+    options: [
+      { value: "daily", label: "Most days" },
+      { value: "sometimes", label: "A few times a week" },
+      { value: "rarely", label: "Rarely" },
+    ],
+  },
 ];
 
-const RESULTS: Record<string, { name: string; handle: string; reason: string }> = {
-  "Live longer": { name: "Longevity+", handle: "longevity-plus", reason: "is positioned as a strong starting point for a longevity-focused daily routine." },
-  "Think sharper": { name: "Creagen Brain Boost", handle: "creagen-brain-boost", reason: "fits a workday routine built around concentration and steady daytime output." },
-  "Recover faster": { name: "Creagen Pro Power", handle: "creagen-pro-power", reason: "sits at the center of the recovery performance protocol." },
-  "Sleep deeper": { name: "CellOmega+", handle: "cellomega-plus", reason: "is a foundational product that can support a broader daily routine while the sleep range grows." },
-};
-
-const TRUST_CUES = [
-  { Icon: Clock3, title: "Under 2 minutes", body: "A guided routine check-in with no overwhelm." },
-  { Icon: ShieldCheck, title: "Science-backed", body: "Built around daily goals, not guesswork." },
-  { Icon: Sparkles, title: "Personalized fit", body: "We suggest a clear starting point you can refine." },
-];
+function isGoalId(value: string | null): value is GoalId {
+  return Boolean(value) && GOALS.some((goal) => goal.id === value);
+}
 
 export default function Quiz() {
   const marketHref = useMarketHref();
-  const [step, setStep] = useState(0);
-  const [answers, setAnswers] = useState<string[]>([]);
+  const { country } = useMarket();
+  const { byHandle } = useCatalog();
+  const { addProducts } = useCart();
+  const [searchParams] = useSearchParams();
+  const location = useLocation();
 
-  const select = (option: string) => {
-    const next = [...answers, option];
-    setAnswers(next);
-    setStep(step + 1);
+  /* What the visitor typed on the homepage, carried in router state rather than the
+     query string. Shown back to them so the handoff is visible and their words are
+     evidently not discarded — and so that, once the interpretation endpoint exists,
+     this is already the place its summary renders. */
+  const note = typeof (location.state as { note?: unknown } | null)?.note === "string"
+    ? ((location.state as { note: string }).note)
+    : null;
+
+  /*
+   * Goals chosen on the homepage pre-answer step one. `?goals=` is the multi-select
+   * form; `?goal=` is still read so older links keep working.
+   *
+   * Goals are held as their own typed array rather than inside the string map: they
+   * are the one answer that is a list, and the previous shape forced a
+   * `as unknown as ProtocolAnswers` cast at the call site. That cast silently
+   * survived the engine's single-goal-to-multi-goal change and would have shipped a
+   * builder that quietly produced a generic protocol. Typed properly, the compiler
+   * catches the next such change.
+   */
+  const seededGoals = useMemo(() => {
+    const raw = searchParams.get("goals") ?? searchParams.get("goal") ?? "";
+    return raw.split(",").map((value) => value.trim()).filter(isGoalId);
+  }, [searchParams]);
+
+  const [goals, setGoals] = useState<GoalId[]>(seededGoals);
+  const [answers, setAnswers] = useState<Record<string, string>>({});
+  const [step, setStep] = useState(() => (seededGoals.length > 0 ? 1 : 0));
+  const [added, setAdded] = useState(false);
+
+  const done = step >= STEPS.length;
+  const progress = done ? 100 : (step / STEPS.length) * 100;
+
+  const protocol = useMemo(() => {
+    if (!done) return null;
+    return buildProtocol({
+      goals,
+      energy: (answers.energy ?? "steady") as ProtocolAnswers["energy"],
+      sleep: (answers.sleep ?? "restful") as ProtocolAnswers["sleep"],
+      training: (answers.training ?? "rarely") as ProtocolAnswers["training"],
+    });
+  }, [answers, goals, done]);
+
+  const resolved = useMemo(() => {
+    if (!protocol) return [];
+    return protocol.items
+      .map((item) => ({ item, product: byHandle.get(item.handle) }))
+      .filter((row): row is { item: (typeof protocol.items)[number]; product: CatalogProduct } => Boolean(row.product));
+  }, [protocol, byHandle]);
+
+  const select = (key: string, value: string) => {
+    if (key === "goal") {
+      if (isGoalId(value)) setGoals([value]);
+    } else {
+      setAnswers((prev) => ({ ...prev, [key]: value }));
+    }
+    setStep((prev) => prev + 1);
   };
+
+  const back = () => setStep((prev) => Math.max(0, prev - 1));
 
   const restart = () => {
-    setAnswers([]);
+    setAnswers({});
+    setGoals([]);
     setStep(0);
+    setAdded(false);
   };
 
-  const done = step >= QUESTIONS.length;
-  const result = done ? RESULTS[answers[0]] : null;
-  const progress = done ? 100 : ((step + 1) / QUESTIONS.length) * 100;
+  const purchasable = resolved.filter(
+    ({ product }) =>
+      product.availableForSale &&
+      product.price.amount > 0 &&
+      isCurrencyAlignedWithMarket(product.price.currencyCode, country),
+  );
+  const canAddAll = purchasable.length > 0 && purchasable.length === resolved.length;
+  const total = resolved.reduce((sum, { product }) => sum + product.price.amount, 0);
+  const currencies = new Set(resolved.map(({ product }) => product.price.currencyCode));
+  const totalCurrency = currencies.size === 1 ? [...currencies][0] : "MIXED";
+
+  const onAddAll = async () => {
+    await addProducts(resolved.map(({ product }) => product), 1);
+    setAdded(true);
+    window.setTimeout(() => setAdded(false), 2400);
+  };
+
+  const current = STEPS[step];
 
   return (
-    <div className="relative overflow-hidden bg-[#FBF9F6] pb-16 pt-28 sm:pb-20 md:pt-32 lg:pt-36">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-[320px] bg-[radial-gradient(circle_at_top,rgba(223,234,223,0.45),transparent_65%)]" />
-      <div className="pointer-events-none absolute right-[-120px] top-[320px] h-[280px] w-[280px] rounded-full bg-[radial-gradient(circle,rgba(224,210,185,0.28),transparent_68%)] blur-3xl" />
-
-      <div className="container-bio relative">
-        <div className="overflow-hidden rounded-[30px] border border-[#E1DED8] bg-[#FBF9F6] shadow-[0_28px_90px_-56px_rgba(52,42,30,0.38)]">
-          <div className="h-[240px] bg-[#F0EBE3] sm:h-[320px] lg:h-[520px]">
-            <img src={quizHero} alt="BioAro wellness quiz hero" className="h-full w-full object-contain" />
+    <div className="bg-cream pb-20 pt-28 sm:pb-24 md:pt-32 lg:pt-36">
+      <div className="container-bio">
+        <div className="mx-auto max-w-[880px]">
+          {/* Matches the homepage section that links here. The label must not change
+              as a visitor clicks through: this is the protocol path, and the AI name
+              stays on the surfaces where a question actually gets typed. */}
+          <div className="flex items-center gap-2.5">
+            <FlaskConical size={15} strokeWidth={2.2} aria-hidden="true" className="text-ember" />
+            <p className="eyebrow">{BUILDER.eyebrow}</p>
           </div>
-        </div>
+          <h1 className="mt-4 max-w-[18ch] text-balance text-[36px] font-black leading-[1.0] tracking-[-0.035em] text-ink sm:text-[46px] lg:text-[54px]">
+            Protocol Builder
+          </h1>
+          <p className="mt-5 max-w-[56ch] text-pretty text-[16.5px] leading-[1.6] text-ink-600">
+            Four questions about your goals and how your days run. Every answer changes
+            what you are shown, and each formula comes with the reason it is there.
+          </p>
 
-        <div className="mx-auto mt-8 max-w-[920px] lg:mt-10">
-          <div className="rounded-[30px] border border-[rgba(80,70,55,0.12)] bg-[rgba(255,252,247,0.9)] px-5 py-6 shadow-[0_28px_80px_-54px_rgba(45,38,28,0.18)] backdrop-blur-sm sm:px-7 sm:py-8 lg:px-8 lg:py-9">
-            {!done && (
+          {note && (
+            <figure className="mt-6 max-w-[56ch] rounded-[18px] border border-line bg-white p-5">
+              <figcaption className="text-[12px] font-bold uppercase tracking-[0.14em] text-ink-400">
+                {BUILDER.noteLabel}
+              </figcaption>
+              <blockquote className="mt-2 text-[15px] leading-[1.55] text-ink">{note}</blockquote>
+            </figure>
+          )}
+
+          {/* Moved here from the homepage. It explains a flow, so it belongs
+              immediately before the flow starts rather than three scrolls up a
+              homepage. Hidden once the builder is underway — by then it is answered. */}
+          {!done && (
+            <ol className="mt-10 grid gap-x-8 gap-y-7 border-t border-line pt-8 sm:grid-cols-2 lg:grid-cols-4">
+              {AI_SECTION.steps.map((step, index) => (
+                <li key={step.title}>
+                  <span className="text-[12.5px] font-bold tabular-nums text-ember">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <h2 className="mt-2 text-[16px] font-bold tracking-[-0.02em] text-ink">{step.title}</h2>
+                  <p className="mt-2 text-pretty text-[14px] leading-[1.55] text-ink-600">{step.body}</p>
+                </li>
+              ))}
+            </ol>
+          )}
+
+          <div className="mt-10 rounded-[28px] border border-line bg-white p-6 shadow-glass sm:p-9">
+            {!done && current && (
               <>
-                <div className="flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
-                  <span className="text-[10.5px] font-semibold uppercase tracking-[0.14em] text-[#6B7078] sm:text-[11.5px] sm:tracking-[0.18em]">
-                    Wellness quiz · Step {step + 1} of {QUESTIONS.length}
+                <div className="flex items-center justify-between gap-4">
+                  <span className="text-[11.5px] font-bold uppercase tracking-[0.14em] text-ink-400">
+                    Step {step + 1} of {STEPS.length}
                   </span>
-                  <span className="rounded-full border border-[#E1DED8] bg-[#FBF9F6] px-3 py-1 text-[11px] font-medium text-[#545961]">
-                    Personalized guidance
-                  </span>
+                  {step > 0 && (
+                    <button
+                      type="button"
+                      onClick={back}
+                      className="group inline-flex items-center gap-1.5 rounded-full text-[13.5px] font-bold text-ink-600 transition-colors hover:text-ember focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember"
+                    >
+                      <ArrowLeft size={14} strokeWidth={2.4} aria-hidden="true" className="transition-transform duration-200 group-hover:-translate-x-0.5 motion-reduce:transform-none" />
+                      Back
+                    </button>
+                  )}
                 </div>
 
-                <div className="mt-4 h-2 overflow-hidden rounded-full bg-[#E1DED8]">
-                  <div
-                    className="h-full rounded-full bg-forest-600 transition-all duration-500"
-                    style={{ width: `${progress}%` }}
-                  />
+                <div
+                  role="progressbar"
+                  aria-valuenow={step + 1}
+                  aria-valuemin={1}
+                  aria-valuemax={STEPS.length}
+                  aria-label="Protocol Builder progress"
+                  className="mt-4 h-1.5 overflow-hidden rounded-full bg-cream-200"
+                >
+                  <div className="h-full rounded-full bg-ember transition-[width] duration-500" style={{ width: `${progress}%` }} />
                 </div>
 
-                <h2 className="mt-7 max-w-[18ch] text-[28px] leading-[1.08] text-ink sm:text-[34px] lg:text-[44px]">
-                  {QUESTIONS[step].q}
+                <h2 className="mt-8 max-w-[20ch] text-balance text-[28px] font-black leading-[1.05] tracking-[-0.03em] text-ink sm:text-[36px]">
+                  {current.question}
                 </h2>
-                <p className="mt-3 text-[14px] leading-6 text-[#6B7078]">
-                  Choose the option that feels closest right now. There&apos;s no perfect answer.
-                </p>
 
                 <div className="mt-7 grid gap-3 sm:grid-cols-2">
-                  {QUESTIONS[step].options.map((opt) => (
+                  {current.options.map((option) => (
                     <button
-                      key={opt}
-                      onClick={() => select(opt)}
-                      className="group min-h-[76px] rounded-[22px] border border-[#E1DED8] bg-white px-5 py-4 text-left text-[15px] font-medium text-[#1C1917] shadow-[0_16px_36px_-34px_rgba(45,38,28,0.4)] transition duration-200 hover:-translate-y-0.5 hover:border-forest-600/35 hover:bg-[#FBF9F6] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest-600/30"
+                      key={option.value}
+                      type="button"
+                      onClick={() => select(current.key, option.value)}
+                      className="group flex min-h-[64px] items-center justify-between gap-4 rounded-[18px] border border-line bg-cream-50 px-5 py-4 text-left text-[15.5px] font-bold tracking-[-0.015em] text-ink transition-[background-color,border-color,transform] duration-200 hover:-translate-y-0.5 hover:border-line-strong hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember motion-reduce:hover:transform-none"
                     >
-                      <div className="flex items-center justify-between gap-4">
-                        <span>{opt}</span>
-                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#E1DED8] bg-[#FBF9F6] text-[#6B7078] transition-colors group-hover:border-forest-600/20 group-hover:text-forest-600">
-                          <ArrowRight size={15} />
-                        </span>
-                      </div>
+                      {option.label}
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-line bg-white text-ink-400 transition-colors group-hover:border-ember group-hover:text-ember">
+                        <ArrowRight size={15} strokeWidth={2.2} aria-hidden="true" />
+                      </span>
                     </button>
                   ))}
                 </div>
 
-                <p className="mt-5 text-[12.5px] leading-5 text-[#6B7078]">
-                  Your recommendation is a starting point for exploration, not medical advice.
+                {/* De-branded with the rest of the protocol path. The claim is the
+                    same; it just no longer attributes it to the AI. */}
+                <p className="mt-6 text-[13px] leading-[1.55] text-ink-400">
+                  The builder works from what you tell it here. It does not diagnose
+                  conditions or replace professional medical advice.
                 </p>
               </>
             )}
 
-            {done && result && (
-              <div className="text-center">
-                <span className="eyebrow">Your match</span>
-                <h2 className="mt-4 text-[34px] leading-[0.98] text-ink sm:text-[44px] lg:text-[48px]">{result.name}</h2>
-                <p className="mx-auto mt-5 max-w-[44ch] text-[15px] leading-7 text-[#4A4F57] sm:text-[16px]">
-                  Based on your answers, <span className="font-medium text-ink">{result.name}</span> looks like a sensible
-                  starting point because it {result.reason}
-                </p>
-                <div className="mx-auto mt-7 max-w-[520px] rounded-[24px] border border-[#E1DED8] bg-[#FBF9F6] px-5 py-5 text-left">
-                  <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#6B7078]">Why this fit works</p>
-                  <ul className="mt-4 space-y-2 text-[14px] leading-6 text-[#545961]">
-                    <li>Supports a clearer daily starting point instead of guesswork.</li>
-                    <li>Aligns with the goal you prioritized first in the quiz.</li>
-                    <li>Can be used as a foundation and refined as your routine evolves.</li>
-                  </ul>
-                </div>
-                <p className="mx-auto mt-4 max-w-[42ch] text-[12.5px] leading-5 text-[#6B7078]">
-                  This quick quiz is meant to guide exploration, not replace personalized medical advice.
-                </p>
-                <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-                  <Link to={marketHref(`/products/${result.handle}`)} className="btn-primary justify-center">
-                    View {result.name} <ArrowRight size={15} />
+            {done && protocol && (
+              <div>
+                <p className="eyebrow">Your starting protocol</p>
+                <h2 className="mt-4 text-balance text-[30px] font-black leading-[1.02] tracking-[-0.03em] text-ink sm:text-[38px]">
+                  {resolved.length === 1 ? "One formula to start with." : `${resolved.length} formulas, built around your answers.`}
+                </h2>
+
+                {protocol.notes.map((note) => (
+                  <p key={note} className="mt-5 flex max-w-[62ch] items-start gap-2.5 rounded-[18px] border border-line bg-cream-50 px-4 py-3.5 text-[14px] leading-[1.55] text-ink-600">
+                    <Info size={15} strokeWidth={2} aria-hidden="true" className="mt-0.5 shrink-0 text-ember" />
+                    {note}
+                  </p>
+                ))}
+
+                <ol className="mt-8">
+                  {resolved.map(({ item, product }) => (
+                    <li key={item.handle} className="border-t border-line py-5 first:border-t-0 first:pt-0">
+                      <div className="flex items-start gap-4">
+                        <img
+                          src={product.image?.src}
+                          alt=""
+                          aria-hidden="true"
+                          loading="lazy"
+                          decoding="async"
+                          className="h-16 w-16 shrink-0 rounded-[14px] border border-line bg-cream-50 object-contain p-1.5"
+                        />
+                        <div className="min-w-0 flex-1">
+                          <div className="flex flex-wrap items-baseline justify-between gap-x-4">
+                            <Link
+                              to={marketHref(`/products/${product.handle}`)}
+                              className="text-[17px] font-bold tracking-[-0.02em] text-ink underline-offset-[5px] hover:text-ember hover:underline"
+                            >
+                              {product.title}
+                            </Link>
+                            <span className="text-[15px] font-bold tabular-nums text-ink">
+                              {formatCatalogMoney(product.price, country)}
+                            </span>
+                          </div>
+                          <p className="mt-0.5 text-[12.5px] font-bold uppercase tracking-[0.12em] text-ink-400">{item.slot}</p>
+                          {/* Generated from the same answers as the recommendation,
+                              so the explanation cannot drift from the logic. */}
+                          <p className="mt-2 max-w-[56ch] text-pretty text-[14.5px] leading-[1.55] text-ink-600">{item.reason}</p>
+                        </div>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+
+                {canAddAll && (
+                  <div className="mt-6 border-t border-line-strong pt-6">
+                    <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                      <span className="text-[15px] font-bold text-ink">{resolved.length} formulas</span>
+                      <span className="text-[17px] font-bold tabular-nums tracking-[-0.02em] text-ink">
+                        {formatCatalogMoney({ amount: total, currencyCode: totalCurrency }, country)}
+                      </span>
+                    </div>
+                    <button type="button" onClick={() => void onAddAll()} className="btn-primary mt-5 w-full justify-center">
+                      {added ? (
+                        <>
+                          Added to cart
+                          <Check size={16} strokeWidth={2.6} aria-hidden="true" />
+                        </>
+                      ) : (
+                        <>
+                          Add this protocol to cart
+                          <Plus size={16} strokeWidth={2.6} aria-hidden="true" />
+                        </>
+                      )}
+                    </button>
+                  </div>
+                )}
+
+                <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                  <Link to={marketHref(ROUTES.shop)} className="btn-secondary justify-center">
+                    Browse everything
                   </Link>
-                  <button onClick={restart} className="btn-secondary justify-center">
-                    <RotateCcw size={15} /> Retake quiz
+                  <button type="button" onClick={restart} className="btn-secondary justify-center">
+                    <RotateCcw size={15} strokeWidth={2.2} aria-hidden="true" />
+                    Start again
                   </button>
                 </div>
+
+                <p className="mt-7 max-w-[62ch] text-[13px] leading-[1.6] text-ink-400">
+                  This is a starting point built from the goals and routine information you
+                  provided. It is not a diagnosis, a treatment, or a substitute for advice
+                  from a qualified healthcare professional.
+                </p>
               </div>
             )}
-          </div>
-        </div>
-
-        <div className="mx-auto mt-8 max-w-[1240px] lg:mt-10">
-          <div className="rounded-[30px] border border-[#E1DED8] bg-[linear-gradient(180deg,rgba(252,249,243,0.94),rgba(247,242,234,0.98))] px-6 py-7 shadow-[0_24px_80px_-58px_rgba(52,42,30,0.35)] sm:px-8 sm:py-8">
-            <span className="eyebrow">Guided consultation</span>
-            <h2 className="mt-4 max-w-[12ch] text-[31px] leading-[1] text-ink sm:text-[38px] lg:text-[52px]">
-              Find your daily BioAro protocol.
-            </h2>
-            <p className="mt-5 max-w-[48ch] text-[15px] leading-7 text-[#4A4F57] sm:text-[16px]">
-              Answer a few guided questions and we&apos;ll help match your goals to a starting stack for energy,
-              focus, recovery, sleep, or longevity.
-            </p>
-
-            <div className="mt-7 grid gap-3 sm:grid-cols-3">
-              {TRUST_CUES.map(({ Icon, title, body }) => (
-                <div
-                  key={title}
-                  className="rounded-[22px] border border-[#E1DED8] bg-white/70 px-4 py-4 shadow-[0_16px_40px_-34px_rgba(50,42,32,0.34)]"
-                >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#F0EBE3] text-forest-600">
-                    <Icon size={18} />
-                  </div>
-                  <p className="mt-4 text-[14px] font-semibold text-ink">{title}</p>
-                  <p className="mt-1 text-[12.5px] leading-5 text-[#6B7078]">{body}</p>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </div>

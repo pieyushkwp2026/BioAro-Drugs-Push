@@ -56,10 +56,22 @@ export default {
         gold: { DEFAULT: "#B08A4E", 400: "#C7923A", 600: "#8E6A35" },
       },
       fontFamily: {
-        // Both aliases point at Satoshi: changing only the base rule would leave
-        // the 14 explicit `font-display` call sites on the old serif.
-        display: ["Satoshi", "-apple-system", "BlinkMacSystemFont", "SF Pro Display", "Segoe UI", "sans-serif"],
-        body: ["Satoshi", "-apple-system", "BlinkMacSystemFont", "SF Pro Text", "Segoe UI", "sans-serif"],
+        // Two faces, both self-hosted (see the CSP note in src/index.css).
+        // `display` drives h1-h6 via the base rule plus the 17 explicit
+        // `font-display` call sites; `body` is everything else.
+        display: ["Plus Jakarta Sans", "system-ui", "-apple-system", "Segoe UI", "sans-serif"],
+        body: ["Inter", "system-ui", "-apple-system", "Segoe UI", "sans-serif"],
+        // Declared, deliberately NOT loaded as a webfont: the app contains zero
+        // <code>/<pre>/<kbd>/font-mono usage, so shipping JetBrains Mono would fetch
+        // bytes nothing renders. The explicit stack avoids Chrome's bare `monospace`
+        // default, a 13px Courier-class face that looks broken beside the rest.
+        mono: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
+      },
+      fontWeight: {
+        // Plus Jakarta Sans stops at 800; there is no 900. `font-black` is remapped
+        // rather than removed so the 15 existing call sites keep working and land on
+        // the heaviest weight that actually exists instead of synthesizing one.
+        black: "800",
       },
       backdropBlur: { xs: "2px" },
       boxShadow: {

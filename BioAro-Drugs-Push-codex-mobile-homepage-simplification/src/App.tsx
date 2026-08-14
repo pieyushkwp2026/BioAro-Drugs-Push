@@ -102,7 +102,12 @@ function RegionalProductRedirect() {
 }
 
 function LegacyRootRedirect() {
-  return <Navigate to="/uk" replace />;
+  // Was a hardcoded "/uk". Paired with the storage write in MarketProvider, that
+  // made every visit to the bare domain overwrite a returning visitor's chosen
+  // region. `useMarket()` resolves from the saved override on first render, so the
+  // root now lands them where they left off.
+  const { market } = useMarket();
+  return <Navigate to={buildMarketHref(market, "/")} replace />;
 }
 
 function RegionalRoutes() {

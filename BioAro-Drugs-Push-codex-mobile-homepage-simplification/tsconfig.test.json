@@ -25,6 +25,8 @@
     "src/lib/ask/types.ts",
     "src/lib/ask/safety.ts",
     "src/lib/ask/match.ts",
+    "src/lib/protocol/build.ts",
+    "src/lib/ai/matchGoals.ts",
     "tests/**/*.ts"
   ]
 }

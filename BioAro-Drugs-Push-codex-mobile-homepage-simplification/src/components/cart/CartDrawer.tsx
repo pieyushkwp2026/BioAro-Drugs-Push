@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Minus, Plus, ShoppingBag, X } from "lucide-react";
 import { useCart } from "../../hooks/useCart";
-import { formatMoney } from "../../lib/market/config";
+import { formatMoney, isCurrencyAlignedWithMarket } from "../../lib/market/config";
 import { useMarket } from "../../hooks/useMarket";
 import { useMarketHref } from "../../hooks/useMarketHref";
 import { ROUTES } from "../../lib/routes";
@@ -12,6 +12,13 @@ export default function CartDrawer() {
   const { country } = useMarket();
   const marketHref = useMarketHref();
   const marketConfig = getMarketConfigByCountry(country);
+
+  // The cart totals carry the currency Shopify actually priced in. When that
+  // disagrees with the market the visitor is browsing, the hosted checkout will
+  // charge in a currency this site never showed them, so the handoff is withheld
+  // rather than the mismatch being papered over at the payment step.
+  const currencyAligned = isCurrencyAlignedWithMarket(cart.total.currencyCode, country);
+  const canCheckout = Boolean(cart.checkoutUrl) && currencyAligned;
 
   if (!isOpen) {
     return null;
@@ -114,8 +121,15 @@ export default function CartDrawer() {
               {marketConfig.checkoutMessage} For now, you can browse formulas and request availability updates.
             </p>
           )}
-          {cart.checkoutUrl ? (
-            <a href={cart.checkoutUrl} className="btn-primary mt-5 w-full" target="_blank" rel="noreferrer">
+          {!currencyAligned && cart.checkoutUrl && (
+            <p role="alert" className="mt-3 rounded-2xl border border-ember/25 bg-forest-50 px-4 py-3 text-xs leading-relaxed text-ember-700">
+              Checkout is unavailable for {marketConfig.name} right now, because it would
+              charge in a different currency to the prices shown here. Contact us and we
+              will complete your order in {marketConfig.currency}.
+            </p>
+          )}
+          {canCheckout ? (
+            <a href={cart.checkoutUrl!} className="btn-primary mt-5 w-full" target="_blank" rel="noreferrer">
               Proceed to checkout
             </a>
           ) : (

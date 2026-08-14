@@ -33,7 +33,6 @@ const MARQUEE_ITEMS = [
   "Sugar free",
   "Nut free",
   "Vegan",
-  "BioAro Labs helps you understand. BioAro Drugs helps you act.",
 ];
 
 function InstagramIcon({ size = 16 }: { size?: number }) {
@@ -72,17 +71,28 @@ const SOCIAL_LINKS = [
 const LINK_CLASS =
   "inline-block py-1.5 text-[15px] text-[rgba(247,244,239,0.72)] transition-colors hover:text-[#F7F4EF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C1462A] rounded-sm";
 
+/*
+ * Each run repeats the list, because the loop is only seamless while ONE run is at
+ * least as wide as the viewport — the two runs are translated by exactly -50%, so a
+ * short run leaves a visible gap crossing the screen. Six short words measured 1464px,
+ * which held at 1440 and broke on anything wider. Doubling clears 2900px, so the
+ * ribbon stays continuous on large displays without hardcoding a breakpoint.
+ */
+const MARQUEE_REPEATS = 2;
+
 function MarqueeRun() {
   return (
     <>
-      {MARQUEE_ITEMS.map((item) => (
-        <span
-          key={item}
-          className="bio-marquee-item flex flex-none items-center gap-8 whitespace-nowrap pr-8 text-[22px] font-bold tracking-[-0.02em] text-[#F7F4EF] sm:text-[28px] lg:text-[34px]"
-        >
-          {item}
-        </span>
-      ))}
+      {Array.from({ length: MARQUEE_REPEATS }).flatMap((_, pass) =>
+        MARQUEE_ITEMS.map((item) => (
+          <span
+            key={`${pass}-${item}`}
+            className="bio-marquee-item flex flex-none items-center gap-8 whitespace-nowrap pr-8 text-[22px] font-bold tracking-[-0.02em] text-[#F7F4EF] sm:text-[28px] lg:text-[34px]"
+          >
+            {item}
+          </span>
+        )),
+      )}
     </>
   );
 }
