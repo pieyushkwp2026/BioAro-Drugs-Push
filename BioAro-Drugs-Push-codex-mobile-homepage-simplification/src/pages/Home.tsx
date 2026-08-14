@@ -2,7 +2,6 @@ import { useScrollReveal } from "../hooks/useScrollReveal";
 import { useCatalog } from "../hooks/useCatalog";
 import { SCIENCE_SECTION } from "../data/homepage";
 import Hero from "../components/home/Hero";
-import AiProtocolEntry from "../components/home/AiProtocolEntry";
 import ProductShowcase from "../components/home/ProductShowcase";
 import WhyBioAro from "../components/home/WhyBioAro";
 import ScienceProof from "../components/home/ScienceProof";
@@ -10,7 +9,8 @@ import ProtocolExample from "../components/home/ProtocolExample";
 import FounderNote from "../components/home/FounderNote";
 import ScienceLibrary from "../components/home/ScienceLibrary";
 import ClosingCta from "../components/home/ClosingCta";
-import AiBand from "../components/ask/AiBand";
+import { useEffect, useRef, useState } from "react";
+import AiProtocolEntry from "../components/home/AiProtocolEntry";
 
 /*
  * THESIS: BioAro Drugs is an AI-guided precision-bioactive company whose supplements
@@ -84,13 +84,43 @@ const SCOPED_CSS = `
 export default function Home() {
   const revealRef = useScrollReveal<HTMLDivElement>();
   const { products, byHandle, state } = useCatalog();
+  const [floatingAiCollapsed, setFloatingAiCollapsed] = useState(false);
+  const searchRef = useRef<HTMLDivElement>(null);
+  const [showFloatingSearch, setShowFloatingSearch] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!searchRef.current) return;
+
+      const rect = searchRef.current.getBoundingClientRect();
+
+      // Show floating search once the original search bar reaches the header area.
+      setShowFloatingSearch(rect.bottom <= 80);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <div ref={revealRef} className="bio-home bg-cream text-ink">
       <style dangerouslySetInnerHTML={{ __html: SCOPED_CSS }} />
 
       {/* 1 — Thesis. What this is, and the one thing to do about it. */}
-      <Hero />
+      <Hero searchRef={searchRef} byHandle={byHandle} />
+      {showFloatingSearch && (
+        <AiProtocolEntry
+          byHandle={byHandle}
+          variant="floating"
+          collapsed={floatingAiCollapsed}
+          onCollapsedChange={setFloatingAiCollapsed}
+        />
+      )}
 
       {/* 2 — Commerce, early. Buyable from the card, not two clicks away. The hero
              search bar is the front door; what follows it should be the range, not a
@@ -100,7 +130,7 @@ export default function Home() {
       {/* 3 — The protocol entry. Not branded as the AI: a goal picker that opens a
              four-question builder is a protocol tool, and the AI name stays on the
              surfaces where a question actually gets typed. */}
-      <AiProtocolEntry byHandle={byHandle} />
+      {/* <AiProtocolEntry byHandle={byHandle} /> */}
 
       {/* 4 — Differentiation. Quiet hairline rows after a row of cards. */}
       <WhyBioAro />
@@ -114,7 +144,7 @@ export default function Home() {
       {/* The AI band. Mid-page on the homepage rather than pre-footer, so it does
           not stack against the closing photograph. Layout renders it above the
           footer on every other route. */}
-      <AiBand />
+      {/* <AiBand /> */}
 
       {/* 7 — A person stands behind it. Short, and typographic. */}
       <FounderNote />

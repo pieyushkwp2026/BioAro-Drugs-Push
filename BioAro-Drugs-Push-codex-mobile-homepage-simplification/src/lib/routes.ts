@@ -41,7 +41,7 @@ export interface FooterSection {
  * so the site had two sources of truth for its primary navigation.
  */
 export const PRIMARY_NAV: NavItem[] = [
-  { label: "BioAro Drugs AI", href: ROUTES.quiz },
+  { label: "BioAro Drugs BI", href: ROUTES.quiz },
   { label: "Shop", href: ROUTES.shop },
   { label: "Protocols", href: ROUTES.protocols },
   { label: "Science", href: ROUTES.science },

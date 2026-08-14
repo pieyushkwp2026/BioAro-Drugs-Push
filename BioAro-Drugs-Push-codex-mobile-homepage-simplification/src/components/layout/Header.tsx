@@ -23,9 +23,8 @@ import bioAroMark from "../../assets/logo/bioaro-mark.png";
  * site now uses, replacing "Find your fit" / "Find my fit" / "Take the quiz".
  */
 const NAV = [
-  { label: "BioAro Drugs AI", href: ROUTES.quiz },
+  { label: "AI & Protocols", href: ROUTES.quiz },
   { label: "Shop", href: ROUTES.shop },
-  { label: "Protocols", href: ROUTES.protocols },
   { label: "Science", href: ROUTES.science },
   { label: "About", href: ROUTES.about },
 ] as const;
@@ -92,7 +91,11 @@ export default function Header() {
     // inside the panel and runs its own outside-click listener, so a narrower
     // target would close the menu on every region choice.
     const onPointerDown = (event: PointerEvent) => {
-      if (headerRef.current && !headerRef.current.contains(event.target as Node)) setOpen(false);
+      if (
+        headerRef.current &&
+        !headerRef.current.contains(event.target as Node)
+      )
+        setOpen(false);
     };
 
     document.addEventListener("keydown", onKeyDown);
@@ -103,8 +106,12 @@ export default function Header() {
     };
   }, [open]);
 
-  const accountHref = isAuthenticated ? marketHref(ROUTES.account) : marketHref("/auth");
-  const accountLabel = isAuthenticated ? customer?.firstName ?? "Account" : "Sign in";
+  const accountHref = isAuthenticated
+    ? marketHref(ROUTES.account)
+    : marketHref("/auth");
+  const accountLabel = isAuthenticated
+    ? (customer?.firstName ?? "Account")
+    : "Sign in";
   const cartLabel = `Cart, ${cart.totalQuantity} item${cart.totalQuantity === 1 ? "" : "s"}`;
 
   const surface = scrolled
@@ -125,13 +132,21 @@ export default function Header() {
             to={marketHref(ROUTES.home)}
             className="flex shrink-0 items-center gap-2.5 rounded-full text-ink transition-colors hover:text-ember focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ember sm:gap-3"
           >
-            <img src={bioAroMark} alt="" aria-hidden="true" className="h-[24px] w-[24px] shrink-0 object-contain" />
+            <img
+              src={bioAroMark}
+              alt=""
+              aria-hidden="true"
+              className="h-[24px] w-[24px] shrink-0 object-contain"
+            />
             <span className="whitespace-nowrap text-[16px] font-bold tracking-[-0.02em] sm:text-[18px]">
               BioAro Drugs
             </span>
           </Link>
 
-          <nav aria-label="Primary" className="hidden min-w-0 items-center gap-8 xl:flex min-[1400px]:gap-10">
+          <nav
+            aria-label="Primary"
+            className="hidden min-w-0 items-center gap-8 xl:flex min-[1400px]:gap-10"
+          >
             {NAV.map((item) => (
               <NavLink
                 key={item.href}
@@ -213,7 +228,11 @@ export default function Header() {
               onClick={() => setOpen((value) => !value)}
               className={`flex h-10 w-10 items-center justify-center xl:hidden ${CONTROL}`}
             >
-              {open ? <X size={18} strokeWidth={1.6} /> : <Menu size={18} strokeWidth={1.6} />}
+              {open ? (
+                <X size={18} strokeWidth={1.6} />
+              ) : (
+                <Menu size={18} strokeWidth={1.6} />
+              )}
             </button>
           </div>
         </div>
@@ -250,7 +269,9 @@ export default function Header() {
                   onClick={() => setOpen(false)}
                   className={({ isActive }) =>
                     `rounded-2xl px-3 py-3 text-[15px] font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember ${
-                      isActive ? "bg-cream text-ember" : "text-ink hover:bg-cream"
+                      isActive
+                        ? "bg-cream text-ember"
+                        : "text-ink hover:bg-cream"
                     }`
                   }
                 >

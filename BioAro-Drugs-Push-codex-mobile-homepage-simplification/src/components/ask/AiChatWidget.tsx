@@ -1,12 +1,31 @@
-import { type FormEvent, useCallback, useEffect, useId, useRef, useState } from "react";
+import {
+  type FormEvent,
+  useCallback,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+} from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, ArrowUp, Check, MessageCircle, Plus, ShieldAlert, Sparkles, X } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowUp,
+  Check,
+  MessageCircle,
+  Plus,
+  ShieldAlert,
+  Sparkles,
+  X,
+} from "lucide-react";
 import { useAiChat } from "../../hooks/useAiChat";
 import { useCart } from "../../hooks/useCart";
 import { useCatalog } from "../../hooks/useCatalog";
 import { useMarket } from "../../hooks/useMarket";
 import { useMarketHref } from "../../hooks/useMarketHref";
-import { formatCatalogMoney, isCurrencyAlignedWithMarket } from "../../lib/market/config";
+import {
+  formatCatalogMoney,
+  isCurrencyAlignedWithMarket,
+} from "../../lib/market/config";
 import { ROUTES } from "../../lib/routes";
 import {
   askBioAro,
@@ -78,7 +97,9 @@ function ChatProductRow({ product }: { product: CatalogProduct }) {
         >
           {product.title}
         </Link>
-        <p className="text-[12px] tabular-nums text-ink-400">{formatCatalogMoney(product.price, country)}</p>
+        <p className="text-[12px] tabular-nums text-ink-400">
+          {formatCatalogMoney(product.price, country)}
+        </p>
       </div>
       {buyable && (
         <button
@@ -90,7 +111,11 @@ function ChatProductRow({ product }: { product: CatalogProduct }) {
           }}
           className="flex h-8 shrink-0 items-center gap-1 rounded-full bg-ember px-3 text-[12px] font-bold text-white transition-colors hover:bg-ember-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember"
         >
-          {added ? <Check size={12} strokeWidth={3} aria-hidden="true" /> : <Plus size={12} strokeWidth={3} aria-hidden="true" />}
+          {added ? (
+            <Check size={12} strokeWidth={3} aria-hidden="true" />
+          ) : (
+            <Plus size={12} strokeWidth={3} aria-hidden="true" />
+          )}
           {added ? "Added" : "Add"}
         </button>
       )}
@@ -113,10 +138,17 @@ function AnswerBubble({
     return (
       <div>
         <p className="flex items-center gap-1.5 text-[14px] font-bold text-ink">
-          <ShieldAlert size={15} strokeWidth={2.2} aria-hidden="true" className="text-ember" />
+          <ShieldAlert
+            size={15}
+            strokeWidth={2.2}
+            aria-hidden="true"
+            className="text-ember"
+          />
           {SENSITIVE_HEADING}
         </p>
-        <p className="mt-1.5 text-[13.5px] leading-[1.55] text-ink-600">{SENSITIVE_BODY}</p>
+        <p className="mt-1.5 text-[13.5px] leading-[1.55] text-ink-600">
+          {SENSITIVE_BODY}
+        </p>
         <Link
           to={marketHref(ROUTES.support)}
           className="mt-3 inline-flex items-center gap-1.5 text-[13px] font-bold text-ink underline-offset-4 hover:text-ember hover:underline"
@@ -132,11 +164,14 @@ function AnswerBubble({
     return (
       <div>
         <p className="text-[13.5px] leading-[1.55] text-ink">
-          Choosing between formulas depends on your goals and how your days run. The
-          Protocol Builder asks four questions and explains why each formula is in your
-          result.
+          Choosing between formulas depends on your goals and how your days run.
+          The Protocol Builder asks four questions and explains why each formula
+          is in your result.
         </p>
-        <Link to={marketHref(ROUTES.quiz)} className="btn-primary mt-3 !py-2.5 !text-[13px]">
+        <Link
+          to={marketHref(ROUTES.quiz)}
+          className="btn-primary mt-3 !py-2.5 !text-[13px]"
+        >
           Build My Protocol
           <ArrowRight size={14} strokeWidth={2.4} aria-hidden="true" />
         </Link>
@@ -167,8 +202,17 @@ function AnswerBubble({
   }
 
   const [lead, ...rest] = result.answers;
-  const handles = [...new Set(result.answers.map(productHandleFrom).filter((h): h is string => Boolean(h)))];
-  const products = handles.map((h) => byHandle.get(h)).filter((p): p is CatalogProduct => Boolean(p)).slice(0, 2);
+  const handles = [
+    ...new Set(
+      result.answers
+        .map(productHandleFrom)
+        .filter((h): h is string => Boolean(h)),
+    ),
+  ];
+  const products = handles
+    .map((h) => byHandle.get(h))
+    .filter((p): p is CatalogProduct => Boolean(p))
+    .slice(0, 2);
 
   return (
     <div>
@@ -187,7 +231,9 @@ function AnswerBubble({
 
       {rest.length > 0 && (
         <div className="mt-3 border-t border-line pt-2.5">
-          <p className="text-[10.5px] font-bold uppercase tracking-[0.14em] text-ink-400">Related</p>
+          <p className="text-[10.5px] font-bold uppercase tracking-[0.14em] text-ink-400">
+            Related
+          </p>
           <ul className="mt-1.5 space-y-1.5">
             {rest.map((answer) => (
               <li key={answer.question}>
@@ -231,7 +277,9 @@ export default function AiChatWidget() {
     setPending(true);
 
     const result = await askBioAro(question);
-    setTurns((prev) => prev.map((turn) => (turn.id === id ? { ...turn, result } : turn)));
+    setTurns((prev) =>
+      prev.map((turn) => (turn.id === id ? { ...turn, result } : turn)),
+    );
     setPending(false);
   }, []);
 
@@ -250,7 +298,10 @@ export default function AiChatWidget() {
 
   // Keep the newest turn in view without yanking the whole page around it.
   useEffect(() => {
-    threadEndRef.current?.scrollIntoView({ block: "end", behavior: turns.length > 1 ? "smooth" : "auto" });
+    threadEndRef.current?.scrollIntoView({
+      block: "end",
+      behavior: turns.length > 1 ? "smooth" : "auto",
+    });
   }, [turns, pending]);
 
   useEffect(() => {
@@ -286,7 +337,9 @@ export default function AiChatWidget() {
           <span className="flex h-8 w-8 items-center justify-center rounded-full bg-ember">
             <Sparkles size={15} strokeWidth={2.3} aria-hidden="true" />
           </span>
-          <span className="text-[13.5px] font-bold tracking-[-0.01em]">BioAro Drugs AI</span>
+          <span className="text-[13.5px] font-bold tracking-[-0.01em]">
+            BioAro Drugs AI
+          </span>
         </button>
       )}
 
@@ -309,8 +362,12 @@ export default function AiChatWidget() {
               <Sparkles size={16} strokeWidth={2.3} aria-hidden="true" />
             </span>
             <div className="min-w-0 flex-1">
-              <p className="text-[14.5px] font-bold tracking-[-0.02em] text-ink">BioAro Drugs AI</p>
-              <p className="text-[12px] text-ink-400">Answers from BioAro Drugs&rsquo; own product information</p>
+              <p className="text-[14.5px] font-bold tracking-[-0.02em] text-ink">
+                BioAro Drugs AI
+              </p>
+              <p className="text-[12px] text-ink-400">
+                Answers from BioAro Drugs&rsquo; own product information
+              </p>
             </div>
             <button
               type="button"
@@ -330,7 +387,9 @@ export default function AiChatWidget() {
                 <Sparkles size={13} strokeWidth={2.4} aria-hidden="true" />
               </span>
               <div className="rounded-[16px] rounded-tl-[6px] border border-line bg-white p-3.5">
-                <p className="text-[13.5px] leading-[1.6] text-ink">{GREETING}</p>
+                <p className="text-[13.5px] leading-[1.6] text-ink">
+                  {GREETING}
+                </p>
               </div>
             </div>
 
@@ -360,11 +419,19 @@ export default function AiChatWidget() {
 
                   <div className="mt-3 flex gap-2.5">
                     <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-ember text-white">
-                      <Sparkles size={13} strokeWidth={2.4} aria-hidden="true" />
+                      <Sparkles
+                        size={13}
+                        strokeWidth={2.4}
+                        aria-hidden="true"
+                      />
                     </span>
                     <div className="min-w-0 flex-1 rounded-[16px] rounded-tl-[6px] border border-line bg-white p-3.5">
                       {turn.result ? (
-                        <AnswerBubble result={turn.result} onAsk={(q) => void ask(q)} byHandle={byHandle} />
+                        <AnswerBubble
+                          result={turn.result}
+                          onAsk={(q) => void ask(q)}
+                          byHandle={byHandle}
+                        />
                       ) : (
                         <span className="flex gap-1" aria-label="Searching">
                           {[0, 1, 2].map((dot) => (
@@ -384,7 +451,10 @@ export default function AiChatWidget() {
             <div ref={threadEndRef} />
           </div>
 
-          <form onSubmit={onSubmit} className="shrink-0 border-t border-line bg-white px-3 py-3 sm:rounded-b-[24px]">
+          <form
+            onSubmit={onSubmit}
+            className="shrink-0 border-t border-line bg-white px-3 py-3 sm:rounded-b-[24px]"
+          >
             <label htmlFor={inputId} className="sr-only">
               Ask BioAro Drugs AI a question
             </label>
@@ -407,7 +477,9 @@ export default function AiChatWidget() {
                 <ArrowUp size={16} strokeWidth={2.6} aria-hidden="true" />
               </button>
             </div>
-            <p className="mt-2 px-1 text-[10.5px] leading-[1.45] text-ink-400">{SAFETY_NOTE}</p>
+            <p className="mt-2 px-1 text-[10.5px] leading-[1.45] text-ink-400">
+              {SAFETY_NOTE}
+            </p>
           </form>
         </div>
       )}
@@ -422,7 +494,11 @@ export function AiMark({ size = 40 }: { size?: number }) {
       className="flex shrink-0 items-center justify-center rounded-full bg-ember text-white"
       style={{ height: size, width: size }}
     >
-      <MessageCircle size={Math.round(size * 0.44)} strokeWidth={2.2} aria-hidden="true" />
+      <MessageCircle
+        size={Math.round(size * 0.44)}
+        strokeWidth={2.2}
+        aria-hidden="true"
+      />
     </span>
   );
 }

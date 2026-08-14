@@ -19,10 +19,10 @@ function ScrollToTop() {
 }
 
 /** Market home: "/uk", "/us/", etc. The bare "/" redirects before reaching Layout. */
-const MARKET_HOME = /^\/(uk|us|ca|ae)\/?$/i;
+// const MARKET_HOME = /^\/(uk|us|ca|ae)\/?$/i;
 
 export default function Layout() {
-  const { pathname } = useLocation();
+  // const { pathname } = useLocation();
 
   /*
    * The band ships once per page. Every route gets it immediately above the footer,
@@ -31,7 +31,6 @@ export default function Layout() {
    * against the closing photograph. Rendering it here as well would give the
    * homepage two.
    */
-  const bandBeforeFooter = !MARKET_HOME.test(pathname);
 
   return (
     <AiChatProvider>
@@ -42,7 +41,7 @@ export default function Layout() {
         <main className="flex-1">
           <Outlet />
         </main>
-        {bandBeforeFooter && <AiBand />}
+        {/* {bandBeforeFooter && <AiBand />} */}
         <Footer />
         <CartDrawer />
         <AiChatWidget />

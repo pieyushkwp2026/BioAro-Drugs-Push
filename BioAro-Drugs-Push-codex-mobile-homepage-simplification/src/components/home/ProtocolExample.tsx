@@ -3,9 +3,16 @@ import { Check, Dumbbell, Info, Moon, Plus, Sunrise } from "lucide-react";
 import { useCart } from "../../hooks/useCart";
 import { useMarket } from "../../hooks/useMarket";
 import { useMarketHref } from "../../hooks/useMarketHref";
-import { formatCatalogMoney, isCurrencyAlignedWithMarket } from "../../lib/market/config";
+import {
+  formatCatalogMoney,
+  isCurrencyAlignedWithMarket,
+} from "../../lib/market/config";
 import { ROUTES } from "../../lib/routes";
-import { PROTOCOL_EXAMPLE, PROTOCOL_SECTION, type ProtocolSlotIcon } from "../../data/homepage";
+import {
+  PROTOCOL_EXAMPLE,
+  PROTOCOL_SECTION,
+  type ProtocolSlotIcon,
+} from "../../data/homepage";
 import type { CatalogProduct } from "../../lib/shopify/types";
 import { Eyebrow, PrimaryCta, Section, SectionHeading } from "./primitives";
 
@@ -30,7 +37,11 @@ const SLOT_ICONS: Record<ProtocolSlotIcon, typeof Sunrise> = {
   evening: Moon,
 };
 
-export default function ProtocolExample({ byHandle }: { byHandle: Map<string, CatalogProduct> }) {
+export default function ProtocolExample({
+  byHandle,
+}: {
+  byHandle: Map<string, CatalogProduct>;
+}) {
   const marketHref = useMarketHref();
   const { country } = useMarket();
   const { addProducts } = useCart();
@@ -38,7 +49,9 @@ export default function ProtocolExample({ byHandle }: { byHandle: Map<string, Ca
 
   const slots = PROTOCOL_EXAMPLE.map((slot) => ({
     ...slot,
-    products: slot.handles.map((handle) => byHandle.get(handle)).filter((p): p is CatalogProduct => Boolean(p)),
+    products: slot.handles
+      .map((handle) => byHandle.get(handle))
+      .filter((p): p is CatalogProduct => Boolean(p)),
   })).filter((slot) => slot.products.length > 0);
 
   const all = slots.flatMap((slot) => slot.products);
@@ -66,7 +79,10 @@ export default function ProtocolExample({ byHandle }: { byHandle: Map<string, Ca
   };
 
   return (
-    <Section id="protocols" className="scroll-mt-[112px] pb-20 sm:pb-24 lg:pb-28">
+    <Section
+      id="protocols"
+      className="scroll-mt-[112px] pb-20 sm:pb-24 lg:pb-28"
+    >
       <div className="grid gap-x-16 gap-y-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
         <div className="lg:sticky lg:top-[112px] lg:self-start">
           <Eyebrow>{PROTOCOL_SECTION.eyebrow}</Eyebrow>
@@ -82,38 +98,101 @@ export default function ProtocolExample({ byHandle }: { byHandle: Map<string, Ca
           </p>
 
           <p className="mt-6 flex max-w-[44ch] items-start gap-2.5 text-[13.5px] leading-[1.55] text-ink-400">
-            <Info size={15} strokeWidth={2} aria-hidden="true" className="mt-0.5 shrink-0" />
+            <Info
+              size={15}
+              strokeWidth={2}
+              aria-hidden="true"
+              className="mt-0.5 shrink-0"
+            />
             {PROTOCOL_SECTION.illustrativeNote}
           </p>
 
           <div className="mt-8">
-            <PrimaryCta to={marketHref(ROUTES.quiz)}>{PROTOCOL_SECTION.cta}</PrimaryCta>
+            <PrimaryCta to={marketHref(ROUTES.quiz)}>
+              {PROTOCOL_SECTION.cta}
+            </PrimaryCta>
           </div>
         </div>
 
         {/* -------------------------------------------------- the day */}
         <ol>
           {slots.map((slot) => (
-            <li key={slot.slot} className="border-t border-line py-7 first:border-t-0 first:pt-0">
-              <div className="flex items-start gap-3">
+            <li
+              key={slot.slot}
+              className="
+    group
+    rounded-[18px]
+    border
+    border-line
+    bg-cream-50
+    p-5
+    transition-all
+    duration-300
+    ease-out
+    hover:-translate-y-1
+    hover:border-line-strong
+    hover:bg-white
+    hover:shadow-[0_14px_35px_rgba(0,0,0,0.08)]
+    first:mt-0
+    mt-4
+    sm:p-6
+  "
+            >
+              <div className="flex items-center gap-3">
                 <span
                   aria-hidden="true"
-                  className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-[10px] border border-line bg-cream-50 text-ember"
+                  className="
+  flex
+  h-9
+  w-9
+  shrink-0
+  items-center
+  justify-center
+  rounded-[11px]
+  border
+  border-line
+  bg-white
+  text-ember
+  shadow-sm
+  transition-transform
+  duration-300
+  group-hover:scale-105
+"
                 >
                   {(() => {
                     const Icon = SLOT_ICONS[slot.icon];
-                    return <Icon size={15} strokeWidth={2} aria-hidden="true" />;
+                    return (
+                      <Icon size={15} strokeWidth={2} aria-hidden="true" />
+                    );
                   })()}
                 </span>
                 <div className="flex min-w-0 flex-wrap items-baseline gap-x-3 gap-y-1">
-                  <h3 className="text-[19px] font-bold tracking-[-0.025em] text-ink">{slot.slot}</h3>
-                  <span className="text-[13.5px] text-ink-400">{slot.note}</span>
+                  <h3 className="text-[20px] font-bold tracking-[-0.025em] text-ink transition-colors duration-300 group-hover:text-ink">
+                    {" "}
+                    {slot.slot}
+                  </h3>
+                  <span className="text-[13.5px] text-ink-400">
+                    {slot.note}
+                  </span>
                 </div>
               </div>
 
               <ul className="mt-4 space-y-4">
                 {slot.products.map((product) => (
-                  <li key={product.handle} className="flex items-start gap-4">
+                  <li
+                    key={product.handle}
+                    className="
+    flex
+    items-start
+    gap-4
+    rounded-[14px]
+    p-2
+    -mx-2
+    transition-colors
+    duration-200
+    hover:bg-cream
+  "
+                  >
                     <img
                       src={product.image?.src}
                       alt=""
@@ -135,7 +214,9 @@ export default function ProtocolExample({ byHandle }: { byHandle: Map<string, Ca
                         </span>
                       </div>
                       {/* The product's own label wording, not a paraphrase of it. */}
-                      <p className="mt-1 max-w-[52ch] text-[13.5px] leading-[1.55] text-ink-600">{product.dosage}</p>
+                      <p className="mt-1 max-w-[52ch] text-[13.5px] leading-[1.55] text-ink-600">
+                        {product.dosage}
+                      </p>
                     </div>
                   </li>
                 ))}
@@ -143,13 +224,18 @@ export default function ProtocolExample({ byHandle }: { byHandle: Map<string, Ca
             </li>
           ))}
 
-          <li className="border-t border-line-strong pt-7">
+          <li className="pt-7">
             {canAddAll ? (
               <>
                 <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                  <span className="text-[15px] font-bold text-ink">{all.length} formulas</span>
+                  <span className="text-[15px] font-bold text-ink">
+                    {all.length} formulas
+                  </span>
                   <span className="text-[17px] font-bold tabular-nums tracking-[-0.02em] text-ink">
-                    {formatCatalogMoney({ amount: total, currencyCode: totalCurrency }, country)}
+                    {formatCatalogMoney(
+                      { amount: total, currencyCode: totalCurrency },
+                      country,
+                    )}
                   </span>
                 </div>
                 <button
@@ -172,8 +258,9 @@ export default function ProtocolExample({ byHandle }: { byHandle: Map<string, Ca
               </>
             ) : (
               <p className="text-[14px] leading-[1.55] text-ink-400">
-                Not every formula in this example is available in your region yet, so it
-                cannot be added as a set. Each one that is available can be added on its own.
+                Not every formula in this example is available in your region
+                yet, so it cannot be added as a set. Each one that is available
+                can be added on its own.
               </p>
             )}
           </li>

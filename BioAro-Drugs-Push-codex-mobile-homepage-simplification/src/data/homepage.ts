@@ -21,7 +21,8 @@ export const HERO = {
      mid-brand, as "Your BioAro / Drugs Protocol." The NBSP forces the break to fall
      after the brand instead. */
   headline: ["Your Goals.", "Your Routine.", "Your BioAro Drugs Protocol."],
-  standfirst: "AI-guided personalization meets evidence-informed bioactive formulations.",
+  standfirst:
+    "AI-guided personalization meets evidence-informed bioactive formulations.",
   explainer:
     "Tell BioAro Drugs AI what you want to improve. It maps your goals and daily routine to the formulas that fit, and builds you a starting protocol.",
   primaryCta: "Build My Protocol",
@@ -58,7 +59,11 @@ export const GOALS: HomepageGoal[] = [
   { id: "recovery", label: "Recovery", handle: "creagen-pro-power" },
   { id: "sleep", label: "Sleep", handle: null },
   { id: "performance", label: "Performance", handle: "creagen-raw-power" },
-  { id: "womens-health", label: "Women's Health", handle: "creagen-femme-energy" },
+  {
+    id: "womens-health",
+    label: "Women's Health",
+    handle: "creagen-femme-energy",
+  },
 ];
 
 export const AI_SECTION = {
@@ -103,10 +108,22 @@ export const AI_SECTION = {
      builder produces — a starting point you can adjust — rather than implying a
      clinical output. */
   steps: [
-    { title: "Goals", body: "You tell BioAro Drugs what you want to improve and how your days actually run." },
-    { title: "Framework", body: "Your answers are matched against the BioAro Drugs range and its formulation framework." },
-    { title: "Rationale", body: "You see why a formula is relevant to you, in plain language, before you buy anything." },
-    { title: "Starting protocol", body: "You get a suggested starting protocol — a beginning you can adjust, not a prescription." },
+    {
+      title: "Goals",
+      body: "You tell BioAro Drugs what you want to improve and how your days actually run.",
+    },
+    {
+      title: "Framework",
+      body: "Your answers are matched against the BioAro Drugs range and its formulation framework.",
+    },
+    {
+      title: "Rationale",
+      body: "You see why a formula is relevant to you, in plain language, before you buy anything.",
+    },
+    {
+      title: "Starting protocol",
+      body: "You get a suggested starting protocol — a beginning you can adjust, not a prescription.",
+    },
   ],
   disclosure:
     "BioAro Drugs AI works from the goals and routine information you provide. It does not diagnose conditions, read biomarkers or genetic data, and it does not replace professional medical advice.",
@@ -203,16 +220,32 @@ export const PROTOCOL_EXAMPLE: {
   icon: ProtocolSlotIcon;
   handles: string[];
 }[] = [
-  { slot: "Morning", note: "With food", icon: "morning", handles: ["longevity-plus", "cellomega-plus"] },
-  { slot: "Around training", note: "During or after", icon: "training", handles: ["creagen-pro-power"] },
-  { slot: "Evening", note: "Any time of day — most people anchor it to the end of theirs", icon: "evening", handles: ["glutara"] },
+  {
+    slot: "Morning",
+    note: "With food",
+    icon: "morning",
+    handles: ["longevity-plus", "cellomega-plus"],
+  },
+  {
+    slot: "Around training",
+    note: "During or after",
+    icon: "training",
+    handles: ["creagen-pro-power"],
+  },
+  {
+    slot: "Evening",
+    note: "Any time of day — most people anchor it to the end of theirs",
+    icon: "evening",
+    handles: ["glutara"],
+  },
 ];
 
 export const PROTOCOL_SECTION = {
   eyebrow: "Your BioAro Drugs Protocol",
   headline: ["One person.", "One protocol."],
   body: "Here is what a protocol looks like when it is built around a goal rather than a shelf. Your starting protocol is shaped by the goals and routine you describe, so it will not look like this one.",
-  illustrativeNote: "Example protocol, shown to illustrate the shape. Not a recommendation.",
+  illustrativeNote:
+    "Example protocol, shown to illustrate the shape. Not a recommendation.",
   cta: "Build My Protocol",
   addAllCta: "Add this protocol to cart",
 } as const;

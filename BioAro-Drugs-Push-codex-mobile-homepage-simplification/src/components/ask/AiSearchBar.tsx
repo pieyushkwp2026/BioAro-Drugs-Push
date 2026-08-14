@@ -1,11 +1,31 @@
-import { type FormEvent, useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
+import {
+  type FormEvent,
+  useCallback,
+  useEffect,
+  useId,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, ArrowUp, Check, CornerDownLeft, Plus, ShieldAlert, Sparkles, X } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowUp,
+  Check,
+  CornerDownLeft,
+  Plus,
+  ShieldAlert,
+  Sparkles,
+  X,
+} from "lucide-react";
 import { useCart } from "../../hooks/useCart";
 import { useCatalog } from "../../hooks/useCatalog";
 import { useMarket } from "../../hooks/useMarket";
 import { useMarketHref } from "../../hooks/useMarketHref";
-import { formatCatalogMoney, isCurrencyAlignedWithMarket } from "../../lib/market/config";
+import {
+  formatCatalogMoney,
+  isCurrencyAlignedWithMarket,
+} from "../../lib/market/config";
 import { ROUTES } from "../../lib/routes";
 import {
   askBioAro,
@@ -100,7 +120,11 @@ function ProductRow({ product }: { product: CatalogProduct }) {
           onClick={() => void onAdd()}
           className="flex h-9 shrink-0 items-center gap-1.5 rounded-full bg-ember px-3.5 text-[12.5px] font-bold text-white transition-[background-color,transform] duration-200 hover:bg-ember-600 active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember motion-reduce:active:scale-100"
         >
-          {added ? <Check size={13} strokeWidth={2.8} aria-hidden="true" /> : <Plus size={13} strokeWidth={2.8} aria-hidden="true" />}
+          {added ? (
+            <Check size={13} strokeWidth={2.8} aria-hidden="true" />
+          ) : (
+            <Plus size={13} strokeWidth={2.8} aria-hidden="true" />
+          )}
           {added ? "Added" : "Add"}
         </button>
       )}
@@ -108,7 +132,11 @@ function ProductRow({ product }: { product: CatalogProduct }) {
   );
 }
 
-export default function AiSearchBar({ variant = "hero" }: { variant?: "hero" | "compact" }) {
+export default function AiSearchBar({
+  variant = "hero",
+}: {
+  variant?: "hero" | "compact";
+}) {
   const inputId = useId();
   const panelId = useId();
   const inputRef = useRef<HTMLInputElement>(null);
@@ -135,7 +163,10 @@ export default function AiSearchBar({ variant = "hero" }: { variant?: "hero" | "
     const full = PLACEHOLDERS[placeholderIndex];
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setTyped(full);
-      const hold = window.setTimeout(() => setPlaceholderIndex((i) => (i + 1) % PLACEHOLDERS.length), 4000);
+      const hold = window.setTimeout(
+        () => setPlaceholderIndex((i) => (i + 1) % PLACEHOLDERS.length),
+        4000,
+      );
       return () => window.clearTimeout(hold);
     }
 
@@ -145,7 +176,10 @@ export default function AiSearchBar({ variant = "hero" }: { variant?: "hero" | "
       setTyped(full.slice(0, i));
       if (i >= full.length) {
         window.clearInterval(tick);
-        window.setTimeout(() => setPlaceholderIndex((n) => (n + 1) % PLACEHOLDERS.length), 2600);
+        window.setTimeout(
+          () => setPlaceholderIndex((n) => (n + 1) % PLACEHOLDERS.length),
+          2600,
+        );
       }
     }, 34);
     return () => window.clearInterval(tick);
@@ -179,7 +213,8 @@ export default function AiSearchBar({ variant = "hero" }: { variant?: "hero" | "
       inputRef.current?.focus();
     };
     const onDown = (event: PointerEvent) => {
-      if (wrapRef.current && !wrapRef.current.contains(event.target as Node)) close();
+      if (wrapRef.current && !wrapRef.current.contains(event.target as Node))
+        close();
     };
     document.addEventListener("keydown", onKey);
     document.addEventListener("pointerdown", onDown);
@@ -240,8 +275,17 @@ export default function AiSearchBar({ variant = "hero" }: { variant?: "hero" | "
   /* Products mentioned by the retrieved sources, de-duplicated, max three. */
   const products = useMemo(() => {
     if (result?.kind !== "answer") return [];
-    const handles = [...new Set(result.answers.map(productHandleFrom).filter((h): h is string => Boolean(h)))];
-    return handles.map((h) => byHandle.get(h)).filter((p): p is CatalogProduct => Boolean(p)).slice(0, 3);
+    const handles = [
+      ...new Set(
+        result.answers
+          .map(productHandleFrom)
+          .filter((h): h is string => Boolean(h)),
+      ),
+    ];
+    return handles
+      .map((h) => byHandle.get(h))
+      .filter((p): p is CatalogProduct => Boolean(p))
+      .slice(0, 3);
   }, [result, byHandle]);
 
   const supporting = result?.kind === "answer" ? result.answers.slice(1) : [];
@@ -255,7 +299,9 @@ export default function AiSearchBar({ variant = "hero" }: { variant?: "hero" | "
         </label>
         <div
           className={`group flex items-center gap-3 rounded-full border bg-white transition-[border-color,box-shadow] duration-200 focus-within:border-ember/60 focus-within:shadow-[0_0_0_4px_rgba(193,70,42,0.12)] ${
-            open ? "border-ember/60 shadow-[0_0_0_4px_rgba(193,70,42,0.12)]" : "border-line-strong shadow-glass"
+            open
+              ? "border-ember/60 shadow-[0_0_0_4px_rgba(193,70,42,0.12)]"
+              : "border-line-strong shadow-glass"
           } ${isHero ? "h-[62px] pl-5 pr-2 sm:h-[68px] sm:pl-6 sm:pr-2.5" : "h-[52px] pl-4 pr-1.5"}`}
         >
           <Sparkles
@@ -306,7 +352,11 @@ export default function AiSearchBar({ variant = "hero" }: { variant?: "hero" | "
               isHero ? "h-[46px] w-[46px] sm:h-[50px] sm:w-[50px]" : "h-10 w-10"
             }`}
           >
-            <ArrowUp size={isHero ? 19 : 17} strokeWidth={2.6} aria-hidden="true" />
+            <ArrowUp
+              size={isHero ? 19 : 17}
+              strokeWidth={2.6}
+              aria-hidden="true"
+            />
           </button>
         </div>
       </form>
@@ -346,7 +396,9 @@ export default function AiSearchBar({ variant = "hero" }: { variant?: "hero" | "
             <p className="min-w-0 flex-1 text-[12px] font-bold uppercase tracking-[0.14em] text-ink-400">
               <span className="text-ember">BioAro Drugs AI</span>
               <span className="mx-2 text-line-strong">/</span>
-              <span className="normal-case tracking-normal text-ink-600">{asked}</span>
+              <span className="normal-case tracking-normal text-ink-600">
+                {asked}
+              </span>
             </p>
             <button
               type="button"
@@ -358,7 +410,11 @@ export default function AiSearchBar({ variant = "hero" }: { variant?: "hero" | "
             </button>
           </div>
 
-          <div aria-live="polite" aria-busy={status === "searching"} className="mt-4">
+          <div
+            aria-live="polite"
+            aria-busy={status === "searching"}
+            className="mt-4"
+          >
             {status === "searching" && (
               <div className="space-y-2.5" aria-label="Searching">
                 <div className="h-4 w-[92%] animate-pulse rounded bg-cream-200" />
@@ -370,11 +426,22 @@ export default function AiSearchBar({ variant = "hero" }: { variant?: "hero" | "
             {result?.kind === "sensitive" && (
               <div>
                 <p className="flex items-center gap-2 text-[16px] font-bold tracking-[-0.02em] text-ink">
-                  <ShieldAlert size={17} strokeWidth={2.2} aria-hidden="true" className="text-ember" />
+                  <ShieldAlert
+                    size={17}
+                    strokeWidth={2.2}
+                    aria-hidden="true"
+                    className="text-ember"
+                  />
                   {SENSITIVE_HEADING}
                 </p>
-                <p className="mt-2.5 text-pretty text-[14.5px] leading-[1.6] text-ink-600">{SENSITIVE_BODY}</p>
-                <Link to={marketHref(ROUTES.support)} onClick={close} className="btn-secondary mt-5">
+                <p className="mt-2.5 text-pretty text-[14.5px] leading-[1.6] text-ink-600">
+                  {SENSITIVE_BODY}
+                </p>
+                <Link
+                  to={marketHref(ROUTES.support)}
+                  onClick={close}
+                  className="btn-secondary mt-5"
+                >
                   Contact support
                   <ArrowRight size={15} strokeWidth={2.4} aria-hidden="true" />
                 </Link>
@@ -387,11 +454,15 @@ export default function AiSearchBar({ variant = "hero" }: { variant?: "hero" | "
                   That one is worth a couple of questions.
                 </p>
                 <p className="mt-2.5 max-w-[58ch] text-pretty text-[14.5px] leading-[1.6] text-ink-600">
-                  Choosing between formulas depends on your goals and how your days run.
-                  The Protocol Builder asks four questions and explains why each formula
-                  is in your result.
+                  Choosing between formulas depends on your goals and how your
+                  days run. The Protocol Builder asks four questions and
+                  explains why each formula is in your result.
                 </p>
-                <Link to={marketHref(ROUTES.quiz)} onClick={close} className="btn-primary mt-5">
+                <Link
+                  to={marketHref(ROUTES.quiz)}
+                  onClick={close}
+                  className="btn-primary mt-5"
+                >
                   Build My Protocol
                   <ArrowRight size={15} strokeWidth={2.4} aria-hidden="true" />
                 </Link>
@@ -404,8 +475,8 @@ export default function AiSearchBar({ variant = "hero" }: { variant?: "hero" | "
                   I do not have an answer for that one.
                 </p>
                 <p className="mt-2.5 max-w-[58ch] text-pretty text-[14.5px] leading-[1.6] text-ink-600">
-                  Try asking about an ingredient and its dose, how the sachets work,
-                  third-party testing, or what a formula is for.
+                  Try asking about an ingredient and its dose, how the sachets
+                  work, third-party testing, or what a formula is for.
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {SUGGESTIONS.slice(0, 3).map((suggestion) => (
@@ -427,7 +498,10 @@ export default function AiSearchBar({ variant = "hero" }: { variant?: "hero" | "
                 <p className="text-pretty text-[15.5px] leading-[1.65] text-ink">
                   {leadAnswer.answer.slice(0, revealed)}
                   {status === "revealing" && (
-                    <span aria-hidden="true" className="ml-0.5 inline-block h-[1.05em] w-[2px] translate-y-[0.18em] bg-ember" />
+                    <span
+                      aria-hidden="true"
+                      className="ml-0.5 inline-block h-[1.05em] w-[2px] translate-y-[0.18em] bg-ember"
+                    />
                   )}
                 </p>
 
@@ -439,7 +513,11 @@ export default function AiSearchBar({ variant = "hero" }: { variant?: "hero" | "
                       className="mt-4 inline-flex items-center gap-2 rounded-full border border-line bg-cream-50 px-3.5 py-2 text-[12.5px] font-bold text-ink-600 transition-colors hover:border-line-strong hover:text-ink"
                     >
                       {leadAnswer.source.label}
-                      <ArrowRight size={13} strokeWidth={2.4} aria-hidden="true" />
+                      <ArrowRight
+                        size={13}
+                        strokeWidth={2.4}
+                        aria-hidden="true"
+                      />
                     </Link>
 
                     {products.length > 0 && (
@@ -482,7 +560,12 @@ export default function AiSearchBar({ variant = "hero" }: { variant?: "hero" | "
           </div>
 
           <p className="mt-6 flex items-start gap-2 border-t border-line pt-4 text-[12px] leading-[1.55] text-ink-400">
-            <CornerDownLeft size={13} strokeWidth={2} aria-hidden="true" className="mt-0.5 shrink-0" />
+            <CornerDownLeft
+              size={13}
+              strokeWidth={2}
+              aria-hidden="true"
+              className="mt-0.5 shrink-0"
+            />
             {SAFETY_NOTE}
           </p>
         </div>
