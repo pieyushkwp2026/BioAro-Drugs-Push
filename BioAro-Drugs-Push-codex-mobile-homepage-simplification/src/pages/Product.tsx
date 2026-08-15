@@ -8,9 +8,9 @@ import { useMarket } from "../hooks/useMarket";
 import { useMarketHref } from "../hooks/useMarketHref";
 import { ROUTES } from "../lib/routes";
 import { SLOT_BY_HANDLE } from "../lib/protocol/build";
-import { PRODUCT_LIFESTYLE } from "../data/productLifestyle";
 import { PDP } from "../data/productPage";
 import { PRODUCT_GALLERIES } from "../data/productGalleries";
+import { hasEditorialBand } from "../data/productLifestyle";
 import { JOURNAL_ARTICLES } from "../data/journal";
 import type { CatalogProduct } from "../lib/shopify/types";
 import AccordionGroup from "../components/page/AccordionGroup";
@@ -20,6 +20,7 @@ import BuyRail from "../components/product/BuyRail";
 import FormulationTable from "../components/product/FormulationTable";
 import IngredientCards from "../components/product/IngredientCards";
 import Composition from "../components/product/Composition";
+import EditorialBand from "../components/product/EditorialBand";
 import Disclosure from "../components/product/Disclosure";
 import SectionNav, { type NavSection } from "../components/product/SectionNav";
 
@@ -205,7 +206,6 @@ export default function Product() {
   const QUALITY_TERMS = /tested|third-party|third party|non-gmo|gluten|purity|potency|quality|allergen|vegan/i;
   const qualityBadges = (product.qualityBadges ?? []).filter((badge) => badge.enabled);
   const slot = SLOT_BY_HANDLE[product.handle];
-  const lifestyle = PRODUCT_LIFESTYLE[product.handle];
   const qualityClaims =
     qualityBadges.length > 0
       ? qualityBadges.map((badge) => badge.title)
@@ -240,26 +240,17 @@ export default function Product() {
         </div>
       </div>
 
+      {/* The band comes BEFORE the nav, not after. The nav is sticky, so with the band
+          below it the photograph would spend its whole scroll underneath a translucent
+          bar, and the nav would sit stranded above content it does not index. Here the
+          photograph is seen clean and the nav pins to the sections it links to. */}
+      <EditorialBand product={product} />
+
       {sections.length > 1 && (
-        <div className="mt-16 md:mt-20">
+        <div className={hasEditorialBand(product.handle) ? undefined : "mt-16 md:mt-20"}>
           <div className="container-bio">
             <SectionNav sections={sections} />
           </div>
-        </div>
-      )}
-
-      {/* Breaks the run of text the way Seed's page does. Full-bleed, outside the
-          reading column, and absent entirely for products with no photograph rather
-          than borrowing one from another product. */}
-      {lifestyle && (
-        <div className="mt-16 overflow-hidden md:mt-20">
-          <img
-            src={lifestyle.src}
-            alt={lifestyle.alt}
-            loading="lazy"
-            decoding="async"
-            className="h-[280px] w-full object-cover sm:h-[380px] lg:h-[460px]"
-          />
         </div>
       )}
 
