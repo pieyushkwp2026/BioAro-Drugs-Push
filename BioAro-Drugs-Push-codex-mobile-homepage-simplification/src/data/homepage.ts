@@ -85,6 +85,33 @@ export const AI_SECTION = {
      verb because that is what a screen reader announces on focus. */
   dialogLabel: "Build your protocol with BioAro Drugs AI",
   close: "Close",
+  /* The descriptor names what the product does. It is not a capability claim: the
+     engine builds protocols from what you tell it, which is exactly what it says. */
+  descriptor: "Your intelligent bioactive protocol engine",
+  /* "Picked up", never "understood" — the goals came from matching words in a
+     sentence, and the note underneath says so plainly rather than implying more. */
+  pickedUp: "I picked up",
+  pickedUpNote: "Change any of these below.",
+  askHint: "Ask BioAro Drugs a question, or answer above",
+  /* CTA language tracks how finished the protocol is. Calling it ready while
+     questions remain is the one thing that would make the whole flow feel scripted. */
+  continueRefining: "Continue refining my protocol",
+  viewProtocol: "View my protocol",
+  adjust: "Adjust my answers",
+  remaining: (count: number) => `${count} question${count === 1 ? "" : "s"} left`,
+  completeNote:
+    "That is everything that would change your protocol. Anything else you tell me will not move it, so here is where it stands.",
+  refinedHeadline: "Your protocol is ready.",
+  readyMeta: "Based on what you told us",
+  /* Progressive labels for the preview. Nothing is called a starting protocol until
+     no outstanding question could still change it. */
+  previewPotential: "Potential fit",
+  previewDraft: "Draft protocol",
+  previewFinal: "Your BioAro Drugs Starting Protocol",
+  previewDraftNote: "Still being refined — this will change as you answer.",
+  whyThis: "Why this?",
+  viewFormulation: "View formulation",
+  addProtocol: "Add protocol to cart",
   /* The modal asks rather than restates. Repeating the section headline and body
      inside a panel opened FROM that section is the duplication this site keeps
      removing — by the time it is open, the pitch has landed and the task is what

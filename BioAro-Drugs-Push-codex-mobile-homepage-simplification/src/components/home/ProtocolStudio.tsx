@@ -1,10 +1,10 @@
 import { GOALS } from "../../data/homepage";
-import type { ProtocolDraft } from "../../hooks/useProtocolDraft";
 import type { CatalogProduct } from "../../lib/shopify/types";
 import Modal from "../ui/Modal";
+import { useProtocolSession } from "../../hooks/useProtocolSession";
 import ProtocolPreview from "./ProtocolPreview";
 import { GoalChips, IntentBox } from "./protocolControls";
-import { useEffect, useId, useRef, useState, type FormEvent } from "react";
+import { useEffect, useId, useRef, useState, type FormEvent, type ReactNode } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -42,19 +42,6 @@ import {
 
 import { ROUTES } from "../../lib/routes";
 
-type StudioMode = "protocol" | "chat";
-
-type ChatMessage = {
-  id: string;
-  role: "user" | "assistant";
-  text: string;
-};
-
-function getMatchedLabels(draft: ProtocolDraft) {
-  return draft.matched
-    .map((id) => GOALS.find((goal) => goal.id === id)?.label)
-    .filter(Boolean);
-}
 function productHandleFrom(answer: AskAnswer): string | null {
   const match = answer.source.href.match(/^\/products\/([a-z0-9-]+)$/i);
   return match ? match[1] : null;
@@ -313,77 +300,7 @@ function ChatAiResponse({
       )}
     </div>
   );
-}
-
-/**
- * The AI feedback that used to sit underneath IntentBox.
- *
- * In protocol mode this lives BELOW the search + chips.
- * In chat mode the same information becomes the first assistant message.
- */
-function AiResponse({ draft }: { draft: ProtocolDraft }) {
-  const matchedLabels = getMatchedLabels(draft);
-
-  if (!draft.noMatch && matchedLabels.length === 0) {
-    return null;
-  }
-
-  return (
-    <div className="mt-7 animate-[fadeIn_250ms_ease-out] border-t border-line pt-6">
-      <div className="rounded-[18px] border border-line bg-cream-50 px-4 py-4">
-        <div className="flex items-start gap-3">
-          <span
-            aria-hidden="true"
-            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[rgba(193,70,42,0.09)] text-ember"
-          >
-            <Sparkles size={14} strokeWidth={2.2} />
-          </span>
-
-          <div className="min-w-0">
-            {draft.noMatch ? (
-              <p
-                role="status"
-                className="text-[13.5px] leading-[1.55] text-ink-600"
-              >
-                {AI_SECTION.noMatch}
-              </p>
-            ) : (
-              <>
-                <p className="text-[13.5px] leading-[1.55] text-ink-600">
-                  I picked up{" "}
-                  <span className="font-bold text-ink">
-                    {matchedLabels.join(" + ")}
-                  </span>{" "}
-                  from what you wrote.
-                </p>
-
-                <p className="mt-1.5 text-[13px] leading-[1.55] text-ink-400">
-                  {AI_SECTION.matchedCaption}{" "}
-                  <button
-                    type="button"
-                    onClick={draft.clearMatched}
-                    className="font-bold text-ink underline-offset-4 transition-colors hover:text-ember hover:underline"
-                  >
-                    {AI_SECTION.matchedClear}
-                  </button>
-                </p>
-              </>
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/**
- * Small chat composer used only after switching the left pane into chat mode.
- *
- * It intentionally does not use ProtocolDraft.message as its value because
- * the original protocol prompt needs to remain available as the first
- * conversation message.
- */
-function ChatComposer({
+}function ChatComposer({
   value,
   onChange,
   onSend,
@@ -404,7 +321,7 @@ function ChatComposer({
   return (
     <form onSubmit={submit} className="relative">
       <label htmlFor={inputId} className="sr-only">
-        Reply to BioAro AI
+        Ask BioAro Drugs AI
       </label>
 
       <div className="flex items-end gap-2 rounded-[20px] border border-line-strong bg-white p-2 shadow-glass transition-[border-color,box-shadow] duration-200 focus-within:border-ember/60 focus-within:shadow-[0_0_0_4px_rgba(193,70,42,0.10)]">
@@ -418,7 +335,7 @@ function ChatComposer({
               onSend();
             }
           }}
-          placeholder="Tell BioAro AI anything else..."
+          placeholder="Ask BioAro Drugs AI anything…"
           rows={2}
           className="min-h-[44px] min-w-0 flex-1 resize-none bg-transparent px-2 py-2 text-[14px] leading-[1.5] text-ink outline-none placeholder:text-ink-400"
         />
@@ -436,267 +353,125 @@ function ChatComposer({
   );
 }
 
-function ChatMessageBubble({ message }: { message: ChatMessage }) {
-  const isUser = message.role === "user";
-
-  return (
-    <div
-      className={`flex ${
-        isUser ? "justify-end" : "justify-start"
-      } animate-[fadeIn_250ms_ease-out]`}
-    >
-      <div
-        className={`
-          max-w-[88%] rounded-[18px] px-4 py-3
-          ${
-            isUser
-              ? "rounded-br-[6px] bg-ember text-white"
-              : "rounded-bl-[6px] border border-line bg-cream-50 text-ink-600"
-          }
-        `}
-      >
-        {!isUser && (
-          <div className="mb-1.5 flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.08em] text-ember">
-            <Sparkles size={12} strokeWidth={2.2} aria-hidden="true" />
-            BioAro AI
-          </div>
-        )}
-
-        <p className="whitespace-pre-wrap text-[14px] leading-[1.55]">
-          {message.text}
-        </p>
-      </div>
-    </div>
-  );
-}
 
 /*
- * The protocol studio — the intent step in a modal.
+ * The studio — one conversational column, and a protocol taking shape beside it.
  *
- * Protocol mode:
- *   search → goals → AI response → disclosure
+ * ---------------------------------------------------------------------------
+ * NO MODES.
  *
- * Chat mode:
- *   existing search/result become conversation history → reply composer
+ * This used to be "Protocol mode" and "Chat mode" behind a toggle, which asked a
+ * visitor to understand an implementation detail before they could use the thing.
+ * There is now one thread. BioAro Drugs AI asks the next question; the composer
+ * underneath takes anything else. A free-text question is answered inline and the
+ * outstanding question stays at the bottom, so asking something never abandons the
+ * protocol being built.
  *
- * The right-hand protocol preview stays live in both modes.
+ * That is the rule chat obeys here: it explains, and it never recommends. Products
+ * come from `buildProtocol` and nothing else.
+ *
+ * ---------------------------------------------------------------------------
+ * THE RIGHT PANEL IS HONEST ABOUT HOW FINISHED IT IS.
+ *
+ * Showing a named product after one word looks like the answer was decided in
+ * advance. Every label on that side is driven by `completionState`, so a draft is
+ * called a draft until nothing is left that could change it.
+ * ---------------------------------------------------------------------------
  */
+
+type Turn =
+  | { id: string; kind: "ai"; text: string }
+  | { id: string; kind: "you"; text: string }
+  | { id: string; kind: "ask"; question: string; result: AskResult | null };
+
+let turnSeq = 0;
+const nextTurnId = () => `turn-${(turnSeq += 1)}`;
+
 export default function ProtocolStudio({
   open,
-  draft,
   byHandle,
   onClose,
   onContinue,
   autoFocusInput = false,
 }: {
   open: boolean;
-  draft: ProtocolDraft;
   byHandle: Map<string, CatalogProduct>;
   onClose: () => void;
   onContinue: () => void;
   autoFocusInput?: boolean;
 }) {
   const headingId = useId();
-
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const previewRef = useRef<HTMLDivElement>(null);
-  const chatScrollRef = useRef<HTMLDivElement>(null);
-  const pendingChatMessageRef = useRef<string | null>(null);
+  const threadEndRef = useRef<HTMLDivElement>(null);
 
-  const [mode, setMode] = useState<StudioMode>("protocol");
-  const [chatInput, setChatInput] = useState("");
-  const [conversation, setConversation] = useState<ChatMessage[]>([]);
-  type ChatStatus = "idle" | "searching" | "revealing" | "done";
-  const [chatResult, setChatResult] = useState<AskResult | null>(null);
+  const session = useProtocolSession();
+  const { view } = session;
+  const { completionState, question, remaining } = view;
 
-  const [chatStatus, setChatStatus] = useState<ChatStatus>("idle");
+  const [thread, setThread] = useState<Turn[]>([]);
+  const [composer, setComposer] = useState("");
+  const [asking, setAsking] = useState(false);
 
-  const [chatRevealed, setChatRevealed] = useState(0);
+  const goalLabels = view.session.detectedGoals
+    .map((id) => GOALS.find((goal) => goal.id === id)?.label)
+    .filter((label): label is string => Boolean(label));
 
-  const chatLeadAnswer =
-    chatResult?.kind === "answer" ? chatResult.answers[0] : null;
-
-  useEffect(() => {
-    if (chatStatus !== "revealing" || !chatLeadAnswer) {
-      return;
-    }
-
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setChatRevealed(chatLeadAnswer.answer.length);
-      setChatStatus("done");
-      return;
-    }
-
-    const total = chatLeadAnswer.answer.length;
-
-    const step = Math.max(2, Math.round(total / 90));
-
-    const tick = window.setInterval(() => {
-      setChatRevealed((current) => {
-        const next = current + step;
-
-        if (next >= total) {
-          window.clearInterval(tick);
-          setChatStatus("done");
-
-          return total;
-        }
-
-        return next;
-      });
-    }, 16);
-
-    return () => window.clearInterval(tick);
-  }, [chatStatus, chatLeadAnswer]);
+  /* The acknowledgement is derived, not stored: it should always describe the goals
+     that are actually selected, including after a chip is toggled off. */
+  const acknowledgement =
+    goalLabels.length > 0 ? `${AI_SECTION.pickedUp} ${goalLabels.join(" and ")}.` : null;
 
   const stacked =
-    typeof window !== "undefined" &&
-    !window.matchMedia("(min-width: 1024px)").matches;
+    typeof window !== "undefined" && !window.matchMedia("(min-width: 1024px)").matches;
 
-  /*
-   * When the modal first opens after the homepage search, seed chat history
-   * from the exact interaction that produced the protocol.
-   */
   useEffect(() => {
-    if (!open || conversation.length > 0 || !draft.message.trim()) {
-      return;
-    }
-
-    const matchedLabels = getMatchedLabels(draft);
-
-    const assistantText = draft.noMatch
-      ? AI_SECTION.noMatch
-      : matchedLabels.length > 0
-        ? `I picked up ${matchedLabels.join(
-            " + ",
-          )} from what you wrote. You can change any of those goals before we continue.`
-        : "I’ve got your starting point. We can refine it together.";
-
-    setConversation([
-      {
-        id: `user-${Date.now()}`,
-        role: "user",
-        text: draft.message.trim(),
-      },
-      {
-        id: `assistant-${Date.now()}`,
-        role: "assistant",
-        text: assistantText,
-      },
-    ]);
-  }, [open, conversation.length, draft]);
-
-  /*
-   * When a chat reply finishes resolving, append the AI's response.
-   *
-   * The message is stored in a ref because React state is a snapshot inside
-   * the current event handler; we want the effect to append only after the
-   * async draft operation has finished.
-   */
-  useEffect(() => {
-    const pendingMessage = pendingChatMessageRef.current;
-
-    if (mode !== "chat" || !pendingMessage || draft.submitting) {
-      return;
-    }
-
-    const matchedLabels = getMatchedLabels(draft);
-
-    const assistantText = draft.noMatch
-      ? AI_SECTION.noMatch
-      : matchedLabels.length > 0
-        ? `That sounds like ${matchedLabels.join(
-            " + ",
-          )}. I’ve updated the starting direction around those goals.`
-        : "I understand. We can refine the protocol around that.";
-
-    pendingChatMessageRef.current = null;
-
-    setConversation((current) => [
-      ...current,
-      {
-        id: `assistant-${Date.now()}`,
-        role: "assistant",
-        text: assistantText,
-      },
-    ]);
-  }, [draft.submitting, draft.matched, draft.noMatch, mode]);
-
-  /*
-   * Keep the newest chat message visible.
-   */
-  useEffect(() => {
-    if (mode !== "chat") return;
-
-    const frame = requestAnimationFrame(() => {
-      chatScrollRef.current?.scrollTo({
-        top: chatScrollRef.current.scrollHeight,
-        behavior: "smooth",
-      });
-    });
-
-    return () => cancelAnimationFrame(frame);
-  }, [conversation, mode]);
-
-  /*
-   * Existing mobile behaviour: after a protocol is generated, bring the
-   * preview into view on stacked layouts.
-   */
-  useEffect(() => {
-    if (!open || !stacked || draft.goals.length === 0) return;
-
+    if (!open || !stacked || completionState === "empty") return;
     const frame = requestAnimationFrame(() =>
-      previewRef.current?.scrollIntoView({
-        block: "start",
-        behavior: "instant",
-      }),
+      previewRef.current?.scrollIntoView({ block: "start", behavior: "instant" }),
     );
-
     return () => cancelAnimationFrame(frame);
+    // Only on open: re-running as answers land would yank the page mid-tap.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open, stacked]);
 
-  const switchToChat = () => {
-    setMode("chat");
+  // Keep the newest turn in view without dragging the whole modal around it.
+  useEffect(() => {
+    if (thread.length === 0) return;
+    threadEndRef.current?.scrollIntoView({ block: "end", behavior: "smooth" });
+  }, [thread]);
 
-    requestAnimationFrame(() => {
-      chatScrollRef.current?.scrollTo({
-        top: chatScrollRef.current.scrollHeight,
-        behavior: "smooth",
-      });
-    });
-  };
-
-  const switchToProtocol = () => {
-    setMode("protocol");
-  };
-
-  const sendChatMessage = async () => {
-    const message = chatInput.trim();
-
-    if (!message || chatStatus === "searching") {
-      return;
-    }
-
-    // Add user message immediately.
-    setConversation((current) => [
+  const onAnswer = (value: string, label: string) => {
+    if (!question) return;
+    // The question and the answer both enter the log, so the thread reads back as a
+    // conversation rather than a list of orphaned replies.
+    setThread((current) => [
       ...current,
-      {
-        id: `user-${Date.now()}`,
-        role: "user",
-        text: message,
-      },
+      { id: nextTurnId(), kind: "ai", text: question.prompt },
+      { id: nextTurnId(), kind: "you", text: label },
     ]);
+    session.answerQuestion(question.field, value);
+  };
 
-    setChatInput("");
-    setChatResult(null);
-    setChatRevealed(0);
-    setChatStatus("searching");
+  const onAsk = async () => {
+    const text = composer.trim();
+    if (!text || asking) return;
 
-    const result = await askBioAro(message);
+    const id = nextTurnId();
+    setComposer("");
+    setAsking(true);
+    setThread((current) => [...current, { id, kind: "ask", question: text, result: null }]);
 
-    setChatResult(result);
+    const result = await askBioAro(text);
+    setAsking(false);
+    setThread((current) =>
+      current.map((turn) => (turn.id === id && turn.kind === "ask" ? { ...turn, result } : turn)),
+    );
+  };
 
-    setChatStatus(result.kind === "answer" ? "revealing" : "done");
+  const onAdjust = () => {
+    setThread([]);
+    session.adjustAnswers();
   };
 
   return (
@@ -717,15 +492,8 @@ export default function ProtocolStudio({
         </span>
 
         <div className="min-w-0 flex-1">
-          <p className="text-[13px] font-black uppercase tracking-[0.12em] text-ink">
-            BioAro AI Studio
-          </p>
-
-          <p className="mt-0.5 text-[11.5px] text-ink-400">
-            {mode === "protocol"
-              ? "Build a starting protocol around your goals"
-              : "Refine your protocol with AI"}
-          </p>
+          <p className="text-[13px] font-black uppercase tracking-[0.12em] text-ink">{AI_SECTION.eyebrow}</p>
+          <p className="mt-0.5 text-[11.5px] text-ink-400">{AI_SECTION.descriptor}</p>
         </div>
 
         <button
@@ -740,126 +508,121 @@ export default function ProtocolStudio({
 
       {/* --------------------------------------------------------------- body */}
       <div className="grid min-h-0 flex-1 grid-cols-1 overflow-y-auto lg:grid-cols-[minmax(0,1fr)_minmax(0,1.02fr)] lg:overflow-hidden">
-        {/* ------------------------------------------------------- left pane */}
-        {mode === "protocol" ? (
-          <div className="min-h-0 px-5 py-6 sm:px-7 sm:py-8 lg:overflow-y-auto">
+        {/* ------------------------------------------------------------ thread */}
+        <div className="flex min-h-0 flex-col lg:overflow-hidden">
+          <div className="min-h-0 flex-1 space-y-5 overflow-y-auto px-5 py-6 sm:px-7 sm:py-8">
             <h2
               id={headingId}
-              className="text-balance text-[26px] font-black leading-[1.05] tracking-[-0.03em] text-ink sm:text-[32px]"
+              className="text-balance text-[26px] font-black leading-[1.05] tracking-[-0.03em] text-ink sm:text-[30px]"
             >
-              {AI_SECTION.studioHeadline}
+              {completionState === "complete" ? AI_SECTION.refinedHeadline : AI_SECTION.studioHeadline}
             </h2>
 
-            {/* Main protocol-mode search */}
-            <div className="mt-6">
-              <IntentBox
-                draft={draft}
-                onSend={() => void draft.send()}
-                textareaRef={textareaRef}
-                rows={3}
-              />
-            </div>
+            {/* Intent entry stays until there is something to build on. */}
+            {completionState === "empty" && (
+              <>
+                <IntentBox session={session} onSend={() => void session.send()} textareaRef={textareaRef} rows={3} />
+                <GoalChips session={session} />
+              </>
+            )}
 
-            {/* Goal chips */}
-            <GoalChips draft={draft} className="mt-5" />
+            {acknowledgement && (
+              <AiBubble>
+                {acknowledgement}{" "}
+                <span className="text-ink-400">{AI_SECTION.pickedUpNote}</span>
+              </AiBubble>
+            )}
 
-            {/* AI result — BELOW search + chips */}
-            <AiResponse draft={draft} />
+            {/* Goals stay adjustable throughout — a wrong match is exactly when
+                someone needs to correct it, and burying that behind a back button
+                is how a builder starts feeling like a form. */}
+            {completionState !== "empty" && <GoalChips session={session} />}
 
-            {/* Disclosure */}
-            <p className="mt-8 max-w-[58ch] border-t border-line pt-6 text-[12.5px] leading-[1.6] text-ink-400">
-              {AI_SECTION.disclosure}
-            </p>
-          </div>
-        ) : (
-          /* ----------------------------------------------------- chat mode */
-          <div className="flex min-h-0 flex-col lg:overflow-hidden">
-            {/* Conversation history */}
-            <div
-              ref={chatScrollRef}
-              className="min-h-0 flex-1 space-y-4 overflow-y-auto px-5 py-6 sm:px-7 sm:py-8"
-            >
-              <div className="mb-5">
-                <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-ember">
-                  Your conversation
-                </p>
-
-                <h2 className="mt-2 text-[26px] font-black leading-[1.05] tracking-[-0.03em] text-ink sm:text-[32px]">
-                  Let&apos;s refine it.
-                </h2>
-              </div>
-
-              {conversation.map((message) => (
-                <ChatMessageBubble key={message.id} message={message} />
-              ))}
-
-              {/* Real AI response */}
-              {chatResult && (
-                <div className="flex justify-start animate-[fadeIn_250ms_ease-out]">
-                  <div className="max-w-[92%] rounded-[18px] rounded-bl-[6px] border border-line bg-cream-50 px-4 py-4">
+            {thread.map((turn) => {
+              if (turn.kind === "ai") return <AiBubble key={turn.id}>{turn.text}</AiBubble>;
+              if (turn.kind === "you") return <YouBubble key={turn.id}>{turn.text}</YouBubble>;
+              return (
+                <div key={turn.id} className="space-y-3">
+                  <YouBubble>{turn.question}</YouBubble>
+                  <div className="rounded-[18px] rounded-bl-[6px] border border-line bg-cream-50 px-4 py-4">
                     <div className="mb-2 flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.08em] text-ember">
-                      <Sparkles
-                        size={12}
-                        strokeWidth={2.2}
-                        aria-hidden="true"
+                      <Sparkles size={12} strokeWidth={2.2} aria-hidden="true" />
+                      {AI_SECTION.eyebrow}
+                    </div>
+                    {turn.result ? (
+                      <ChatAiResponse
+                        result={turn.result}
+                        status="done"
+                        revealed={Number.MAX_SAFE_INTEGER}
+                        byHandle={byHandle}
+                        onClose={onClose}
                       />
-                      BioAro AI
-                    </div>
-
-                    <ChatAiResponse
-                      result={chatResult}
-                      status={chatStatus}
-                      revealed={chatRevealed}
-                      byHandle={byHandle}
-                      onClose={onClose}
-                    />
+                    ) : (
+                      <div className="flex items-center gap-1.5" aria-label="Thinking" aria-live="polite">
+                        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-ember" />
+                        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-ember [animation-delay:120ms]" />
+                        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-ember [animation-delay:240ms]" />
+                      </div>
+                    )}
                   </div>
                 </div>
-              )}
+              );
+            })}
 
-              {/* Searching indicator */}
-              {chatStatus === "searching" && (
-                <div className="flex justify-start">
-                  <div className="rounded-[18px] rounded-bl-[6px] border border-line bg-cream-50 px-4 py-3">
-                    <div
-                      className="flex items-center gap-1.5"
-                      aria-label="BioAro AI is thinking"
-                      aria-live="polite"
-                    >
-                      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-ember" />
-                      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-ember [animation-delay:120ms]" />
-                      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-ember [animation-delay:240ms]" />
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
+            {/* The outstanding question is always last, so answering a side question
+                returns you to building rather than leaving you in a chat. */}
+            {question && (
+              <div className="space-y-3">
+                <AiBubble>{question.prompt}</AiBubble>
+                <ul className="flex flex-wrap gap-2.5">
+                  {question.options.map((option) => (
+                    <li key={option.value}>
+                      <button
+                        type="button"
+                        onClick={() => onAnswer(option.value, option.label)}
+                        className="rounded-full border border-line bg-white px-4 py-2.5 text-[14.5px] font-bold tracking-[-0.01em] text-ink transition-[background-color,border-color,color] duration-200 hover:border-ember hover:text-ember focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember"
+                      >
+                        {option.label}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
-            {/* Chat composer */}
-            <div className="shrink-0 border-t border-line bg-white px-5 py-4 sm:px-7">
-              <ChatComposer
-                value={chatInput}
-                onChange={setChatInput}
-                onSend={sendChatMessage}
-                disabled={draft.submitting}
-              />
+            {completionState === "complete" && (
+              <AiBubble>{AI_SECTION.completeNote}</AiBubble>
+            )}
 
-              <p className="mt-2 text-center text-[11px] text-ink-400">
-                Press Enter to send · Shift + Enter for a new line
+            {session.error && (
+              <p role="alert" className="text-[13px] text-ember-700">
+                {session.error}
               </p>
-            </div>
-          </div>
-        )}
+            )}
 
-        {/* -------------------------------------------------------- right pane */}
+            <div ref={threadEndRef} />
+          </div>
+
+          {/* Chat is secondary: one composer, no mode to learn. */}
+          {completionState !== "empty" && (
+            <div className="shrink-0 border-t border-line bg-white px-5 py-4 sm:px-7">
+              <ChatComposer value={composer} onChange={setComposer} onSend={() => void onAsk()} disabled={asking} />
+              <p className="mt-2 text-center text-[11px] text-ink-400">{AI_SECTION.askHint}</p>
+            </div>
+          )}
+        </div>
+
+        {/* ----------------------------------------------------------- preview */}
         <div
           ref={previewRef}
           className="border-t border-line bg-cream-50 px-5 py-6 sm:px-7 sm:py-8 lg:border-l lg:border-t-0 lg:overflow-y-auto"
         >
           <ProtocolPreview
-            goals={draft.goals}
-            protocol={draft.protocol}
+            goals={view.session.detectedGoals}
+            protocol={view.protocol}
             byHandle={byHandle}
+            completionState={completionState}
+            remaining={remaining}
           />
         </div>
       </div>
@@ -868,36 +631,32 @@ export default function ProtocolStudio({
       <footer className="flex shrink-0 flex-wrap items-center justify-between gap-x-4 gap-y-3 border-t border-line px-5 py-4 sm:px-7">
         <p className="flex items-center gap-2 text-[13px] text-ink-400">
           <Clock3 size={14} strokeWidth={2} aria-hidden="true" />
-          {AI_SECTION.duration}
+          {completionState === "complete"
+            ? AI_SECTION.readyMeta
+            : remaining > 0
+              ? AI_SECTION.remaining(remaining)
+              : AI_SECTION.duration}
         </p>
 
         <div className="ml-auto flex flex-wrap items-center justify-end gap-2.5">
-          {mode === "protocol" ? (
+          {completionState === "complete" && (
             <button
               type="button"
-              onClick={switchToChat}
+              onClick={onAdjust}
               className="rounded-full border border-line bg-white px-5 py-3 text-[14px] font-bold text-ink transition-[border-color,background-color,transform] duration-200 hover:border-line-strong hover:bg-cream-50 active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember"
             >
-              Switch to chat mode
-            </button>
-          ) : (
-            <button
-              type="button"
-              onClick={switchToProtocol}
-              className="rounded-full border border-line bg-white px-5 py-3 text-[14px] font-bold text-ink transition-[border-color,background-color,transform] duration-200 hover:border-line-strong hover:bg-cream-50 active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember"
-            >
-              Back to protocol mode
+              {AI_SECTION.adjust}
             </button>
           )}
 
+          {/* The label never claims the protocol is ready before it is. */}
           <button
             type="button"
             onClick={onContinue}
-            disabled={draft.submitting}
-            className="btn-primary group disabled:opacity-70"
+            disabled={session.submitting || completionState === "empty"}
+            className="btn-primary group disabled:opacity-40"
           >
-            {draft.goals.length > 0 ? AI_SECTION.continueCta : AI_SECTION.cta}
-
+            {completionState === "complete" ? AI_SECTION.viewProtocol : AI_SECTION.continueRefining}
             <ArrowRight
               size={16}
               strokeWidth={2.4}
@@ -908,5 +667,29 @@ export default function ProtocolStudio({
         </div>
       </footer>
     </Modal>
+  );
+}
+
+function AiBubble({ children }: { children: ReactNode }) {
+  return (
+    <div className="flex justify-start">
+      <div className="max-w-[92%] rounded-[18px] rounded-bl-[6px] border border-line bg-cream-50 px-4 py-3">
+        <div className="mb-1.5 flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.08em] text-ember">
+          <Sparkles size={12} strokeWidth={2.2} aria-hidden="true" />
+          {AI_SECTION.eyebrow}
+        </div>
+        <p className="text-[14px] leading-[1.55] text-ink-600">{children}</p>
+      </div>
+    </div>
+  );
+}
+
+function YouBubble({ children }: { children: ReactNode }) {
+  return (
+    <div className="flex justify-end">
+      <div className="max-w-[88%] rounded-[18px] rounded-br-[6px] bg-ember px-4 py-3">
+        <p className="whitespace-pre-wrap text-[14px] leading-[1.55] text-white">{children}</p>
+      </div>
+    </div>
   );
 }

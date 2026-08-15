@@ -2,7 +2,8 @@ import { type RefObject, useId } from "react";
 import { ArrowUp, Check, Sparkles, X } from "lucide-react";
 import { AI_SECTION, GOALS } from "../../data/homepage";
 import type { GoalId } from "../../lib/protocol/build";
-import { MAX_MESSAGE, type ProtocolDraft } from "../../hooks/useProtocolDraft";
+import { MAX_MESSAGE } from "../protocol/ProtocolSessionProvider";
+import type { ProtocolSessionValue } from "../protocol/session-context";
 
 /**
  * Free-text intent input.
@@ -12,17 +13,17 @@ import { MAX_MESSAGE, type ProtocolDraft } from "../../hooks/useProtocolDraft";
  * the homepage search field.
  */
 export function IntentBox({
-  draft,
+  session,
   onSend,
   textareaRef,
   rows = 1,
 }: {
-  draft: ProtocolDraft;
+  session: ProtocolSessionValue;
   onSend: () => void;
   textareaRef?: RefObject<HTMLTextAreaElement | null>;
   rows?: number;
 }) {
-  const { message, submitting } = draft;
+  const { message, submitting } = session;
   const inputId = useId();
 
   const multiline = rows > 1;
@@ -70,7 +71,7 @@ export function IntentBox({
         ref={textareaRef}
         id={inputId}
         value={message}
-        onChange={(event) => draft.setMessage(event.target.value)}
+        onChange={(event) => session.setMessage(event.target.value)}
         onKeyDown={(event) => {
           if (event.key === "Enter" && !event.shiftKey) {
             event.preventDefault();
@@ -98,8 +99,8 @@ export function IntentBox({
           <button
             type="button"
             onClick={() => {
-              draft.setMessage("");
-              draft.clearMatched();
+              session.setMessage("");
+              session.clearMatched();
               textareaRef?.current?.focus();
             }}
             aria-label="Clear"
@@ -143,11 +144,11 @@ export function IntentBox({
 
 /** The goal chips. */
 export function GoalChips({
-  draft,
+  session,
   onPick,
   className = "",
 }: {
-  draft: ProtocolDraft;
+  session: ProtocolSessionValue;
   onPick?: (id: GoalId) => void;
   className?: string;
 }) {
@@ -155,8 +156,8 @@ export function GoalChips({
     <ul className={`flex flex-wrap gap-2.5 ${className}`}>
       {GOALS.map((goal) => {
         const id = goal.id as GoalId;
-        const selected = draft.goals.includes(id);
-        const fromMessage = draft.matched.includes(id);
+        const selected = session.view.session.detectedGoals.includes(id);
+        const fromMessage = session.matched.includes(id);
 
         return (
           <li key={goal.id}>
@@ -165,7 +166,7 @@ export function GoalChips({
               aria-pressed={selected}
               title={fromMessage ? AI_SECTION.matchedCaption : undefined}
               onClick={() => {
-                draft.toggleGoal(id);
+                session.toggleGoal(id);
                 onPick?.(id);
               }}
               className={`

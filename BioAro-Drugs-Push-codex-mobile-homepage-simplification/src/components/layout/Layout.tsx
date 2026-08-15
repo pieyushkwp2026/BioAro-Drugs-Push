@@ -3,9 +3,9 @@ import { Outlet, useLocation } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import CartDrawer from "../cart/CartDrawer";
-import AiBand from "../ask/AiBand";
 import AiChatWidget from "../ask/AiChatWidget";
 import { AiChatProvider } from "../ask/AiChatProvider";
+import { ProtocolSessionProvider } from "../protocol/ProtocolSessionProvider";
 import RegionalSeo from "../seo/RegionalSeo";
 
 function ScrollToTop() {
@@ -34,6 +34,10 @@ export default function Layout() {
 
   return (
     <AiChatProvider>
+      {/* Above the routes on purpose: the homepage modal and the /quiz page have to
+          read the same session, or the handoff between them reintroduces the seam
+          this replaced. */}
+      <ProtocolSessionProvider>
       <div className="min-h-screen flex flex-col">
         <ScrollToTop />
         <RegionalSeo />
@@ -46,6 +50,7 @@ export default function Layout() {
         <CartDrawer />
         <AiChatWidget />
       </div>
+      </ProtocolSessionProvider>
     </AiChatProvider>
   );
 }

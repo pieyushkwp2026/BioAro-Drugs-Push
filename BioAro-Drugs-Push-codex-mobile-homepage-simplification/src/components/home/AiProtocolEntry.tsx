@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ChevronDown, Clock3, Sparkles, ShieldCheck } from "lucide-react";
 import { useMarketHref } from "../../hooks/useMarketHref";
-import { useProtocolDraft } from "../../hooks/useProtocolDraft";
+import { useProtocolSession } from "../../hooks/useProtocolSession";
 import { ROUTES } from "../../lib/routes";
 import { AI_SECTION } from "../../data/homepage";
 import type { CatalogProduct } from "../../lib/shopify/types";
@@ -46,7 +46,7 @@ export default function AiProtocolEntry({
 }: AiProtocolEntryProps) {
   const marketHref = useMarketHref();
   const navigate = useNavigate();
-  const draft = useProtocolDraft();
+  const session = useProtocolSession();
 
   const [open, setOpen] = useState(false);
   /* Set when the box opened the modal, so the caret lands in the modal's textarea.
@@ -65,17 +65,17 @@ export default function AiProtocolEntry({
      already lit and the protocol already arranged, rather than opening empty and
      rearranging itself while someone is still looking for it. */
   const sendAndOpen = () => {
-    void draft.send().then(() => openStudio({ focusInput: true }));
+    void session.send().then(() => openStudio({ focusInput: true }));
   };
 
   const handoff = () => {
     const query =
-      draft.goals.length > 0 ? `?goals=${draft.goals.join(",")}` : "";
+      session.view.session.detectedGoals.length > 0 ? `?goals=${session.view.session.detectedGoals.join(",")}` : "";
     /* Goals ride in the URL so the link stays shareable. The visitor's own words ride
        in router state instead — they are long, and they do not belong in a URL that
        might be shared, logged, or pasted into a support ticket. */
     navigate(`${marketHref(ROUTES.quiz)}${query}`, {
-      state: draft.message.trim() ? { note: draft.message.trim() } : undefined,
+      state: session.message.trim() ? { note: session.message.trim() } : undefined,
     });
   };
 
@@ -108,7 +108,7 @@ export default function AiProtocolEntry({
                 />
 
                 <div className="relative">
-                  <IntentBox draft={draft} onSend={sendAndOpen} />
+                  <IntentBox session={session} onSend={sendAndOpen} />
                 </div>
               </div>
 
@@ -240,7 +240,6 @@ export default function AiProtocolEntry({
 
         <ProtocolStudio
           open={open}
-          draft={draft}
           byHandle={byHandle}
           onClose={() => setOpen(false)}
           onContinue={handoff}
@@ -320,13 +319,13 @@ export default function AiProtocolEntry({
           "
               >
                 <div className="rounded-[24px] bg-white">
-                  <IntentBox draft={draft} onSend={sendAndOpen} />
+                  <IntentBox session={session} onSend={sendAndOpen} />
                 </div>
               </div>
             </div>
 
             <GoalChips
-              draft={draft}
+              session={session}
               onPick={() => openStudio()}
               className="mt-5 max-w-[560px]"
             />
@@ -436,7 +435,6 @@ export default function AiProtocolEntry({
 
       <ProtocolStudio
         open={open}
-        draft={draft}
         byHandle={byHandle}
         onClose={() => setOpen(false)}
         onContinue={handoff}

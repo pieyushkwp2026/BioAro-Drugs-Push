@@ -1,0 +1,39 @@
+import { createContext } from "react";
+import type { GoalId } from "../../lib/protocol/build";
+import type { AnswerField } from "../../lib/protocol/questions";
+import type { SessionView } from "../../lib/protocol/session";
+
+/*
+ * Kept in its own module so the provider file exports only a component — Vite's fast
+ * refresh warns when a file mixes component and non-component exports, and the cart
+ * and chat contexts in this project already follow the same split.
+ */
+
+export interface ProtocolSessionValue {
+  /** Everything derived: protocol, completion state, next question, remaining count. */
+  view: SessionView;
+
+  // ------------------------------------------------------------------ intent
+  message: string;
+  setMessage: (value: string) => void;
+  /** Goals that came from the message rather than a tap, so chips can say so. */
+  matched: GoalId[];
+  submitting: boolean;
+  noMatch: boolean;
+  error: string | null;
+  /** Resolves goals from the message. True when at least one landed. */
+  send: () => Promise<boolean>;
+  clearMatched: () => void;
+
+  // ------------------------------------------------------------------- goals
+  toggleGoal: (id: GoalId) => void;
+
+  // --------------------------------------------------------------- questions
+  answerQuestion: (field: AnswerField, value: string) => void;
+  /** Puts one question back so it is asked again. */
+  editAnswer: (field: AnswerField) => void;
+  /** Clears every answer but keeps the goals and the original wording. */
+  adjustAnswers: () => void;
+}
+
+export const ProtocolSessionContext = createContext<ProtocolSessionValue | null>(null);
