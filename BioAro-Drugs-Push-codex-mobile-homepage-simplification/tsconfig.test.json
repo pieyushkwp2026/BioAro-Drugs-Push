@@ -28,6 +28,7 @@
     "src/lib/protocol/build.ts",
     "src/lib/protocol/session.ts",
     "src/lib/protocol/questions.ts",
+    "src/data/homepage.ts",
     "src/lib/ai/matchGoals.ts",
     "tests/**/*.ts"
   ]

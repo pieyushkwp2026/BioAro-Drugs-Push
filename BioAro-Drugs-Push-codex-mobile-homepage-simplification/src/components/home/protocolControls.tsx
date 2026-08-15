@@ -1,7 +1,8 @@
-import { type RefObject, useId } from "react";
+import { type RefObject, useId, useState } from "react";
 import { ArrowUp, Check, Sparkles, X } from "lucide-react";
 import { AI_SECTION, GOALS } from "../../data/homepage";
 import type { GoalId } from "../../lib/protocol/build";
+import { useTypewriter } from "../../hooks/useTypewriter";
 import { MAX_MESSAGE } from "../protocol/ProtocolSessionProvider";
 import type { ProtocolSessionValue } from "../protocol/session-context";
 
@@ -17,16 +18,26 @@ export function IntentBox({
   onSend,
   textareaRef,
   rows = 1,
+  animatedPlaceholder = false,
 }: {
   session: ProtocolSessionValue;
   onSend: () => void;
   textareaRef?: RefObject<HTMLTextAreaElement | null>;
   rows?: number;
+  /** Hero only. The modal's box is used mid-task and the floating bar collapses
+      after a few seconds; a line rewriting itself in either is just noise. */
+  animatedPlaceholder?: boolean;
 }) {
   const { message, submitting } = session;
   const inputId = useId();
+  const [focused, setFocused] = useState(false);
 
   const multiline = rows > 1;
+
+  /* Only while the field is genuinely idle. A prompt that keeps rewriting itself
+     under the caret while someone is trying to type is hostile. */
+  const typing = animatedPlaceholder && !message && !focused;
+  const typewriter = useTypewriter(AI_SECTION.prompts, typing);
 
   return (
     <div
@@ -67,6 +78,28 @@ export function IntentBox({
         What would you like to improve?
       </label>
 
+      {/* The animated line, as a real element rather than the placeholder attribute —
+          a placeholder cannot carry a caret. It shares the textarea's type ramp and
+          padding exactly, so the handoff from prompt to typed text does not jump.
+          aria-hidden and pointer-events-none: the sr-only label above is the
+          accessible name, and clicks must reach the textarea underneath. */}
+      <div className="relative min-w-0 flex-1">
+        {typing && (
+          <p
+            aria-hidden="true"
+            className={`pointer-events-none absolute inset-x-0 top-0 truncate text-[15px] leading-[1.5] text-ink-400 ${
+              multiline ? "pt-1" : "py-1"
+            }`}
+          >
+            {typewriter.text}
+            <span
+              className={`ml-0.5 inline-block h-[1.05em] w-[2px] translate-y-[0.2em] bg-ember ${
+                typewriter.animating ? "animate-[bioCaret_1s_steps(1)_infinite]" : ""
+              }`}
+            />
+          </p>
+        )}
+
       <textarea
         ref={textareaRef}
         id={inputId}
@@ -78,15 +111,18 @@ export function IntentBox({
             onSend();
           }
         }}
-        placeholder={AI_SECTION.placeholder}
+        onFocus={() => setFocused(true)}
+        onBlur={() => setFocused(false)}
+        placeholder={typing ? "" : AI_SECTION.placeholder}
         rows={rows}
         className={`
-          min-w-0 flex-1 resize-none bg-transparent
+          w-full resize-none bg-transparent
           text-[15px] leading-[1.5] text-ink
           outline-none placeholder:text-ink-400
           ${multiline ? "pt-1" : "py-1"}
         `}
       />
+      </div>
 
       <div
         className={

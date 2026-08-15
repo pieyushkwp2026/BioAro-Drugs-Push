@@ -80,7 +80,7 @@ export default function Hero({ searchRef }: { searchRef: RefObject<HTMLDivElemen
             <p className="mt-5 max-w-[48ch] text-[16px] leading-[1.55] text-ink-600">{AI_SECTION.body}</p>
 
             <div className="mt-5">
-              <IntentBox session={session} onSend={sendAndOpen} />
+              <IntentBox session={session} onSend={sendAndOpen} animatedPlaceholder />
             </div>
 
             <GoalChips session={session} className="mt-4" onPick={() => session.openStudio()} />

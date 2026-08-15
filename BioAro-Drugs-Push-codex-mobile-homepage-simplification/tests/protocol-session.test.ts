@@ -1,6 +1,8 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
+import { AI_SECTION } from "../src/data/homepage";
+import { matchGoals } from "../src/lib/ai/matchGoals";
 import { buildProtocol, type GoalId } from "../src/lib/protocol/build";
 import {
   changesOutcome,
@@ -169,5 +171,15 @@ test("only self-reported input is available; nothing else is claimed", () => {
 
   for (const category of ["biomarkers", "lab-results", "genetics", "wearables", "medications"] as const) {
     assert.equal(isInputCategoryAvailable(category), false, `${category} must not be presented as live`);
+  }
+});
+
+test("every cycling hero prompt resolves to a goal", () => {
+  /* The hero bar types these out as examples of what to write. A prompt the matcher
+     cannot resolve would be demonstrating input the builder ignores — so each one has
+     to land somewhere. */
+  for (const prompt of AI_SECTION.prompts) {
+    const goals = matchGoals(prompt);
+    assert.ok(goals.length > 0, `hero prompt resolves to nothing: "${prompt}"`);
   }
 });

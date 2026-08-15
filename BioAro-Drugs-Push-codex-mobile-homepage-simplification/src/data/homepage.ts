@@ -76,6 +76,20 @@ export const AI_SECTION = {
   headline: "Build around what matters to you.",
   body: "Tell BioAro Drugs what you want to improve. We will help build a starting protocol around your goals and routine.",
   placeholder: "I want better focus and energy through the day…",
+  /* The hero bar cycles these. They are GOAL STATEMENTS, not questions, because this
+     box feeds the protocol builder — a prompt the matcher cannot resolve would be
+     demonstrating input that does nothing. Every line here is asserted against
+     `matchGoals` in tests/protocol-session.test.ts; add one and the test tells you if
+     it lands nowhere. */
+  prompts: [
+    "I want better focus and energy through the day",
+    "Help me recover faster after training",
+    "I want to support healthy ageing",
+    "I am exhausted by mid-afternoon",
+    "I want to sleep better and wake up rested",
+    "I need more strength and stamina in the gym",
+    "Support for women's hormonal health",
+  ],
   cta: "Build my protocol",
   duration: "About 60 seconds",
   emptyHint: "Choose a goal to continue",

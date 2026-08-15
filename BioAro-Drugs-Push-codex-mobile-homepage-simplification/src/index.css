@@ -166,6 +166,13 @@
 /* The bioaro-marquee-left/right keyframes that lived here drove the testimonial
    rows, which are gone along with their 36 invented reviewers. */
 
+/* The typewriter caret. steps(1) so it snaps rather than fading — a fading caret
+   reads as a glow, not a cursor. */
+@keyframes bioCaret {
+  0%, 50%   { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
+
 /* The floating AI orb's pulse. A soft ring that breathes rather than a blink —
    it should read as present, not as an alert demanding attention. */
 @keyframes bioOrbPulse {
