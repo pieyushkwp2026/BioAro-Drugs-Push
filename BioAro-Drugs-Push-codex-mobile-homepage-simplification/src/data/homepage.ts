@@ -103,6 +103,11 @@ export const AI_SECTION = {
     "That is everything that would change your protocol. Anything else you tell me will not move it, so here is where it stands.",
   refinedHeadline: "Your protocol is ready.",
   readyMeta: "Based on what you told us",
+  /* The mobile sheet handle. Below lg there is no room for two columns, so the
+     conversation takes the screen and the protocol lives behind this. */
+  sheetOpen: "View your protocol",
+  sheetClose: "Hide your protocol",
+  sheetItems: (count: number) => `${count} item${count === 1 ? "" : "s"}`,
   /* Progressive labels for the preview. Nothing is called a starting protocol until
      no outstanding question could still change it. */
   previewPotential: "Potential fit",

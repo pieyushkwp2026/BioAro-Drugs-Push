@@ -4,7 +4,7 @@ import Modal from "../ui/Modal";
 import { useProtocolSession } from "../../hooks/useProtocolSession";
 import ProtocolPreview from "./ProtocolPreview";
 import { GoalChips, IntentBox } from "./protocolControls";
-import { useEffect, useId, useRef, useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useId, useRef, useState, type FormEvent, type PointerEvent as ReactPointerEvent, type ReactNode } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -12,6 +12,7 @@ import {
   ArrowRight,
   ArrowUp,
   Check,
+  ChevronUp,
   Clock3,
   CornerDownLeft,
   Plus,
@@ -402,7 +403,6 @@ export default function ProtocolStudio({
 }) {
   const headingId = useId();
   const textareaRef = useRef<HTMLTextAreaElement>(null);
-  const previewRef = useRef<HTMLDivElement>(null);
   const threadEndRef = useRef<HTMLDivElement>(null);
 
   const session = useProtocolSession();
@@ -425,21 +425,73 @@ export default function ProtocolStudio({
   const stacked =
     typeof window !== "undefined" && !window.matchMedia("(min-width: 1024px)").matches;
 
-  useEffect(() => {
-    if (!open || !stacked || completionState === "empty") return;
-    const frame = requestAnimationFrame(() =>
-      previewRef.current?.scrollIntoView({ block: "start", behavior: "instant" }),
-    );
-    return () => cancelAnimationFrame(frame);
-    // Only on open: re-running as answers land would yank the page mid-tap.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [open, stacked]);
+  const sheetId = useId();
+  const [sheetOpen, setSheetOpen] = useState(false);
 
-  // Keep the newest turn in view without dragging the whole modal around it.
+  /* The auto-scroll that used to live here dragged the preview into view on stacked
+     viewports. It existed because the preview sat below the fold — and it was what
+     landed a visitor past the conversation. The sheet replaces it. */
+
+  // Closing the studio must not leave the sheet open behind it for next time.
   useEffect(() => {
-    if (thread.length === 0) return;
-    threadEndRef.current?.scrollIntoView({ block: "end", behavior: "smooth" });
-  }, [thread]);
+    if (!open) setSheetOpen(false);
+  }, [open]);
+
+  /*
+   * Escape backs out ONE level. A <dialog> handles Escape natively and would close the
+   * whole studio, so opening the protocol and pressing Escape would throw away the
+   * session view. Capture phase, so this runs before the dialog's own handling.
+   */
+  useEffect(() => {
+    if (!sheetOpen) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      event.preventDefault();
+      event.stopPropagation();
+      setSheetOpen(false);
+    };
+    document.addEventListener("keydown", onKey, true);
+    return () => document.removeEventListener("keydown", onKey, true);
+  }, [sheetOpen]);
+
+  /* Drag down on the handle to close — an enhancement on top of a control that
+     already works by tap, never the only way out. */
+  const onHandlePointerDown = (event: ReactPointerEvent) => {
+    if (!sheetOpen) return;
+    const startY = event.clientY;
+    const cleanup = () => {
+      document.removeEventListener("pointermove", onMove);
+      document.removeEventListener("pointerup", cleanup);
+    };
+    const onMove = (move: globalThis.PointerEvent) => {
+      if (move.clientY - startY > 40) {
+        setSheetOpen(false);
+        cleanup();
+      }
+    };
+    document.addEventListener("pointermove", onMove);
+    document.addEventListener("pointerup", cleanup);
+  };
+
+  const itemCount = view.protocol?.items.length ?? 0;
+  const sheetLabel =
+    completionState === "complete"
+      ? AI_SECTION.previewFinal
+      : completionState === "refining"
+        ? AI_SECTION.previewDraft
+        : AI_SECTION.previewPotential;
+  const sheetDetail = [goalLabels.join(" + "), itemCount > 0 ? AI_SECTION.sheetItems(itemCount) : null]
+    .filter(Boolean)
+    .join(" · ");
+
+  /* Keep the newest turn in view without dragging the whole modal around it.
+     `question` is in the deps because the live question is rendered AFTER the thread
+     rather than as a turn — without it, opening the studio left the answer chips
+     below the fold on a phone, with nothing to indicate they were there. */
+  useEffect(() => {
+    if (thread.length === 0 && !question) return;
+    threadEndRef.current?.scrollIntoView({ block: "end", behavior: thread.length ? "smooth" : "auto" });
+  }, [thread, question]);
 
   const onAnswer = (value: string, label: string) => {
     if (!question) return;
@@ -507,9 +559,15 @@ export default function ProtocolStudio({
       </header>
 
       {/* --------------------------------------------------------------- body */}
-      <div className="grid min-h-0 flex-1 grid-cols-1 overflow-y-auto lg:grid-cols-[minmax(0,1fr)_minmax(0,1.02fr)] lg:overflow-hidden">
+      {/* Below lg this is a flex column that does NOT scroll, so the thread inherits a
+          real height from the panel and its own scroller works. It used to be
+          `grid-cols-1 overflow-y-auto`: the grid scrolled, its children sized to
+          content, and the thread's `min-h-0 flex-1` scroller collapsed to 163px of an
+          844px panel — the question was unreachable on a phone. `lg:` restores the
+          two-column grid untouched. `relative` anchors the sheet. */}
+      <div className="relative flex min-h-0 flex-1 flex-col overflow-hidden lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.02fr)]">
         {/* ------------------------------------------------------------ thread */}
-        <div className="flex min-h-0 flex-col lg:overflow-hidden">
+        <div className="flex min-h-0 flex-1 flex-col lg:overflow-hidden">
           <div className="min-h-0 flex-1 space-y-5 overflow-y-auto px-5 py-6 sm:px-7 sm:py-8">
             <h2
               id={headingId}
@@ -612,10 +670,39 @@ export default function ProtocolStudio({
           )}
         </div>
 
-        {/* ----------------------------------------------------------- preview */}
+        {/* Scrim, mobile only. Tapping it closes the sheet the same way the handle
+            does — a sheet you can only dismiss from one control is a trap. */}
+        {sheetOpen && (
+          <button
+            type="button"
+            aria-label={AI_SECTION.sheetClose}
+            onClick={() => setSheetOpen(false)}
+            className="absolute inset-0 z-10 bg-[rgba(20,16,13,0.32)] lg:hidden"
+          />
+        )}
+
+        {/* ----------------------------------------------------------- preview
+            ONE node, repositioned by CSS. Rendering it twice would put two "Add
+            protocol to cart" buttons in the document. Below lg it is a sheet
+            anchored to the panel — a dialog sits in the top layer, so `fixed` would
+            not resolve against the viewport the way it does elsewhere.
+
+            `lg:transform-none`, NOT `lg:translate-y-0`: an identity transform still
+            promotes the pane to its own compositor layer, which shifted ~15k desktop
+            pixels by ±1/255 against the background. Invisible, but it means desktop
+            was no longer rendering the way it did before this change. */}
         <div
-          ref={previewRef}
-          className="border-t border-line bg-cream-50 px-5 py-6 sm:px-7 sm:py-8 lg:border-l lg:border-t-0 lg:overflow-y-auto"
+          id={sheetId}
+          /* Sheet styles are written as max-lg:, i.e. mobile-ONLY, rather than applied
+             everywhere and undone at lg. Undoing them left desktop with declarations
+             it never used to have — `lg:shadow-none` alone emits three transparent
+             shadow layers, and Chrome still runs the shadow compositing path for them,
+             shifting ~15k pixels of the preview by ±1/255. Invisible, but it meant
+             desktop was no longer rendering identically. */
+          className={`overflow-y-auto border-t border-line bg-cream-50 px-5 py-6 sm:px-7 sm:py-8 max-lg:absolute max-lg:inset-x-0 max-lg:bottom-0 max-lg:z-20 max-lg:max-h-[72%] max-lg:overscroll-contain max-lg:rounded-t-[24px] max-lg:shadow-glass-lg max-lg:transition-transform max-lg:duration-300 motion-reduce:max-lg:transition-none lg:border-l lg:border-t-0 ${
+            sheetOpen ? "max-lg:translate-y-0" : "max-lg:translate-y-full"
+          }`}
+          aria-hidden={stacked && !sheetOpen ? true : undefined}
         >
           <ProtocolPreview
             goals={view.session.detectedGoals}
@@ -626,6 +713,35 @@ export default function ProtocolStudio({
           />
         </div>
       </div>
+
+      {/* --------------------------------------------------------- sheet handle
+          Mobile only. Reads completionState like everything else, so it never
+          disagrees with the panel it opens. */}
+      {completionState !== "empty" && (
+        <button
+          type="button"
+          aria-expanded={sheetOpen}
+          aria-controls={sheetId}
+          onClick={() => setSheetOpen((current) => !current)}
+          onPointerDown={onHandlePointerDown}
+          className="flex shrink-0 items-center gap-3 border-t border-line bg-white px-5 py-3 text-left transition-colors hover:bg-cream-50 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ember lg:hidden"
+        >
+          <span aria-hidden="true" className="h-1 w-9 shrink-0 rounded-full bg-line-strong" />
+          <span className="min-w-0 flex-1 truncate text-[12px] font-bold uppercase tracking-[0.12em] text-ink-400">
+            <span className="text-ember">{sheetLabel}</span>
+            {sheetDetail && <span className="normal-case tracking-normal text-ink-600"> · {sheetDetail}</span>}
+          </span>
+          <ChevronUp
+            size={17}
+            strokeWidth={2.2}
+            aria-hidden="true"
+            className={`shrink-0 text-ink-400 transition-transform duration-300 motion-reduce:transition-none ${
+              sheetOpen ? "rotate-180" : ""
+            }`}
+          />
+          <span className="sr-only">{sheetOpen ? AI_SECTION.sheetClose : AI_SECTION.sheetOpen}</span>
+        </button>
+      )}
 
       {/* ------------------------------------------------------------- footer */}
       <footer className="flex shrink-0 flex-wrap items-center justify-between gap-x-4 gap-y-3 border-t border-line px-5 py-4 sm:px-7">
