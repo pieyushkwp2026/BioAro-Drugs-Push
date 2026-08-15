@@ -4,6 +4,7 @@ import { SCIENCE_SECTION } from "../data/homepage";
 import Hero from "../components/home/Hero";
 import ProductShowcase from "../components/home/ProductShowcase";
 import WhyBioAro from "../components/home/WhyBioAro";
+import SachetRoutine from "../components/home/SachetRoutine";
 import ScienceProof from "../components/home/ScienceProof";
 import ProtocolExample from "../components/home/ProtocolExample";
 import FounderNote from "../components/home/FounderNote";
@@ -135,10 +136,13 @@ export default function Home() {
       {/* 4 — Differentiation. Quiet hairline rows after a row of cards. */}
       <WhyBioAro />
 
-      {/* 5 — Proof. The densest block on the page, and the reason to believe. */}
+      {/* 5 — Format. The adherence argument, carried by two routine photographs. */}
+      <SachetRoutine />
+
+      {/* 6 — Proof. The densest block on the page, and the reason to believe. */}
       <ScienceProof product={byHandle.get(SCIENCE_SECTION.featuredHandle)} />
 
-      {/* 6 — The output, as a day. */}
+      {/* 7 — The output, as a day. */}
       <ProtocolExample byHandle={byHandle} />
 
       {/* The AI band. Mid-page on the homepage rather than pre-footer, so it does
@@ -146,13 +150,13 @@ export default function Home() {
           footer on every other route. */}
       {/* <AiBand /> */}
 
-      {/* 7 — A person stands behind it. Short, and typographic. */}
+      {/* 8 — A person stands behind it. Short, and typographic. */}
       <FounderNote />
 
-      {/* 8 — The reading. */}
+      {/* 9 — The reading. */}
       <ScienceLibrary />
 
-      {/* 9 — Close, anchored. */}
+      {/* 10 — Close, anchored. */}
       <ClosingCta />
     </div>
   );

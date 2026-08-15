@@ -196,10 +196,52 @@ export const WHY_SECTION = {
       title: "Built as protocols",
       body: "The formulas are designed to make sense together across a day, not only to stand alone on a product page.",
     },
+  ],
+} as const;
+
+/*
+ * The format section. Restored from the pre-restructure homepage, where it ran as
+ * section 3 under the same headline.
+ *
+ * It argues adherence, not convenience — "the difference between a routine you keep
+ * and one that quietly stops in week two" is the point, and the tear-open detail is
+ * the evidence for it. Why BioAro Drugs used to carry a one-line version of this in
+ * its points list; that bullet was removed when this came back, because the two sit
+ * in adjacent blocks and would have made the same claim twice.
+ *
+ * NOTE ON TWO OF THE PROOF POINTS: "Fits pockets, handbags and carry-ons" and "Built
+ * for travel" are carried by copy alone. No photograph in the repo shows the product
+ * in transit — a sachet into a handbag, beside a passport, in a gym bag — so nothing
+ * on the page demonstrates portability. Retained pending separate verification.
+ */
+export const SACHET_SECTION = {
+  /* Broken by hand. Left to wrap, this fragmented into four ragged lines at display
+     size, which is why the original carried the same manual break. */
+  headline: ["One sachet.", "Wherever the day goes."],
+  body: "Single-serve sachets made for real routines. Tear, pour, go. At home, at work or wherever the day takes you.",
+  /* Demoted to a secondary line so the lead can stay short — but it is the strategic
+     sentence in the section, so it does not get cut. */
+  adherence: "The difference between a routine you keep and one that quietly stops in week two.",
+  images: [
     {
-      title: "Designed for real routines",
-      body: "Single-serve sachets that tear open in seconds, because the protocol that works is the one you actually keep.",
+      alt: "A man in training kit tipping a CREAGEN sachet into a shaker on a bench in a garden room",
+      position: "object-[46%_center]",
     },
+    {
+      alt: "A woman pouring a sachet into a glass of water in a bright kitchen at breakfast",
+      position: "object-[52%_center]",
+    },
+  ],
+  /* "One a day, whenever it actually suits you" is deliberately absent. The sachet
+     directions are "Mix 1 sachet with water daily", but Raw Power says "before or
+     after training" and Pro Power "during or after training" — so once-daily is
+     supported across the range and arbitrary timing is not. */
+  points: [
+    "Tears open in seconds",
+    "Fits pockets, handbags and carry-ons",
+    "No scoops. Nothing to measure.",
+    "Built for travel",
+    "One simple daily routine",
   ],
 } as const;
 
