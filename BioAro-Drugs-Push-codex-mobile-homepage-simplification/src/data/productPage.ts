@@ -54,6 +54,47 @@ export const PDP = {
     showLess: "Show less",
   },
 
+  /* ---------------------------------------------------------------- new sections
+     Every string here frames content that ALREADY EXISTS on the product. Nothing
+     below asserts a fact the catalogue does not already carry — the headings give
+     approved content a home it did not have, they do not add claims. */
+  why: {
+    heading: "Why these ingredients?",
+    body: "Each active earns its place. This is the reason every one of them is in the formula, at the amount it ships with.",
+  },
+  audience: {
+    heading: "Who is it for?",
+    /* Composed from the product's own approved feature set rather than written per
+       product, so it can never drift from what the formula actually claims. */
+    lead: "Built for people focused on",
+    format: (servings: string) => `Comes as ${servings.toLowerCase()}.`,
+  },
+  notFor: {
+    heading: "Who should not take this",
+    /* The warnings were always here; they were headed "Warnings", which reads as
+       small print. The first one IS the answer to this question, so it gets asked. */
+  },
+  quality: {
+    heading: "Quality",
+    body: "What is verified about this product today.",
+    /* NOT AUTHORED HERE. Rendered from the product's own quality attributes, so the
+       page can only state what the catalogue actually holds.
+
+       Batch testing, certificates of analysis, lot numbers, manufacturing standard
+       and sourcing are records, not copy. They are not invented to fill this section:
+       the block below renders only when `qualityDocs` metafields arrive, and stays
+       absent until then. A fabricated COA reference on a supplement page is a
+       compliance claim nobody could stand behind. */
+    pending:
+      "Batch-level documentation — certificates of analysis, lot numbers and manufacturing detail — is not published on this page yet.",
+  },
+  evidence: {
+    heading: "Evidence",
+    /* Renders ONLY when a product carries references. No citation is generated: an
+       invented DOI or PubMed ID beside an ingredient dose is exactly the kind of
+       fabricated evidence this codebase refuses everywhere else. */
+    body: "Published references for the actives in this formula.",
+  },
   warnings: {
     heading: "Warnings",
     showAll: "Show all warnings",

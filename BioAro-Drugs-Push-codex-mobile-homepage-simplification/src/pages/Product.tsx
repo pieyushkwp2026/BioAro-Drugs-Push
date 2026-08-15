@@ -187,9 +187,30 @@ export default function Product() {
 
   // Only the sections that actually rendered reach the nav — a tab that scrolls to
   // nothing is worse than no tab.
+  /* `whyIncluded` has been on every ingredient all along — in the Shopify metaobject
+     and in the local fallback — and was never rendered. The formulation table shows
+     `purpose`; this shows the rationale that was being dropped. */
+  const rationale = (product.ingredients ?? []).filter((ingredient) => ingredient.whyIncluded);
+
+  const audience = (product.whyItems ?? []).map((item) => item.title);
+  /* Quality means testing and composition, not convenience. `attributes` mixes the
+     two — "Tested for Quality" sits beside "Compact for Travel" and "No Mixing
+     Required" — and listing a travel format under a Quality heading dresses a
+     convenience feature up as a credential. Allow-listed rather than filtered by
+     exclusion, so a new format badge cannot leak in by default. */
+  const QUALITY_TERMS = /tested|third-party|third party|non-gmo|gluten|purity|potency|quality|allergen|vegan/i;
+  const qualityBadges = (product.qualityBadges ?? []).filter((badge) => badge.enabled);
+  const qualityClaims =
+    qualityBadges.length > 0
+      ? qualityBadges.map((badge) => badge.title)
+      : attributes.filter((attribute) => QUALITY_TERMS.test(attribute));
+
   const candidates: (NavSection | null)[] = [
     product.ingredients?.length ? { id: "formulation", label: PDP.nav.formulation } : null,
-    warnings.length ? { id: "warnings", label: PDP.nav.warnings } : null,
+    rationale.length ? { id: "why", label: PDP.why.heading } : null,
+    audience.length ? { id: "audience", label: PDP.audience.heading } : null,
+    warnings.length ? { id: "warnings", label: PDP.notFor.heading } : null,
+    { id: "quality", label: PDP.quality.heading },
     faq.length ? { id: "questions", label: PDP.nav.faq } : null,
   ];
   const sections = candidates.filter((section): section is NavSection => section !== null);
@@ -225,11 +246,45 @@ export default function Product() {
         <div className="mt-12 max-w-[820px] space-y-14">
           {product.ingredients?.length ? <FormulationTable product={product} /> : null}
 
+          {/* ------------------------------------------- why these ingredients */}
+          {rationale.length > 0 && (
+            <section id="why" className="scroll-mt-[132px] border-t border-line-strong pt-12">
+              <h2 className="text-[26px] font-black tracking-[-0.03em] text-ink sm:text-[32px]">{PDP.why.heading}</h2>
+              <p className="mt-3 max-w-[62ch] text-[15px] leading-[1.6] text-ink-600">{PDP.why.body}</p>
+
+              <ul className="mt-8 space-y-6">
+                {rationale.map((ingredient) => (
+                  <li key={ingredient.name} className="border-l-2 border-ember/30 pl-5">
+                    <p className="flex flex-wrap items-baseline gap-x-3 text-[16px] font-bold tracking-[-0.02em] text-ink">
+                      {ingredient.name}
+                      <span className="text-[13.5px] font-medium tabular-nums text-ink-400">{ingredient.amount}</span>
+                    </p>
+                    <p className="mt-1.5 max-w-[68ch] text-[15px] leading-[1.6] text-ink-600">{ingredient.whyIncluded}</p>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {/* -------------------------------------------------------- audience */}
+          {audience.length > 0 && (
+            <section id="audience" className="scroll-mt-[132px] border-t border-line-strong pt-12">
+              <h2 className="text-[26px] font-black tracking-[-0.03em] text-ink sm:text-[32px]">
+                {PDP.audience.heading}
+              </h2>
+              <p className="mt-4 max-w-[62ch] text-[17px] leading-[1.55] text-ink-600">
+                {PDP.audience.lead}{" "}
+                <span className="font-bold text-ink">{audience.join(", ").toLowerCase()}</span>.
+                {product.servings ? ` ${PDP.audience.format(product.servings)}` : ""}
+              </p>
+            </section>
+          )}
+
           {/* --------------------------------------------------------- warnings */}
           {warnings.length > 0 && (
             <section id="warnings" className="scroll-mt-[132px] border-t border-line-strong pt-12">
               <h2 className="text-[26px] font-black tracking-[-0.03em] text-ink sm:text-[32px]">
-                {product.metafields?.warningsHeadline ?? PDP.warnings.heading}
+                {product.metafields?.warningsHeadline ?? PDP.notFor.heading}
               </h2>
 
               <Disclosure
@@ -259,6 +314,31 @@ export default function Product() {
           )}
 
           {/* -------------------------------------------------------- questions */}
+          {/* ---------------------------------------------------------- quality */}
+          <section id="quality" className="scroll-mt-[132px] border-t border-line-strong pt-12">
+            <h2 className="text-[26px] font-black tracking-[-0.03em] text-ink sm:text-[32px]">{PDP.quality.heading}</h2>
+            <p className="mt-3 max-w-[62ch] text-[15px] leading-[1.6] text-ink-600">{PDP.quality.body}</p>
+
+            {/* Only what the product itself carries. */}
+            {qualityClaims.length > 0 && (
+              <ul className="mt-6 flex flex-wrap gap-2.5">
+                {qualityClaims.map((label) => (
+                  <li
+                    key={label}
+                    className="rounded-full border border-line bg-white px-4 py-2 text-[13.5px] font-bold text-ink"
+                  >
+                    {label}
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {/* Records, not copy. Absent until real documents exist. */}
+            <p className="mt-6 max-w-[70ch] border-t border-line pt-5 text-[13px] leading-[1.6] text-ink-400">
+              {PDP.quality.pending}
+            </p>
+          </section>
+
           {faq.length > 0 && (
             <section id="questions" className="scroll-mt-[132px] border-t border-line-strong pt-12">
               <h2 className="text-[26px] font-black tracking-[-0.03em] text-ink sm:text-[32px]">
