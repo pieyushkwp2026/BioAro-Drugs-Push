@@ -21,7 +21,7 @@ import type {
 import type { CountryCode } from "../market/types";
 
 const CATEGORY_BY_METAFIELD_VALUE: Record<string, ProductCategory> = {
-  longevity: "Longevity",
+  longevity: "LONgevity+",
   wellness: "Wellness",
   focus: "Focus",
   energy: "Energy",

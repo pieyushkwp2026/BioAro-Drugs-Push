@@ -188,5 +188,5 @@ export const DOMAIN_QUERIES: Record<string, string> = {
   Clarity: "focus and mental clarity",
   Strength: "creatine for strength and performance",
   Recovery: "recovery after training",
-  Longevity: "healthy ageing and longevity",
+  Longevity: "healthy ageing and LONgevity+",
 };

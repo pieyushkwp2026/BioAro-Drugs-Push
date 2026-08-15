@@ -76,7 +76,7 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
         {
           heading: "Choosing supplements wisely",
           body: [
-            "A smart supplement routine starts with a simple question: what am I trying to support? Energy, focus, recovery, sleep, and longevity are different goals, and each deserves a different formulation logic.",
+            "A smart supplement routine starts with a simple question: what am I trying to support? Energy, focus, recovery, sleep, and LONgevity+ are different goals, and each deserves a different formulation logic.",
             "Look for products that make the purpose clear, show their active ingredients, avoid unnecessary complexity, and fit naturally into your day. Supplements work best when they support a routine you can actually maintain.",
           ],
         },
@@ -87,20 +87,20 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
   {
     slug: "morning-longevity-stack",
     cat: "Protocols",
-    title: "The Morning Longevity Stack",
+    title: "The Morning LONgevity+ Stack",
     excerpt: "Learn how simple daily routines help combine science-backed supplements into a consistent wellness protocol.",
     readTime: "8 min read",
     img: journalMorningLongevityStack,
-    alt: "Soft scientific longevity visual with DNA-inspired forms and wellness icon",
+    alt: "Soft scientific LONgevity+ visual with DNA-inspired forms and wellness icon",
     article: {
-      title: "Building Your Morning Longevity Stack",
+      title: "Building Your Morning LONgevity+ Stack",
       heroSummary:
         "Rather than taking supplements randomly, many people follow simple daily protocols that group ingredients by purpose. Learn how morning routines are designed around energy, focus, recovery, and consistency.",
       sections: [
         {
           heading: "Why routines work",
           body: [
-            "A routine turns intention into a repeatable action. Instead of asking yourself every day what to take and when to take it, a protocol creates a consistent structure. That structure is especially useful for longevity-focused wellness, where the goal is not a quick spike but a stable daily foundation.",
+            "A routine turns intention into a repeatable action. Instead of asking yourself every day what to take and when to take it, a protocol creates a consistent structure. That structure is especially useful for LONgevity+-focused wellness, where the goal is not a quick spike but a stable daily foundation.",
             "Morning routines work because they attach supplementation to a moment that already exists. Breakfast, coffee, hydration, or the first work block of the day can become a reliable anchor for the products that support your broader goals.",
           ],
         },
@@ -108,13 +108,13 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
           heading: "Morning vs evening supplementation",
           body: [
             "Not every supplement belongs in the same part of the day. Some formulas are designed to sit naturally alongside morning energy, cellular support, or mental clarity. Others may be better aligned with recovery or sleep routines.",
-            "A morning longevity stack should feel simple, not crowded. The goal is to support the day ahead while keeping the routine easy enough to repeat. The best protocol is the one that remains practical after the first week.",
+            "A morning LONgevity+ stack should feel simple, not crowded. The goal is to support the day ahead while keeping the routine easy enough to repeat. The best protocol is the one that remains practical after the first week.",
           ],
         },
         {
           heading: "Consistency over intensity",
           body: [
-            "Wellness routines often fail because they are built like short-term challenges. Longevity requires a different mindset. A smaller routine followed consistently is usually more valuable than an ambitious routine that becomes too complicated to maintain.",
+            "Wellness routines often fail because they are built like short-term challenges. LONgevity+ requires a different mindset. A smaller routine followed consistently is usually more valuable than an ambitious routine that becomes too complicated to maintain.",
             "Clear serving guidance, transparent ingredients, and simple formats make a routine easier to follow. When a product is easy to understand, it is easier to place into a daily rhythm.",
           ],
         },
@@ -292,7 +292,7 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
           heading: "Recovery and tomorrow's performance",
           body: [
             "Sleep is a performance tool because it supports recovery. A better night can influence how you train, work, regulate appetite, and make decisions the next day.",
-            "BioAro views sleep as part of the larger protocol story: energy, focus, recovery, and longevity all depend on restoration. Better routines begin when those pillars are treated as connected.",
+            "BioAro views sleep as part of the larger protocol story: energy, focus, recovery, and LONgevity+ all depend on restoration. Better routines begin when those pillars are treated as connected.",
           ],
         },
       ],

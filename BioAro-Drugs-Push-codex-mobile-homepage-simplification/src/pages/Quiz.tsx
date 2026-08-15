@@ -44,10 +44,10 @@ function isGoalId(value: string): value is GoalId {
 const EXAMPLE_PROTOCOLS = [
   {
     key: "morning",
-    title: "Morning Longevity Protocol",
+    title: "Morning LONgevity+ Protocol",
     description:
       "Built for customers focused on healthy ageing, daily vitality, and longer-term routine quality.",
-    suggestedFit: ["Longevity+", "CellOmega+"],
+    suggestedFit: ["LONgevity+", "CellOmega+"],
   },
   {
     key: "afternoon",

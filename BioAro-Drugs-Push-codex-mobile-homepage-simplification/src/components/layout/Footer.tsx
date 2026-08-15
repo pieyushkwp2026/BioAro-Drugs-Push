@@ -16,7 +16,7 @@ import { getMarketConfigByMarket } from "../../config/markets";
  * Link IA comes from FOOTER_SECTIONS in lib/routes.ts, which was already exported
  * and imported by nothing. The local arrays it replaced contained real bugs:
  * "/shop?category=Recovery" is not a valid Shop filter (Shop.tsx:8 allows only
- * All/Longevity/Wellness/Focus/Energy/Performance, and normalizeFilter silently
+ * All/LONgevity+/Wellness/Focus/Energy/Performance, and normalizeFilter silently
  * falls back to All), "Sleep" pointed at /protocols, and three pairs of links had
  * duplicate destinations. Living 2.0 and the account page were missing entirely.
  *
@@ -198,7 +198,7 @@ export default function Footer() {
                     <span>Thanks. Your email app should open with a request ready to send.</span>
                   </>
                 ) : (
-                  <span>Occasional notes on health, longevity and living well. No noise.</span>
+                  <span>Occasional notes on health, LONgevity+ and living well. No noise.</span>
                 )}
               </p>
 

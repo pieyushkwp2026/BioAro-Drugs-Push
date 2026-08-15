@@ -42,7 +42,7 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
     description:
       "Daily wellness formula designed to support healthy ageing and cellular energy, featuring NMN, resveratrol, CoQ10, curcumin, vitamin D3, and vitamin B12, helping support everyday vitality and cellular wellbeing.",
     image: { src: longevityPrimaryImg, alt: "BioAro LONgevity+ product and lid" },
-    category: "Longevity",
+    category: "LONgevity+",
     tags: ["Cellular Energy", "Healthy Aging", "NAD+ Support"],
     bestFor: "Adults focused on long-term vitality, cellular wellness, and proactive healthy aging.",
     dosage: "Recommended daily intake: Take 2 capsules daily with food, or as directed on the product label.",
@@ -92,7 +92,7 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
     },
     ingredients: [
       { name: "NMN", amount: "500 mg", purpose: "Supports NAD+ production and cellular energy.", whyIncluded: "The core precursor that helps raise cellular NAD+ levels.", image: nmnImg },
-      { name: "Resveratrol", amount: "200 mg", purpose: "Supports healthy aging pathways and longevity.", whyIncluded: "Works alongside NAD+ support to help activate longevity pathways.", image: resveratrolImg },
+      { name: "Resveratrol", amount: "200 mg", purpose: "Supports healthy aging pathways and LONgevity+.", whyIncluded: "Works alongside NAD+ support to help activate LONgevity+ pathways.", image: resveratrolImg },
       { name: "CoQ10", amount: "100 mg", purpose: "Supports cellular energy and heart health.", whyIncluded: "Supports mitochondrial energy output at the cellular level.", image: coq10Img },
       { name: "Curcumin", amount: "100 mg", purpose: "Supports antioxidant defense.", whyIncluded: "Helps protect cells from oxidative stress.", image: curcuminImg },
       { name: "Vitamin B12", amount: "250 µg", purpose: "Contributes to normal energy-yielding metabolism.", whyIncluded: "Vitamin B12 contributes to normal homocysteine metabolism.", image: vitaminB12Img },

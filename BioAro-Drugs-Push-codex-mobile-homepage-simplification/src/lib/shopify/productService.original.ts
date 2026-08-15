@@ -196,7 +196,7 @@ export async function fetchProductByHandle(handle: string, country: CountryCode)
       description: shopifyProduct.description,
       badge: undefined,
       image: shopifyProduct.image,
-      category: "Longevity",
+      category: "LONgevity+",
       tags: [],
       bestFor: "Contact support for guidance when this product becomes available.",
       dosage: "Follow the product label guidance once available.",

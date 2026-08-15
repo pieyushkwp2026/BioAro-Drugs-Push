@@ -5,14 +5,21 @@ import { fetchAllProducts } from "../lib/shopify/productService";
 import type { CatalogProduct } from "../lib/shopify/types";
 import { useMarket } from "../hooks/useMarket";
 
-const FILTERS = ["All", "Longevity", "Wellness", "Focus", "Energy", "Performance"] as const;
+const FILTERS = ["All", "LONgevity+", "Wellness", "Focus", "Energy", "Performance"] as const;
 const SORTS = ["Featured", "Price: Low to High", "Price: High to Low"] as const;
 
 type FilterOption = (typeof FILTERS)[number];
 type SortOption = (typeof SORTS)[number];
 
+/* The category was displayed as "Longevity" before the product spelling was applied
+   sitewide. Anything already linking to ?category=Longevity — a campaign, an email,
+   a bookmark — would otherwise fall silently back to All. */
+const FILTER_ALIASES: Record<string, FilterOption> = { Longevity: "LONgevity+" };
+
 function normalizeFilter(value: string | null): FilterOption {
-  return FILTERS.includes(value as FilterOption) ? (value as FilterOption) : "All";
+  if (!value) return "All";
+  if (FILTERS.includes(value as FilterOption)) return value as FilterOption;
+  return FILTER_ALIASES[value] ?? "All";
 }
 
 export default function Shop() {

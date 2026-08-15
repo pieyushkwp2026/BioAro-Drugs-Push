@@ -9,7 +9,7 @@ const DEFAULT_DESCRIPTION =
   "Explore clear, science-informed formulas for energy, focus, recovery, sleep, and long-term wellness.";
 
 const PRODUCT_NAMES: Record<string, string> = {
-  "longevity-plus": "Longevity+",
+  "longevity-plus": "LONgevity+",
   "cellomega-plus": "CellOmega+",
   "creagen-brain-boost": "Creagen Brain Boost",
   "creagen-smart-start": "Creagen Smart Start",
@@ -36,7 +36,7 @@ function getSeoContent(pathname: string, marketName: string) {
   const pages: Record<string, { title: string; description: string }> = {
     shop: {
       title: `Shop BioAro Drugs | ${marketName}`,
-      description: "Browse BioAro formulas for longevity, focus, recovery, sleep, and everyday wellness.",
+      description: "Browse BioAro formulas for LONgevity+, focus, recovery, sleep, and everyday wellness.",
     },
     science: {
       title: `Science & Quality | BioAro Drugs | ${marketName}`,

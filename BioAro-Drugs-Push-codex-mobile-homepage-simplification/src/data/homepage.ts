@@ -54,7 +54,7 @@ export interface HomepageGoal {
 
 export const GOALS: HomepageGoal[] = [
   { id: "energy", label: "Energy", handle: "cellomega-plus" },
-  { id: "longevity", label: "Longevity", handle: "longevity-plus" },
+  { id: "longevity", label: "LONgevity+", handle: "longevity-plus" },
   { id: "focus", label: "Focus", handle: "creagen-brain-boost" },
   { id: "recovery", label: "Recovery", handle: "creagen-pro-power" },
   { id: "sleep", label: "Sleep", handle: null },
@@ -174,7 +174,7 @@ export const BUILDER = {
 
 export const PRODUCTS_SECTION = {
   headline: ["Science-led formulas.", "Built to work together."],
-  body: "Seven formulas across clarity, strength, recovery and longevity. Every one of them lists what is inside and how much.",
+  body: "Seven formulas across clarity, strength, recovery and LONgevity+. Every one of them lists what is inside and how much.",
   primaryCta: "Shop All Products",
   secondaryCta: "Build My Protocol",
 } as const;
@@ -348,7 +348,7 @@ export const FOUNDER = {
 export const LIBRARY_SECTION = {
   eyebrow: "BioAro Drugs Science",
   headline: "The science, written to be understood.",
-  body: "Explainers on bioactives, longevity, recovery and formulation quality — in plain language, without the marketing.",
+  body: "Explainers on bioactives, LONgevity+, recovery and formulation quality — in plain language, without the marketing.",
   cta: "Explore BioAro Drugs Science",
 } as const;
 

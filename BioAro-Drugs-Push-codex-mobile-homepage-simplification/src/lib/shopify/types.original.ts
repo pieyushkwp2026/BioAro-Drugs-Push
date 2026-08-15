@@ -1,6 +1,6 @@
 import type { CountryCode } from "../market/types";
 
-export type ProductCategory = "Longevity" | "Wellness" | "Focus" | "Energy" | "Performance";
+export type ProductCategory = "LONgevity+" | "Wellness" | "Focus" | "Energy" | "Performance";
 
 export interface MoneyAmount {
   amount: number;

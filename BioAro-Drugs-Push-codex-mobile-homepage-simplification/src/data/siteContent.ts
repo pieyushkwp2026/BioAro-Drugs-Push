@@ -260,7 +260,7 @@ export const LIVING_SECTIONS: PageSectionContent[] = [
   {
     title: "Where BioAro Drugs Fits",
     paragraphs: [
-      "BioAro Drugs provides formulations designed to support routines across longevity, focus, recovery, sleep, and daily resilience.",
+      "BioAro Drugs provides formulations designed to support routines across LONgevity+, focus, recovery, sleep, and daily resilience.",
       "Rather than acting as generic add-ons, they are intended to sit inside a more thoughtful health system.",
     ],
   },
@@ -396,7 +396,7 @@ export const PROTOCOLS_PAGE_HERO: PageHeroContent = {
   eyebrow: "Protocols",
   title: "Build a smarter daily routine.",
   description:
-    "BioAro protocols bring complementary formulas together around everyday goals such as longevity, focus, recovery, and sleep.",
+    "BioAro protocols bring complementary formulas together around everyday goals such as LONgevity+, focus, recovery, and sleep.",
   primaryCta: { label: "Explore the Wellness Collection", href: ROUTES.shop },
   secondaryCta: { label: "Take the Wellness Quiz", href: ROUTES.quiz, variant: "secondary" },
 };
@@ -406,9 +406,9 @@ export const PROTOCOLS_INTRO =
 
 export const PROTOCOLS: ProtocolContent[] = [
   {
-    title: "Morning Longevity Protocol",
+    title: "Morning LONgevity+ Protocol",
     description: "Built for customers focused on healthy ageing, daily vitality, and longer-term routine quality.",
-    suggestedFit: ["Longevity+", "CellOmega+"],
+    suggestedFit: ["LONgevity+", "CellOmega+"],
     positioning: "Support cellular energy, healthy ageing, and daily foundational wellness in one morning routine.",
     handleGroup: ["longevity-plus", "cellomega-plus"],
   },

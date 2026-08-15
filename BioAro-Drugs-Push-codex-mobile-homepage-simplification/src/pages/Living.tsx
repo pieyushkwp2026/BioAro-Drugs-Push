@@ -114,7 +114,7 @@ const upgradeModules = [
     icon: RefreshCw,
   },
   {
-    title: "Longevity",
+    title: "LONgevity+",
     description: "Build routines that support long-term health.",
     image: sleepRoutine,
     alt: "Restful sleep scene representing long-term recovery and daily rhythm",

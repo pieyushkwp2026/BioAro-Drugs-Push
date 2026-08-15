@@ -58,11 +58,11 @@ export const PRODUCT_GALLERIES: Record<string, ProductGalleryImage[]> = {
     { src: femmeEnergyLifestyle, alt: "Woman preparing Creagen Femme Energy sachet with water", fit: "cover", position: "center" },
   ],
   "longevity-plus": [
-    { src: longevityHero, alt: "Longevity Plus product box and bottle", fit: "cover" },
-    { src: longevityCloseUp, alt: "Longevity Plus bottle in front of product packaging", fit: "cover" },
-    { src: longevityOpenPack, alt: "Open Longevity Plus packaging with branded lid", fit: "cover" },
-    { src: longevityIngredients, alt: "Longevity Plus key ingredients and serving amounts", fit: "contain" },
-    { src: longevityLifestyle, alt: "Woman preparing Longevity Plus as part of a daily routine", fit: "cover", position: "center" },
+    { src: longevityHero, alt: "LONgevity+ product box and bottle", fit: "cover" },
+    { src: longevityCloseUp, alt: "LONgevity+ bottle in front of product packaging", fit: "cover" },
+    { src: longevityOpenPack, alt: "Open LONgevity+ packaging with branded lid", fit: "cover" },
+    { src: longevityIngredients, alt: "LONgevity+ key ingredients and serving amounts", fit: "contain" },
+    { src: longevityLifestyle, alt: "Woman preparing LONgevity+ as part of a daily routine", fit: "cover", position: "center" },
   ],
   "cellomega-plus": [
     { src: cellOmegaHero, alt: "CellOmega Plus packaging, bottle, and capsules", fit: "cover" },
