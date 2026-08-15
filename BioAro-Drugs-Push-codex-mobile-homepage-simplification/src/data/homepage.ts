@@ -138,6 +138,13 @@ export const AI_SECTION = {
     `${count} product${count === 1 ? "" : "s"} the engine matched to your answers ${count === 1 ? "is" : "are"} not carried in your region yet, so ${count === 1 ? "it is" : "they are"} not shown above.`,
   cartWithheld: (count: number) =>
     `${count} product${count === 1 ? "" : "s"} in this protocol cannot be ordered in your region yet, so ${count === 1 ? "it is" : "they are"} not in the cart.`,
+  /* Short forms for the handle. "Your BioAro Drugs Starting Protocol" is 35 uppercase
+     characters at 0.12em tracking and truncated mid-word at 390px — "YOUR BIOARO
+     DRUGS STARTING PR…". The full name is in the panel the handle opens, so nothing
+     is lost by naming it briefly here. */
+  sheetShortPotential: "Potential fit",
+  sheetShortDraft: "Draft protocol",
+  sheetShortFinal: "Your protocol",
   sheetOpen: "View your protocol",
   sheetClose: "Hide your protocol",
   sheetItems: (count: number) => `${count} item${count === 1 ? "" : "s"}`,

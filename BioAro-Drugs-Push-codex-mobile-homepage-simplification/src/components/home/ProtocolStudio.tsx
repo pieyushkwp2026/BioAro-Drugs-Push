@@ -477,10 +477,10 @@ export default function ProtocolStudio({
   const itemCount = view.protocol?.items.length ?? 0;
   const sheetLabel =
     completionState === "complete"
-      ? AI_SECTION.previewFinal
+      ? AI_SECTION.sheetShortFinal
       : completionState === "refining"
-        ? AI_SECTION.previewDraft
-        : AI_SECTION.previewPotential;
+        ? AI_SECTION.sheetShortDraft
+        : AI_SECTION.sheetShortPotential;
   const sheetDetail = [goalLabels.join(" + "), itemCount > 0 ? AI_SECTION.sheetItems(itemCount) : null]
     .filter(Boolean)
     .join(" · ");
@@ -793,14 +793,19 @@ export default function ProtocolStudio({
           <span aria-hidden="true" className="h-1 w-9 shrink-0 rounded-full bg-line-strong" />
           <span className="min-w-0 flex-1 truncate text-[12px] font-bold uppercase tracking-[0.12em] text-ink-400">
             <span className="text-ember">{sheetLabel}</span>
-            {sheetDetail && <span className="normal-case tracking-normal text-ink-600"> · {sheetDetail}</span>}
+            {sheetDetail && (
+              <span className="normal-case tracking-normal text-ink-600"> · {sheetDetail}</span>
+            )}
           </span>
+          {/* The hint. Motion only — no copy tells anyone to swipe, because an arrow
+              drifting upward on a handle already says it. Rests while the sheet is
+              open, where there is nothing left to hint at. */}
           <ChevronUp
             size={17}
             strokeWidth={2.2}
             aria-hidden="true"
             className={`shrink-0 text-ink-400 transition-transform duration-300 motion-reduce:transition-none ${
-              sheetOpen ? "rotate-180" : ""
+              sheetOpen ? "rotate-180" : "bio-handle-hint"
             }`}
           />
           <span className="sr-only">{sheetOpen ? AI_SECTION.sheetClose : AI_SECTION.sheetOpen}</span>

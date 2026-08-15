@@ -166,6 +166,25 @@
 /* The bioaro-marquee-left/right keyframes that lived here drove the testimonial
    rows, which are gone along with their 36 invented reviewers. */
 
+/* The sheet-handle hint. The chevron drifts up and fades, on a long cycle with a
+   long rest — it is a nudge that the panel opens, not a notification demanding to be
+   dealt with. No copy accompanies it: the motion is the whole message.
+
+   The rest is most of the cycle on purpose. A cue that never stops stops being a cue
+   and becomes wallpaper, and on a sheet handle it would sit in peripheral vision for
+   the entire session. */
+@keyframes bioHandleHint {
+  0%, 62%   { transform: translateY(0);     opacity: 0.55; }
+  74%       { transform: translateY(-3px);  opacity: 1; }
+  86%       { transform: translateY(0);     opacity: 0.55; }
+  93%       { transform: translateY(-2px);  opacity: 0.9; }
+  100%      { transform: translateY(0);     opacity: 0.55; }
+}
+
+.bio-handle-hint {
+  animation: bioHandleHint 3.6s ease-in-out infinite;
+}
+
 /* The typewriter caret. steps(1) so it snaps rather than fading — a fading caret
    reads as a glow, not a cursor. */
 @keyframes bioCaret {
@@ -282,7 +301,8 @@
   }
 
   /* A permanently blinking element is exactly what this setting exists for. */
-  [data-pulse="true"] {
+  [data-pulse="true"],
+  .bio-handle-hint {
     animation: none !important;
   }
 }
