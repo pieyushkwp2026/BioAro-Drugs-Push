@@ -6,106 +6,114 @@ import os from "node:os";
 import path from "node:path";
 import process from "node:process";
 
+/*
+ * Source artwork: the Rocktomic SKU thumbnail renders, matched to handles using the
+ * supplied "Description and names" PDF.
+ *
+ * VitalGreens is DELIBERATELY ABSENT. The PDF lists 19 products and the folder holds
+ * 20 images; VitalGreens is the extra one, with no row naming it, so it is not in the
+ * supplied list and must not be uploadable even by a run with no --handle filter.
+ *
+ * The two Vital Prime files were ambiguous by filename and were resolved by opening
+ * them: "Vital Prime.png" is the blue MEN'S bottle (60 capsules), "Vital Prime
+ * Final.png" is the pink WOMEN'S one (30 servings). "Final" reads like a version, not
+ * a gender, and transposing these would put the men's multivitamin on the women's page.
+ */
 const PRODUCTS = [
   {
     handle: "bioprotein-pro",
     title: "BioProtein Pro",
-    sourcePath: "/Users/pieyush/Downloads/Labels - Rocktomic Products/ROC2821 - 1lb 100% Whey Armor Isolate Protein Vanilla.tif",
+    sourcePath: "/Users/pieyush/Downloads/Rocktomic SKU Thumbnail Images/Bio Protein Pro final.png",
   },
   {
     handle: "plantcore",
     title: "PlantCore",
-    sourcePath: "/Users/pieyush/Downloads/Labels - Rocktomic Products/ROC263V -1.5lb Pure Vegan Protein Vanilla.tif",
+    sourcePath: "/Users/pieyush/Downloads/Rocktomic SKU Thumbnail Images/Plant Core.png",
   },
   {
     handle: "bioignite",
     title: "BioIgnite",
-    sourcePath: "/Users/pieyush/Downloads/Labels - Rocktomic Products/ROC606 - Pre-Workout (Watermelon).tif",
+    sourcePath: "/Users/pieyush/Downloads/Rocktomic SKU Thumbnail Images/BioIgnite.png",
   },
   {
     handle: "musclerecover",
     title: "MuscleRecover",
-    sourcePath: "/Users/pieyush/Downloads/Labels - Rocktomic Products/ROC603 - BCAA (Fruit Punch).tif",
+    sourcePath: "/Users/pieyush/Downloads/Rocktomic SKU Thumbnail Images/Muscle Recovery final.png",
   },
   {
     handle: "hydrareload",
     title: "HydraReload",
-    sourcePath: "/Users/pieyush/Downloads/Labels - Rocktomic Products/ROC017 - Recovery Carb + Electrolyte Summer Punch 1365g.tif",
+    sourcePath: "/Users/pieyush/Downloads/Rocktomic SKU Thumbnail Images/HydraReload_final.png",
   },
   {
     handle: "womens-vitalprime",
     title: "Women's VitalPrime",
-    sourcePath: "/Users/pieyush/Downloads/Labels - Rocktomic Products/ROC507W - Ultra Vita For Women.tif",
+    sourcePath: "/Users/pieyush/Downloads/Rocktomic SKU Thumbnail Images/Vital Prime Final.png",
   },
   {
     handle: "nitricflow",
     title: "NitricFlow",
-    sourcePath: "/Users/pieyush/Downloads/Labels - Rocktomic Products/- Pump Pre-Workout Georgia Peach Rings 312g.tif",
+    sourcePath: "/Users/pieyush/Downloads/Rocktomic SKU Thumbnail Images/Nitric Flow Final.png",
   },
   {
     handle: "mens-vitalprime",
     title: "Men's VitalPrime",
-    sourcePath: "/Users/pieyush/Downloads/Labels - Rocktomic Products/ROC507 - Ultra Multivitamin For Men.tif",
+    sourcePath: "/Users/pieyush/Downloads/Rocktomic SKU Thumbnail Images/Vital Prime.png",
   },
   {
     handle: "biocollagen",
     title: "BioCollagen",
-    sourcePath: "/Users/pieyush/Downloads/Labels - Rocktomic Products/ROC450 - Collagen Type 1 & 3 Grass Fed 350g – 35 serv.tif",
+    sourcePath: "/Users/pieyush/Downloads/Rocktomic SKU Thumbnail Images/Bio Collagen.png",
   },
   {
     handle: "nitric-roots",
     title: "Nitric Roots",
-    sourcePath: "/Users/pieyush/Downloads/Labels - Rocktomic Products/ROC914 - Organic Beetroot.tif",
+    sourcePath: "/Users/pieyush/Downloads/Rocktomic SKU Thumbnail Images/Nitric Roots.png",
   },
   {
     handle: "mindsync",
     title: "MindSync",
-    sourcePath: "/Users/pieyush/Downloads/Labels - Rocktomic Products/ROC812 - Neuro Plus Brain and Focus.tif",
+    sourcePath: "/Users/pieyush/Downloads/Rocktomic SKU Thumbnail Images/Mind Sync Final.png",
   },
   {
     handle: "magbalance",
     title: "MagBalance",
-    sourcePath: "/Users/pieyush/Downloads/Labels - Rocktomic Products/ROC824 - Magnesium Glycinate.tif",
+    sourcePath: "/Users/pieyush/Downloads/Rocktomic SKU Thumbnail Images/Mag Balance.png",
   },
   {
     handle: "digestive-enzyme",
     title: "Digestive Enzyme",
-    sourcePath: "/Users/pieyush/Downloads/Labels - Rocktomic Products/ROC303 Digestive Enzyme.tif",
+    sourcePath: "/Users/pieyush/Downloads/Rocktomic SKU Thumbnail Images/Bio Digest.png",
   },
   {
     handle: "natural-pct",
     title: "Natural PCT",
-    sourcePath: "/Users/pieyush/Downloads/Labels - Rocktomic Products/ROC503 - Natural PCT.tif",
+    sourcePath: "/Users/pieyush/Downloads/Rocktomic SKU Thumbnail Images/natural PCT.png",
   },
   {
     handle: "ultra-test",
     title: "Ultra Test",
-    sourcePath: "/Users/pieyush/Downloads/Labels - Rocktomic Products/ROC506 - Ultra Test Natural Testosterone Support.tif",
+    sourcePath: "/Users/pieyush/Downloads/Rocktomic SKU Thumbnail Images/Andro Core.png",
   },
   {
     handle: "energized-aminos",
     title: "Energized Aminos",
-    sourcePath: "/Users/pieyush/Downloads/Labels - Rocktomic Products/ROC613 - Energized Aminos Peach Mango 360g – 40 serv.tif",
+    sourcePath: "/Users/pieyush/Downloads/Rocktomic SKU Thumbnail Images/Amino boost.png",
   },
   {
     handle: "adrenal-support-plus",
     title: "Adrenal Support Plus",
-    sourcePath: "/Users/pieyush/Downloads/Labels - Rocktomic Products/ROC736 - Adrenal Support Plus.tif",
+    sourcePath: "/Users/pieyush/Downloads/Rocktomic SKU Thumbnail Images/Stress Adapt.png",
   },
   {
     handle: "joint-flex",
     title: "Joint Flex",
-    sourcePath: "/Users/pieyush/Downloads/Labels - Rocktomic Products/ROC808 - Joint Flex.tif",
+    sourcePath: "/Users/pieyush/Downloads/Rocktomic SKU Thumbnail Images/Flex Motion.png",
   },
   {
     handle: "vitamin-k2-d3",
     title: "Vitamin K2 + D3",
-    sourcePath: "/Users/pieyush/Downloads/Labels - Rocktomic Products/ROC831 - Vitamin K2 + D3.tif",
-  },
-  {
-    handle: "vitalgreens",
-    title: "VitalGreens",
-    sourcePath: "/Users/pieyush/Downloads/Labels - Rocktomic Products/ROC937 - Organic Super Greens - Watermelon.tif",
+    sourcePath: "/Users/pieyush/Downloads/Rocktomic SKU Thumbnail Images/Bone Vital.png",
   },
 ];
 

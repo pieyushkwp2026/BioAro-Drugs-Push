@@ -2,6 +2,16 @@
 
 import process from "node:process";
 
+/*
+ * The same 19 the media-populate script uploads, and for the same reason:
+ * productCreateMedia APPENDS, so without this the blue placeholder stays first
+ * and remains the featured image — the upload would change nothing a customer
+ * sees. Run this only AFTER confirming the new media attached, so a failed
+ * upload never strands a product with no image at all.
+ *
+ * vitalgreens is absent for the same reason it is absent from the upload: it is
+ * not in the supplied list, so its placeholder stays until real artwork exists.
+ */
 const HANDLES = [
   "bioprotein-pro",
   "plantcore",
@@ -13,6 +23,15 @@ const HANDLES = [
   "mens-vitalprime",
   "biocollagen",
   "nitric-roots",
+  "mindsync",
+  "magbalance",
+  "digestive-enzyme",
+  "natural-pct",
+  "ultra-test",
+  "energized-aminos",
+  "adrenal-support-plus",
+  "joint-flex",
+  "vitamin-k2-d3",
 ];
 
 const apply = process.argv.includes("--apply");
