@@ -7,6 +7,8 @@ import { absoluteUrl, canonicalForMarket } from "../lib/seo";
 import { useMarket } from "../hooks/useMarket";
 import { useMarketHref } from "../hooks/useMarketHref";
 import { ROUTES } from "../lib/routes";
+import { SLOT_BY_HANDLE } from "../lib/protocol/build";
+import { PRODUCT_LIFESTYLE } from "../data/productLifestyle";
 import { PDP } from "../data/productPage";
 import { PRODUCT_GALLERIES } from "../data/productGalleries";
 import { JOURNAL_ARTICLES } from "../data/journal";
@@ -16,6 +18,8 @@ import ProductCard from "../components/sections/ProductCard";
 import ProductGallery from "../components/product/ProductGallery";
 import BuyRail from "../components/product/BuyRail";
 import FormulationTable from "../components/product/FormulationTable";
+import IngredientCards from "../components/product/IngredientCards";
+import Composition from "../components/product/Composition";
 import Disclosure from "../components/product/Disclosure";
 import SectionNav, { type NavSection } from "../components/product/SectionNav";
 
@@ -200,6 +204,8 @@ export default function Product() {
      exclusion, so a new format badge cannot leak in by default. */
   const QUALITY_TERMS = /tested|third-party|third party|non-gmo|gluten|purity|potency|quality|allergen|vegan/i;
   const qualityBadges = (product.qualityBadges ?? []).filter((badge) => badge.enabled);
+  const slot = SLOT_BY_HANDLE[product.handle];
+  const lifestyle = PRODUCT_LIFESTYLE[product.handle];
   const qualityClaims =
     qualityBadges.length > 0
       ? qualityBadges.map((badge) => badge.title)
@@ -242,29 +248,31 @@ export default function Product() {
         </div>
       )}
 
+      {/* Breaks the run of text the way Seed's page does. Full-bleed, outside the
+          reading column, and absent entirely for products with no photograph rather
+          than borrowing one from another product. */}
+      {lifestyle && (
+        <div className="mt-16 overflow-hidden md:mt-20">
+          <img
+            src={lifestyle.src}
+            alt={lifestyle.alt}
+            loading="lazy"
+            decoding="async"
+            className="h-[280px] w-full object-cover sm:h-[380px] lg:h-[460px]"
+          />
+        </div>
+      )}
+
       <div className="container-bio">
         <div className="mt-12 max-w-[820px] space-y-14">
           {product.ingredients?.length ? <FormulationTable product={product} /> : null}
 
-          {/* ------------------------------------------- why these ingredients */}
-          {rationale.length > 0 && (
-            <section id="why" className="scroll-mt-[132px] border-t border-line-strong pt-12">
-              <h2 className="text-[26px] font-black tracking-[-0.03em] text-ink sm:text-[32px]">{PDP.why.heading}</h2>
-              <p className="mt-3 max-w-[62ch] text-[15px] leading-[1.6] text-ink-600">{PDP.why.body}</p>
+          {/* Photo cards, not a text list — the imagery has been in the repo the whole
+              time and this is the section it was for. */}
+          <IngredientCards ingredients={rationale.length > 0 ? rationale : (product.ingredients ?? [])} />
 
-              <ul className="mt-8 space-y-6">
-                {rationale.map((ingredient) => (
-                  <li key={ingredient.name} className="border-l-2 border-ember/30 pl-5">
-                    <p className="flex flex-wrap items-baseline gap-x-3 text-[16px] font-bold tracking-[-0.02em] text-ink">
-                      {ingredient.name}
-                      <span className="text-[13.5px] font-medium tabular-nums text-ink-400">{ingredient.amount}</span>
-                    </p>
-                    <p className="mt-1.5 max-w-[68ch] text-[15px] leading-[1.6] text-ink-600">{ingredient.whyIncluded}</p>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          )}
+          <Composition ingredients={product.ingredients ?? []} />
+
 
           {/* -------------------------------------------------------- audience */}
           {audience.length > 0 && (
@@ -277,6 +285,53 @@ export default function Product() {
                 <span className="font-bold text-ink">{audience.join(", ").toLowerCase()}</span>.
                 {product.servings ? ` ${PDP.audience.format(product.servings)}` : ""}
               </p>
+            </section>
+          )}
+
+          {/* -------------------------------------------- what else is in it */}
+          {(product.otherIngredients?.length ?? 0) > 0 && (
+            <section className="border-t border-line-strong pt-12">
+              <h2 className="text-[26px] font-black tracking-[-0.03em] text-ink sm:text-[32px]">
+                {PDP.alsoInside.heading}
+              </h2>
+              <p className="mt-3 max-w-[62ch] text-[15px] leading-[1.6] text-ink-600">{PDP.alsoInside.body}</p>
+              <ul className="mt-6 flex flex-wrap gap-2.5">
+                {product.otherIngredients?.map((item) => (
+                  <li
+                    key={item}
+                    className="rounded-full border border-line bg-white px-4 py-2 text-[13.5px] text-ink-600"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {/* --------------------------------------------------- day placement
+              From SLOT_BY_HANDLE in the protocol engine, so the PDP and the protocol
+              can never disagree about when this is taken. */}
+          {slot && (
+            <section className="border-t border-line-strong pt-12">
+              <h2 className="text-[26px] font-black tracking-[-0.03em] text-ink sm:text-[32px]">
+                {PDP.routine.heading}
+              </h2>
+              <p className="mt-3 max-w-[62ch] text-[15px] leading-[1.6] text-ink-600">{PDP.routine.body}</p>
+              <ul className="mt-6 flex flex-wrap gap-2.5">
+                {(["Morning", "Around training", "Evening"] as const).map((label) => (
+                  <li
+                    key={label}
+                    className={`rounded-full border px-4 py-2.5 text-[14px] font-bold tracking-[-0.01em] ${
+                      label === slot ? "border-ember bg-ember text-white" : "border-line bg-white text-ink-400"
+                    }`}
+                  >
+                    {label}
+                  </li>
+                ))}
+              </ul>
+              {product.dosage && (
+                <p className="mt-5 max-w-[62ch] text-[15px] leading-[1.6] text-ink-600">{product.dosage}</p>
+              )}
             </section>
           )}
 

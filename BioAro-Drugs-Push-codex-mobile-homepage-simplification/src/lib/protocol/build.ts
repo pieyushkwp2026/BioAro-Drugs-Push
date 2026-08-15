@@ -104,7 +104,10 @@ const PRIMARY_BY_GOAL: Partial<Record<GoalId, { handle: string; reason: string }
   "womens-health": { handle: "creagen-femme-energy", reason: "Your goal is women's health, so the protocol leads with the formula made for it." },
 };
 
-const SLOT_BY_HANDLE: Record<string, ProtocolSlot> = {
+/* Exported so the PDP can show where a product sits in a day without keeping its own
+   copy of the mapping — one source, so the product page and the protocol can never
+   disagree about when something is taken. */
+export const SLOT_BY_HANDLE: Record<string, ProtocolSlot> = {
   "longevity-plus": "Morning",
   "cellomega-plus": "Morning",
   "creagen-brain-boost": "Morning",

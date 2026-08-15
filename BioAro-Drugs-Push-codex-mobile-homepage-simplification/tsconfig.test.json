@@ -25,6 +25,7 @@
     "src/lib/ask/types.ts",
     "src/lib/ask/safety.ts",
     "src/lib/ask/match.ts",
+    "src/lib/product/amount.ts",
     "src/lib/protocol/build.ts",
     "src/lib/protocol/session.ts",
     "src/lib/protocol/questions.ts",

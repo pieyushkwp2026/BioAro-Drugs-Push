@@ -62,6 +62,23 @@ export const PDP = {
     heading: "Why these ingredients?",
     body: "Each active earns its place. This is the reason every one of them is in the formula, at the amount it ships with.",
   },
+  composition: {
+    heading: "The formula, to scale",
+    /* This caption is not decoration. Bars drawn from mixed units imply a hierarchy
+       the formula does not have, and this is the line that stops them. */
+    caption:
+      "Bars show mass per serving, on a compressed scale so smaller amounts stay visible. Mass is not potency — micronutrients work at far smaller doses than the actives above them.",
+  },
+  alsoInside: {
+    heading: "What else is in the capsule",
+    /* NOT "what we leave out". These are excipients — binders, flow agents, the shell
+       — things that ARE in it. Framing them as omissions would invert the meaning. */
+    body: "The non-active ingredients that hold the formula together.",
+  },
+  routine: {
+    heading: "Where it sits in your day",
+    body: "When BioAro Drugs AI places this in a protocol.",
+  },
   audience: {
     heading: "Who is it for?",
     /* Composed from the product's own approved feature set rather than written per
