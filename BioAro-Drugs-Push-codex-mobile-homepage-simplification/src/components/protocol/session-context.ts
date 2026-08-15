@@ -46,6 +46,8 @@ export interface ProtocolSessionValue {
   answerClinical: (flagged: boolean) => void;
   /** Clears every answer but keeps the goals and the original wording. */
   adjustAnswers: () => void;
+  /** Start over: goals, answers, screener and typed message all cleared. */
+  resetAll: () => void;
 }
 
 export const ProtocolSessionContext = createContext<ProtocolSessionValue | null>(null);

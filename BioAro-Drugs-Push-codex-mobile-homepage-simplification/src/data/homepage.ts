@@ -99,6 +99,8 @@ export const AI_SECTION = {
      verb because that is what a screen reader announces on focus. */
   dialogLabel: "Build your protocol with BioAro Drugs AI",
   close: "Close",
+  reset: "Start over",
+  resetConfirm: "Start over?",
   /* The descriptor names what the product does. It is not a capability claim: the
      engine builds protocols from what you tell it, which is exactly what it says. */
   descriptor: "Your intelligent bioactive protocol engine",

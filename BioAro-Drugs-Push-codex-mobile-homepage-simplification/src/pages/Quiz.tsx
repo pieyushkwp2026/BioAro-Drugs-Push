@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { ArrowRight, ChevronDown, RotateCcw, Sparkles } from "lucide-react";
 
@@ -93,6 +93,8 @@ export default function Quiz() {
    * answers already given — the URL is a starting point for a cold visit, not the
    * source of truth for a session already underway.
    */
+  const [confirmReset, setConfirmReset] = useState(false);
+
   const seeded = useRef(false);
   useEffect(() => {
     if (seeded.current) return;
@@ -166,16 +168,39 @@ export default function Quiz() {
                   <span>
                     {completionState === "complete" ? AI_SECTION.readyMeta : AI_SECTION.remaining(remaining)}
                   </span>
-                  {completionState === "complete" && (
+                  <span className="flex items-center gap-4">
+                    {completionState === "complete" && (
+                      <button
+                        type="button"
+                        onClick={session.adjustAnswers}
+                        className="flex items-center gap-1.5 font-bold text-ink underline-offset-4 hover:text-ember hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember"
+                      >
+                        <RotateCcw size={13} strokeWidth={2.2} aria-hidden="true" />
+                        {AI_SECTION.adjust}
+                      </button>
+                    )}
+
+                    {/* The full reset, matching the modal. Adjust keeps the goals; this
+                        is the blank page, and the two surfaces share one session — so a
+                        reset reachable in only one of them is a gap someone finds. */}
                     <button
                       type="button"
-                      onClick={session.adjustAnswers}
-                      className="flex items-center gap-1.5 font-bold text-ink underline-offset-4 hover:text-ember hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember"
+                      onClick={() => {
+                        if (!confirmReset) {
+                          setConfirmReset(true);
+                          return;
+                        }
+                        setConfirmReset(false);
+                        session.resetAll();
+                      }}
+                      onBlur={() => setConfirmReset(false)}
+                      className={`font-bold underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember ${
+                        confirmReset ? "text-ember" : "text-ink hover:text-ember"
+                      }`}
                     >
-                      <RotateCcw size={13} strokeWidth={2.2} aria-hidden="true" />
-                      {AI_SECTION.adjust}
+                      {confirmReset ? AI_SECTION.resetConfirm : AI_SECTION.reset}
                     </button>
-                  )}
+                  </span>
                 </div>
                 <div
                   role="progressbar"

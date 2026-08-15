@@ -8,6 +8,7 @@ import {
   answer as answerField,
   answerClinical as answerClinicalOn,
   createSession,
+  resetSession,
   resetAnswers,
   setGoals as setSessionGoals,
   unanswer,
@@ -128,6 +129,17 @@ export function ProtocolSessionProvider({ children }: { children: ReactNode }) {
     setSession((current) => resetAnswers(current));
   }, []);
 
+  /* Everything the visitor put in, including what they typed and anything the
+     matcher inferred from it. A reset that left the message behind would refill
+     the box the moment the modal reopened. */
+  const resetAll = useCallback(() => {
+    setSession((current) => resetSession(current));
+    setMessageState("");
+    setMatched([]);
+    setNoMatch(false);
+    setError(null);
+  }, []);
+
   const view = useMemo(() => viewSession({ ...session, market }), [session, market]);
 
   const value = useMemo(
@@ -150,6 +162,7 @@ export function ProtocolSessionProvider({ children }: { children: ReactNode }) {
       editAnswer,
       answerClinical,
       adjustAnswers,
+      resetAll,
     }),
     [
       view,
@@ -170,6 +183,7 @@ export function ProtocolSessionProvider({ children }: { children: ReactNode }) {
       editAnswer,
       answerClinical,
       adjustAnswers,
+      resetAll,
     ],
   );
 

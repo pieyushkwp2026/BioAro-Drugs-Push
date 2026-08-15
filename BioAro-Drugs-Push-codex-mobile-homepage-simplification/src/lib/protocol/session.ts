@@ -97,6 +97,17 @@ export function resetAnswers(session: ProtocolSession): ProtocolSession {
   return { ...session, answers: {}, clinicalAsked: false };
 }
 
+/**
+ * Start over. Clears goals, answers, the screener and the original wording, keeping
+ * only the market — which is where the visitor is, not something they told us.
+ *
+ * Distinct from `resetAnswers`, which keeps the goals so somebody can re-run the
+ * questions against the same intent. This one is the blank page.
+ */
+export function resetSession(session: ProtocolSession): ProtocolSession {
+  return createSession({ market: session.market });
+}
+
 /** Stage 2. Records the answer and that it was asked; changes no product. */
 export function answerClinical(session: ProtocolSession, flagged: boolean): ProtocolSession {
   return { ...session, clinicalAsked: true, answers: { ...session.answers, clinicalFlag: flagged } };

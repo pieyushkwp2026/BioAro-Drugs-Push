@@ -13,6 +13,7 @@ import {
   ArrowUp,
   Check,
   ChevronUp,
+  RotateCcw,
   Clock3,
   CornerDownLeft,
   Plus,
@@ -413,6 +414,7 @@ export default function ProtocolStudio({
   const [thread, setThread] = useState<Turn[]>([]);
   const [composer, setComposer] = useState("");
   const [asking, setAsking] = useState(false);
+  const [confirmReset, setConfirmReset] = useState(false);
 
   const goalLabels = view.session.detectedGoals
     .map((id) => GOALS.find((goal) => goal.id === id)?.label)
@@ -435,7 +437,10 @@ export default function ProtocolStudio({
 
   // Closing the studio must not leave the sheet open behind it for next time.
   useEffect(() => {
-    if (!open) setSheetOpen(false);
+    if (!open) {
+      setSheetOpen(false);
+      setConfirmReset(false);
+    }
   }, [open]);
 
   /*
@@ -548,6 +553,44 @@ export default function ProtocolStudio({
           <p className="text-[13px] font-black uppercase tracking-[0.12em] text-ink">{AI_SECTION.eyebrow}</p>
           <p className="mt-0.5 text-[11.5px] text-ink-400">{AI_SECTION.descriptor}</p>
         </div>
+
+        {/* Start over. In the header so it is reachable at every size and in every
+            state — the footer's "Adjust my answers" only exists once the protocol is
+            complete, and it keeps the goals.
+
+            Two taps on purpose: this sits beside Close, both are small, and one
+            mis-tap would wipe a nine-question intake with nothing to undo it. */}
+        {completionState !== "empty" && (
+          <button
+            type="button"
+            onClick={() => {
+              if (!confirmReset) {
+                setConfirmReset(true);
+                return;
+              }
+              setConfirmReset(false);
+              setThread([]);
+              setComposer("");
+              setSheetOpen(false);
+              session.resetAll();
+            }}
+            onBlur={() => setConfirmReset(false)}
+            aria-label={confirmReset ? AI_SECTION.resetConfirm : AI_SECTION.reset}
+            /* 44px minimum. Icon-only on phones, and it sits 12px from Close — an
+               undersized target next to a destructive neighbour is how a nine-question
+               intake gets wiped by a thumb. */
+            className={`flex h-11 min-w-[44px] shrink-0 items-center justify-center gap-2 rounded-full px-3 text-[12.5px] font-bold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember ${
+              confirmReset
+                ? "bg-ember text-white hover:bg-ember-600"
+                : "text-ink-400 hover:bg-cream-50 hover:text-ink"
+            }`}
+          >
+            <RotateCcw size={15} strokeWidth={2.2} aria-hidden="true" />
+            <span className={confirmReset ? "" : "hidden sm:inline"}>
+              {confirmReset ? AI_SECTION.resetConfirm : AI_SECTION.reset}
+            </span>
+          </button>
+        )}
 
         <button
           type="button"
