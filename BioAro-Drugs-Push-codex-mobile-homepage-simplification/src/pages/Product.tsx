@@ -11,6 +11,7 @@ import { SLOT_BY_HANDLE } from "../lib/protocol/build";
 import { PDP } from "../data/productPage";
 import { PRODUCT_GALLERIES } from "../data/productGalleries";
 import { hasEditorialBand } from "../data/productLifestyle";
+import { usefulFaqs } from "../lib/product/faq";
 import { JOURNAL_ARTICLES } from "../data/journal";
 import type { CatalogProduct } from "../lib/shopify/types";
 import AccordionGroup from "../components/page/AccordionGroup";
@@ -178,17 +179,16 @@ export default function Product() {
   const attributes = product.featureBadges.map((badge) => badge.label);
 
   /*
-   * Dosage has one home: the rail's "How to use" panel. Every product's FAQ also
-   * carries a "How should I take X?" entry whose answer is the same sentence, so it
-   * printed twice on one page. The FAQ copy is dropped rather than the panel — the
-   * rail is where someone deciding whether to buy actually looks.
+   * The FAQ, minus the questions this page already answers better elsewhere.
+   *
+   * This used to be a dosage-only filter here. It is now `usefulFaqs`, because the
+   * problem was wider than dosage: seven products shared the same six questions, four
+   * of which repeated the How-to-use panel, the warnings block, or the returns page.
+   * The rule lives in src/lib/product/faq.ts so it applies whether the FAQ came from
+   * Shopify or the local catalogue — the store's copy currently wins, and its metafield
+   * cannot be corrected while the Admin token is returning 401.
    */
-  const dosage = normalise(product.dosage ?? "");
-  const faq = (product.faq ?? []).filter((item) => {
-    if (!dosage) return true;
-    const answer = normalise(item.answer);
-    return !(answer === dosage || answer.includes(dosage) || dosage.includes(answer));
-  });
+  const faq = usefulFaqs(product.faq, product.dosage);
 
   // Only the sections that actually rendered reach the nav — a tab that scrolls to
   // nothing is worse than no tab.

@@ -23,13 +23,6 @@ import journalQualityDocumentation from "../assets/journal/journal-quality-docum
 import { useMarketHref } from "../hooks/useMarketHref";
 import { ROUTES } from "../lib/routes";
 
-const PRINCIPLES = [
-  { number: "01", title: "Evidence", description: "Start with ingredients that have a clear scientific rationale and relevant research context." },
-  { number: "02", title: "Transparency", description: "Show ingredient names, amounts, directions, warnings, and product-specific information clearly." },
-  { number: "03", title: "Quality", description: "Surface manufacturing, testing, sourcing, and documentation details when they are confirmed." },
-  { number: "04", title: "Guidance", description: "Help you understand how a formula can fit into a practical daily routine." },
-];
-
 const JOURNEY = [
   { title: "Research", description: "Review the available evidence and intended role of each ingredient." },
   { title: "Ingredients", description: "Select ingredients and forms that suit the purpose of the formula." },
@@ -56,7 +49,7 @@ const QUALITY_ITEMS = [
 ];
 
 const PATHWAY = [
-  { title: "Science", description: "Understand the BioAro approach to evidence and formulation.", href: ROUTES.science },
+  { title: "Science", description: "Understand the BioAro Drugs approach to evidence and formulation.", href: ROUTES.science },
   { title: "Product pages", description: "Review ingredients, benefits, directions, warnings, and routine context.", href: ROUTES.shop },
   { title: "Journal", description: "Explore practical explainers about ingredients, routines, recovery, and quality.", href: ROUTES.journal },
   { title: "Wellness Quiz", description: "Find a practical starting point based on your current goals.", href: ROUTES.quiz },
@@ -93,7 +86,7 @@ export default function Science() {
             <SectionLabel>Science &amp; quality</SectionLabel>
             <h1 className="mt-5 text-[clamp(3.5rem,8vw,7rem)] leading-[0.9] tracking-[-0.03em]">Better wellness starts with better information.</h1>
             <p className="mt-8 max-w-xl text-lg leading-relaxed text-ink/60 md:text-xl">
-              BioAro explains the evidence, ingredients, formulation choices, and practical guidance behind each formula so you can make more informed decisions.
+              BioAro Drugs explains the evidence, ingredients, formulation choices, and practical guidance behind each formula so you can make more informed decisions.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Link to={marketHref(ROUTES.shop)} className="btn-primary">Explore formulas <ArrowRight size={16} /></Link>
@@ -118,27 +111,26 @@ export default function Science() {
             <SectionLabel>Research, made useful</SectionLabel>
             <h2 className="mt-5 max-w-xl text-4xl leading-[0.96] md:text-6xl">Research is only valuable when it becomes understandable.</h2>
             <p className="mt-7 max-w-lg text-base leading-relaxed text-ink/60 md:text-lg">
-              BioAro turns ingredient evidence, formulation context, dosage information, and product guidance into clear information you can use in everyday life.
+              BioAro Drugs turns ingredient evidence, formulation context, dosage information, and product guidance into clear information you can use in everyday life.
             </p>
             <div className="mt-9 flex items-center gap-3 text-sm font-medium text-forest-600"><Leaf size={17} /> Clear context, grounded in evidence</div>
           </div>
         </div>
       </section>
 
-      <section className="container-bio mt-28 md:mt-40">
-        <SectionLabel>The BioAro approach</SectionLabel>
-        <h2 className="mt-4 max-w-2xl text-4xl leading-[0.96] md:text-6xl">The principles behind every formula.</h2>
-        <div className="mt-14 grid border-y border-sand/70 md:grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-sand/70">
-          {PRINCIPLES.map((principle) => (
-            <article key={principle.number} className="border-b border-sand/70 py-8 md:px-8 lg:border-b-0 lg:py-10 first:lg:pl-0 last:lg:pr-0">
-              <span className="font-display text-5xl text-forest-600/60 md:text-6xl">{principle.number}</span>
-              <h3 className="mt-7 text-2xl">{principle.title}</h3>
-              <p className="mt-4 max-w-xs text-base leading-relaxed text-ink/55">{principle.description}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
+      {/*
+        * REMOVED: "The BioAro approach — The principles behind every formula", a
+        * four-item list of Evidence / Transparency / Quality / Guidance.
+        *
+        * It restated the homepage Why section, and the same list existed again on
+        * /about as "Our principles" and on /living-2-0 as "Five principles". This page
+        * also ran it immediately above the science journey below, so a visitor met two
+        * numbered lists back to back saying much the same thing — four principles, then
+        * five process steps.
+        *
+        * The journey survives because it is the one that belongs here: it describes
+        * what is actually done to a formula, not what the company believes.
+        */}
       <section className="container-bio mt-28 md:mt-40">
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
@@ -166,7 +158,7 @@ export default function Science() {
             <h2 className="mt-5 text-4xl leading-[0.96] text-cream md:text-6xl">Science without unnecessary complexity.</h2>
             <p className="mt-7 max-w-lg leading-relaxed text-cream/70">You should not need specialist knowledge to understand what is in a product, how to use it, or what information is available.</p>
           </div>
-          <div className="min-h-[360px] overflow-hidden lg:min-h-[520px]"><img src={labGlasswareStudy} alt="Laboratory glassware, botanical ingredients, and formulation notes used to explain BioAro science" className="h-full w-full object-cover object-right transition-transform duration-1000 hover:scale-[1.03]" /></div>
+          <div className="min-h-[360px] overflow-hidden lg:min-h-[520px]"><img src={labGlasswareStudy} alt="Laboratory glassware, botanical ingredients, and formulation notes used to explain BioAro Drugs science" className="h-full w-full object-cover object-right transition-transform duration-1000 hover:scale-[1.03]" /></div>
         </div>
       </section>
 
@@ -215,7 +207,7 @@ export default function Science() {
 
       <section className="container-bio mt-28 md:mt-40">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-20">
-          <div className="overflow-hidden rounded-[32px] bg-[#E1DED8]"><img src={journalQualityDocumentation} alt="BioAro quality documentation and botanical product still life" className="aspect-[4/3] h-full w-full object-cover" /></div>
+          <div className="overflow-hidden rounded-[32px] bg-[#E1DED8]"><img src={journalQualityDocumentation} alt="BioAro Drugs quality documentation and botanical product still life" className="aspect-[4/3] h-full w-full object-cover" /></div>
           <div>
             <SectionLabel>Quality &amp; testing</SectionLabel>
             <h2 className="mt-5 max-w-2xl text-4xl leading-[0.96] md:text-6xl">Quality information should be visible, specific, and verifiable.</h2>
@@ -236,11 +228,11 @@ export default function Science() {
       </section>
 
       <section className="container-bio mt-28 md:mt-40">
-        <div className="rounded-[32px] bg-[#F0EBE3] px-6 py-20 text-center md:px-16 md:py-32"><p className="mx-auto max-w-5xl font-display text-4xl leading-[0.95] tracking-[-0.02em] md:text-7xl">“We do not simplify science. We simplify understanding.”</p><span className="mt-8 block text-xs font-semibold uppercase tracking-[0.18em] text-forest-600">BioAro</span></div>
+        <div className="rounded-[32px] bg-[#F0EBE3] px-6 py-20 text-center md:px-16 md:py-32"><p className="mx-auto max-w-5xl font-display text-4xl leading-[0.95] tracking-[-0.02em] md:text-7xl">“We do not simplify science. We simplify understanding.”</p><span className="mt-8 block text-xs font-semibold uppercase tracking-[0.18em] text-forest-600">BioAro Drugs</span></div>
       </section>
 
       <section className="container-bio mt-28 md:mt-40">
-        <div className="rounded-[32px] bg-[#1C1917] px-7 py-16 text-center text-cream shadow-[0_24px_70px_rgba(29,25,21,0.18)] md:px-16 md:py-28"><SectionLabel className="!text-cream/75">Start with clarity</SectionLabel><h2 className="mx-auto mt-5 max-w-4xl text-5xl leading-[0.94] text-cream md:text-7xl">Understand your routine. Take action with confidence.</h2><p className="mx-auto mt-7 max-w-xl text-base leading-relaxed text-cream/70 md:text-lg">Explore BioAro formulas, ingredient information, and practical health education.</p><div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row"><Link to={marketHref(ROUTES.shop)} className="btn-primary">Explore formulas <ArrowRight size={16} /></Link><Link to={marketHref(ROUTES.living)} className="btn-secondary !border-white/25 !bg-white/10 !text-cream hover:!bg-white/15">Explore Living 2.0 <ArrowRight size={16} /></Link></div></div>
+        <div className="rounded-[32px] bg-[#1C1917] px-7 py-16 text-center text-cream shadow-[0_24px_70px_rgba(29,25,21,0.18)] md:px-16 md:py-28"><SectionLabel className="!text-cream/75">Start with clarity</SectionLabel><h2 className="mx-auto mt-5 max-w-4xl text-5xl leading-[0.94] text-cream md:text-7xl">Understand your routine. Take action with confidence.</h2><p className="mx-auto mt-7 max-w-xl text-base leading-relaxed text-cream/70 md:text-lg">Explore BioAro Drugs formulas, ingredient information, and practical health education.</p><div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row"><Link to={marketHref(ROUTES.shop)} className="btn-primary">Explore formulas <ArrowRight size={16} /></Link><Link to={marketHref(ROUTES.living)} className="btn-secondary !border-white/25 !bg-white/10 !text-cream hover:!bg-white/15">Explore Living 2.0 <ArrowRight size={16} /></Link></div></div>
       </section>
     </main>
   );

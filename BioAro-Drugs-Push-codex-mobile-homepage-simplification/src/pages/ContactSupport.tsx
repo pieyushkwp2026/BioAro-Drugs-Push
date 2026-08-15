@@ -15,7 +15,7 @@ export default function ContactSupport() {
       return;
     }
 
-    const subject = encodeURIComponent("BioAro support request");
+    const subject = encodeURIComponent("BioAro Drugs support request");
     const body = encodeURIComponent(trimmedMessage);
     window.location.href = `mailto:${supportEmail}?subject=${subject}&body=${body}`;
   }

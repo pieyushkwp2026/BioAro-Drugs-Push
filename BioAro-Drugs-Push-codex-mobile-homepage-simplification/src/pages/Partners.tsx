@@ -18,7 +18,7 @@ export default function Partners() {
               ))}
             </div>
 
-            <h3 className="mt-8 text-xl">Why partner with BioAro</h3>
+            <h3 className="mt-8 text-xl">Why partner with BioAro Drugs</h3>
             <ul className="mt-4 space-y-2 text-sm text-ink/65">
               {PARTNER_REASONS.map((reason) => (
                 <li key={reason} className="flex gap-2">

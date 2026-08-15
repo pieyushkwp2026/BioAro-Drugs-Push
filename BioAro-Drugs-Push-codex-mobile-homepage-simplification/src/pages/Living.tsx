@@ -6,7 +6,6 @@ import {
   Dna,
   FlaskConical,
   HeartPulse,
-  Leaf,
   LineChart,
   Moon,
   RefreshCw,
@@ -90,14 +89,6 @@ const ecosystemNodes = [
   },
 ];
 
-const principles = [
-  { title: "Science First", description: "Start with evidence, not trends.", icon: FlaskConical },
-  { title: "Evidence Driven", description: "Use ingredients and approaches that are studied and understood.", icon: Dna },
-  { title: "Daily Habits", description: "Small, consistent actions create lasting change.", icon: Sun },
-  { title: "Measured Progress", description: "Review, learn and adjust using real information.", icon: LineChart },
-  { title: "Long-Term Thinking", description: "Build for decades, not quick fixes.", icon: Leaf },
-];
-
 const upgradeModules = [
   {
     title: "Morning",
@@ -166,7 +157,7 @@ export default function Living() {
                 Live Better.
               </h1>
               <p className="mt-7 max-w-xl text-lg leading-relaxed text-white/72 md:text-xl">
-                BioAro brings testing, science, and daily routines together to support better health decisions over time.
+                BioAro Drugs brings testing, science, and daily routines together to support better health decisions over time.
               </p>
               <div className="mt-10 flex flex-col gap-3 sm:flex-row">
                 <Link to={marketHref(ROUTES.shop)} className="btn-primary !bg-white !text-ink hover:!bg-[#F0EBE3]">
@@ -229,7 +220,7 @@ export default function Living() {
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>
             <SectionIntro
-              eyebrow="The BioAro approach"
+              eyebrow="The BioAro Drugs approach"
               title="Better health happens when everything works together."
               description="Living 2.0 is not a single product or a single test. It is a connected way to understand, act, stay consistent and improve over time."
             />
@@ -261,34 +252,43 @@ export default function Living() {
           <div className="min-h-[420px] overflow-hidden lg:min-h-[620px]">
             <img
               src={evidenceLabScene}
-              alt="BioAro products in a laboratory setting representing evidence and quality"
+              alt="BioAro Drugs products in a laboratory setting representing evidence and quality"
               className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.02]"
             />
           </div>
           <div className="flex flex-col justify-center p-8 md:p-14 lg:p-16">
+            {/*
+              * This block used to be headed "Health should not begin when something
+              * goes wrong." — the SAME sentence as the health-gap section higher up
+              * this page, and its opening paragraph was a paraphrase of that section's
+              * standfirst too. One page, one headline said twice.
+              *
+              * The new heading is not new copy: it is the sentence that was already the
+              * last line of this block, promoted. It is also the only idea here the
+              * section above does not already make, which is why it earns the position.
+              */}
             <span className="text-[12px] font-semibold uppercase tracking-[0.2em] text-[#E1DED8]">Why it matters</span>
-            <h2 className="mt-4 text-4xl leading-[1.02] md:text-6xl">Health should not begin when something goes wrong.</h2>
+            <h2 className="mt-4 text-4xl leading-[1.02] md:text-6xl">It is not about perfect habits.</h2>
             <div className="mt-8 space-y-5 text-lg leading-relaxed text-white/72">
               <p>Most people are not given the tools to understand their health until it is too late.</p>
-              <p>Living 2.0 shifts the focus from reacting to problems toward building a stronger foundation every day.</p>
-              <p>It is not about perfect habits. It is about better decisions, made consistently.</p>
+              <p>It is about better decisions, made consistently.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="container-bio pb-24 md:pb-32">
-        <SectionIntro eyebrow="Five principles" title="Built on principles that last." />
-        <div className="mt-14 grid gap-x-0 gap-y-8 sm:grid-cols-2 lg:grid-cols-5">
-          {principles.map((principle, index) => (
-            <article key={principle.title} className={`pr-6 lg:px-6 ${index === 0 ? "lg:pl-0" : "lg:border-l lg:border-[#E1DED8]"}`}>
-              <IconBubble icon={principle.icon} className="h-11 w-11" />
-              <h3 className="mt-6 text-2xl leading-tight">{principle.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-ink/56">{principle.description}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+      {/*
+        * REMOVED: "Five principles — Built on principles that last" (Science First,
+        * Evidence Driven, Daily Habits, Measured Progress, Long-Term Thinking).
+        *
+        * The fourth copy of one list. The homepage Why section is the canonical one;
+        * /about and /science carried the other two and have also dropped theirs.
+        * "Science First" was a title on both this page and /about, word for word.
+        *
+        * This page keeps what only it has: the health-gap argument, the understand →
+        * act → build model, and the ecosystem diagram that /about now links to instead
+        * of redrawing.
+        */}
 
       <section className="bg-[#FBF9F6] py-24 md:py-32">
         <div className="container-bio">
@@ -319,7 +319,7 @@ export default function Living() {
           <p className="mx-auto max-w-5xl font-display text-[44px] leading-[1.02] md:text-[72px]">
             We do not believe supplements should exist alone. They should belong to a complete health system.
           </p>
-          <p className="mt-8 text-[12px] font-semibold uppercase tracking-[0.2em] text-[#E1DED8]">BioAro</p>
+          <p className="mt-8 text-[12px] font-semibold uppercase tracking-[0.2em] text-[#E1DED8]">BioAro Drugs</p>
         </div>
       </section>
 
@@ -357,7 +357,7 @@ export default function Living() {
             <span className="text-[12px] font-semibold uppercase tracking-[0.2em] text-[#E1DED8]">Ready to begin</span>
             <h2 className="mt-4 text-4xl leading-[1.02] md:text-6xl">Ready to build better health?</h2>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/66">
-              Explore BioAro and find a clearer starting point for energy, recovery, focus, sleep, and long-term wellness.
+              Explore BioAro Drugs and find a clearer starting point for energy, recovery, focus, sleep, and long-term wellness.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Link to={marketHref(ROUTES.shop)} className="btn-primary !bg-white !text-ink hover:!bg-[#F0EBE3]">
@@ -369,7 +369,7 @@ export default function Living() {
             </div>
           </div>
           <div className="min-h-[360px] overflow-hidden lg:min-h-[560px]">
-            <img src={ctaProductVisual} alt="BioAro product ecosystem visual" className="h-full w-full object-cover" />
+            <img src={ctaProductVisual} alt="BioAro Drugs product ecosystem visual" className="h-full w-full object-cover" />
           </div>
         </div>
       </section>

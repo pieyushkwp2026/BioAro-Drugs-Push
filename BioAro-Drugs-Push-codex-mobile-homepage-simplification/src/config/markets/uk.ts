@@ -23,7 +23,7 @@ export const UK_MARKET: MarketConfig = {
   shippingMessage: "UK delivery details will be confirmed at launch.",
   taxMessage: "UK taxes and delivery details will be confirmed when ordering becomes available.",
   legalDisclaimer:
-    "BioAro products are presented as food supplements. Do not exceed the recommended daily dose and do not use supplements as a substitute for a varied, balanced diet and healthy lifestyle.",
+    "BioAro Drugs products are presented as food supplements. Do not exceed the recommended daily dose and do not use supplements as a substitute for a varied, balanced diet and healthy lifestyle.",
   shippingPolicyPath: "/shipping-policy",
   returnsPolicyPath: "/returns-refunds",
   privacyPolicyPath: "/privacy-policy",

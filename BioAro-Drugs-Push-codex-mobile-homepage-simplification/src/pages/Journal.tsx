@@ -12,7 +12,7 @@ export default function Journal() {
       <div className="container-bio">
         <span className="eyebrow">Journal</span>
         <h1 className="mt-3 max-w-lg text-[clamp(2.5rem,10vw,3rem)] leading-[0.98] md:text-5xl">Education hub.</h1>
-        <p className="mt-4 max-w-md text-ink/55">Articles and explainers that support the BioAro product and protocol story in plain language.</p>
+        <p className="mt-4 max-w-md text-ink/55">Articles and explainers that support the BioAro Drugs product and protocol story in plain language.</p>
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {JOURNAL_ARTICLES.map((article) => (

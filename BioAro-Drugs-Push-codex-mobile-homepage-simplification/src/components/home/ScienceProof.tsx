@@ -2,7 +2,7 @@ import { Dna, FlaskConical } from "lucide-react";
 import { useMarketHref } from "../../hooks/useMarketHref";
 import { ROUTES } from "../../lib/routes";
 import { SCIENCE_SECTION } from "../../data/homepage";
-import { QUALITY_DOCUMENTS, QUALITY_EMPTY_STATE } from "../../data/siteContent";
+import { QUALITY_DOCUMENTS } from "../../data/siteContent";
 import type { CatalogProduct } from "../../lib/shopify/types";
 import { QuietLink, Section, SectionHeading } from "./primitives";
 import ScienceDisclosureRow from "./ScienceDisclosureRow";
@@ -151,38 +151,51 @@ export default function ScienceProof({ product }: { product: CatalogProduct | un
                   </div>
                 </ScienceDisclosureRow>
 
+                {/*
+                  * TWO THINGS WERE REMOVED FROM THIS ROW, AND NEITHER SHOULD COME BACK.
+                  *
+                  * 1. It opened with "Independently checked for purity and potency,
+                  *    rather than taken on our own word." — the VERBATIM sentence that
+                  *    is already the third proof point at the bottom of this same
+                  *    section, about eight lines further down the page. The section
+                  *    also carries a "Third-party tested" badge in the product header,
+                  *    so one claim was being made three times in one block. The proof
+                  *    point keeps it; the row's own summary line already says what the
+                  *    row is for.
+                  *
+                  * 2. A "Quality documentation" heading over "Quality documentation is
+                  *    coming soon." Announcing an empty shelf is worse than not having
+                  *    the shelf — it draws attention to the absence and promises a date
+                  *    nobody has committed to. The documents render the moment
+                  *    QUALITY_DOCUMENTS is non-empty; until then this row is the
+                  *    formulation link and nothing else.
+                  */}
                 <ScienceDisclosureRow
                   icon={FlaskConical}
                   title="Quality &amp; testing"
                   summary="How the formula is checked, and what we can show you"
                 >
-                  <p className="max-w-[46ch] text-[14px] leading-[1.6] text-ink-600">
-                    Independently checked for purity and potency, rather than taken on our own word.
-                  </p>
-
-                  <h5 className="mt-6 text-[12px] font-bold uppercase tracking-[0.12em] text-ink-400">
-                    Quality documentation
-                  </h5>
-                  {hasDocuments ? (
-                    <ul className="mt-3 space-y-2">
-                      {QUALITY_DOCUMENTS.map((document) => (
-                        <li key={document.title}>
-                          <a
-                            href={document.href}
-                            className="text-[14.5px] font-bold text-ink underline-offset-[5px] hover:text-ember hover:underline"
-                          >
-                            {document.title}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <p className="mt-2 max-w-[46ch] text-[14px] leading-[1.55] text-ink-600">
-                      {QUALITY_EMPTY_STATE.title} {QUALITY_EMPTY_STATE.description}
-                    </p>
+                  {hasDocuments && (
+                    <>
+                      <h5 className="text-[12px] font-bold uppercase tracking-[0.12em] text-ink-400">
+                        Quality documentation
+                      </h5>
+                      <ul className="mt-3 space-y-2">
+                        {QUALITY_DOCUMENTS.map((document) => (
+                          <li key={document.title}>
+                            <a
+                              href={document.href}
+                              className="text-[14.5px] font-bold text-ink underline-offset-[5px] hover:text-ember hover:underline"
+                            >
+                              {document.title}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
                   )}
 
-                  <div className="mt-5">
+                  <div className={hasDocuments ? "mt-5" : undefined}>
                     <QuietLink to={marketHref(ROUTES.quality)}>{SCIENCE_SECTION.cta}</QuietLink>
                   </div>
                 </ScienceDisclosureRow>

@@ -60,8 +60,13 @@ export default function Shop() {
       <div className="container-bio">
         <span className="eyebrow">Shop</span>
         <h1 className="mt-3 text-4xl leading-none sm:text-[48px] md:text-[64px]">All formulas.</h1>
+        {/* Was: "Explore BioAro products through a cleaner, routine-led catalog with
+            market-aware pricing and dosage guidance." Three problems in one sentence —
+            "market-aware pricing" is implementation language a buyer has no use for,
+            "cleaner catalog" describes our CMS rather than the products, and "catalog"
+            is US spelling served to the UK. This says what is on the page instead. */}
         <p className="mt-5 max-w-2xl text-[15px] leading-7 text-[#545961]">
-          Explore BioAro products through a cleaner, routine-led catalog with market-aware pricing and dosage guidance.
+          Every formula, with what is in it and how much, in your local currency.
         </p>
 
         <div className="mt-10 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">

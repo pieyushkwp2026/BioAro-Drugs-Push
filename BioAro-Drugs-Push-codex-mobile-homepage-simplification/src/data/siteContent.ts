@@ -236,7 +236,7 @@ export const LIVING_PAGE_HERO: PageHeroContent = {
   eyebrow: "Living 2.0",
   title: "Understand. Take Action. Build Better Health.",
   description:
-    "BioAro is built around a simple idea: better health decisions start with better understanding.",
+    "BioAro Drugs is built around a simple idea: better health decisions start with better understanding.",
   primaryCta: { label: "Explore BioAro Drugs", href: ROUTES.shop },
   secondaryCta: { label: "Learn About Our Approach", href: ROUTES.science, variant: "secondary" },
 };
@@ -295,19 +295,29 @@ export const QUALITY_SECTIONS: PageSectionContent[] = [
     title: "What We Test For",
     paragraphs: ["Testing may include review of identity, purity, potency, contaminants, and batch consistency. Specific testing standards and report availability may vary by product and market."],
   },
-  {
-    title: "Important Note",
-    paragraphs: ["Product information may be available as a clear summary, with more detailed documentation available on request for qualified partners, practitioners, or distributors."],
-  },
+  /*
+   * REMOVED: an "Important Note" section reading "Product information may be available
+   * as a clear summary, with more detailed documentation available on request for
+   * qualified partners, practitioners, or distributors."
+   *
+   * That is "Documentation ready" written long — the exact claim the content review
+   * asked us to delete, because it says only that documents could exist if someone
+   * asked. The same phrasing has been removed from every product's trustNotes
+   * ("Certificates of Analysis available upon request") for the same reason.
+   */
 ];
 
 export const QUALITY_DOCUMENTS: QualityDocument[] = [];
 
-export const QUALITY_EMPTY_STATE = {
-  title: "Quality documentation is coming soon.",
-  description:
-    "Product-specific quality information will be added here as it becomes available. Contact support if you have a question about a formula.",
-};
+/*
+ * QUALITY_EMPTY_STATE was deleted, not emptied.
+ *
+ * It read "Quality documentation is coming soon. Product-specific quality information
+ * will be added here as it becomes available." and rendered in TWO places — the
+ * homepage science section and the Quality & Testing page — so the site announced the
+ * same missing thing twice. Both surfaces now omit the documentation block entirely
+ * while QUALITY_DOCUMENTS is empty, and restore it automatically when it is not.
+ */
 
 export const FAQ_PAGE_HERO: PageHeroContent = {
   eyebrow: "FAQ",
@@ -322,14 +332,14 @@ export const FAQ_CATEGORIES: FAQCategory[] = [
     items: [
       {
         question: "How do I choose the right product?",
-        answer: "Start with your primary goal, such as focus, recovery, sleep, or healthy ageing. If you are unsure, use the BioAro quiz or contact support for guidance.",
+        answer: "Start with your primary goal, such as focus, recovery, sleep, or healthy ageing. If you are unsure, use the BioAro Drugs quiz or contact support for guidance.",
       },
       {
-        question: "How should I take BioAro products?",
+        question: "How should I take BioAro Drugs products?",
         answer: "Always follow the directions shown on the product page and packaging.",
       },
       {
-        question: "Can I take more than one BioAro product at a time?",
+        question: "Can I take more than one BioAro Drugs product at a time?",
         answer: "Some products may be used as part of a broader routine, but if you are unsure or are already taking supplements or medications, speak with a qualified healthcare professional first.",
       },
     ],
@@ -338,7 +348,7 @@ export const FAQ_CATEGORIES: FAQCategory[] = [
     title: "Safety",
     items: [
       {
-        question: "Are BioAro products medicines?",
+        question: "Are BioAro Drugs products medicines?",
         answer: "No. BioAro Drugs products are wellness products and food supplements. They are not intended to replace medical care.",
       },
       {
@@ -396,7 +406,7 @@ export const PROTOCOLS_PAGE_HERO: PageHeroContent = {
   eyebrow: "Protocols",
   title: "Build a smarter daily routine.",
   description:
-    "BioAro protocols bring complementary formulas together around everyday goals such as LONgevity+, focus, recovery, and sleep.",
+    "BioAro Drugs protocols bring complementary formulas together around everyday goals such as LONgevity+, focus, recovery, and sleep.",
   primaryCta: { label: "Explore the Wellness Collection", href: ROUTES.shop },
   secondaryCta: { label: "Take the Wellness Quiz", href: ROUTES.quiz, variant: "secondary" },
 };
@@ -455,7 +465,7 @@ export const PARTNER_REASONS = [
 export const PARTNER_OPPORTUNITIES: PageCta[] = [
   { label: "Request Wholesale Pricing", href: "mailto:partners@bioarodrugs.com" },
   { label: "Book a Product Demonstration", href: "mailto:partners@bioarodrugs.com" },
-  { label: "Become a BioAro Partner Clinic", href: "mailto:partners@bioarodrugs.com" },
+  { label: "Become a BioAro Drugs Partner Clinic", href: "mailto:partners@bioarodrugs.com" },
   { label: "Speak to Our UK Team", href: "mailto:uk@bioarodrugs.com" },
   { label: "Apply to Become a UK Distributor", href: "mailto:partners@bioarodrugs.com" },
 ];

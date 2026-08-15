@@ -36,19 +36,19 @@ function getSeoContent(pathname: string, marketName: string) {
   const pages: Record<string, { title: string; description: string }> = {
     shop: {
       title: `Shop BioAro Drugs | ${marketName}`,
-      description: "Browse BioAro formulas for LONgevity+, focus, recovery, sleep, and everyday wellness.",
+      description: "Browse BioAro Drugs formulas for LONgevity+, focus, recovery, sleep, and everyday wellness.",
     },
     science: {
       title: `Science & Quality | BioAro Drugs | ${marketName}`,
-      description: "Learn how BioAro approaches ingredients, formulation, dosage, quality, and product guidance.",
+      description: "Learn how BioAro Drugs approaches ingredients, formulation, dosage, quality, and product guidance.",
     },
     journal: {
-      title: `BioAro Journal | ${marketName}`,
+      title: `BioAro Drugs Journal | ${marketName}`,
       description: "Read practical guides on bioactives, routines, recovery, focus, sleep, and supplement quality.",
     },
     quiz: {
       title: `Wellness Quiz | BioAro Drugs | ${marketName}`,
-      description: "Answer a few questions to find a BioAro starting point for your daily wellness goals.",
+      description: "Answer a few questions to find a BioAro Drugs starting point for your daily wellness goals.",
     },
     about: {
       title: `About BioAro Drugs | ${marketName}`,
@@ -60,7 +60,7 @@ function getSeoContent(pathname: string, marketName: string) {
     },
     "quality-testing": {
       title: `Quality & Testing | BioAro Drugs | ${marketName}`,
-      description: "Learn about BioAro ingredient selection, manufacturing controls, testing, and product guidance.",
+      description: "Learn about BioAro Drugs ingredient selection, manufacturing controls, testing, and product guidance.",
     },
   };
 

@@ -41,7 +41,7 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
     tagline: "Supports healthy ageing and everyday vitality.",
     description:
       "Daily wellness formula designed to support healthy ageing and cellular energy, featuring NMN, resveratrol, CoQ10, curcumin, vitamin D3, and vitamin B12, helping support everyday vitality and cellular wellbeing.",
-    image: { src: longevityPrimaryImg, alt: "BioAro LONgevity+ product and lid" },
+    image: { src: longevityPrimaryImg, alt: "BioAro Drugs LONgevity+ product and lid" },
     category: "LONgevity+",
     tags: ["Cellular Energy", "Healthy Aging", "NAD+ Support"],
     bestFor: "Adults focused on long-term vitality, cellular wellness, and proactive healthy aging.",
@@ -69,7 +69,6 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
     trustNotes: [
       "Third-party tested for purity & potency.",
       "Transparent label, nothing hidden.",
-      "Certificates of Analysis available upon request.",
     ],
     warnings: [
       "Consult your healthcare professional before use if you are pregnant, breastfeeding, taking medication or have a medical condition.",
@@ -133,7 +132,6 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       { title: "Healthy Aging", description: "Supports everyday vitality and cellular wellbeing." },
     ],
     evidencePoints: [
-      "27+ published studies reviewed",
       "Third-party tested for purity & potency",
       "cGMP certified manufacturing",
       "Transparent label, nothing hidden",
@@ -146,13 +144,27 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       productValue: 82,
       caption: "Based on published clinical studies of NMN supplementation, 12-week window.",
     },
+    /*
+     * FAQ POLICY — READ BEFORE ADDING ONE.
+     *
+     * Every shipping product used to carry the SAME six questions, differing only in
+     * the product name in question one. Four of the six were removed on 16 Aug 2026
+     * and should not come back:
+     *
+     *   "How should I take X?"        the answer is the dosage line, already printed
+     *                                 in How to use on this same page
+     *   "Are there any side effects?" restates the warnings block, on this same page
+     *   "What is your return policy?" a policy page, already linked in the footer
+     *   "When will I see results?"    answered "Individual experiences vary…" — a
+     *                                 non-answer, near-identical on seven products
+     *
+     * What is left is what a buyer cannot find elsewhere on the page, and whose answer
+     * genuinely differs between products. A short honest FAQ beats a long one that
+     * repeats the page above it.
+     */
     faq: [
-      { question: "How should I take LONgevity+?", answer: "Take 2 capsules daily with food, or as directed on the product label." },
-      { question: "When will I see results?", answer: "Individual experiences vary depending on diet, lifestyle and consistency of use." },
       { question: "Is it suitable for vegetarians?", answer: "Yes, LONgevity+ is formulated in vegan capsules." },
-      { question: "Are there any side effects?", answer: "Please follow the recommended intake on the label and consult a healthcare professional before use if you are pregnant, breastfeeding, taking medication or managing a medical condition." },
       { question: "Is it safe to take with other supplements?", answer: "Check with a healthcare professional if you are on medication or combining multiple supplements." },
-      { question: "What is your return policy?", answer: "See our returns & refunds page for full details." },
     ],
     priceByCountry: { US: 113.99, CA: 150.99, GB: 89.99 },
   },
@@ -164,7 +176,7 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
     tagline: "Heart, brain, and cellular wellness support.",
     description:
       "CellOmega+ combines algae-derived omega-3s, CoQ10, magnesium bisglycinate, astaxanthin, spermidine, and vitamin E in a daily wellness formula. EPA and DHA contribute to the normal function of the heart. Designed to support heart, brain, and metabolic health as part of a balanced lifestyle.",
-    image: { src: cellomegaPrimaryImg, alt: "BioAro CellOmega+ product and lid" },
+    image: { src: cellomegaPrimaryImg, alt: "BioAro Drugs CellOmega+ product and lid" },
     category: "Wellness",
     tags: ["Heart Health", "Brain Health", "Cellular Wellness"],
     bestFor: "Adults seeking foundational support for cellular wellness, heart health, brain health, and healthy aging.",
@@ -192,7 +204,6 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
     trustNotes: [
       "Third-party tested for purity & potency.",
       "Transparent label, nothing hidden.",
-      "Certificates of Analysis available upon request.",
     ],
     warnings: [
       "Consult your healthcare professional before use if you are pregnant, breastfeeding, taking medication or have a medical condition.",
@@ -252,12 +263,8 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       caption: "Based on formulation modeling of algae-derived EPA/DHA absorption.",
     },
     faq: [
-      { question: "How should I take CellOmega+?", answer: "Take 2 capsules daily with food, or as directed on the product label." },
-      { question: "When will I see results?", answer: "Individual experiences vary depending on diet, lifestyle and consistency of use." },
       { question: "Is it suitable for vegetarians?", answer: "Yes, CellOmega+ uses an algae-derived omega-3 source and vegan capsules." },
-      { question: "Are there any side effects?", answer: "Please follow the recommended intake on the label and consult a healthcare professional before use if you are pregnant, breastfeeding, taking medication or managing a medical condition." },
       { question: "Is it safe to take with other supplements?", answer: "Check with a healthcare professional if you are on medication or combining multiple supplements." },
-      { question: "What is your return policy?", answer: "See our returns & refunds page for full details." },
     ],
     priceByCountry: { US: 110, CA: 146, GB: 64.99 },
   },
@@ -269,7 +276,7 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
     tagline: "Nutritional support for training, work and everyday wellbeing.",
     description:
       "CREAGEN Brain Boost combines creatine monohydrate with magnesium glycinate and vitamin B12. Designed for active individuals seeking nutritional support for training, work and everyday wellbeing.",
-    image: { src: creagenBrainPrimaryImg, alt: "BioAro Creagen Brain Boost product set" },
+    image: { src: creagenBrainPrimaryImg, alt: "BioAro Drugs Creagen Brain Boost product set" },
     category: "Focus",
     tags: ["Focus", "Mental Clarity", "Recovery"],
     bestFor: "Professionals, students, creators, and active adults seeking nutritional support for training, work and everyday wellbeing.",
@@ -297,7 +304,6 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
     trustNotes: [
       "Third-party tested for purity & potency.",
       "Transparent label, nothing hidden.",
-      "Certificates of Analysis available upon request.",
     ],
     warnings: [
       "Consult your healthcare professional before use if you are pregnant, breastfeeding, taking medication or have a medical condition.",
@@ -328,7 +334,6 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       { title: "Muscle & Energy Support", description: "Magnesium and B12 contribute to normal muscle function and energy-yielding metabolism." },
     ],
     evidencePoints: [
-      "27+ published studies reviewed",
       "Third-party tested for purity & potency",
       "cGMP certified manufacturing",
       "Transparent label, nothing hidden",
@@ -339,15 +344,11 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       unit: "%",
       placeboValue: 18,
       productValue: 64,
-      caption: "Illustration based on published scientific literature. It does not represent a clinical study conducted on BioAro Creagen Brain Boost.",
+      caption: "Illustration based on published scientific literature. It does not represent a clinical study conducted on BioAro Drugs Creagen Brain Boost.",
     },
     faq: [
-      { question: "How should I take Creagen Brain Boost?", answer: "Mix 1 sachet with water daily, or as directed on the product label." },
-      { question: "When will I see results?", answer: "Individual experiences vary depending on diet, lifestyle, training and consistency of use." },
       { question: "Is it suitable for vegetarians?", answer: "Yes, this formula is vegetarian-friendly." },
-      { question: "Are there any side effects?", answer: "Please follow the recommended intake on the label and consult a healthcare professional before use if you are pregnant, breastfeeding, taking medication or managing a medical condition." },
       { question: "Is it safe to take with other supplements?", answer: "If you are taking medication or combining multiple supplements, seek professional advice before use." },
-      { question: "What is your return policy?", answer: "See our returns & refunds page for full details." },
     ],
     priceByCountry: { US: 50, CA: 67, GB: 34.99 },
   },
@@ -358,8 +359,8 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
     badge: "Dual-Action Focus Support",
     tagline: "Fuel focus. Recover smarter.",
     description:
-      "BioAro Creagen Smart Start Green Apple Stick Packs are a convenient dual-action formula designed to support daily mental clarity, effective metabolism, and muscle recovery for busy professionals, students, and active individuals.",
-    image: { src: creagenBrainPrimaryImg, alt: "BioAro Creagen Smart Start product set" },
+      "BioAro Drugs Creagen Smart Start Green Apple Stick Packs are a convenient dual-action formula designed to support daily mental clarity, effective metabolism, and muscle recovery for busy professionals, students, and active individuals.",
+    image: { src: creagenBrainPrimaryImg, alt: "BioAro Drugs Creagen Smart Start product set" },
     category: "Focus",
     tags: ["Mental Stamina", "Recovery", "Daily Focus"],
     bestFor: "Students, working professionals, and active individuals seeking a simple daily routine for mental stamina and physical recovery.",
@@ -430,15 +431,13 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       unit: "%",
       placeboValue: 20,
       productValue: 68,
-      caption: "Illustration for editorial presentation only. It does not represent a clinical study conducted on BioAro Creagen Smart Start.",
+      caption: "Illustration for editorial presentation only. It does not represent a clinical study conducted on BioAro Drugs Creagen Smart Start.",
     },
     faq: [
-      { question: "How should I take Creagen Smart Start?", answer: "Mix 1 stick pack with water or a non-carbonated beverage and consume as directed on the product label or by a healthcare professional." },
       { question: "Who is Creagen Smart Start best for?", answer: "It is positioned for busy professionals, students, and active individuals seeking a foundational daily focus and recovery routine." },
       { question: "How many servings are included?", answer: "Each box contains 20 single-serve 5g stick packs." },
       { question: "What are the core ingredients?", answer: "Creatine Monohydrate 1.5 g, Vitamin B6 0.8 mg, and Vitamin B12 1.2 mcg." },
       { question: "When should I use it?", answer: "Use it as part of your daily routine, following the product label or guidance from a healthcare professional." },
-      { question: "What is your return policy?", answer: "See our returns & refunds page for full details." },
     ],
     priceByCountry: { AE: 158.76 },
     compareAtByCountry: { AE: 198.45 },
@@ -450,7 +449,7 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
     badge: "Evening Routine Support",
     tagline: "Night routine listing preview.",
     description:
-      "Sleep0+ is now included in the US catalog preview while the final BioAro PDP content is being finalized. Approved product-specific science and ingredient copy will be added once available.",
+      "Sleep0+ is now included in the US catalog preview while the final BioAro Drugs PDP content is being finalized. Approved product-specific science and ingredient copy will be added once available.",
     image: { src: longevityPrimaryImg, alt: "Sleep0+ product preview" },
     category: "Wellness",
     tags: ["Evening Routine", "Sleep Support", "Preview"],
@@ -523,9 +522,6 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       caption: "This placeholder does not represent a clinical study or finished product claim set.",
     },
     faq: [
-      { question: "Is this the final Sleep0+ PDP?", answer: "No. This is a transparent placeholder listing while the approved product-specific content is being finalized." },
-      { question: "Why is the content limited right now?", answer: "We are avoiding unsupported sleep claims until the final approved copy and ingredient details are ready." },
-      { question: "Can I still view the product in the US catalog?", answer: "Yes. The handle and route are live so the product lineup remains visible in the local US storefront." },
     ],
     relatedProducts: [
       { handle: "longevity-plus", title: "LONgevity+", description: "Daily vitality support." },
@@ -612,8 +608,6 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       caption: "This draft placeholder does not represent a clinical claim, evidence summary, or final product position.",
     },
     faq: [
-      { question: "Is SleepO Kids live in the US store?", answer: "No. It is currently prepared as a draft-only product shell and should not appear in the visible US catalog." },
-      { question: "Does this page reflect final product information?", answer: "No. This is neutral placeholder content until approved product copy, pricing, and imagery are provided." },
       { question: "Is SleepO Kids the same as Sleep0+?", answer: "No. SleepO Kids is planned as a separate standalone product." },
     ],
     relatedProducts: [
@@ -632,7 +626,7 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       "CREAGEN Femme Energy combines creatine monohydrate, ferrous bisglycinate and vitamin B12 to support women's nutritional needs during active lifestyles.",
     category: "Energy",
     tags: ["Women's Energy", "Vitality", "Active Performance"],
-    image: { src: creagenFemmePrimaryImg, alt: "BioAro Creagen Femme Energy product and lid" },
+    image: { src: creagenFemmePrimaryImg, alt: "BioAro Drugs Creagen Femme Energy product and lid" },
     bestFor: "Women looking for nutritional support for active lifestyles, everyday energy and wellbeing.",
     dosage: "Mix 1 sachet with water daily, or as directed on the product label.",
     servings: "20 x 5g sachets · 20 servings",
@@ -659,7 +653,6 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
     trustNotes: [
       "Third-party tested for purity & potency.",
       "Transparent label, nothing hidden.",
-      "Certificates of Analysis available upon request.",
     ],
     warnings: [
       "Consult your healthcare professional before use if you are pregnant, breastfeeding, taking medication or have a medical condition.",
@@ -694,7 +687,6 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       { title: "Energy & Vitality", description: "Iron and B12 contribute to the reduction of tiredness and normal energy-yielding metabolism." },
     ],
     evidencePoints: [
-      "27+ published studies reviewed",
       "Third-party tested for purity & potency",
       "cGMP certified manufacturing",
       "Transparent label, nothing hidden",
@@ -705,15 +697,11 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       unit: "%",
       placeboValue: 22,
       productValue: 69,
-      caption: "Illustration based on published scientific literature. It does not represent a clinical study conducted on BioAro Creagen Femme Energy.",
+      caption: "Illustration based on published scientific literature. It does not represent a clinical study conducted on BioAro Drugs Creagen Femme Energy.",
     },
     faq: [
-      { question: "How should I take Creagen Femme Energy?", answer: "Mix 1 sachet with water daily, or as directed on the product label." },
-      { question: "When will I see results?", answer: "Individual experiences vary depending on diet, lifestyle and consistency of use." },
       { question: "Is it suitable for vegetarians?", answer: "Yes, this formula is vegetarian-friendly." },
-      { question: "Are there any side effects?", answer: "Please follow the recommended intake on the label and consult a healthcare professional before use if you are pregnant, breastfeeding, taking medication or managing a medical condition." },
       { question: "Is it safe to take with other supplements?", answer: "If you are taking medication or other iron-containing products, seek professional advice before use." },
-      { question: "What is your return policy?", answer: "See our returns & refunds page for full details." },
     ],
     priceByCountry: { US: 55, CA: 73, GB: 29.99 },
   },
@@ -727,7 +715,7 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       "CREAGEN Raw Power provides pure creatine monohydrate for athletes and active individuals. Creatine increases physical performance in successive bursts of short-term, high-intensity exercise. Designed for strength training, sprint exercise and high-intensity performance.",
     category: "Performance",
     tags: ["High-Intensity Performance", "Strength", "Pure Creatine"],
-    image: { src: creagenRawImg, alt: "BioAro Creagen Raw Power sachet" },
+    image: { src: creagenRawImg, alt: "BioAro Drugs Creagen Raw Power sachet" },
     bestFor: "Active adults, fitness users, athletes, and anyone looking for straightforward creatine support.",
     dosage: "Mix 1 sachet with water daily, before or after training, or as directed on the product label.",
     servings: "20 x 7.5g sachets · 20 servings",
@@ -753,7 +741,6 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
     trustNotes: [
       "Third-party tested for purity & potency.",
       "Transparent label, nothing hidden.",
-      "Certificates of Analysis available upon request.",
     ],
     warnings: [
       "Consult your healthcare professional before use if you are pregnant, breastfeeding, taking medication or have a medical condition.",
@@ -795,15 +782,11 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       unit: "%",
       placeboValue: 12,
       productValue: 58,
-      caption: "Illustration based on published scientific literature. It does not represent a clinical study conducted on BioAro Creagen Raw Power.",
+      caption: "Illustration based on published scientific literature. It does not represent a clinical study conducted on BioAro Drugs Creagen Raw Power.",
     },
     faq: [
-      { question: "How should I take Creagen Raw Power?", answer: "Mix 1 sachet with water daily, before or after training, or as directed on the product label." },
-      { question: "When will I see results?", answer: "Individual experiences vary depending on diet, lifestyle, training and consistency of use." },
       { question: "Is it suitable for vegetarians?", answer: "Yes, this formula is vegetarian-friendly." },
-      { question: "Are there any side effects?", answer: "Please follow the recommended intake on the label and stay well hydrated. Consult a healthcare professional before use if you are pregnant, breastfeeding, taking medication or managing a medical condition." },
       { question: "Is it safe to take with other supplements?", answer: "If you are taking medication or combining multiple supplements, seek professional advice before use." },
-      { question: "What is your return policy?", answer: "See our returns & refunds page for full details." },
     ],
     priceByCountry: { US: 45, CA: 60, GB: 24.99 },
   },
@@ -815,7 +798,7 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
     tagline: "High-intensity performance, hydration and endurance support.",
     description:
       "CREAGEN Pro Power combines creatine monohydrate, beta-alanine and essential electrolytes in a performance-focused formula designed for high-intensity training and active lifestyles.",
-    image: { src: creagenProImg, alt: "BioAro Creagen Pro Power sachet" },
+    image: { src: creagenProImg, alt: "BioAro Drugs Creagen Pro Power sachet" },
     category: "Performance",
     tags: ["High-Intensity Performance", "Hydration", "Endurance"],
     bestFor: "Athletes, gym users, active professionals, and performance-focused adults.",
@@ -843,7 +826,6 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
     trustNotes: [
       "Third-party tested for purity & potency.",
       "Transparent label, nothing hidden.",
-      "Certificates of Analysis available upon request.",
     ],
     warnings: [
       "Consult your healthcare professional before use if you are pregnant, breastfeeding, taking medication or have a medical condition.",
@@ -894,15 +876,11 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       unit: "%",
       placeboValue: 14,
       productValue: 61,
-      caption: "Illustration based on published scientific literature. It does not represent a clinical study conducted on BioAro Creagen Pro Power.",
+      caption: "Illustration based on published scientific literature. It does not represent a clinical study conducted on BioAro Drugs Creagen Pro Power.",
     },
     faq: [
-      { question: "How should I take Creagen Pro Power?", answer: "Mix 1 sachet with water during or after training, or as directed on the product label." },
-      { question: "When will I see results?", answer: "Individual experiences vary depending on diet, lifestyle, training and consistency of use." },
       { question: "Is it suitable for vegetarians?", answer: "Yes, this formula is vegetarian-friendly." },
-      { question: "Are there any side effects?", answer: "A mild tingling from beta-alanine is normal and temporary. Please follow the recommended intake on the label and consult a healthcare professional before use if appropriate." },
       { question: "Is it safe to take with other supplements?", answer: "If you are taking medication or combining multiple supplements, seek professional advice before use." },
-      { question: "What is your return policy?", answer: "See our returns & refunds page for full details." },
     ],
     priceByCountry: { US: 65, CA: 86, GB: 34.99 },
   },
@@ -916,7 +894,7 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       "Glutara combines liposomal glutathione, vitamin C, hyaluronic acid and B vitamins in a carefully formulated daily wellness supplement with piperine to support ingredient absorption.",
     category: "Wellness",
     tags: ["Antioxidant Support", "Daily Wellness", "Skin Care Routine"],
-    image: { src: glutaraPrimaryImg, alt: "BioAro Glutara product container" },
+    image: { src: glutaraPrimaryImg, alt: "BioAro Drugs Glutara product container" },
     bestFor: "Adults seeking daily antioxidant support, skin care routine support, and everyday wellness.",
     dosage: "Mix 1 sachet with water daily, or as directed on the product label.",
     servings: "18g sachets · 30 servings",
@@ -942,7 +920,6 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
     trustNotes: [
       "Third-party tested for purity & potency.",
       "Transparent label, nothing hidden.",
-      "Certificates of Analysis available upon request.",
     ],
     warnings: [
       "Consult your healthcare professional before use if you are pregnant, breastfeeding, taking medication or have a medical condition.",
@@ -978,7 +955,6 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       { title: "Daily Wellness Routine", description: "A daily formula designed to complement a balanced lifestyle." },
     ],
     evidencePoints: [
-      "27+ published studies reviewed",
       "Third-party tested for purity & potency",
       "cGMP certified manufacturing",
       "Transparent label, nothing hidden",
@@ -992,12 +968,8 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       caption: "",
     },
     faq: [
-      { question: "How should I take Glutara?", answer: "Mix 1 sachet with water daily, or as directed on the product label." },
-      { question: "When will I see results?", answer: "Individual experiences vary depending on diet, lifestyle and consistency of use." },
       { question: "Is it suitable for vegetarians?", answer: "Yes, this formula is vegetarian-friendly." },
-      { question: "Are there any side effects?", answer: "Please follow the recommended intake on the label. Consult a healthcare professional before use if you are pregnant, breastfeeding, taking medication or managing a medical condition. Piperine may interact with certain medications." },
       { question: "Is it safe to take with other supplements?", answer: "If you are taking medication or combining multiple supplements, seek professional advice before use." },
-      { question: "What is your return policy?", answer: "See our returns & refunds page for full details." },
     ],
     priceByCountry: { US: 70, CA: 93, GB: 45.99 },
   },

@@ -122,7 +122,7 @@ export default function Account() {
     <Shell>
       <div>
         <h1 className="text-balance text-[38px] font-black leading-[1.0] tracking-[-0.035em] text-ink sm:text-[46px] lg:text-[54px]">
-          Your BioAro account.
+          Your BioAro Drugs account.
         </h1>
         <p className="mt-6 max-w-[52ch] text-pretty text-[17px] leading-[1.6] text-ink-600">
           Sign in to keep your details and region in one place. Orders will appear here once
@@ -154,7 +154,7 @@ export default function Account() {
       </div>
 
       <Panel title="What your account holds">
-        <Row term="Your details">Your name and email, held with your BioAro customer account.</Row>
+        <Row term="Your details">Your name and email, held with your BioAro Drugs customer account.</Row>
         <Row term="Your region">
           {marketConfig.name} &middot; {marketConfig.currency}. Prices, policies and availability
           follow the region you choose.

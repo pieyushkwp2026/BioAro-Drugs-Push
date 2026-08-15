@@ -21,7 +21,7 @@ export default function JournalArticle() {
             <span className="eyebrow">Journal</span>
             <h1 className="mt-4 text-[clamp(2.5rem,8vw,4.8rem)] leading-[0.95]">Article not found.</h1>
             <p className="mt-5 text-lg leading-8 text-ink/60">
-              This article may have moved. Return to the education hub to browse the latest BioAro guides.
+              This article may have moved. Return to the education hub to browse the latest BioAro Drugs guides.
             </p>
           </div>
         </div>

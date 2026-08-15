@@ -1,50 +1,9 @@
-import {
-  ArrowRight,
-  CalendarDays,
-  FlaskConical,
-  Heart,
-  Leaf,
-  Microscope,
-  ShieldCheck,
-  TrendingUp,
-} from "lucide-react";
+import { ArrowRight, Leaf } from "lucide-react";
 import { Link } from "react-router-dom";
 import aboutHeroProtocolPreparation from "../assets/about/about-hero-protocol-preparation.jpg";
 import labGlasswareStudy from "../assets/science/lab-glassware-study.jpg";
 import { useMarketHref } from "../hooks/useMarketHref";
 import { ROUTES } from "../lib/routes";
-
-const principles = [
-  {
-    icon: FlaskConical,
-    title: "Science first",
-    body: "Every formula begins with evidence. We look at the research before everything else.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Complete transparency",
-    body: "We show what is in our products, why it is there, and how much of each ingredient is included.",
-  },
-  {
-    icon: Heart,
-    title: "Built for the long term",
-    body: "Clear formulas and practical guidance support consistent daily routines over time.",
-  },
-];
-
-const ecosystem = [
-  { icon: Microscope, title: "BioAro Labs", body: "We study ingredients, biology, and real-world context." },
-  { icon: FlaskConical, title: "BioAro Drugs", body: "We create practical formulas with purpose and transparency." },
-  { icon: CalendarDays, title: "Daily Routine", body: "You use the right information to build better habits." },
-  { icon: TrendingUp, title: "Better Outcomes", body: "Small daily choices lead to meaningful long-term results." },
-];
-
-const formulationSteps = [
-  { title: "Evidence review", body: "We evaluate scientific research and ingredient data." },
-  { title: "Ingredient selection", body: "We choose forms and amounts with a clear purpose." },
-  { title: "Formulation design", body: "We build formulas that work together, not against each other." },
-  { title: "Quality assurance", body: "We review quality information for purity, potency, and consistency." },
-];
 
 export default function About() {
   const marketHref = useMarketHref();
@@ -54,18 +13,18 @@ export default function About() {
       <section className="relative isolate min-h-[680px] overflow-hidden bg-cream md:min-h-[760px]">
         <img
           src={aboutHeroProtocolPreparation}
-          alt="Hand preparing a BioAro Creagen drink alongside the BioAro product range"
+          alt="Hand preparing a BioAro Drugs Creagen drink alongside the BioAro Drugs product range"
           className="absolute inset-0 h-full w-full object-cover object-[60%_47%] transition-transform duration-700 hover:scale-[1.015] motion-reduce:transition-none motion-reduce:hover:scale-100"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-cream via-cream/20 to-transparent md:via-cream/30" />
         <div className="container-bio relative flex min-h-[680px] items-center py-24 md:min-h-[760px]">
           <div className="max-w-xl">
-            <span className="eyebrow">About BioAro</span>
+            <span className="eyebrow">About BioAro Drugs</span>
             <h1 className="mt-5 max-w-lg text-5xl leading-[0.95] md:text-7xl">
               A better future for everyday health.
             </h1>
             <p className="mt-7 max-w-md text-base leading-relaxed text-ink/65 md:text-lg">
-              BioAro exists to make better health decisions easier through evidence, transparency, and practical education.
+              BioAro Drugs exists to make better health decisions easier through evidence, transparency, and practical education.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Link to={marketHref(ROUTES.shop)} className="btn-primary">
@@ -95,7 +54,7 @@ export default function About() {
           </div>
           <div className="max-w-xl self-end">
             <p className="text-base leading-relaxed text-ink/65 md:text-lg">
-              BioAro is a family-founded company, born from a simple search for supplements that delivered meaningful results. When we could not find what we were looking for, we set out to create it ourselves.
+              BioAro Drugs is a family-founded company, born from a simple search for supplements that delivered meaningful results. When we could not find what we were looking for, we set out to create it ourselves.
             </p>
             <blockquote className="mt-8 border-l-2 border-forest-600 pl-5 font-display text-2xl italic leading-snug text-forest-700 md:text-3xl">
               By bringing together science, innovation, and premium ingredients, we develop high-quality formulations designed to support long-term health and wellbeing.
@@ -110,65 +69,58 @@ export default function About() {
         </div>
       </section>
 
-      <section className="container-bio border-t border-sand py-16 md:py-20">
-        <span className="eyebrow">Our principles</span>
-        <div className="mt-8 grid divide-y divide-sand md:grid-cols-3 md:divide-x md:divide-y-0">
-          {principles.map(({ icon: Icon, title, body }) => (
-            <article key={title} className="py-7 first:pt-0 last:pb-0 md:px-8 md:py-2 first:md:pl-0 last:md:pr-0">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-forest/10 text-forest-600">
-                <Icon size={20} strokeWidth={1.7} />
-              </div>
-              <h2 className="mt-5 text-xl">{title}</h2>
-              <p className="mt-3 max-w-xs text-sm leading-relaxed text-ink/60 md:text-base">{body}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="container-bio border-t border-sand py-16 md:py-20">
-        <div className="grid gap-10 md:grid-cols-[0.75fr_1.25fr] md:gap-20">
-          <div>
-            <span className="eyebrow">Our ecosystem</span>
-            <h2 className="mt-4 max-w-sm text-4xl leading-tight md:text-5xl">From research to real-world impact.</h2>
-          </div>
-          <div className="grid gap-8 border-l border-sand pl-6 sm:grid-cols-2 md:grid-cols-4 md:gap-0 md:border-l-0 md:pl-0">
-            {ecosystem.map(({ icon: Icon, title, body }, index) => (
-              <article key={title} className="relative md:border-l md:border-sand md:px-5 first:md:border-l-0 first:md:pl-0 last:md:pr-0">
-                <div className="absolute -left-[35px] top-0 flex h-7 w-7 items-center justify-center rounded-full border border-sand bg-cream text-forest-600 sm:-left-[35px] md:static md:mb-5 md:h-12 md:w-12">
-                  <Icon size={15} className="md:h-5 md:w-5" strokeWidth={1.7} />
-                </div>
-                <span className="text-xs font-semibold text-gold-600">0{index + 1}</span>
-                <h3 className="mt-2 text-lg">{title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink/55">{body}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/*
+        * TWO SECTIONS WERE REMOVED HERE. Do not restore either one to this page.
+        *
+        * "Our principles" — Science first / Complete transparency / Built for the long
+        * term. The homepage Why section makes the same three arguments at greater
+        * length, and /science and /living-2-0 each carried a third and fourth copy of
+        * the list. Four statements of one idea across four pages is not emphasis, it is
+        * a site with nothing new to say on any page after the first. The homepage keeps
+        * it; every other page dropped it.
+        *
+        * "Our ecosystem" — Labs → Drugs → Daily Routine → Better Outcomes. The identical
+        * four nodes are the centrepiece of /living-2-0, which is the page whose whole
+        * subject is that model. About now points there rather than redrawing it.
+        */}
 
       <section className="container-bio py-8 md:py-12">
         <div className="grid overflow-hidden rounded-[32px] bg-white shadow-glass md:grid-cols-2">
           <div className="min-h-[360px] overflow-hidden md:min-h-[560px]">
+            {/*
+              * KNOWN ISSUE, LEFT VISIBLE ON PURPOSE — this photograph needs replacing.
+              *
+              * Its left third is a dark panel with TEXT BURNED INTO THE JPEG: "Premium
+              * Inputs / Traceable, high-quality ingredients", "Rigorous Testing /
+              * Third-party tested for purity and potency", "Real Outcomes /
+              * Evidence-led formulation for everyday results". That is a fourth copy of
+              * the principles list this page just dropped, and another statement of the
+              * third-party testing claim — inside an image, where no content edit can
+              * reach it.
+              *
+              * Reframing was tried and is worse: this container is close to square, so
+              * even object-right leaves the panel half in shot and clips the words
+              * mid-letter. The fix is a new photograph without type in it, which is a
+              * design deliverable, not a copy change. Until then the image ships as it
+              * was rather than looking broken.
+              */}
             <img
               src={labGlasswareStudy}
-              alt="Lab glassware, formulation notes, and BioAro products arranged for research"
+              alt="Laboratory glassware and formulation notes arranged for research"
               className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.02] motion-reduce:transition-none motion-reduce:hover:scale-100"
             />
           </div>
           <div className="flex flex-col justify-center p-8 md:p-14 lg:p-20">
             <span className="eyebrow">Science backed. Human focused.</span>
             <h2 className="mt-4 max-w-md text-4xl leading-tight md:text-5xl">Behind every formula is a thoughtful process.</h2>
-            <div className="mt-8 space-y-5">
-              {formulationSteps.map(({ title, body }, index) => (
-                <div key={title} className="flex gap-4 border-b border-sand pb-5 last:border-0 last:pb-0">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-forest/10 text-xs font-semibold text-forest-600">0{index + 1}</span>
-                  <div>
-                    <h3 className="text-base font-semibold">{title}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-ink/55">{body}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            {/* The four-step list that sat here — evidence review, ingredient selection,
+                formulation design, quality assurance — is the same process /science
+                sets out as its science journey. The section now points at it instead of
+                restating it, which is what the link underneath was always for. */}
+            <p className="mt-6 max-w-md text-base leading-relaxed text-ink/60">
+              From evidence review through ingredient selection, formulation and quality checks — set
+              out step by step on the science page.
+            </p>
             <Link to={marketHref(ROUTES.science)} className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-forest-600 transition-all hover:gap-3">
               Explore our science standards <ArrowRight size={15} />
             </Link>
@@ -183,7 +135,7 @@ export default function About() {
           <blockquote className="relative mx-auto max-w-3xl font-display text-3xl leading-tight md:text-5xl">
             “We believe everyone deserves clear, honest information so they can take control of their health.”
           </blockquote>
-          <p className="relative mt-6 text-sm font-medium text-forest-600">BioAro</p>
+          <p className="relative mt-6 text-sm font-medium text-forest-600">BioAro Drugs</p>
         </div>
       </section>
 
@@ -197,13 +149,18 @@ export default function About() {
             <div className="max-w-xl">
               <span className="eyebrow text-white/70">Ready to take the next step?</span>
               <h2 className="mt-4 text-4xl leading-tight text-white md:text-6xl">Better information. Better decisions. Better health.</h2>
+              {/* The handoff that replaces the ecosystem diagram removed above. It
+                  names where that model now lives instead of drawing it twice. */}
+              <p className="mt-5 max-w-md text-base leading-relaxed text-white/70">
+                How testing, formulas and daily routines fit together is set out in Living 2.0.
+              </p>
             </div>
             <div className="relative flex w-full flex-col gap-3 sm:flex-row md:w-auto">
               <Link to={marketHref(ROUTES.shop)} className="btn-primary">
                 Explore products <ArrowRight size={16} />
               </Link>
-              <Link to={marketHref(ROUTES.science)} className="btn-secondary border-white/40 text-white hover:bg-white/10">
-                Explore the science <ArrowRight size={16} />
+              <Link to={marketHref(ROUTES.living)} className="btn-secondary border-white/40 text-white hover:bg-white/10">
+                Living 2.0 <ArrowRight size={16} />
               </Link>
             </div>
           </div>

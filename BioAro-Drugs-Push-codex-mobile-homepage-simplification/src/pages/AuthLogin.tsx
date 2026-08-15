@@ -41,12 +41,12 @@ import authVisual from "../assets/auth/shopify-account-runner-products.jpg";
    went back under the button, which already says it. These two add what it does not. */
 const HANDOFF_STEPS = [
   {
-    title: "BioAro never sees your password",
+    title: "BioAro Drugs never sees your password",
     body: "Only a sign-in token comes back. No password is sent to or stored by this site.",
   },
   {
     title: "You come straight back",
-    body: "You land on your BioAro account with your region and details already in place.",
+    body: "You land on your BioAro Drugs account with your region and details already in place.",
   },
 ] as const;
 
@@ -117,7 +117,7 @@ export default function AuthLogin() {
                   Sign in to your account.
                 </h1>
                 <p className="mt-6 max-w-[46ch] text-pretty text-[16.5px] leading-[1.6] text-ink-600">
-                  Access your orders, saved details, and account preferences through BioAro&rsquo;s
+                  Access your orders, saved details, and account preferences through BioAro Drugs&rsquo;s
                   secure Shopify customer account.
                 </p>
 
@@ -210,7 +210,7 @@ export default function AuthLogin() {
             and a true centre crop cut the LONgevity+ label off the edge at 1280. */}
         <img
           src={authVisual}
-          alt="A runner at first light on a coastal trail, with BioAro LONgevity+ and CellOmega+ beside them."
+          alt="A runner at first light on a coastal trail, with BioAro Drugs LONgevity+ and CellOmega+ beside them."
           className="absolute inset-0 h-full w-full object-cover object-[58%_center]"
           loading="eager"
           decoding="async"

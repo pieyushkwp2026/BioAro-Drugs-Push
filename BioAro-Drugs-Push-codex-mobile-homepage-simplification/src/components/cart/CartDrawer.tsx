@@ -56,7 +56,7 @@ export default function CartDrawer() {
               </div>
               <h2 className="mt-6 text-balance text-[26px] font-bold leading-[1.15] tracking-[-0.03em] text-ink">Your routine starts here.</h2>
               <p className="mt-3 max-w-xs text-pretty text-[15px] leading-[1.6] text-ink-600">
-                Explore BioAro formulas and save your preferred products before online ordering opens.
+                Explore BioAro Drugs formulas and save your preferred products before online ordering opens.
               </p>
               <Link to={marketHref(ROUTES.shop)} onClick={closeCart} className="btn-primary mt-7">
                 Explore formulas

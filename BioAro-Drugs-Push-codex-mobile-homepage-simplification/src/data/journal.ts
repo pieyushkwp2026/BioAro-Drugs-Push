@@ -56,7 +56,7 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
           heading: "Why dosage matters",
           body: [
             "Ingredient names only tell part of the story. Dosage is one of the biggest differences between a thoughtful formula and a decorative label. An ingredient may be clinically interesting, but if the amount is too low, the formula may not reflect the research people are relying on.",
-            "This is why transparent labels matter. When a product clearly shows the dose of each active ingredient, customers can understand what they are taking and compare it with available evidence. BioAro's philosophy is to make that context easier to read, not harder.",
+            "This is why transparent labels matter. When a product clearly shows the dose of each active ingredient, customers can understand what they are taking and compare it with available evidence. BioAro Drugs's philosophy is to make that context easier to read, not harder.",
           ],
         },
         {
@@ -70,7 +70,7 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
           heading: "The importance of clinical evidence",
           body: [
             "Evidence does not mean every ingredient promises a dramatic outcome. It means the formula is built with respect for what is known, what is still being studied, and what can be responsibly communicated. A premium supplement should not need inflated promises to feel valuable.",
-            "BioAro's approach is evidence-aware: explain the ingredient, explain the role, show the dose, and avoid overclaiming. That kind of clarity helps people build routines with confidence and keeps the focus on long-term consistency.",
+            "BioAro Drugs's approach is evidence-aware: explain the ingredient, explain the role, show the dose, and avoid overclaiming. That kind of clarity helps people build routines with confidence and keeps the focus on long-term consistency.",
           ],
         },
         {
@@ -129,7 +129,7 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
           heading: "Building a sustainable daily stack",
           body: [
             "Start with the outcome you care about most. If your priority is long-term energy and healthy aging, begin there. If your day demands more focus or recovery, build around that. A good stack is personal, but it should still be grounded in evidence and clarity.",
-            "BioAro's protocol-led approach is designed to help customers see how products can work together without making the routine feel clinical or overwhelming. The aim is a daily system that supports your life rather than complicating it.",
+            "BioAro Drugs's protocol-led approach is designed to help customers see how products can work together without making the routine feel clinical or overwhelming. The aim is a daily system that supports your life rather than complicating it.",
           ],
         },
       ],
@@ -188,7 +188,7 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
           heading: "Where supplementation fits",
           body: [
             "A recovery-focused formula should clearly explain what it supports. It should help customers understand whether the product is aimed at hydration, muscle repair, cellular protection, or daily resilience.",
-            "BioAro frames recovery as part of a broader protocol system: what you take, when you take it, and how it fits with your goals. That clarity makes supplementation easier to use responsibly.",
+            "BioAro Drugs frames recovery as part of a broader protocol system: what you take, when you take it, and how it fits with your goals. That clarity makes supplementation easier to use responsibly.",
           ],
         },
       ],
@@ -240,7 +240,7 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
           heading: "Supporting long-term cognitive wellness",
           body: [
             "Long-term cognitive wellness is not about squeezing more productivity from every hour. It is about protecting the conditions that help the brain function well over time.",
-            "BioAro's focus philosophy is built around clarity, not stimulation for its own sake. A good product should support a routine that is sustainable, understandable, and aligned with real life.",
+            "BioAro Drugs's focus philosophy is built around clarity, not stimulation for its own sake. A good product should support a routine that is sustainable, understandable, and aligned with real life.",
           ],
         },
       ],
@@ -292,7 +292,7 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
           heading: "Recovery and tomorrow's performance",
           body: [
             "Sleep is a performance tool because it supports recovery. A better night can influence how you train, work, regulate appetite, and make decisions the next day.",
-            "BioAro views sleep as part of the larger protocol story: energy, focus, recovery, and LONgevity+ all depend on restoration. Better routines begin when those pillars are treated as connected.",
+            "BioAro Drugs views sleep as part of the larger protocol story: energy, focus, recovery, and LONgevity+ all depend on restoration. Better routines begin when those pillars are treated as connected.",
           ],
         },
       ],
@@ -344,7 +344,7 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
           heading: "Evidence-first formulation",
           body: [
             "An evidence-first formula does not need to sound complicated. It should show how each ingredient supports the product's purpose and avoid adding ingredients simply because they are trending.",
-            "BioAro's quality philosophy is built around useful clarity: explain the role, show the label, keep the claims grounded, and make the product easier to trust.",
+            "BioAro Drugs's quality philosophy is built around useful clarity: explain the role, show the label, keep the claims grounded, and make the product easier to trust.",
           ],
         },
         {
