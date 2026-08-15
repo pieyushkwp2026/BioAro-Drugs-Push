@@ -38,6 +38,8 @@ export function ProtocolSessionProvider({ children }: { children: ReactNode }) {
   const [submitting, setSubmitting] = useState(false);
   const [noMatch, setNoMatch] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [studioOpen, setStudioOpen] = useState(false);
+  const [studioAutoFocus, setStudioAutoFocus] = useState(false);
 
   const setMessage = useCallback((value: string) => setMessageState(value.slice(0, MAX_MESSAGE)), []);
 
@@ -102,6 +104,13 @@ export function ProtocolSessionProvider({ children }: { children: ReactNode }) {
     return false;
   }, [message, submitting, session.detectedGoals, market]);
 
+  const openStudio = useCallback((options?: { focusInput?: boolean }) => {
+    setStudioAutoFocus(Boolean(options?.focusInput));
+    setStudioOpen(true);
+  }, []);
+
+  const closeStudio = useCallback(() => setStudioOpen(false), []);
+
   const answerQuestion = useCallback((field: AnswerField, value: string) => {
     setSession((current) => answerField(current, field, value));
   }, []);
@@ -128,6 +137,10 @@ export function ProtocolSessionProvider({ children }: { children: ReactNode }) {
       send,
       clearMatched,
       toggleGoal,
+      studioOpen,
+      studioAutoFocus,
+      openStudio,
+      closeStudio,
       answerQuestion,
       editAnswer,
       adjustAnswers,
@@ -143,6 +156,10 @@ export function ProtocolSessionProvider({ children }: { children: ReactNode }) {
       send,
       clearMatched,
       toggleGoal,
+      studioOpen,
+      studioAutoFocus,
+      openStudio,
+      closeStudio,
       answerQuestion,
       editAnswer,
       adjustAnswers,

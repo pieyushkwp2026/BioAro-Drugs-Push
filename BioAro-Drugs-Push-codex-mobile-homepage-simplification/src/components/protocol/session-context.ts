@@ -28,6 +28,16 @@ export interface ProtocolSessionValue {
   // ------------------------------------------------------------------- goals
   toggleGoal: (id: GoalId) => void;
 
+  // ------------------------------------------------------------------ studio
+  /* The modal's open state lives here so ONE dialog serves every trigger. It used
+     to live in the entry component, which was mounted twice — hero and floating —
+     putting two <dialog> elements on the page that opened independently. */
+  studioOpen: boolean;
+  /** True when a text box opened it, so the caret continues where it was. */
+  studioAutoFocus: boolean;
+  openStudio: (options?: { focusInput?: boolean }) => void;
+  closeStudio: () => void;
+
   // --------------------------------------------------------------- questions
   answerQuestion: (field: AnswerField, value: string) => void;
   /** Puts one question back so it is asked again. */

@@ -166,6 +166,18 @@
 /* The bioaro-marquee-left/right keyframes that lived here drove the testimonial
    rows, which are gone along with their 36 invented reviewers. */
 
+/* The floating AI orb's pulse. A soft ring that breathes rather than a blink —
+   it should read as present, not as an alert demanding attention. */
+@keyframes bioOrbPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(193, 70, 42, 0.35); }
+  70%  { box-shadow: 0 0 0 14px rgba(193, 70, 42, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(193, 70, 42, 0); }
+}
+
+[data-pulse="true"] {
+  animation: bioOrbPulse 2.8s ease-out infinite;
+}
+
 /* ------------------------------------------------------------------------ modal
    The native <dialog> element, reset. The UA stylesheet gives it padding, a solid
    border, an opaque background, `width/height: fit-content` and a max-width cap —
@@ -259,6 +271,11 @@
      still fade in for someone who asked motion to stop. */
   .bio-dialog[open]::backdrop,
   .bio-dialog[open] .bio-dialog-panel {
+    animation: none !important;
+  }
+
+  /* A permanently blinking element is exactly what this setting exists for. */
+  [data-pulse="true"] {
     animation: none !important;
   }
 }

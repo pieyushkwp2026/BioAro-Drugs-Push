@@ -1,6 +1,9 @@
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { useCatalog } from "../hooks/useCatalog";
 import { SCIENCE_SECTION } from "../data/homepage";
+import { useNavigate } from "react-router-dom";
+import { useMarketHref } from "../hooks/useMarketHref";
+import { ROUTES } from "../lib/routes";
 import Hero from "../components/home/Hero";
 import ProductShowcase from "../components/home/ProductShowcase";
 import WhyBioAro from "../components/home/WhyBioAro";
@@ -11,7 +14,9 @@ import FounderNote from "../components/home/FounderNote";
 import ScienceLibrary from "../components/home/ScienceLibrary";
 import ClosingCta from "../components/home/ClosingCta";
 import { useEffect, useRef, useState } from "react";
-import AiProtocolEntry from "../components/home/AiProtocolEntry";
+import FloatingAiBar from "../components/home/FloatingAiBar";
+import ProtocolStudio from "../components/home/ProtocolStudio";
+import { useProtocolSession } from "../hooks/useProtocolSession";
 
 /*
  * THESIS: BioAro Drugs is an AI-guided precision-bioactive company whose supplements
@@ -84,6 +89,9 @@ const SCOPED_CSS = `
 
 export default function Home() {
   const revealRef = useScrollReveal<HTMLDivElement>();
+  const session = useProtocolSession();
+  const navigate = useNavigate();
+  const marketHref = useMarketHref();
   const { products, byHandle, state } = useCatalog();
   const [floatingAiCollapsed, setFloatingAiCollapsed] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
@@ -113,14 +121,9 @@ export default function Home() {
       <style dangerouslySetInnerHTML={{ __html: SCOPED_CSS }} />
 
       {/* 1 — Thesis. What this is, and the one thing to do about it. */}
-      <Hero searchRef={searchRef} byHandle={byHandle} />
+      <Hero searchRef={searchRef} />
       {showFloatingSearch && (
-        <AiProtocolEntry
-          byHandle={byHandle}
-          variant="floating"
-          collapsed={floatingAiCollapsed}
-          onCollapsedChange={setFloatingAiCollapsed}
-        />
+        <FloatingAiBar collapsed={floatingAiCollapsed} onCollapsedChange={setFloatingAiCollapsed} />
       )}
 
       {/* 2 — Commerce, early. Buyable from the card, not two clicks away. The hero
@@ -131,7 +134,6 @@ export default function Home() {
       {/* 3 — The protocol entry. Not branded as the AI: a goal picker that opens a
              four-question builder is a protocol tool, and the AI name stays on the
              surfaces where a question actually gets typed. */}
-      {/* <AiProtocolEntry byHandle={byHandle} /> */}
 
       {/* 4 — Differentiation. Quiet hairline rows after a row of cards. */}
       <WhyBioAro />
@@ -158,6 +160,22 @@ export default function Home() {
 
       {/* 10 — Close, anchored. */}
       <ClosingCta />
+
+      {/* ONE studio for the page. It used to be mounted inside the entry component,
+          which rendered twice — hero and floating — putting two <dialog> elements on
+          the page that opened independently of each other. */}
+      <ProtocolStudio
+        open={session.studioOpen}
+        byHandle={byHandle}
+        onClose={session.closeStudio}
+        onContinue={() => {
+          const goals = session.view.session.detectedGoals;
+          navigate(`${marketHref(ROUTES.quiz)}${goals.length > 0 ? `?goals=${goals.join(",")}` : ""}`, {
+            state: session.message.trim() ? { note: session.message.trim() } : undefined,
+          });
+        }}
+        autoFocusInput={session.studioAutoFocus}
+      />
     </div>
   );
 }
