@@ -45,10 +45,15 @@ export interface ProtocolSession {
   market: string;
   /** Where the goals came from, so provenance survives the handoff between surfaces. */
   source: "bioaro-ai-homepage" | "chips" | "deep-link";
+  /** Whether Stage 2 has been put to the visitor yet, separate from their answer. */
+  clinicalAsked?: boolean;
 }
 
 export interface SessionView {
   session: ProtocolSession;
+  /* Stage 2 has been answered. Drives the notice, never the products. */
+  clinicalAsked: boolean;
+  clinicalFlag: boolean;
   protocol: Protocol | null;
   completionState: CompletionState;
   question: ProtocolQuestion | null;
@@ -89,7 +94,12 @@ export function unanswer(session: ProtocolSession, field: AnswerField): Protocol
 }
 
 export function resetAnswers(session: ProtocolSession): ProtocolSession {
-  return { ...session, answers: {} };
+  return { ...session, answers: {}, clinicalAsked: false };
+}
+
+/** Stage 2. Records the answer and that it was asked; changes no product. */
+export function answerClinical(session: ProtocolSession, flagged: boolean): ProtocolSession {
+  return { ...session, clinicalAsked: true, answers: { ...session.answers, clinicalFlag: flagged } };
 }
 
 /**
@@ -108,6 +118,8 @@ export function viewSession(session: ProtocolSession): SessionView {
       session,
       protocol: null,
       completionState: "empty",
+      clinicalAsked: false,
+      clinicalFlag: false,
       question: null,
       remaining: 0,
       progress: 0,
@@ -115,6 +127,7 @@ export function viewSession(session: ProtocolSession): SessionView {
   }
 
   const protocol = buildProtocol({
+    ...answers,
     goals,
     energy: (answers.energy ?? "steady") as EnergyAnswer,
     sleep: (answers.sleep ?? "restful") as SleepAnswer,
@@ -122,18 +135,27 @@ export function viewSession(session: ProtocolSession): SessionView {
   });
 
   const outstanding = selectQuestions(goals, answers);
-  const answered = Object.keys(answers).length;
+  /* The clinical answer is not a refinement of the protocol, so it is excluded from
+     the progress maths — counting it would imply it moved something. */
+  const answered = Object.keys(answers).filter((key) => key !== "clinicalFlag").length;
+  const clinicalAsked = session.clinicalAsked === true;
 
+  /* Stage 2 is the last thing between a draft and a finished protocol: the questions
+     can be exhausted while the screener is still outstanding. */
   const completionState: CompletionState =
-    outstanding.length === 0 ? "complete" : answered === 0 ? "intent" : "refining";
+    outstanding.length === 0 && clinicalAsked ? "complete" : answered === 0 ? "intent" : "refining";
+
+  const total = answered + outstanding.length + (clinicalAsked ? 0 : 1);
 
   return {
     session,
     protocol,
     completionState,
+    clinicalAsked,
+    clinicalFlag: answers.clinicalFlag === true,
     question: nextQuestion(goals, answers),
-    remaining: outstanding.length,
-    progress: answered + outstanding.length === 0 ? 1 : answered / (answered + outstanding.length),
+    remaining: outstanding.length + (clinicalAsked ? 0 : 1),
+    progress: total === 0 ? 1 : answered / total,
   };
 }
 

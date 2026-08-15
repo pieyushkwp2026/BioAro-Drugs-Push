@@ -1,5 +1,6 @@
 import {
   buildProtocol,
+  type ProtocolAnswers,
   type EnergyAnswer,
   type GoalId,
   type SleepAnswer,
@@ -38,7 +39,25 @@ import {
  * ---------------------------------------------------------------------------
  */
 
-export type AnswerField = "energy" | "sleep" | "training";
+export type AnswerField =
+  | "energy"
+  | "sleep"
+  | "training"
+  | "sex"
+  | "age"
+  | "activity"
+  | "stress"
+  | "diet"
+  | "supplements";
+
+/*
+ * The three stages of the intake.
+ *
+ *   about    — changes the protocol. Everything in Stage 1.
+ *   clinical — raises a notice and changes NOTHING. See the note in build.ts.
+ *   precision — biomarkers, labs, genetics, wearables. Named, never asked.
+ */
+export type QuestionStage = "about" | "clinical" | "precision";
 
 export interface QuestionOption {
   value: string;
@@ -48,6 +67,7 @@ export interface QuestionOption {
 export interface ProtocolQuestion {
   id: string;
   field: AnswerField;
+  stage: QuestionStage;
   prompt: string;
   options: QuestionOption[];
   /** Goals this phrasing is written for. Omitted means it is the general fallback. */
@@ -55,16 +75,18 @@ export interface ProtocolQuestion {
 }
 
 /** Answers gathered so far. Every field is optional — the protocol builds regardless. */
-export type PartialAnswers = {
-  energy?: EnergyAnswer;
-  sleep?: SleepAnswer;
-  training?: TrainingAnswer;
-};
+export type PartialAnswers = Partial<Omit<ProtocolAnswers, "goals">>;
 
 const FIELD_VALUES: Record<AnswerField, string[]> = {
   energy: ["steady", "dips", "crashes"],
   sleep: ["restful", "inconsistent", "poor"],
   training: ["daily", "sometimes", "rarely"],
+  sex: ["female", "male", "prefer-not-to-say"],
+  age: ["under-30", "30-49", "50-plus"],
+  activity: ["sedentary", "moderate", "very-active"],
+  stress: ["low", "moderate", "high"],
+  diet: ["omnivore", "vegetarian", "vegan"],
+  supplements: ["none", "multivitamin", "omega-3", "protein"],
 };
 
 /*
@@ -76,6 +98,7 @@ const QUESTIONS: ProtocolQuestion[] = [
   {
     id: "energy-focus",
     field: "energy",
+    stage: "about",
     appliesTo: ["focus"],
     prompt: "When does your focus start to fade?",
     options: [
@@ -87,6 +110,7 @@ const QUESTIONS: ProtocolQuestion[] = [
   {
     id: "energy-general",
     field: "energy",
+    stage: "about",
     prompt: "How is your energy by mid-afternoon?",
     options: [
       { value: "steady", label: "Steady all day" },
@@ -99,6 +123,7 @@ const QUESTIONS: ProtocolQuestion[] = [
   {
     id: "sleep-focused",
     field: "sleep",
+    stage: "about",
     appliesTo: ["sleep"],
     prompt: "How often do you wake up rested?",
     options: [
@@ -110,6 +135,7 @@ const QUESTIONS: ProtocolQuestion[] = [
   {
     id: "sleep-general",
     field: "sleep",
+    stage: "about",
     prompt: "How has your sleep been lately?",
     options: [
       { value: "restful", label: "Restful" },
@@ -122,6 +148,7 @@ const QUESTIONS: ProtocolQuestion[] = [
   {
     id: "training-athletic",
     field: "training",
+    stage: "about",
     appliesTo: ["performance", "recovery"],
     prompt: "How hard are you training right now?",
     options: [
@@ -133,6 +160,7 @@ const QUESTIONS: ProtocolQuestion[] = [
   {
     id: "training-general",
     field: "training",
+    stage: "about",
     prompt: "How often do you train?",
     options: [
       { value: "daily", label: "Most days" },
@@ -140,23 +168,124 @@ const QUESTIONS: ProtocolQuestion[] = [
       { value: "rarely", label: "Rarely" },
     ],
   },
+
+  // ----------------------------------------------------------------- stress
+  {
+    id: "stress-general",
+    field: "stress",
+    stage: "about",
+    prompt: "How much stress are you carrying at the moment?",
+    options: [
+      { value: "low", label: "Not much" },
+      { value: "moderate", label: "A fair amount" },
+      { value: "high", label: "A lot" },
+    ],
+  },
+
+  // ------------------------------------------------------------------- diet
+  {
+    id: "diet-general",
+    field: "diet",
+    stage: "about",
+    prompt: "How do you eat?",
+    options: [
+      { value: "omnivore", label: "I eat everything" },
+      { value: "vegetarian", label: "Vegetarian" },
+      { value: "vegan", label: "Vegan" },
+    ],
+  },
+
+  // -------------------------------------------------------------- activity
+  {
+    id: "activity-general",
+    field: "activity",
+    stage: "about",
+    prompt: "How active are your days overall?",
+    options: [
+      { value: "sedentary", label: "Mostly sitting" },
+      { value: "moderate", label: "On my feet a fair bit" },
+      { value: "very-active", label: "Very active" },
+    ],
+  },
+
+  // -------------------------------------------------------------------- sex
+  {
+    id: "sex-general",
+    field: "sex",
+    stage: "about",
+    /* "Prefer not to say" is a real option that routes NOWHERE, rather than being
+       quietly treated as one of the other two. Declining to answer is an answer. */
+    prompt: "Which daily multivitamin should this be built around?",
+    options: [
+      { value: "female", label: "The one for women" },
+      { value: "male", label: "The one for men" },
+      { value: "prefer-not-to-say", label: "Skip this" },
+    ],
+  },
+
+  // -------------------------------------------------------------------- age
+  {
+    id: "age-general",
+    field: "age",
+    stage: "about",
+    prompt: "Which age range are you in?",
+    options: [
+      { value: "under-30", label: "Under 30" },
+      { value: "30-49", label: "30 to 49" },
+      { value: "50-plus", label: "50 or over" },
+    ],
+  },
+
+  // ------------------------------------------------------------ supplements
+  {
+    id: "supplements-general",
+    field: "supplements",
+    stage: "about",
+    /* The only question whose answer can REMOVE a product. Asked late, so it can see
+       what the rest of the intake has already put in the protocol. */
+    prompt: "Are you already taking anything daily?",
+    options: [
+      { value: "none", label: "Nothing right now" },
+      { value: "multivitamin", label: "A multivitamin" },
+      { value: "omega-3", label: "Omega-3" },
+      { value: "protein", label: "Protein" },
+    ],
+  },
 ];
+
+/*
+ * Stage 2. One screener, and it changes no product — see the note at the foot of
+ * build.ts. It is kept out of QUESTIONS because `selectQuestions` only returns things
+ * that alter the protocol, and by design this never does.
+ */
+export const CLINICAL_SCREENER = {
+  id: "clinical-screener",
+  stage: "clinical" as const,
+  prompt:
+    "Are you pregnant or breastfeeding, taking prescription medication, or managing a diagnosed condition?",
+  options: [
+    { value: "no", label: "None of these" },
+    { value: "yes", label: "Yes, one or more" },
+  ],
+} as const;
 
 /*
  * Ordering. The field closest to what someone actually asked for goes first, so the
  * builder opens on the question they were already thinking about.
  */
+const REST: AnswerField[] = ["stress", "diet", "activity", "sex", "age", "supplements"];
+
 const FIELD_PRIORITY: Record<GoalId, AnswerField[]> = {
-  energy: ["energy", "sleep", "training"],
-  focus: ["energy", "sleep", "training"],
-  longevity: ["energy", "sleep", "training"],
-  sleep: ["sleep", "energy", "training"],
-  recovery: ["training", "sleep", "energy"],
-  performance: ["training", "energy", "sleep"],
-  "womens-health": ["energy", "sleep", "training"],
+  energy: ["energy", "sleep", "training", ...REST],
+  focus: ["energy", "sleep", "training", ...REST],
+  longevity: ["energy", "sleep", "training", ...REST],
+  sleep: ["sleep", "energy", "training", ...REST],
+  recovery: ["training", "sleep", "energy", ...REST],
+  performance: ["training", "energy", "sleep", ...REST],
+  "womens-health": ["energy", "sleep", "training", ...REST],
 };
 
-const DEFAULT_ORDER: AnswerField[] = ["energy", "sleep", "training"];
+const DEFAULT_ORDER: AnswerField[] = ["energy", "sleep", "training", ...REST];
 
 /**
  * Whether any answer to `field` would still change the protocol, given what is
@@ -169,11 +298,12 @@ export function changesOutcome(field: AnswerField, goals: GoalId[], answers: Par
     /* Unanswered fields are held at the value that adds nothing, so the comparison
        measures THIS field's effect rather than the absence of the others. */
     const merged = {
+      ...answers,
       energy: (answers.energy ?? "steady") as EnergyAnswer,
       sleep: (answers.sleep ?? "restful") as SleepAnswer,
       training: (answers.training ?? "rarely") as TrainingAnswer,
       [field]: value,
-    } as { energy: EnergyAnswer; sleep: SleepAnswer; training: TrainingAnswer };
+    } as Omit<ProtocolAnswers, "goals">;
 
     // Items, slots, reasons AND notes — a question that only changes the wording of
     // a disclosure is still doing work, because that disclosure is the honest part.

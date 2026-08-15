@@ -119,6 +119,25 @@ export const AI_SECTION = {
   readyMeta: "Based on what you told us",
   /* The mobile sheet handle. Below lg there is no room for two columns, so the
      conversation takes the screen and the protocol lives behind this. */
+  /* Stage 2. Phrased as context, not a diagnosis, and its answer changes no product —
+     see the note at the foot of lib/protocol/build.ts. */
+  clinicalHeading: "One last thing",
+  clinicalNote:
+    "This does not change your protocol. It decides whether we point you at a professional first.",
+  clinicalRaised:
+    "Because of what you told us, check this protocol with your doctor or pharmacist before starting it. We have not adjusted the products — this engine does not check interactions.",
+  /* Stage 3. NAMED, NOT OFFERED. No inputs, no upload, no "connect" — the roadmap is
+     stated so the ambition is legible without claiming a capability that has no
+     backend behind it. */
+  precisionHeading: "Not available yet",
+  precisionBody:
+    "BioAro Drugs AI works from what you tell it. It does not read biomarkers, lab results, genetic data or wearables, and cannot accept them yet.",
+  precisionItems: ["Biomarkers", "Lab results", "Genetics", "Wearables"],
+  comingSoon: "Coming soon",
+  notInRegion: (count: number) =>
+    `${count} product${count === 1 ? "" : "s"} the engine matched to your answers ${count === 1 ? "is" : "are"} not carried in your region yet, so ${count === 1 ? "it is" : "they are"} not shown above.`,
+  cartWithheld: (count: number) =>
+    `${count} product${count === 1 ? "" : "s"} in this protocol cannot be ordered in your region yet, so ${count === 1 ? "it is" : "they are"} not in the cart.`,
   sheetOpen: "View your protocol",
   sheetClose: "Hide your protocol",
   sheetItems: (count: number) => `${count} item${count === 1 ? "" : "s"}`,

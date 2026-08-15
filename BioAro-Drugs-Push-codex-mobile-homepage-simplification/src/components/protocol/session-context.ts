@@ -42,6 +42,8 @@ export interface ProtocolSessionValue {
   answerQuestion: (field: AnswerField, value: string) => void;
   /** Puts one question back so it is asked again. */
   editAnswer: (field: AnswerField) => void;
+  /** Stage 2. Records the answer and raises the notice; changes no product. */
+  answerClinical: (flagged: boolean) => void;
   /** Clears every answer but keeps the goals and the original wording. */
   adjustAnswers: () => void;
 }

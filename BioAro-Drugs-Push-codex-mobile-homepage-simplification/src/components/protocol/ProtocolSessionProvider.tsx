@@ -6,6 +6,7 @@ import type { GoalId } from "../../lib/protocol/build";
 import type { AnswerField } from "../../lib/protocol/questions";
 import {
   answer as answerField,
+  answerClinical as answerClinicalOn,
   createSession,
   resetAnswers,
   setGoals as setSessionGoals,
@@ -119,6 +120,10 @@ export function ProtocolSessionProvider({ children }: { children: ReactNode }) {
     setSession((current) => unanswer(current, field));
   }, []);
 
+  const answerClinical = useCallback((flagged: boolean) => {
+    setSession((current) => answerClinicalOn(current, flagged));
+  }, []);
+
   const adjustAnswers = useCallback(() => {
     setSession((current) => resetAnswers(current));
   }, []);
@@ -143,6 +148,7 @@ export function ProtocolSessionProvider({ children }: { children: ReactNode }) {
       closeStudio,
       answerQuestion,
       editAnswer,
+      answerClinical,
       adjustAnswers,
     }),
     [
@@ -162,6 +168,7 @@ export function ProtocolSessionProvider({ children }: { children: ReactNode }) {
       closeStudio,
       answerQuestion,
       editAnswer,
+      answerClinical,
       adjustAnswers,
     ],
   );

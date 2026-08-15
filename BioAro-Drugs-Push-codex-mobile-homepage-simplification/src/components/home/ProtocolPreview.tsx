@@ -92,6 +92,11 @@ export default function ProtocolPreview({
       Boolean(row.product),
     );
 
+  /* The engine routes across the whole range, but a market only carries part of it.
+     Those items used to vanish between the engine and this list with no trace — the
+     protocol quietly got shorter. Counted here so it can be said out loud. */
+  const notInRegion = (protocol?.items.length ?? 0) - rows.length;
+
   const complete = completionState === "complete";
 
   /* Grouped by time of day once it is final, so the protocol reads as a day rather
@@ -116,6 +121,9 @@ export default function ProtocolPreview({
       product.price.amount > 0 &&
       isCurrencyAlignedWithMarket(product.price.currencyCode, country),
   );
+
+  const buyableHandles = new Set(buyable.map(({ product }) => product.handle));
+  const withheld = rows.length - buyable.length;
 
   const onAddAll = async () => {
     setAdding(true);
@@ -185,7 +193,16 @@ export default function ProtocolPreview({
                   <Plate icon={SLOT_ICONS[item.slot]} />
                   <div className="min-w-0 flex-1">
                     {!complete && <p className="text-[12.5px] font-bold text-ember">{item.slot}</p>}
-                    <p className="truncate text-[16px] font-bold tracking-[-0.025em] text-ink">{product.title}</p>
+                    <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[16px] font-bold tracking-[-0.025em] text-ink">
+                      <span>{product.title}</span>
+                      {/* The engine recommends the right product even when the market
+                          cannot sell it yet. Saying so beats quietly dropping it. */}
+                      {!buyableHandles.has(product.handle) && (
+                        <span className="shrink-0 rounded-full border border-line bg-cream-50 px-2 py-0.5 text-[11px] font-bold uppercase tracking-[0.08em] text-ink-400">
+                          {AI_SECTION.comingSoon}
+                        </span>
+                      )}
+                    </p>
                     <p className="mt-0.5 line-clamp-2 text-[13.5px] leading-[1.45] text-ink-600">{product.tagline}</p>
                   </div>
                   <img
@@ -240,6 +257,19 @@ export default function ProtocolPreview({
           {note}
         </p>
       ))}
+
+      {notInRegion > 0 && goalLabels.length > 0 && (
+        <p className="mt-4 rounded-[16px] bg-cream-50 p-4 text-[13px] leading-[1.55] text-ink-600">
+          {AI_SECTION.notInRegion(notInRegion)}
+        </p>
+      )}
+
+      {/* What the cart could not take, stated rather than silently dropped. */}
+      {complete && buyable.length > 0 && withheld > 0 && (
+        <p className="mt-4 rounded-[16px] bg-cream-50 p-4 text-[13px] leading-[1.55] text-ink-600">
+          {AI_SECTION.cartWithheld(withheld)}
+        </p>
+      )}
 
       {complete && buyable.length > 0 && (
         <button

@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 
 import { AI_SECTION } from "../../data/homepage";
+import { CLINICAL_SCREENER } from "../../lib/protocol/questions";
 
 import {
   askBioAro,
@@ -407,7 +408,7 @@ export default function ProtocolStudio({
 
   const session = useProtocolSession();
   const { view } = session;
-  const { completionState, question, remaining } = view;
+  const { completionState, question, remaining, clinicalAsked, clinicalFlag } = view;
 
   const [thread, setThread] = useState<Turn[]>([]);
   const [composer, setComposer] = useState("");
@@ -648,8 +649,71 @@ export default function ProtocolStudio({
               </div>
             )}
 
+            {/* Stage 2. Appears only once the protocol questions are exhausted, so it
+                never competes with a question that actually moves something. */}
+            {!question && !clinicalAsked && completionState !== "empty" && (
+              <div className="space-y-3">
+                <AiBubble>
+                  {CLINICAL_SCREENER.prompt}{" "}
+                  <span className="text-ink-400">{AI_SECTION.clinicalNote}</span>
+                </AiBubble>
+                <ul className="flex flex-wrap gap-2.5">
+                  {CLINICAL_SCREENER.options.map((option) => (
+                    <li key={option.value}>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setThread((current) => [
+                            ...current,
+                            { id: nextTurnId(), kind: "ai", text: CLINICAL_SCREENER.prompt },
+                            { id: nextTurnId(), kind: "you", text: option.label },
+                          ]);
+                          session.answerClinical(option.value === "yes");
+                        }}
+                        className="rounded-full border border-line bg-white px-4 py-2.5 text-[14.5px] font-bold tracking-[-0.01em] text-ink transition-[background-color,border-color,color] duration-200 hover:border-ember hover:text-ember focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember"
+                      >
+                        {option.label}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Raised, and explicit that the products were NOT adjusted. A visitor
+                would otherwise reasonably read a notice as "it accounted for this". */}
+            {clinicalFlag && (
+              <div
+                role="note"
+                className="flex items-start gap-3 rounded-[16px] border border-ember/25 bg-[rgba(193,70,42,0.05)] p-4"
+              >
+                <ShieldAlert size={17} strokeWidth={2} aria-hidden="true" className="mt-0.5 shrink-0 text-ember" />
+                <p className="text-[13px] leading-[1.55] text-ink-600">{AI_SECTION.clinicalRaised}</p>
+              </div>
+            )}
+
             {completionState === "complete" && (
               <AiBubble>{AI_SECTION.completeNote}</AiBubble>
+            )}
+
+            {/* Stage 3. Named so the direction is legible; deliberately inert. */}
+            {completionState === "complete" && (
+              <div className="rounded-[16px] border border-dashed border-line p-4">
+                <p className="text-[12px] font-bold uppercase tracking-[0.12em] text-ink-400">
+                  {AI_SECTION.precisionHeading}
+                </p>
+                <ul className="mt-2.5 flex flex-wrap gap-2">
+                  {AI_SECTION.precisionItems.map((item) => (
+                    <li
+                      key={item}
+                      className="rounded-full border border-line bg-cream-50 px-3 py-1.5 text-[12.5px] text-ink-400"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-3 text-[12.5px] leading-[1.55] text-ink-400">{AI_SECTION.precisionBody}</p>
+              </div>
             )}
 
             {session.error && (
