@@ -27,6 +27,13 @@ export interface ProtocolSessionValue {
 
   // ------------------------------------------------------------------- goals
   toggleGoal: (id: GoalId) => void;
+  /**
+   * Clear everything and start on exactly these goals — the persona cards.
+   *
+   * Idempotent, unlike calling `toggleGoal` once per id, which would cancel the
+   * selection out if the same card were clicked twice.
+   */
+  startWithGoals: (ids: GoalId[]) => void;
 
   // ------------------------------------------------------------------ studio
   /* The modal's open state lives here so ONE dialog serves every trigger. It used

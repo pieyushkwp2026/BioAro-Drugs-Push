@@ -82,7 +82,13 @@ export default function About() {
       <section className="container-bio py-20 md:py-28">
         <div className="grid gap-12 md:grid-cols-[0.9fr_1.1fr] md:gap-24">
           <div>
-            <span className="eyebrow">Founded in Canada · 2021</span>
+            {/* "Founded in Canada · 2021" was removed on 16 Aug 2026 alongside the
+                "Formulated in Canada" product claim. The country could not be
+                reconciled with the London and San Jose addresses in the footer, and a
+                founding country asserted here while the rest of the site says
+                something else reads as carelessness on a health brand. The year is
+                kept because it is not in dispute. */}
+            <span className="eyebrow">Founded 2021</span>
             <h2 className="mt-4 max-w-md text-4xl leading-tight md:text-5xl">
               Built from a search for supplements that truly work.
             </h2>

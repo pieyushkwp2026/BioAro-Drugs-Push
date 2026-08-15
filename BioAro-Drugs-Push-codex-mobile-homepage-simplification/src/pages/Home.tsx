@@ -10,6 +10,7 @@ import WhyBioAro from "../components/home/WhyBioAro";
 import SachetRoutine from "../components/home/SachetRoutine";
 import ScienceProof from "../components/home/ScienceProof";
 import ProtocolExample from "../components/home/ProtocolExample";
+import ProtocolPersonas from "../components/home/ProtocolPersonas";
 import FounderNote from "../components/home/FounderNote";
 import ScienceLibrary from "../components/home/ScienceLibrary";
 import ClosingCta from "../components/home/ClosingCta";
@@ -32,17 +33,17 @@ import { useProtocolSession } from "../hooks/useProtocolSession";
  *
  * STORY: here are the formulas → I can tell it what I want to improve and it builds
  * me a protocol → here is why this company is different → here is literally what is in
- * the product and how much → here is what a protocol looks like as a day → a person
- * stands behind it → here is the reading → start.
+ * the product and how much → here is what a protocol looks like as a day → here are
+ * four ways to start one → a person stands behind it → here is the reading → start.
  *
  * FIRST VIEWPORT: three lines of headline at up to 92px, a standfirst, one plain
  * sentence of what actually happens, two buttons, and four words on a hairline. No
  * photograph competing with the type; the image lands under the fold as a band.
  *
- * FORM: nine sections, alternating density on purpose — interactive panel, then a
+ * FORM: ten sections, alternating density on purpose — interactive panel, then a
  * product rail, then quiet hairline rows, then the densest block on the page (a real
- * ingredient table), then a timeline, then a short founder note. Never two grids
- * in a row.
+ * ingredient table), then a timeline, a card row, and a short founder note. Never two
+ * grids in a row.
  *
  * The load-bearing idea is section five. Every competitor asserts transparency; this
  * one prints the formulation — real actives at real doses, read live from the same
@@ -147,18 +148,26 @@ export default function Home() {
       {/* 7 — The output, as a day. */}
       <ProtocolExample byHandle={byHandle} />
 
+      {/* 8 — Entry, immediately after the shape. Section 7 shows what a protocol
+             looks like; this offers four ways into building one. Deliberately in
+             that order — an invitation to start reads better once you have seen
+             what you are starting. Replaced the testimonial rail that used to sit
+             on the page: four goal sets assert nothing, four unattributed quotes
+             asserted results we cannot evidence. */}
+      <ProtocolPersonas />
+
       {/* The AI band. Mid-page on the homepage rather than pre-footer, so it does
           not stack against the closing photograph. Layout renders it above the
           footer on every other route. */}
       {/* <AiBand /> */}
 
-      {/* 8 — A person stands behind it. Short, and typographic. */}
+      {/* 9 — A person stands behind it. Short, and typographic. */}
       <FounderNote />
 
-      {/* 9 — The reading. */}
+      {/* 10 — The reading. */}
       <ScienceLibrary />
 
-      {/* 10 — Close, anchored. */}
+      {/* 11 — Close, anchored. */}
       <ClosingCta />
 
       {/* ONE studio for the page. It used to be mounted inside the entry component,

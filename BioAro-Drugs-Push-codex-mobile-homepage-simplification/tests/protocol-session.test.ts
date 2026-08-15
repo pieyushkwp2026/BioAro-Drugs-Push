@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { AI_SECTION } from "../src/data/homepage";
+import { AI_SECTION, GOALS, PERSONAS } from "../src/data/homepage";
 import { matchGoals } from "../src/lib/ai/matchGoals";
 import { buildProtocol, type GoalId } from "../src/lib/protocol/build";
 import {
@@ -200,6 +200,53 @@ test("every cycling hero prompt resolves to a goal", () => {
   for (const prompt of AI_SECTION.prompts) {
     const goals = matchGoals(prompt);
     assert.ok(goals.length > 0, `hero prompt resolves to nothing: "${prompt}"`);
+  }
+});
+
+/* What a persona card does, exactly: a clean session carrying only its goals. Goes
+   through setGoals/viewSession rather than buildProtocol so the test exercises the
+   same path `startWithGoals` takes, including the defaults viewSession fills in for
+   the questions that have not been asked yet. */
+const personaView = (goals: GoalId[]) =>
+  viewSession(setGoals(createSession({ market: "uk" }), goals, "personas"));
+
+test("every persona resolves to a real protocol", () => {
+  /* Same guard as the hero prompts, for the same reason. A persona card is a promise
+     that clicking it starts something; one whose goal set produced an empty protocol
+     would open the studio on a blank result. Sleep is the trap here — it has no
+     shipping product — so a persona must never be built from sleep alone. */
+  for (const persona of PERSONAS) {
+    assert.ok(persona.goals.length > 0, `${persona.name} selects no goals`);
+
+    const { protocol } = personaView(persona.goals);
+    assert.ok(protocol, `${persona.name} produces no protocol at all`);
+    assert.ok(protocol.items.length > 0, `${persona.name} builds an empty protocol`);
+  }
+});
+
+test("personas differ from one another", () => {
+  /* If two cards produced the same protocol, the section would be four labels on one
+     answer — exactly the fixed-bundle merchandising this replaced. */
+  const signatures = PERSONAS.map((persona) =>
+    (personaView(persona.goals).protocol?.items ?? [])
+      .map((item) => item.handle)
+      .sort()
+      .join("+"),
+  );
+
+  assert.equal(new Set(signatures).size, signatures.length, `personas overlap: ${signatures.join(" / ")}`);
+});
+
+test("every persona goal is a real goal", () => {
+  // Typed as GoalId, but the chips read from GOALS — a persona pointing at an id that
+  // is not in that list would tick nothing on screen while still building a protocol.
+  for (const persona of PERSONAS) {
+    for (const goal of persona.goals) {
+      assert.ok(
+        GOALS.some((entry) => entry.id === goal),
+        `${persona.name} names a goal that is not offered: ${goal}`,
+      );
+    }
   }
 });
 

@@ -140,6 +140,27 @@ export function ProtocolSessionProvider({ children }: { children: ReactNode }) {
     setError(null);
   }, []);
 
+  /*
+   * Start a fresh session on a named set of goals — what a persona card does.
+   *
+   * One action rather than resetAll() followed by a toggleGoal() per id. The toggle
+   * route works (every setter here is functional, so the calls compose in one tick)
+   * but it is a toggle: run it twice on the same persona and the goals cancel out.
+   * This is idempotent, which is the behaviour a card that can be clicked twice
+   * needs.
+   *
+   * The source is recorded as "personas" so the session can tell a named starting
+   * point apart from a chip tap or a matched sentence. A persona is a shortcut to a
+   * goal set, not a claim about the person.
+   */
+  const startWithGoals = useCallback((ids: GoalId[]) => {
+    setMessageState("");
+    setMatched([]);
+    setNoMatch(false);
+    setError(null);
+    setSession((current) => setSessionGoals(resetSession(current), [...new Set(ids)], "personas"));
+  }, []);
+
   const view = useMemo(() => viewSession({ ...session, market }), [session, market]);
 
   const value = useMemo(
@@ -154,6 +175,7 @@ export function ProtocolSessionProvider({ children }: { children: ReactNode }) {
       send,
       clearMatched,
       toggleGoal,
+      startWithGoals,
       studioOpen,
       studioAutoFocus,
       openStudio,
@@ -175,6 +197,7 @@ export function ProtocolSessionProvider({ children }: { children: ReactNode }) {
       send,
       clearMatched,
       toggleGoal,
+      startWithGoals,
       studioOpen,
       studioAutoFocus,
       openStudio,

@@ -15,6 +15,11 @@
  *     terms — no "keyword retrieval", no "rules engine". Plain language only.
  */
 
+/* Type-only, and build.ts imports nothing — so this cannot close a cycle. Personas
+   are typed against the real GoalId union so a typo becomes a build error rather
+   than a card that silently selects nothing. */
+import type { GoalId } from "../lib/protocol/build";
+
 export const HERO = {
   /* The third line carries a non-breaking space inside "BioAro Drugs". At 360-390px
      the line is too long to hold at hero scale and must wrap; without this it wraps
@@ -50,21 +55,110 @@ export interface HomepageGoal {
   label: string;
   /** Product handle this goal leads to, or null where no product exists yet. */
   handle: string | null;
+  /*
+   * What the goal actually covers, in outcomes rather than a category word.
+   *
+   * "Recovery" alone is the vocabulary of every supplement shelf; "Muscle repair ·
+   * Training soreness · Rest days" says what a person would come here for. Used by
+   * the personas section, never by the chips — a pill with a subtitle stops being a
+   * pill, and the chips have to stay compact in the hero.
+   *
+   * Every phrase is drawn from what the products in that goal's protocol are already
+   * described as supporting. None of them is a new claim.
+   */
+  outcomes: string[];
 }
 
 export const GOALS: HomepageGoal[] = [
-  { id: "energy", label: "Energy", handle: "cellomega-plus" },
-  { id: "longevity", label: "LONgevity+", handle: "longevity-plus" },
-  { id: "focus", label: "Focus", handle: "creagen-brain-boost" },
-  { id: "recovery", label: "Recovery", handle: "creagen-pro-power" },
-  { id: "sleep", label: "Sleep", handle: null },
-  { id: "performance", label: "Performance", handle: "creagen-raw-power" },
+  { id: "energy", label: "Energy", handle: "cellomega-plus", outcomes: ["Cellular energy", "Metabolic support", "Daily vitality"] },
+  { id: "longevity", label: "LONgevity+", handle: "longevity-plus", outcomes: ["Healthy ageing", "Cellular resilience", "Everyday vitality"] },
+  { id: "focus", label: "Focus", handle: "creagen-brain-boost", outcomes: ["Mental clarity", "Cognitive focus", "Working memory"] },
+  { id: "recovery", label: "Recovery", handle: "creagen-pro-power", outcomes: ["Muscle recovery", "Hydration", "Training soreness"] },
+  { id: "sleep", label: "Sleep", handle: null, outcomes: ["Sleep quality", "Winding down", "Overnight recovery"] },
+  { id: "performance", label: "Performance", handle: "creagen-raw-power", outcomes: ["Strength", "Power output", "Muscular endurance"] },
   {
     id: "womens-health",
     label: "Women's Health",
     handle: "creagen-femme-energy",
+    outcomes: ["Daily energy", "Iron and B12 support", "Active recovery"],
   },
 ];
+
+/*
+ * The precision tier — named, and openly not available.
+ *
+ * It sits with the personas rather than in GOALS, and that placement is the whole
+ * point: anything in GOALS is selectable and resolves to products, and this resolves
+ * to nothing because the capability does not exist. Biomarkers, genetics and wearables
+ * are not read anywhere in this product, and `questions.ts` already treats them the
+ * same way — "named, never asked".
+ *
+ * Shown at all because the roadmap is a real part of the positioning and hiding it
+ * would be its own kind of dishonesty. Shown as disabled because presenting it as a
+ * live capability would be the kind of claim this site does not make.
+ */
+export const PRECISION_TIER = {
+  label: "Precision",
+  outcomes: ["Biomarker-guided", "Lab and genetic data", "Wearable signals"],
+  status: "Not available yet",
+  body: "BioAro Drugs AI does not read biomarkers, genetic data or wearables today. When it does, this is where it will live.",
+} as const;
+
+/*
+ * Named starting points. Each is a GOAL SET and nothing more.
+ *
+ * REPLACES the testimonial rail that used to sit here. Four unattributed customer
+ * quotes asserted results the site cannot evidence; four goal sets assert nothing —
+ * clicking one seeds the studio and the protocol it produces is derived by the same
+ * builder as any other session.
+ *
+ * The names describe a situation, not a person, and carry no claim about who should
+ * take what. "The Athlete" is a shortcut to performance + recovery, and the card says
+ * exactly that by listing the goals it selects.
+ *
+ * Every `goals` array is asserted in tests/protocol-session.test.ts to resolve to at
+ * least one purchasable product, so a persona can never be added that leads nowhere.
+ */
+export interface ProtocolPersona {
+  id: string;
+  name: string;
+  premise: string;
+  goals: GoalId[];
+}
+
+export const PERSONAS: ProtocolPersona[] = [
+  {
+    id: "executive",
+    name: "The Executive",
+    premise: "Long days, heavy cognitive load, and energy that has to hold to the end of them.",
+    goals: ["focus", "energy"],
+  },
+  {
+    id: "athlete",
+    name: "The Athlete",
+    premise: "Training hard enough that what happens between sessions decides the next one.",
+    goals: ["performance", "recovery"],
+  },
+  {
+    id: "longevity",
+    name: "The Longevity Protocol",
+    premise: "Playing a long game — cellular health and everyday vitality over decades, not weeks.",
+    goals: ["longevity", "energy"],
+  },
+  {
+    id: "womens-performance",
+    name: "Women's Performance",
+    premise: "Energy, cognition and recovery, in a formula built around women's needs.",
+    goals: ["womens-health", "recovery"],
+  },
+];
+
+export const PERSONAS_SECTION = {
+  eyebrow: "Explore your protocol",
+  headline: ["Start where you are."],
+  body: "Four common starting points. Each one opens BioAro Drugs AI with those goals already selected — the protocol it builds is still derived from your answers, not from the name on the card.",
+  cta: "Build this protocol",
+} as const;
 
 export const AI_SECTION = {
   /* The AI name belongs HERE and only here in the protocol path: this is the
@@ -242,6 +336,20 @@ export const WHY_SECTION = {
     {
       title: "Built as protocols",
       body: "The formulas are designed to make sense together across a day, not only to stand alone on a product page.",
+    },
+    /*
+     * The fifth point. The standfirst above has always said FIVE things and the list
+     * carried four, which is the kind of small untruth a careful reader notices.
+     *
+     * Worded against what the product actually does. `resetSession` and re-answering
+     * genuinely rebuild the protocol from new answers, so "tell it what has changed
+     * and it rebuilds" is true today. What it deliberately does NOT say is that the
+     * protocol updates from your data — no biomarker, genetic or wearable input
+     * exists, and claiming otherwise is the exact line this site does not cross.
+     */
+    {
+      title: "Built to be revisited",
+      body: "A protocol is not a one-time answer. Tell BioAro Drugs AI what has changed and it rebuilds around your new goals and routine.",
     },
   ],
 } as const;

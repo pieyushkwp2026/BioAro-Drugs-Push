@@ -44,7 +44,7 @@ export interface ProtocolSession {
   answers: PartialAnswers;
   market: string;
   /** Where the goals came from, so provenance survives the handoff between surfaces. */
-  source: "bioaro-ai-homepage" | "chips" | "deep-link";
+  source: "bioaro-ai-homepage" | "chips" | "deep-link" | "personas";
   /** Whether Stage 2 has been put to the visitor yet, separate from their answer. */
   clinicalAsked?: boolean;
 }

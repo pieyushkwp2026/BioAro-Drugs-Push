@@ -77,8 +77,25 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       "Keep out of reach of young children.",
       "Food supplements should not be used as a substitute for a varied, balanced diet and a healthy lifestyle.",
     ],
+    /*
+     * "Formulated in Canada" was REMOVED from every product in this file on
+     * 16 Aug 2026, and should not come back without the fact behind it.
+     *
+     * It could not be reconciled with the rest of the site: the UK footer prints a
+     * London address, the US footer a San Jose one, and nothing anywhere distinguished
+     * corporate entity from formulation from manufacturing from fulfilment. A premium
+     * health brand cannot leave a customer guessing which country it is.
+     *
+     * WHERE IT WAS ACTUALLY SHOWING: not the product page. The PDP filters this list
+     * through the QUALITY_TERMS regex in Product.tsx, which the phrase never matched.
+     * Its only consumer is src/lib/ask/knowledge.ts — so the live effect was that
+     * BioAro Drugs AI would tell a customer the product is formulated in Canada if
+     * asked. That is the assertion that has been withdrawn.
+     *
+     * The rest of this list is retained on explicit instruction, to be verified
+     * separately.
+     */
     qualityPoints: [
-      "Formulated in Canada",
       "Manufactured in a GMP-certified facility",
       "Third-party tested for identity and purity",
       "Transparent ingredient dosages",
@@ -184,7 +201,6 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       "Food supplements should not be used as a substitute for a varied, balanced diet and a healthy lifestyle.",
     ],
     qualityPoints: [
-      "Formulated in Canada",
       "Manufactured in a GMP-certified facility",
       "Third-party tested for identity and purity",
       "Transparent ingredient dosages",
@@ -290,7 +306,6 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       "Food supplements should not be used as a substitute for a varied, balanced diet and a healthy lifestyle.",
     ],
     qualityPoints: [
-      "Formulated in Canada",
       "Manufactured in a GMP-certified facility",
       "Third-party tested for identity and purity",
       "Transparent ingredient dosages",
@@ -653,7 +668,6 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       "Food supplements should not be used as a substitute for a varied, balanced diet and a healthy lifestyle.",
     ],
     qualityPoints: [
-      "Formulated in Canada",
       "Manufactured in a GMP-certified facility",
       "Third-party tested for identity and purity",
       "Transparent ingredient dosages",
@@ -749,7 +763,6 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       "Food supplements should not be used as a substitute for a varied, balanced diet and a healthy lifestyle.",
     ],
     qualityPoints: [
-      "Formulated in Canada",
       "Manufactured in a GMP-certified facility",
       "Third-party tested for identity and purity",
       "Transparent ingredient dosages",
@@ -840,7 +853,6 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       "Food supplements should not be used as a substitute for a varied, balanced diet and a healthy lifestyle.",
     ],
     qualityPoints: [
-      "Formulated in Canada",
       "Manufactured in a GMP-certified facility",
       "Third-party tested for identity and purity",
       "Transparent ingredient dosages",
@@ -940,7 +952,6 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       "Food supplements should not be used as a substitute for a varied, balanced diet and a healthy lifestyle.",
     ],
     qualityPoints: [
-      "Formulated in Canada",
       "Manufactured in a GMP-certified facility",
       "Third-party tested for identity and purity",
       "Transparent ingredient dosages",
