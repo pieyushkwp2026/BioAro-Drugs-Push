@@ -21,11 +21,7 @@
 import type { GoalId } from "../lib/protocol/build";
 
 export const HERO = {
-  /* The third line carries a non-breaking space inside "BioAro Drugs". At 360-390px
-     the line is too long to hold at hero scale and must wrap; without this it wraps
-     mid-brand, as "Your BioAro / Drugs Protocol." The NBSP forces the break to fall
-     after the brand instead. */
-  headline: ["Your Goals.", "Your Routine.", "Your BioAro Drugs Protocol."],
+  headline: ["Your Goals", "Your Routine", "Your Protocol"],
   standfirst:
     "AI-guided personalization meets evidence-informed bioactive formulations.",
   explainer:
