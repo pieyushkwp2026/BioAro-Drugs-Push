@@ -19,6 +19,7 @@ import type {
   ShopifyProduct,
 } from "./types";
 import type { CountryCode } from "../market/types";
+import { isProductAvailableInMarket, marketFromCountryCode } from "../../config/markets";
 
 /*
  * The only bridge between authored Shopify values and the app's categories. Keys are
@@ -86,6 +87,12 @@ function productCategory(value: string | undefined): ProductCategory | undefined
 
 function whyIcon(value: string | undefined): ProductWhyItem["icon"] {
   return (value && KNOWN_WHY_ICONS.has(value) ? value : "shield") as ProductWhyItem["icon"];
+}
+
+function effectiveAvailableForSale(shopifyProduct: ShopifyProduct, country: CountryCode) {
+  const market = marketFromCountryCode(country);
+  const marketLaunchesProduct = isProductAvailableInMarket(shopifyProduct.handle, market);
+  return shopifyProduct.availableForSale || (marketLaunchesProduct && shopifyProduct.price.amount > 0);
 }
 
 /*
@@ -647,7 +654,7 @@ export function mergeShopifyProduct(previewProduct: ProductEditorial, shopifyPro
     },
     price: shopifyProduct.price,
     compareAtPrice: shopifyProduct.compareAtPrice,
-    availableForSale: shopifyProduct.availableForSale,
+    availableForSale: effectiveAvailableForSale(shopifyProduct, country),
     isBestseller: shopifyProduct.isBestseller,
     variantId: shopifyProduct.variantId,
   };
@@ -714,7 +721,7 @@ export function createShopifyProduct(shopifyProduct: ShopifyProduct, country: Co
     ...editorial,
     price: shopifyProduct.price,
     compareAtPrice: shopifyProduct.compareAtPrice,
-    availableForSale: shopifyProduct.availableForSale,
+    availableForSale: effectiveAvailableForSale(shopifyProduct, country),
     isBestseller: shopifyProduct.isBestseller,
     variantId: shopifyProduct.variantId,
   };
