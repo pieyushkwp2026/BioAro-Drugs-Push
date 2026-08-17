@@ -1,9 +1,7 @@
 import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Header from "./Header";
-import Footer from "./Footer";
 import CartDrawer from "../cart/CartDrawer";
-import AiChatWidget from "../ask/AiChatWidget";
 import { AiChatProvider } from "../ask/AiChatProvider";
 import { ProtocolSessionProvider } from "../protocol/ProtocolSessionProvider";
 import RegionalSeo from "../seo/RegionalSeo";
@@ -42,13 +40,11 @@ export default function Layout() {
         <ScrollToTop />
         <RegionalSeo />
         <Header />
-        <main className="flex-1">
-          <Outlet />
-        </main>
-        {/* {bandBeforeFooter && <AiBand />} */}
-        <Footer />
+        {/* main / footer / corner assistant now belong to the route frame below, so a
+            subtree can opt out of them. Everything that must not remount when crossing
+            between frames — the providers, the header, the cart — stays here. */}
+        <Outlet />
         <CartDrawer />
-        <AiChatWidget />
       </div>
       </ProtocolSessionProvider>
     </AiChatProvider>

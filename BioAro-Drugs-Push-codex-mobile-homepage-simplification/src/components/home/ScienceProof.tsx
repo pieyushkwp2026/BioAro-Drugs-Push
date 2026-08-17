@@ -223,7 +223,7 @@ export default function ScienceProof({ product }: { product: CatalogProduct | un
             a person taking it. Height is tuned so the bottom edges land together. */}
         <img
           src={routineVitality}
-          alt="A woman at home holding a BioAro Drugs supplement as part of her evening routine"
+          alt="A woman in her kitchen opening LONgevity+ as part of her morning routine"
           loading="lazy"
           decoding="async"
           className="mt-6 hidden h-[386px] w-full rounded-[28px] object-cover object-[62%_38%] lg:block"

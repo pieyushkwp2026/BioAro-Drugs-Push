@@ -31,6 +31,14 @@
     "src/lib/protocol/questions.ts",
     "src/data/homepage.ts",
     "src/lib/ai/matchGoals.ts",
+    "src/config/markets/types.ts",
+    "src/config/markets/index.ts",
+    "src/lib/member/types.ts",
+    "src/lib/member/capabilities.ts",
+    "src/lib/member/demoSnapshot.ts",
+    "src/lib/assistant/turns.ts",
+    "src/lib/assistant/skills.ts",
+    "src/lib/assistant/history.ts",
     "tests/**/*.ts"
   ]
 }

@@ -27,7 +27,7 @@ export const US_MARKET: MarketConfig = {
   returnsPolicyPath: "/returns-refunds",
   privacyPolicyPath: "/privacy-policy",
   availableProducts: [],
-  comingSoonProducts: ["longevity-plus", "cellomega-plus", "creagen-brain-boost", "creagen-femme-energy", "creagen-raw-power", "creagen-pro-power", "glutara", "sleep0"],
+  comingSoonProducts: ["longevity-plus", "cellomega-plus", "creagen-brain-boost", "creagen-femme-energy", "creagen-raw-power", "creagen-pro-power", "glutara", "sleepo"],
   draftProductHandles: ["sleepo-kids"],
   experienceRegion: "NA",
 };

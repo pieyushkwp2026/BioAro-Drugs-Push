@@ -52,7 +52,7 @@ test("the sleep goal is answered honestly rather than with a non-sleep product",
     result.notes.some((note) => note.toLowerCase().includes("does not have a sleep formula")),
     "the note must say plainly that no sleep formula exists",
   );
-  assert.ok(!result.items.some((item) => item.handle === "sleep0" || item.handle === "sleepo-kids"));
+  assert.ok(!result.items.some((item) => item.handle === "sleepo" || item.handle === "sleepo-kids"));
 });
 
 test("poor sleep adds recovery support and disclaims that it is not a sleep formula", () => {
@@ -80,7 +80,7 @@ test("a protocol is never empty and never contains duplicates", () => {
           assert.ok(list.length > 0, `empty protocol for ${goal}/${energy}/${sleep}/${training}`);
           assert.equal(new Set(list).size, list.length, `duplicate handles for ${goal}`);
           // Placeholder and draft rows must never reach a customer.
-          assert.ok(!list.includes("sleep0") && !list.includes("sleepo-kids"));
+          assert.ok(!list.includes("sleepo") && !list.includes("sleepo-kids"));
           // Every product must explain itself; a silent recommendation is the bug.
           assert.ok(result.items.every((item) => item.reason.trim().length > 0));
         }

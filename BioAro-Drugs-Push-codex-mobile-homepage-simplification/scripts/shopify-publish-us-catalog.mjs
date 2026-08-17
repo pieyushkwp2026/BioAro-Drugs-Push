@@ -17,7 +17,7 @@ const TARGET_HANDLES = [
   "vitamin-k2-d3",
   "energized-aminos",
   "adrenal-support-plus",
-  "sleep0",
+  "sleepo",
 ];
 
 async function shopifyAdmin(query, variables = {}) {

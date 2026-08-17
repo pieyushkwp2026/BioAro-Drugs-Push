@@ -1,7 +1,13 @@
 import { createContext } from "react";
+import type { ImageIntent, Turn } from "../../lib/assistant/turns";
 import type { GoalId } from "../../lib/protocol/build";
 import type { AnswerField } from "../../lib/protocol/questions";
 import type { SessionView } from "../../lib/protocol/session";
+
+/* The turn union lives in lib/assistant so the pure history module can use it without
+   pulling React in. Re-exported here because everything already imports it from this
+   file. */
+export type { ImageIntent, Turn };
 
 /*
  * Kept in its own module so the provider file exports only a component — Vite's fast
@@ -45,6 +51,29 @@ export interface ProtocolSessionValue {
   openStudio: (options?: { focusInput?: boolean }) => void;
   closeStudio: () => void;
 
+  // -------------------------------------------------------- the conversation
+  /*
+   * The thread lives here, beside the session it describes.
+   *
+   * It used to be local state inside the studio modal, which meant walking from the
+   * modal to a full page kept the answers and threw away the conversation that
+   * produced them. Two surfaces now read the same log, exactly as they already read
+   * the same session.
+   */
+  thread: Turn[];
+  /** Append turns; ids are issued here so no two surfaces can collide. */
+  pushTurns: (...turns: TurnInput[]) => void;
+  /**
+   * Attach a photo. The object URL is created by the caller and revoked on reset — the
+   * image is never uploaded, never stored, and never read.
+   */
+  attachImage: (intent: ImageIntent, previewUrl: string, name: string) => void;
+  /** Owns the free-text round trip: logs the question, then patches its answer in. */
+  askQuestion: (text: string) => Promise<void>;
+  /** True while a typed question is in flight. */
+  asking: boolean;
+  clearThread: () => void;
+
   // --------------------------------------------------------------- questions
   answerQuestion: (field: AnswerField, value: string) => void;
   /** Puts one question back so it is asked again. */
@@ -56,5 +85,10 @@ export interface ProtocolSessionValue {
   /** Start over: goals, answers, screener and typed message all cleared. */
   resetAll: () => void;
 }
+
+/** A turn without its id — the provider issues that. */
+export type TurnInput =
+  | { kind: "ai"; text: string }
+  | { kind: "you"; text: string };
 
 export const ProtocolSessionContext = createContext<ProtocolSessionValue | null>(null);

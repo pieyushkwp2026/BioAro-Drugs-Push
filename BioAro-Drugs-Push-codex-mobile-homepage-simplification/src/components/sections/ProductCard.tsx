@@ -72,7 +72,7 @@ export default function ProductCard({ product }: { product: CatalogProduct }) {
           </div>
 
           <p className="mt-3 min-h-[17px] text-[11.5px] text-ink-400">
-            {product.category} · {product.servings}
+            {[product.category, product.servings].filter(Boolean).join(" · ")}
           </p>
 
           <div className="mt-auto flex flex-col gap-2 pt-4">

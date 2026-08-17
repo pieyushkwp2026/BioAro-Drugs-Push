@@ -247,6 +247,50 @@
   backdrop-filter: blur(3px);
 }
 
+/*
+ * A turn arriving, and a protocol row taking its place.
+ *
+ * Same easing as the dialog, shorter — a bubble is not a dialog. Keyed nodes mean
+ * React keeps existing turns, so this only fires on the one that is actually new.
+ */
+@keyframes bioTurnIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 8px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.bio-turn-in {
+  animation: bioTurnIn 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/*
+ * Thinking.
+ *
+ * This replaces three `animate-pulse` dots on staggered delays, which read as three
+ * separate indicators fading. One wave passing along them reads as one process.
+ */
+@keyframes bioThinking {
+  0%,
+  80%,
+  100% {
+    transform: scaleY(0.6);
+    opacity: 0.45;
+  }
+  40% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+.bio-thinking-dot {
+  animation: bioThinking 1.1s ease-in-out infinite;
+}
+
 @keyframes bioDialogIn {
   from { opacity: 0; transform: translate3d(0, 10px, 0) scale(0.995); }
   to   { opacity: 1; transform: none; }
@@ -301,6 +345,18 @@
   }
 
   /* A permanently blinking element is exactly what this setting exists for. */
+  .bio-thinking-dot {
+    animation-name: none !important;
+    transform: none !important;
+    opacity: 0.6;
+  }
+
+  .bio-turn-in {
+    animation-name: none !important;
+    transform: none !important;
+    opacity: 1;
+  }
+
   [data-pulse="true"],
   .bio-handle-hint {
     animation: none !important;

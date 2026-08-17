@@ -13,7 +13,8 @@
     "shopify:pdp:definitions": "node scripts/shopify-pdp-rollout.mjs --create-definitions",
     "shopify:catalogue:dry-run": "node scripts/shopify-catalogue-dry-run.mjs",
     "shopify:catalogue:import-preview": "node scripts/shopify-catalogue-import-preview.mjs",
-    "shopify:catalogue:apply": "node scripts/shopify-catalogue-apply.mjs"
+    "shopify:catalogue:apply": "node scripts/shopify-catalogue-apply.mjs",
+    "shopify:audit": "node --env-file=.env.local scripts/shopify-source-of-truth-audit.mjs"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",

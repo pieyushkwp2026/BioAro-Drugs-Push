@@ -26,7 +26,7 @@ import type { AskAnswer } from "./types";
  */
 
 // These two are placeholder rows in the catalogue and must never be surfaced.
-const EXCLUDED_HANDLES = new Set(["sleepo-kids", "sleep0"]);
+const EXCLUDED_HANDLES = new Set(["sleepo-kids", "sleepo"]);
 
 function buildEntries(): AskAnswer[] {
   const entries: AskAnswer[] = [];

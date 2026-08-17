@@ -1,0 +1,13 @@
+{
+  "takenAt": "2026-08-17T18:01:59.330Z",
+  "shopDomain": "qumtna-6b.myshopify.com",
+  "before": {
+    "productId": "gid://shopify/Product/7730072617063",
+    "status": "ACTIVE",
+    "publishedAt": null,
+    "publications": [],
+    "variantId": "gid://shopify/ProductVariant/44402487033959",
+    "sku": null,
+    "price": "0.00"
+  }
+}

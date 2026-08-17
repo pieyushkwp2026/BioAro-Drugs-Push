@@ -1,5 +1,8 @@
 import { BrowserRouter, Navigate, Outlet, Route, Routes, useLocation, useParams } from "react-router-dom";
 import Layout from "./components/layout/Layout";
+import SiteFrame from "./components/layout/SiteFrame";
+import AppFrame from "./components/layout/AppFrame";
+import AiExperience from "./pages/AiExperience";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Product from "./pages/Product";
@@ -8,7 +11,14 @@ import Science from "./pages/Science";
 import Journal from "./pages/Journal";
 import JournalArticle from "./pages/JournalArticle";
 import About from "./pages/About";
-import Account from "./pages/Account";
+import RequireAuth from "./components/auth/RequireAuth";
+import MemberShell from "./components/member/MemberShell";
+import MemberOverview from "./pages/member/MemberOverview";
+import MemberProtocol from "./pages/member/MemberProtocol";
+import MemberOrders from "./pages/member/MemberOrders";
+import MemberVault from "./pages/member/MemberVault";
+import MemberCare from "./pages/member/MemberCare";
+import MemberMembership from "./pages/member/MemberMembership";
 import SupplementDisclaimer from "./pages/SupplementDisclaimer";
 import ShippingPolicy from "./pages/ShippingPolicy";
 import ReturnsRefunds from "./pages/ReturnsRefunds";
@@ -39,7 +49,6 @@ const REGIONAL_PAGES = [
   { path: "journal", element: <Journal /> },
   { path: "journal/:slug", element: <JournalArticle /> },
   { path: "about", element: <About /> },
-  { path: "account", element: <Account /> },
   { path: "supplement-disclaimer", element: <SupplementDisclaimer /> },
   { path: "shipping-policy", element: <ShippingPolicy /> },
   { path: "returns-refunds", element: <ReturnsRefunds /> },
@@ -50,6 +59,26 @@ const REGIONAL_PAGES = [
   { path: "protocols", element: <Protocols /> },
   { path: "partners", element: <Partners /> },
 ] as const;
+
+/*
+ * The member dashboard's routes, mapped one level deeper than REGIONAL_PAGES so the
+ * whole subtree can sit behind a single guard and keep a persistent section nav.
+ * Same {path, element} shape as the flat list above, on purpose.
+ */
+const MEMBER_PAGES = [
+  { path: "", element: <MemberOverview /> },
+  { path: "protocol", element: <MemberProtocol /> },
+  { path: "orders", element: <MemberOrders /> },
+  { path: "health-vault", element: <MemberVault /> },
+  { path: "care", element: <MemberCare /> },
+  { path: "membership", element: <MemberMembership /> },
+] as const;
+
+/*
+ * Surfaces that take the whole viewport and render no footer. One entry today; the
+ * array exists so the next one is a line rather than a restructure.
+ */
+const APP_PAGES = [{ path: "ai", element: <AiExperience /> }] as const;
 
 function MarketGuard() {
   const { market } = useParams();
@@ -114,9 +143,36 @@ function RegionalRoutes() {
   return (
     <Route path=":market" element={<MarketGuard />}>
       <Route element={<Layout />}>
-        {REGIONAL_PAGES.map((page) => (
-          <Route key={page.path || "home"} path={page.path} element={page.element} />
-        ))}
+        <Route element={<SiteFrame />}>
+          {REGIONAL_PAGES.map((page) => (
+            <Route key={page.path || "home"} path={page.path} element={page.element} />
+          ))}
+
+        {/* RequireAuth wraps the shell rather than each page, so the check runs once
+            and the section nav does not remount between dashboard routes. */}
+        <Route
+          path="account"
+          element={
+            <RequireAuth>
+              <MemberShell />
+            </RequireAuth>
+          }
+        >
+          {MEMBER_PAGES.map((page) =>
+            page.path === "" ? (
+              <Route key="member-overview" index element={page.element} />
+            ) : (
+              <Route key={page.path} path={page.path} element={page.element} />
+            ),
+          )}
+          </Route>
+        </Route>
+
+        <Route element={<AppFrame />}>
+          {APP_PAGES.map((page) => (
+            <Route key={page.path} path={page.path} element={page.element} />
+          ))}
+        </Route>
       </Route>
     </Route>
   );
@@ -129,6 +185,7 @@ function LegacyRedirectRoutes() {
       <Route path="/shop/:handle" element={<LegacyProductRedirect />} />
       <Route path="/products/:handle" element={<LegacyProductRedirect />} />
       <Route path="/quiz" element={<LegacyRouteRedirect target="/quiz" />} />
+      <Route path="/ai" element={<LegacyRouteRedirect target="/ai" />} />
       <Route path="/science" element={<LegacyRouteRedirect target="/science" />} />
       <Route path="/journal" element={<LegacyRouteRedirect target="/journal" />} />
       <Route path="/journal/:slug" element={<LegacyJournalArticleRedirect />} />

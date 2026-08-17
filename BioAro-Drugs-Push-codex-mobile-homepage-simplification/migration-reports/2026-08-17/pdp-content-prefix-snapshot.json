@@ -1,0 +1,387 @@
+{
+  "takenAt": "2026-08-17T12:31:12.508Z",
+  "shopDomain": "qumtna-6b.myshopify.com",
+  "snapshot": [
+    {
+      "handle": "bioprotein-pro",
+      "productId": "gid://shopify/Product/7729715773543",
+      "before": {
+        "category": "Performance",
+        "product_format": "Powder",
+        "serving_size": "29g / 1 scoop",
+        "servings_per_container": "16",
+        "directions": "Mix one scoop with 4-6 oz water, milk or preferred beverage.",
+        "warnings": "Consult a physician if pregnant, breastfeeding, taking medication or if you have a health condition.\nKeep out of reach of children.",
+        "allergen_info": "Contains milk and soy.",
+        "other_ingredients": "Whey Protein Isolate\nNatural & Artificial Flavor\nXanthan Gum\nSucralose\nDigestive Enzyme Blend\nBCAA Blend",
+        "ingredients": null,
+        "benefit_cards": null,
+        "faqs": null,
+        "supplement_facts_rows": null,
+        "ingredient_details": null
+      }
+    },
+    {
+      "handle": "plantcore",
+      "productId": "gid://shopify/Product/7729729044583",
+      "before": {
+        "category": "Performance",
+        "product_format": "Powder",
+        "serving_size": "33.1g / 1 scoop",
+        "servings_per_container": "20",
+        "directions": "One scoop with 8 oz water or preferred hot/cold recipe.",
+        "warnings": "Consult doctor if pregnant, nursing, allergic, taking medication or with a medical condition.\nDo not use if opened or tampered.\nKeep away from children.\nStore cool and dry.",
+        "allergen_info": "No specific allergen statement supplied in the source PDF.",
+        "other_ingredients": "Organic Pea Protein\nOrganic Rice Protein\nOrganic Erythritol\nVanilla Flavor\nStevia Extract\nSea Salt\nSunflower Creamer and associated flavour/texturising ingredients",
+        "ingredients": "Organic Pea Protein, Organic Rice Protein, Organic Erythritol, Vanilla Flavor, Vanilla Sweet Enhancer, Masking Agent, Stevia Extract, Sea Salt, Ticaloid Ultrasmooth, Sunflower Creamer.",
+        "benefit_cards": null,
+        "faqs": null,
+        "supplement_facts_rows": null,
+        "ingredient_details": null
+      }
+    },
+    {
+      "handle": "bioignite",
+      "productId": "gid://shopify/Product/7729731207271",
+      "before": {
+        "category": "Performance",
+        "product_format": "Powder",
+        "serving_size": "10g / 1 scoop",
+        "servings_per_container": "30",
+        "directions": "Begin with 1 scoop. If tolerated, take 1-2 scoops 30 minutes before exercise. Maximum 2 scoops daily.",
+        "warnings": "Do not use if under 18.\nDo not use while pregnant or nursing.\nContains caffeine.\nConsult a healthcare professional if you have a medical condition or take medication.\nKeep away from children.",
+        "allergen_info": "No specific allergen statement supplied in the source PDF.",
+        "other_ingredients": null,
+        "ingredients": "Sodium (as Sodium Citrate) 80mg, Potassium (as Potassium Citrate) 75mg, Vitamin B1 (as Thiamine Hydrochloride) 1.5mg, Vitamin B2 (as Riboflavin) 1.7mg, Vitamin B3 (as Niacin) 20mg, Vitamin B6 (as Pyridoxine Hydrochloride) 2mg, Folic Acid 400mcg, Vitamin B12 (as Cyanocobalamin) 6mcg, Pantothenic Acid (as D-Calcium Pantothenate) 5mg, Calcium (as Dicalcium Phosphate) 170mg, Phosphorous (as Dicalcium Phosphate) 120mg, Magnesium (as Magnesium Oxide) 48mg, Chromium (as Chromium Nicotinate) 30mcg, Dicreatine Malate 1500mg, L-Arginine Alpha Ketoglutarate 1500mg, Beta Alanine 750mg, Caffeine 175mg, Energy/Endurance/Focus Matrix 550mg (L-Taurine, Betaine Anhydrous, Waxy Maize, L-Citrulline Malate, Glycocyamine, Glucuronolactone, L-Tyrosine). Other Ingredients: Maltodextrin, Natural Flavors, Citric Acid, Silica, Dextrose, Sucralose, Beet Powder (Color).",
+        "benefit_cards": null,
+        "faqs": null,
+        "supplement_facts_rows": null,
+        "ingredient_details": null
+      }
+    },
+    {
+      "handle": "musclerecover",
+      "productId": "gid://shopify/Product/7729733304423",
+      "before": {
+        "category": "Performance",
+        "product_format": "Powder",
+        "serving_size": "7.7g / scoop",
+        "servings_per_container": "45",
+        "directions": "1 scoop with 8-12 fl oz water.",
+        "warnings": "Healthy adults only.\nNot for under 18.\nNot for pregnant or nursing individuals.\nConsult a healthcare professional with pre-existing conditions.\nProduced in a facility processing milk, eggs, fish, shellfish, tree nuts, peanuts, soy and wheat.",
+        "allergen_info": "Produced in a facility processing milk, eggs, fish, shellfish, tree nuts, peanuts, soy and wheat.",
+        "other_ingredients": "Natural & Artificial Flavor\nCitric Acid\nSilicon Dioxide\nMalic Acid\nAcesulfame Potassium\nSucralose",
+        "ingredients": "Vitamin B6 (as Pyridoxine HCl) 2.5mg, BCAA 2:1:1 (L-Leucine, L-Isoleucine, L-Valine) 4000mg, L-Glutamine 1000mg. Other Ingredients: Naturally & Artificially Flavored, Citric Acid, Silicon Dioxide, Malic Acid, Acesulfame Potassium, Sucralose.",
+        "benefit_cards": null,
+        "faqs": null,
+        "supplement_facts_rows": null,
+        "ingredient_details": null
+      }
+    },
+    {
+      "handle": "hydrareload",
+      "productId": "gid://shopify/Product/7729735073895",
+      "before": {
+        "category": "Performance",
+        "product_format": "Powder",
+        "serving_size": "27.3g / scoop",
+        "servings_per_container": "50",
+        "directions": "Mix one scoop with 8 oz cold water. Best before training or post-workout.",
+        "warnings": "Consult a healthcare professional with health conditions, pregnancy, breastfeeding or medication use.",
+        "allergen_info": "No specific allergen statement supplied in the source PDF.",
+        "other_ingredients": null,
+        "ingredients": "Total Carbohydrates 24g, Total Sugars 10g, Calcium 16mg, Magnesium 4mg, Chloride 40mg, Sodium 30mg, Potassium 23mg, Electrolyte Blend 200mg (Sodium Chloride, Potassium Citrate, Magnesium Citrate, Calcium Carbonate). Other Ingredients: Maltodextrin, Dextrose, Natural & Artificial Flavors, Citric Acid, Malic Acid, Calcium Silicate, Sucralose.",
+        "benefit_cards": null,
+        "faqs": null,
+        "supplement_facts_rows": null,
+        "ingredient_details": null
+      }
+    },
+    {
+      "handle": "womens-vitalprime",
+      "productId": "gid://shopify/Product/7729738383463",
+      "before": {
+        "category": "Wellness",
+        "product_format": "Capsules",
+        "serving_size": "2 capsules",
+        "servings_per_container": "30",
+        "directions": "2 capsules in morning with meal.",
+        "warnings": "Consult a physician with a medical condition.\nDo not use if pregnant or lactating.\nKeep away from children.\nStore cool and dry.",
+        "allergen_info": "No specific allergen statement supplied in the source PDF.",
+        "other_ingredients": null,
+        "ingredients": "Vitamin A (as Beta-Carotene), Vitamin C (as Ascorbic Acid), Calcium (as Calcium Carbonate), Vitamin D (as Cholecalciferol), Vitamin E (as DL-Alpha Tocopheryl Acetate), Vitamin B1 (as Thiamine Mononitrate), Vitamin B2 (as Riboflavin), Vitamin B3 (as Niacin, NE), Vitamin B6 (as Pyridoxine HCl), Folate (667 mcg DFE, as 400 mcg Folic Acid), Vitamin B12 (as Cyanocobalamin), Biotin, Vitamin B5 (as D-Calcium Pantothenate), Magnesium (as Magnesium Oxide), Zinc (as Zinc Oxide), Selenium (as Selenium Amino Acid Chelate), Copper (as Copper Gluconate), Manganese (as Manganese Amino Acid Chelate), Chromium (as Chromium Picolinate), Molybdenum, Female Support Blend (Wild Yam Extract, Red Clover Extract, Cranberry Extract, Alpha Lipoic Acid, Lycopene), Immune Support Blend (Goldenseal Root, Echinacea, Spirulina, Garlic), Antioxidant Fruit & Energy Blend (Green Tea Extract, Hawthorn Berries, Cinnamon Bark Extract, Bilberry Fruit Extract, Grape Seed Extract, Black Currant Fruit Extract, Pomegranate Fruit Extract)",
+        "benefit_cards": null,
+        "faqs": null,
+        "supplement_facts_rows": null,
+        "ingredient_details": null
+      }
+    },
+    {
+      "handle": "nitricflow",
+      "productId": "gid://shopify/Product/7729742119015",
+      "before": {
+        "category": "Performance",
+        "product_format": "Powder",
+        "serving_size": "12.5g",
+        "servings_per_container": "25",
+        "directions": "1 scoop in 8 oz water, 20-30 minutes pre-training. Start with 1/2 serving for tolerance.",
+        "warnings": "The source PDF includes warning content but the extracted text is incomplete in the current source. Review the approved label before publishing final medical warnings.",
+        "allergen_info": "No specific allergen statement supplied in the source PDF.",
+        "other_ingredients": null,
+        "ingredients": "Chloride, Sodium, Citrulline Malate (5000 mg), Beta Alanine (2000 mg), Electrolyte Blend (250 mg: Sodium Chloride, Potassium Citrate, Magnesium Citrate, Calcium Carbonate), Taurine (250 mg), Betaine Anhydrous (250 mg), Caffeine (250 mg), Alpha GPC 50% (100 mg). Other Ingredients: Inulin (Chicory Root), Natural Flavors, Calcium Silicate, Citric Acid, Sucralose, Malic Acid.",
+        "benefit_cards": null,
+        "faqs": null,
+        "supplement_facts_rows": null,
+        "ingredient_details": null
+      }
+    },
+    {
+      "handle": "mens-vitalprime",
+      "productId": "gid://shopify/Product/7729743954023",
+      "before": {
+        "category": "Wellness",
+        "product_format": "Capsules",
+        "serving_size": "2 capsules",
+        "servings_per_container": "30",
+        "directions": "Follow approved label directions before publishing. Source description available; detailed serving directions were not captured in the extracted PDF pages.",
+        "warnings": "Use the approved label warnings before publishing final medical guidance.",
+        "allergen_info": "No specific allergen statement supplied in the source PDF.",
+        "other_ingredients": null,
+        "ingredients": "Vitamin A (as Beta-Carotene), Vitamin C (as Ascorbic Acid), Calcium (as Calcium Carbonate), Vitamin D (as Cholecalciferol), Vitamin E (as DL-Alpha Tocopheryl Acetate), Vitamin B1 (as Thiamine Mononitrate), Vitamin B2 (as Riboflavin), Vitamin B3 (as Niacin, NE), Vitamin B6 (as Pyridoxine HCl), Folate (667 mcg DFE, as 400 mcg Folic Acid), Vitamin B12 (as Cyanocobalamin), Biotin, Vitamin B5 (as D-Calcium Pantothenate), Magnesium (as Magnesium Oxide), Zinc (as Zinc Oxide), Selenium (as Selenium Amino Acid Chelate), Copper (as Copper Gluconate), Manganese (as Manganese Amino Acid Chelate), Chromium (as Chromium Picolinate), Molybdenum, Male Support Blend (Lutein, Lycopene, Stinging Nettle Extract, Saw Palmetto), Immune Support Blend (Echinacea Extract, Beta Glucan, Spirulina, Garlic), Antioxidant Fruit & Energy Blend (Green Tea Extract, Hawthorn Berries, Cinnamon Bark Extract, Bilberry Fruit Extract, Grape Seed Extract, Black Currant Fruit Extract, Pomegranate Fruit Extract)",
+        "benefit_cards": null,
+        "faqs": null,
+        "supplement_facts_rows": null,
+        "ingredient_details": null
+      }
+    },
+    {
+      "handle": "biocollagen",
+      "productId": "gid://shopify/Product/7729745789031",
+      "before": {
+        "category": "Wellness",
+        "product_format": "Powder",
+        "serving_size": "Use approved label directions before publishing.",
+        "servings_per_container": "35",
+        "directions": "Use approved label directions before publishing.",
+        "warnings": "Use the approved label warnings before publishing final medical guidance.",
+        "allergen_info": "Contains bovine collagen. Confirm final allergen statement from approved label.",
+        "other_ingredients": null,
+        "ingredients": "Collagen Peptides, 10 g per serving (Grass-Fed Hydrolyzed Collagen Type I & Type III Bovine)",
+        "benefit_cards": null,
+        "faqs": null,
+        "supplement_facts_rows": null,
+        "ingredient_details": null
+      }
+    },
+    {
+      "handle": "nitric-roots",
+      "productId": "gid://shopify/Product/7729747296359",
+      "before": {
+        "category": "Performance",
+        "product_format": "Veggie capsules",
+        "serving_size": "2 veggie capsules",
+        "servings_per_container": "30",
+        "directions": "2 capsules once daily, ideally 20-30 minutes before meal with 8 oz water.",
+        "warnings": "Pregnancy, nursing, under-18 and medical-condition caution.\nStore cool and dry.",
+        "allergen_info": "No specific allergen statement supplied in the source PDF.",
+        "other_ingredients": null,
+        "ingredients": "Organic Beetroot Powder (Beta vulgaris), 1300 mg per serving",
+        "benefit_cards": null,
+        "faqs": null,
+        "supplement_facts_rows": null,
+        "ingredient_details": null
+      }
+    },
+    {
+      "handle": "mindsync",
+      "productId": "gid://shopify/Product/7729893539943",
+      "before": {
+        "category": "Focus",
+        "product_format": "Capsules",
+        "serving_size": "2 capsules",
+        "servings_per_container": "30",
+        "directions": "Take once daily, ideally 20-30 minutes before meal with 8 oz water.",
+        "warnings": "Consult a physician if under 18, pregnant, nursing, or managing a medical condition.\nIron overdose warning.\nKeep away from children.\nUse only if safety seal is intact.\nStore cool and dry.",
+        "allergen_info": "Contains soy and fish.",
+        "other_ingredients": null,
+        "ingredients": null,
+        "benefit_cards": null,
+        "faqs": null,
+        "supplement_facts_rows": null,
+        "ingredient_details": null
+      }
+    },
+    {
+      "handle": "magbalance",
+      "productId": "gid://shopify/Product/7729893572711",
+      "before": {
+        "category": "Wellness",
+        "product_format": "Capsules",
+        "serving_size": "2 capsules",
+        "servings_per_container": "30",
+        "directions": "2 capsules once daily.",
+        "warnings": "Pregnancy, nursing, under-18 and medical-condition caution.\nStore cool and dry.",
+        "allergen_info": "No specific allergen statement supplied in the source PDF.",
+        "other_ingredients": "Hypromellose\nMagnesium Stearate\nSilicon Dioxide\nRice Flour",
+        "ingredients": null,
+        "benefit_cards": null,
+        "faqs": null,
+        "supplement_facts_rows": null,
+        "ingredient_details": null
+      }
+    },
+    {
+      "handle": "vitalgreens",
+      "productId": "gid://shopify/Product/7729893834855",
+      "before": {
+        "category": "Wellness",
+        "product_format": "Powder",
+        "serving_size": "11.4g",
+        "servings_per_container": "30",
+        "directions": "1 scoop with 8-12 fl oz water.",
+        "warnings": "Healthy adults only.\nNot for under 18.\nNot for pregnant or nursing individuals.\nConsult a healthcare professional if you have a medical condition.\nFacility also processes major allergens.",
+        "allergen_info": "Contains wheat.",
+        "other_ingredients": null,
+        "ingredients": null,
+        "benefit_cards": null,
+        "faqs": null,
+        "supplement_facts_rows": null,
+        "ingredient_details": null
+      }
+    },
+    {
+      "handle": "joint-flex",
+      "productId": "gid://shopify/Product/7729893769319",
+      "before": {
+        "category": "Wellness",
+        "product_format": "Capsules",
+        "serving_size": "3 capsules",
+        "servings_per_container": "20",
+        "directions": "3 daily before meal. Artwork also recommends 6 per day for the first 2 weeks as a loading dose; this instruction requires internal review.",
+        "warnings": "Glucosamine is shellfish-derived.\nContains shellfish.\nConsult a physician if you have a medical condition.\nReview the loading-dose instruction internally before publishing final directions.",
+        "allergen_info": "Contains shellfish.",
+        "other_ingredients": null,
+        "ingredients": "NMN, Resveratrol, CoQ10, Curcumin, Vitamin B12, Vitamin D3",
+        "benefit_cards": "[{\"icon\":\"energy\",\"title\":\"Cellular Energy\",\"description\":\"Formulated with ingredients selected for cellular energy support.\"},{\"icon\":\"aging\",\"title\":\"Healthy Aging\",\"description\":\"Developed to support healthy ageing as part of a healthy lifestyle.\"},{\"icon\":\"balance\",\"title\":\"Methylation Balance\",\"description\":\"Includes vitamin B12, which contributes to normal homocysteine metabolism.\"}]",
+        "faqs": "[{\"question\":\"How should I take LONgevity+?\",\"answer\":\"Take 2 capsules daily with food, or as directed on the product label.\"},{\"question\":\"When will I see results?\",\"answer\":\"Individual experiences vary depending on diet, lifestyle and consistency of use.\"},{\"question\":\"Is it suitable for vegetarians?\",\"answer\":\"Yes, LONgevity+ is formulated in vegan capsules.\"},{\"question\":\"Are there any side effects?\",\"answer\":\"Please follow the recommended intake on the label and consult a healthcare professional before use if you are pregnant, breastfeeding, taking medication or managing a medical condition.\"},{\"question\":\"Is it safe to take with other supplements?\",\"answer\":\"Check with a healthcare professional if you are on medication or combining multiple supplements.\"},{\"question\":\"What is your return policy?\",\"answer\":\"See our returns & refunds page for full details.\"}]",
+        "supplement_facts_rows": "[{\"label\":\"Recommended daily intake\",\"value\":\"Take 2 capsules daily with food, or as directed on the product label.\"},{\"label\":\"Servings per container\",\"value\":\"30\"},{\"label\":\"Format\",\"value\":\"Vegan capsules\"}]",
+        "science_steps": "[{\"title\":\"NMN\",\"description\":\"Supports NAD+ production at the cellular level.\"},{\"title\":\"Supports NAD+\",\"description\":\"Increases cellular NAD+ levels available for energy metabolism.\"},{\"title\":\"Cellular Energy\",\"description\":\"Supports mitochondrial function and repair.\"},{\"title\":\"Healthy Aging\",\"description\":\"Supports everyday vitality and cellular wellbeing.\"}]",
+        "ingredient_details": null
+      }
+    },
+    {
+      "handle": "natural-pct",
+      "productId": "gid://shopify/Product/7729893638247",
+      "before": {
+        "category": "Wellness",
+        "product_format": "Capsules",
+        "serving_size": "2 capsules",
+        "servings_per_container": "30",
+        "directions": "2 capsules at night for 4-8 weeks. Do not exceed 8 continuous weeks.",
+        "warnings": "Consult a licensed physician.\nDo not take with prostate hypertrophy, liver disease, kidney disease or heart disease.\nKeep away from children.",
+        "allergen_info": "Gelatin capsule means the product is not vegan.",
+        "other_ingredients": "Gelatin capsule\nRice Flour",
+        "ingredients": null,
+        "benefit_cards": null,
+        "faqs": null,
+        "supplement_facts_rows": null,
+        "ingredient_details": null
+      }
+    },
+    {
+      "handle": "ultra-test",
+      "productId": "gid://shopify/Product/7729893671015",
+      "before": {
+        "category": "Wellness",
+        "product_format": "Capsules",
+        "serving_size": "3 capsules",
+        "servings_per_container": "30",
+        "directions": "3 before bedtime.",
+        "warnings": "Consult a physician if you have a medical condition.\nDo not use if pregnant or lactating.\nUse only if safety seal is intact.\nStore cool and dry.",
+        "allergen_info": "No specific allergen statement supplied in the source PDF.",
+        "other_ingredients": null,
+        "ingredients": null,
+        "benefit_cards": null,
+        "faqs": null,
+        "supplement_facts_rows": null,
+        "ingredient_details": null
+      }
+    },
+    {
+      "handle": "digestive-enzyme",
+      "productId": "gid://shopify/Product/7729893605479",
+      "before": {
+        "category": "Wellness",
+        "product_format": "Veggie capsules",
+        "serving_size": "1 veggie capsule",
+        "servings_per_container": "60 label servings / ~30 days at suggested use",
+        "directions": "1 capsule twice daily, 20-30 minutes before meal.",
+        "warnings": "Do not exceed dose.\nConsult a physician if under 18, pregnant, nursing, or managing a medical condition.\nUse only if safety seal is intact.\nStore cool and dry.",
+        "allergen_info": "No specific allergen statement supplied in the source PDF.",
+        "other_ingredients": null,
+        "ingredients": null,
+        "benefit_cards": null,
+        "faqs": null,
+        "supplement_facts_rows": null,
+        "ingredient_details": null
+      }
+    },
+    {
+      "handle": "vitamin-k2-d3",
+      "productId": "gid://shopify/Product/7729893802087",
+      "before": {
+        "category": "Wellness",
+        "product_format": "Veggie capsules",
+        "serving_size": "1 veggie capsule",
+        "servings_per_container": "60 label servings / ~30 days at suggested use",
+        "directions": "1 capsule twice daily, 20-30 minutes before meal with 8 oz water.",
+        "warnings": "Consult a physician if under 18, pregnant, nursing, or managing a medical condition.\nUse only if safety seal is intact.\nStore cool and dry.",
+        "allergen_info": "Vegetarian suitability is not explicitly confirmed beyond veggie capsule.",
+        "other_ingredients": null,
+        "ingredients": null,
+        "benefit_cards": null,
+        "faqs": null,
+        "supplement_facts_rows": null,
+        "ingredient_details": null
+      }
+    },
+    {
+      "handle": "energized-aminos",
+      "productId": "gid://shopify/Product/7729893703783",
+      "before": {
+        "category": "Performance",
+        "product_format": "Powder",
+        "serving_size": "9g",
+        "servings_per_container": "40",
+        "directions": "1 scoop with 6-8 oz cold water. Use in the morning, between meals, 20-30 min pre-training, or immediately post-training depending on use.",
+        "warnings": "Consult a healthcare professional if pregnant, nursing, under 18, managing a medical condition, or taking prescription or OTC medication.\nContains stimulant ingredients.",
+        "allergen_info": "No specific allergen statement supplied in the source PDF.",
+        "other_ingredients": null,
+        "ingredients": null,
+        "benefit_cards": null,
+        "faqs": null,
+        "supplement_facts_rows": null,
+        "ingredient_details": null
+      }
+    },
+    {
+      "handle": "adrenal-support-plus",
+      "productId": "gid://shopify/Product/7729893736551",
+      "before": {
+        "category": "Wellness",
+        "product_format": "Capsules",
+        "serving_size": "2 capsules",
+        "servings_per_container": "30",
+        "directions": "2 capsules at breakfast or before 2 PM, or as directed by a healthcare professional.",
+        "warnings": "Consult a healthcare practitioner if pregnant, nursing, taking medications or with a medical condition.\nKeep away from children.\nStore cool and dry.\nUse only if seal is intact.",
+        "allergen_info": "No specific allergen statement supplied in the source PDF.",
+        "other_ingredients": "Plant-source capsule (cellulose, water)",
+        "ingredients": null,
+        "benefit_cards": null,
+        "faqs": null,
+        "supplement_facts_rows": null,
+        "ingredient_details": null
+      }
+    }
+  ]
+}

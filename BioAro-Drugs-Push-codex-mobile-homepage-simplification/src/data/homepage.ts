@@ -21,11 +21,7 @@
 import type { GoalId } from "../lib/protocol/build";
 
 export const HERO = {
-  /* The third line carries a non-breaking space inside "BioAro Drugs". At 360-390px
-     the line is too long to hold at hero scale and must wrap; without this it wraps
-     mid-brand, as "Your BioAro / Drugs Protocol." The NBSP forces the break to fall
-     after the brand instead. */
-  headline: ["Your Goals.", "Your Routine.", "Your BioAro Drugs Protocol."],
+  headline: ["Your Goals", "Your Routine", "Your Protocol"],
   standfirst:
     "AI-guided personalization meets evidence-informed bioactive formulations.",
   explainer:
@@ -41,7 +37,7 @@ export const HERO = {
  * The seven goals the builder opens with.
  *
  * `handle` is the product a goal actually leads to, and it is deliberately nullable.
- * Sleep has no shipping product — Sleep0+ is a placeholder listing and SleepO Kids is
+ * Sleep has no shipping product — SleepO is a placeholder listing and SleepO Kids is
  * a draft — so the goal is offered and then answered honestly rather than quietly
  * resolving to something that is not a sleep formula.
  *
@@ -141,7 +137,7 @@ export const PERSONAS: ProtocolPersona[] = [
   },
   {
     id: "longevity",
-    name: "The Longevity Protocol",
+    name: "The LONgevity Protocol",
     premise: "Playing a long game — cellular health and everyday vitality over decades, not weeks.",
     goals: ["longevity", "energy"],
   },
@@ -295,6 +291,33 @@ export const AI_SECTION = {
   ],
   disclosure:
     "BioAro Drugs AI works from the goals and routine information you provide. It does not diagnose conditions, read biomarkers or genetic data, and it does not replace professional medical advice.",
+  /* NEW COPY — needs sign-off.
+     `disclosure` says what the assistant does not DO. Neither it nor SAFETY_NOTE says
+     the thing can simply be WRONG, which is the one admission a visitor deserves next
+     to an input box. Short form sits under the composer on both surfaces; the long
+     form opens a new conversation once. */
+  fallibility: "BioAro Drugs AI can get things wrong. Check anything that matters with a pharmacist or doctor.",
+  fallibilityLong:
+    "BioAro Drugs AI can get things wrong. It works from what you tell it, it does not know your medical history, and it does not replace advice from a pharmacist or doctor.",
+  /* The skills palette. */
+  skillsHeading: "What I can help with",
+  skillsUnavailable: "Not available yet",
+  /* Attachments. Stated at the moment of upload, not buried in a policy page. */
+  attachLabel: "Attach a photo",
+  attachIntentLabel: "A supplement label",
+  attachIntentPrescription: "A prescription",
+  attachPrivacy: "This photo stays on your device. It is not uploaded, stored or read.",
+  attachPrescriptionNote:
+    "BioAro Drugs AI does not read prescriptions and will not interpret one. Keep it here for your own reference, and check anything clinical with your doctor or pharmacist.",
+  attachUnreadable:
+    "I cannot read images yet, so I have not looked at this. Tell me the product name and I can answer from what we publish.",
+  /* History. Page only. */
+  historyHeading: "Previous chats",
+  historyEmpty: "Nothing here yet. Conversations you have on this page will be listed here.",
+  historyLocal: "Kept in this browser, not on your account. Anyone using this device can open them.",
+  historyNew: "New chat",
+  historyClear: "Clear all",
+  historyDelete: "Delete",
 } as const;
 
 /*

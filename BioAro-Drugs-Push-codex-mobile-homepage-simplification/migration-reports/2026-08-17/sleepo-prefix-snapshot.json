@@ -1,0 +1,49 @@
+{
+  "takenAt": "2026-08-17T11:53:21.687Z",
+  "shopDomain": "qumtna-6b.myshopify.com",
+  "productId": "gid://shopify/Product/7700485570663",
+  "handle": "sleep0",
+  "note": "Pre-fix values. Restore by writing these back with metafieldsSet.",
+  "fields": {
+    "ingredient_details": {
+      "id": "gid://shopify/Metafield/36218528661607",
+      "type": "list.metaobject_reference",
+      "value": "[\"gid://shopify/Metaobject/222189224039\",\"gid://shopify/Metaobject/222189256807\",\"gid://shopify/Metaobject/222189289575\",\"gid://shopify/Metaobject/222189322343\",\"gid://shopify/Metaobject/222189355111\",\"gid://shopify/Metaobject/222189387879\"]"
+    },
+    "clinical_evidence": {
+      "id": "gid://shopify/Metafield/36218528432231",
+      "type": "json",
+      "value": "[{\"title\":\"27+ published studies reviewed\"},{\"title\":\"Third-party tested for purity & potency\"},{\"title\":\"cGMP certified manufacturing\"},{\"title\":\"Transparent label, nothing hidden\"},{\"title\":\"No proprietary blends\"}]"
+    },
+    "trust_badges": {
+      "id": "gid://shopify/Metafield/36218528923751",
+      "type": "json",
+      "value": "[{\"title\":\"Third-party tested for purity & potency.\"},{\"title\":\"Transparent label, nothing hidden.\"},{\"title\":\"Certificates of Analysis available upon request.\"}]"
+    },
+    "benefit_cards": {
+      "id": "gid://shopify/Metafield/36218528399463",
+      "type": "json",
+      "value": "[{\"icon\":\"energy\",\"title\":\"Cellular Energy\",\"description\":\"Formulated with ingredients selected for cellular energy support.\"},{\"icon\":\"aging\",\"title\":\"Healthy Aging\",\"description\":\"Developed to support healthy ageing as part of a healthy lifestyle.\"},{\"icon\":\"balance\",\"title\":\"Methylation Balance\",\"description\":\"Includes vitamin B12, which contributes to normal homocysteine metabolism.\"}]"
+    },
+    "science_visual": {
+      "id": "gid://shopify/Metafield/36218528759911",
+      "type": "file_reference",
+      "value": "gid://shopify/MediaImage/31069752655975"
+    },
+    "ingredients": {
+      "id": "gid://shopify/Metafield/36218528628839",
+      "type": "single_line_text_field",
+      "value": "Melatonin 1.25 mg. Other ingredients: Water, Sorbitol, Citric Acid, Xanthan Gum, Flavour, Sodium Benzoate, Sodium Methylparaben, Sodium Propylparaben, Sucralose, Bronopol."
+    },
+    "comparison_rows": {
+      "id": "gid://shopify/Metafield/36218528464999",
+      "type": "json",
+      "value": "[]"
+    },
+    "supply_label": {
+      "id": "gid://shopify/Metafield/36218528890983",
+      "type": "single_line_text_field",
+      "value": "30-day supply"
+    }
+  }
+}

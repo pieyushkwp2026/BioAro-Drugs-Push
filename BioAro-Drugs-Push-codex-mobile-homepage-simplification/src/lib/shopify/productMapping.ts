@@ -20,12 +20,25 @@ import type {
 } from "./types";
 import type { CountryCode } from "../market/types";
 
+/*
+ * The only bridge between authored Shopify values and the app's categories. Keys are
+ * matched lowercased (see `productCategory`), so casing in Shopify is tolerant.
+ *
+ * `wellness` is deliberately ABSENT. It used to catch 12 of 30 products, and those
+ * products have been redistributed individually — aliasing the old value to any single
+ * new one would silently mis-file sleep products as foundations, or vice versa. An
+ * unmapped value returns undefined, which now reads as "uncategorised" rather than
+ * defaulting into a bucket, so the gap is visible until Shopify is rewritten.
+ */
 const CATEGORY_BY_METAFIELD_VALUE: Record<string, ProductCategory> = {
-  longevity: "LONgevity+",
-  wellness: "Wellness",
+  longevity: "Longevity",
   focus: "Focus",
   energy: "Energy",
   performance: "Performance",
+  recovery: "Recovery",
+  sleep: "Sleep & Calm",
+  hormonal: "Hormonal Health",
+  foundations: "Daily Foundations",
 };
 
 const KNOWN_WHY_ICONS = new Set(["energy", "aging", "balance", "heart", "brain", "shield", "flame", "droplet", "sparkle"]);
@@ -89,7 +102,12 @@ function whyIcon(value: string | undefined): ProductWhyItem["icon"] {
  *    from editorial too.
  *
  * A title-only row is now valid and carries an empty `text`; callers already render
- * the title alone where that is all there is. This unlocks roughly fourteen fields'
+ * the title alone where that is all there is.
+ *
+ * FOLLOW-UP (audit, 2026-08-17): two callers did NOT. `trustNotes` and `evidencePoints`
+ * mapped `.text` straight out, so a title-only row reached the page as an empty string —
+ * eight products were rendering blank trust and evidence rows while auditing as populated.
+ * Both now fall back to the title, which is the only content those rows have. This unlocks roughly fourteen fields'
  * worth of populated content across seven products without any data entry.
  */
 function titleTextItems(value: string): MetafieldTitleTextItem[] | undefined {
@@ -595,7 +613,7 @@ function applyMetafields(editorial: ProductEditorial, shopifyProduct: ShopifyPro
     },
     benefits: benefitItems?.map((item) => item.text) ?? textList(metafields?.heroBullets) ?? editorial.benefits,
     whyItems: metafields?.whyPillars ?? whyItemsForKnownProduct(editorial, benefitItems),
-    trustNotes: metafields?.trustBadges?.map((item) => item.text) ?? editorial.trustNotes,
+    trustNotes: metafields?.trustBadges?.map((item) => item.text || item.title) ?? editorial.trustNotes,
     featureBadges: metafields?.featureBadges ?? editorial.featureBadges ?? [],
     heroBadges: metafields?.heroBadges ?? editorial.heroBadges,
     warnings,
@@ -605,7 +623,7 @@ function applyMetafields(editorial: ProductEditorial, shopifyProduct: ShopifyPro
     ingredients: ingredientDetailsForKnownProduct(editorial.ingredients, metafields?.ingredientDetails),
     otherIngredients: metafields?.otherIngredients ?? editorial.otherIngredients,
     supplementFacts: facts(metafields?.supplementFactsRows) ?? editorial.supplementFacts,
-    evidencePoints: metafields?.clinicalEvidence?.map((item) => item.text) ?? editorial.evidencePoints,
+    evidencePoints: metafields?.clinicalEvidence?.map((item) => item.text || item.title) ?? editorial.evidencePoints,
     science: metafields?.scienceCards ?? science(metafields?.scienceSteps) ?? editorial.science,
     faq: metafields?.faqs?.map((item) => ({ question: item.title, answer: item.text })) ?? editorial.faq,
     testimonials: metafields?.testimonials ?? editorial.testimonials,
@@ -654,7 +672,9 @@ export function createShopifyProduct(shopifyProduct: ShopifyProduct, country: Co
     badge: undefined,
     image: shopifyProduct.image,
     galleryImages: metafields?.galleryImages,
-    category: metafields?.category ?? "Wellness",
+    /* No invented default. An uncategorised product shows no category rather than
+       being filed under one nobody chose. */
+    category: metafields?.category,
     tags: textList(metafields?.heroTags) ?? [],
     bestFor: metafields?.bestForDescription || metafields?.whyFormulaBody || "",
     bestForLabel: metafields?.bestForLabel,
@@ -666,7 +686,7 @@ export function createShopifyProduct(shopifyProduct: ShopifyProduct, country: Co
     rating: { average: metafields?.ratingAverage ?? 0, count: metafields?.ratingCount ?? 0 },
     benefits: metafields?.benefitCards?.map((item) => item.text) ?? textList(metafields?.heroBullets) ?? [],
     whyItems: metafields?.whyPillars ?? metafields?.benefitCards?.map((item) => ({ icon: "shield" as const, title: item.title, description: item.text })) ?? [],
-    trustNotes: metafields?.trustBadges?.map((item) => item.text) ?? [],
+    trustNotes: metafields?.trustBadges?.map((item) => item.text || item.title) ?? [],
     featureBadges: metafields?.featureBadges ?? [],
     heroBadges: metafields?.heroBadges,
     warnings,
@@ -675,7 +695,7 @@ export function createShopifyProduct(shopifyProduct: ShopifyProduct, country: Co
     otherIngredients: metafields?.otherIngredients,
     supplementFacts: facts(metafields?.supplementFactsRows) ?? [],
     science: metafields?.scienceCards ?? science(metafields?.scienceSteps) ?? [],
-    evidencePoints: metafields?.clinicalEvidence?.map((item) => item.text) ?? [],
+    evidencePoints: metafields?.clinicalEvidence?.map((item) => item.text || item.title) ?? [],
     efficacyMetric: { label: "", unit: "", placeboValue: 0, productValue: 0, caption: "" },
     faq: metafields?.faqs?.map((item) => ({ question: item.title, answer: item.text })) ?? [],
     testimonials: metafields?.testimonials,

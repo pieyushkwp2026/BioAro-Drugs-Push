@@ -91,7 +91,7 @@ export interface Protocol {
 
 /* Goal → the formula that leads the protocol.
  *
- * `sleep` is deliberately absent. There is no shipping sleep formula — Sleep0+ is a
+ * `sleep` is deliberately absent. There is no shipping sleep formula — SleepO is a
  * placeholder listing and SleepO Kids is a draft — so the goal resolves to no primary
  * product and the builder says so, instead of quietly returning a non-sleep product
  * and calling it a match the way the old lookup table did. */

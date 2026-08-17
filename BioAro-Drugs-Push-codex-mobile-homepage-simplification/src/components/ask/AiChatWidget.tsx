@@ -46,8 +46,11 @@ import type { CatalogProduct } from "../../lib/shopify/types";
  * that leans on a pronoun ("how do I take it") will not resolve, which is why the
  * suggested prompts and the empty state both push whole questions.
  *
- * The thread persists for the session so a visitor can scroll back, but it is not
- * stored and it is not sent anywhere: retrieval runs entirely in the browser.
+ * The thread persists for the session so a visitor can scroll back, and it is not sent
+ * anywhere: retrieval runs entirely in the browser. It used to be true that nothing was
+ * stored either — the dedicated /ai page now keeps a transcript in localStorage so a
+ * visitor can find a past conversation, which is listed, deletable, and never includes
+ * an attached image. This widget writes nothing itself.
  */
 
 const GREETING =

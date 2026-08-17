@@ -45,7 +45,7 @@ const REDUNDANT_QUESTION = [
 
 /*
  * Questions about the page's own completeness, which two placeholder listings carried:
- * "Is this the final Sleep0+ PDP?", "Why is the content limited right now?". Internal
+ * "Is this the final SleepO PDP?", "Why is the content limited right now?". Internal
  * process, facing customers. A page should not discuss its own draft status.
  */
 const ABOUT_THE_PAGE =

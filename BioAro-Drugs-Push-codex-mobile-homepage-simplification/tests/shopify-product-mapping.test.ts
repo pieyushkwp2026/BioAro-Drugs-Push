@@ -30,7 +30,7 @@ const previewProduct: ProductEditorial = {
   title: "Preview Formula",
   tagline: "Preview tagline",
   description: "Preview description",
-  category: "Wellness",
+  category: "Longevity",
   tags: ["Preview"],
   bestFor: "Preview routine",
   dosage: "Preview dosage",
@@ -192,6 +192,26 @@ test("accepts title-only rows, which is how trust badges and evidence are author
 
   assert.deepEqual(metafields?.trustBadges, [{ title: "Third-party tested", text: "" }]);
   assert.deepEqual(metafields?.clinicalEvidence, [{ title: "27+ published studies reviewed", text: "" }]);
+});
+
+/*
+ * The parser accepting a title-only row was only half the job: `trustNotes` and
+ * `evidencePoints` mapped `.text` straight out, so eight products in the live store were
+ * rendering blank rows for fields that audited as populated. The content is the title.
+ */
+test("a title-only row renders its title, not an empty string", () => {
+  const metafields = mapProductMetafields([
+    { key: "trust_badges", type: "json", value: '[{"title":"Third-party tested"}]' },
+    { key: "clinical_evidence", type: "json", value: '[{"title":"27+ published studies reviewed"}]' },
+  ]);
+
+  const shopifyOnly = createShopifyProduct({ ...shopifyProduct, metafields }, "AE");
+  assert.deepEqual(shopifyOnly.trustNotes, ["Third-party tested"]);
+  assert.deepEqual(shopifyOnly.evidencePoints, ["27+ published studies reviewed"]);
+
+  const merged = mergeShopifyProduct(previewProduct, { ...shopifyProduct, metafields }, "AE");
+  assert.deepEqual(merged.trustNotes, ["Third-party tested"]);
+  assert.deepEqual(merged.evidencePoints, ["27+ published studies reviewed"]);
 });
 
 test("a row with a body but no heading is still rejected", () => {

@@ -2,6 +2,7 @@ export const ROUTES = {
   home: "/",
   shop: "/shop",
   quiz: "/quiz",
+  ai: "/ai",
   science: "/science",
   journal: "/journal",
   about: "/about",
@@ -16,6 +17,11 @@ export const ROUTES = {
   protocols: "/protocols",
   partners: "/partners",
   account: "/account",
+  accountProtocol: "/account/protocol",
+  accountOrders: "/account/orders",
+  accountVault: "/account/health-vault",
+  accountCare: "/account/care",
+  accountMembership: "/account/membership",
 } as const;
 
 export type RoutePath = (typeof ROUTES)[keyof typeof ROUTES];
@@ -41,7 +47,7 @@ export interface FooterSection {
  * so the site had two sources of truth for its primary navigation.
  */
 export const PRIMARY_NAV: NavItem[] = [
-  { label: "BioAro Drugs BI", href: ROUTES.quiz },
+  { label: "AI & Protocols", href: ROUTES.ai },
   { label: "Shop", href: ROUTES.shop },
   { label: "Protocols", href: ROUTES.protocols },
   { label: "Science", href: ROUTES.science },
@@ -54,7 +60,7 @@ export const FOOTER_SECTIONS: FooterSection[] = [
     links: [
       { label: "All Products", href: ROUTES.shop },
       { label: "Protocols", href: ROUTES.protocols },
-      { label: "Protocol Builder", href: ROUTES.quiz },
+      { label: "Protocol Builder", href: ROUTES.ai },
     ],
   },
   {
@@ -86,10 +92,45 @@ export const FOOTER_SECTIONS: FooterSection[] = [
   },
 ];
 
+/*
+ * The member dashboard's own navigation.
+ *
+ * Kept beside PRIMARY_NAV for the same reason that list exists: the header and the
+ * footer used to disagree about the primary nav because each held its own copy. These
+ * are the routes the dashboard rail renders, in order, and `tests/routes.test.ts`
+ * asserts every one of them resolves and that none of them is public.
+ */
+export const MEMBER_NAV: NavItem[] = [
+  { label: "Overview", href: ROUTES.account },
+  { label: "Protocol", href: ROUTES.accountProtocol },
+  { label: "Orders", href: ROUTES.accountOrders },
+  { label: "Health vault", href: ROUTES.accountVault },
+  { label: "Care", href: ROUTES.accountCare },
+  { label: "Membership", href: ROUTES.accountMembership },
+];
+
+/*
+ * Everything behind the sign-in gate.
+ *
+ * `/account` itself stays in PUBLIC_ROUTE_PATHS because the footer links to it and
+ * that list is what the footer test validates — it is a "route the footer may name",
+ * not a statement about authentication. The children are not in it, and a test keeps
+ * it that way.
+ */
+export const MEMBER_ROUTE_PATHS: RoutePath[] = [
+  ROUTES.account,
+  ROUTES.accountProtocol,
+  ROUTES.accountOrders,
+  ROUTES.accountVault,
+  ROUTES.accountCare,
+  ROUTES.accountMembership,
+];
+
 export const PUBLIC_ROUTE_PATHS: RoutePath[] = [
   ROUTES.home,
   ROUTES.shop,
   ROUTES.quiz,
+  ROUTES.ai,
   ROUTES.science,
   ROUTES.journal,
   ROUTES.about,

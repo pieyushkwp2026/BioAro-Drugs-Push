@@ -1,0 +1,323 @@
+{
+  "shopDomain": "qumtna-6b.myshopify.com",
+  "apiVersion": "2026-07",
+  "results": [
+    {
+      "handle": "sleepo",
+      "found": true,
+      "title": "SleepO",
+      "status": "ACTIVE",
+      "publishedAt": "2026-08-12T09:07:00Z",
+      "visibleToStorefront": true,
+      "publications": [
+        "For bioarodrugs 25 july 2026",
+        "My Store Headless",
+        "Readonly inspector",
+        "My Store Headless 03",
+        "My Store Headless 04",
+        "Online Store",
+        "Shop",
+        "Point of Sale"
+      ],
+      "mediaCount": 6,
+      "hasFeaturedMedia": true,
+      "variant": {
+        "sku": "BACT-1C6D5",
+        "price": "89.99",
+        "compareAtPrice": null,
+        "inventoryQuantity": 0
+      },
+      "fields": [
+        {
+          "key": "hero_eyebrow",
+          "type": "single_line_text_field",
+          "state": "absent"
+        },
+        {
+          "key": "pdp_subtitle",
+          "type": "single_line_text_field",
+          "state": "present"
+        },
+        {
+          "key": "short_description",
+          "type": "multi_line_text_field",
+          "state": "present"
+        },
+        {
+          "key": "gallery_images",
+          "type": "list.metaobject_reference",
+          "state": "absent"
+        },
+        {
+          "key": "hero_tags",
+          "type": "single_line_text_field",
+          "state": "present"
+        },
+        {
+          "key": "hero_badges",
+          "type": "list.metaobject_reference",
+          "state": "absent"
+        },
+        {
+          "key": "hero_bullets",
+          "type": "multi_line_text_field",
+          "state": "present"
+        },
+        {
+          "key": "pack_name",
+          "type": "single_line_text_field",
+          "state": "absent"
+        },
+        {
+          "key": "supply_label",
+          "type": "single_line_text_field",
+          "state": "present"
+        },
+        {
+          "key": "availability_note",
+          "type": "multi_line_text_field",
+          "state": "absent"
+        },
+        {
+          "key": "best_for_label",
+          "type": "single_line_text_field",
+          "state": "absent"
+        },
+        {
+          "key": "best_for_description",
+          "type": "multi_line_text_field",
+          "state": "absent"
+        },
+        {
+          "key": "serving_size",
+          "type": "single_line_text_field",
+          "state": "present"
+        },
+        {
+          "key": "servings_per_container",
+          "type": "single_line_text_field",
+          "state": "absent"
+        },
+        {
+          "key": "product_format",
+          "type": "single_line_text_field",
+          "state": "absent"
+        },
+        {
+          "key": "directions",
+          "type": "multi_line_text_field",
+          "state": "present"
+        },
+        {
+          "key": "warnings_headline",
+          "type": "single_line_text_field",
+          "state": "absent"
+        },
+        {
+          "key": "warnings",
+          "type": "multi_line_text_field",
+          "state": "present"
+        },
+        {
+          "key": "storage_instructions",
+          "type": "multi_line_text_field",
+          "state": "absent"
+        },
+        {
+          "key": "safety_seal",
+          "type": "multi_line_text_field",
+          "state": "absent"
+        },
+        {
+          "key": "allergen_info",
+          "type": "multi_line_text_field",
+          "state": "absent"
+        },
+        {
+          "key": "other_ingredients",
+          "type": "multi_line_text_field",
+          "state": "absent"
+        },
+        {
+          "key": "disclaimer",
+          "type": "multi_line_text_field",
+          "state": "absent"
+        },
+        {
+          "key": "why_formula_eyebrow",
+          "type": "single_line_text_field",
+          "state": "absent"
+        },
+        {
+          "key": "why_formula_headline",
+          "type": "single_line_text_field",
+          "state": "absent"
+        },
+        {
+          "key": "why_formula_body",
+          "type": "multi_line_text_field",
+          "state": "present"
+        },
+        {
+          "key": "why_pillars",
+          "type": "list.metaobject_reference",
+          "state": "absent"
+        },
+        {
+          "key": "science_visual",
+          "type": "file_reference",
+          "state": "absent"
+        },
+        {
+          "key": "science_eyebrow",
+          "type": "single_line_text_field",
+          "state": "absent"
+        },
+        {
+          "key": "science_headline",
+          "type": "single_line_text_field",
+          "state": "absent"
+        },
+        {
+          "key": "science_cards",
+          "type": "list.metaobject_reference",
+          "state": "absent"
+        },
+        {
+          "key": "ingredients_eyebrow",
+          "type": "single_line_text_field",
+          "state": "absent"
+        },
+        {
+          "key": "ingredients_headline",
+          "type": "single_line_text_field",
+          "state": "absent"
+        },
+        {
+          "key": "ingredient_details",
+          "type": "list.metaobject_reference",
+          "state": "present"
+        },
+        {
+          "key": "supplement_facts_headline",
+          "type": "single_line_text_field",
+          "state": "absent"
+        },
+        {
+          "key": "supplement_facts_rows",
+          "type": "list.metaobject_reference",
+          "state": "present"
+        },
+        {
+          "key": "evidence_headline",
+          "type": "single_line_text_field",
+          "state": "absent"
+        },
+        {
+          "key": "clinical_evidence",
+          "type": "multi_line_text_field",
+          "state": "absent"
+        },
+        {
+          "key": "comparison_headline",
+          "type": "single_line_text_field",
+          "state": "absent"
+        },
+        {
+          "key": "comparison_bioaro_label",
+          "type": "single_line_text_field",
+          "state": "absent"
+        },
+        {
+          "key": "comparison_typical_label",
+          "type": "single_line_text_field",
+          "state": "absent"
+        },
+        {
+          "key": "comparison_rows",
+          "type": "list.metaobject_reference",
+          "state": "empty"
+        },
+        {
+          "key": "bundle_eyebrow",
+          "type": "single_line_text_field",
+          "state": "absent"
+        },
+        {
+          "key": "bundle_headline",
+          "type": "single_line_text_field",
+          "state": "absent"
+        },
+        {
+          "key": "bundle_description",
+          "type": "multi_line_text_field",
+          "state": "absent"
+        },
+        {
+          "key": "related_products",
+          "type": "list.metaobject_reference",
+          "state": "absent"
+        },
+        {
+          "key": "quality_headline",
+          "type": "single_line_text_field",
+          "state": "absent"
+        },
+        {
+          "key": "quality_badges",
+          "type": "list.metaobject_reference",
+          "state": "absent"
+        },
+        {
+          "key": "faq_eyebrow",
+          "type": "single_line_text_field",
+          "state": "absent"
+        },
+        {
+          "key": "faq_headline",
+          "type": "single_line_text_field",
+          "state": "absent"
+        },
+        {
+          "key": "faqs",
+          "type": "list.metaobject_reference",
+          "state": "present"
+        },
+        {
+          "key": "bottom_cta_primary",
+          "type": "metaobject_reference",
+          "state": "absent"
+        },
+        {
+          "key": "bottom_cta_secondary",
+          "type": "metaobject_reference",
+          "state": "absent"
+        },
+        {
+          "key": "pdp_badges",
+          "type": "json",
+          "state": "absent"
+        },
+        {
+          "key": "category",
+          "type": "single_line_text_field",
+          "state": "absent"
+        }
+      ],
+      "summary": {
+        "defined": 55,
+        "present": 12,
+        "empty": 1,
+        "absent": 42
+      },
+      "undefinedButPopulated": [
+        "ingredients",
+        "science_steps"
+      ]
+    },
+    {
+      "handle": "sleep0",
+      "found": false
+    }
+  ]
+}

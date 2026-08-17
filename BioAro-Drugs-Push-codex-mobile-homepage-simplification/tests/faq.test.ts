@@ -44,12 +44,12 @@ test("an answer that merely restates the directions is dropped whatever it is ca
 
 test("questions about the page's own draft status never reach a customer", () => {
   const kept = usefulFaqs([
-    { question: "Is this the final Sleep0+ PDP?", answer: "No." },
+    { question: "Is this the final SleepO PDP?", answer: "No." },
     { question: "Why is the content limited right now?", answer: "Pending approval." },
-    { question: "Is SleepO Kids the same as Sleep0+?", answer: "No, they are different formulas." },
+    { question: "Is SleepO Kids the same as SleepO?", answer: "No, they are different formulas." },
   ]);
 
-  assert.deepEqual(kept.map((item) => item.question), ["Is SleepO Kids the same as Sleep0+?"]);
+  assert.deepEqual(kept.map((item) => item.question), ["Is SleepO Kids the same as SleepO?"]);
 });
 
 test("a product with no FAQ at all is handled, not crashed", () => {

@@ -1,9 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, Navigate, useLocation, useParams } from "react-router-dom";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { fetchAllProducts, fetchProductByHandle } from "../lib/shopify/productService";
 import { getMarketConfigByMarket } from "../config/markets";
 import { absoluteUrl, canonicalForMarket } from "../lib/seo";
+import { resolveProductHandle } from "../lib/retiredHandles";
 import { useMarket } from "../hooks/useMarket";
 import { useMarketHref } from "../hooks/useMarketHref";
 import { ROUTES } from "../lib/routes";
@@ -69,16 +70,20 @@ export default function Product() {
   const { country, market, region } = useMarket();
   const marketHref = useMarketHref();
 
+  /* A renamed handle redirects here rather than 404ing. Shopify's own 301 does not cover
+     this app: it serves its own product routes and resolves handles itself. */
+  const canonicalHandle = handle ? resolveProductHandle(handle) : handle;
+
   const [product, setProduct] = useState<CatalogProduct | null | undefined>(undefined);
   const [catalog, setCatalog] = useState<CatalogProduct[]>([]);
 
   useEffect(() => {
-    if (!handle) return;
+    if (!canonicalHandle) return;
     setProduct(undefined);
-    void fetchProductByHandle(handle, country)
+    void fetchProductByHandle(canonicalHandle, country)
       .then((next) => setProduct(next ?? null))
       .catch(() => setProduct(null));
-  }, [country, handle]);
+  }, [country, canonicalHandle]);
 
   useEffect(() => {
     void fetchAllProducts(country).then(setCatalog).catch(() => setCatalog([]));
@@ -127,7 +132,7 @@ export default function Product() {
   // Journal pieces whose category brushes the product's own. No product↔article
   // relation exists in the CMS, so this is derived rather than authored.
   const reading = useMemo(() => {
-    if (!product) return [];
+    if (!product?.category) return [];
     const needle = normalise(product.category);
     return JOURNAL_ARTICLES.filter((article) => {
       const cat = normalise(article.cat);
@@ -136,6 +141,12 @@ export default function Product() {
       .slice(0, 3)
       .map((article) => ({ title: article.title, href: marketHref(`${ROUTES.journal}/${article.slug}`) }));
   }, [product, marketHref]);
+
+  /* Renamed handle: move the URL to the current one so links, history and the canonical
+     tag all agree. `replace` so Back does not bounce between the two. */
+  if (handle && canonicalHandle && canonicalHandle !== handle) {
+    return <Navigate to={marketHref(`/products/${canonicalHandle}`)} replace />;
+  }
 
   if (product === undefined) {
     return (

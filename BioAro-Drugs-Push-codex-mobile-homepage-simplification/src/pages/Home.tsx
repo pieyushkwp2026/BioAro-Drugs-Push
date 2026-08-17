@@ -179,7 +179,7 @@ export default function Home() {
         onClose={session.closeStudio}
         onContinue={() => {
           const goals = session.view.session.detectedGoals;
-          navigate(`${marketHref(ROUTES.quiz)}${goals.length > 0 ? `?goals=${goals.join(",")}` : ""}`, {
+          navigate(`${marketHref(ROUTES.ai)}${goals.length > 0 ? `?goals=${goals.join(",")}` : ""}`, {
             state: session.message.trim() ? { note: session.message.trim() } : undefined,
           });
         }}

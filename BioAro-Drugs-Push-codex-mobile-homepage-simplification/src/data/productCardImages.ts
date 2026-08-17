@@ -16,7 +16,6 @@ export const PRODUCT_CARD_IMAGES: Record<string, ProductImage> = {
   "longevity-plus": { src: longevityCard, alt: "LONgevity+ product packaging" },
   "cellomega-plus": { src: cellOmegaCard, alt: "CellOmega+ product packaging" },
   "creagen-brain-boost": { src: brainBoostCard, alt: "Creagen Brain Boost product packaging" },
-  "creagen-smart-start": { src: brainBoostCard, alt: "Creagen Smart Start product packaging" },
   "sleepo-kids": { src: longevityCard, alt: "SleepO Kids placeholder product packaging" },
   "creagen-femme-energy": { src: femmeEnergyCard, alt: "Creagen Femme Energy product packaging" },
   "creagen-raw-power": { src: rawPowerCard, alt: "Creagen Raw Power product packaging" },

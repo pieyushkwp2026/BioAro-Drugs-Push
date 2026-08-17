@@ -42,7 +42,7 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
     description:
       "Daily wellness formula designed to support healthy ageing and cellular energy, featuring NMN, resveratrol, CoQ10, curcumin, vitamin D3, and vitamin B12, helping support everyday vitality and cellular wellbeing.",
     image: { src: longevityPrimaryImg, alt: "BioAro Drugs LONgevity+ product and lid" },
-    category: "LONgevity+",
+    category: "Longevity",
     tags: ["Cellular Energy", "Healthy Aging", "NAD+ Support"],
     bestFor: "Adults focused on long-term vitality, cellular wellness, and proactive healthy aging.",
     dosage: "Recommended daily intake: Take 2 capsules daily with food, or as directed on the product label.",
@@ -177,7 +177,7 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
     description:
       "CellOmega+ combines algae-derived omega-3s, CoQ10, magnesium bisglycinate, astaxanthin, spermidine, and vitamin E in a daily wellness formula. EPA and DHA contribute to the normal function of the heart. Designed to support heart, brain, and metabolic health as part of a balanced lifestyle.",
     image: { src: cellomegaPrimaryImg, alt: "BioAro Drugs CellOmega+ product and lid" },
-    category: "Wellness",
+    category: "Longevity",
     tags: ["Heart Health", "Brain Health", "Cellular Wellness"],
     bestFor: "Adults seeking foundational support for cellular wellness, heart health, brain health, and healthy aging.",
     dosage: "Take 2 capsules daily with food, or as directed on the product label.",
@@ -442,93 +442,19 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
     priceByCountry: { AE: 158.76 },
     compareAtByCountry: { AE: 198.45 },
   },
-  {
-    id: "sleep0",
-    handle: "sleep0",
-    title: "Sleep0+",
-    badge: "Evening Routine Support",
-    tagline: "Night routine listing preview.",
-    description:
-      "Sleep0+ is now included in the US catalog preview while the final BioAro Drugs PDP content is being finalized. Approved product-specific science and ingredient copy will be added once available.",
-    image: { src: longevityPrimaryImg, alt: "Sleep0+ product preview" },
-    category: "Wellness",
-    tags: ["Evening Routine", "Sleep Support", "Preview"],
-    bestFor: "Adults looking to build a more consistent evening supplement routine.",
-    dosage: "Follow the approved product label directions once finalized.",
-    servings: "60 capsules · 30 servings",
-    supplyLabel: "30-day supply",
-    rating: { average: 4.6, count: 0 },
-    benefits: [
-      "Included in the US catalog while final product content is being completed",
-      "Evening-routine positioning preserved without inventing unsupported claims",
-      "Shop card and PDP can resolve locally while Shopify publication settles",
-    ],
-    whyItems: [
-      { icon: "balance", title: "Evening Routine", description: "Positioned as a night-time routine product in the current catalog." },
-      { icon: "shield", title: "Honest Placeholder", description: "The local PDP stays transparent while approved content is still being finalized." },
-      { icon: "brain", title: "Catalog Continuity", description: "Keeps the intended US product lineup visible without waiting on additional storefront propagation." },
-    ],
-    featureBadges: [
-      { icon: "capsule", label: "Capsule Format" },
-      { icon: "noHassle", label: "No Mixing Required" },
-      { icon: "routine", label: "Evening Routine" },
-      { icon: "travel", label: "Bedside Friendly" },
-      { icon: "quality", label: "Content Finalizing" },
-    ],
-    trustNotes: [
-      "US listing enabled while final Sleep0+ content is prepared.",
-      "No unsupported sleep claims have been invented in the local placeholder.",
-      "Shopify product status and publication are live; editorial completion is still pending.",
-    ],
-    warnings: [
-      "Consult your healthcare professional before use if you are pregnant, breastfeeding, taking medication or have a medical condition.",
-      "Do not exceed the recommended daily intake.",
-      "Keep out of reach of young children.",
-      "Food supplements should not be used as a substitute for a varied, balanced diet and a healthy lifestyle.",
-    ],
-    qualityPoints: [
-      "US placeholder listing uses transparent copy",
-      "No fabricated ingredient claims",
-      "Content can be replaced cleanly once approved",
-    ],
-    ingredients: [
-      {
-        name: "Formula details pending",
-        amount: "TBC",
-        purpose: "Approved ingredient details for this product are still being finalized.",
-        whyIncluded: "This placeholder avoids publishing unsupported ingredient claims.",
-      },
-    ],
-    supplementFacts: [
-      { label: "Recommended daily intake", value: "Follow the approved label directions once finalized." },
-      { label: "Servings per container", value: "30" },
-      { label: "Format", value: "Capsules" },
-    ],
-    science: [
-      { title: "Editorial preview", description: "US catalog visibility has been restored while the final product story is completed." },
-      { title: "No fabricated claims", description: "Only neutral placeholder copy is shown until approved product science is available." },
-      { title: "Ready for replacement", description: "This entry can be swapped for final Shopify-authored content without changing routes or handles." },
-    ],
-    evidencePoints: [
-      "Placeholder listing only",
-      "Awaiting approved product-specific content",
-      "US catalog continuity restored",
-    ],
-    efficacyMetric: {
-      label: "Editorial preview only",
-      unit: "%",
-      placeboValue: 0,
-      productValue: 0,
-      caption: "This placeholder does not represent a clinical study or finished product claim set.",
-    },
-    faq: [
-    ],
-    relatedProducts: [
-      { handle: "longevity-plus", title: "LONgevity+", description: "Daily vitality support." },
-      { handle: "cellomega-plus", title: "CellOmega+", description: "Plant-based omega support." },
-    ],
-    priceByCountry: { US: 89.99 },
-  },
+  /*
+   * SleepO is intentionally absent from this file.
+   *
+   * It is the first product taking its content solely from Shopify: title, price,
+   * imagery, directions, warnings, ingredients, supplement facts, evidence and FAQs
+   * all arrive as metafields on handle `sleepo`, which is ACTIVE and published to the
+   * US market. A local record here would sit underneath that as a fallback, and a
+   * fallback is indistinguishable from data to whoever reads the page — which is how
+   * placeholder copy came to read as product truth in the first place.
+   *
+   * If Shopify has no value for a field, the page shows nothing for it. That is the
+   * intended behaviour, not a gap to patch here.
+   */
   {
     id: "sleepo-kids",
     handle: "sleepo-kids",
@@ -538,7 +464,7 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
     description:
       "SleepO Kids is prepared as a draft-only US product shell while approved pricing, imagery, and final product-specific content are still being finalized. This placeholder is intentionally neutral and avoids unsupported children’s health claims.",
     image: { src: longevityPrimaryImg, alt: "SleepO Kids placeholder product preview" },
-    category: "Wellness",
+    category: "Sleep & Calm",
     tags: ["Kids Routine", "Draft Product", "US Prep"],
     bestFor: "Draft-only placeholder entry pending approved product positioning, pricing, and content.",
     dosage: "Follow the approved product label directions once finalized.",
@@ -546,12 +472,12 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
     supplyLabel: "Price and format pending",
     rating: { average: 0, count: 0 },
     benefits: [
-      "Prepared as a separate product from Sleep0+",
+      "Prepared as a separate product from SleepO",
       "Held in a draft-ready state until approved US commercial details arrive",
       "Uses neutral placeholder copy instead of unsupported product claims",
     ],
     whyItems: [
-      { icon: "balance", title: "Separate identity", description: "SleepO Kids is modeled as its own product and does not replace the existing Sleep0+ entry." },
+      { icon: "balance", title: "Separate identity", description: "SleepO Kids is modeled as its own product and does not replace the existing SleepO entry." },
       { icon: "shield", title: "Claim-safe placeholder", description: "The draft placeholder avoids inventing efficacy, dosage, or ingredient claims for a children’s product." },
       { icon: "brain", title: "US launch prep", description: "The handle and product shell are ready so approved US launch details can be added later without reworking routes." },
     ],
@@ -573,7 +499,7 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       "Do not use placeholder content as medical or dosage guidance.",
     ],
     qualityPoints: [
-      "Separate product identity from Sleep0+",
+      "Separate product identity from SleepO",
       "Neutral placeholder content only",
       "US draft mapping ready for future approval",
     ],
@@ -608,10 +534,10 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
       caption: "This draft placeholder does not represent a clinical claim, evidence summary, or final product position.",
     },
     faq: [
-      { question: "Is SleepO Kids the same as Sleep0+?", answer: "No. SleepO Kids is planned as a separate standalone product." },
+      { question: "Is SleepO Kids the same as SleepO?", answer: "No. SleepO Kids is planned as a separate standalone product." },
     ],
     relatedProducts: [
-      { handle: "sleep0", title: "Sleep0+", description: "Existing separate sleep placeholder product." },
+      { handle: "sleepo", title: "SleepO", description: "The adult sleep formula, sold separately." },
       { handle: "longevity-plus", title: "LONgevity+", description: "Daily wellness support." },
     ],
     priceByCountry: {},
@@ -892,7 +818,7 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
     tagline: "Daily antioxidant support with vitamins and clinically selected ingredients.",
     description:
       "Glutara combines liposomal glutathione, vitamin C, hyaluronic acid and B vitamins in a carefully formulated daily wellness supplement with piperine to support ingredient absorption.",
-    category: "Wellness",
+    category: "Longevity",
     tags: ["Antioxidant Support", "Daily Wellness", "Skin Care Routine"],
     image: { src: glutaraPrimaryImg, alt: "BioAro Drugs Glutara product container" },
     bestFor: "Adults seeking daily antioxidant support, skin care routine support, and everyday wellness.",

@@ -25,7 +25,19 @@ export const AE_MARKET: MarketConfig = {
   shippingPolicyPath: "/shipping-policy",
   returnsPolicyPath: "/returns-refunds",
   privacyPolicyPath: "/privacy-policy",
-  availableProducts: ["longevity-plus", "cellomega-plus", "creagen-brain-boost", "creagen-smart-start", "creagen-femme-energy", "creagen-raw-power", "creagen-pro-power", "glutara"],
+  /*
+   * Glutara is not sold in the UAE and was removed on 2026-08-17.
+   *
+   * It was listed here and nowhere else: Shopify does not return it for AE, so the app
+   * was appending the local record instead (`productService.ts` adds every local product
+   * Shopify omitted) and marking it available purely because the handle sat in this
+   * array. With checkout open in this market, that advertised a product the store cannot
+   * sell, at no price — its `priceByCountry` has no AE entry.
+   *
+   * The six that remain are all genuinely published to AE with AED prices from Shopify,
+   * so their absent local AE prices are irrelevant — Shopify's price wins.
+   */
+  availableProducts: ["longevity-plus", "cellomega-plus", "creagen-brain-boost", "creagen-smart-start", "creagen-femme-energy", "creagen-raw-power", "creagen-pro-power"],
   comingSoonProducts: [],
   experienceRegion: "AE",
 };

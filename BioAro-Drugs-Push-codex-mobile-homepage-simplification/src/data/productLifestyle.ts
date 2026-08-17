@@ -20,7 +20,7 @@ import longevity from "../assets/science/longevity-plus-lifestyle.jpg";
  *
  * That means CellOmega+'s band reads as a product photograph where the others read as
  * scenes. Accepted deliberately: it is CellOmega+'s own picture, and borrowing another
- * product's would repeat the mistake Sleep0+ is making elsewhere on this site, where
+ * product's would repeat the mistake SleepO is making elsewhere on this site, where
  * LONgevity+'s artwork is standing in for it.
  */
 export const PRODUCT_LIFESTYLE: Record<string, { src: string; alt: string; position?: string }> = {

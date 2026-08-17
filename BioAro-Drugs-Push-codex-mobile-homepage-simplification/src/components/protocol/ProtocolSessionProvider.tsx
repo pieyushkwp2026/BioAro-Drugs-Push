@@ -1,4 +1,4 @@
-import { type ReactNode, useCallback, useMemo, useState } from "react";
+import { type ReactNode, useCallback, useMemo, useRef, useState } from "react";
 import { useMarket } from "../../hooks/useMarket";
 import { GOALS } from "../../data/homepage";
 import { bioaroAiService } from "../../lib/ai/bioaroAiService";
@@ -15,7 +15,9 @@ import {
   viewSession,
   type ProtocolSession,
 } from "../../lib/protocol/session";
-import { ProtocolSessionContext } from "./session-context";
+import { askBioAro } from "../../lib/ask";
+import { ProtocolSessionContext, type TurnInput } from "./session-context";
+import type { ImageIntent, Turn } from "../../lib/assistant/turns";
 
 /*
  * The session, lifted above the routes.
@@ -42,6 +44,69 @@ export function ProtocolSessionProvider({ children }: { children: ReactNode }) {
   const [error, setError] = useState<string | null>(null);
   const [studioOpen, setStudioOpen] = useState(false);
   const [studioAutoFocus, setStudioAutoFocus] = useState(false);
+
+  const [thread, setThread] = useState<Turn[]>([]);
+  const [asking, setAsking] = useState(false);
+  /* A ref, not a module-level counter. The counter this replaces was module scope, so
+     a second surface reading the same thread would have carried on from wherever the
+     first one left off — and two mounts would have issued the same ids. */
+  const turnSeq = useRef(0);
+  const nextTurnId = useCallback(() => `turn-${(turnSeq.current += 1)}`, []);
+
+  const pushTurns = useCallback(
+    (...turns: TurnInput[]) => {
+      setThread((current) => [...current, ...turns.map((turn) => ({ ...turn, id: nextTurnId() }))]);
+    },
+    [nextTurnId],
+  );
+
+  /*
+   * Attachments are revoked, not just dropped.
+   *
+   * An object URL keeps its blob alive until it is revoked, so clearing the thread
+   * without this would leak every photo a visitor attached for as long as the tab
+   * lived — which is exactly the guarantee the upload copy makes.
+   */
+  const clearThread = useCallback(() => {
+    setThread((current) => {
+      for (const turn of current) {
+        if (turn.kind === "image") URL.revokeObjectURL(turn.previewUrl);
+      }
+      return [];
+    });
+  }, []);
+
+  const attachImage = useCallback(
+    (intent: ImageIntent, previewUrl: string, name: string) => {
+      setThread((current) => [...current, { id: nextTurnId(), kind: "image", intent, previewUrl, name }]);
+    },
+    [nextTurnId],
+  );
+
+  /*
+   * A typed question, answered in the same thread as the protocol questions.
+   *
+   * The turn is logged with `result: null` first so the thinking state has something
+   * to attach to, then patched by id when the answer lands. Ordering is preserved even
+   * if two questions overlap, because each patches its own id rather than the tail.
+   */
+  const askQuestion = useCallback(
+    async (text: string) => {
+      const question = text.trim();
+      if (!question || asking) return;
+
+      const id = nextTurnId();
+      setAsking(true);
+      setThread((current) => [...current, { id, kind: "ask", question, result: null }]);
+
+      const result = await askBioAro(question);
+      setAsking(false);
+      setThread((current) =>
+        current.map((turn) => (turn.id === id && turn.kind === "ask" ? { ...turn, result } : turn)),
+      );
+    },
+    [asking, nextTurnId],
+  );
 
   const setMessage = useCallback((value: string) => setMessageState(value.slice(0, MAX_MESSAGE)), []);
 
@@ -126,6 +191,9 @@ export function ProtocolSessionProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const adjustAnswers = useCallback(() => {
+    /* The log described answers that are being thrown away; keeping it would leave a
+       transcript of questions the visitor is about to be asked again. */
+    setThread([]);
     setSession((current) => resetAnswers(current));
   }, []);
 
@@ -138,6 +206,7 @@ export function ProtocolSessionProvider({ children }: { children: ReactNode }) {
     setMatched([]);
     setNoMatch(false);
     setError(null);
+    setThread([]);
   }, []);
 
   /*
@@ -158,6 +227,7 @@ export function ProtocolSessionProvider({ children }: { children: ReactNode }) {
     setMatched([]);
     setNoMatch(false);
     setError(null);
+    setThread([]);
     setSession((current) => setSessionGoals(resetSession(current), [...new Set(ids)], "personas"));
   }, []);
 
@@ -176,6 +246,12 @@ export function ProtocolSessionProvider({ children }: { children: ReactNode }) {
       clearMatched,
       toggleGoal,
       startWithGoals,
+      thread,
+      pushTurns,
+      attachImage,
+      askQuestion,
+      asking,
+      clearThread,
       studioOpen,
       studioAutoFocus,
       openStudio,
@@ -198,6 +274,12 @@ export function ProtocolSessionProvider({ children }: { children: ReactNode }) {
       clearMatched,
       toggleGoal,
       startWithGoals,
+      thread,
+      pushTurns,
+      attachImage,
+      askQuestion,
+      asking,
+      clearThread,
       studioOpen,
       studioAutoFocus,
       openStudio,

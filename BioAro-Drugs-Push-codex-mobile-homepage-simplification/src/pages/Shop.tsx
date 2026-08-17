@@ -2,23 +2,52 @@ import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import ProductCard from "../components/sections/ProductCard";
 import { fetchAllProducts } from "../lib/shopify/productService";
-import type { CatalogProduct } from "../lib/shopify/types";
+import type { CatalogProduct, ProductCategory } from "../lib/shopify/types";
 import { useMarket } from "../hooks/useMarket";
 
-const FILTERS = ["All", "LONgevity+", "Wellness", "Focus", "Energy", "Performance"] as const;
+/*
+ * Typed against ProductCategory on purpose.
+ *
+ * This list was previously bare string literals with no relation to the category union,
+ * so adding a category produced no chip and renaming one produced a dead chip — in both
+ * cases with zero type errors. Annotating it means the compiler now fails here whenever
+ * the taxonomy changes, which is the only reason the two ever stayed in step.
+ */
+const CATEGORIES: readonly ProductCategory[] = [
+  "Longevity",
+  "Focus",
+  "Energy",
+  "Performance",
+  "Recovery",
+  "Sleep & Calm",
+  "Hormonal Health",
+  "Daily Foundations",
+];
+
+const FILTERS = ["All", ...CATEGORIES] as const;
 const SORTS = ["Featured", "Price: Low to High", "Price: High to Low"] as const;
 
-type FilterOption = (typeof FILTERS)[number];
+type FilterOption = "All" | ProductCategory;
 type SortOption = (typeof SORTS)[number];
 
-/* The category was displayed as "Longevity" before the product spelling was applied
-   sitewide. Anything already linking to ?category=Longevity — a campaign, an email,
-   a bookmark — would otherwise fall silently back to All. */
-const FILTER_ALIASES: Record<string, FilterOption> = { Longevity: "LONgevity+" };
+/*
+ * Back-compat for links already in the wild — campaigns, emails, bookmarks.
+ *
+ * "LONgevity+" was a product name used as a category and is gone; "Wellness" held 12
+ * products that have been redistributed individually, so there is no single category it
+ * can honestly point at. It resolves to All rather than dropping someone on a chip that
+ * misrepresents what they clicked.
+ */
+const FILTER_ALIASES: Record<string, FilterOption> = {
+  Longevity: "Longevity",
+  "LONgevity+": "Longevity",
+  Wellness: "All",
+  Sleep: "Sleep & Calm",
+};
 
 function normalizeFilter(value: string | null): FilterOption {
   if (!value) return "All";
-  if (FILTERS.includes(value as FilterOption)) return value as FilterOption;
+  if ((FILTERS as readonly string[]).includes(value)) return value as FilterOption;
   return FILTER_ALIASES[value] ?? "All";
 }
 
@@ -36,6 +65,24 @@ export default function Shop() {
   useEffect(() => {
     setFilter(normalizeFilter(searchParams.get("category")));
   }, [searchParams]);
+
+  /*
+   * Chips are derived from the products this market carries, not from the full taxonomy.
+   *
+   * The list is market-wide, and markets carry very different ranges: the UAE stocks 7
+   * products, so 4 of the 8 categories have nothing in them there. Rendering the static
+   * list gave a visitor four live chips that led to "No formulas in this category yet" —
+   * a dead end dressed as a choice. Canonical order is preserved so the row does not
+   * reshuffle between markets.
+   *
+   * The active filter is always included even when empty, so a `?category=` link still
+   * describes what it did rather than silently showing All.
+   */
+  const chips = useMemo(() => {
+    const present = new Set(products.map((product) => product.category).filter(Boolean));
+    const shown = CATEGORIES.filter((category) => present.has(category) || category === filter);
+    return ["All", ...shown] as readonly FilterOption[];
+  }, [products, filter]);
 
   const visible = useMemo(() => {
     let list = filter === "All" ? products : products.filter((product) => product.category === filter);
@@ -71,7 +118,7 @@ export default function Shop() {
 
         <div className="mt-10 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex flex-wrap gap-2">
-            {FILTERS.map((option) => (
+            {chips.map((option) => (
               <button
                 key={option}
                 onClick={() => applyFilter(option)}

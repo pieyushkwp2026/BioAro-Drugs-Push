@@ -1,0 +1,3298 @@
+[
+  {
+    "productHandle": "bioprotein-pro",
+    "metafieldKey": "category",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Performance"
+  },
+  {
+    "productHandle": "bioprotein-pro",
+    "metafieldKey": "product_format",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Powder"
+  },
+  {
+    "productHandle": "bioprotein-pro",
+    "metafieldKey": "serving_size",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "29g (1 Scoop)"
+  },
+  {
+    "productHandle": "bioprotein-pro",
+    "metafieldKey": "servings_per_container",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "16"
+  },
+  {
+    "productHandle": "bioprotein-pro",
+    "metafieldKey": "directions",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Mix one scoop with 4-6oz of water, milk, or your favorite beverage. Vary the amount of liquid for taste preference."
+  },
+  {
+    "productHandle": "bioprotein-pro",
+    "metafieldKey": "warnings",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "If you have any health conditions, are pregnant, breastfeeding, or taking medication, ask a physician prior to use. Keep out of reach of small children."
+  },
+  {
+    "productHandle": "bioprotein-pro",
+    "metafieldKey": "allergen_info",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Contains: Milk, Soy"
+  },
+  {
+    "productHandle": "bioprotein-pro",
+    "metafieldKey": "other_ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Whey Protein Isolate, Natural & Artificial Flavor, Xanthan Gum, Sucralose, Digestive Enzyme Blend (Protease, Papain), BCAA Blend (Leucine, Isoleucine, Valine)."
+  },
+  {
+    "productHandle": "bioprotein-pro",
+    "metafieldKey": "ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Whey Protein Isolate, BCAA Blend (Leucine, Isoleucine, Valine), Digestive Enzyme Blend (Protease, Papain)"
+  },
+  {
+    "productHandle": "bioprotein-pro",
+    "metafieldKey": "benefit_cards",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "title": "Lean Muscle Recovery",
+        "description": "Formulated to support muscle recovery, growth, and lean muscle maintenance after training."
+      },
+      {
+        "title": "BCAA Enriched Formula",
+        "description": "Contains branched-chain amino acids selected to support muscle protein synthesis."
+      },
+      {
+        "title": "Enhanced Protein Absorption",
+        "description": "Includes digestive enzymes formulated to support protein digestion and nutrient absorption."
+      }
+    ]
+  },
+  {
+    "productHandle": "bioprotein-pro",
+    "metafieldKey": "faqs",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "question": "What is BioProtein Pro designed to support?",
+        "answer": "BioProtein Pro is a premium whey protein isolate formulated to support muscle recovery, growth, and maintenance. It includes BCAAs and digestive enzymes for protein absorption."
+      },
+      {
+        "question": "Who is BioProtein Pro best for?",
+        "answer": "Athletes and active individuals seeking faster recovery and lean muscle development."
+      },
+      {
+        "question": "Does it contain any allergens?",
+        "answer": "Yes. BioProtein Pro contains milk and soy."
+      },
+      {
+        "question": "How many servings are in a pack?",
+        "answer": "Each container provides 16 servings of 29g (1 scoop) each."
+      },
+      {
+        "question": "Can I take it alongside other BioAro Drugs products?",
+        "answer": "BioProtein Pro can be used as part of a broader supplement routine. Check individual product labels for specific guidance."
+      },
+      {
+        "question": "Who should not take this product?",
+        "answer": "Individuals who are pregnant, breastfeeding, have health conditions, or are taking medication should consult a physician before use."
+      }
+    ]
+  },
+  {
+    "productHandle": "bioprotein-pro",
+    "metafieldKey": "supplement_facts_rows",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "label": "Calories",
+        "value": "110"
+      },
+      {
+        "label": "Total Fat",
+        "value": "0.5 g (<1%)"
+      },
+      {
+        "label": "Cholesterol",
+        "value": "<5 mg (<1%)"
+      },
+      {
+        "label": "Total Carbohydrate",
+        "value": "1 g (<1%)"
+      },
+      {
+        "label": "Total Sugars",
+        "value": "<1 g"
+      },
+      {
+        "label": "Protein",
+        "value": "25 g"
+      },
+      {
+        "label": "Calcium",
+        "value": "121 mg (9%)"
+      },
+      {
+        "label": "Sodium",
+        "value": "65 mg (3%)"
+      },
+      {
+        "label": "Potassium",
+        "value": "137 mg (3%)"
+      }
+    ]
+  },
+  {
+    "productHandle": "plantcore",
+    "metafieldKey": "category",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Performance"
+  },
+  {
+    "productHandle": "plantcore",
+    "metafieldKey": "product_format",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Powder"
+  },
+  {
+    "productHandle": "plantcore",
+    "metafieldKey": "serving_size",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "1 scoop (33.1g)"
+  },
+  {
+    "productHandle": "plantcore",
+    "metafieldKey": "servings_per_container",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "20"
+  },
+  {
+    "productHandle": "plantcore",
+    "metafieldKey": "directions",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Adults, take one scoop (33.1g) included with 8 ounces of water or your favorite hot or cold recipe."
+  },
+  {
+    "productHandle": "plantcore",
+    "metafieldKey": "warnings",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "If you are pregnant, nursing, allergic, have a medical condition or taking any medications, consult a doctor before using this or any other dietary supplement. Do not use if product has been opened or tampered with in any way. Keep out of reach of children."
+  },
+  {
+    "productHandle": "plantcore",
+    "metafieldKey": "allergen_info",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "No major allergens listed on label."
+  },
+  {
+    "productHandle": "plantcore",
+    "metafieldKey": "other_ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Organic Pea Protein, Organic Rice Protein, Organic Erythritol, Vanilla Flavor, Vanilla Sweet Enhancer, Masking Agent, Stevia Extract, Sea Salt, Ticaloid Ultrasmooth, Sunflower Creamer."
+  },
+  {
+    "productHandle": "plantcore",
+    "metafieldKey": "ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Organic Pea Protein, Organic Rice Protein, Dietary Fiber"
+  },
+  {
+    "productHandle": "plantcore",
+    "metafieldKey": "benefit_cards",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "title": "Complete Plant Protein",
+        "description": "Combines organic pea and rice proteins to deliver a complete amino acid profile."
+      },
+      {
+        "title": "Dairy-Free Muscle Support",
+        "description": "Formulated to support muscle maintenance and recovery with plant-based nutrition."
+      },
+      {
+        "title": "Vegan Friendly Formula",
+        "description": "A suitable option for vegetarians, vegans, and individuals with lactose intolerance."
+      }
+    ]
+  },
+  {
+    "productHandle": "plantcore",
+    "metafieldKey": "faqs",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "question": "What is PlantCore designed to support?",
+        "answer": "PlantCore is a plant-based protein blend formulated to support muscle maintenance and recovery using organic pea and rice proteins."
+      },
+      {
+        "question": "Who is PlantCore best for?",
+        "answer": "Vegetarians, vegans, and individuals with lactose intolerance seeking a dairy-free protein alternative."
+      },
+      {
+        "question": "Does it contain any allergens?",
+        "answer": "No major allergens are listed on the label."
+      },
+      {
+        "question": "How many servings are in a pack?",
+        "answer": "Each container provides 20 servings of one scoop (33.1g) each."
+      },
+      {
+        "question": "Can I take it alongside other BioAro Drugs products?",
+        "answer": "PlantCore can be used as part of a broader supplement routine. Check individual product labels for specific guidance."
+      },
+      {
+        "question": "Who should not take this product?",
+        "answer": "Individuals who are pregnant, nursing, allergic, have a medical condition, or are taking medications should consult a doctor before use."
+      }
+    ]
+  },
+  {
+    "productHandle": "plantcore",
+    "metafieldKey": "supplement_facts_rows",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "label": "Calories",
+        "value": "125"
+      },
+      {
+        "label": "Total Fat",
+        "value": "2 g (3%)"
+      },
+      {
+        "label": "Saturated Fat",
+        "value": "0 g (0%)"
+      },
+      {
+        "label": "Trans Fat",
+        "value": "0 g"
+      },
+      {
+        "label": "Cholesterol",
+        "value": "0 mg (0%)"
+      },
+      {
+        "label": "Sodium",
+        "value": "120 mg (5%)"
+      },
+      {
+        "label": "Total Carbohydrate",
+        "value": "8 g (3%)"
+      },
+      {
+        "label": "Dietary Fiber",
+        "value": "4 g (14%)"
+      },
+      {
+        "label": "Total Sugar",
+        "value": "3 g"
+      },
+      {
+        "label": "Sugar Alcohol",
+        "value": "5 g"
+      },
+      {
+        "label": "Protein",
+        "value": "20 g (42%)"
+      }
+    ]
+  },
+  {
+    "productHandle": "bioignite",
+    "metafieldKey": "category",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Performance"
+  },
+  {
+    "productHandle": "bioignite",
+    "metafieldKey": "product_format",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Powder"
+  },
+  {
+    "productHandle": "bioignite",
+    "metafieldKey": "serving_size",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "10g (1 Scoop)"
+  },
+  {
+    "productHandle": "bioignite",
+    "metafieldKey": "servings_per_container",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "30"
+  },
+  {
+    "productHandle": "bioignite",
+    "metafieldKey": "directions",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Mix 1 or 2 scoops in 6-8 ounces of cold beverage. Assess tolerance by taking 1 scoop. If well tolerated, take 1 to 2 scoops 30 minutes before the workout. Do not exceed 2 scoops daily."
+  },
+  {
+    "productHandle": "bioignite",
+    "metafieldKey": "warnings",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Do not use if under age 18. Do not use if you are pregnant or nursing. Consult a medical doctor before use if you have any medical condition or family history of any disease. Keep out of reach of children."
+  },
+  {
+    "productHandle": "bioignite",
+    "metafieldKey": "allergen_info",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "No specific allergen statement on label."
+  },
+  {
+    "productHandle": "bioignite",
+    "metafieldKey": "other_ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Maltodextrin, Natural Flavors, Citric Acid, Silica, Dextrose, Sucralose, Beet Powder (Color)."
+  },
+  {
+    "productHandle": "bioignite",
+    "metafieldKey": "ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "L-Arginine Alpha Ketoglutarate, Beta Alanine, Caffeine, Dicreatine Malate"
+  },
+  {
+    "productHandle": "bioignite",
+    "metafieldKey": "benefit_cards",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "title": "Pre-Workout Energy Support",
+        "description": "Formulated to support energy production and muscular endurance during exercise."
+      },
+      {
+        "title": "Focus And Hydration",
+        "description": "Contains electrolytes and amino acids selected to support focus and hydration."
+      },
+      {
+        "title": "Nitric Oxide Support",
+        "description": "Includes ingredients formulated to support nitric oxide production for exercise performance."
+      }
+    ]
+  },
+  {
+    "productHandle": "bioignite",
+    "metafieldKey": "faqs",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "question": "What is BioIgnite designed to support?",
+        "answer": "BioIgnite is a pre-workout formula containing electrolytes, B vitamins, amino acids, and performance ingredients to support energy, endurance, hydration, and focus."
+      },
+      {
+        "question": "Who is BioIgnite best for?",
+        "answer": "Active individuals seeking energy, endurance, and focus support before exercise."
+      },
+      {
+        "question": "Does it contain any allergens?",
+        "answer": "No specific allergen statement appears on the label."
+      },
+      {
+        "question": "How many servings are in a pack?",
+        "answer": "Each container provides 30 servings of 10g (1 scoop) each."
+      },
+      {
+        "question": "Can I take it alongside other BioAro Drugs products?",
+        "answer": "BioIgnite can be used as part of a broader supplement routine. Check individual product labels for specific guidance."
+      },
+      {
+        "question": "Who should not take this product?",
+        "answer": "Do not use if under 18, pregnant, or nursing. Consult a doctor if you have any medical condition or are taking prescription drugs."
+      }
+    ]
+  },
+  {
+    "productHandle": "bioignite",
+    "metafieldKey": "supplement_facts_rows",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "label": "Sodium",
+        "value": "80 mg (3%)"
+      },
+      {
+        "label": "Potassium",
+        "value": "75 mg (2%)"
+      },
+      {
+        "label": "Vitamin B1",
+        "value": "1.5 mg (100%)"
+      },
+      {
+        "label": "Vitamin B2",
+        "value": "1.7 mg (100%)"
+      },
+      {
+        "label": "Vitamin B3 (Niacin)",
+        "value": "20 mg (100%)"
+      },
+      {
+        "label": "Vitamin B6",
+        "value": "2 mg (100%)"
+      },
+      {
+        "label": "Folic Acid",
+        "value": "400 mcg (100%)"
+      },
+      {
+        "label": "Vitamin B12",
+        "value": "6 mcg (100%)"
+      },
+      {
+        "label": "Pantothenic Acid",
+        "value": "5 mg (50%)"
+      },
+      {
+        "label": "Calcium",
+        "value": "170 mg (17%)"
+      },
+      {
+        "label": "Phosphorous",
+        "value": "120 mg (12%)"
+      },
+      {
+        "label": "Magnesium",
+        "value": "48 mg (12%)"
+      },
+      {
+        "label": "Chromium",
+        "value": "30 mcg (25%)"
+      },
+      {
+        "label": "Dicreatine Malate",
+        "value": "1500 mg"
+      },
+      {
+        "label": "L-Arginine AKG",
+        "value": "1500 mg"
+      },
+      {
+        "label": "Beta Alanine",
+        "value": "750 mg"
+      },
+      {
+        "label": "Caffeine",
+        "value": "175 mg"
+      },
+      {
+        "label": "Energy/Endurance/Focus Matrix",
+        "value": "550 mg"
+      }
+    ]
+  },
+  {
+    "productHandle": "musclerecover",
+    "metafieldKey": "category",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Performance"
+  },
+  {
+    "productHandle": "musclerecover",
+    "metafieldKey": "product_format",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Powder"
+  },
+  {
+    "productHandle": "musclerecover",
+    "metafieldKey": "serving_size",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "1 Scoop (7.7g)"
+  },
+  {
+    "productHandle": "musclerecover",
+    "metafieldKey": "servings_per_container",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "45"
+  },
+  {
+    "productHandle": "musclerecover",
+    "metafieldKey": "directions",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "As a dietary supplement, take one (1) scoop with 8-12 fl oz of water."
+  },
+  {
+    "productHandle": "musclerecover",
+    "metafieldKey": "warnings",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "For use by healthy adults only, not recommended for persons under the age of 18. Do not use if you are pregnant or nursing. Seek advice from a healthcare professional before taking if you have any preexisting medical condition."
+  },
+  {
+    "productHandle": "musclerecover",
+    "metafieldKey": "allergen_info",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "This product is produced in a facility that also processes milk, eggs, fish, shellfish, tree nuts, peanuts, soy, wheat, and may contain trace amounts of all ingredients."
+  },
+  {
+    "productHandle": "musclerecover",
+    "metafieldKey": "other_ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Naturally & Artificially Flavored, Citric Acid, Silicon Dioxide, Malic Acid, Acesulfame Potassium, Sucralose."
+  },
+  {
+    "productHandle": "musclerecover",
+    "metafieldKey": "ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "BCAA 2:1:1 (L-Leucine, L-Isoleucine, L-Valine), L-Glutamine, Vitamin B6 (as Pyridoxine HCl)"
+  },
+  {
+    "productHandle": "musclerecover",
+    "metafieldKey": "benefit_cards",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "title": "Amino Recovery Support",
+        "description": "Provides a 2:1:1 ratio of branched-chain amino acids to support muscle recovery."
+      },
+      {
+        "title": "Muscle Breakdown Protection",
+        "description": "Formulated to help reduce exercise-induced muscle breakdown during intense physical activity."
+      },
+      {
+        "title": "Post-Training Protein Synthesis",
+        "description": "Contains L-Glutamine and Vitamin B6 to support protein synthesis after training."
+      }
+    ]
+  },
+  {
+    "productHandle": "musclerecover",
+    "metafieldKey": "faqs",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "question": "What is MuscleRecover designed to support?",
+        "answer": "MuscleRecover provides BCAAs in a 2:1:1 ratio with L-Glutamine and Vitamin B6 to support muscle recovery and protein synthesis."
+      },
+      {
+        "question": "Who is MuscleRecover best for?",
+        "answer": "Active individuals engaged in intense physical activity seeking muscle recovery and maintenance support."
+      },
+      {
+        "question": "Does it contain any allergens?",
+        "answer": "Produced in a facility that processes milk, eggs, fish, shellfish, tree nuts, peanuts, soy, and wheat. May contain trace amounts."
+      },
+      {
+        "question": "How many servings are in a pack?",
+        "answer": "Each container provides 45 servings of one scoop (7.7g) each."
+      },
+      {
+        "question": "Can I take it alongside other BioAro Drugs products?",
+        "answer": "MuscleRecover can be used as part of a broader supplement routine. Check individual product labels for specific guidance."
+      },
+      {
+        "question": "Who should not take this product?",
+        "answer": "Not recommended for persons under 18, or those who are pregnant or nursing. Consult a healthcare professional if you have any preexisting medical condition."
+      }
+    ]
+  },
+  {
+    "productHandle": "musclerecover",
+    "metafieldKey": "supplement_facts_rows",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "label": "Vitamin B6",
+        "value": "2.5 mg (147%)"
+      },
+      {
+        "label": "BCAA 2:1:1 (L-Leucine, L-Isoleucine, L-Valine)",
+        "value": "4000 mg"
+      },
+      {
+        "label": "L-Glutamine",
+        "value": "1000 mg"
+      }
+    ]
+  },
+  {
+    "productHandle": "hydrareload",
+    "metafieldKey": "category",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Performance"
+  },
+  {
+    "productHandle": "hydrareload",
+    "metafieldKey": "product_format",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Powder"
+  },
+  {
+    "productHandle": "hydrareload",
+    "metafieldKey": "serving_size",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "One Scoop (27.3g)"
+  },
+  {
+    "productHandle": "hydrareload",
+    "metafieldKey": "servings_per_container",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "50"
+  },
+  {
+    "productHandle": "hydrareload",
+    "metafieldKey": "directions",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Mix one scoop (27.3g) with 8 oz of cold water. Best taken before training or post workout for recovery."
+  },
+  {
+    "productHandle": "hydrareload",
+    "metafieldKey": "warnings",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "If you have any health conditions, are pregnant, breastfeeding, or taking medication, ask a healthcare professional prior to use."
+  },
+  {
+    "productHandle": "hydrareload",
+    "metafieldKey": "allergen_info",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "No specific allergen statement on label."
+  },
+  {
+    "productHandle": "hydrareload",
+    "metafieldKey": "other_ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Maltodextrin, Dextrose, Natural & Artificial Flavors, Citric Acid, Malic Acid, Calcium Silicate, Sucralose."
+  },
+  {
+    "productHandle": "hydrareload",
+    "metafieldKey": "ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Carbohydrate Matrix (Maltodextrin, Dextrose), Electrolyte Blend (Sodium Chloride, Potassium Citrate, Magnesium Citrate, Calcium Carbonate)"
+  },
+  {
+    "productHandle": "hydrareload",
+    "metafieldKey": "benefit_cards",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "title": "Post-Workout Energy Recovery",
+        "description": "Formulated to replenish energy stores and support muscle recovery after exercise."
+      },
+      {
+        "title": "Targeted Electrolyte Restoration",
+        "description": "Contains electrolytes selected to help restore levels lost through sweat during training."
+      },
+      {
+        "title": "Next-Session Training Prep",
+        "description": "Supports recovery to help prepare the body for subsequent training sessions."
+      }
+    ]
+  },
+  {
+    "productHandle": "hydrareload",
+    "metafieldKey": "faqs",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "question": "What is HydraReload designed to support?",
+        "answer": "HydraReload is a post-workout recovery formula designed to replenish energy stores, restore electrolytes, and support muscle recovery."
+      },
+      {
+        "question": "Who is HydraReload best for?",
+        "answer": "Athletes and active individuals seeking recovery support following prolonged or high-intensity exercise."
+      },
+      {
+        "question": "Does it contain any allergens?",
+        "answer": "No specific allergen statement appears on the label."
+      },
+      {
+        "question": "How many servings are in a pack?",
+        "answer": "Each container provides 50 servings of one scoop (27.3g) each."
+      },
+      {
+        "question": "Can I take it alongside other BioAro Drugs products?",
+        "answer": "HydraReload can be used as part of a broader supplement routine. Check individual product labels for specific guidance."
+      },
+      {
+        "question": "Who should not take this product?",
+        "answer": "Individuals who are pregnant, breastfeeding, have health conditions, or are taking medication should ask a healthcare professional before use."
+      }
+    ]
+  },
+  {
+    "productHandle": "hydrareload",
+    "metafieldKey": "supplement_facts_rows",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "label": "Calories",
+        "value": "100"
+      },
+      {
+        "label": "Total Carbohydrates",
+        "value": "24 g (9%)"
+      },
+      {
+        "label": "Total Sugars",
+        "value": "10 g"
+      },
+      {
+        "label": "Calcium",
+        "value": "16 mg (<1%)"
+      },
+      {
+        "label": "Magnesium",
+        "value": "4 mg (<1%)"
+      },
+      {
+        "label": "Chloride",
+        "value": "40 mg (2%)"
+      },
+      {
+        "label": "Sodium",
+        "value": "30 mg (1%)"
+      },
+      {
+        "label": "Potassium",
+        "value": "23 mg (<1%)"
+      },
+      {
+        "label": "Electrolyte Blend",
+        "value": "200 mg"
+      }
+    ]
+  },
+  {
+    "productHandle": "womens-vitalprime",
+    "metafieldKey": "category",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Wellness"
+  },
+  {
+    "productHandle": "womens-vitalprime",
+    "metafieldKey": "product_format",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Capsule"
+  },
+  {
+    "productHandle": "womens-vitalprime",
+    "metafieldKey": "serving_size",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "2 Capsules"
+  },
+  {
+    "productHandle": "womens-vitalprime",
+    "metafieldKey": "servings_per_container",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "30"
+  },
+  {
+    "productHandle": "womens-vitalprime",
+    "metafieldKey": "directions",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "As a dietary supplement, take two (2) capsules in the morning with meal."
+  },
+  {
+    "productHandle": "womens-vitalprime",
+    "metafieldKey": "warnings",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Consult with a physician prior to use if you have a medical condition. Don't use if pregnant or lactating."
+  },
+  {
+    "productHandle": "womens-vitalprime",
+    "metafieldKey": "allergen_info",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "No specific allergen statement on label."
+  },
+  {
+    "productHandle": "womens-vitalprime",
+    "metafieldKey": "other_ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Cellulose (Vegetable Capsule), Rice Flour, Magnesium stearate, Silicon dioxide."
+  },
+  {
+    "productHandle": "womens-vitalprime",
+    "metafieldKey": "ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Female Support Blend (Wild Yam, Red Clover, Cranberry, Alpha Lipoic Acid), Vitamin B12 (as Cyanocobalamin), Immune Support Blend (Goldenseal, Echinacea, Spirulina, Garlic), Folate (400mcg Folic Acid)"
+  },
+  {
+    "productHandle": "womens-vitalprime",
+    "metafieldKey": "benefit_cards",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "title": "Daily Women's Wellness",
+        "description": "A comprehensive multivitamin formulated to support energy metabolism and immune health."
+      },
+      {
+        "title": "Bone And Skin Health",
+        "description": "Contains vitamins, minerals, and antioxidants selected to support bone and skin vitality."
+      },
+      {
+        "title": "Active Women's Nutrition",
+        "description": "Formulated with specialized botanical blends to meet the nutritional needs of active women."
+      }
+    ]
+  },
+  {
+    "productHandle": "womens-vitalprime",
+    "metafieldKey": "faqs",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "question": "What is Women's VitalPrime designed to support?",
+        "answer": "A comprehensive women's multivitamin providing vitamins, minerals, antioxidants, and botanical blends to support energy, immunity, bone health, and overall wellness."
+      },
+      {
+        "question": "Who is Women's VitalPrime best for?",
+        "answer": "Active women seeking a daily multivitamin formulated to meet their unique nutritional needs."
+      },
+      {
+        "question": "Does it contain any allergens?",
+        "answer": "No specific allergen statement appears on the label."
+      },
+      {
+        "question": "How many servings are in a pack?",
+        "answer": "Each bottle provides 30 servings of two capsules each (60 capsules total)."
+      },
+      {
+        "question": "Can I take it alongside other BioAro Drugs products?",
+        "answer": "Women's VitalPrime can be used as part of a broader supplement routine. Check individual product labels for specific guidance."
+      },
+      {
+        "question": "Who should not take this product?",
+        "answer": "Consult a physician if you have a medical condition. Do not use if pregnant or lactating."
+      }
+    ]
+  },
+  {
+    "productHandle": "womens-vitalprime",
+    "metafieldKey": "supplement_facts_rows",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "label": "Vitamin A",
+        "value": "600 mcg RAE (67%)"
+      },
+      {
+        "label": "Vitamin C",
+        "value": "150 mg (167%)"
+      },
+      {
+        "label": "Calcium",
+        "value": "50 mg (4%)"
+      },
+      {
+        "label": "Vitamin D",
+        "value": "10 mcg (50%)"
+      },
+      {
+        "label": "Vitamin E",
+        "value": "13.5 mg (90%)"
+      },
+      {
+        "label": "Vitamin B1",
+        "value": "7 mg (583%)"
+      },
+      {
+        "label": "Vitamin B2",
+        "value": "7.5 mg (577%)"
+      },
+      {
+        "label": "Vitamin B3",
+        "value": "15 mg NE (94%)"
+      },
+      {
+        "label": "Vitamin B6",
+        "value": "7.5 mg (167%)"
+      },
+      {
+        "label": "Folate (400mcg Folic Acid)",
+        "value": "667 mcg DFE (167%)"
+      },
+      {
+        "label": "Vitamin B12",
+        "value": "27 mcg (1125%)"
+      },
+      {
+        "label": "Biotin",
+        "value": "300 mcg (1000%)"
+      },
+      {
+        "label": "Vitamin B5",
+        "value": "10 mg (200%)"
+      },
+      {
+        "label": "Magnesium",
+        "value": "50 mg (12%)"
+      },
+      {
+        "label": "Zinc",
+        "value": "15 mg (136%)"
+      },
+      {
+        "label": "Selenium",
+        "value": "30 mcg (55%)"
+      },
+      {
+        "label": "Copper",
+        "value": "2 mg (222%)"
+      },
+      {
+        "label": "Manganese",
+        "value": "2 mg (87%)"
+      },
+      {
+        "label": "Chromium",
+        "value": "120 mcg (343%)"
+      },
+      {
+        "label": "Molybdenum",
+        "value": "75 mcg (167%)"
+      },
+      {
+        "label": "Female Support Blend",
+        "value": "192 mg"
+      },
+      {
+        "label": "Immune Support Blend",
+        "value": "115 mg"
+      },
+      {
+        "label": "Antioxidant Fruit & Energy Blend",
+        "value": "187 mg"
+      }
+    ]
+  },
+  {
+    "productHandle": "nitricflow",
+    "metafieldKey": "category",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Performance"
+  },
+  {
+    "productHandle": "nitricflow",
+    "metafieldKey": "product_format",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Powder"
+  },
+  {
+    "productHandle": "nitricflow",
+    "metafieldKey": "serving_size",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "One Scoop (12.5g)"
+  },
+  {
+    "productHandle": "nitricflow",
+    "metafieldKey": "servings_per_container",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "25"
+  },
+  {
+    "productHandle": "nitricflow",
+    "metafieldKey": "directions",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Mix 12.5g (1 scoop) in 8 ounces of water and drink slowly 20-30 minutes before training. To assess tolerance, start with &#189; serving. Some individuals may experience a harmless tingling sensation attributed to beta alanine. Use only as directed."
+  },
+  {
+    "productHandle": "nitricflow",
+    "metafieldKey": "warnings",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Only intended for healthy adults, 18 years of age or older. Contains 250mg of caffeine per serving (equivalent to 2&#189; cups of coffee). Do not use in combination with any other stimulants. Do not exceed 1 serving every 24 hours. Do not use if pregnant or nursing."
+  },
+  {
+    "productHandle": "nitricflow",
+    "metafieldKey": "allergen_info",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "No specific allergen statement on label."
+  },
+  {
+    "productHandle": "nitricflow",
+    "metafieldKey": "other_ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Inulin (Chicory Root), Natural Flavors, Calcium Silicate, Citric Acid, Sucralose, Malic Acid."
+  },
+  {
+    "productHandle": "nitricflow",
+    "metafieldKey": "ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Citrulline Malate, Beta Alanine, Caffeine, Alpha GPC 50%"
+  },
+  {
+    "productHandle": "nitricflow",
+    "metafieldKey": "benefit_cards",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "title": "High-Intensity Workout Support",
+        "description": "Formulated to support increased blood flow, muscular endurance, and workout intensity."
+      },
+      {
+        "title": "Strength And Focus",
+        "description": "Contains Alpha GPC and caffeine selected to support strength and mental focus."
+      },
+      {
+        "title": "Training Hydration Support",
+        "description": "Includes electrolytes formulated to help support hydration during high-intensity training sessions."
+      }
+    ]
+  },
+  {
+    "productHandle": "nitricflow",
+    "metafieldKey": "faqs",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "question": "What is NitricFlow designed to support?",
+        "answer": "NitricFlow is a stimulant-enhanced pre-workout formulated to support blood flow, endurance, strength, focus, and hydration during training."
+      },
+      {
+        "question": "Who is NitricFlow best for?",
+        "answer": "Healthy adults aged 18 and older seeking pre-workout support for pump, endurance, and focus."
+      },
+      {
+        "question": "Does it contain any allergens?",
+        "answer": "No specific allergen statement appears on the label."
+      },
+      {
+        "question": "How many servings are in a pack?",
+        "answer": "Each container provides 25 servings of one scoop (12.5g) each."
+      },
+      {
+        "question": "Can I take it alongside other BioAro Drugs products?",
+        "answer": "NitricFlow can be used as part of a broader supplement routine. Do not combine with other caffeine-containing products."
+      },
+      {
+        "question": "Who should not take this product?",
+        "answer": "Not for persons under 18, pregnant or nursing individuals, or those at risk of or being treated for any medical condition."
+      }
+    ]
+  },
+  {
+    "productHandle": "nitricflow",
+    "metafieldKey": "supplement_facts_rows",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "label": "Calories",
+        "value": "25"
+      },
+      {
+        "label": "Dietary Fiber",
+        "value": "2 g (7%)"
+      },
+      {
+        "label": "Chloride",
+        "value": "50 mg (2%)"
+      },
+      {
+        "label": "Sodium",
+        "value": "35 mg (2%)"
+      },
+      {
+        "label": "Citrulline Malate",
+        "value": "5000 mg"
+      },
+      {
+        "label": "Beta Alanine",
+        "value": "2000 mg"
+      },
+      {
+        "label": "Electrolyte Blend",
+        "value": "250 mg"
+      },
+      {
+        "label": "Taurine",
+        "value": "250 mg"
+      },
+      {
+        "label": "Betaine Anhydrous",
+        "value": "250 mg"
+      },
+      {
+        "label": "Caffeine",
+        "value": "250 mg"
+      },
+      {
+        "label": "Alpha GPC 50%",
+        "value": "100 mg"
+      }
+    ]
+  },
+  {
+    "productHandle": "mens-vitalprime",
+    "metafieldKey": "category",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Wellness"
+  },
+  {
+    "productHandle": "mens-vitalprime",
+    "metafieldKey": "product_format",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Capsule"
+  },
+  {
+    "productHandle": "mens-vitalprime",
+    "metafieldKey": "serving_size",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "2 Capsules"
+  },
+  {
+    "productHandle": "mens-vitalprime",
+    "metafieldKey": "servings_per_container",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "30"
+  },
+  {
+    "productHandle": "mens-vitalprime",
+    "metafieldKey": "directions",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "As a dietary supplement, take two (2) capsules in the morning with meal."
+  },
+  {
+    "productHandle": "mens-vitalprime",
+    "metafieldKey": "warnings",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Consult with a physician prior to use if you have a medical condition."
+  },
+  {
+    "productHandle": "mens-vitalprime",
+    "metafieldKey": "allergen_info",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "No specific allergen statement on label."
+  },
+  {
+    "productHandle": "mens-vitalprime",
+    "metafieldKey": "other_ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Cellulose (Vegetable Capsule), Rice Flour, Magnesium stearate, Silicon dioxide."
+  },
+  {
+    "productHandle": "mens-vitalprime",
+    "metafieldKey": "ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Male Support Blend (Lutein, Lycopene, Stinging Nettle, Saw Palmetto), Vitamin B12 (as Cyanocobalamin), Immune Support Blend (Echinacea, Beta Glucan, Spirulina, Garlic), Antioxidant Fruit & Energy Blend"
+  },
+  {
+    "productHandle": "mens-vitalprime",
+    "metafieldKey": "benefit_cards",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "title": "Daily Men's Wellness",
+        "description": "A complete multivitamin formulated to support energy production and immune function."
+      },
+      {
+        "title": "Heart Health Support",
+        "description": "Contains vitamins, minerals, and antioxidants selected to support cardiovascular health."
+      },
+      {
+        "title": "Complete Hormone Support",
+        "description": "Formulated with specialized botanical blends to support overall daily wellness for men."
+      }
+    ]
+  },
+  {
+    "productHandle": "mens-vitalprime",
+    "metafieldKey": "faqs",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "question": "What is Men's VitalPrime designed to support?",
+        "answer": "A complete men's multivitamin delivering vitamins, minerals, antioxidants, and botanical blends to support energy, immunity, cardiovascular health, and overall wellness."
+      },
+      {
+        "question": "Who is Men's VitalPrime best for?",
+        "answer": "Men seeking a daily multivitamin formulated to support energy, immunity, and overall wellness."
+      },
+      {
+        "question": "Does it contain any allergens?",
+        "answer": "No specific allergen statement appears on the label."
+      },
+      {
+        "question": "How many servings are in a pack?",
+        "answer": "Each bottle provides 30 servings of two capsules each (60 capsules total)."
+      },
+      {
+        "question": "Can I take it alongside other BioAro Drugs products?",
+        "answer": "Men's VitalPrime can be used as part of a broader supplement routine. Check individual product labels for specific guidance."
+      },
+      {
+        "question": "Who should not take this product?",
+        "answer": "Consult with a physician prior to use if you have a medical condition."
+      }
+    ]
+  },
+  {
+    "productHandle": "mens-vitalprime",
+    "metafieldKey": "supplement_facts_rows",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "label": "Vitamin A",
+        "value": "600 mcg RAE (67%)"
+      },
+      {
+        "label": "Vitamin C",
+        "value": "150 mg (167%)"
+      },
+      {
+        "label": "Calcium",
+        "value": "50 mg (4%)"
+      },
+      {
+        "label": "Vitamin D",
+        "value": "10 mcg (50%)"
+      },
+      {
+        "label": "Vitamin E",
+        "value": "13.5 mg (90%)"
+      },
+      {
+        "label": "Vitamin B1",
+        "value": "7 mg (583%)"
+      },
+      {
+        "label": "Vitamin B2",
+        "value": "7.5 mg (577%)"
+      },
+      {
+        "label": "Vitamin B3",
+        "value": "30 mg NE (188%)"
+      },
+      {
+        "label": "Vitamin B6",
+        "value": "7.5 mg (167%)"
+      },
+      {
+        "label": "Folate (400mcg Folic Acid)",
+        "value": "667 mcg DFE (167%)"
+      },
+      {
+        "label": "Vitamin B12",
+        "value": "27 mcg (1125%)"
+      },
+      {
+        "label": "Biotin",
+        "value": "300 mcg (1000%)"
+      },
+      {
+        "label": "Vitamin B5",
+        "value": "10 mg (200%)"
+      },
+      {
+        "label": "Magnesium",
+        "value": "50 mg (12%)"
+      },
+      {
+        "label": "Zinc",
+        "value": "15 mg (136%)"
+      },
+      {
+        "label": "Selenium",
+        "value": "30 mcg (55%)"
+      },
+      {
+        "label": "Copper",
+        "value": "2 mg (222%)"
+      },
+      {
+        "label": "Manganese",
+        "value": "2 mg (87%)"
+      },
+      {
+        "label": "Chromium",
+        "value": "120 mcg (343%)"
+      },
+      {
+        "label": "Molybdenum",
+        "value": "75 mcg (167%)"
+      },
+      {
+        "label": "Male Support Blend",
+        "value": "170 mg"
+      },
+      {
+        "label": "Immune Support Blend",
+        "value": "110 mg"
+      },
+      {
+        "label": "Antioxidant Fruit & Energy Blend",
+        "value": "190 mg"
+      }
+    ]
+  },
+  {
+    "productHandle": "biocollagen",
+    "metafieldKey": "category",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Wellness"
+  },
+  {
+    "productHandle": "biocollagen",
+    "metafieldKey": "product_format",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Powder"
+  },
+  {
+    "productHandle": "biocollagen",
+    "metafieldKey": "serving_size",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "10g (Two Scoops)"
+  },
+  {
+    "productHandle": "biocollagen",
+    "metafieldKey": "servings_per_container",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "35"
+  },
+  {
+    "productHandle": "biocollagen",
+    "metafieldKey": "directions",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Mix 10G (2 Scoops) with your favorite beverage. Collagen does not mix well in cold water. Warm water may be used, then ice added later once mixed."
+  },
+  {
+    "productHandle": "biocollagen",
+    "metafieldKey": "warnings",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Consult with a physician prior to use if you have any medical conditions. Do not use if pregnant or lactating."
+  },
+  {
+    "productHandle": "biocollagen",
+    "metafieldKey": "allergen_info",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Contains bovine collagen (from grass-fed, pasture-raised cattle)."
+  },
+  {
+    "productHandle": "biocollagen",
+    "metafieldKey": "other_ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "None listed beyond collagen peptides."
+  },
+  {
+    "productHandle": "biocollagen",
+    "metafieldKey": "ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Collagen Peptides (Grass-Fed Hydrolyzed Type I & III Bovine), Protein"
+  },
+  {
+    "productHandle": "biocollagen",
+    "metafieldKey": "benefit_cards",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "title": "Skin And Joint Support",
+        "description": "Contains Type I and III collagen peptides to support healthy skin and joints."
+      },
+      {
+        "title": "Connective Tissue Health",
+        "description": "Formulated to support the maintenance of tendons, ligaments, and connective tissues."
+      },
+      {
+        "title": "Mobility And Aging Support",
+        "description": "Contains hydrolyzed collagen peptides selected to support mobility and healthy aging."
+      }
+    ]
+  },
+  {
+    "productHandle": "biocollagen",
+    "metafieldKey": "faqs",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "question": "What is BioCollagen designed to support?",
+        "answer": "BioCollagen contains hydrolyzed bovine collagen peptides providing Type I and III collagen to support healthy skin, joints, tendons, and connective tissues."
+      },
+      {
+        "question": "Who is BioCollagen best for?",
+        "answer": "Individuals seeking to maintain mobility, support recovery, and promote healthy aging."
+      },
+      {
+        "question": "Does it contain any allergens?",
+        "answer": "BioCollagen contains bovine collagen from grass-fed, pasture-raised cattle."
+      },
+      {
+        "question": "How many servings are in a pack?",
+        "answer": "Each container provides 35 servings of 10g (two scoops) each."
+      },
+      {
+        "question": "Can I take it alongside other BioAro Drugs products?",
+        "answer": "BioCollagen can be used as part of a broader supplement routine. Check individual product labels for specific guidance."
+      },
+      {
+        "question": "Who should not take this product?",
+        "answer": "Consult a physician if you have any medical conditions. Do not use if pregnant or lactating."
+      }
+    ]
+  },
+  {
+    "productHandle": "biocollagen",
+    "metafieldKey": "supplement_facts_rows",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "label": "Calories",
+        "value": "35"
+      },
+      {
+        "label": "Total Fat",
+        "value": "0 g (0%)"
+      },
+      {
+        "label": "Total Carbohydrate",
+        "value": "0 g (0%)"
+      },
+      {
+        "label": "Protein",
+        "value": "9 g (18%)"
+      },
+      {
+        "label": "Collagen Peptides (Grass-Fed Hydrolyzed Type I & III Bovine)",
+        "value": "10 g"
+      }
+    ]
+  },
+  {
+    "productHandle": "nitric-roots",
+    "metafieldKey": "category",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Performance"
+  },
+  {
+    "productHandle": "nitric-roots",
+    "metafieldKey": "product_format",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Capsule"
+  },
+  {
+    "productHandle": "nitric-roots",
+    "metafieldKey": "serving_size",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "2 Veggie Capsules"
+  },
+  {
+    "productHandle": "nitric-roots",
+    "metafieldKey": "servings_per_container",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "30"
+  },
+  {
+    "productHandle": "nitric-roots",
+    "metafieldKey": "directions",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "As a dietary supplement take two (2) veggie capsules once a day. For best results take 20-30 min before a meal with an 8oz. glass of water, or as directed by your healthcare professional."
+  },
+  {
+    "productHandle": "nitric-roots",
+    "metafieldKey": "warnings",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Do not exceed recommended dose. Pregnant or nursing mothers, children under 18, and individuals with a known medical condition should consult a physician before use."
+  },
+  {
+    "productHandle": "nitric-roots",
+    "metafieldKey": "allergen_info",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "No specific allergen statement on label."
+  },
+  {
+    "productHandle": "nitric-roots",
+    "metafieldKey": "other_ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Cellulose (Vegetable Capsule), Microcrystalline Cellulose, Magnesium Stearate."
+  },
+  {
+    "productHandle": "nitric-roots",
+    "metafieldKey": "ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Organic Beetroot Powder (Beta vulgaris)"
+  },
+  {
+    "productHandle": "nitric-roots",
+    "metafieldKey": "benefit_cards",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "title": "Natural Cardiovascular Support",
+        "description": "Contains organic beetroot naturally rich in dietary nitrates for cardiovascular support."
+      },
+      {
+        "title": "Endurance And Recovery",
+        "description": "Formulated to support endurance, exercise efficiency, and recovery during aerobic activities."
+      },
+      {
+        "title": "Nitric Oxide Production",
+        "description": "Provides dietary nitrates selected to support natural nitric oxide production and blood flow."
+      }
+    ]
+  },
+  {
+    "productHandle": "nitric-roots",
+    "metafieldKey": "faqs",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "question": "What is Nitric Roots designed to support?",
+        "answer": "Nitric Roots contains organic beetroot powder naturally rich in dietary nitrates that support nitric oxide production, healthy blood flow, and cardiovascular performance."
+      },
+      {
+        "question": "Who is Nitric Roots best for?",
+        "answer": "Individuals seeking to support endurance, exercise efficiency, and recovery during aerobic activities."
+      },
+      {
+        "question": "Does it contain any allergens?",
+        "answer": "No specific allergen statement appears on the label."
+      },
+      {
+        "question": "How many servings are in a pack?",
+        "answer": "Each bottle provides 30 servings of two veggie capsules each (60 capsules total)."
+      },
+      {
+        "question": "Can I take it alongside other BioAro Drugs products?",
+        "answer": "Nitric Roots can be used as part of a broader supplement routine. Check individual product labels for specific guidance."
+      },
+      {
+        "question": "Who should not take this product?",
+        "answer": "Pregnant or nursing mothers, children under 18, and individuals with a known medical condition should consult a physician before use."
+      }
+    ]
+  },
+  {
+    "productHandle": "nitric-roots",
+    "metafieldKey": "supplement_facts_rows",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "label": "Organic Beetroot Powder (beta vulgaris)",
+        "value": "1300 mg"
+      }
+    ]
+  },
+  {
+    "productHandle": "mindsync",
+    "metafieldKey": "category",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Focus"
+  },
+  {
+    "productHandle": "mindsync",
+    "metafieldKey": "product_format",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Capsule"
+  },
+  {
+    "productHandle": "mindsync",
+    "metafieldKey": "serving_size",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "2 Capsules"
+  },
+  {
+    "productHandle": "mindsync",
+    "metafieldKey": "servings_per_container",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "30"
+  },
+  {
+    "productHandle": "mindsync",
+    "metafieldKey": "directions",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "As a dietary supplement take two (2) veggie capsules once a day. For best results take 20-30 min before a meal with an 8oz. glass of water, or as directed by your healthcare professional."
+  },
+  {
+    "productHandle": "mindsync",
+    "metafieldKey": "warnings",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Do not exceed recommended dose. Pregnant or nursing mothers, children under 18, and individuals with a known medical condition should consult a physician before use. Contains iron &#8212; accidental overdose of iron-containing products is a leading cause of fatal poisoning in children under 6."
+  },
+  {
+    "productHandle": "mindsync",
+    "metafieldKey": "allergen_info",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Contains: Soy & Fish"
+  },
+  {
+    "productHandle": "mindsync",
+    "metafieldKey": "other_ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Cellulose (Vegetable Capsule), Rice Flour, Magnesium Stearate, Silicon Dioxide."
+  },
+  {
+    "productHandle": "mindsync",
+    "metafieldKey": "ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Proprietary Nootropic Blend (DMAE, L-Glutamine, Bacopa, Choline, N-Acetyl L-Tyrosine), Vitamin B6 (Pyridoxal Phosphate), Magnesium (as Magnesium Oxide)"
+  },
+  {
+    "productHandle": "mindsync",
+    "metafieldKey": "benefit_cards",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "title": "Daily Mental Focus",
+        "description": "Formulated to support focus and mental clarity through the working day."
+      },
+      {
+        "title": "Cognitive Memory Support",
+        "description": "Combines nootropic ingredients selected to support memory and cognitive performance."
+      },
+      {
+        "title": "Sustained Daily Concentration",
+        "description": "Contains botanical extracts and amino acids formulated for sustained daily concentration."
+      }
+    ]
+  },
+  {
+    "productHandle": "mindsync",
+    "metafieldKey": "faqs",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "question": "What is MindSync designed to support?",
+        "answer": "MindSync is a comprehensive cognitive support formula combining vitamins, minerals, amino acids, and nootropic ingredients to support mental clarity, focus, memory, and sustained concentration."
+      },
+      {
+        "question": "Who is MindSync best for?",
+        "answer": "Individuals seeking daily nutritional support for focus, memory, and cognitive performance."
+      },
+      {
+        "question": "Does it contain any allergens?",
+        "answer": "Yes. MindSync contains soy and fish."
+      },
+      {
+        "question": "How many servings are in a pack?",
+        "answer": "Each bottle provides 30 servings of two capsules each (60 capsules total)."
+      },
+      {
+        "question": "Can I take it alongside other BioAro Drugs products?",
+        "answer": "MindSync can be used as part of a broader supplement routine. Check individual product labels for specific guidance."
+      },
+      {
+        "question": "Who should not take this product?",
+        "answer": "Pregnant or nursing mothers, children under 18, and individuals with a known medical condition should consult a physician. Keep away from children under 6 due to iron content."
+      }
+    ]
+  },
+  {
+    "productHandle": "mindsync",
+    "metafieldKey": "supplement_facts_rows",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "label": "Vitamin A",
+        "value": "2400 IU (48%)"
+      },
+      {
+        "label": "Vitamin C",
+        "value": "125 mg (208%)"
+      },
+      {
+        "label": "Vitamin D",
+        "value": "100 IU (25%)"
+      },
+      {
+        "label": "Vitamin E",
+        "value": "30 IU (100%)"
+      },
+      {
+        "label": "Vitamin B1",
+        "value": "3 mg (200%)"
+      },
+      {
+        "label": "Vitamin B2",
+        "value": "1.7 mg (100%)"
+      },
+      {
+        "label": "Vitamin B3",
+        "value": "12.5 mg (62%)"
+      },
+      {
+        "label": "Vitamin B6",
+        "value": "12 mg (600%)"
+      },
+      {
+        "label": "Folic Acid",
+        "value": "400 mcg (100%)"
+      },
+      {
+        "label": "Biotin",
+        "value": "3 mcg (3%)"
+      },
+      {
+        "label": "Vitamin B5",
+        "value": "12 mg (120%)"
+      },
+      {
+        "label": "Calcium",
+        "value": "20 mg (2%)"
+      },
+      {
+        "label": "Iron",
+        "value": "1 mg (6%)"
+      },
+      {
+        "label": "Magnesium",
+        "value": "50 mg (12%)"
+      },
+      {
+        "label": "Zinc",
+        "value": "10 mg (67%)"
+      },
+      {
+        "label": "Selenium",
+        "value": "50 mcg (71%)"
+      },
+      {
+        "label": "Copper",
+        "value": "52 mcg (3%)"
+      },
+      {
+        "label": "Manganese",
+        "value": "400 mcg (20%)"
+      },
+      {
+        "label": "Chromium",
+        "value": "12 mcg (10%)"
+      },
+      {
+        "label": "Molybdenum",
+        "value": "10 mcg (20%)"
+      },
+      {
+        "label": "Potassium",
+        "value": "50 mg (1.4%)"
+      },
+      {
+        "label": "Proprietary Blend (DMAE, L-Glutamine, Green Tea, Bacopa, Choline, Inositol, N-Acetyl L-Tyrosine, + more)",
+        "value": "692 mg"
+      }
+    ]
+  },
+  {
+    "productHandle": "magbalance",
+    "metafieldKey": "category",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Wellness"
+  },
+  {
+    "productHandle": "magbalance",
+    "metafieldKey": "product_format",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Capsule"
+  },
+  {
+    "productHandle": "magbalance",
+    "metafieldKey": "serving_size",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "2 Capsules"
+  },
+  {
+    "productHandle": "magbalance",
+    "metafieldKey": "servings_per_container",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "30"
+  },
+  {
+    "productHandle": "magbalance",
+    "metafieldKey": "directions",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "As a dietary supplement take two (2) capsules once daily or as directed by your healthcare professional."
+  },
+  {
+    "productHandle": "magbalance",
+    "metafieldKey": "warnings",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Do not exceed recommended dose. Pregnant or nursing mothers, children under 18, and individuals with a known medical condition should consult a physician before use."
+  },
+  {
+    "productHandle": "magbalance",
+    "metafieldKey": "allergen_info",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "No specific allergen statement on label."
+  },
+  {
+    "productHandle": "magbalance",
+    "metafieldKey": "other_ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Hypromellose (capsule), Magnesium Stearate, Silicon Dioxide, Rice Flour."
+  },
+  {
+    "productHandle": "magbalance",
+    "metafieldKey": "ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Magnesium (from Magnesium Glycinate)"
+  },
+  {
+    "productHandle": "magbalance",
+    "metafieldKey": "benefit_cards",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "title": "Muscle And Nerve Function",
+        "description": "Formulated to support normal muscle and nerve function with bioavailable magnesium."
+      },
+      {
+        "title": "Sleep And Relaxation",
+        "description": "Contains magnesium glycinate selected to support relaxation and sleep quality."
+      },
+      {
+        "title": "Gentle Daily Formula",
+        "description": "A form of magnesium that is gentle on the digestive system for daily use."
+      }
+    ]
+  },
+  {
+    "productHandle": "magbalance",
+    "metafieldKey": "faqs",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "question": "What is MagBalance designed to support?",
+        "answer": "MagBalance provides magnesium glycinate, a highly bioavailable form of magnesium formulated to support normal muscle and nerve function, relaxation, sleep quality, and recovery."
+      },
+      {
+        "question": "Who is MagBalance best for?",
+        "answer": "Individuals with increased magnesium requirements seeking a form that is gentle on the digestive system."
+      },
+      {
+        "question": "Does it contain any allergens?",
+        "answer": "No specific allergen statement appears on the label."
+      },
+      {
+        "question": "How many servings are in a pack?",
+        "answer": "Each bottle provides 30 servings of two capsules each (60 capsules total)."
+      },
+      {
+        "question": "Can I take it alongside other BioAro Drugs products?",
+        "answer": "MagBalance can be used as part of a broader supplement routine. Check individual product labels for specific guidance."
+      },
+      {
+        "question": "Who should not take this product?",
+        "answer": "Pregnant or nursing mothers, children under 18, and individuals with a known medical condition should consult a physician before use."
+      }
+    ]
+  },
+  {
+    "productHandle": "magbalance",
+    "metafieldKey": "supplement_facts_rows",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "label": "Magnesium (from 1,786mg Magnesium Glycinate)",
+        "value": "250 mg (60%)"
+      }
+    ]
+  },
+  {
+    "productHandle": "vitalgreens",
+    "metafieldKey": "category",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Wellness"
+  },
+  {
+    "productHandle": "vitalgreens",
+    "metafieldKey": "product_format",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Powder"
+  },
+  {
+    "productHandle": "vitalgreens",
+    "metafieldKey": "serving_size",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "1 Scoop (11.4g)"
+  },
+  {
+    "productHandle": "vitalgreens",
+    "metafieldKey": "servings_per_container",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "30"
+  },
+  {
+    "productHandle": "vitalgreens",
+    "metafieldKey": "directions",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "As a dietary supplement, take one (1) scoop with 8-12 fl oz of water."
+  },
+  {
+    "productHandle": "vitalgreens",
+    "metafieldKey": "warnings",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "For use by healthy adults only, not recommended for persons under 18. Do not use if pregnant or nursing. Seek advice from a healthcare professional if you have any preexisting medical condition."
+  },
+  {
+    "productHandle": "vitalgreens",
+    "metafieldKey": "allergen_info",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Contains: Wheat. Produced in a facility that also processes milk, eggs, fish, shellfish, tree nuts, peanuts, soy."
+  },
+  {
+    "productHandle": "vitalgreens",
+    "metafieldKey": "other_ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Sweetly Stevia, Silicon Dioxide, Malic Acid, Naturally Flavored, Citric Acid, Stevia Leaf Extract."
+  },
+  {
+    "productHandle": "vitalgreens",
+    "metafieldKey": "ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Organic Wheat Grass Powder, Organic Spirulina, Lactobacillus acidophilus"
+  },
+  {
+    "productHandle": "vitalgreens",
+    "metafieldKey": "benefit_cards",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "title": "Daily Greens Nutrition",
+        "description": "A nutrient-dense superfood blend formulated to support daily nutrition and overall vitality."
+      },
+      {
+        "title": "Probiotic Digestive Health",
+        "description": "Contains probiotics and organic greens selected to support digestive health and comfort."
+      },
+      {
+        "title": "Antioxidant Immune Support",
+        "description": "Includes antioxidant-rich fruits, vitamins, and minerals to support immune function."
+      }
+    ]
+  },
+  {
+    "productHandle": "vitalgreens",
+    "metafieldKey": "faqs",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "question": "What is VitalGreens designed to support?",
+        "answer": "VitalGreens is a nutrient-dense superfood blend combining organic greens, antioxidant-rich fruits, and probiotics to support daily nutrition, digestive health, and immune function."
+      },
+      {
+        "question": "Who is VitalGreens best for?",
+        "answer": "Healthy adults seeking a convenient daily greens supplement with organic ingredients and probiotic support."
+      },
+      {
+        "question": "Does it contain any allergens?",
+        "answer": "Yes. Contains wheat. Produced in a facility that processes milk, eggs, fish, shellfish, tree nuts, peanuts, and soy."
+      },
+      {
+        "question": "How many servings are in a pack?",
+        "answer": "Each container provides 30 servings of one scoop (11.4g) each."
+      },
+      {
+        "question": "Can I take it alongside other BioAro Drugs products?",
+        "answer": "VitalGreens can be used as part of a broader supplement routine. Check individual product labels for specific guidance."
+      },
+      {
+        "question": "Who should not take this product?",
+        "answer": "Not recommended for persons under 18, or those who are pregnant or nursing. Consult a healthcare professional if you have any preexisting medical condition."
+      }
+    ]
+  },
+  {
+    "productHandle": "vitalgreens",
+    "metafieldKey": "supplement_facts_rows",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "label": "Organic Wheat Grass Powder",
+        "value": "6000 mg"
+      },
+      {
+        "label": "Organic Spirulina",
+        "value": "1000 mg"
+      },
+      {
+        "label": "Acerola Juice Powder",
+        "value": "10 mg"
+      },
+      {
+        "label": "Beet Root Juice Powder",
+        "value": "10 mg"
+      },
+      {
+        "label": "Blueberry Powder",
+        "value": "10 mg"
+      },
+      {
+        "label": "Cherry Juice Powder",
+        "value": "10 mg"
+      },
+      {
+        "label": "Guar Gum Powder",
+        "value": "10 mg"
+      },
+      {
+        "label": "Fibersol 2 (Maltodextrin)",
+        "value": "10 mg"
+      },
+      {
+        "label": "Oat Flour",
+        "value": "10 mg"
+      },
+      {
+        "label": "Organic Carrot Powder",
+        "value": "10 mg"
+      },
+      {
+        "label": "Organic Pomegranate Juice",
+        "value": "10 mg"
+      },
+      {
+        "label": "Red Raspberry Seed",
+        "value": "10 mg"
+      },
+      {
+        "label": "Acai Berry Juice",
+        "value": "5 mg"
+      },
+      {
+        "label": "Apple Pectin",
+        "value": "5 mg"
+      },
+      {
+        "label": "Artichoke Extract",
+        "value": "5 mg"
+      },
+      {
+        "label": "Cabbage Powder",
+        "value": "5 mg"
+      },
+      {
+        "label": "Flaxseed Powder",
+        "value": "5 mg"
+      },
+      {
+        "label": "Mango Juice Powder",
+        "value": "5 mg"
+      },
+      {
+        "label": "Organic Alfalfa Grass",
+        "value": "5 mg"
+      },
+      {
+        "label": "Organic Apple Powder",
+        "value": "5 mg"
+      },
+      {
+        "label": "Organic Barley Grass",
+        "value": "5 mg"
+      },
+      {
+        "label": "Organic Broccoli Sprout",
+        "value": "5 mg"
+      },
+      {
+        "label": "Organic Chlorella",
+        "value": "5 mg"
+      },
+      {
+        "label": "Organic Kale",
+        "value": "5 mg"
+      },
+      {
+        "label": "Organic Tomato",
+        "value": "5 mg"
+      },
+      {
+        "label": "Papaya",
+        "value": "5 mg"
+      },
+      {
+        "label": "Parsley Leaf",
+        "value": "5 mg"
+      },
+      {
+        "label": "Pineapple Juice",
+        "value": "5 mg"
+      },
+      {
+        "label": "Spinach",
+        "value": "5 mg"
+      },
+      {
+        "label": "Watermelon Juice",
+        "value": "5 mg"
+      },
+      {
+        "label": "Lactobacillus acidophilus",
+        "value": "1 mg"
+      }
+    ]
+  },
+  {
+    "productHandle": "joint-flex",
+    "metafieldKey": "category",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Wellness"
+  },
+  {
+    "productHandle": "joint-flex",
+    "metafieldKey": "product_format",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Capsule"
+  },
+  {
+    "productHandle": "joint-flex",
+    "metafieldKey": "serving_size",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "3 Capsules"
+  },
+  {
+    "productHandle": "joint-flex",
+    "metafieldKey": "servings_per_container",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "20"
+  },
+  {
+    "productHandle": "joint-flex",
+    "metafieldKey": "directions",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "For best results, take three (3) capsules daily before a meal. For quicker relief, take a loading dose of six capsules daily for the first two weeks."
+  },
+  {
+    "productHandle": "joint-flex",
+    "metafieldKey": "warnings",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Consult with a physician prior to use if you have any medical conditions. Glucosamine is derived from shellfish. People allergic to shellfish should not consume this product."
+  },
+  {
+    "productHandle": "joint-flex",
+    "metafieldKey": "allergen_info",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Contains: Shellfish."
+  },
+  {
+    "productHandle": "joint-flex",
+    "metafieldKey": "other_ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Cellulose (Vegetable Capsule), Rice Flour."
+  },
+  {
+    "productHandle": "joint-flex",
+    "metafieldKey": "ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Glucosamine Sulfate, Boswellia Extract, Chondroitin Sulfate, Turmeric"
+  },
+  {
+    "productHandle": "joint-flex",
+    "metafieldKey": "benefit_cards",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "title": "Daily Joint Comfort",
+        "description": "Formulated to help maintain joint comfort, flexibility, and long-term mobility."
+      },
+      {
+        "title": "Cartilage Integrity Support",
+        "description": "Contains Glucosamine and Chondroitin selected to support cartilage integrity and flexibility."
+      },
+      {
+        "title": "Long-Term Active Lifestyle",
+        "description": "A comprehensive formula combining eight ingredients to support an active lifestyle."
+      }
+    ]
+  },
+  {
+    "productHandle": "joint-flex",
+    "metafieldKey": "faqs",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "question": "What is FlexMotion designed to support?",
+        "answer": "FlexMotion combines Glucosamine, Chondroitin, MSM, Boswellia, Turmeric, and other ingredients to help maintain joint comfort, cartilage integrity, flexibility, and mobility."
+      },
+      {
+        "question": "Who is FlexMotion best for?",
+        "answer": "Individuals seeking nutritional support for joint comfort and flexibility to maintain an active lifestyle."
+      },
+      {
+        "question": "Does it contain any allergens?",
+        "answer": "Yes. Glucosamine is derived from shellfish. People allergic to shellfish should not consume this product."
+      },
+      {
+        "question": "How many servings are in a pack?",
+        "answer": "Each bottle provides 20 servings of three capsules each (60 capsules total)."
+      },
+      {
+        "question": "Can I take it alongside other BioAro Drugs products?",
+        "answer": "FlexMotion can be used as part of a broader supplement routine. Check individual product labels for specific guidance."
+      },
+      {
+        "question": "Who should not take this product?",
+        "answer": "Consult a physician if you have any medical conditions. Do not use if you have a shellfish allergy."
+      }
+    ]
+  },
+  {
+    "productHandle": "joint-flex",
+    "metafieldKey": "supplement_facts_rows",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "label": "Glucosamine Sulfate",
+        "value": "1500 mg"
+      },
+      {
+        "label": "Boswellia Extract",
+        "value": "200 mg"
+      },
+      {
+        "label": "Chondroitin Sulfate",
+        "value": "150 mg"
+      },
+      {
+        "label": "Turmeric",
+        "value": "150 mg"
+      },
+      {
+        "label": "Quercetin",
+        "value": "25 mg"
+      },
+      {
+        "label": "Methionine",
+        "value": "25 mg"
+      },
+      {
+        "label": "MSM (Methylsulfonylmethane)",
+        "value": "25 mg"
+      },
+      {
+        "label": "Bromelain",
+        "value": "25 mg"
+      }
+    ]
+  },
+  {
+    "productHandle": "natural-pct",
+    "metafieldKey": "category",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Wellness"
+  },
+  {
+    "productHandle": "natural-pct",
+    "metafieldKey": "product_format",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Capsule"
+  },
+  {
+    "productHandle": "natural-pct",
+    "metafieldKey": "serving_size",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "2 Capsules"
+  },
+  {
+    "productHandle": "natural-pct",
+    "metafieldKey": "servings_per_container",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "30"
+  },
+  {
+    "productHandle": "natural-pct",
+    "metafieldKey": "directions",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Take two (2) capsules at night. For best results, use for 4 to 8 weeks. Do not exceed 8 weeks of continuous use."
+  },
+  {
+    "productHandle": "natural-pct",
+    "metafieldKey": "warnings",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Consult with a licensed physician before using this product. Do not take this product if you have prostate hypertrophy, liver disease, kidney, or heart disease."
+  },
+  {
+    "productHandle": "natural-pct",
+    "metafieldKey": "allergen_info",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "No specific allergen statement on label."
+  },
+  {
+    "productHandle": "natural-pct",
+    "metafieldKey": "other_ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Gelatin Capsule, Rice Flour."
+  },
+  {
+    "productHandle": "natural-pct",
+    "metafieldKey": "ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "TestSupport Blend (Fenugreek, Cissus, Tongkat Ali, 3,4-DVTHF), LivSupport Blend (Milk Thistle, N-Acetyl-L-Cysteine), EstroControl Blend (Indole-3-carbinol, Chrysin, Resveratrol)"
+  },
+  {
+    "productHandle": "natural-pct",
+    "metafieldKey": "benefit_cards",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "title": "Natural Hormonal Balance",
+        "description": "Contains botanical blends formulated to help maintain natural hormonal balance."
+      },
+      {
+        "title": "Healthy Liver Support",
+        "description": "Includes ingredients selected to support healthy liver function during recovery periods."
+      },
+      {
+        "title": "Post-Cycle Recovery Formula",
+        "description": "Formulated to promote overall recovery following periods of intense physical training."
+      }
+    ]
+  },
+  {
+    "productHandle": "natural-pct",
+    "metafieldKey": "faqs",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "question": "What is Hormone Reset designed to support?",
+        "answer": "Hormone Reset is a post-cycle therapy formula containing botanical blends to help maintain hormonal balance, support liver function, and promote overall recovery."
+      },
+      {
+        "question": "Who is Hormone Reset best for?",
+        "answer": "Individuals seeking nutritional support following periods of intense physical training or supplementation."
+      },
+      {
+        "question": "Does it contain any allergens?",
+        "answer": "No specific allergen statement appears on the label. Contains gelatin capsule."
+      },
+      {
+        "question": "How many servings are in a pack?",
+        "answer": "Each bottle provides 30 servings of two capsules each (60 capsules total)."
+      },
+      {
+        "question": "Can I take it alongside other BioAro Drugs products?",
+        "answer": "Hormone Reset can be used as part of a broader supplement routine. Check individual product labels for specific guidance."
+      },
+      {
+        "question": "Who should not take this product?",
+        "answer": "Do not take if you have prostate hypertrophy, liver disease, kidney, or heart disease. Consult a licensed physician before use."
+      }
+    ]
+  },
+  {
+    "productHandle": "natural-pct",
+    "metafieldKey": "supplement_facts_rows",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "label": "EstroControl Blend (Indole-3-carbinol, Chrysin, Resveratrol)",
+        "value": "105 mg"
+      },
+      {
+        "label": "TestSupport Blend (Fenugreek, Cissus Quadrangularis, Tongkat Ali, 3,4-DVTHF)",
+        "value": "720 mg"
+      },
+      {
+        "label": "LivSupport Blend (Milk Thistle 80% Silymarin, N-Acetyl-L-Cysteine)",
+        "value": "300 mg"
+      }
+    ]
+  },
+  {
+    "productHandle": "ultra-test",
+    "metafieldKey": "category",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Wellness"
+  },
+  {
+    "productHandle": "ultra-test",
+    "metafieldKey": "product_format",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Capsule"
+  },
+  {
+    "productHandle": "ultra-test",
+    "metafieldKey": "serving_size",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "3 Capsules"
+  },
+  {
+    "productHandle": "ultra-test",
+    "metafieldKey": "servings_per_container",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "30"
+  },
+  {
+    "productHandle": "ultra-test",
+    "metafieldKey": "directions",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Take three (3) capsules before bedtime."
+  },
+  {
+    "productHandle": "ultra-test",
+    "metafieldKey": "warnings",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Consult with a physician prior to use if you have any medical conditions. Do not use if pregnant or lactating."
+  },
+  {
+    "productHandle": "ultra-test",
+    "metafieldKey": "allergen_info",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "No specific allergen statement on label."
+  },
+  {
+    "productHandle": "ultra-test",
+    "metafieldKey": "other_ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Cellulose (Vegetable Capsule), Rice Flour, Magnesium Stearate (vegetable)."
+  },
+  {
+    "productHandle": "ultra-test",
+    "metafieldKey": "ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Tribulus Terrestris, Magnesium (Magnesium Oxide), Zinc (Zinc Oxide)"
+  },
+  {
+    "productHandle": "ultra-test",
+    "metafieldKey": "benefit_cards",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "title": "Healthy Male Vitality",
+        "description": "Formulated to support healthy testosterone levels already within the normal range."
+      },
+      {
+        "title": "Strength And Performance",
+        "description": "Contains zinc, magnesium, and botanicals selected to support strength and exercise performance."
+      },
+      {
+        "title": "Men's Recovery Wellness",
+        "description": "A comprehensive blend combining eight ingredients to support male vitality and recovery."
+      }
+    ]
+  },
+  {
+    "productHandle": "ultra-test",
+    "metafieldKey": "faqs",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "question": "What is AndroCore designed to support?",
+        "answer": "AndroCore is a men's wellness formula featuring Tribulus, Longjack, Zinc, and Magnesium to support healthy testosterone levels within the normal range, male vitality, strength, and exercise performance."
+      },
+      {
+        "question": "Who is AndroCore best for?",
+        "answer": "Men seeking nutritional support for vitality, strength, exercise performance, and recovery."
+      },
+      {
+        "question": "Does it contain any allergens?",
+        "answer": "No specific allergen statement appears on the label."
+      },
+      {
+        "question": "How many servings are in a pack?",
+        "answer": "Each bottle provides 30 servings of three capsules each (90 capsules total)."
+      },
+      {
+        "question": "Can I take it alongside other BioAro Drugs products?",
+        "answer": "AndroCore can be used as part of a broader supplement routine. Check individual product labels for specific guidance."
+      },
+      {
+        "question": "Who should not take this product?",
+        "answer": "Consult a physician if you have any medical conditions. Do not use if pregnant or lactating."
+      }
+    ]
+  },
+  {
+    "productHandle": "ultra-test",
+    "metafieldKey": "supplement_facts_rows",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "label": "Magnesium (Magnesium Oxide)",
+        "value": "200 mg (50%)"
+      },
+      {
+        "label": "Zinc (Zinc Oxide)",
+        "value": "30 mg (200%)"
+      },
+      {
+        "label": "Tribulus Terrestris",
+        "value": "750 mg"
+      },
+      {
+        "label": "Chrysin",
+        "value": "75 mg"
+      },
+      {
+        "label": "Horny Goat Weed P.E.",
+        "value": "50 mg"
+      },
+      {
+        "label": "Longjack",
+        "value": "50 mg"
+      },
+      {
+        "label": "Saw Palmetto Berries",
+        "value": "50 mg"
+      },
+      {
+        "label": "Hawthorn Berries",
+        "value": "50 mg"
+      },
+      {
+        "label": "Cissus Quadrangularis",
+        "value": "50 mg"
+      }
+    ]
+  },
+  {
+    "productHandle": "digestive-enzyme",
+    "metafieldKey": "category",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Wellness"
+  },
+  {
+    "productHandle": "digestive-enzyme",
+    "metafieldKey": "product_format",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Capsule"
+  },
+  {
+    "productHandle": "digestive-enzyme",
+    "metafieldKey": "serving_size",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "1 Veggie Capsule"
+  },
+  {
+    "productHandle": "digestive-enzyme",
+    "metafieldKey": "servings_per_container",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "60"
+  },
+  {
+    "productHandle": "digestive-enzyme",
+    "metafieldKey": "directions",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "As a dietary supplement take one (1) capsule twice a day. For best results take 20-30 min before a meal, or as directed by your healthcare professional."
+  },
+  {
+    "productHandle": "digestive-enzyme",
+    "metafieldKey": "warnings",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Do not exceed recommended dose. Pregnant or nursing mothers, children under 18, and individuals with a known medical condition should consult a physician before use."
+  },
+  {
+    "productHandle": "digestive-enzyme",
+    "metafieldKey": "allergen_info",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "No specific allergen statement on label."
+  },
+  {
+    "productHandle": "digestive-enzyme",
+    "metafieldKey": "other_ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Cellulose (Vegetable Capsule), Vegetable Magnesium Stearate, Silicon Dioxide."
+  },
+  {
+    "productHandle": "digestive-enzyme",
+    "metafieldKey": "ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Makzyme-Pro Enzyme Blend, Bromelain, Fungal Lactase, Probiotic Blend (L. acidophilus, L. casei, L. plantarum)"
+  },
+  {
+    "productHandle": "digestive-enzyme",
+    "metafieldKey": "benefit_cards",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "title": "Daily Digestive Comfort",
+        "description": "A broad-spectrum enzyme formula formulated to support digestive comfort after meals."
+      },
+      {
+        "title": "Efficient Nutrient Absorption",
+        "description": "Contains enzymes and probiotics selected to support efficient nutrient absorption."
+      },
+      {
+        "title": "Dairy And Protein Digestion",
+        "description": "Includes lactase and proteases to support digestion of dairy products and proteins."
+      }
+    ]
+  },
+  {
+    "productHandle": "digestive-enzyme",
+    "metafieldKey": "faqs",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "question": "What is Digestive Enzyme designed to support?",
+        "answer": "A broad-spectrum formula containing enzymes and probiotics to support efficient digestion of proteins, carbohydrates, and dairy products while promoting digestive comfort."
+      },
+      {
+        "question": "Who is Digestive Enzyme best for?",
+        "answer": "Individuals seeking support for digestive comfort, nutrient absorption, and digestion of dairy and proteins."
+      },
+      {
+        "question": "Does it contain any allergens?",
+        "answer": "No specific allergen statement appears on the label."
+      },
+      {
+        "question": "How many servings are in a pack?",
+        "answer": "Each bottle provides 60 servings of one veggie capsule each."
+      },
+      {
+        "question": "Can I take it alongside other BioAro Drugs products?",
+        "answer": "Digestive Enzyme can be used as part of a broader supplement routine. Check individual product labels for specific guidance."
+      },
+      {
+        "question": "Who should not take this product?",
+        "answer": "Pregnant or nursing mothers, children under 18, and individuals with a known medical condition should consult a physician before use."
+      }
+    ]
+  },
+  {
+    "productHandle": "digestive-enzyme",
+    "metafieldKey": "supplement_facts_rows",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "label": "Makzyme-Pro Enzyme Blend (Fungal Protease from Aspergillus oryzae)",
+        "value": "2500 HUT / 400 mg"
+      },
+      {
+        "label": "Bromelain",
+        "value": "90 GDU"
+      },
+      {
+        "label": "Papain",
+        "value": "2670 TU"
+      },
+      {
+        "label": "Fungal Lipase",
+        "value": "1500 FIP"
+      },
+      {
+        "label": "Fungal Lactase",
+        "value": "600 LACU"
+      },
+      {
+        "label": "Alpha Galactosidase",
+        "value": "300 GALU"
+      }
+    ]
+  },
+  {
+    "productHandle": "vitamin-k2-d3",
+    "metafieldKey": "category",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Wellness"
+  },
+  {
+    "productHandle": "vitamin-k2-d3",
+    "metafieldKey": "product_format",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Capsule"
+  },
+  {
+    "productHandle": "vitamin-k2-d3",
+    "metafieldKey": "serving_size",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "1 Veggie Capsule"
+  },
+  {
+    "productHandle": "vitamin-k2-d3",
+    "metafieldKey": "servings_per_container",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "60"
+  },
+  {
+    "productHandle": "vitamin-k2-d3",
+    "metafieldKey": "directions",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "As a dietary supplement take one (1) veggie capsule twice a day. For best results take 20-30 min before a meal with an 8oz. glass of water, or as directed by your healthcare professional."
+  },
+  {
+    "productHandle": "vitamin-k2-d3",
+    "metafieldKey": "warnings",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Do not exceed recommended dose. Pregnant or nursing mothers, children under 18, and individuals with a known medical condition should consult a physician before use."
+  },
+  {
+    "productHandle": "vitamin-k2-d3",
+    "metafieldKey": "allergen_info",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "No specific allergen statement on label."
+  },
+  {
+    "productHandle": "vitamin-k2-d3",
+    "metafieldKey": "other_ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Cellulose (vegetable capsule)."
+  },
+  {
+    "productHandle": "vitamin-k2-d3",
+    "metafieldKey": "ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Vitamin D3 (Cholecalciferol), Vitamin K2 (MK-7), Calcium (as Calcium Carbonate), BioPerine (Black Pepper Fruit Extract)"
+  },
+  {
+    "productHandle": "vitamin-k2-d3",
+    "metafieldKey": "benefit_cards",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "title": "Calcium And Bone Strength",
+        "description": "Combines Vitamins D3 and K2 formulated to support calcium absorption and bone strength."
+      },
+      {
+        "title": "Heart And Skeletal Health",
+        "description": "Contains a synergistic blend selected to support cardiovascular health and skeletal function."
+      },
+      {
+        "title": "BioPerine Enhanced Absorption",
+        "description": "Includes BioPerine to support optimal absorption of essential vitamins and minerals."
+      }
+    ]
+  },
+  {
+    "productHandle": "vitamin-k2-d3",
+    "metafieldKey": "faqs",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "question": "What is BoneVital designed to support?",
+        "answer": "Combines Vitamins D3 and K2 with calcium and BioPerine to support calcium absorption, bone strength, cardiovascular health, and skeletal function."
+      },
+      {
+        "question": "Who is BoneVital best for?",
+        "answer": "Individuals seeking nutritional support for bone strength, calcium absorption, and cardiovascular health."
+      },
+      {
+        "question": "Does it contain any allergens?",
+        "answer": "No specific allergen statement appears on the label."
+      },
+      {
+        "question": "How many servings are in a pack?",
+        "answer": "Each bottle provides 60 servings of one veggie capsule each."
+      },
+      {
+        "question": "Can I take it alongside other BioAro Drugs products?",
+        "answer": "BoneVital can be used as part of a broader supplement routine. Check individual product labels for specific guidance."
+      },
+      {
+        "question": "Who should not take this product?",
+        "answer": "Pregnant or nursing mothers, children under 18, and individuals with a known medical condition should consult a physician before use."
+      }
+    ]
+  },
+  {
+    "productHandle": "vitamin-k2-d3",
+    "metafieldKey": "supplement_facts_rows",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "label": "Vitamin D3 (Cholecalciferol)",
+        "value": "125 mcg (625%)"
+      },
+      {
+        "label": "Vitamin K2 (MK-7)",
+        "value": "100 mcg (83%)"
+      },
+      {
+        "label": "Calcium (as Calcium Carbonate)",
+        "value": "210 mg (15%)"
+      },
+      {
+        "label": "BioPerine (Black Pepper Fruit Extract)",
+        "value": "5 mg"
+      }
+    ]
+  },
+  {
+    "productHandle": "energized-aminos",
+    "metafieldKey": "category",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Performance"
+  },
+  {
+    "productHandle": "energized-aminos",
+    "metafieldKey": "product_format",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Powder"
+  },
+  {
+    "productHandle": "energized-aminos",
+    "metafieldKey": "serving_size",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "9g (1 Scoop)"
+  },
+  {
+    "productHandle": "energized-aminos",
+    "metafieldKey": "servings_per_container",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "40"
+  },
+  {
+    "productHandle": "energized-aminos",
+    "metafieldKey": "directions",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Stir 1 scoop with 6-8 ounces of cold water, and consume in the morning and/or between meals. Pre-Workout: take 1 or more servings 20-30 minutes before activity. Post-Training: take 1 or more servings immediately after finishing activity."
+  },
+  {
+    "productHandle": "energized-aminos",
+    "metafieldKey": "warnings",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Check with a qualified health care professional before taking if you are pregnant or nursing, under 18 years of age, have any known or suspected medical conditions, and/or if you are taking any prescription or OTC medications."
+  },
+  {
+    "productHandle": "energized-aminos",
+    "metafieldKey": "allergen_info",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "No specific allergen statement on label."
+  },
+  {
+    "productHandle": "energized-aminos",
+    "metafieldKey": "other_ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Inulin (Chicory Root Powder), Malic Acid, Natural & Artificial Flavors, Sucralose, Silicon Dioxide, Citric Acid, Acesulfame Potassium, Beta Carotene, Vegetable Juice Color."
+  },
+  {
+    "productHandle": "energized-aminos",
+    "metafieldKey": "ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Amino Blend (12 amino acids including Taurine, L-Glutamine, L-Arginine, L-Leucine), Energy Blend (Caffeine, Theobromine, Green Tea Extract)"
+  },
+  {
+    "productHandle": "energized-aminos",
+    "metafieldKey": "benefit_cards",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "title": "Amino Energy Metabolism",
+        "description": "Contains B vitamins and amino acids formulated to support natural energy metabolism."
+      },
+      {
+        "title": "Daily Fatigue Reduction",
+        "description": "Formulated with essential B vitamins selected to help reduce tiredness and fatigue."
+      },
+      {
+        "title": "Active Daily Recovery",
+        "description": "An amino acid formula formulated to support recovery and overall vitality throughout the day."
+      }
+    ]
+  },
+  {
+    "productHandle": "energized-aminos",
+    "metafieldKey": "faqs",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "question": "What is AminoBoost designed to support?",
+        "answer": "A B-vitamin enriched amino acid formula designed to support natural energy metabolism, reduce fatigue, and promote recovery."
+      },
+      {
+        "question": "Who is AminoBoost best for?",
+        "answer": "Active individuals seeking amino acid and energy support before, during, or after training, or between meals."
+      },
+      {
+        "question": "Does it contain any allergens?",
+        "answer": "No specific allergen statement appears on the label."
+      },
+      {
+        "question": "How many servings are in a pack?",
+        "answer": "Each container provides 40 servings of one scoop (9g) each."
+      },
+      {
+        "question": "Can I take it alongside other BioAro Drugs products?",
+        "answer": "AminoBoost can be used as part of a broader routine. Avoid combining with other caffeine-containing products."
+      },
+      {
+        "question": "Who should not take this product?",
+        "answer": "Consult a healthcare professional if pregnant, nursing, under 18, have medical conditions, or are taking prescription or OTC medications."
+      }
+    ]
+  },
+  {
+    "productHandle": "energized-aminos",
+    "metafieldKey": "supplement_facts_rows",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "label": "Calories",
+        "value": "5"
+      },
+      {
+        "label": "Total Carbohydrates",
+        "value": "3 g (1%)"
+      },
+      {
+        "label": "Dietary Fiber",
+        "value": "2 g (8%)"
+      },
+      {
+        "label": "Vitamin A",
+        "value": "186 IU (4%)"
+      },
+      {
+        "label": "Amino Blend (Taurine, L-Glutamine, L-Arginine, L-Leucine, L-Valine, L-Isoleucine, L-Citrulline, L-Tyrosine, L-Theanine, L-Histidine, L-Lysine HCl, L-Threonine)",
+        "value": "5000 mg"
+      },
+      {
+        "label": "Energy Blend (Caffeine, Theobromine, Green Tea Extract)",
+        "value": "175 mg"
+      }
+    ]
+  },
+  {
+    "productHandle": "adrenal-support-plus",
+    "metafieldKey": "category",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Wellness"
+  },
+  {
+    "productHandle": "adrenal-support-plus",
+    "metafieldKey": "product_format",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Capsule"
+  },
+  {
+    "productHandle": "adrenal-support-plus",
+    "metafieldKey": "serving_size",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "2 Capsules"
+  },
+  {
+    "productHandle": "adrenal-support-plus",
+    "metafieldKey": "servings_per_container",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "30"
+  },
+  {
+    "productHandle": "adrenal-support-plus",
+    "metafieldKey": "directions",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Take 2 capsules at breakfast or before 2 P.M. or as directed by a health professional."
+  },
+  {
+    "productHandle": "adrenal-support-plus",
+    "metafieldKey": "warnings",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Use only if seal is intact. Consult your health care practitioner if you are pregnant or nursing, taking medications or have a medical condition, before taking this or any other product. Keep out of reach of children."
+  },
+  {
+    "productHandle": "adrenal-support-plus",
+    "metafieldKey": "allergen_info",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "No specific allergen statement on label."
+  },
+  {
+    "productHandle": "adrenal-support-plus",
+    "metafieldKey": "other_ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "multi_line_text_field",
+    "value": "Plant-Source Capsules (cellulose, water)."
+  },
+  {
+    "productHandle": "adrenal-support-plus",
+    "metafieldKey": "ingredients",
+    "metafieldNamespace": "custom",
+    "metafieldType": "single_line_text_field",
+    "value": "Fermented Organic Cordyceps (mycelia) Extract, Eleuthero (root), Rhodiola Extract (root)"
+  },
+  {
+    "productHandle": "adrenal-support-plus",
+    "metafieldKey": "benefit_cards",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "title": "Daily Stress Resilience",
+        "description": "Contains adaptogenic botanicals formulated to support the body's response to daily stress."
+      },
+      {
+        "title": "Natural Energy Recovery",
+        "description": "Includes Cordyceps and Rhodiola selected to support natural energy and recovery."
+      },
+      {
+        "title": "Sustained Overall Well-Being",
+        "description": "Formulated with traditional botanical extracts to support well-being during demanding periods."
+      }
+    ]
+  },
+  {
+    "productHandle": "adrenal-support-plus",
+    "metafieldKey": "faqs",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "question": "What is StressAdapt designed to support?",
+        "answer": "An adaptogenic formula featuring Cordyceps, Rhodiola, and Eleuthero to support the body's response to stress, promote energy, and support recovery."
+      },
+      {
+        "question": "Who is StressAdapt best for?",
+        "answer": "Individuals experiencing increased physical or emotional demand seeking adaptogenic support for energy, resilience, and recovery."
+      },
+      {
+        "question": "Does it contain any allergens?",
+        "answer": "No specific allergen statement appears on the label."
+      },
+      {
+        "question": "How many servings are in a pack?",
+        "answer": "Each bottle provides 30 servings of two capsules each (60 capsules total)."
+      },
+      {
+        "question": "Can I take it alongside other BioAro Drugs products?",
+        "answer": "StressAdapt can be used as part of a broader supplement routine. Check individual product labels for specific guidance."
+      },
+      {
+        "question": "Who should not take this product?",
+        "answer": "Consult your healthcare practitioner if pregnant, nursing, taking medications, or have a medical condition."
+      }
+    ]
+  },
+  {
+    "productHandle": "adrenal-support-plus",
+    "metafieldKey": "supplement_facts_rows",
+    "metafieldNamespace": "custom",
+    "metafieldType": "json",
+    "value": [
+      {
+        "label": "Fermented Organic Cordyceps (mycelia) Extract",
+        "value": "475 mg"
+      },
+      {
+        "label": "Eleuthero (root)",
+        "value": "126 mg"
+      },
+      {
+        "label": "Rhodiola Extract (root) (min 1% salidrosides, 3% rosavins)",
+        "value": "122 mg"
+      },
+      {
+        "label": "Organic Chlorella (whole; broken cell wall)",
+        "value": "54 mg"
+      },
+      {
+        "label": "Bromelain Enzyme Blend (Bromelain, Japanese Knotweed, Humic Acid)",
+        "value": "38 mg"
+      },
+      {
+        "label": "Organic Burdock (root)",
+        "value": "36 mg"
+      }
+    ]
+  }
+]

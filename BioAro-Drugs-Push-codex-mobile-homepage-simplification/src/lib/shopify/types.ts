@@ -1,5 +1,24 @@
 import type { CountryCode } from "../market/types";
-export type ProductCategory = "LONgevity+" | "Wellness" | "Focus" | "Energy" | "Performance";
+/*
+ * Shop categories.
+ *
+ * Six of the eight are `GoalId` values from the protocol engine, deliberately: the shop
+ * and the protocol builder used to describe the same products in different words, so
+ * "browse Sleep & Calm" and "BioAro Drugs AI built you a sleep protocol" never met.
+ *
+ * What left, and why: "LONgevity+" was a PRODUCT NAME serving as a category and held
+ * exactly one product. "Wellness" held 12 of 30 — sleep, gut, joints, bone, hormones,
+ * stress, skin and greens behind one word that told a visitor nothing.
+ */
+export type ProductCategory =
+  | "Longevity"
+  | "Focus"
+  | "Energy"
+  | "Performance"
+  | "Recovery"
+  | "Sleep & Calm"
+  | "Hormonal Health"
+  | "Daily Foundations";
 export interface MoneyAmount {
   amount: number;
   currencyCode: "USD" | "CAD" | "GBP" | "AED";
@@ -205,7 +224,15 @@ export interface ProductEditorial {
   isBestseller?: boolean;
   image?: ProductImage;
   galleryImages?: ProductGalleryImage[];
-  category: ProductCategory;
+  /*
+   * Optional, so an uncategorised product is representable.
+   *
+   * It used to be required, which forced `createShopifyProduct` to invent a default of
+   * "Wellness" for anything Shopify had not categorised — which is how SleepO became a
+   * Wellness product without anyone choosing that. A missing category should read as a
+   * gap to fill, not as a bucket.
+   */
+  category?: ProductCategory;
   tags: string[];
   bestFor: string;
   bestForLabel?: string;

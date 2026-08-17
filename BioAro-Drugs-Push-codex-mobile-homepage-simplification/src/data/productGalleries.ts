@@ -85,13 +85,15 @@ export const PRODUCT_GALLERIES: Record<string, ProductGalleryImage[]> = {
     { src: brainBoostDetail, alt: "Creagen Brain Boost container with branded lid and sachet", fit: "cover" },
     { src: brainBoostIngredients, alt: "Creagen Brain Boost key ingredients and serving amounts", fit: "contain" },
   ],
-  "creagen-smart-start": [
-    { src: brainBoostHero, alt: "Creagen Smart Start container with sachet and water", fit: "cover" },
-    { src: brainBoostOpenPack, alt: "Open Creagen Smart Start container with individual sachets", fit: "cover" },
-    { src: brainBoostFlatlay, alt: "Creagen Smart Start container and sachets flat lay", fit: "cover" },
-    { src: brainBoostDetail, alt: "Creagen Smart Start container with branded lid and sachet", fit: "cover" },
-    { src: brainBoostIngredients, alt: "Creagen Smart Start key ingredients and serving amounts", fit: "contain" },
-  ],
+  /*
+   * Creagen Smart Start has no entry here on purpose.
+   *
+   * It used to carry Creagen Brain Boost's five photographs under its own name. Now that
+   * it is published to Shopify with its own image, this map was the only thing still
+   * overriding it — local wins over `product.image` in every consumer. A product showing
+   * another product's packaging is the same defect as SleepO showing LONgevity+'s
+   * ingredients, and the fix is the same: stop holding a local copy.
+   */
   "creagen-pro-power": [
     { src: proPowerHero, alt: "Creagen Pro Power container with two individual sachets", fit: "cover" },
     { src: proPowerIngredients, alt: "Creagen Pro Power ingredients with powder and individual sachets", fit: "cover" },
