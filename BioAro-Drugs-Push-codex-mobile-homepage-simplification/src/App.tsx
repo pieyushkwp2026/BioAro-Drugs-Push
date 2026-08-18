@@ -12,6 +12,7 @@ import Journal from "./pages/Journal";
 import JournalArticle from "./pages/JournalArticle";
 import About from "./pages/About";
 import RequireAuth from "./components/auth/RequireAuth";
+import RequireAdvancedAi from "./components/auth/RequireAdvancedAi";
 import MemberShell from "./components/member/MemberShell";
 import MemberOverview from "./pages/member/MemberOverview";
 import MemberProtocol from "./pages/member/MemberProtocol";
@@ -28,6 +29,8 @@ import QualityTesting from "./pages/QualityTesting";
 import Faq from "./pages/Faq";
 import Protocols from "./pages/Protocols";
 import Partners from "./pages/Partners";
+import Membership from "./pages/Membership";
+import MembershipSuccess from "./pages/MembershipSuccess";
 import NotFound from "./pages/NotFound";
 import AuthLogin from "./pages/AuthLogin";
 import AuthCallback from "./pages/AuthCallback";
@@ -58,6 +61,8 @@ const REGIONAL_PAGES = [
   { path: "faq", element: <Faq /> },
   { path: "protocols", element: <Protocols /> },
   { path: "partners", element: <Partners /> },
+  { path: "membership", element: <Membership /> },
+  { path: "membership/success", element: <MembershipSuccess /> },
 ] as const;
 
 /*
@@ -170,7 +175,11 @@ function RegionalRoutes() {
 
         <Route element={<AppFrame />}>
           {APP_PAGES.map((page) => (
-            <Route key={page.path} path={page.path} element={page.element} />
+            <Route
+              key={page.path}
+              path={page.path}
+              element={<RequireAdvancedAi>{page.element}</RequireAdvancedAi>}
+            />
           ))}
         </Route>
       </Route>

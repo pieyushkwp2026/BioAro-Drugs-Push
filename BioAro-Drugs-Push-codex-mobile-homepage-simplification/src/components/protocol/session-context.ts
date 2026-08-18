@@ -2,7 +2,7 @@ import { createContext } from "react";
 import type { ImageIntent, Turn } from "../../lib/assistant/turns";
 import type { GoalId } from "../../lib/protocol/build";
 import type { AnswerField } from "../../lib/protocol/questions";
-import type { SessionView } from "../../lib/protocol/session";
+import type { ProtocolSession, SessionView } from "../../lib/protocol/session";
 
 /* The turn union lives in lib/assistant so the pure history module can use it without
    pulling React in. Re-exported here because everything already imports it from this
@@ -73,6 +73,8 @@ export interface ProtocolSessionValue {
   /** True while a typed question is in flight. */
   asking: boolean;
   clearThread: () => void;
+  /** Restore a local conversation and its protocol state into the active workspace. */
+  resumeConversation: (session: ProtocolSession | undefined, turns: Turn[]) => void;
 
   // --------------------------------------------------------------- questions
   answerQuestion: (field: AnswerField, value: string) => void;

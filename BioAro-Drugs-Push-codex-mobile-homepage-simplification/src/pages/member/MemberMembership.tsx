@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import { useMarketHref } from "../../hooks/useMarketHref";
+import { ROUTES } from "../../lib/routes";
 import { useMemberContext } from "../../components/member/member-context";
 import { DemoTag, MemberPanel, PanelUnavailable } from "../../components/member/primitives";
 
@@ -14,6 +17,7 @@ import { DemoTag, MemberPanel, PanelUnavailable } from "../../components/member/
  * demonstration mode a tier appears with a figure attached, and it is tagged.
  */
 export default function MemberMembership() {
+  const marketHref = useMarketHref();
   const { snapshot, source, capabilities } = useMemberContext();
   const membership = snapshot?.membership;
   const showDemo = source === "demo" && membership;
@@ -44,8 +48,14 @@ export default function MemberMembership() {
             </div>
           ) : (
             <PanelUnavailable>
-              Membership is not open yet, so there is nothing to join and no pricing to show. When
-              it opens, this is where your tier, what it includes, and your billing will live.
+              Your membership status is not available in this account yet. Review the public
+              membership page for the current BioAro Drugs AI proposition and checkout status.
+              <Link
+                to={marketHref(ROUTES.membership)}
+                className="mt-4 inline-flex items-center rounded-sm font-bold text-ink underline underline-offset-4 transition-colors hover:text-ember focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ember"
+              >
+                View BioAro Drugs AI Membership
+              </Link>
             </PanelUnavailable>
           )}
         </MemberPanel>

@@ -111,7 +111,7 @@ export default function Quiz() {
     .filter((label): label is string => Boolean(label));
 
   return (
-    <div className="bg-cream pb-24 pt-28 md:pt-32">
+    <div className="bg-transparent pb-24 pt-28 md:pt-32">
       <div className="container-bio">
         {/* ---------------------------------------------------------- header */}
         <div className="flex items-center gap-2.5">

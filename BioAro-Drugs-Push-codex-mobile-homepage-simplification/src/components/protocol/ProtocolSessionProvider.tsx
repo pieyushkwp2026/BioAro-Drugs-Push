@@ -1,4 +1,5 @@
-import { type ReactNode, useCallback, useMemo, useRef, useState } from "react";
+import { type ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { useMarket } from "../../hooks/useMarket";
 import { GOALS } from "../../data/homepage";
 import { bioaroAiService } from "../../lib/ai/bioaroAiService";
@@ -35,6 +36,7 @@ export const MAX_MESSAGE = 200;
 
 export function ProtocolSessionProvider({ children }: { children: ReactNode }) {
   const { market } = useMarket();
+  const location = useLocation();
 
   const [session, setSession] = useState<ProtocolSession>(() => createSession({ market }));
   const [message, setMessageState] = useState("");
@@ -75,6 +77,17 @@ export function ProtocolSessionProvider({ children }: { children: ReactNode }) {
       return [];
     });
   }, []);
+
+  const resumeConversation = useCallback((savedSession: ProtocolSession | undefined, turns: Turn[]) => {
+    if (savedSession) {
+      setSession({ ...savedSession, market });
+    }
+    setMessageState("");
+    setMatched([]);
+    setNoMatch(false);
+    setError(null);
+    setThread(turns.filter((turn) => turn.kind !== "image"));
+  }, [market]);
 
   const attachImage = useCallback(
     (intent: ImageIntent, previewUrl: string, name: string) => {
@@ -231,6 +244,21 @@ export function ProtocolSessionProvider({ children }: { children: ReactNode }) {
     setSession((current) => setSessionGoals(resetSession(current), [...new Set(ids)], "personas"));
   }, []);
 
+  /* The homepage carries selected goals into the full workspace in the URL. Hydrate
+     them once per query value so a direct workspace link behaves like the handoff
+     from the homepage protocol studio. */
+  const appliedQueryGoals = useRef<string | null>(null);
+  useEffect(() => {
+    const rawGoals = new URLSearchParams(location.search).get("goals");
+    if (!rawGoals || appliedQueryGoals.current === rawGoals) return;
+
+    const goals = rawGoals.split(",").filter((id): id is GoalId => GOALS.some((goal) => goal.id === id));
+    if (goals.length === 0) return;
+
+    appliedQueryGoals.current = rawGoals;
+    startWithGoals(goals);
+  }, [location.search, startWithGoals]);
+
   const view = useMemo(() => viewSession({ ...session, market }), [session, market]);
 
   const value = useMemo(
@@ -252,6 +280,7 @@ export function ProtocolSessionProvider({ children }: { children: ReactNode }) {
       askQuestion,
       asking,
       clearThread,
+      resumeConversation,
       studioOpen,
       studioAutoFocus,
       openStudio,
@@ -280,6 +309,7 @@ export function ProtocolSessionProvider({ children }: { children: ReactNode }) {
       askQuestion,
       asking,
       clearThread,
+      resumeConversation,
       studioOpen,
       studioAutoFocus,
       openStudio,

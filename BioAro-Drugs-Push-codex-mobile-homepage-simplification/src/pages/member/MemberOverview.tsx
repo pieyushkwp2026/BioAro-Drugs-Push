@@ -5,6 +5,8 @@ import { useProtocolSession } from "../../hooks/useProtocolSession";
 import { ROUTES } from "../../lib/routes";
 import { useMemberContext } from "../../components/member/member-context";
 import { DemoTag, MemberPanel, PanelEmpty, PanelRow } from "../../components/member/primitives";
+import { advancedAiAccessState, hasAdvancedAiAccess } from "../../lib/member/advancedAi";
+import { LockKeyhole, Sparkles } from "lucide-react";
 
 /*
  * The overview: one card per layer of the platform, each telling the truth about that
@@ -20,12 +22,14 @@ export default function MemberOverview() {
   const marketHref = useMarketHref();
   const { customer, logout } = useAuth();
   const { view } = useProtocolSession();
-  const { snapshot, source, capabilities, marketConfig } = useMemberContext();
+  const { snapshot, state, source, capabilities, marketConfig } = useMemberContext();
 
   /* The demonstration profile stands in when there is no session behind the page. */
   const displayName = customer?.firstName ?? snapshot?.profile.firstName ?? "there";
   const liveItems = view.protocol?.items.length ?? 0;
   const demoOrders = snapshot?.orders.length ?? 0;
+  const advancedAiState = advancedAiAccessState(snapshot?.membership);
+  const advancedAiReady = state === "ready" && hasAdvancedAiAccess(snapshot?.membership);
 
   return (
     <div>
@@ -38,6 +42,33 @@ export default function MemberOverview() {
       </p>
 
       <div className="mt-10 grid gap-6 lg:grid-cols-2">
+        <MemberPanel
+          title="Advanced BioAro AI"
+          action={
+            <Link
+              to={advancedAiReady ? marketHref(ROUTES.ai) : marketHref(ROUTES.membership)}
+              className="rounded-full text-[14px] font-bold text-ink underline underline-offset-[5px] transition-colors hover:text-ember focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ember"
+            >
+              {advancedAiReady ? "Open" : "View membership"}
+            </Link>
+          }
+        >
+          <div className="flex items-start gap-4">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-ember/10 text-ember">
+              {advancedAiReady ? <Sparkles size={19} aria-hidden="true" /> : <LockKeyhole size={18} aria-hidden="true" />}
+            </div>
+            <PanelEmpty>
+              {state !== "ready"
+                ? "Membership status is not available right now. The advanced AI workspace will appear here when your access can be confirmed."
+                : advancedAiReady
+                ? "Your full AI workspace is ready, with guided protocol building, private history and deeper routine support."
+                : advancedAiState === "inactive"
+                  ? "Your membership is not active right now. Review it to restore access to the advanced AI workspace."
+                  : "Membership unlocks guided protocol building, private history and deeper routine support."}
+            </PanelEmpty>
+          </div>
+        </MemberPanel>
+
         <MemberPanel
           title="Your protocol"
           action={

@@ -179,8 +179,9 @@ export default function AiExperience() {
       startedAt,
       updatedAt: new Date().toISOString(),
       turns: thread,
+      session: view.session,
     });
-  }, [thread, conversationId, market, startedAt]);
+  }, [thread, conversationId, market, startedAt, view.session]);
   const itemCount = view.protocol?.items.length ?? 0;
 
   const goalLabels = view.session.detectedGoals
@@ -219,7 +220,7 @@ export default function AiExperience() {
        — each pane owns its own overflow. A consequence worth having: the header's
        retract-on-scroll never fires here, so the chrome stays put like an application's
        does. */
-    <div className="mt-[88px] flex h-[calc(100dvh-88px)] flex-col overflow-hidden bg-cream">
+    <div className="mt-[88px] flex h-[calc(100dvh-88px)] flex-col overflow-hidden bg-transparent">
       {/* Below lg the two panes are peers competing for one screen, so they take turns.
           Deliberately NOT the modal's bottom sheet: that pattern exists because a
           <dialog> sits in the top layer and because inside a modal the protocol really
@@ -249,7 +250,7 @@ export default function AiExperience() {
         {/* ------------------------------------------------------ conversation */}
         <section
           aria-labelledby={headingId}
-          className={`min-h-0 flex-col border-line bg-white lg:flex lg:border-r ${
+          className={`min-h-0 flex-col border-line bg-transparent lg:flex lg:border-r ${
             pane === "conversation" ? "flex" : "hidden"
           }`}
         >
@@ -515,7 +516,7 @@ export default function AiExperience() {
 
         {/* ---------------------------------------------------------- the day */}
         <aside
-          className={`min-h-0 overflow-y-auto overscroll-contain bg-cream px-5 py-7 sm:px-8 lg:block ${
+          className={`min-h-0 overflow-y-auto overscroll-contain bg-transparent px-5 py-7 sm:px-8 lg:block ${
             pane === "protocol" ? "block" : "hidden"
           }`}
         >
@@ -570,7 +571,14 @@ export default function AiExperience() {
           </header>
 
           <div className="min-h-0 flex-1 overflow-y-auto px-6 py-5">
-            <ConversationHistory conversations={conversations} onChanged={refreshHistory} />
+            <ConversationHistory
+              conversations={conversations}
+              onChanged={refreshHistory}
+              onResume={(conversation) => {
+                session.resumeConversation(conversation.session, conversation.turns);
+                setHistoryOpen(false);
+              }}
+            />
           </div>
         </div>
       </Modal>

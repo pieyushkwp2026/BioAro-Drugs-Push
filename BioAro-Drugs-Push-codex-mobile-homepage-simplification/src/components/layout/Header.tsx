@@ -15,15 +15,16 @@ import bioAroMark from "../../assets/logo/bioaro-mark.png";
  * the moment you navigated off the homepage. The branch is gone.
  *
  * BioAro Drugs AI leads: the platform is the front door, so it is the first thing in
- * the bar as well as the first thing on the page. It points at the Protocol Builder,
- * which is the capability that is actually live.
+ * the bar as well as the first thing on the page. The route itself owns the member
+ * gate, so public visitors get an honest explanation while eligible members enter
+ * the full workspace.
  *
  * "Why BioAro Drugs" is a homepage section rather than a route, so it is an anchor.
  * The header CTA is "Build My Protocol" — the single action vocabulary the whole
  * site now uses, replacing "Find your fit" / "Find my fit" / "Take the quiz".
  */
 const NAV = [
-  { label: "AI & Protocols", href: ROUTES.quiz },
+  { label: "AI & Protocols", href: ROUTES.ai },
   { label: "Shop", href: ROUTES.shop },
   { label: "Science", href: ROUTES.science },
   { label: "About", href: ROUTES.about },

@@ -1,4 +1,5 @@
 import type { Turn } from "./turns";
+import type { ProtocolSession } from "../protocol/session";
 
 /*
  * Previous conversations, kept in this browser.
@@ -44,6 +45,8 @@ export interface Conversation {
   startedAt: string;
   updatedAt: string;
   turns: Turn[];
+  /** Local-only protocol state, so a saved conversation can be continued. */
+  session?: ProtocolSession;
 }
 
 /**

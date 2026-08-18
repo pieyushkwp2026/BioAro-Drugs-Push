@@ -32,6 +32,8 @@ test("new launch pages are registered as public routes", () => {
     ROUTES.protocols,
     ROUTES.partners,
     ROUTES.ai,
+    ROUTES.membership,
+    ROUTES.membershipSuccess,
   ];
 
   for (const route of requiredRoutes) {

@@ -54,7 +54,7 @@ export default function AuthCallback() {
   }, [handleCallback, navigate, searchParams]);
 
   return (
-    <div className="flex min-h-[100dvh] items-center justify-center bg-cream px-5 py-20">
+    <div className="flex min-h-[100dvh] items-center justify-center bg-transparent px-5 py-20">
       <div className="w-full max-w-[520px] rounded-[28px] border border-line bg-white p-8 shadow-glass sm:p-10">
         <img src={bioAroMark} alt="" aria-hidden="true" className="h-9 w-9 rounded-[10px] object-contain" />
 

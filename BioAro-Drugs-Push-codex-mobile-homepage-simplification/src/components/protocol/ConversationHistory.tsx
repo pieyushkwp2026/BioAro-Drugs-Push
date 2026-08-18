@@ -11,13 +11,10 @@ import {
  * Previous conversations.
  *
  * ---------------------------------------------------------------------------
- * A RECORD, NOT A RESUME
+ * A local record that can be resumed
  *
- * Opening one shows the transcript. It does NOT put you back where you were, and the
- * copy says so, because only the words are stored — the protocol session behind them
- * (goals, answers, completion state) has never been persisted anywhere. A control that
- * looked like "continue" and quietly dropped nine answers would be a worse feature than
- * no history at all.
+ * Opening one shows the transcript. Continue chat restores the saved protocol session
+ * when available, while older records still restore their text turns safely.
  *
  * Images are absent by construction: `stripForStorage` drops them before anything is
  * written, so an attached prescription cannot reappear here on a shared device.
@@ -26,9 +23,11 @@ import {
 export default function ConversationHistory({
   conversations,
   onChanged,
+  onResume,
 }: {
   conversations: Conversation[];
   onChanged: () => void;
+  onResume: (conversation: Conversation) => void;
 }) {
   const [openId, setOpenId] = useState<string | null>(null);
 
@@ -89,6 +88,13 @@ export default function ConversationHistory({
                       {turn.kind === "ask" ? turn.question : turn.kind === "image" ? turn.name : turn.text}
                     </p>
                   ))}
+                  <button
+                    type="button"
+                    onClick={() => onResume(conversation)}
+                    className="mt-2 rounded-full bg-ember px-4 py-2 text-[13px] font-bold text-white transition-colors hover:bg-ember-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ember"
+                  >
+                    Continue chat
+                  </button>
                 </div>
               )}
             </li>

@@ -79,7 +79,7 @@ export default function AuthLogin() {
     /* Pinned to the viewport at lg so the photo is never taller than the screen and
        its caption cannot fall below the fold on a short laptop. The form column takes
        the scroll instead, which only happens under roughly 860px of height. */
-    <div className="grid min-h-[100dvh] bg-cream lg:h-[100dvh] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.04fr)]">
+    <div className="grid min-h-[100dvh] bg-transparent lg:h-[100dvh] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.04fr)]">
       {/* -------------------------------------------------- form */}
       <div className="flex flex-col px-6 py-8 sm:px-10 sm:py-10 lg:overflow-y-auto lg:px-14 lg:py-12 xl:px-20">
         <Link
