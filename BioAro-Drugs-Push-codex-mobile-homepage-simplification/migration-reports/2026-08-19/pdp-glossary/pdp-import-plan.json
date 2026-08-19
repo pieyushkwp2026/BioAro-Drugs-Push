@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-19T13:33:38.329Z",
+  "generatedAt": "2026-08-19T16:36:40.772Z",
   "namePolicy": "keep-current-shopify-title-and-handle",
   "pricingPolicy": "content-only-no-price-writes",
   "products": [
@@ -7,9 +7,18 @@
       "sku": "BACT-6H7S4",
       "handle": "longevity-plus",
       "workbookName": "Longevity+",
-      "liveProduct": null,
-      "skuMatches": [],
-      "handleMatches": [],
+      "liveProduct": {
+        "id": "gid://shopify/Product/7700294140007",
+        "title": "LONgevity+",
+        "status": "DRAFT",
+        "publishedAt": null
+      },
+      "skuMatches": [
+        "longevity-plus"
+      ],
+      "handleMatches": [
+        "longevity-plus"
+      ],
       "blocked": true,
       "approvalStatus": "Design allowed; publication blocked until regional copy + claim approval",
       "fields": [
@@ -17,124 +26,133 @@
           "source": "Product Badge / Eyebrow",
           "target": "custom.hero_eyebrow",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Hero Subtitle / Short Description",
           "target": "custom.pdp_subtitle",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Long Description",
           "target": "custom.short_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Benefit / Use-case Tags",
           "target": "custom.hero_tags",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Pack / Count",
           "target": "custom.pack_name",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Serving Size",
           "target": "custom.serving_size",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Servings / Container",
           "target": "custom.servings_per_container",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Format / Formula Type",
           "target": "custom.product_format",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "How to Use / Directions",
           "target": "custom.directions",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Who Is It For?",
           "target": "custom.best_for_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Warnings",
           "target": "custom.warnings",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Other Ingredients",
           "target": "custom.other_ingredients",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Formula Intro / Why Formula Exists",
           "target": "custom.why_formula_body",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Quality / Testing",
           "target": "custom.clinical_evidence",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "json",
+          "storefront": "PUBLIC_READ",
+          "status": "type-mismatch"
         }
       ],
-      "action": "block-missing-or-ambiguous-match"
+      "action": "stage-draft-review"
     },
     {
       "sku": "BACT-0R3W8",
       "handle": "cellomega-plus",
       "workbookName": "CellOmega+",
-      "liveProduct": null,
-      "skuMatches": [],
-      "handleMatches": [],
+      "liveProduct": {
+        "id": "gid://shopify/Product/7700286144615",
+        "title": "CellOmega+",
+        "status": "DRAFT",
+        "publishedAt": null
+      },
+      "skuMatches": [
+        "cellomega-plus"
+      ],
+      "handleMatches": [
+        "cellomega-plus"
+      ],
       "blocked": true,
       "approvalStatus": "Design allowed; publication blocked until regional copy + claim approval",
       "fields": [
@@ -142,124 +160,133 @@
           "source": "Product Badge / Eyebrow",
           "target": "custom.hero_eyebrow",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Hero Subtitle / Short Description",
           "target": "custom.pdp_subtitle",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Long Description",
           "target": "custom.short_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Benefit / Use-case Tags",
           "target": "custom.hero_tags",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Pack / Count",
           "target": "custom.pack_name",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Serving Size",
           "target": "custom.serving_size",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Servings / Container",
           "target": "custom.servings_per_container",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Format / Formula Type",
           "target": "custom.product_format",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "How to Use / Directions",
           "target": "custom.directions",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Who Is It For?",
           "target": "custom.best_for_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Warnings",
           "target": "custom.warnings",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Other Ingredients",
           "target": "custom.other_ingredients",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Formula Intro / Why Formula Exists",
           "target": "custom.why_formula_body",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Quality / Testing",
           "target": "custom.clinical_evidence",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "json",
+          "storefront": "PUBLIC_READ",
+          "status": "type-mismatch"
         }
       ],
-      "action": "block-missing-or-ambiguous-match"
+      "action": "stage-draft-review"
     },
     {
       "sku": "BACT-1A4H3",
       "handle": "creagen-brain-boost",
       "workbookName": "Creagen Brain Boost",
-      "liveProduct": null,
-      "skuMatches": [],
-      "handleMatches": [],
+      "liveProduct": {
+        "id": "gid://shopify/Product/7700293550183",
+        "title": "Creagen Brain Boost",
+        "status": "DRAFT",
+        "publishedAt": null
+      },
+      "skuMatches": [
+        "creagen-brain-boost"
+      ],
+      "handleMatches": [
+        "creagen-brain-boost"
+      ],
       "blocked": true,
       "approvalStatus": "Design allowed; publication blocked until cognitive claim approval + typo corrections",
       "fields": [
@@ -267,124 +294,133 @@
           "source": "Product Badge / Eyebrow",
           "target": "custom.hero_eyebrow",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Hero Subtitle / Short Description",
           "target": "custom.pdp_subtitle",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Long Description",
           "target": "custom.short_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Benefit / Use-case Tags",
           "target": "custom.hero_tags",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Pack / Count",
           "target": "custom.pack_name",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Serving Size",
           "target": "custom.serving_size",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Servings / Container",
           "target": "custom.servings_per_container",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Format / Formula Type",
           "target": "custom.product_format",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "How to Use / Directions",
           "target": "custom.directions",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Who Is It For?",
           "target": "custom.best_for_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Warnings",
           "target": "custom.warnings",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Other Ingredients",
           "target": "custom.other_ingredients",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Formula Intro / Why Formula Exists",
           "target": "custom.why_formula_body",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Quality / Testing",
           "target": "custom.clinical_evidence",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "json",
+          "storefront": "PUBLIC_READ",
+          "status": "type-mismatch"
         }
       ],
-      "action": "block-missing-or-ambiguous-match"
+      "action": "stage-draft-review"
     },
     {
       "sku": "BACT-2X1V8",
       "handle": "creagen-femme-energy",
       "workbookName": "Creagen Femme Energy",
-      "liveProduct": null,
-      "skuMatches": [],
-      "handleMatches": [],
+      "liveProduct": {
+        "id": "gid://shopify/Product/7700293746791",
+        "title": "Creagen Femme Energy",
+        "status": "DRAFT",
+        "publishedAt": null
+      },
+      "skuMatches": [
+        "creagen-femme-energy"
+      ],
+      "handleMatches": [
+        "creagen-femme-energy"
+      ],
       "blocked": true,
       "approvalStatus": "Do not design from risky PDF copy; rewrite to safe women&#8217;s performance support first",
       "fields": [
@@ -392,124 +428,133 @@
           "source": "Product Badge / Eyebrow",
           "target": "custom.hero_eyebrow",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Hero Subtitle / Short Description",
           "target": "custom.pdp_subtitle",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Long Description",
           "target": "custom.short_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Benefit / Use-case Tags",
           "target": "custom.hero_tags",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Pack / Count",
           "target": "custom.pack_name",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Serving Size",
           "target": "custom.serving_size",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Servings / Container",
           "target": "custom.servings_per_container",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Format / Formula Type",
           "target": "custom.product_format",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "How to Use / Directions",
           "target": "custom.directions",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Who Is It For?",
           "target": "custom.best_for_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Warnings",
           "target": "custom.warnings",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Other Ingredients",
           "target": "custom.other_ingredients",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Formula Intro / Why Formula Exists",
           "target": "custom.why_formula_body",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Quality / Testing",
           "target": "custom.clinical_evidence",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "json",
+          "storefront": "PUBLIC_READ",
+          "status": "type-mismatch"
         }
       ],
-      "action": "block-missing-or-ambiguous-match"
+      "action": "stage-draft-review"
     },
     {
       "sku": "BACT-1S6B0",
       "handle": "creagen-raw-power",
       "workbookName": "Creagen Raw Power",
-      "liveProduct": null,
-      "skuMatches": [],
-      "handleMatches": [],
+      "liveProduct": {
+        "id": "gid://shopify/Product/7700293943399",
+        "title": "Creagen Raw Power",
+        "status": "DRAFT",
+        "publishedAt": null
+      },
+      "skuMatches": [
+        "creagen-raw-power"
+      ],
+      "handleMatches": [
+        "creagen-raw-power"
+      ],
       "blocked": true,
       "approvalStatus": "Design allowed; publication blocked until label/price/region confirmation",
       "fields": [
@@ -517,124 +562,133 @@
           "source": "Product Badge / Eyebrow",
           "target": "custom.hero_eyebrow",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Hero Subtitle / Short Description",
           "target": "custom.pdp_subtitle",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Long Description",
           "target": "custom.short_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Benefit / Use-case Tags",
           "target": "custom.hero_tags",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Pack / Count",
           "target": "custom.pack_name",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Serving Size",
           "target": "custom.serving_size",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Servings / Container",
           "target": "custom.servings_per_container",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Format / Formula Type",
           "target": "custom.product_format",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "How to Use / Directions",
           "target": "custom.directions",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Who Is It For?",
           "target": "custom.best_for_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Warnings",
           "target": "custom.warnings",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Other Ingredients",
           "target": "custom.other_ingredients",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Formula Intro / Why Formula Exists",
           "target": "custom.why_formula_body",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Quality / Testing",
           "target": "custom.clinical_evidence",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "json",
+          "storefront": "PUBLIC_READ",
+          "status": "type-mismatch"
         }
       ],
-      "action": "block-missing-or-ambiguous-match"
+      "action": "stage-draft-review"
     },
     {
       "sku": "BACT-1G3Q9",
       "handle": "creagen-pro-power",
       "workbookName": "Creagen Pro Power",
-      "liveProduct": null,
-      "skuMatches": [],
-      "handleMatches": [],
+      "liveProduct": {
+        "id": "gid://shopify/Product/7700293812327",
+        "title": "Creagen Pro Power",
+        "status": "DRAFT",
+        "publishedAt": null
+      },
+      "skuMatches": [
+        "creagen-pro-power"
+      ],
+      "handleMatches": [
+        "creagen-pro-power"
+      ],
       "blocked": true,
       "approvalStatus": "Design allowed; publication blocked until sports-performance claim approval",
       "fields": [
@@ -642,124 +696,133 @@
           "source": "Product Badge / Eyebrow",
           "target": "custom.hero_eyebrow",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Hero Subtitle / Short Description",
           "target": "custom.pdp_subtitle",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Long Description",
           "target": "custom.short_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Benefit / Use-case Tags",
           "target": "custom.hero_tags",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Pack / Count",
           "target": "custom.pack_name",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Serving Size",
           "target": "custom.serving_size",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Servings / Container",
           "target": "custom.servings_per_container",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Format / Formula Type",
           "target": "custom.product_format",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "How to Use / Directions",
           "target": "custom.directions",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Who Is It For?",
           "target": "custom.best_for_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Warnings",
           "target": "custom.warnings",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Other Ingredients",
           "target": "custom.other_ingredients",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Formula Intro / Why Formula Exists",
           "target": "custom.why_formula_body",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Quality / Testing",
           "target": "custom.clinical_evidence",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "json",
+          "storefront": "PUBLIC_READ",
+          "status": "type-mismatch"
         }
       ],
-      "action": "block-missing-or-ambiguous-match"
+      "action": "stage-draft-review"
     },
     {
       "sku": "BACT-0Y2W6",
       "handle": "glutara",
       "workbookName": "Glutara",
-      "liveProduct": null,
-      "skuMatches": [],
-      "handleMatches": [],
+      "liveProduct": {
+        "id": "gid://shopify/Product/7700294041703",
+        "title": "Glutara",
+        "status": "DRAFT",
+        "publishedAt": null
+      },
+      "skuMatches": [
+        "glutara"
+      ],
+      "handleMatches": [
+        "glutara"
+      ],
       "blocked": true,
       "approvalStatus": "Do not design from detox/liver PDF copy; rewrite to antioxidant/skin hydration support first",
       "fields": [
@@ -767,124 +830,133 @@
           "source": "Product Badge / Eyebrow",
           "target": "custom.hero_eyebrow",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Hero Subtitle / Short Description",
           "target": "custom.pdp_subtitle",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Long Description",
           "target": "custom.short_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Benefit / Use-case Tags",
           "target": "custom.hero_tags",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Pack / Count",
           "target": "custom.pack_name",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Serving Size",
           "target": "custom.serving_size",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Servings / Container",
           "target": "custom.servings_per_container",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Format / Formula Type",
           "target": "custom.product_format",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "How to Use / Directions",
           "target": "custom.directions",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Who Is It For?",
           "target": "custom.best_for_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Warnings",
           "target": "custom.warnings",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Other Ingredients",
           "target": "custom.other_ingredients",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Formula Intro / Why Formula Exists",
           "target": "custom.why_formula_body",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Quality / Testing",
           "target": "custom.clinical_evidence",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "json",
+          "storefront": "PUBLIC_READ",
+          "status": "type-mismatch"
         }
       ],
-      "action": "block-missing-or-ambiguous-match"
+      "action": "stage-draft-review"
     },
     {
       "sku": "BACT-1C6D5",
       "handle": "sleepo",
       "workbookName": "Sleepo",
-      "liveProduct": null,
-      "skuMatches": [],
-      "handleMatches": [],
+      "liveProduct": {
+        "id": "gid://shopify/Product/7700485570663",
+        "title": "SleepO",
+        "status": "DRAFT",
+        "publishedAt": null
+      },
+      "skuMatches": [
+        "sleepo"
+      ],
+      "handleMatches": [
+        "sleepo"
+      ],
       "blocked": true,
       "approvalStatus": "Label-verified; publication requires regional sleep-claim review",
       "fields": [
@@ -892,108 +964,117 @@
           "source": "Product Badge / Eyebrow",
           "target": "custom.hero_eyebrow",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Benefit / Use-case Tags",
           "target": "custom.hero_tags",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Pack / Count",
           "target": "custom.pack_name",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Serving Size",
           "target": "custom.serving_size",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Servings / Container",
           "target": "custom.servings_per_container",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Format / Formula Type",
           "target": "custom.product_format",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "How to Use / Directions",
           "target": "custom.directions",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Who Is It For?",
           "target": "custom.best_for_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Warnings",
           "target": "custom.warnings",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Allergens",
           "target": "custom.allergen_info",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Other Ingredients",
           "target": "custom.other_ingredients",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Formula Intro / Why Formula Exists",
           "target": "custom.why_formula_body",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         }
       ],
-      "action": "block-missing-or-ambiguous-match"
+      "action": "stage-draft-review"
     },
     {
       "sku": "BACT-5I2G5",
       "handle": "sleepo-kids",
       "workbookName": "Sleepo Kids",
-      "liveProduct": null,
-      "skuMatches": [],
-      "handleMatches": [],
+      "liveProduct": {
+        "id": "gid://shopify/Product/7730072617063",
+        "title": "SleepO Kids",
+        "status": "DRAFT",
+        "publishedAt": null
+      },
+      "skuMatches": [
+        "sleepo-kids"
+      ],
+      "handleMatches": [
+        "sleepo-kids"
+      ],
       "blocked": true,
       "approvalStatus": "Label-verified; publication requires pediatric/regional sleep-claim review",
       "fields": [
@@ -1001,124 +1082,124 @@
           "source": "Product Badge / Eyebrow",
           "target": "custom.hero_eyebrow",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Hero Subtitle / Short Description",
           "target": "custom.pdp_subtitle",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Long Description",
           "target": "custom.short_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Benefit / Use-case Tags",
           "target": "custom.hero_tags",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Pack / Count",
           "target": "custom.pack_name",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Serving Size",
           "target": "custom.serving_size",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Servings / Container",
           "target": "custom.servings_per_container",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Format / Formula Type",
           "target": "custom.product_format",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "How to Use / Directions",
           "target": "custom.directions",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Who Is It For?",
           "target": "custom.best_for_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Warnings",
           "target": "custom.warnings",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Allergens",
           "target": "custom.allergen_info",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Other Ingredients",
           "target": "custom.other_ingredients",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Formula Intro / Why Formula Exists",
           "target": "custom.why_formula_body",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Quality / Testing",
           "target": "custom.clinical_evidence",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "json",
+          "storefront": "PUBLIC_READ",
+          "status": "type-mismatch"
         }
       ],
-      "action": "block-missing-or-ambiguous-match"
+      "action": "stage-draft-review"
     },
     {
       "sku": "BACT-SLEEP0PLUS",
@@ -1134,17 +1215,17 @@
           "source": "Hero Subtitle / Short Description",
           "target": "custom.pdp_subtitle",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Pack / Count",
           "target": "custom.pack_name",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         }
       ],
       "action": "block-missing-or-ambiguous-match"
@@ -1153,9 +1234,18 @@
       "sku": "ROC2821",
       "handle": "bioprotein-pro",
       "workbookName": "BioProtein Pro",
-      "liveProduct": null,
-      "skuMatches": [],
-      "handleMatches": [],
+      "liveProduct": {
+        "id": "gid://shopify/Product/7729715773543",
+        "title": "BioProtein Pro",
+        "status": "ACTIVE",
+        "publishedAt": "2026-08-12T00:44:28Z"
+      },
+      "skuMatches": [
+        "bioprotein-pro"
+      ],
+      "handleMatches": [
+        "bioprotein-pro"
+      ],
       "blocked": false,
       "approvalStatus": "Ready for review",
       "fields": [
@@ -1163,92 +1253,101 @@
           "source": "Hero Subtitle / Short Description",
           "target": "custom.pdp_subtitle",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Benefit / Use-case Tags",
           "target": "custom.hero_tags",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Serving Size",
           "target": "custom.serving_size",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Servings / Container",
           "target": "custom.servings_per_container",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Format / Formula Type",
           "target": "custom.product_format",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "How to Use / Directions",
           "target": "custom.directions",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Who Is It For?",
           "target": "custom.best_for_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Warnings",
           "target": "custom.warnings",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Allergens",
           "target": "custom.allergen_info",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Other Ingredients",
           "target": "custom.other_ingredients",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         }
       ],
-      "action": "block-missing-or-ambiguous-match"
+      "action": "import-approved-content"
     },
     {
       "sku": "ROC263V",
       "handle": "plantcore",
       "workbookName": "PlantCore",
-      "liveProduct": null,
-      "skuMatches": [],
-      "handleMatches": [],
+      "liveProduct": {
+        "id": "gid://shopify/Product/7729729044583",
+        "title": "PlantCore",
+        "status": "ACTIVE",
+        "publishedAt": "2026-08-12T00:44:29Z"
+      },
+      "skuMatches": [
+        "plantcore"
+      ],
+      "handleMatches": [
+        "plantcore"
+      ],
       "blocked": false,
       "approvalStatus": "Ready for review",
       "fields": [
@@ -1256,92 +1355,101 @@
           "source": "Hero Subtitle / Short Description",
           "target": "custom.pdp_subtitle",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Benefit / Use-case Tags",
           "target": "custom.hero_tags",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Serving Size",
           "target": "custom.serving_size",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Servings / Container",
           "target": "custom.servings_per_container",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Format / Formula Type",
           "target": "custom.product_format",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "How to Use / Directions",
           "target": "custom.directions",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Who Is It For?",
           "target": "custom.best_for_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Warnings",
           "target": "custom.warnings",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Allergens",
           "target": "custom.allergen_info",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Other Ingredients",
           "target": "custom.other_ingredients",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         }
       ],
-      "action": "block-missing-or-ambiguous-match"
+      "action": "import-approved-content"
     },
     {
       "sku": "ROC606",
       "handle": "bioignite",
       "workbookName": "BioIgnite",
-      "liveProduct": null,
-      "skuMatches": [],
-      "handleMatches": [],
+      "liveProduct": {
+        "id": "gid://shopify/Product/7729731207271",
+        "title": "BioIgnite",
+        "status": "ACTIVE",
+        "publishedAt": "2026-08-12T00:44:29Z"
+      },
+      "skuMatches": [
+        "bioignite"
+      ],
+      "handleMatches": [
+        "bioignite"
+      ],
       "blocked": false,
       "approvalStatus": "Ready for review",
       "fields": [
@@ -1349,92 +1457,101 @@
           "source": "Hero Subtitle / Short Description",
           "target": "custom.pdp_subtitle",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Benefit / Use-case Tags",
           "target": "custom.hero_tags",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Serving Size",
           "target": "custom.serving_size",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Servings / Container",
           "target": "custom.servings_per_container",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Format / Formula Type",
           "target": "custom.product_format",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "How to Use / Directions",
           "target": "custom.directions",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Who Is It For?",
           "target": "custom.best_for_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Warnings",
           "target": "custom.warnings",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Allergens",
           "target": "custom.allergen_info",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Other Ingredients",
           "target": "custom.other_ingredients",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         }
       ],
-      "action": "block-missing-or-ambiguous-match"
+      "action": "import-approved-content"
     },
     {
       "sku": "ROC603",
       "handle": "musclerecover",
       "workbookName": "MuscleRecover",
-      "liveProduct": null,
-      "skuMatches": [],
-      "handleMatches": [],
+      "liveProduct": {
+        "id": "gid://shopify/Product/7729733304423",
+        "title": "MuscleRecover",
+        "status": "ACTIVE",
+        "publishedAt": "2026-08-12T00:44:30Z"
+      },
+      "skuMatches": [
+        "musclerecover"
+      ],
+      "handleMatches": [
+        "musclerecover"
+      ],
       "blocked": false,
       "approvalStatus": "Ready for review",
       "fields": [
@@ -1442,92 +1559,101 @@
           "source": "Hero Subtitle / Short Description",
           "target": "custom.pdp_subtitle",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Benefit / Use-case Tags",
           "target": "custom.hero_tags",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Serving Size",
           "target": "custom.serving_size",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Servings / Container",
           "target": "custom.servings_per_container",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Format / Formula Type",
           "target": "custom.product_format",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "How to Use / Directions",
           "target": "custom.directions",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Who Is It For?",
           "target": "custom.best_for_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Warnings",
           "target": "custom.warnings",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Allergens",
           "target": "custom.allergen_info",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Other Ingredients",
           "target": "custom.other_ingredients",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         }
       ],
-      "action": "block-missing-or-ambiguous-match"
+      "action": "import-approved-content"
     },
     {
       "sku": "ROC017",
       "handle": "hydrareload",
       "workbookName": "HydraReload",
-      "liveProduct": null,
-      "skuMatches": [],
-      "handleMatches": [],
+      "liveProduct": {
+        "id": "gid://shopify/Product/7729735073895",
+        "title": "HydraReload",
+        "status": "ACTIVE",
+        "publishedAt": "2026-08-12T00:44:31Z"
+      },
+      "skuMatches": [
+        "hydrareload"
+      ],
+      "handleMatches": [
+        "hydrareload"
+      ],
       "blocked": false,
       "approvalStatus": "Ready for review",
       "fields": [
@@ -1535,92 +1661,101 @@
           "source": "Hero Subtitle / Short Description",
           "target": "custom.pdp_subtitle",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Benefit / Use-case Tags",
           "target": "custom.hero_tags",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Serving Size",
           "target": "custom.serving_size",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Servings / Container",
           "target": "custom.servings_per_container",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Format / Formula Type",
           "target": "custom.product_format",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "How to Use / Directions",
           "target": "custom.directions",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Who Is It For?",
           "target": "custom.best_for_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Warnings",
           "target": "custom.warnings",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Allergens",
           "target": "custom.allergen_info",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Other Ingredients",
           "target": "custom.other_ingredients",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         }
       ],
-      "action": "block-missing-or-ambiguous-match"
+      "action": "import-approved-content"
     },
     {
       "sku": "ROC507W",
       "handle": "womens-vitalprime",
       "workbookName": "Women's VitalPrime",
-      "liveProduct": null,
-      "skuMatches": [],
-      "handleMatches": [],
+      "liveProduct": {
+        "id": "gid://shopify/Product/7729738383463",
+        "title": "Women's VitalPrime",
+        "status": "ACTIVE",
+        "publishedAt": "2026-08-12T00:44:31Z"
+      },
+      "skuMatches": [
+        "womens-vitalprime"
+      ],
+      "handleMatches": [
+        "womens-vitalprime"
+      ],
       "blocked": false,
       "approvalStatus": "Ready for review",
       "fields": [
@@ -1628,92 +1763,101 @@
           "source": "Hero Subtitle / Short Description",
           "target": "custom.pdp_subtitle",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Benefit / Use-case Tags",
           "target": "custom.hero_tags",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Serving Size",
           "target": "custom.serving_size",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Servings / Container",
           "target": "custom.servings_per_container",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Format / Formula Type",
           "target": "custom.product_format",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "How to Use / Directions",
           "target": "custom.directions",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Who Is It For?",
           "target": "custom.best_for_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Warnings",
           "target": "custom.warnings",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Allergens",
           "target": "custom.allergen_info",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Other Ingredients",
           "target": "custom.other_ingredients",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         }
       ],
-      "action": "block-missing-or-ambiguous-match"
+      "action": "import-approved-content"
     },
     {
       "sku": "ROC018",
       "handle": "nitricflow",
       "workbookName": "NitricFlow",
-      "liveProduct": null,
-      "skuMatches": [],
-      "handleMatches": [],
+      "liveProduct": {
+        "id": "gid://shopify/Product/7729742119015",
+        "title": "NitricFlow",
+        "status": "ACTIVE",
+        "publishedAt": "2026-08-12T00:44:32Z"
+      },
+      "skuMatches": [
+        "nitricflow"
+      ],
+      "handleMatches": [
+        "nitricflow"
+      ],
       "blocked": false,
       "approvalStatus": "Ready for review",
       "fields": [
@@ -1721,92 +1865,101 @@
           "source": "Hero Subtitle / Short Description",
           "target": "custom.pdp_subtitle",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Benefit / Use-case Tags",
           "target": "custom.hero_tags",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Serving Size",
           "target": "custom.serving_size",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Servings / Container",
           "target": "custom.servings_per_container",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Format / Formula Type",
           "target": "custom.product_format",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "How to Use / Directions",
           "target": "custom.directions",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Who Is It For?",
           "target": "custom.best_for_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Warnings",
           "target": "custom.warnings",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Allergens",
           "target": "custom.allergen_info",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Other Ingredients",
           "target": "custom.other_ingredients",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         }
       ],
-      "action": "block-missing-or-ambiguous-match"
+      "action": "import-approved-content"
     },
     {
       "sku": "ROC507",
       "handle": "mens-vitalprime",
       "workbookName": "Men's VitalPrime",
-      "liveProduct": null,
-      "skuMatches": [],
-      "handleMatches": [],
+      "liveProduct": {
+        "id": "gid://shopify/Product/7729743954023",
+        "title": "Men's VitalPrime",
+        "status": "ACTIVE",
+        "publishedAt": "2026-08-12T00:44:33Z"
+      },
+      "skuMatches": [
+        "mens-vitalprime"
+      ],
+      "handleMatches": [
+        "mens-vitalprime"
+      ],
       "blocked": false,
       "approvalStatus": "Ready for review",
       "fields": [
@@ -1814,92 +1967,101 @@
           "source": "Hero Subtitle / Short Description",
           "target": "custom.pdp_subtitle",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Benefit / Use-case Tags",
           "target": "custom.hero_tags",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Serving Size",
           "target": "custom.serving_size",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Servings / Container",
           "target": "custom.servings_per_container",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Format / Formula Type",
           "target": "custom.product_format",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "How to Use / Directions",
           "target": "custom.directions",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Who Is It For?",
           "target": "custom.best_for_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Warnings",
           "target": "custom.warnings",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Allergens",
           "target": "custom.allergen_info",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Other Ingredients",
           "target": "custom.other_ingredients",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         }
       ],
-      "action": "block-missing-or-ambiguous-match"
+      "action": "import-approved-content"
     },
     {
       "sku": "ROC450",
       "handle": "biocollagen",
       "workbookName": "BioCollagen",
-      "liveProduct": null,
-      "skuMatches": [],
-      "handleMatches": [],
+      "liveProduct": {
+        "id": "gid://shopify/Product/7729745789031",
+        "title": "BioCollagen",
+        "status": "ACTIVE",
+        "publishedAt": "2026-08-12T00:44:33Z"
+      },
+      "skuMatches": [
+        "biocollagen"
+      ],
+      "handleMatches": [
+        "biocollagen"
+      ],
       "blocked": false,
       "approvalStatus": "Ready for review",
       "fields": [
@@ -1907,92 +2069,101 @@
           "source": "Hero Subtitle / Short Description",
           "target": "custom.pdp_subtitle",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Benefit / Use-case Tags",
           "target": "custom.hero_tags",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Serving Size",
           "target": "custom.serving_size",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Servings / Container",
           "target": "custom.servings_per_container",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Format / Formula Type",
           "target": "custom.product_format",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "How to Use / Directions",
           "target": "custom.directions",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Who Is It For?",
           "target": "custom.best_for_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Warnings",
           "target": "custom.warnings",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Allergens",
           "target": "custom.allergen_info",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Other Ingredients",
           "target": "custom.other_ingredients",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         }
       ],
-      "action": "block-missing-or-ambiguous-match"
+      "action": "import-approved-content"
     },
     {
       "sku": "ROC914",
       "handle": "nitric-roots",
       "workbookName": "Nitric Roots",
-      "liveProduct": null,
-      "skuMatches": [],
-      "handleMatches": [],
+      "liveProduct": {
+        "id": "gid://shopify/Product/7729747296359",
+        "title": "Nitric Roots",
+        "status": "ACTIVE",
+        "publishedAt": "2026-08-12T00:44:34Z"
+      },
+      "skuMatches": [
+        "nitric-roots"
+      ],
+      "handleMatches": [
+        "nitric-roots"
+      ],
       "blocked": false,
       "approvalStatus": "Ready for review",
       "fields": [
@@ -2000,92 +2171,101 @@
           "source": "Hero Subtitle / Short Description",
           "target": "custom.pdp_subtitle",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Benefit / Use-case Tags",
           "target": "custom.hero_tags",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Serving Size",
           "target": "custom.serving_size",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Servings / Container",
           "target": "custom.servings_per_container",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Format / Formula Type",
           "target": "custom.product_format",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "How to Use / Directions",
           "target": "custom.directions",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Who Is It For?",
           "target": "custom.best_for_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Warnings",
           "target": "custom.warnings",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Allergens",
           "target": "custom.allergen_info",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Other Ingredients",
           "target": "custom.other_ingredients",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         }
       ],
-      "action": "block-missing-or-ambiguous-match"
+      "action": "import-approved-content"
     },
     {
       "sku": "ROC812",
       "handle": "mindsync",
       "workbookName": "MindSync",
-      "liveProduct": null,
-      "skuMatches": [],
-      "handleMatches": [],
+      "liveProduct": {
+        "id": "gid://shopify/Product/7729893539943",
+        "title": "MindSync",
+        "status": "ACTIVE",
+        "publishedAt": "2026-08-12T09:06:41Z"
+      },
+      "skuMatches": [
+        "mindsync"
+      ],
+      "handleMatches": [
+        "mindsync"
+      ],
       "blocked": false,
       "approvalStatus": "Ready for review",
       "fields": [
@@ -2093,92 +2273,101 @@
           "source": "Hero Subtitle / Short Description",
           "target": "custom.pdp_subtitle",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Benefit / Use-case Tags",
           "target": "custom.hero_tags",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Serving Size",
           "target": "custom.serving_size",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Servings / Container",
           "target": "custom.servings_per_container",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Format / Formula Type",
           "target": "custom.product_format",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "How to Use / Directions",
           "target": "custom.directions",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Who Is It For?",
           "target": "custom.best_for_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Warnings",
           "target": "custom.warnings",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Allergens",
           "target": "custom.allergen_info",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Other Ingredients",
           "target": "custom.other_ingredients",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         }
       ],
-      "action": "block-missing-or-ambiguous-match"
+      "action": "import-approved-content"
     },
     {
       "sku": "ROC824",
       "handle": "magbalance",
       "workbookName": "MagBalance",
-      "liveProduct": null,
-      "skuMatches": [],
-      "handleMatches": [],
+      "liveProduct": {
+        "id": "gid://shopify/Product/7729893572711",
+        "title": "MagBalance",
+        "status": "ACTIVE",
+        "publishedAt": "2026-08-12T09:06:43Z"
+      },
+      "skuMatches": [
+        "magbalance"
+      ],
+      "handleMatches": [
+        "magbalance"
+      ],
       "blocked": false,
       "approvalStatus": "Ready for review",
       "fields": [
@@ -2186,92 +2375,101 @@
           "source": "Hero Subtitle / Short Description",
           "target": "custom.pdp_subtitle",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Benefit / Use-case Tags",
           "target": "custom.hero_tags",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Serving Size",
           "target": "custom.serving_size",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Servings / Container",
           "target": "custom.servings_per_container",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Format / Formula Type",
           "target": "custom.product_format",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "How to Use / Directions",
           "target": "custom.directions",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Who Is It For?",
           "target": "custom.best_for_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Warnings",
           "target": "custom.warnings",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Allergens",
           "target": "custom.allergen_info",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Other Ingredients",
           "target": "custom.other_ingredients",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         }
       ],
-      "action": "block-missing-or-ambiguous-match"
+      "action": "import-approved-content"
     },
     {
       "sku": "ROC937",
       "handle": "vitalgreens",
       "workbookName": "VitalGreens",
-      "liveProduct": null,
-      "skuMatches": [],
-      "handleMatches": [],
+      "liveProduct": {
+        "id": "gid://shopify/Product/7729893834855",
+        "title": "VitalGreens",
+        "status": "ACTIVE",
+        "publishedAt": "2026-08-12T09:06:45Z"
+      },
+      "skuMatches": [
+        "vitalgreens"
+      ],
+      "handleMatches": [
+        "vitalgreens"
+      ],
       "blocked": false,
       "approvalStatus": "Ready for review",
       "fields": [
@@ -2279,92 +2477,101 @@
           "source": "Hero Subtitle / Short Description",
           "target": "custom.pdp_subtitle",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Benefit / Use-case Tags",
           "target": "custom.hero_tags",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Serving Size",
           "target": "custom.serving_size",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Servings / Container",
           "target": "custom.servings_per_container",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Format / Formula Type",
           "target": "custom.product_format",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "How to Use / Directions",
           "target": "custom.directions",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Who Is It For?",
           "target": "custom.best_for_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Warnings",
           "target": "custom.warnings",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Allergens",
           "target": "custom.allergen_info",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Other Ingredients",
           "target": "custom.other_ingredients",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         }
       ],
-      "action": "block-missing-or-ambiguous-match"
+      "action": "import-approved-content"
     },
     {
       "sku": "ROC808",
       "handle": "joint-flex",
       "workbookName": "FlexMotion",
-      "liveProduct": null,
-      "skuMatches": [],
-      "handleMatches": [],
+      "liveProduct": {
+        "id": "gid://shopify/Product/7729893769319",
+        "title": "FlexMotion",
+        "status": "ACTIVE",
+        "publishedAt": "2026-08-12T09:06:46Z"
+      },
+      "skuMatches": [
+        "joint-flex"
+      ],
+      "handleMatches": [
+        "joint-flex"
+      ],
       "blocked": false,
       "approvalStatus": "Ready for review",
       "fields": [
@@ -2372,92 +2579,101 @@
           "source": "Hero Subtitle / Short Description",
           "target": "custom.pdp_subtitle",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Benefit / Use-case Tags",
           "target": "custom.hero_tags",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Serving Size",
           "target": "custom.serving_size",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Servings / Container",
           "target": "custom.servings_per_container",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Format / Formula Type",
           "target": "custom.product_format",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "How to Use / Directions",
           "target": "custom.directions",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Who Is It For?",
           "target": "custom.best_for_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Warnings",
           "target": "custom.warnings",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Allergens",
           "target": "custom.allergen_info",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Other Ingredients",
           "target": "custom.other_ingredients",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         }
       ],
-      "action": "block-missing-or-ambiguous-match"
+      "action": "import-approved-content"
     },
     {
       "sku": "ROC503",
       "handle": "natural-pct",
       "workbookName": "Hormone Reset",
-      "liveProduct": null,
-      "skuMatches": [],
-      "handleMatches": [],
+      "liveProduct": {
+        "id": "gid://shopify/Product/7729893638247",
+        "title": "Hormone Reset",
+        "status": "ACTIVE",
+        "publishedAt": "2026-08-12T09:06:48Z"
+      },
+      "skuMatches": [
+        "natural-pct"
+      ],
+      "handleMatches": [
+        "natural-pct"
+      ],
       "blocked": false,
       "approvalStatus": "Ready for review",
       "fields": [
@@ -2465,92 +2681,101 @@
           "source": "Hero Subtitle / Short Description",
           "target": "custom.pdp_subtitle",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Benefit / Use-case Tags",
           "target": "custom.hero_tags",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Serving Size",
           "target": "custom.serving_size",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Servings / Container",
           "target": "custom.servings_per_container",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Format / Formula Type",
           "target": "custom.product_format",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "How to Use / Directions",
           "target": "custom.directions",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Who Is It For?",
           "target": "custom.best_for_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Warnings",
           "target": "custom.warnings",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Allergens",
           "target": "custom.allergen_info",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Other Ingredients",
           "target": "custom.other_ingredients",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         }
       ],
-      "action": "block-missing-or-ambiguous-match"
+      "action": "import-approved-content"
     },
     {
       "sku": "ROC506",
       "handle": "ultra-test",
       "workbookName": "AndroCore",
-      "liveProduct": null,
-      "skuMatches": [],
-      "handleMatches": [],
+      "liveProduct": {
+        "id": "gid://shopify/Product/7729893671015",
+        "title": "AndroCore",
+        "status": "ACTIVE",
+        "publishedAt": "2026-08-12T09:06:50Z"
+      },
+      "skuMatches": [
+        "ultra-test"
+      ],
+      "handleMatches": [
+        "ultra-test"
+      ],
       "blocked": false,
       "approvalStatus": "Ready for review",
       "fields": [
@@ -2558,92 +2783,101 @@
           "source": "Hero Subtitle / Short Description",
           "target": "custom.pdp_subtitle",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Benefit / Use-case Tags",
           "target": "custom.hero_tags",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Serving Size",
           "target": "custom.serving_size",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Servings / Container",
           "target": "custom.servings_per_container",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Format / Formula Type",
           "target": "custom.product_format",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "How to Use / Directions",
           "target": "custom.directions",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Who Is It For?",
           "target": "custom.best_for_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Warnings",
           "target": "custom.warnings",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Allergens",
           "target": "custom.allergen_info",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Other Ingredients",
           "target": "custom.other_ingredients",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         }
       ],
-      "action": "block-missing-or-ambiguous-match"
+      "action": "import-approved-content"
     },
     {
       "sku": "ROC303",
       "handle": "digestive-enzyme",
       "workbookName": "BioDigest",
-      "liveProduct": null,
-      "skuMatches": [],
-      "handleMatches": [],
+      "liveProduct": {
+        "id": "gid://shopify/Product/7729893605479",
+        "title": "Digestive Enzyme",
+        "status": "ACTIVE",
+        "publishedAt": "2026-08-12T09:06:52Z"
+      },
+      "skuMatches": [
+        "digestive-enzyme"
+      ],
+      "handleMatches": [
+        "digestive-enzyme"
+      ],
       "blocked": false,
       "approvalStatus": "Ready for review",
       "fields": [
@@ -2651,92 +2885,101 @@
           "source": "Hero Subtitle / Short Description",
           "target": "custom.pdp_subtitle",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Benefit / Use-case Tags",
           "target": "custom.hero_tags",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Serving Size",
           "target": "custom.serving_size",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Servings / Container",
           "target": "custom.servings_per_container",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Format / Formula Type",
           "target": "custom.product_format",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "How to Use / Directions",
           "target": "custom.directions",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Who Is It For?",
           "target": "custom.best_for_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Warnings",
           "target": "custom.warnings",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Allergens",
           "target": "custom.allergen_info",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Other Ingredients",
           "target": "custom.other_ingredients",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         }
       ],
-      "action": "block-missing-or-ambiguous-match"
+      "action": "import-approved-content"
     },
     {
       "sku": "ROC831",
       "handle": "vitamin-k2-d3",
       "workbookName": "BoneVital",
-      "liveProduct": null,
-      "skuMatches": [],
-      "handleMatches": [],
+      "liveProduct": {
+        "id": "gid://shopify/Product/7729893802087",
+        "title": "BoneVital",
+        "status": "ACTIVE",
+        "publishedAt": "2026-08-12T09:06:53Z"
+      },
+      "skuMatches": [
+        "vitamin-k2-d3"
+      ],
+      "handleMatches": [
+        "vitamin-k2-d3"
+      ],
       "blocked": false,
       "approvalStatus": "Ready for review",
       "fields": [
@@ -2744,92 +2987,101 @@
           "source": "Hero Subtitle / Short Description",
           "target": "custom.pdp_subtitle",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Benefit / Use-case Tags",
           "target": "custom.hero_tags",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Serving Size",
           "target": "custom.serving_size",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Servings / Container",
           "target": "custom.servings_per_container",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Format / Formula Type",
           "target": "custom.product_format",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "How to Use / Directions",
           "target": "custom.directions",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Who Is It For?",
           "target": "custom.best_for_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Warnings",
           "target": "custom.warnings",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Allergens",
           "target": "custom.allergen_info",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Other Ingredients",
           "target": "custom.other_ingredients",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         }
       ],
-      "action": "block-missing-or-ambiguous-match"
+      "action": "import-approved-content"
     },
     {
       "sku": "ROC613",
       "handle": "energized-aminos",
       "workbookName": "AminoBoost",
-      "liveProduct": null,
-      "skuMatches": [],
-      "handleMatches": [],
+      "liveProduct": {
+        "id": "gid://shopify/Product/7729893703783",
+        "title": "AminoBoost",
+        "status": "ACTIVE",
+        "publishedAt": "2026-08-12T09:06:55Z"
+      },
+      "skuMatches": [
+        "energized-aminos"
+      ],
+      "handleMatches": [
+        "energized-aminos"
+      ],
       "blocked": false,
       "approvalStatus": "Ready for review",
       "fields": [
@@ -2837,92 +3089,101 @@
           "source": "Hero Subtitle / Short Description",
           "target": "custom.pdp_subtitle",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Benefit / Use-case Tags",
           "target": "custom.hero_tags",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Serving Size",
           "target": "custom.serving_size",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Servings / Container",
           "target": "custom.servings_per_container",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Format / Formula Type",
           "target": "custom.product_format",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "How to Use / Directions",
           "target": "custom.directions",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Who Is It For?",
           "target": "custom.best_for_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Warnings",
           "target": "custom.warnings",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Allergens",
           "target": "custom.allergen_info",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Other Ingredients",
           "target": "custom.other_ingredients",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         }
       ],
-      "action": "block-missing-or-ambiguous-match"
+      "action": "import-approved-content"
     },
     {
       "sku": "ROC736",
       "handle": "adrenal-support-plus",
       "workbookName": "StressAdapt",
-      "liveProduct": null,
-      "skuMatches": [],
-      "handleMatches": [],
+      "liveProduct": {
+        "id": "gid://shopify/Product/7729893736551",
+        "title": "StressAdapt",
+        "status": "ACTIVE",
+        "publishedAt": "2026-08-12T09:06:57Z"
+      },
+      "skuMatches": [
+        "adrenal-support-plus"
+      ],
+      "handleMatches": [
+        "adrenal-support-plus"
+      ],
       "blocked": false,
       "approvalStatus": "Ready for review",
       "fields": [
@@ -2930,84 +3191,84 @@
           "source": "Hero Subtitle / Short Description",
           "target": "custom.pdp_subtitle",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Benefit / Use-case Tags",
           "target": "custom.hero_tags",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Serving Size",
           "target": "custom.serving_size",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Servings / Container",
           "target": "custom.servings_per_container",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Format / Formula Type",
           "target": "custom.product_format",
           "expectedType": "single_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "single_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "How to Use / Directions",
           "target": "custom.directions",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Who Is It For?",
           "target": "custom.best_for_description",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Warnings",
           "target": "custom.warnings",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Allergens",
           "target": "custom.allergen_info",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         },
         {
           "source": "Other Ingredients",
           "target": "custom.other_ingredients",
           "expectedType": "multi_line_text_field",
-          "actualType": null,
-          "storefront": null,
-          "status": "unsupported"
+          "actualType": "multi_line_text_field",
+          "storefront": "PUBLIC_READ",
+          "status": "supported"
         }
       ],
-      "action": "block-missing-or-ambiguous-match"
+      "action": "import-approved-content"
     }
   ]
 }

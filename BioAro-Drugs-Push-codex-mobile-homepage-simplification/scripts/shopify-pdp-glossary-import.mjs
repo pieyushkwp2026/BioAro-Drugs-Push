@@ -130,6 +130,10 @@ const definitions = workbookOnly
   ? []
   : (await graphql(`query { metafieldDefinitions(first: 250, ownerType: PRODUCT) { nodes { namespace key type { name } access { storefront } } } }`)).metafieldDefinitions.nodes;
 const definitionByKey = new Map(definitions.filter((d) => d.namespace === "custom").map((d) => [d.key, d]));
+const metaobjectDefinitions = workbookOnly
+  ? []
+  : (await graphql(`query { metaobjectDefinitions(first: 100) { nodes { type name } } }`)).metaobjectDefinitions.nodes;
+const metaobjectTypeByName = new Map(metaobjectDefinitions.map((definition) => [definition.name, definition.type]));
 const shopifyProducts = [];
 if (!workbookOnly) {
   let cursor = null;
@@ -154,6 +158,44 @@ const matches = products.map((product) => {
   return { sku: product.SKU, handle: product["PDP Slug / Handle"], workbookName: product["PDP Display Name"], liveProduct: live ? { id: live.id, title: live.title, status: live.status, publishedAt: live.publishedAt } : null, skuMatches: bySku.map((p) => p.handle), handleMatches: byHandle.map((p) => p.handle), blocked: isBlocked(product), approvalStatus: product["Approval / Publish Status"], fields };
 });
 
+function contentUpdates(product, match) {
+  const updates = [];
+  for (const [source, [key, expectedType]] of Object.entries(scalarMap)) {
+    const value = product[source];
+    const field = match.fields.find((item) => item.source === source);
+    if (!value || BLOCK_MARKERS.test(value) || field?.status !== "supported") continue;
+    updates.push({ namespace: "custom", key, type: expectedType, value });
+  }
+  const benefits = [1, 2, 3].flatMap((index) => {
+    const title = product[`Benefit ${index} Title`];
+    const description = product[`Benefit ${index} Description`];
+    return title ? [`${title}${description ? `: ${description}` : ""}`] : [];
+  });
+  const heroBullets = benefits.join("\n");
+  const heroDefinition = definitionByKey.get("hero_bullets");
+  if (heroBullets && heroDefinition?.type?.name === "single_line_text_field") {
+    updates.push({ namespace: "custom", key: "hero_bullets", type: "single_line_text_field", value: benefits.join(" | ") });
+  }
+  return updates;
+}
+
+function structuredValues(product) {
+  const ingredients = [1, 2, 3].flatMap((index) => {
+    const name = product[`Key Active ${index}`];
+    if (!name || BLOCK_MARKERS.test(name)) return [];
+    return [{ name, amount: product[`Amount ${index}`], purpose: product[`Why Included ${index}`] }];
+  });
+  const faqs = [1, 2, 3, 4, 5, 6].flatMap((index) => {
+    const question = product[`FAQ ${index} — Question`];
+    const answer = product[`FAQ ${index} — Answer`];
+    return question && answer && !BLOCK_MARKERS.test(`${question} ${answer}`) ? [{ question, answer }] : [];
+  });
+  const facts = product["Supplement Facts / Formula"] && !BLOCK_MARKERS.test(product["Supplement Facts / Formula"])
+    ? product["Supplement Facts / Formula"].split(/\r?\n+/).map((value, index) => value.trim()).filter(Boolean).map((value, index) => ({ label: `Supplement fact ${index + 1}`, value }))
+    : [];
+  return { ingredients, faqs, facts };
+}
+
 const stamp = new Date().toISOString().slice(0, 10);
 const dir = `migration-reports/${stamp}/pdp-glossary`;
 mkdirSync(dir, { recursive: true });
@@ -175,7 +217,83 @@ if (!apply) {
   process.exit(0);
 }
 
-/* Deliberately fail closed until the mutation adapter is reviewed against the live
-   metafield/metaobject definitions. This prevents a report generator from becoming an
-   accidental production importer. */
-throw new Error("Apply mode is intentionally disabled until the generated compatibility and import reports are reviewed.");
+const matched = matches.filter((match) => match.liveProduct);
+const skipped = matches.filter((match) => !match.liveProduct);
+if (skipped.length) console.log(`Skipping ${skipped.length} unmatched product(s): ${skipped.map((item) => item.handle).join(", ")}`);
+
+function assertNoUserErrors(payload, label) {
+  const errors = payload?.userErrors ?? [];
+  if (errors.length) throw new Error(`${label}: ${errors.map((error) => error.message).join("; ")}`);
+}
+
+async function upsertMetaobject(type, handle, fields) {
+  const created = await graphql(`mutation($metaobject: MetaobjectCreateInput!) { metaobjectCreate(metaobject: $metaobject) { metaobject { id } userErrors { field message } } }`, {
+    metaobject: { type, handle, fields },
+  });
+  const result = created.metaobjectCreate;
+  if (!result.userErrors?.length) return result.metaobject.id;
+  if (!result.userErrors.some((error) => /taken|already exists/i.test(error.message ?? ""))) {
+    throw new Error(`metaobjectCreate ${handle}: ${result.userErrors.map((error) => error.message).join("; ")}`);
+  }
+  const found = await graphql(`query($type: String!, $handle: String!) { metaobjectByHandle(handle: { type: $type, handle: $handle }) { id } }`, { type, handle });
+  if (!found.metaobjectByHandle?.id) throw new Error(`Existing metaobject ${type}/${handle} could not be resolved.`);
+  return found.metaobjectByHandle.id;
+}
+
+for (const match of matched) {
+  const product = products.find((item) => item.SKU === match.sku);
+  const updates = contentUpdates(product, match);
+  const structured = structuredValues(product);
+  const ingredientType = metaobjectTypeByName.get("Ingredient") ?? "ingredient";
+  const faqType = metaobjectTypeByName.get("FAQ") ?? "faq";
+  const factType = metaobjectTypeByName.get("BioAro supplement fact row");
+  const ingredientIds = [];
+  for (const [index, item] of structured.ingredients.entries()) {
+    ingredientIds.push(await upsertMetaobject(ingredientType, `${match.handle}-ingredient-${index + 1}`, [
+      { key: "name", value: item.name },
+      ...(item.amount ? [{ key: "amount", value: item.amount }] : []),
+      ...(item.purpose ? [{ key: "purpose", value: item.purpose }] : []),
+    ]));
+  }
+  const faqIds = [];
+  for (const [index, item] of structured.faqs.entries()) {
+    faqIds.push(await upsertMetaobject(faqType, `${match.handle}-faq-${index + 1}`, [
+      { key: "question", value: item.question },
+      { key: "answer", value: item.answer },
+    ]));
+  }
+  const factIds = [];
+  if (factType) {
+    for (const [index, item] of structured.facts.entries()) {
+      factIds.push(await upsertMetaobject(factType, `${match.handle}-fact-${index + 1}`, [
+        { key: "label", value: item.label },
+        { key: "value", value: item.value },
+      ]));
+    }
+  }
+  const ingredientDefinition = definitionByKey.get("ingredient_details");
+  const faqDefinition = definitionByKey.get("faqs");
+  const factsDefinition = definitionByKey.get("supplement_facts_rows");
+  if (ingredientIds.length && ingredientDefinition?.type?.name === "list.metaobject_reference") {
+    updates.push({ namespace: "custom", key: "ingredient_details", type: "list.metaobject_reference", value: JSON.stringify(ingredientIds) });
+  }
+  if (faqDefinition?.type?.name === "json" && structured.faqs.length) {
+    updates.push({ namespace: "custom", key: "faqs", type: "json", value: JSON.stringify(structured.faqs.map((item) => ({ title: item.question, text: item.answer }))) });
+  }
+  if (factsDefinition?.type?.name === "json" && structured.facts.length) {
+    updates.push({ namespace: "custom", key: "supplement_facts_rows", type: "json", value: JSON.stringify(structured.facts.map((item) => ({ title: item.label, text: item.value }))) });
+  }
+  const values = updates.map((update) => ({ ownerId: match.liveProduct.id, ...update }));
+  for (let i = 0; i < values.length; i += 25) {
+    const result = await graphql(`mutation($metafields: [MetafieldsSetInput!]!) { metafieldsSet(metafields: $metafields) { metafields { key } userErrors { field message code } } }`, { metafields: values.slice(i, i + 25) });
+    assertNoUserErrors(result.metafieldsSet, `metafieldsSet ${match.handle}`);
+  }
+
+  if (match.blocked) {
+    const result = await graphql(`mutation($input: ProductInput!) { productUpdate(input: $input) { product { id status } userErrors { field message } } }`, { input: { id: match.liveProduct.id, status: "DRAFT" } });
+    assertNoUserErrors(result.productUpdate, `productUpdate ${match.handle}`);
+  }
+  console.log(`${match.blocked ? "DRAFT" : "LIVE  "} ${match.handle} (${updates.length} metafields)`);
+}
+
+console.log(`Applied ${matched.length - blocked.length} ready product(s) live and ${blocked.filter((item) => item.liveProduct).length} blocked product(s) as drafts.`);
