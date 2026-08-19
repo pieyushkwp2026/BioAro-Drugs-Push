@@ -3,8 +3,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useMarketHref } from "../../hooks/useMarketHref";
 import { ROUTES } from "../../lib/routes";
 import { PRODUCTS_SECTION } from "../../data/homepage";
-import { HANDLES_WITH_OWN_CARD_ART } from "../../data/productCardImages";
 import type { CatalogProduct } from "../../lib/shopify/types";
+import { LEGACY_PRODUCT_ORDER } from "../../lib/shopify/productService";
 import type { CatalogState } from "../../hooks/useCatalog";
 import ProductCard from "../sections/ProductCard";
 import {
@@ -19,8 +19,8 @@ import {
  *
  * A rail rather than a grid at every size: seven products in a 4-up grid leaves a
  * ragged second row, and horizontal scrolling is the better mobile behaviour anyway.
- * The allowlist is deliberate — only products with their own card photography, so
- * nothing borrows another product's art.
+ * The legacy range is deliberate: it is the clearest first shelf for returning
+ * customers. Products without bespoke local card art use their Shopify image instead.
  */
 export default function ProductShowcase({
   products,
@@ -44,9 +44,10 @@ export default function ProductShowcase({
   // Fail quiet rather than render an empty shelf under a confident heading.
   if (state === "failed") return null;
 
-  const shown = products.filter((product) =>
-    HANDLES_WITH_OWN_CARD_ART.has(product.handle),
-  );
+  const legacyIndex = new Map<string, number>(LEGACY_PRODUCT_ORDER.map((handle, index) => [handle, index]));
+  const shown = products
+    .filter((product) => legacyIndex.has(product.handle))
+    .sort((a, b) => (legacyIndex.get(a.handle) ?? 999) - (legacyIndex.get(b.handle) ?? 999));
 
   return (
     /* py, not pb: this section follows the hero's full-bleed image, and every other

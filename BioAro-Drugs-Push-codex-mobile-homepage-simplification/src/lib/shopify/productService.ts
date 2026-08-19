@@ -37,7 +37,7 @@ interface ProductQueryData {
   product: ShopifyProductNode | null;
 }
 
-const LEGACY_PRODUCT_ORDER = [
+export const LEGACY_PRODUCT_ORDER = [
   "longevity-plus",
   "cellomega-plus",
   "creagen-brain-boost",
@@ -45,6 +45,8 @@ const LEGACY_PRODUCT_ORDER = [
   "creagen-raw-power",
   "creagen-pro-power",
   "glutara",
+  "sleepo",
+  "sleepo-kids",
 ] as const;
 
 const LEGACY_PRODUCT_ORDER_MAP = new Map<string, number>(LEGACY_PRODUCT_ORDER.map((handle, index) => [handle, index]));

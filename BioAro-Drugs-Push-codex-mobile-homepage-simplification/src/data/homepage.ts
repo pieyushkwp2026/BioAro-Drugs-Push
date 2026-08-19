@@ -333,7 +333,7 @@ export const BUILDER = {
 
 export const PRODUCTS_SECTION = {
   headline: ["Science-led formulas.", "Built to work together."],
-  body: "Seven formulas across clarity, strength, recovery and LONgevity+. Every one of them lists what is inside and how much.",
+  body: "Start with the BioAro range across clarity, strength, recovery and everyday foundations. Every formula lists what is inside and how much.",
   primaryCta: "Shop All Products",
   secondaryCta: "Build My Protocol",
 } as const;

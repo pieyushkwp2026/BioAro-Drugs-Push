@@ -191,7 +191,7 @@ function structuredValues(product) {
     return question && answer && !BLOCK_MARKERS.test(`${question} ${answer}`) ? [{ question, answer }] : [];
   });
   const facts = product["Supplement Facts / Formula"] && !BLOCK_MARKERS.test(product["Supplement Facts / Formula"])
-    ? product["Supplement Facts / Formula"].split(/\r?\n+/).map((value, index) => value.trim()).filter(Boolean).map((value, index) => ({ label: `Supplement fact ${index + 1}`, value }))
+    ? product["Supplement Facts / Formula"].split(/\r?\n+/).map((value) => value.trim()).filter(Boolean).map((value, index) => ({ label: `Supplement fact ${index + 1}`, value }))
     : [];
   return { ingredients, faqs, facts };
 }
