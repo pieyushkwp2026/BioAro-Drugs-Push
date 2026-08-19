@@ -1,0 +1,6260 @@
+{
+  "generatedAt": "2026-08-19T13:33:38.330Z",
+  "productCount": 30,
+  "uniqueSkus": 30,
+  "uniqueHandles": 30,
+  "duplicateSkus": [],
+  "duplicateHandles": [],
+  "exactMatches": 0,
+  "ambiguousOrMissing": [
+    {
+      "sku": "BACT-6H7S4",
+      "handle": "longevity-plus",
+      "workbookName": "Longevity+",
+      "liveProduct": null,
+      "skuMatches": [],
+      "handleMatches": [],
+      "blocked": true,
+      "approvalStatus": "Design allowed; publication blocked until regional copy + claim approval",
+      "fields": [
+        {
+          "source": "Product Badge / Eyebrow",
+          "target": "custom.hero_eyebrow",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Hero Subtitle / Short Description",
+          "target": "custom.pdp_subtitle",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Long Description",
+          "target": "custom.short_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Benefit / Use-case Tags",
+          "target": "custom.hero_tags",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Pack / Count",
+          "target": "custom.pack_name",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Serving Size",
+          "target": "custom.serving_size",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Servings / Container",
+          "target": "custom.servings_per_container",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Format / Formula Type",
+          "target": "custom.product_format",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "How to Use / Directions",
+          "target": "custom.directions",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Who Is It For?",
+          "target": "custom.best_for_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Warnings",
+          "target": "custom.warnings",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Other Ingredients",
+          "target": "custom.other_ingredients",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Formula Intro / Why Formula Exists",
+          "target": "custom.why_formula_body",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Quality / Testing",
+          "target": "custom.clinical_evidence",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        }
+      ]
+    },
+    {
+      "sku": "BACT-0R3W8",
+      "handle": "cellomega-plus",
+      "workbookName": "CellOmega+",
+      "liveProduct": null,
+      "skuMatches": [],
+      "handleMatches": [],
+      "blocked": true,
+      "approvalStatus": "Design allowed; publication blocked until regional copy + claim approval",
+      "fields": [
+        {
+          "source": "Product Badge / Eyebrow",
+          "target": "custom.hero_eyebrow",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Hero Subtitle / Short Description",
+          "target": "custom.pdp_subtitle",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Long Description",
+          "target": "custom.short_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Benefit / Use-case Tags",
+          "target": "custom.hero_tags",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Pack / Count",
+          "target": "custom.pack_name",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Serving Size",
+          "target": "custom.serving_size",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Servings / Container",
+          "target": "custom.servings_per_container",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Format / Formula Type",
+          "target": "custom.product_format",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "How to Use / Directions",
+          "target": "custom.directions",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Who Is It For?",
+          "target": "custom.best_for_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Warnings",
+          "target": "custom.warnings",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Other Ingredients",
+          "target": "custom.other_ingredients",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Formula Intro / Why Formula Exists",
+          "target": "custom.why_formula_body",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Quality / Testing",
+          "target": "custom.clinical_evidence",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        }
+      ]
+    },
+    {
+      "sku": "BACT-1A4H3",
+      "handle": "creagen-brain-boost",
+      "workbookName": "Creagen Brain Boost",
+      "liveProduct": null,
+      "skuMatches": [],
+      "handleMatches": [],
+      "blocked": true,
+      "approvalStatus": "Design allowed; publication blocked until cognitive claim approval + typo corrections",
+      "fields": [
+        {
+          "source": "Product Badge / Eyebrow",
+          "target": "custom.hero_eyebrow",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Hero Subtitle / Short Description",
+          "target": "custom.pdp_subtitle",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Long Description",
+          "target": "custom.short_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Benefit / Use-case Tags",
+          "target": "custom.hero_tags",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Pack / Count",
+          "target": "custom.pack_name",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Serving Size",
+          "target": "custom.serving_size",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Servings / Container",
+          "target": "custom.servings_per_container",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Format / Formula Type",
+          "target": "custom.product_format",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "How to Use / Directions",
+          "target": "custom.directions",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Who Is It For?",
+          "target": "custom.best_for_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Warnings",
+          "target": "custom.warnings",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Other Ingredients",
+          "target": "custom.other_ingredients",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Formula Intro / Why Formula Exists",
+          "target": "custom.why_formula_body",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Quality / Testing",
+          "target": "custom.clinical_evidence",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        }
+      ]
+    },
+    {
+      "sku": "BACT-2X1V8",
+      "handle": "creagen-femme-energy",
+      "workbookName": "Creagen Femme Energy",
+      "liveProduct": null,
+      "skuMatches": [],
+      "handleMatches": [],
+      "blocked": true,
+      "approvalStatus": "Do not design from risky PDF copy; rewrite to safe women&#8217;s performance support first",
+      "fields": [
+        {
+          "source": "Product Badge / Eyebrow",
+          "target": "custom.hero_eyebrow",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Hero Subtitle / Short Description",
+          "target": "custom.pdp_subtitle",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Long Description",
+          "target": "custom.short_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Benefit / Use-case Tags",
+          "target": "custom.hero_tags",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Pack / Count",
+          "target": "custom.pack_name",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Serving Size",
+          "target": "custom.serving_size",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Servings / Container",
+          "target": "custom.servings_per_container",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Format / Formula Type",
+          "target": "custom.product_format",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "How to Use / Directions",
+          "target": "custom.directions",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Who Is It For?",
+          "target": "custom.best_for_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Warnings",
+          "target": "custom.warnings",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Other Ingredients",
+          "target": "custom.other_ingredients",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Formula Intro / Why Formula Exists",
+          "target": "custom.why_formula_body",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Quality / Testing",
+          "target": "custom.clinical_evidence",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        }
+      ]
+    },
+    {
+      "sku": "BACT-1S6B0",
+      "handle": "creagen-raw-power",
+      "workbookName": "Creagen Raw Power",
+      "liveProduct": null,
+      "skuMatches": [],
+      "handleMatches": [],
+      "blocked": true,
+      "approvalStatus": "Design allowed; publication blocked until label/price/region confirmation",
+      "fields": [
+        {
+          "source": "Product Badge / Eyebrow",
+          "target": "custom.hero_eyebrow",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Hero Subtitle / Short Description",
+          "target": "custom.pdp_subtitle",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Long Description",
+          "target": "custom.short_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Benefit / Use-case Tags",
+          "target": "custom.hero_tags",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Pack / Count",
+          "target": "custom.pack_name",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Serving Size",
+          "target": "custom.serving_size",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Servings / Container",
+          "target": "custom.servings_per_container",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Format / Formula Type",
+          "target": "custom.product_format",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "How to Use / Directions",
+          "target": "custom.directions",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Who Is It For?",
+          "target": "custom.best_for_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Warnings",
+          "target": "custom.warnings",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Other Ingredients",
+          "target": "custom.other_ingredients",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Formula Intro / Why Formula Exists",
+          "target": "custom.why_formula_body",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Quality / Testing",
+          "target": "custom.clinical_evidence",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        }
+      ]
+    },
+    {
+      "sku": "BACT-1G3Q9",
+      "handle": "creagen-pro-power",
+      "workbookName": "Creagen Pro Power",
+      "liveProduct": null,
+      "skuMatches": [],
+      "handleMatches": [],
+      "blocked": true,
+      "approvalStatus": "Design allowed; publication blocked until sports-performance claim approval",
+      "fields": [
+        {
+          "source": "Product Badge / Eyebrow",
+          "target": "custom.hero_eyebrow",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Hero Subtitle / Short Description",
+          "target": "custom.pdp_subtitle",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Long Description",
+          "target": "custom.short_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Benefit / Use-case Tags",
+          "target": "custom.hero_tags",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Pack / Count",
+          "target": "custom.pack_name",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Serving Size",
+          "target": "custom.serving_size",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Servings / Container",
+          "target": "custom.servings_per_container",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Format / Formula Type",
+          "target": "custom.product_format",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "How to Use / Directions",
+          "target": "custom.directions",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Who Is It For?",
+          "target": "custom.best_for_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Warnings",
+          "target": "custom.warnings",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Other Ingredients",
+          "target": "custom.other_ingredients",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Formula Intro / Why Formula Exists",
+          "target": "custom.why_formula_body",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Quality / Testing",
+          "target": "custom.clinical_evidence",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        }
+      ]
+    },
+    {
+      "sku": "BACT-0Y2W6",
+      "handle": "glutara",
+      "workbookName": "Glutara",
+      "liveProduct": null,
+      "skuMatches": [],
+      "handleMatches": [],
+      "blocked": true,
+      "approvalStatus": "Do not design from detox/liver PDF copy; rewrite to antioxidant/skin hydration support first",
+      "fields": [
+        {
+          "source": "Product Badge / Eyebrow",
+          "target": "custom.hero_eyebrow",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Hero Subtitle / Short Description",
+          "target": "custom.pdp_subtitle",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Long Description",
+          "target": "custom.short_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Benefit / Use-case Tags",
+          "target": "custom.hero_tags",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Pack / Count",
+          "target": "custom.pack_name",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Serving Size",
+          "target": "custom.serving_size",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Servings / Container",
+          "target": "custom.servings_per_container",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Format / Formula Type",
+          "target": "custom.product_format",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "How to Use / Directions",
+          "target": "custom.directions",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Who Is It For?",
+          "target": "custom.best_for_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Warnings",
+          "target": "custom.warnings",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Other Ingredients",
+          "target": "custom.other_ingredients",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Formula Intro / Why Formula Exists",
+          "target": "custom.why_formula_body",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Quality / Testing",
+          "target": "custom.clinical_evidence",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        }
+      ]
+    },
+    {
+      "sku": "BACT-1C6D5",
+      "handle": "sleepo",
+      "workbookName": "Sleepo",
+      "liveProduct": null,
+      "skuMatches": [],
+      "handleMatches": [],
+      "blocked": true,
+      "approvalStatus": "Label-verified; publication requires regional sleep-claim review",
+      "fields": [
+        {
+          "source": "Product Badge / Eyebrow",
+          "target": "custom.hero_eyebrow",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Benefit / Use-case Tags",
+          "target": "custom.hero_tags",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Pack / Count",
+          "target": "custom.pack_name",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Serving Size",
+          "target": "custom.serving_size",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Servings / Container",
+          "target": "custom.servings_per_container",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Format / Formula Type",
+          "target": "custom.product_format",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "How to Use / Directions",
+          "target": "custom.directions",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Who Is It For?",
+          "target": "custom.best_for_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Warnings",
+          "target": "custom.warnings",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Allergens",
+          "target": "custom.allergen_info",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Other Ingredients",
+          "target": "custom.other_ingredients",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Formula Intro / Why Formula Exists",
+          "target": "custom.why_formula_body",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        }
+      ]
+    },
+    {
+      "sku": "BACT-5I2G5",
+      "handle": "sleepo-kids",
+      "workbookName": "Sleepo Kids",
+      "liveProduct": null,
+      "skuMatches": [],
+      "handleMatches": [],
+      "blocked": true,
+      "approvalStatus": "Label-verified; publication requires pediatric/regional sleep-claim review",
+      "fields": [
+        {
+          "source": "Product Badge / Eyebrow",
+          "target": "custom.hero_eyebrow",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Hero Subtitle / Short Description",
+          "target": "custom.pdp_subtitle",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Long Description",
+          "target": "custom.short_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Benefit / Use-case Tags",
+          "target": "custom.hero_tags",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Pack / Count",
+          "target": "custom.pack_name",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Serving Size",
+          "target": "custom.serving_size",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Servings / Container",
+          "target": "custom.servings_per_container",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Format / Formula Type",
+          "target": "custom.product_format",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "How to Use / Directions",
+          "target": "custom.directions",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Who Is It For?",
+          "target": "custom.best_for_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Warnings",
+          "target": "custom.warnings",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Allergens",
+          "target": "custom.allergen_info",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Other Ingredients",
+          "target": "custom.other_ingredients",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Formula Intro / Why Formula Exists",
+          "target": "custom.why_formula_body",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Quality / Testing",
+          "target": "custom.clinical_evidence",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        }
+      ]
+    },
+    {
+      "sku": "BACT-SLEEP0PLUS",
+      "handle": "sleep0-plus",
+      "workbookName": "Sleep0+",
+      "liveProduct": null,
+      "skuMatches": [],
+      "handleMatches": [],
+      "blocked": true,
+      "approvalStatus": "Source required before PDP publication",
+      "fields": [
+        {
+          "source": "Hero Subtitle / Short Description",
+          "target": "custom.pdp_subtitle",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Pack / Count",
+          "target": "custom.pack_name",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        }
+      ]
+    },
+    {
+      "sku": "ROC2821",
+      "handle": "bioprotein-pro",
+      "workbookName": "BioProtein Pro",
+      "liveProduct": null,
+      "skuMatches": [],
+      "handleMatches": [],
+      "blocked": false,
+      "approvalStatus": "Ready for review",
+      "fields": [
+        {
+          "source": "Hero Subtitle / Short Description",
+          "target": "custom.pdp_subtitle",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Benefit / Use-case Tags",
+          "target": "custom.hero_tags",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Serving Size",
+          "target": "custom.serving_size",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Servings / Container",
+          "target": "custom.servings_per_container",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Format / Formula Type",
+          "target": "custom.product_format",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "How to Use / Directions",
+          "target": "custom.directions",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Who Is It For?",
+          "target": "custom.best_for_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Warnings",
+          "target": "custom.warnings",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Allergens",
+          "target": "custom.allergen_info",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Other Ingredients",
+          "target": "custom.other_ingredients",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        }
+      ]
+    },
+    {
+      "sku": "ROC263V",
+      "handle": "plantcore",
+      "workbookName": "PlantCore",
+      "liveProduct": null,
+      "skuMatches": [],
+      "handleMatches": [],
+      "blocked": false,
+      "approvalStatus": "Ready for review",
+      "fields": [
+        {
+          "source": "Hero Subtitle / Short Description",
+          "target": "custom.pdp_subtitle",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Benefit / Use-case Tags",
+          "target": "custom.hero_tags",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Serving Size",
+          "target": "custom.serving_size",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Servings / Container",
+          "target": "custom.servings_per_container",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Format / Formula Type",
+          "target": "custom.product_format",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "How to Use / Directions",
+          "target": "custom.directions",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Who Is It For?",
+          "target": "custom.best_for_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Warnings",
+          "target": "custom.warnings",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Allergens",
+          "target": "custom.allergen_info",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Other Ingredients",
+          "target": "custom.other_ingredients",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        }
+      ]
+    },
+    {
+      "sku": "ROC606",
+      "handle": "bioignite",
+      "workbookName": "BioIgnite",
+      "liveProduct": null,
+      "skuMatches": [],
+      "handleMatches": [],
+      "blocked": false,
+      "approvalStatus": "Ready for review",
+      "fields": [
+        {
+          "source": "Hero Subtitle / Short Description",
+          "target": "custom.pdp_subtitle",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Benefit / Use-case Tags",
+          "target": "custom.hero_tags",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Serving Size",
+          "target": "custom.serving_size",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Servings / Container",
+          "target": "custom.servings_per_container",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Format / Formula Type",
+          "target": "custom.product_format",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "How to Use / Directions",
+          "target": "custom.directions",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Who Is It For?",
+          "target": "custom.best_for_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Warnings",
+          "target": "custom.warnings",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Allergens",
+          "target": "custom.allergen_info",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Other Ingredients",
+          "target": "custom.other_ingredients",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        }
+      ]
+    },
+    {
+      "sku": "ROC603",
+      "handle": "musclerecover",
+      "workbookName": "MuscleRecover",
+      "liveProduct": null,
+      "skuMatches": [],
+      "handleMatches": [],
+      "blocked": false,
+      "approvalStatus": "Ready for review",
+      "fields": [
+        {
+          "source": "Hero Subtitle / Short Description",
+          "target": "custom.pdp_subtitle",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Benefit / Use-case Tags",
+          "target": "custom.hero_tags",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Serving Size",
+          "target": "custom.serving_size",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Servings / Container",
+          "target": "custom.servings_per_container",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Format / Formula Type",
+          "target": "custom.product_format",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "How to Use / Directions",
+          "target": "custom.directions",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Who Is It For?",
+          "target": "custom.best_for_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Warnings",
+          "target": "custom.warnings",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Allergens",
+          "target": "custom.allergen_info",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Other Ingredients",
+          "target": "custom.other_ingredients",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        }
+      ]
+    },
+    {
+      "sku": "ROC017",
+      "handle": "hydrareload",
+      "workbookName": "HydraReload",
+      "liveProduct": null,
+      "skuMatches": [],
+      "handleMatches": [],
+      "blocked": false,
+      "approvalStatus": "Ready for review",
+      "fields": [
+        {
+          "source": "Hero Subtitle / Short Description",
+          "target": "custom.pdp_subtitle",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Benefit / Use-case Tags",
+          "target": "custom.hero_tags",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Serving Size",
+          "target": "custom.serving_size",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Servings / Container",
+          "target": "custom.servings_per_container",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Format / Formula Type",
+          "target": "custom.product_format",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "How to Use / Directions",
+          "target": "custom.directions",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Who Is It For?",
+          "target": "custom.best_for_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Warnings",
+          "target": "custom.warnings",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Allergens",
+          "target": "custom.allergen_info",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Other Ingredients",
+          "target": "custom.other_ingredients",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        }
+      ]
+    },
+    {
+      "sku": "ROC507W",
+      "handle": "womens-vitalprime",
+      "workbookName": "Women's VitalPrime",
+      "liveProduct": null,
+      "skuMatches": [],
+      "handleMatches": [],
+      "blocked": false,
+      "approvalStatus": "Ready for review",
+      "fields": [
+        {
+          "source": "Hero Subtitle / Short Description",
+          "target": "custom.pdp_subtitle",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Benefit / Use-case Tags",
+          "target": "custom.hero_tags",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Serving Size",
+          "target": "custom.serving_size",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Servings / Container",
+          "target": "custom.servings_per_container",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Format / Formula Type",
+          "target": "custom.product_format",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "How to Use / Directions",
+          "target": "custom.directions",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Who Is It For?",
+          "target": "custom.best_for_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Warnings",
+          "target": "custom.warnings",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Allergens",
+          "target": "custom.allergen_info",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Other Ingredients",
+          "target": "custom.other_ingredients",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        }
+      ]
+    },
+    {
+      "sku": "ROC018",
+      "handle": "nitricflow",
+      "workbookName": "NitricFlow",
+      "liveProduct": null,
+      "skuMatches": [],
+      "handleMatches": [],
+      "blocked": false,
+      "approvalStatus": "Ready for review",
+      "fields": [
+        {
+          "source": "Hero Subtitle / Short Description",
+          "target": "custom.pdp_subtitle",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Benefit / Use-case Tags",
+          "target": "custom.hero_tags",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Serving Size",
+          "target": "custom.serving_size",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Servings / Container",
+          "target": "custom.servings_per_container",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Format / Formula Type",
+          "target": "custom.product_format",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "How to Use / Directions",
+          "target": "custom.directions",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Who Is It For?",
+          "target": "custom.best_for_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Warnings",
+          "target": "custom.warnings",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Allergens",
+          "target": "custom.allergen_info",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Other Ingredients",
+          "target": "custom.other_ingredients",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        }
+      ]
+    },
+    {
+      "sku": "ROC507",
+      "handle": "mens-vitalprime",
+      "workbookName": "Men's VitalPrime",
+      "liveProduct": null,
+      "skuMatches": [],
+      "handleMatches": [],
+      "blocked": false,
+      "approvalStatus": "Ready for review",
+      "fields": [
+        {
+          "source": "Hero Subtitle / Short Description",
+          "target": "custom.pdp_subtitle",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Benefit / Use-case Tags",
+          "target": "custom.hero_tags",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Serving Size",
+          "target": "custom.serving_size",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Servings / Container",
+          "target": "custom.servings_per_container",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Format / Formula Type",
+          "target": "custom.product_format",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "How to Use / Directions",
+          "target": "custom.directions",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Who Is It For?",
+          "target": "custom.best_for_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Warnings",
+          "target": "custom.warnings",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Allergens",
+          "target": "custom.allergen_info",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Other Ingredients",
+          "target": "custom.other_ingredients",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        }
+      ]
+    },
+    {
+      "sku": "ROC450",
+      "handle": "biocollagen",
+      "workbookName": "BioCollagen",
+      "liveProduct": null,
+      "skuMatches": [],
+      "handleMatches": [],
+      "blocked": false,
+      "approvalStatus": "Ready for review",
+      "fields": [
+        {
+          "source": "Hero Subtitle / Short Description",
+          "target": "custom.pdp_subtitle",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Benefit / Use-case Tags",
+          "target": "custom.hero_tags",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Serving Size",
+          "target": "custom.serving_size",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Servings / Container",
+          "target": "custom.servings_per_container",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Format / Formula Type",
+          "target": "custom.product_format",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "How to Use / Directions",
+          "target": "custom.directions",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Who Is It For?",
+          "target": "custom.best_for_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Warnings",
+          "target": "custom.warnings",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Allergens",
+          "target": "custom.allergen_info",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Other Ingredients",
+          "target": "custom.other_ingredients",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        }
+      ]
+    },
+    {
+      "sku": "ROC914",
+      "handle": "nitric-roots",
+      "workbookName": "Nitric Roots",
+      "liveProduct": null,
+      "skuMatches": [],
+      "handleMatches": [],
+      "blocked": false,
+      "approvalStatus": "Ready for review",
+      "fields": [
+        {
+          "source": "Hero Subtitle / Short Description",
+          "target": "custom.pdp_subtitle",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Benefit / Use-case Tags",
+          "target": "custom.hero_tags",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Serving Size",
+          "target": "custom.serving_size",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Servings / Container",
+          "target": "custom.servings_per_container",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Format / Formula Type",
+          "target": "custom.product_format",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "How to Use / Directions",
+          "target": "custom.directions",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Who Is It For?",
+          "target": "custom.best_for_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Warnings",
+          "target": "custom.warnings",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Allergens",
+          "target": "custom.allergen_info",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Other Ingredients",
+          "target": "custom.other_ingredients",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        }
+      ]
+    },
+    {
+      "sku": "ROC812",
+      "handle": "mindsync",
+      "workbookName": "MindSync",
+      "liveProduct": null,
+      "skuMatches": [],
+      "handleMatches": [],
+      "blocked": false,
+      "approvalStatus": "Ready for review",
+      "fields": [
+        {
+          "source": "Hero Subtitle / Short Description",
+          "target": "custom.pdp_subtitle",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Benefit / Use-case Tags",
+          "target": "custom.hero_tags",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Serving Size",
+          "target": "custom.serving_size",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Servings / Container",
+          "target": "custom.servings_per_container",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Format / Formula Type",
+          "target": "custom.product_format",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "How to Use / Directions",
+          "target": "custom.directions",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Who Is It For?",
+          "target": "custom.best_for_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Warnings",
+          "target": "custom.warnings",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Allergens",
+          "target": "custom.allergen_info",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Other Ingredients",
+          "target": "custom.other_ingredients",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        }
+      ]
+    },
+    {
+      "sku": "ROC824",
+      "handle": "magbalance",
+      "workbookName": "MagBalance",
+      "liveProduct": null,
+      "skuMatches": [],
+      "handleMatches": [],
+      "blocked": false,
+      "approvalStatus": "Ready for review",
+      "fields": [
+        {
+          "source": "Hero Subtitle / Short Description",
+          "target": "custom.pdp_subtitle",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Benefit / Use-case Tags",
+          "target": "custom.hero_tags",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Serving Size",
+          "target": "custom.serving_size",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Servings / Container",
+          "target": "custom.servings_per_container",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Format / Formula Type",
+          "target": "custom.product_format",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "How to Use / Directions",
+          "target": "custom.directions",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Who Is It For?",
+          "target": "custom.best_for_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Warnings",
+          "target": "custom.warnings",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Allergens",
+          "target": "custom.allergen_info",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Other Ingredients",
+          "target": "custom.other_ingredients",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        }
+      ]
+    },
+    {
+      "sku": "ROC937",
+      "handle": "vitalgreens",
+      "workbookName": "VitalGreens",
+      "liveProduct": null,
+      "skuMatches": [],
+      "handleMatches": [],
+      "blocked": false,
+      "approvalStatus": "Ready for review",
+      "fields": [
+        {
+          "source": "Hero Subtitle / Short Description",
+          "target": "custom.pdp_subtitle",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Benefit / Use-case Tags",
+          "target": "custom.hero_tags",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Serving Size",
+          "target": "custom.serving_size",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Servings / Container",
+          "target": "custom.servings_per_container",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Format / Formula Type",
+          "target": "custom.product_format",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "How to Use / Directions",
+          "target": "custom.directions",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Who Is It For?",
+          "target": "custom.best_for_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Warnings",
+          "target": "custom.warnings",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Allergens",
+          "target": "custom.allergen_info",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Other Ingredients",
+          "target": "custom.other_ingredients",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        }
+      ]
+    },
+    {
+      "sku": "ROC808",
+      "handle": "joint-flex",
+      "workbookName": "FlexMotion",
+      "liveProduct": null,
+      "skuMatches": [],
+      "handleMatches": [],
+      "blocked": false,
+      "approvalStatus": "Ready for review",
+      "fields": [
+        {
+          "source": "Hero Subtitle / Short Description",
+          "target": "custom.pdp_subtitle",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Benefit / Use-case Tags",
+          "target": "custom.hero_tags",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Serving Size",
+          "target": "custom.serving_size",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Servings / Container",
+          "target": "custom.servings_per_container",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Format / Formula Type",
+          "target": "custom.product_format",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "How to Use / Directions",
+          "target": "custom.directions",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Who Is It For?",
+          "target": "custom.best_for_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Warnings",
+          "target": "custom.warnings",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Allergens",
+          "target": "custom.allergen_info",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Other Ingredients",
+          "target": "custom.other_ingredients",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        }
+      ]
+    },
+    {
+      "sku": "ROC503",
+      "handle": "natural-pct",
+      "workbookName": "Hormone Reset",
+      "liveProduct": null,
+      "skuMatches": [],
+      "handleMatches": [],
+      "blocked": false,
+      "approvalStatus": "Ready for review",
+      "fields": [
+        {
+          "source": "Hero Subtitle / Short Description",
+          "target": "custom.pdp_subtitle",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Benefit / Use-case Tags",
+          "target": "custom.hero_tags",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Serving Size",
+          "target": "custom.serving_size",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Servings / Container",
+          "target": "custom.servings_per_container",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Format / Formula Type",
+          "target": "custom.product_format",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "How to Use / Directions",
+          "target": "custom.directions",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Who Is It For?",
+          "target": "custom.best_for_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Warnings",
+          "target": "custom.warnings",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Allergens",
+          "target": "custom.allergen_info",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Other Ingredients",
+          "target": "custom.other_ingredients",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        }
+      ]
+    },
+    {
+      "sku": "ROC506",
+      "handle": "ultra-test",
+      "workbookName": "AndroCore",
+      "liveProduct": null,
+      "skuMatches": [],
+      "handleMatches": [],
+      "blocked": false,
+      "approvalStatus": "Ready for review",
+      "fields": [
+        {
+          "source": "Hero Subtitle / Short Description",
+          "target": "custom.pdp_subtitle",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Benefit / Use-case Tags",
+          "target": "custom.hero_tags",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Serving Size",
+          "target": "custom.serving_size",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Servings / Container",
+          "target": "custom.servings_per_container",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Format / Formula Type",
+          "target": "custom.product_format",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "How to Use / Directions",
+          "target": "custom.directions",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Who Is It For?",
+          "target": "custom.best_for_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Warnings",
+          "target": "custom.warnings",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Allergens",
+          "target": "custom.allergen_info",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Other Ingredients",
+          "target": "custom.other_ingredients",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        }
+      ]
+    },
+    {
+      "sku": "ROC303",
+      "handle": "digestive-enzyme",
+      "workbookName": "BioDigest",
+      "liveProduct": null,
+      "skuMatches": [],
+      "handleMatches": [],
+      "blocked": false,
+      "approvalStatus": "Ready for review",
+      "fields": [
+        {
+          "source": "Hero Subtitle / Short Description",
+          "target": "custom.pdp_subtitle",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Benefit / Use-case Tags",
+          "target": "custom.hero_tags",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Serving Size",
+          "target": "custom.serving_size",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Servings / Container",
+          "target": "custom.servings_per_container",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Format / Formula Type",
+          "target": "custom.product_format",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "How to Use / Directions",
+          "target": "custom.directions",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Who Is It For?",
+          "target": "custom.best_for_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Warnings",
+          "target": "custom.warnings",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Allergens",
+          "target": "custom.allergen_info",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Other Ingredients",
+          "target": "custom.other_ingredients",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        }
+      ]
+    },
+    {
+      "sku": "ROC831",
+      "handle": "vitamin-k2-d3",
+      "workbookName": "BoneVital",
+      "liveProduct": null,
+      "skuMatches": [],
+      "handleMatches": [],
+      "blocked": false,
+      "approvalStatus": "Ready for review",
+      "fields": [
+        {
+          "source": "Hero Subtitle / Short Description",
+          "target": "custom.pdp_subtitle",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Benefit / Use-case Tags",
+          "target": "custom.hero_tags",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Serving Size",
+          "target": "custom.serving_size",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Servings / Container",
+          "target": "custom.servings_per_container",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Format / Formula Type",
+          "target": "custom.product_format",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "How to Use / Directions",
+          "target": "custom.directions",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Who Is It For?",
+          "target": "custom.best_for_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Warnings",
+          "target": "custom.warnings",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Allergens",
+          "target": "custom.allergen_info",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Other Ingredients",
+          "target": "custom.other_ingredients",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        }
+      ]
+    },
+    {
+      "sku": "ROC613",
+      "handle": "energized-aminos",
+      "workbookName": "AminoBoost",
+      "liveProduct": null,
+      "skuMatches": [],
+      "handleMatches": [],
+      "blocked": false,
+      "approvalStatus": "Ready for review",
+      "fields": [
+        {
+          "source": "Hero Subtitle / Short Description",
+          "target": "custom.pdp_subtitle",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Benefit / Use-case Tags",
+          "target": "custom.hero_tags",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Serving Size",
+          "target": "custom.serving_size",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Servings / Container",
+          "target": "custom.servings_per_container",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Format / Formula Type",
+          "target": "custom.product_format",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "How to Use / Directions",
+          "target": "custom.directions",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Who Is It For?",
+          "target": "custom.best_for_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Warnings",
+          "target": "custom.warnings",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Allergens",
+          "target": "custom.allergen_info",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Other Ingredients",
+          "target": "custom.other_ingredients",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        }
+      ]
+    },
+    {
+      "sku": "ROC736",
+      "handle": "adrenal-support-plus",
+      "workbookName": "StressAdapt",
+      "liveProduct": null,
+      "skuMatches": [],
+      "handleMatches": [],
+      "blocked": false,
+      "approvalStatus": "Ready for review",
+      "fields": [
+        {
+          "source": "Hero Subtitle / Short Description",
+          "target": "custom.pdp_subtitle",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Benefit / Use-case Tags",
+          "target": "custom.hero_tags",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Serving Size",
+          "target": "custom.serving_size",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Servings / Container",
+          "target": "custom.servings_per_container",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Format / Formula Type",
+          "target": "custom.product_format",
+          "expectedType": "single_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "How to Use / Directions",
+          "target": "custom.directions",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Who Is It For?",
+          "target": "custom.best_for_description",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Warnings",
+          "target": "custom.warnings",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Allergens",
+          "target": "custom.allergen_info",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        },
+        {
+          "source": "Other Ingredients",
+          "target": "custom.other_ingredients",
+          "expectedType": "multi_line_text_field",
+          "actualType": null,
+          "storefront": null,
+          "status": "unsupported"
+        }
+      ]
+    }
+  ],
+  "blockedCount": 10,
+  "unsupported": [
+    {
+      "handle": "longevity-plus",
+      "sku": "BACT-6H7S4",
+      "source": "Product Badge / Eyebrow",
+      "target": "custom.hero_eyebrow",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "longevity-plus",
+      "sku": "BACT-6H7S4",
+      "source": "Hero Subtitle / Short Description",
+      "target": "custom.pdp_subtitle",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "longevity-plus",
+      "sku": "BACT-6H7S4",
+      "source": "Long Description",
+      "target": "custom.short_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "longevity-plus",
+      "sku": "BACT-6H7S4",
+      "source": "Benefit / Use-case Tags",
+      "target": "custom.hero_tags",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "longevity-plus",
+      "sku": "BACT-6H7S4",
+      "source": "Pack / Count",
+      "target": "custom.pack_name",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "longevity-plus",
+      "sku": "BACT-6H7S4",
+      "source": "Serving Size",
+      "target": "custom.serving_size",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "longevity-plus",
+      "sku": "BACT-6H7S4",
+      "source": "Servings / Container",
+      "target": "custom.servings_per_container",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "longevity-plus",
+      "sku": "BACT-6H7S4",
+      "source": "Format / Formula Type",
+      "target": "custom.product_format",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "longevity-plus",
+      "sku": "BACT-6H7S4",
+      "source": "How to Use / Directions",
+      "target": "custom.directions",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "longevity-plus",
+      "sku": "BACT-6H7S4",
+      "source": "Who Is It For?",
+      "target": "custom.best_for_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "longevity-plus",
+      "sku": "BACT-6H7S4",
+      "source": "Warnings",
+      "target": "custom.warnings",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "longevity-plus",
+      "sku": "BACT-6H7S4",
+      "source": "Other Ingredients",
+      "target": "custom.other_ingredients",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "longevity-plus",
+      "sku": "BACT-6H7S4",
+      "source": "Formula Intro / Why Formula Exists",
+      "target": "custom.why_formula_body",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "longevity-plus",
+      "sku": "BACT-6H7S4",
+      "source": "Quality / Testing",
+      "target": "custom.clinical_evidence",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "cellomega-plus",
+      "sku": "BACT-0R3W8",
+      "source": "Product Badge / Eyebrow",
+      "target": "custom.hero_eyebrow",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "cellomega-plus",
+      "sku": "BACT-0R3W8",
+      "source": "Hero Subtitle / Short Description",
+      "target": "custom.pdp_subtitle",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "cellomega-plus",
+      "sku": "BACT-0R3W8",
+      "source": "Long Description",
+      "target": "custom.short_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "cellomega-plus",
+      "sku": "BACT-0R3W8",
+      "source": "Benefit / Use-case Tags",
+      "target": "custom.hero_tags",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "cellomega-plus",
+      "sku": "BACT-0R3W8",
+      "source": "Pack / Count",
+      "target": "custom.pack_name",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "cellomega-plus",
+      "sku": "BACT-0R3W8",
+      "source": "Serving Size",
+      "target": "custom.serving_size",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "cellomega-plus",
+      "sku": "BACT-0R3W8",
+      "source": "Servings / Container",
+      "target": "custom.servings_per_container",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "cellomega-plus",
+      "sku": "BACT-0R3W8",
+      "source": "Format / Formula Type",
+      "target": "custom.product_format",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "cellomega-plus",
+      "sku": "BACT-0R3W8",
+      "source": "How to Use / Directions",
+      "target": "custom.directions",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "cellomega-plus",
+      "sku": "BACT-0R3W8",
+      "source": "Who Is It For?",
+      "target": "custom.best_for_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "cellomega-plus",
+      "sku": "BACT-0R3W8",
+      "source": "Warnings",
+      "target": "custom.warnings",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "cellomega-plus",
+      "sku": "BACT-0R3W8",
+      "source": "Other Ingredients",
+      "target": "custom.other_ingredients",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "cellomega-plus",
+      "sku": "BACT-0R3W8",
+      "source": "Formula Intro / Why Formula Exists",
+      "target": "custom.why_formula_body",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "cellomega-plus",
+      "sku": "BACT-0R3W8",
+      "source": "Quality / Testing",
+      "target": "custom.clinical_evidence",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-brain-boost",
+      "sku": "BACT-1A4H3",
+      "source": "Product Badge / Eyebrow",
+      "target": "custom.hero_eyebrow",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-brain-boost",
+      "sku": "BACT-1A4H3",
+      "source": "Hero Subtitle / Short Description",
+      "target": "custom.pdp_subtitle",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-brain-boost",
+      "sku": "BACT-1A4H3",
+      "source": "Long Description",
+      "target": "custom.short_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-brain-boost",
+      "sku": "BACT-1A4H3",
+      "source": "Benefit / Use-case Tags",
+      "target": "custom.hero_tags",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-brain-boost",
+      "sku": "BACT-1A4H3",
+      "source": "Pack / Count",
+      "target": "custom.pack_name",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-brain-boost",
+      "sku": "BACT-1A4H3",
+      "source": "Serving Size",
+      "target": "custom.serving_size",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-brain-boost",
+      "sku": "BACT-1A4H3",
+      "source": "Servings / Container",
+      "target": "custom.servings_per_container",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-brain-boost",
+      "sku": "BACT-1A4H3",
+      "source": "Format / Formula Type",
+      "target": "custom.product_format",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-brain-boost",
+      "sku": "BACT-1A4H3",
+      "source": "How to Use / Directions",
+      "target": "custom.directions",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-brain-boost",
+      "sku": "BACT-1A4H3",
+      "source": "Who Is It For?",
+      "target": "custom.best_for_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-brain-boost",
+      "sku": "BACT-1A4H3",
+      "source": "Warnings",
+      "target": "custom.warnings",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-brain-boost",
+      "sku": "BACT-1A4H3",
+      "source": "Other Ingredients",
+      "target": "custom.other_ingredients",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-brain-boost",
+      "sku": "BACT-1A4H3",
+      "source": "Formula Intro / Why Formula Exists",
+      "target": "custom.why_formula_body",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-brain-boost",
+      "sku": "BACT-1A4H3",
+      "source": "Quality / Testing",
+      "target": "custom.clinical_evidence",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-femme-energy",
+      "sku": "BACT-2X1V8",
+      "source": "Product Badge / Eyebrow",
+      "target": "custom.hero_eyebrow",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-femme-energy",
+      "sku": "BACT-2X1V8",
+      "source": "Hero Subtitle / Short Description",
+      "target": "custom.pdp_subtitle",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-femme-energy",
+      "sku": "BACT-2X1V8",
+      "source": "Long Description",
+      "target": "custom.short_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-femme-energy",
+      "sku": "BACT-2X1V8",
+      "source": "Benefit / Use-case Tags",
+      "target": "custom.hero_tags",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-femme-energy",
+      "sku": "BACT-2X1V8",
+      "source": "Pack / Count",
+      "target": "custom.pack_name",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-femme-energy",
+      "sku": "BACT-2X1V8",
+      "source": "Serving Size",
+      "target": "custom.serving_size",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-femme-energy",
+      "sku": "BACT-2X1V8",
+      "source": "Servings / Container",
+      "target": "custom.servings_per_container",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-femme-energy",
+      "sku": "BACT-2X1V8",
+      "source": "Format / Formula Type",
+      "target": "custom.product_format",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-femme-energy",
+      "sku": "BACT-2X1V8",
+      "source": "How to Use / Directions",
+      "target": "custom.directions",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-femme-energy",
+      "sku": "BACT-2X1V8",
+      "source": "Who Is It For?",
+      "target": "custom.best_for_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-femme-energy",
+      "sku": "BACT-2X1V8",
+      "source": "Warnings",
+      "target": "custom.warnings",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-femme-energy",
+      "sku": "BACT-2X1V8",
+      "source": "Other Ingredients",
+      "target": "custom.other_ingredients",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-femme-energy",
+      "sku": "BACT-2X1V8",
+      "source": "Formula Intro / Why Formula Exists",
+      "target": "custom.why_formula_body",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-femme-energy",
+      "sku": "BACT-2X1V8",
+      "source": "Quality / Testing",
+      "target": "custom.clinical_evidence",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-raw-power",
+      "sku": "BACT-1S6B0",
+      "source": "Product Badge / Eyebrow",
+      "target": "custom.hero_eyebrow",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-raw-power",
+      "sku": "BACT-1S6B0",
+      "source": "Hero Subtitle / Short Description",
+      "target": "custom.pdp_subtitle",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-raw-power",
+      "sku": "BACT-1S6B0",
+      "source": "Long Description",
+      "target": "custom.short_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-raw-power",
+      "sku": "BACT-1S6B0",
+      "source": "Benefit / Use-case Tags",
+      "target": "custom.hero_tags",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-raw-power",
+      "sku": "BACT-1S6B0",
+      "source": "Pack / Count",
+      "target": "custom.pack_name",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-raw-power",
+      "sku": "BACT-1S6B0",
+      "source": "Serving Size",
+      "target": "custom.serving_size",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-raw-power",
+      "sku": "BACT-1S6B0",
+      "source": "Servings / Container",
+      "target": "custom.servings_per_container",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-raw-power",
+      "sku": "BACT-1S6B0",
+      "source": "Format / Formula Type",
+      "target": "custom.product_format",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-raw-power",
+      "sku": "BACT-1S6B0",
+      "source": "How to Use / Directions",
+      "target": "custom.directions",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-raw-power",
+      "sku": "BACT-1S6B0",
+      "source": "Who Is It For?",
+      "target": "custom.best_for_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-raw-power",
+      "sku": "BACT-1S6B0",
+      "source": "Warnings",
+      "target": "custom.warnings",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-raw-power",
+      "sku": "BACT-1S6B0",
+      "source": "Other Ingredients",
+      "target": "custom.other_ingredients",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-raw-power",
+      "sku": "BACT-1S6B0",
+      "source": "Formula Intro / Why Formula Exists",
+      "target": "custom.why_formula_body",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-raw-power",
+      "sku": "BACT-1S6B0",
+      "source": "Quality / Testing",
+      "target": "custom.clinical_evidence",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-pro-power",
+      "sku": "BACT-1G3Q9",
+      "source": "Product Badge / Eyebrow",
+      "target": "custom.hero_eyebrow",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-pro-power",
+      "sku": "BACT-1G3Q9",
+      "source": "Hero Subtitle / Short Description",
+      "target": "custom.pdp_subtitle",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-pro-power",
+      "sku": "BACT-1G3Q9",
+      "source": "Long Description",
+      "target": "custom.short_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-pro-power",
+      "sku": "BACT-1G3Q9",
+      "source": "Benefit / Use-case Tags",
+      "target": "custom.hero_tags",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-pro-power",
+      "sku": "BACT-1G3Q9",
+      "source": "Pack / Count",
+      "target": "custom.pack_name",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-pro-power",
+      "sku": "BACT-1G3Q9",
+      "source": "Serving Size",
+      "target": "custom.serving_size",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-pro-power",
+      "sku": "BACT-1G3Q9",
+      "source": "Servings / Container",
+      "target": "custom.servings_per_container",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-pro-power",
+      "sku": "BACT-1G3Q9",
+      "source": "Format / Formula Type",
+      "target": "custom.product_format",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-pro-power",
+      "sku": "BACT-1G3Q9",
+      "source": "How to Use / Directions",
+      "target": "custom.directions",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-pro-power",
+      "sku": "BACT-1G3Q9",
+      "source": "Who Is It For?",
+      "target": "custom.best_for_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-pro-power",
+      "sku": "BACT-1G3Q9",
+      "source": "Warnings",
+      "target": "custom.warnings",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-pro-power",
+      "sku": "BACT-1G3Q9",
+      "source": "Other Ingredients",
+      "target": "custom.other_ingredients",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-pro-power",
+      "sku": "BACT-1G3Q9",
+      "source": "Formula Intro / Why Formula Exists",
+      "target": "custom.why_formula_body",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "creagen-pro-power",
+      "sku": "BACT-1G3Q9",
+      "source": "Quality / Testing",
+      "target": "custom.clinical_evidence",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "glutara",
+      "sku": "BACT-0Y2W6",
+      "source": "Product Badge / Eyebrow",
+      "target": "custom.hero_eyebrow",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "glutara",
+      "sku": "BACT-0Y2W6",
+      "source": "Hero Subtitle / Short Description",
+      "target": "custom.pdp_subtitle",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "glutara",
+      "sku": "BACT-0Y2W6",
+      "source": "Long Description",
+      "target": "custom.short_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "glutara",
+      "sku": "BACT-0Y2W6",
+      "source": "Benefit / Use-case Tags",
+      "target": "custom.hero_tags",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "glutara",
+      "sku": "BACT-0Y2W6",
+      "source": "Pack / Count",
+      "target": "custom.pack_name",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "glutara",
+      "sku": "BACT-0Y2W6",
+      "source": "Serving Size",
+      "target": "custom.serving_size",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "glutara",
+      "sku": "BACT-0Y2W6",
+      "source": "Servings / Container",
+      "target": "custom.servings_per_container",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "glutara",
+      "sku": "BACT-0Y2W6",
+      "source": "Format / Formula Type",
+      "target": "custom.product_format",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "glutara",
+      "sku": "BACT-0Y2W6",
+      "source": "How to Use / Directions",
+      "target": "custom.directions",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "glutara",
+      "sku": "BACT-0Y2W6",
+      "source": "Who Is It For?",
+      "target": "custom.best_for_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "glutara",
+      "sku": "BACT-0Y2W6",
+      "source": "Warnings",
+      "target": "custom.warnings",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "glutara",
+      "sku": "BACT-0Y2W6",
+      "source": "Other Ingredients",
+      "target": "custom.other_ingredients",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "glutara",
+      "sku": "BACT-0Y2W6",
+      "source": "Formula Intro / Why Formula Exists",
+      "target": "custom.why_formula_body",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "glutara",
+      "sku": "BACT-0Y2W6",
+      "source": "Quality / Testing",
+      "target": "custom.clinical_evidence",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "sleepo",
+      "sku": "BACT-1C6D5",
+      "source": "Product Badge / Eyebrow",
+      "target": "custom.hero_eyebrow",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "sleepo",
+      "sku": "BACT-1C6D5",
+      "source": "Benefit / Use-case Tags",
+      "target": "custom.hero_tags",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "sleepo",
+      "sku": "BACT-1C6D5",
+      "source": "Pack / Count",
+      "target": "custom.pack_name",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "sleepo",
+      "sku": "BACT-1C6D5",
+      "source": "Serving Size",
+      "target": "custom.serving_size",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "sleepo",
+      "sku": "BACT-1C6D5",
+      "source": "Servings / Container",
+      "target": "custom.servings_per_container",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "sleepo",
+      "sku": "BACT-1C6D5",
+      "source": "Format / Formula Type",
+      "target": "custom.product_format",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "sleepo",
+      "sku": "BACT-1C6D5",
+      "source": "How to Use / Directions",
+      "target": "custom.directions",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "sleepo",
+      "sku": "BACT-1C6D5",
+      "source": "Who Is It For?",
+      "target": "custom.best_for_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "sleepo",
+      "sku": "BACT-1C6D5",
+      "source": "Warnings",
+      "target": "custom.warnings",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "sleepo",
+      "sku": "BACT-1C6D5",
+      "source": "Allergens",
+      "target": "custom.allergen_info",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "sleepo",
+      "sku": "BACT-1C6D5",
+      "source": "Other Ingredients",
+      "target": "custom.other_ingredients",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "sleepo",
+      "sku": "BACT-1C6D5",
+      "source": "Formula Intro / Why Formula Exists",
+      "target": "custom.why_formula_body",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "sleepo-kids",
+      "sku": "BACT-5I2G5",
+      "source": "Product Badge / Eyebrow",
+      "target": "custom.hero_eyebrow",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "sleepo-kids",
+      "sku": "BACT-5I2G5",
+      "source": "Hero Subtitle / Short Description",
+      "target": "custom.pdp_subtitle",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "sleepo-kids",
+      "sku": "BACT-5I2G5",
+      "source": "Long Description",
+      "target": "custom.short_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "sleepo-kids",
+      "sku": "BACT-5I2G5",
+      "source": "Benefit / Use-case Tags",
+      "target": "custom.hero_tags",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "sleepo-kids",
+      "sku": "BACT-5I2G5",
+      "source": "Pack / Count",
+      "target": "custom.pack_name",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "sleepo-kids",
+      "sku": "BACT-5I2G5",
+      "source": "Serving Size",
+      "target": "custom.serving_size",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "sleepo-kids",
+      "sku": "BACT-5I2G5",
+      "source": "Servings / Container",
+      "target": "custom.servings_per_container",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "sleepo-kids",
+      "sku": "BACT-5I2G5",
+      "source": "Format / Formula Type",
+      "target": "custom.product_format",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "sleepo-kids",
+      "sku": "BACT-5I2G5",
+      "source": "How to Use / Directions",
+      "target": "custom.directions",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "sleepo-kids",
+      "sku": "BACT-5I2G5",
+      "source": "Who Is It For?",
+      "target": "custom.best_for_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "sleepo-kids",
+      "sku": "BACT-5I2G5",
+      "source": "Warnings",
+      "target": "custom.warnings",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "sleepo-kids",
+      "sku": "BACT-5I2G5",
+      "source": "Allergens",
+      "target": "custom.allergen_info",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "sleepo-kids",
+      "sku": "BACT-5I2G5",
+      "source": "Other Ingredients",
+      "target": "custom.other_ingredients",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "sleepo-kids",
+      "sku": "BACT-5I2G5",
+      "source": "Formula Intro / Why Formula Exists",
+      "target": "custom.why_formula_body",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "sleepo-kids",
+      "sku": "BACT-5I2G5",
+      "source": "Quality / Testing",
+      "target": "custom.clinical_evidence",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "sleep0-plus",
+      "sku": "BACT-SLEEP0PLUS",
+      "source": "Hero Subtitle / Short Description",
+      "target": "custom.pdp_subtitle",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "sleep0-plus",
+      "sku": "BACT-SLEEP0PLUS",
+      "source": "Pack / Count",
+      "target": "custom.pack_name",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "bioprotein-pro",
+      "sku": "ROC2821",
+      "source": "Hero Subtitle / Short Description",
+      "target": "custom.pdp_subtitle",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "bioprotein-pro",
+      "sku": "ROC2821",
+      "source": "Benefit / Use-case Tags",
+      "target": "custom.hero_tags",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "bioprotein-pro",
+      "sku": "ROC2821",
+      "source": "Serving Size",
+      "target": "custom.serving_size",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "bioprotein-pro",
+      "sku": "ROC2821",
+      "source": "Servings / Container",
+      "target": "custom.servings_per_container",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "bioprotein-pro",
+      "sku": "ROC2821",
+      "source": "Format / Formula Type",
+      "target": "custom.product_format",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "bioprotein-pro",
+      "sku": "ROC2821",
+      "source": "How to Use / Directions",
+      "target": "custom.directions",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "bioprotein-pro",
+      "sku": "ROC2821",
+      "source": "Who Is It For?",
+      "target": "custom.best_for_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "bioprotein-pro",
+      "sku": "ROC2821",
+      "source": "Warnings",
+      "target": "custom.warnings",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "bioprotein-pro",
+      "sku": "ROC2821",
+      "source": "Allergens",
+      "target": "custom.allergen_info",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "bioprotein-pro",
+      "sku": "ROC2821",
+      "source": "Other Ingredients",
+      "target": "custom.other_ingredients",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "plantcore",
+      "sku": "ROC263V",
+      "source": "Hero Subtitle / Short Description",
+      "target": "custom.pdp_subtitle",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "plantcore",
+      "sku": "ROC263V",
+      "source": "Benefit / Use-case Tags",
+      "target": "custom.hero_tags",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "plantcore",
+      "sku": "ROC263V",
+      "source": "Serving Size",
+      "target": "custom.serving_size",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "plantcore",
+      "sku": "ROC263V",
+      "source": "Servings / Container",
+      "target": "custom.servings_per_container",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "plantcore",
+      "sku": "ROC263V",
+      "source": "Format / Formula Type",
+      "target": "custom.product_format",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "plantcore",
+      "sku": "ROC263V",
+      "source": "How to Use / Directions",
+      "target": "custom.directions",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "plantcore",
+      "sku": "ROC263V",
+      "source": "Who Is It For?",
+      "target": "custom.best_for_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "plantcore",
+      "sku": "ROC263V",
+      "source": "Warnings",
+      "target": "custom.warnings",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "plantcore",
+      "sku": "ROC263V",
+      "source": "Allergens",
+      "target": "custom.allergen_info",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "plantcore",
+      "sku": "ROC263V",
+      "source": "Other Ingredients",
+      "target": "custom.other_ingredients",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "bioignite",
+      "sku": "ROC606",
+      "source": "Hero Subtitle / Short Description",
+      "target": "custom.pdp_subtitle",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "bioignite",
+      "sku": "ROC606",
+      "source": "Benefit / Use-case Tags",
+      "target": "custom.hero_tags",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "bioignite",
+      "sku": "ROC606",
+      "source": "Serving Size",
+      "target": "custom.serving_size",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "bioignite",
+      "sku": "ROC606",
+      "source": "Servings / Container",
+      "target": "custom.servings_per_container",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "bioignite",
+      "sku": "ROC606",
+      "source": "Format / Formula Type",
+      "target": "custom.product_format",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "bioignite",
+      "sku": "ROC606",
+      "source": "How to Use / Directions",
+      "target": "custom.directions",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "bioignite",
+      "sku": "ROC606",
+      "source": "Who Is It For?",
+      "target": "custom.best_for_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "bioignite",
+      "sku": "ROC606",
+      "source": "Warnings",
+      "target": "custom.warnings",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "bioignite",
+      "sku": "ROC606",
+      "source": "Allergens",
+      "target": "custom.allergen_info",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "bioignite",
+      "sku": "ROC606",
+      "source": "Other Ingredients",
+      "target": "custom.other_ingredients",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "musclerecover",
+      "sku": "ROC603",
+      "source": "Hero Subtitle / Short Description",
+      "target": "custom.pdp_subtitle",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "musclerecover",
+      "sku": "ROC603",
+      "source": "Benefit / Use-case Tags",
+      "target": "custom.hero_tags",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "musclerecover",
+      "sku": "ROC603",
+      "source": "Serving Size",
+      "target": "custom.serving_size",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "musclerecover",
+      "sku": "ROC603",
+      "source": "Servings / Container",
+      "target": "custom.servings_per_container",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "musclerecover",
+      "sku": "ROC603",
+      "source": "Format / Formula Type",
+      "target": "custom.product_format",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "musclerecover",
+      "sku": "ROC603",
+      "source": "How to Use / Directions",
+      "target": "custom.directions",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "musclerecover",
+      "sku": "ROC603",
+      "source": "Who Is It For?",
+      "target": "custom.best_for_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "musclerecover",
+      "sku": "ROC603",
+      "source": "Warnings",
+      "target": "custom.warnings",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "musclerecover",
+      "sku": "ROC603",
+      "source": "Allergens",
+      "target": "custom.allergen_info",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "musclerecover",
+      "sku": "ROC603",
+      "source": "Other Ingredients",
+      "target": "custom.other_ingredients",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "hydrareload",
+      "sku": "ROC017",
+      "source": "Hero Subtitle / Short Description",
+      "target": "custom.pdp_subtitle",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "hydrareload",
+      "sku": "ROC017",
+      "source": "Benefit / Use-case Tags",
+      "target": "custom.hero_tags",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "hydrareload",
+      "sku": "ROC017",
+      "source": "Serving Size",
+      "target": "custom.serving_size",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "hydrareload",
+      "sku": "ROC017",
+      "source": "Servings / Container",
+      "target": "custom.servings_per_container",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "hydrareload",
+      "sku": "ROC017",
+      "source": "Format / Formula Type",
+      "target": "custom.product_format",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "hydrareload",
+      "sku": "ROC017",
+      "source": "How to Use / Directions",
+      "target": "custom.directions",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "hydrareload",
+      "sku": "ROC017",
+      "source": "Who Is It For?",
+      "target": "custom.best_for_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "hydrareload",
+      "sku": "ROC017",
+      "source": "Warnings",
+      "target": "custom.warnings",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "hydrareload",
+      "sku": "ROC017",
+      "source": "Allergens",
+      "target": "custom.allergen_info",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "hydrareload",
+      "sku": "ROC017",
+      "source": "Other Ingredients",
+      "target": "custom.other_ingredients",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "womens-vitalprime",
+      "sku": "ROC507W",
+      "source": "Hero Subtitle / Short Description",
+      "target": "custom.pdp_subtitle",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "womens-vitalprime",
+      "sku": "ROC507W",
+      "source": "Benefit / Use-case Tags",
+      "target": "custom.hero_tags",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "womens-vitalprime",
+      "sku": "ROC507W",
+      "source": "Serving Size",
+      "target": "custom.serving_size",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "womens-vitalprime",
+      "sku": "ROC507W",
+      "source": "Servings / Container",
+      "target": "custom.servings_per_container",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "womens-vitalprime",
+      "sku": "ROC507W",
+      "source": "Format / Formula Type",
+      "target": "custom.product_format",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "womens-vitalprime",
+      "sku": "ROC507W",
+      "source": "How to Use / Directions",
+      "target": "custom.directions",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "womens-vitalprime",
+      "sku": "ROC507W",
+      "source": "Who Is It For?",
+      "target": "custom.best_for_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "womens-vitalprime",
+      "sku": "ROC507W",
+      "source": "Warnings",
+      "target": "custom.warnings",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "womens-vitalprime",
+      "sku": "ROC507W",
+      "source": "Allergens",
+      "target": "custom.allergen_info",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "womens-vitalprime",
+      "sku": "ROC507W",
+      "source": "Other Ingredients",
+      "target": "custom.other_ingredients",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "nitricflow",
+      "sku": "ROC018",
+      "source": "Hero Subtitle / Short Description",
+      "target": "custom.pdp_subtitle",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "nitricflow",
+      "sku": "ROC018",
+      "source": "Benefit / Use-case Tags",
+      "target": "custom.hero_tags",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "nitricflow",
+      "sku": "ROC018",
+      "source": "Serving Size",
+      "target": "custom.serving_size",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "nitricflow",
+      "sku": "ROC018",
+      "source": "Servings / Container",
+      "target": "custom.servings_per_container",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "nitricflow",
+      "sku": "ROC018",
+      "source": "Format / Formula Type",
+      "target": "custom.product_format",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "nitricflow",
+      "sku": "ROC018",
+      "source": "How to Use / Directions",
+      "target": "custom.directions",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "nitricflow",
+      "sku": "ROC018",
+      "source": "Who Is It For?",
+      "target": "custom.best_for_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "nitricflow",
+      "sku": "ROC018",
+      "source": "Warnings",
+      "target": "custom.warnings",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "nitricflow",
+      "sku": "ROC018",
+      "source": "Allergens",
+      "target": "custom.allergen_info",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "nitricflow",
+      "sku": "ROC018",
+      "source": "Other Ingredients",
+      "target": "custom.other_ingredients",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "mens-vitalprime",
+      "sku": "ROC507",
+      "source": "Hero Subtitle / Short Description",
+      "target": "custom.pdp_subtitle",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "mens-vitalprime",
+      "sku": "ROC507",
+      "source": "Benefit / Use-case Tags",
+      "target": "custom.hero_tags",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "mens-vitalprime",
+      "sku": "ROC507",
+      "source": "Serving Size",
+      "target": "custom.serving_size",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "mens-vitalprime",
+      "sku": "ROC507",
+      "source": "Servings / Container",
+      "target": "custom.servings_per_container",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "mens-vitalprime",
+      "sku": "ROC507",
+      "source": "Format / Formula Type",
+      "target": "custom.product_format",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "mens-vitalprime",
+      "sku": "ROC507",
+      "source": "How to Use / Directions",
+      "target": "custom.directions",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "mens-vitalprime",
+      "sku": "ROC507",
+      "source": "Who Is It For?",
+      "target": "custom.best_for_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "mens-vitalprime",
+      "sku": "ROC507",
+      "source": "Warnings",
+      "target": "custom.warnings",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "mens-vitalprime",
+      "sku": "ROC507",
+      "source": "Allergens",
+      "target": "custom.allergen_info",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "mens-vitalprime",
+      "sku": "ROC507",
+      "source": "Other Ingredients",
+      "target": "custom.other_ingredients",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "biocollagen",
+      "sku": "ROC450",
+      "source": "Hero Subtitle / Short Description",
+      "target": "custom.pdp_subtitle",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "biocollagen",
+      "sku": "ROC450",
+      "source": "Benefit / Use-case Tags",
+      "target": "custom.hero_tags",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "biocollagen",
+      "sku": "ROC450",
+      "source": "Serving Size",
+      "target": "custom.serving_size",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "biocollagen",
+      "sku": "ROC450",
+      "source": "Servings / Container",
+      "target": "custom.servings_per_container",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "biocollagen",
+      "sku": "ROC450",
+      "source": "Format / Formula Type",
+      "target": "custom.product_format",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "biocollagen",
+      "sku": "ROC450",
+      "source": "How to Use / Directions",
+      "target": "custom.directions",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "biocollagen",
+      "sku": "ROC450",
+      "source": "Who Is It For?",
+      "target": "custom.best_for_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "biocollagen",
+      "sku": "ROC450",
+      "source": "Warnings",
+      "target": "custom.warnings",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "biocollagen",
+      "sku": "ROC450",
+      "source": "Allergens",
+      "target": "custom.allergen_info",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "biocollagen",
+      "sku": "ROC450",
+      "source": "Other Ingredients",
+      "target": "custom.other_ingredients",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "nitric-roots",
+      "sku": "ROC914",
+      "source": "Hero Subtitle / Short Description",
+      "target": "custom.pdp_subtitle",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "nitric-roots",
+      "sku": "ROC914",
+      "source": "Benefit / Use-case Tags",
+      "target": "custom.hero_tags",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "nitric-roots",
+      "sku": "ROC914",
+      "source": "Serving Size",
+      "target": "custom.serving_size",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "nitric-roots",
+      "sku": "ROC914",
+      "source": "Servings / Container",
+      "target": "custom.servings_per_container",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "nitric-roots",
+      "sku": "ROC914",
+      "source": "Format / Formula Type",
+      "target": "custom.product_format",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "nitric-roots",
+      "sku": "ROC914",
+      "source": "How to Use / Directions",
+      "target": "custom.directions",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "nitric-roots",
+      "sku": "ROC914",
+      "source": "Who Is It For?",
+      "target": "custom.best_for_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "nitric-roots",
+      "sku": "ROC914",
+      "source": "Warnings",
+      "target": "custom.warnings",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "nitric-roots",
+      "sku": "ROC914",
+      "source": "Allergens",
+      "target": "custom.allergen_info",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "nitric-roots",
+      "sku": "ROC914",
+      "source": "Other Ingredients",
+      "target": "custom.other_ingredients",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "mindsync",
+      "sku": "ROC812",
+      "source": "Hero Subtitle / Short Description",
+      "target": "custom.pdp_subtitle",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "mindsync",
+      "sku": "ROC812",
+      "source": "Benefit / Use-case Tags",
+      "target": "custom.hero_tags",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "mindsync",
+      "sku": "ROC812",
+      "source": "Serving Size",
+      "target": "custom.serving_size",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "mindsync",
+      "sku": "ROC812",
+      "source": "Servings / Container",
+      "target": "custom.servings_per_container",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "mindsync",
+      "sku": "ROC812",
+      "source": "Format / Formula Type",
+      "target": "custom.product_format",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "mindsync",
+      "sku": "ROC812",
+      "source": "How to Use / Directions",
+      "target": "custom.directions",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "mindsync",
+      "sku": "ROC812",
+      "source": "Who Is It For?",
+      "target": "custom.best_for_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "mindsync",
+      "sku": "ROC812",
+      "source": "Warnings",
+      "target": "custom.warnings",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "mindsync",
+      "sku": "ROC812",
+      "source": "Allergens",
+      "target": "custom.allergen_info",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "mindsync",
+      "sku": "ROC812",
+      "source": "Other Ingredients",
+      "target": "custom.other_ingredients",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "magbalance",
+      "sku": "ROC824",
+      "source": "Hero Subtitle / Short Description",
+      "target": "custom.pdp_subtitle",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "magbalance",
+      "sku": "ROC824",
+      "source": "Benefit / Use-case Tags",
+      "target": "custom.hero_tags",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "magbalance",
+      "sku": "ROC824",
+      "source": "Serving Size",
+      "target": "custom.serving_size",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "magbalance",
+      "sku": "ROC824",
+      "source": "Servings / Container",
+      "target": "custom.servings_per_container",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "magbalance",
+      "sku": "ROC824",
+      "source": "Format / Formula Type",
+      "target": "custom.product_format",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "magbalance",
+      "sku": "ROC824",
+      "source": "How to Use / Directions",
+      "target": "custom.directions",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "magbalance",
+      "sku": "ROC824",
+      "source": "Who Is It For?",
+      "target": "custom.best_for_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "magbalance",
+      "sku": "ROC824",
+      "source": "Warnings",
+      "target": "custom.warnings",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "magbalance",
+      "sku": "ROC824",
+      "source": "Allergens",
+      "target": "custom.allergen_info",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "magbalance",
+      "sku": "ROC824",
+      "source": "Other Ingredients",
+      "target": "custom.other_ingredients",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "vitalgreens",
+      "sku": "ROC937",
+      "source": "Hero Subtitle / Short Description",
+      "target": "custom.pdp_subtitle",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "vitalgreens",
+      "sku": "ROC937",
+      "source": "Benefit / Use-case Tags",
+      "target": "custom.hero_tags",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "vitalgreens",
+      "sku": "ROC937",
+      "source": "Serving Size",
+      "target": "custom.serving_size",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "vitalgreens",
+      "sku": "ROC937",
+      "source": "Servings / Container",
+      "target": "custom.servings_per_container",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "vitalgreens",
+      "sku": "ROC937",
+      "source": "Format / Formula Type",
+      "target": "custom.product_format",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "vitalgreens",
+      "sku": "ROC937",
+      "source": "How to Use / Directions",
+      "target": "custom.directions",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "vitalgreens",
+      "sku": "ROC937",
+      "source": "Who Is It For?",
+      "target": "custom.best_for_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "vitalgreens",
+      "sku": "ROC937",
+      "source": "Warnings",
+      "target": "custom.warnings",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "vitalgreens",
+      "sku": "ROC937",
+      "source": "Allergens",
+      "target": "custom.allergen_info",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "vitalgreens",
+      "sku": "ROC937",
+      "source": "Other Ingredients",
+      "target": "custom.other_ingredients",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "joint-flex",
+      "sku": "ROC808",
+      "source": "Hero Subtitle / Short Description",
+      "target": "custom.pdp_subtitle",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "joint-flex",
+      "sku": "ROC808",
+      "source": "Benefit / Use-case Tags",
+      "target": "custom.hero_tags",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "joint-flex",
+      "sku": "ROC808",
+      "source": "Serving Size",
+      "target": "custom.serving_size",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "joint-flex",
+      "sku": "ROC808",
+      "source": "Servings / Container",
+      "target": "custom.servings_per_container",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "joint-flex",
+      "sku": "ROC808",
+      "source": "Format / Formula Type",
+      "target": "custom.product_format",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "joint-flex",
+      "sku": "ROC808",
+      "source": "How to Use / Directions",
+      "target": "custom.directions",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "joint-flex",
+      "sku": "ROC808",
+      "source": "Who Is It For?",
+      "target": "custom.best_for_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "joint-flex",
+      "sku": "ROC808",
+      "source": "Warnings",
+      "target": "custom.warnings",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "joint-flex",
+      "sku": "ROC808",
+      "source": "Allergens",
+      "target": "custom.allergen_info",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "joint-flex",
+      "sku": "ROC808",
+      "source": "Other Ingredients",
+      "target": "custom.other_ingredients",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "natural-pct",
+      "sku": "ROC503",
+      "source": "Hero Subtitle / Short Description",
+      "target": "custom.pdp_subtitle",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "natural-pct",
+      "sku": "ROC503",
+      "source": "Benefit / Use-case Tags",
+      "target": "custom.hero_tags",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "natural-pct",
+      "sku": "ROC503",
+      "source": "Serving Size",
+      "target": "custom.serving_size",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "natural-pct",
+      "sku": "ROC503",
+      "source": "Servings / Container",
+      "target": "custom.servings_per_container",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "natural-pct",
+      "sku": "ROC503",
+      "source": "Format / Formula Type",
+      "target": "custom.product_format",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "natural-pct",
+      "sku": "ROC503",
+      "source": "How to Use / Directions",
+      "target": "custom.directions",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "natural-pct",
+      "sku": "ROC503",
+      "source": "Who Is It For?",
+      "target": "custom.best_for_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "natural-pct",
+      "sku": "ROC503",
+      "source": "Warnings",
+      "target": "custom.warnings",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "natural-pct",
+      "sku": "ROC503",
+      "source": "Allergens",
+      "target": "custom.allergen_info",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "natural-pct",
+      "sku": "ROC503",
+      "source": "Other Ingredients",
+      "target": "custom.other_ingredients",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "ultra-test",
+      "sku": "ROC506",
+      "source": "Hero Subtitle / Short Description",
+      "target": "custom.pdp_subtitle",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "ultra-test",
+      "sku": "ROC506",
+      "source": "Benefit / Use-case Tags",
+      "target": "custom.hero_tags",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "ultra-test",
+      "sku": "ROC506",
+      "source": "Serving Size",
+      "target": "custom.serving_size",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "ultra-test",
+      "sku": "ROC506",
+      "source": "Servings / Container",
+      "target": "custom.servings_per_container",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "ultra-test",
+      "sku": "ROC506",
+      "source": "Format / Formula Type",
+      "target": "custom.product_format",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "ultra-test",
+      "sku": "ROC506",
+      "source": "How to Use / Directions",
+      "target": "custom.directions",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "ultra-test",
+      "sku": "ROC506",
+      "source": "Who Is It For?",
+      "target": "custom.best_for_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "ultra-test",
+      "sku": "ROC506",
+      "source": "Warnings",
+      "target": "custom.warnings",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "ultra-test",
+      "sku": "ROC506",
+      "source": "Allergens",
+      "target": "custom.allergen_info",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "ultra-test",
+      "sku": "ROC506",
+      "source": "Other Ingredients",
+      "target": "custom.other_ingredients",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "digestive-enzyme",
+      "sku": "ROC303",
+      "source": "Hero Subtitle / Short Description",
+      "target": "custom.pdp_subtitle",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "digestive-enzyme",
+      "sku": "ROC303",
+      "source": "Benefit / Use-case Tags",
+      "target": "custom.hero_tags",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "digestive-enzyme",
+      "sku": "ROC303",
+      "source": "Serving Size",
+      "target": "custom.serving_size",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "digestive-enzyme",
+      "sku": "ROC303",
+      "source": "Servings / Container",
+      "target": "custom.servings_per_container",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "digestive-enzyme",
+      "sku": "ROC303",
+      "source": "Format / Formula Type",
+      "target": "custom.product_format",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "digestive-enzyme",
+      "sku": "ROC303",
+      "source": "How to Use / Directions",
+      "target": "custom.directions",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "digestive-enzyme",
+      "sku": "ROC303",
+      "source": "Who Is It For?",
+      "target": "custom.best_for_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "digestive-enzyme",
+      "sku": "ROC303",
+      "source": "Warnings",
+      "target": "custom.warnings",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "digestive-enzyme",
+      "sku": "ROC303",
+      "source": "Allergens",
+      "target": "custom.allergen_info",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "digestive-enzyme",
+      "sku": "ROC303",
+      "source": "Other Ingredients",
+      "target": "custom.other_ingredients",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "vitamin-k2-d3",
+      "sku": "ROC831",
+      "source": "Hero Subtitle / Short Description",
+      "target": "custom.pdp_subtitle",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "vitamin-k2-d3",
+      "sku": "ROC831",
+      "source": "Benefit / Use-case Tags",
+      "target": "custom.hero_tags",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "vitamin-k2-d3",
+      "sku": "ROC831",
+      "source": "Serving Size",
+      "target": "custom.serving_size",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "vitamin-k2-d3",
+      "sku": "ROC831",
+      "source": "Servings / Container",
+      "target": "custom.servings_per_container",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "vitamin-k2-d3",
+      "sku": "ROC831",
+      "source": "Format / Formula Type",
+      "target": "custom.product_format",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "vitamin-k2-d3",
+      "sku": "ROC831",
+      "source": "How to Use / Directions",
+      "target": "custom.directions",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "vitamin-k2-d3",
+      "sku": "ROC831",
+      "source": "Who Is It For?",
+      "target": "custom.best_for_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "vitamin-k2-d3",
+      "sku": "ROC831",
+      "source": "Warnings",
+      "target": "custom.warnings",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "vitamin-k2-d3",
+      "sku": "ROC831",
+      "source": "Allergens",
+      "target": "custom.allergen_info",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "vitamin-k2-d3",
+      "sku": "ROC831",
+      "source": "Other Ingredients",
+      "target": "custom.other_ingredients",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "energized-aminos",
+      "sku": "ROC613",
+      "source": "Hero Subtitle / Short Description",
+      "target": "custom.pdp_subtitle",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "energized-aminos",
+      "sku": "ROC613",
+      "source": "Benefit / Use-case Tags",
+      "target": "custom.hero_tags",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "energized-aminos",
+      "sku": "ROC613",
+      "source": "Serving Size",
+      "target": "custom.serving_size",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "energized-aminos",
+      "sku": "ROC613",
+      "source": "Servings / Container",
+      "target": "custom.servings_per_container",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "energized-aminos",
+      "sku": "ROC613",
+      "source": "Format / Formula Type",
+      "target": "custom.product_format",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "energized-aminos",
+      "sku": "ROC613",
+      "source": "How to Use / Directions",
+      "target": "custom.directions",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "energized-aminos",
+      "sku": "ROC613",
+      "source": "Who Is It For?",
+      "target": "custom.best_for_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "energized-aminos",
+      "sku": "ROC613",
+      "source": "Warnings",
+      "target": "custom.warnings",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "energized-aminos",
+      "sku": "ROC613",
+      "source": "Allergens",
+      "target": "custom.allergen_info",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "energized-aminos",
+      "sku": "ROC613",
+      "source": "Other Ingredients",
+      "target": "custom.other_ingredients",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "adrenal-support-plus",
+      "sku": "ROC736",
+      "source": "Hero Subtitle / Short Description",
+      "target": "custom.pdp_subtitle",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "adrenal-support-plus",
+      "sku": "ROC736",
+      "source": "Benefit / Use-case Tags",
+      "target": "custom.hero_tags",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "adrenal-support-plus",
+      "sku": "ROC736",
+      "source": "Serving Size",
+      "target": "custom.serving_size",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "adrenal-support-plus",
+      "sku": "ROC736",
+      "source": "Servings / Container",
+      "target": "custom.servings_per_container",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "adrenal-support-plus",
+      "sku": "ROC736",
+      "source": "Format / Formula Type",
+      "target": "custom.product_format",
+      "expectedType": "single_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "adrenal-support-plus",
+      "sku": "ROC736",
+      "source": "How to Use / Directions",
+      "target": "custom.directions",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "adrenal-support-plus",
+      "sku": "ROC736",
+      "source": "Who Is It For?",
+      "target": "custom.best_for_description",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "adrenal-support-plus",
+      "sku": "ROC736",
+      "source": "Warnings",
+      "target": "custom.warnings",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "adrenal-support-plus",
+      "sku": "ROC736",
+      "source": "Allergens",
+      "target": "custom.allergen_info",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    },
+    {
+      "handle": "adrenal-support-plus",
+      "sku": "ROC736",
+      "source": "Other Ingredients",
+      "target": "custom.other_ingredients",
+      "expectedType": "multi_line_text_field",
+      "actualType": null,
+      "storefront": null,
+      "status": "unsupported"
+    }
+  ]
+}
