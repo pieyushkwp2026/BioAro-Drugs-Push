@@ -33,11 +33,9 @@ function RailPanel({ title, children }: { title: string; children: ReactNode }) 
 
 export default function BuyRail({
   product,
-  attributes,
   reading,
 }: {
   product: CatalogProduct;
-  attributes: string[];
   reading: { title: string; href: string }[];
 }) {
   const { country } = useMarket();
@@ -164,19 +162,6 @@ export default function BuyRail({
       )}
 
       <div className="mt-8 space-y-6">
-        {attributes.length > 0 && (
-          <RailPanel title={PDP.rail.verified}>
-            <ul className="grid grid-cols-2 gap-x-4 gap-y-2.5">
-              {attributes.map((attribute) => (
-                <li key={attribute} className="flex items-start gap-2 text-[13.5px] leading-[1.4] text-ink-600">
-                  <Check size={14} strokeWidth={2.8} aria-hidden="true" className="mt-0.5 shrink-0 text-ember" />
-                  {attribute}
-                </li>
-              ))}
-            </ul>
-          </RailPanel>
-        )}
-
         {product.dosage && (
           <RailPanel title={PDP.rail.howToUse}>
             <p className="text-[14px] leading-[1.6] text-ink-600">{product.dosage}</p>

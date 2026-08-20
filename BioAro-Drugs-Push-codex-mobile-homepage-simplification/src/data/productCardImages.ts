@@ -16,7 +16,6 @@ export const PRODUCT_CARD_IMAGES: Record<string, ProductImage> = {
   "longevity-plus": { src: longevityCard, alt: "LONgevity+ product packaging" },
   "cellomega-plus": { src: cellOmegaCard, alt: "CellOmega+ product packaging" },
   "creagen-brain-boost": { src: brainBoostCard, alt: "Creagen Brain Boost product packaging" },
-  "sleepo-kids": { src: longevityCard, alt: "SleepO Kids placeholder product packaging" },
   "creagen-femme-energy": { src: femmeEnergyCard, alt: "Creagen Femme Energy product packaging" },
   "creagen-raw-power": { src: rawPowerCard, alt: "Creagen Raw Power product packaging" },
   "creagen-pro-power": { src: proPowerCard, alt: "Creagen Pro Power product packaging" },
@@ -26,9 +25,9 @@ export const PRODUCT_CARD_IMAGES: Record<string, ProductImage> = {
 /*
  * Handles whose card art is their OWN, not borrowed from another product.
  *
- * Two entries above reuse someone else's photograph: creagen-smart-start wears the
- * Brain Boost card and sleepo-kids wears the LONgevity+ card. Derived here rather
- * than hardcoded as a list of exclusions, so it stays correct on its own: add real
+ * One entry above reuses another product's photograph: creagen-smart-start uses the
+ * Brain Boost card. Derived here rather than hardcoded as a list of exclusions, so
+ * it stays correct on its own: add real
  * art for a product and it qualifies automatically, and any product with no entry
  * at all (including Shopify-only products that would fall back to the placeholder
  * bottle) is excluded without anyone having to remember to update a denylist.

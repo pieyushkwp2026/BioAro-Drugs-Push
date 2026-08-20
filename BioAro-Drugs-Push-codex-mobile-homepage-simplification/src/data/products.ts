@@ -2,6 +2,7 @@ import creagenRawImg from "../assets/products/creagen-raw-power.jpeg";
 import creagenProImg from "../assets/products/creagen-pro-power.png";
 import cellomegaPrimaryImg from "../assets/products/cellomega-plus-primary.jpg";
 import longevityPrimaryImg from "../assets/products/longevity-plus-primary.jpg";
+import sleepEditorialImg from "../assets/essential-sleep.png";
 import creagenBrainPrimaryImg from "../assets/products/creagen-brain-boost-primary.jpg";
 import creagenFemmePrimaryImg from "../assets/products/creagen-femme-energy-primary.jpg";
 import glutaraPrimaryImg from "../assets/products/glutara-primary.jpg";
@@ -463,7 +464,7 @@ export const PREVIEW_PRODUCTS: ProductEditorial[] = [
     tagline: "US draft placeholder pending approved product brief.",
     description:
       "SleepO Kids is prepared as a draft-only US product shell while approved pricing, imagery, and final product-specific content are still being finalized. This placeholder is intentionally neutral and avoids unsupported children’s health claims.",
-    image: { src: longevityPrimaryImg, alt: "SleepO Kids placeholder product preview" },
+    image: { src: sleepEditorialImg, alt: "SleepO Kids sleep routine visual" },
     category: "Sleep & Calm",
     tags: ["Kids Routine", "Draft Product", "US Prep"],
     bestFor: "Draft-only placeholder entry pending approved product positioning, pricing, and content.",

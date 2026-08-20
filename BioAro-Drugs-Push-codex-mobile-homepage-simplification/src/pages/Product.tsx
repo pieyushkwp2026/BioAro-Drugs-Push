@@ -187,8 +187,6 @@ export default function Product() {
   // products, so the duplicate is removed from the list rather than printed twice.
   const warnings = product.warnings.filter((warning) => !disclaimer || normalise(warning) !== normalise(disclaimer));
 
-  const attributes = product.featureBadges.map((badge) => badge.label);
-
   /*
    * The FAQ, minus the questions this page already answers better elsewhere.
    *
@@ -209,6 +207,7 @@ export default function Product() {
   const rationale = (product.ingredients ?? []).filter((ingredient) => ingredient.whyIncluded);
 
   const audience = (product.whyItems ?? []).map((item) => item.title);
+  const attributes = product.featureBadges.map((badge) => badge.label);
   /* Quality means testing and composition, not convenience. `attributes` mixes the
      two — "Tested for Quality" sits beside "Compact for Travel" and "No Mixing
      Required" — and listing a travel format under a Quality heading dresses a
@@ -247,7 +246,7 @@ export default function Product() {
         {/* ---------------------------------------------- gallery + buy rail */}
         <div className="mt-6 grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-16">
           <ProductGallery images={gallery} title={product.title} />
-          <BuyRail product={product} attributes={attributes} reading={reading} />
+          <BuyRail product={product} reading={reading} />
         </div>
       </div>
 

@@ -36,7 +36,6 @@ export const PDP = {
     unavailable: "Not available in your region yet",
     unavailableBody: "This formula is not on sale here at the moment. Contact us and we will let you know when it is.",
     contact: "Contact support",
-    verified: "Verified",
     howToUse: "How to use",
     related: "Related",
     reading: "Reading",
